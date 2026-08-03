@@ -1,0 +1,229 @@
+{
+  "basics": [
+    {
+      "label": "The point",
+      "title": "Catch it in the end zone",
+      "text": "Seven a side. You score by catching a pass inside the end zone you're attacking. First to 15 wins, half time at 8.",
+      "rules": ["4.1", "4.2", "14.1"]
+    },
+    {
+      "label": "The catch",
+      "title": "You can't run with it",
+      "text": "Once you catch the disc you stop and plant a pivot foot. The other foot goes anywhere. Throw in any direction — forwards, sideways, backwards.",
+      "rules": ["18.2.2"]
+    },
+    {
+      "label": "The clock",
+      "title": "Ten seconds to throw",
+      "text": "The defender guarding you counts out loud, one number per second. If they start saying \"ten\" before you release, it's a turnover.",
+      "rules": ["9.1", "13.2.2"],
+      "demo": "stall"
+    },
+    {
+      "label": "The flip",
+      "title": "Drop it and it's theirs",
+      "text": "Incomplete pass, interception, or out-of-bounds — possession flips instantly, right where it happened. No whistle, no reset. Turn and defend.",
+      "rules": ["13.1"]
+    },
+    {
+      "label": "The contact",
+      "title": "It's a non-contact sport",
+      "text": "You must try to avoid initiating contact, and \"I was going for the disc\" is explicitly not an excuse. Minor brushes aren't fouls.",
+      "rules": ["12.6", "12.6.1", "12.8"]
+    },
+    {
+      "label": "The difference",
+      "title": "Nobody is refereeing",
+      "text": "Players make every call themselves, including against themselves. Disagree? Say \"contest\", talk it out, and the disc goes back to the thrower.",
+      "rules": ["1.1", "15.10", "13.3"]
+    }
+  ],
+
+  "situations": [
+    {
+      "q": "I caught it. How long do I have to throw?",
+      "a": "Ten seconds, counted out loud by your marker at no faster than one number per second. It's a turnover only once they start to say \"ten\" — and only if a defender is actually counting. If nobody is within three metres of you calling numbers, there is no clock at all.",
+      "rules": ["9.1", "9.3", "13.2.2"]
+    },
+    {
+      "q": "The disc hit the ground. What now?",
+      "a": "Instant turnover, no stoppage. The other team picks it up where it stopped and attacks the other way. Nobody checks it in, nobody resets — so if you were on offence, turn around and guard someone immediately.",
+      "rules": ["13.1.1", "13.9", "8.5"]
+    },
+    {
+      "q": "I caught it in the end zone but landed on the line. Is that a goal?",
+      "a": "No. The goal line belongs to the central zone, so all of your ground contact has to be entirely past it. You haven't lost the disc though — walk to the nearest point on the goal line and set your pivot there.",
+      "rules": ["2.4", "14.1.1", "14.3"]
+    },
+    {
+      "q": "I stepped on the sideline. Am I out?",
+      "a": "Yes. Unusually for a field sport, the perimeter lines are not part of the playing field. Touching the sideline while you contact the disc means it's a turnover and no catch is deemed to have happened.",
+      "rules": ["2.3", "11.1", "11.4.1"]
+    },
+    {
+      "q": "Someone called \"travel\" on me. Do we stop?",
+      "a": "No. Travel is an infraction, so play continues. You move back to the correct pivot spot — the caller shows you where — and while you do, the stall count is paused and you may not throw. Then the count resumes.",
+      "rules": ["18.2.5", "18.2.5.1", "18.2.5.2"]
+    },
+    {
+      "q": "Can I call a foul for my team-mate?",
+      "a": "No. Only the player who was fouled may call a foul. You can absolutely offer what you saw during the discussion — perspective from a player with a good view is valuable and encouraged.",
+      "rules": ["15.4", "1.10"]
+    },
+    {
+      "q": "We disagree and neither of us will budge. Who wins?",
+      "a": "Nobody. The disc goes back to the last undisputed thrower and play restarts with a check. That's the designed outcome for genuine disagreement — it's not a failure, it's the system working.",
+      "rules": ["13.3", "15.10"]
+    },
+    {
+      "q": "The marker is counting way too fast. What do I say?",
+      "a": "Call \"fast count\". Play doesn't stop; the marker resets to the correct number and carries on. If they keep doing it, you can escalate to a marking violation, which does stop play.",
+      "rules": ["18.1.1.1", "18.1.3", "18.1.4"]
+    },
+    {
+      "q": "Two defenders are on me. Is that allowed?",
+      "a": "Only if the second one is genuinely guarding another offensive player. A defender within three metres of your pivot who isn't guarding anyone is a double team — and unusually, any offensive player can make this call, not just you.",
+      "rules": ["18.1.1.5", "18.1.1.5.1", "15.5.1"]
+    },
+    {
+      "q": "Someone called a foul while the disc was in the air. Do I stop running?",
+      "a": "No — finish the play. Play continues until someone catches it or it lands. If the team that made the call ends up with the disc, the play just stands. Only then do you sort out what happens.",
+      "rules": ["16.2.3", "16.2.4.1", "16.2.4.2"]
+    },
+    {
+      "q": "Play stopped. Where am I supposed to stand?",
+      "a": "Exactly where you were when the call was made, and stay still until the disc is checked in. Drifting to a better position during a stoppage is itself a violation, and the other team can call it after the check.",
+      "rules": ["10.2.1", "10.2.3", "10.7.3"]
+    },
+    {
+      "q": "How do we actually restart after a stoppage?",
+      "a": "If a defender is within reach of the thrower, they touch the disc. If not, the thrower touches the disc to the ground and calls \"Disc In\". Both sides check their own team-mates are ready first.",
+      "rules": ["10.6.1.1", "10.6.1.2", "10.4"]
+    },
+    {
+      "q": "The pull went straight out of bounds. Where do we start?",
+      "a": "Your choice: the brick mark — the cross in the middle of the field, one end-zone-length in from your goal line — or the spot where it crossed the sideline. Signal the brick with a raised arm before you pick the disc up.",
+      "rules": ["7.12", "2.5"]
+    },
+    {
+      "q": "I'm brand new and I don't know a rule. What do I do?",
+      "a": "Say so. The rules explicitly tell experienced players to explain breaches to novices rather than take advantage, and allow an experienced player to supervise beginner games. \"I'm new — can you explain that?\" is a completely normal sentence on an ultimate field.",
+      "rules": ["1.8", "1.9", "1.7.1"]
+    },
+    {
+      "q": "Can I go out of bounds to catch it?",
+      "a": "You can run out there, but where you touch the disc is what counts. Any part of you out-of-bounds when you contact the disc is a turnover. Catch it airborne and land in-bounds first, and you're fine — even if momentum carries you out afterwards.",
+      "rules": ["11.7", "11.4", "11.3.2"]
+    },
+    {
+      "q": "I got tangled up chasing my player. Can I do anything?",
+      "a": "Call \"Pick\" — but only if being obstructed actually stopped you moving with the player you were guarding. You may wait up to two seconds to see if it mattered. Play stops and you move to where you would have got to.",
+      "rules": ["18.3.1", "18.3.1.1", "18.3.2"]
+    },
+    {
+      "q": "What happens after a goal?",
+      "a": "The next point starts immediately, teams switch which end zone they're defending, and the team that just scored pulls. Substitute freely in that window — but once your team signals ready for the pull, the line is set.",
+      "rules": ["4.5", "5.3"]
+    },
+    {
+      "q": "How many time-outs do we get?",
+      "a": "The core rules don't say — it's set by your event or league format, so ask your captain. What the rules do say: after the pull only a thrower holding the disc can call one, it lasts 75 seconds, and the stall count restarts at maximum nine.",
+      "rules": ["20.3", "20.3.6"]
+    }
+  ],
+
+  "synonyms": {
+    "stall": "stall count marker ten seconds counting",
+    "10 seconds": "stall count",
+    "ten seconds": "stall count",
+    "3 seconds": "stall count disc space",
+    "how long": "stall count ten",
+    "hold the disc": "stall count thrower",
+    "run": "travel pivot running with the disc",
+    "running": "travel pivot",
+    "steps": "travel pivot two additional points of ground contact",
+    "walk": "travel pivot walking pace",
+    "kickoff": "pull start of point",
+    "kick off": "pull",
+    "throw off": "pull",
+    "touchdown": "goal end zone score",
+    "score": "goal end zone",
+    "point": "goal point game",
+    "out": "out-of-bounds perimeter line sideline",
+    "outside": "out-of-bounds",
+    "sideline": "out-of-bounds perimeter line",
+    "line": "perimeter goal line out-of-bounds",
+    "drop": "turnover down incomplete dropped",
+    "dropped": "turnover down incomplete",
+    "hand it": "handover intentionally transferred turnover",
+    "hand the disc": "handover intentionally transferred turnover",
+    "handover": "handover intentionally transferred turnover",
+    "give": "handover transferred turnover",
+    "who pulls": "pull defence team that scored switch ends",
+    "incomplete": "turnover down",
+    "interception": "turnover defensive player establishes possession",
+    "block": "interception blocking foul defence",
+    "d": "block defence interception",
+    "layout": "dive leap jump dangerous play initiating contact",
+    "dive": "dive leap jump initiating contact",
+    "bid": "dive leap jump play on the disc",
+    "greatest": "airborne out-of-bounds catch return",
+    "tackle": "contact foul non-contact",
+    "push": "foul contact initiating",
+    "referee": "self-officiated spirit of the game calls",
+    "ref": "self-officiated spirit of the game",
+    "umpire": "self-officiated spirit of the game",
+    "argue": "contest discussion spirit resolve disputes",
+    "disagree": "contest discussion",
+    "cheat": "deliberate egregious breach spirit intentional",
+    "mark": "marker marking infraction disc space stall",
+    "marking": "marker disc space straddle wrapping fast count",
+    "guard": "marker guarding double team defensive player",
+    "cover": "guarding defensive player",
+    "double": "double team three metres",
+    "close": "disc space one disc diameter marker",
+    "distance": "disc space three metres marker",
+    "pivot": "pivot point travel thrower",
+    "foot": "pivot point ground contact in-bounds",
+    "feet": "pivot ground contact in-bounds out-of-bounds",
+    "land": "ground contact in-bounds establish possession",
+    "landing": "ground contact establish possession",
+    "catch": "catch possession establish maintain",
+    "bobble": "maintain the catch establish possession travel",
+    "juggle": "maintain the catch establish possession",
+    "timeout": "time-out 75 seconds thrower",
+    "time out": "time-out",
+    "sub": "substitution substitute injury",
+    "swap": "substitution substitute",
+    "injury": "injury stoppage substituted time-out",
+    "hurt": "injury stoppage dangerous play",
+    "blood": "technical stoppage open bleeding wound 70 seconds",
+    "wind": "pull brick equipment disc",
+    "brick": "brick mark pull out-of-bounds",
+    "middle": "brick mark central zone",
+    "restart": "check disc in stoppage",
+    "check": "check disc in restart stoppage",
+    "reset": "stall count restarts check",
+    "size": "playing field dimensions 100 37 18 metres",
+    "dimensions": "playing field 100 metres 37 18 end zone",
+    "how big": "playing field dimensions end zone",
+    "how many players": "seven players teams five minimum",
+    "players": "teams seven five substitutions",
+    "team": "teams seven players captain spirit captain",
+    "captain": "captain spirit captain teams",
+    "mixed": "mixed 4:3 ratio personnel",
+    "gender": "mixed 4:3 ratio personnel",
+    "clothes": "uniform equipment clothing harm",
+    "kit": "uniform equipment",
+    "jewellery": "equipment clothing harm wearer",
+    "shoes": "equipment faulty stoppage",
+    "cleats": "equipment faulty",
+    "disc": "disc equipment captains approved",
+    "frisbee": "disc equipment",
+    "spirit": "spirit of the game fair-minded truthful",
+    "sotg": "spirit of the game",
+    "beginner": "novice experienced players explain breach",
+    "new": "novice beginner experienced players explain",
+    "novice": "novice beginner experienced players explain"
+  }
+}

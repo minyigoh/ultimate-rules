@@ -1,0 +1,362 @@
+[
+{
+  "id": "disc-space",
+  "title": "Disc space: give the thrower room",
+  "tag": "Marking",
+  "mins": 5,
+  "hook": "The most-called infraction in the sport, and the easiest to avoid.",
+  "body": [
+    "No part of a defender may be closer than one disc diameter to the thrower's torso. That's about 27 cm — roughly a forearm.",
+    "Note it's measured to the torso, not to the disc or the arms. You can reach; you just can't crowd the body.",
+    "If the gap closes only because the thrower moved into you, it's not an infraction. The onus is on the marker to hold the space, not on the thrower to protect it."
+  ],
+  "field": "Mark at a forearm's distance and you will essentially never be called for this.",
+  "rules": ["18.1.1.3"],
+  "quiz": {
+    "q": "The thrower pivots hard into your stationary body, closing the gap. Infraction?",
+    "options": ["Yes — disc space is disc space", "No — not if caused solely by the thrower's movement", "Yes, and it's a foul"],
+    "correct": 1,
+    "why": "If the situation is caused solely by the movement of the thrower, it is not an infraction."
+  }
+},
+{
+  "id": "straddle-wrap",
+  "title": "Straddle and wrapping",
+  "tag": "Marking",
+  "mins": 5,
+  "hook": "Two more ways a mark can be illegal without any contact at all.",
+  "body": [
+    "Straddle: draw an imaginary line between the marker's feet. If that line passes within one disc diameter of the thrower's pivot point, it's a straddle. In plain terms — don't stand with the pivot foot between your legs.",
+    "Wrapping: the same idea with arms. If a line between the marker's hands or arms comes within a disc diameter of the thrower's torso, or any part of the marker is directly above the pivot point, that's wrapping.",
+    "Both are marking infractions. Play doesn't stop; the marker fixes their position and the count resumes one lower."
+  ],
+  "field": "Mark with your feet outside the thrower's stance and your arms wide but not enveloping. That's a legal, effective mark.",
+  "rules": ["18.1.1.2", "18.1.1.4", "18.1.3"],
+  "quiz": {
+    "q": "After a marking infraction is called and play continues, where does the stall count resume?",
+    "options": ["At one", "At the last number fully said, minus one", "At the same number"],
+    "correct": 1,
+    "why": "The marker resumes with the number last fully uttered before the call, minus one."
+  }
+},
+{
+  "id": "fast-count",
+  "title": "Fast count",
+  "tag": "Marking",
+  "mins": 5,
+  "hook": "Under pressure, almost every marker counts too fast. Call it.",
+  "body": [
+    "A fast count is any of: counting in under one-second intervals, starting the count illegally, forgetting to say \"Stalling\", starting from the wrong number, or failing to reduce the count when required.",
+    "It's an infraction, so play doesn't stop. You call \"fast count\", the marker resets to the correct number and carries on.",
+    "If the count isn't corrected, or there's a pattern of repeated fast counts, you can escalate: call a marking violation instead, which does stop play."
+  ],
+  "field": "Calling fast count isn't rude. It's the designed mechanism — markers genuinely can't hear their own tempo.",
+  "rules": ["18.1.1.1", "18.1.4", "18.1.4.4"],
+  "quiz": {
+    "q": "You call \"fast count\" twice and the marker keeps racing. What's your next option?",
+    "options": ["Nothing — you've made your calls", "Call a marking violation, which stops play", "Call a foul"],
+    "correct": 1,
+    "why": "If the count isn't corrected, or there's a pattern of repeated marking infractions, you may call a marking violation and stop play."
+  }
+},
+{
+  "id": "double-team",
+  "title": "Double team: the three-metre rule",
+  "tag": "Marking",
+  "mins": 5,
+  "hook": "Two defenders on the thrower is illegal — with one important exception.",
+  "body": [
+    "Any defender other than the marker who comes within three metres of the thrower's pivot, without also guarding another offensive player, is a double team.",
+    "The exception carries all the weight: a defender who is genuinely guarding someone else may stand in that zone and even try to block the throw. That's how zone defences are legal.",
+    "Merely running through the area isn't a double team. And unusually, any offensive player can make this call — not just the thrower."
+  ],
+  "field": "In a zone, if a poacher drifts in and isn't guarding anyone, call it. It's the offence's main protection against a crowded mark.",
+  "rules": ["18.1.1.5", "18.1.1.5.1", "18.1.1.5.2", "15.5.1"],
+  "quiz": {
+    "q": "A zone defender stands two metres from the thrower while clearly guarding a cutter behind them. Double team?",
+    "options": ["Yes — they're inside three metres", "No — they're also guarding another offensive player", "Only if they reach for the disc"],
+    "correct": 1,
+    "why": "A defender within three metres is only double-teaming if they are not also guarding another offensive player."
+  }
+},
+{
+  "id": "three-breaches",
+  "title": "Foul, infraction, violation — what's the difference?",
+  "tag": "Calls",
+  "mins": 6,
+  "hook": "Three words that sound interchangeable and aren't.",
+  "body": [
+    "A foul is non-minor contact between opposing players. Fouls stop play.",
+    "An infraction is a marking or travel breach. Infractions do not stop play — this is the crucial one to remember.",
+    "A violation is every other breach of the rules. Violations stop play. When in doubt about what to call something, \"Violation\" is a legitimate call in itself."
+  ],
+  "field": "If you hear a call and don't know what it is, stop — except for \"travel\" and marking calls, which never stop play.",
+  "rules": ["15.1", "15.2", "15.3", "15.6"],
+  "quiz": {
+    "q": "Which of these does NOT stop play?",
+    "options": ["A foul", "A travel infraction", "A pick violation"],
+    "correct": 1,
+    "why": "Infractions — marking and travel breaches — do not stop play. Fouls and violations do."
+  }
+},
+{
+  "id": "who-calls-what",
+  "title": "Who is allowed to make which call",
+  "tag": "Calls",
+  "mins": 5,
+  "hook": "Calling something that isn't yours to call causes more trouble than the original breach.",
+  "body": [
+    "Fouls: only the player who was fouled.",
+    "Infractions: generally only the thrower — with two exceptions. Any offensive player may call double team, and any defensive player may call travel.",
+    "Violations: any opposing player may call one, unless a specific rule says otherwise."
+  ],
+  "field": "Watching from the sideline? You have no calls. You can offer perspective if asked, and that's genuinely valuable.",
+  "rules": ["15.4", "15.5", "15.5.1", "15.6", "1.10"],
+  "quiz": {
+    "q": "You're a cutter. The marker is fouling your thrower. What can you do?",
+    "options": ["Call the foul", "Nothing — only the fouled player can call it", "Call a violation instead"],
+    "correct": 1,
+    "why": "Only the player fouled may claim a foul."
+  }
+},
+{
+  "id": "contest",
+  "title": "\"Contest\" — disagreeing properly",
+  "tag": "Calls",
+  "mins": 5,
+  "hook": "Disagreement is built into the rules. Here's the machinery.",
+  "body": [
+    "If someone calls a breach against you and you don't think it happened, you say \"contest\". Play stops and you talk about it.",
+    "The default outcome of a genuine, unresolved disagreement is that the disc goes back to the last undisputed thrower and play restarts with a check. Nobody gains.",
+    "This is why contesting isn't hostile — it's not an accusation, it's the way the sport records \"we saw it differently\"."
+  ],
+  "field": "Be ready to say the objective evidence for your view in one sentence: \"I saw your pivot foot lift while the disc was still in your hand.\"",
+  "rules": ["15.10", "13.3", "1.3.4"],
+  "quiz": {
+    "q": "A turnover is called, you contest, and after discussion neither of you will budge. What happens?",
+    "options": ["The caller's version stands", "Disc returns to the last undisputed thrower", "Replay the point"],
+    "correct": 1,
+    "why": "If players cannot agree, the disc goes back to the last non-disputed thrower and play restarts with a check."
+  }
+},
+{
+  "id": "retract",
+  "title": "Changing your mind is a rule, not a weakness",
+  "tag": "Spirit",
+  "mins": 4,
+  "hook": "There's a formal word for \"actually, you're right\".",
+  "body": [
+    "If you make a call and then realise you were wrong — you saw it from a bad angle, or a team-mate had a better view — you say \"retracted\".",
+    "Play then resumes as if you had committed the breach yourself, which usually just means the stall count restarts at a higher number. A small cost, deliberately.",
+    "Retracting a call is listed in the rules as an example of good Spirit. It's the single easiest way to be a player others enjoy playing against."
+  ],
+  "field": "\"Retracted, my bad\" takes two seconds and resolves more disputes than any amount of arguing.",
+  "rules": ["15.11", "1.5.1"],
+  "quiz": {
+    "q": "You retract a call you made. Who is treated as having caused the breach?",
+    "options": ["Nobody", "You, the player who made the call", "The opponent"],
+    "correct": 1,
+    "why": "Play resumes as if an accepted breach had been caused by the player who made the call."
+  }
+},
+{
+  "id": "avoid-contact",
+  "title": "The duty to avoid contact",
+  "tag": "Contact",
+  "mins": 6,
+  "hook": "\"I was going for the disc\" is explicitly not a defence.",
+  "body": [
+    "Every player must try to avoid initiating contact, and the rules state flatly that there is no situation in which a player may justify initiating contact.",
+    "The rules name the excuse and reject it: making a play for the disc is not a valid reason to initiate contact.",
+    "Before you dive, leap or jump away from your position, you must be reasonably certain you won't initiate contact. If you're not confident you'll get there legally first, you're required to adjust."
+  ],
+  "field": "This is what makes a non-contact sport playable at speed. Bid hard, but into space you're sure is empty.",
+  "rules": ["12.6", "12.6.1", "12.6.2", "12.6.3"],
+  "quiz": {
+    "q": "You're not sure you'll reach the disc before an opponent who's moving legally. What must you do?",
+    "options": ["Go for it — first to the disc wins", "Adjust your movement to avoid initiating contact", "Call a foul pre-emptively"],
+    "correct": 1,
+    "why": "A player who isn't reasonably certain they can make a legal play first must adjust to avoid initiating contact."
+  }
+},
+{
+  "id": "who-initiated",
+  "title": "Who initiated the contact?",
+  "tag": "Contact",
+  "mins": 6,
+  "hook": "The question every foul discussion actually turns on.",
+  "body": [
+    "The initiator is the player who arrived at the point of contact after the opponent had already established a legitimate position there — and that opponent can be stationary or moving.",
+    "It's also the player who adjusted their movement in a way that made contact unavoidable with an opponent who was moving legally.",
+    "If it's genuinely unclear and one player dived, leapt or jumped away from their position, that player is deemed to have initiated it. That tiebreaker resolves a lot of arguments."
+  ],
+  "field": "Instead of \"you fouled me\", try \"where were you when I got there?\" It's the actual question.",
+  "rules": ["12.7", "12.7.1", "12.7.2", "12.7.3", "12.4"],
+  "quiz": {
+    "q": "Two players collide, nobody can tell who got there first, and one of them had laid out. Who is deemed the initiator?",
+    "options": ["Neither — offsetting", "The player who dived", "The offensive player"],
+    "correct": 1,
+    "why": "If it's unclear and one player dived, leaped or jumped away from their position, that player is deemed to have initiated contact."
+  }
+},
+{
+  "id": "minor-contact",
+  "title": "Not every touch is a foul",
+  "tag": "Contact",
+  "mins": 4,
+  "hook": "The rules build in tolerance on purpose.",
+  "body": [
+    "Some minor contact happens when two players move to the same point at once. The rules say it should be minimised — but that it is not a foul.",
+    "A foul requires non-minor contact. Brushing shoulders while both of you run to a disc is the game working correctly.",
+    "There's a related principle: only make a call when the breach is significant enough to change the outcome of the action, or when safety is at risk."
+  ],
+  "field": "If it didn't change what happened and nobody's hurt, let it go. Consistently over-calling is itself a Spirit breach.",
+  "rules": ["12.8", "15.1", "1.3.10"],
+  "quiz": {
+    "q": "You and a defender brush arms running to the same spot; you catch it cleanly anyway. Foul?",
+    "options": ["Yes — any contact is a foul", "No — minor contact is not a foul", "Only if you call it immediately"],
+    "correct": 1,
+    "why": "Minor contact should be minimised but is not considered a foul."
+  }
+},
+{
+  "id": "receiving-foul",
+  "title": "Receiving fouls",
+  "tag": "Fouls",
+  "mins": 6,
+  "hook": "The most common foul in the game, and the one with the biggest reward.",
+  "body": [
+    "A receiving foul is non-minor contact initiated before, during, or directly after either player makes a play on the disc.",
+    "If it's accepted, the fouled player gains possession at the spot of the breach — even inside an end zone. Play restarts with a check.",
+    "One limit that saves a lot of arguing: contact with an opponent's arms or hands after the disc has been caught, or after they can no longer play the disc, is not enough on its own to be a foul."
+  ],
+  "field": "Call it immediately, at the moment of contact. Late foul calls are treated very differently.",
+  "rules": ["17.2.1", "17.2.1.1", "17.2.2", "15.8"],
+  "quiz": {
+    "q": "An accepted receiving foul happens six metres inside your attacking end zone. What do you get?",
+    "options": ["A goal", "Possession at the spot of the foul, then a check", "Possession at the goal line"],
+    "correct": 1,
+    "why": "The fouled player gains possession at the location of the breach, even in an end zone, and play restarts with a check."
+  }
+},
+{
+  "id": "strip",
+  "title": "Strip fouls",
+  "tag": "Fouls",
+  "mins": 4,
+  "hook": "You had it, and contact knocked it out.",
+  "body": [
+    "A strip is when an opponent fouls you and that foul causes you to drop a disc you had caught, or otherwise lose possession.",
+    "Because you'd already made the catch, the reward reflects what would have happened: if the catch would have been a goal, and the foul is accepted, you're awarded the goal.",
+    "Otherwise you keep possession where it happened, and play restarts with a check."
+  ],
+  "field": "Say \"strip\" specifically rather than just \"foul\" — the consequence is different and it saves a conversation.",
+  "rules": ["17.3.1", "17.3.2"],
+  "quiz": {
+    "q": "You catch it in the end zone and a defender's contact knocks it loose. Foul accepted. Result?",
+    "options": ["Possession at the goal line", "A goal is awarded", "Re-check from the thrower"],
+    "correct": 1,
+    "why": "If the reception would otherwise have been a goal and the strip foul is accepted, a goal is awarded."
+  }
+},
+{
+  "id": "blocking-foul",
+  "title": "Blocking fouls",
+  "tag": "Fouls",
+  "mins": 5,
+  "hook": "You can occupy space — but not space someone is already committed to.",
+  "body": [
+    "A blocking foul is taking up a position that an opponent moving legally simply cannot avoid, given where they were, how fast they were going, and where they were heading.",
+    "The test is about the opponent's expected position, not about whether you got there first by a fraction of a second. Stepping into a sprinting cutter's line at the last instant is a block even if you technically arrived first.",
+    "Related: you may not use extended arms or legs to obstruct an opponent's movement."
+  ],
+  "field": "Boxing out with your arms is a habit from other sports and is explicitly illegal here.",
+  "rules": ["17.4.1", "12.9", "12.5"],
+  "quiz": {
+    "q": "You step into the path of a sprinting cutter a moment before they arrive, and they can't avoid you. Ruling?",
+    "options": ["Their foul — they ran into you", "Blocking foul on you", "Offsetting fouls"],
+    "correct": 1,
+    "why": "Taking a position an opponent moving legally cannot avoid, based on their expected position, is a blocking foul."
+  }
+},
+{
+  "id": "force-out",
+  "title": "Force-out fouls",
+  "tag": "Fouls",
+  "mins": 5,
+  "hook": "Contact that pushes you out of bounds — or out of the end zone.",
+  "body": [
+    "A force-out happens when you're in the process of establishing possession and a defender's foul causes you to catch it out-of-bounds instead of in-bounds, or in the central zone instead of your attacking end zone.",
+    "If you would have caught it in the end zone, it's a goal.",
+    "If it's contested, the outcome splits: if you ended up out-of-bounds, the disc goes back to the thrower; otherwise you keep it."
+  ],
+  "field": "Only call force-out if the contact actually changed where you landed. If you were going out anyway, it's just out.",
+  "rules": ["17.5.1", "17.5.1.1", "17.5.1.2", "17.5.2", "17.5.3"],
+  "quiz": {
+    "q": "A contested force-out call, and the receiver was pushed out-of-bounds. Where does the disc go?",
+    "options": ["Receiver keeps it", "Back to the thrower", "Turnover stands"],
+    "correct": 1,
+    "why": "If a force-out is contested and the receiver became out-of-bounds, the disc is returned to the thrower."
+  }
+},
+{
+  "id": "marking-foul",
+  "title": "Marking fouls and the \"Contact\" call",
+  "tag": "Fouls",
+  "mins": 6,
+  "hook": "A useful call that lets you keep playing instead of stopping.",
+  "body": [
+    "A defensive throwing foul is non-minor contact between the thrower and an illegally positioned defender, or contact the defender initiates before the throw.",
+    "If that contact happens before you release and not during your throwing motion, you have a choice: call \"Foul\" and stop play, or call \"Contact\" — which is an infraction, so play continues.",
+    "\"Contact\" is usually the better option. The marker has to fix their position, the count resumes one lower, and you never lose your flow."
+  ],
+  "field": "Learn to say \"Contact!\" without breaking your stance. It keeps the offence moving and de-escalates the moment.",
+  "rules": ["17.6.1", "17.6.1.1", "17.6.1.2", "17.6.1.3"],
+  "quiz": {
+    "q": "The marker bumps your shoulder before you throw. What does calling \"Contact\" do?",
+    "options": ["Stops play for a check", "Keeps play live; the marker fixes position and the count drops by one", "Awards you a free throw"],
+    "correct": 1,
+    "why": "\"Contact\" is a marking infraction, so play continues — the marker corrects position and the count resumes lower."
+  }
+},
+{
+  "id": "thrower-foul",
+  "title": "Fouls committed by the thrower",
+  "tag": "Fouls",
+  "mins": 4,
+  "hook": "Pivoting isn't a licence to bulldoze.",
+  "body": [
+    "An offensive throwing foul is when the thrower is solely responsible for initiating non-minor contact with a legally positioned defender.",
+    "\"Solely responsible\" is doing real work there — if the marker was illegally positioned, this isn't it.",
+    "Contact during your follow-through is specifically not enough to be a foul, though the rules ask you to avoid it."
+  ],
+  "field": "Pivot around the mark, not through it. If you're initiating contact to create your throwing window, that's the foul.",
+  "rules": ["17.7.1", "17.7.2"],
+  "quiz": {
+    "q": "Your follow-through slaps the marker's arm. Foul?",
+    "options": ["Yes, always", "Not a sufficient basis for a foul, but should be avoided", "Yes, if the marker calls it"],
+    "correct": 1,
+    "why": "Contact occurring during the thrower's follow-through is not a sufficient basis for a foul."
+  }
+},
+{
+  "id": "dangerous-play",
+  "title": "Dangerous play",
+  "tag": "Safety",
+  "mins": 5,
+  "hook": "The one call where contact doesn't even have to happen.",
+  "body": [
+    "Actions showing reckless disregard for others' safety, posing significant risk of injury, or otherwise dangerously aggressive, are dangerous plays.",
+    "It's judged on the action itself, not the outcome. A reckless bid through a crowd of players is dangerous whether or not it connects.",
+    "Dangerous play is also listed as a clear Spirit violation that must be avoided — alongside intentional fouling and taunting."
+  ],
+  "field": "If a play frightened you, say so at the time. \"That felt dangerous\" is a legitimate and important thing to raise.",
+  "rules": ["17.1.1", "1.6.1", "1.6.2"],
+  "quiz": {
+    "q": "A defender lays out through a stationary group but touches nobody. Can dangerous play be called?",
+    "options": ["No — there was no contact", "Yes — it's judged on the recklessness of the action", "Only if someone was injured"],
+    "correct": 1,
+    "why": "Dangerous play covers actions posing significant risk of injury or reckless disregard for safety, regardless of contact."
+  }
+}
+]

@@ -1,0 +1,822 @@
+[
+{
+  "id": "everybody-freeze",
+  "title": "When a call is made, everybody freezes",
+  "tag": "Restarts",
+  "mins": 5,
+  "hook": "The most-broken rule at beginner level, by a mile.",
+  "body": [
+    "When a foul or violation is called, play stops immediately and no turnover is possible. Echo the call loudly so the far side of the field hears it.",
+    "Then everyone returns to where they were when the call was made — and stays there, stationary, until the disc is checked in.",
+    "If the call came after a throw and the result stands, you return to where you were when possession was established or the disc hit the ground instead."
+  ],
+  "field": "Stop moving the instant you hear a call, even if you think it's wrong. Drifting into better position during a stoppage is a violation of the check.",
+  "rules": ["16.1", "15.7", "10.2.1", "10.2.3"],
+  "quiz": {
+    "q": "A call stops play while you're mid-cut. What do you do?",
+    "options": ["Keep running to a useful spot", "Return to where you were at the call and stand still", "Reset to the stack"],
+    "correct": 1,
+    "why": "All players return to the location they held when the call was made and remain stationary until the check."
+  }
+},
+{
+  "id": "continuation",
+  "title": "Continuation: when the disc is already in the air",
+  "tag": "Restarts",
+  "mins": 7,
+  "hook": "The rule that stops calls being used to cancel bad outcomes.",
+  "body": [
+    "If a call happens while the disc is in the air, or is called on the thrower who then throws, play continues until someone establishes possession or the disc lands.",
+    "Then it splits. If the team that made the call ends up with the disc, the play simply stands — you don't get to rewind to a call you no longer need.",
+    "If the calling team doesn't get it, play stops. If they believe the breach affected the outcome, the disc goes back to the thrower."
+  ],
+  "field": "Make your call, then finish the play as if you hadn't. Stopping to argue mid-flight is how teams lose discs.",
+  "rules": ["16.2", "16.2.3", "16.2.4.1", "16.2.4.2", "16.2.4.2.1"],
+  "quiz": {
+    "q": "You call a foul as the disc flies, then your team-mate catches it anyway. What happens?",
+    "options": ["Disc goes back to the thrower", "The play stands — your team gained possession", "Replay from the check"],
+    "correct": 1,
+    "why": "If the team that called the foul gains or retains possession as a result of the pass, the play stands."
+  }
+},
+{
+  "id": "didnt-affect",
+  "title": "\"It didn't affect the play\"",
+  "tag": "Restarts",
+  "mins": 5,
+  "hook": "A rule that outranks every other rule.",
+  "body": [
+    "If the players involved from both teams agree that the event or call didn't change the outcome, the play stands. The rules say plainly that this is not superseded by any other rule.",
+    "If it produced a goal, the goal stands. If it didn't, affected players may make up any positional disadvantage and play restarts with a check.",
+    "This exists so the game keeps moving. A technically correct call that changed nothing shouldn't rewind thirty seconds of play."
+  ],
+  "field": "\"Did that affect it?\" — \"No, play on.\" That exchange should be the most common conversation you have on the field.",
+  "rules": ["16.3", "16.3.1", "16.3.2"],
+  "quiz": {
+    "q": "A travel is called, but both players agree it changed nothing and the pass was completed. What happens?",
+    "options": ["Disc returns to the thrower", "The play stands", "Stall count restarts at one"],
+    "correct": 1,
+    "why": "If both teams' involved players agree the event or call did not affect the outcome, the play stands."
+  }
+},
+{
+  "id": "the-check",
+  "title": "The check: restarting play",
+  "tag": "Restarts",
+  "mins": 5,
+  "hook": "Three seconds of procedure that prevent most restart disputes.",
+  "body": [
+    "If the thrower has the disc and a defender is within reach, that defender touches the disc to restart play. If no defender is in reach, the thrower touches the disc to the ground and may call \"Disc In\".",
+    "If the disc is on the ground, the nearest defender calls \"Disc In\".",
+    "Before the check, the person checking it in and the nearest opponent must each confirm their own team-mates are ready and correctly positioned."
+  ],
+  "field": "Actually look around before you check it in. Checking in while your own team is still jogging back costs you the disc.",
+  "rules": ["10.6.1", "10.6.1.1", "10.6.1.2", "10.6.2", "10.4"],
+  "quiz": {
+    "q": "Play restarts, but the opposing thrower was still walking when the disc was checked in and then completes a pass. Your options?",
+    "options": ["Nothing — the check happened", "Call a violation; the pass doesn't count and possession reverts", "Call a foul"],
+    "correct": 1,
+    "why": "A player may call a violation if an opponent was moving immediately prior to the check; the pass doesn't count and possession reverts."
+  }
+},
+{
+  "id": "count-after-stoppage",
+  "title": "What the stall count restarts at",
+  "tag": "Restarts",
+  "mins": 6,
+  "hook": "Not one, not where you left off — it depends who was at fault.",
+  "body": [
+    "If the defence committed the breach, the count restarts at \"Stalling one\". A clean reset, because they caused the delay.",
+    "If the offence committed it, the count restarts at maximum nine. If the offence was on four, it goes to five; if they were on eight, it goes to nine.",
+    "For most other calls, including picks, it's maximum six. And a contested stall-out restarts at eight."
+  ],
+  "field": "\"Maximum n\" means: the last number said, plus one — or n, whichever is lower. It never jumps you forward.",
+  "rules": ["9.5.1", "9.5.2", "9.5.3", "9.5.5", "9.6.1"],
+  "quiz": {
+    "q": "The count was at three when a pick was called. What does it restart at?",
+    "options": ["One", "Four", "Six"],
+    "correct": 1,
+    "why": "Picks restart at maximum six — the last number said plus one (four), or six, whichever is lower."
+  }
+},
+{
+  "id": "picks",
+  "title": "Picks",
+  "tag": "Calls",
+  "mins": 6,
+  "hook": "Defence's protection against getting tangled up in traffic.",
+  "body": [
+    "If you're guarding someone and another player physically prevents you from moving with them, you call \"Pick\". Play stops.",
+    "You then move to the position you'd have reached had the obstruction not happened — you're restored, not punished.",
+    "You may delay the call up to two seconds to see whether the obstruction actually mattered. If your player was cutting away from the disc anyway, don't call it."
+  ],
+  "field": "The stall count after a pick restarts at maximum six, so the offence is barely affected. Call it when it genuinely cost you.",
+  "rules": ["18.3.1", "18.3.1.1", "18.3.2", "18.3.3"],
+  "quiz": {
+    "q": "You get blocked by a stationary offensive player, but your mark was cutting away from the play. Should you call pick?",
+    "options": ["Yes — obstruction is obstruction", "You may delay up to two seconds to see if it affects the play, and needn't call it", "No, picks can only be called by the offence"],
+    "correct": 1,
+    "why": "The defender may delay the call up to two seconds to determine whether the obstruction will affect the play."
+  }
+},
+{
+  "id": "indirect-foul",
+  "title": "Indirect fouls",
+  "tag": "Fouls",
+  "mins": 4,
+  "hook": "Contact away from the disc still counts.",
+  "body": [
+    "An indirect foul is non-minor contact between a receiver and a defender that doesn't directly affect an attempt to play the disc — a collision in the stack, say, while the disc is elsewhere.",
+    "Like a pick, you can wait up to two seconds before calling, to see whether it actually mattered.",
+    "If accepted, the fouled player simply makes up any positional disadvantage the contact caused."
+  ],
+  "field": "Most off-disc contact resolves itself. Call it when it stopped you getting somewhere you were going.",
+  "rules": ["17.8.1", "17.8.1.1", "17.8.2"],
+  "quiz": {
+    "q": "What's the remedy for an accepted indirect foul?",
+    "options": ["Possession to the fouled player", "The fouled player makes up any positional disadvantage", "Stall count resets to one"],
+    "correct": 1,
+    "why": "If an indirect foul is accepted, the fouled player may make up any positional disadvantage caused."
+  }
+},
+{
+  "id": "where-to-pick-up",
+  "title": "Where you pick the disc up after a turnover",
+  "tag": "Turnovers",
+  "mins": 5,
+  "hook": "Three simple cases that cover almost every turnover you'll see.",
+  "body": [
+    "If the turnover happened in the central zone, you set your pivot exactly there — where the disc stopped, or where you picked it up.",
+    "If it's in the end zone you're attacking, you walk to the nearest point on the goal line.",
+    "If the disc went out-of-bounds, you set the pivot at the nearest point on the central zone to where it crossed the line. Not where it finally rolled to a stop."
+  ],
+  "field": "If two of you disagree about the spot, the rule is to use the midpoint between your two proposals. No argument needed.",
+  "rules": ["13.7", "13.9", "13.10", "13.8", "8.5.4"],
+  "quiz": {
+    "q": "A throw sails out over the sideline and lands 15 m beyond it. Where do you pick up?",
+    "options": ["Where it landed, walking straight in", "The nearest point on the field to where it crossed the line", "The brick mark"],
+    "correct": 1,
+    "why": "The pivot goes at the nearest location on the central zone to where the disc crossed the perimeter line."
+  }
+},
+{
+  "id": "own-end-zone",
+  "title": "Turnover in your own end zone: you choose",
+  "tag": "Turnovers",
+  "mins": 6,
+  "hook": "A genuine tactical decision most beginners don't know they have.",
+  "body": [
+    "If the turnover lands in the end zone you're defending, you get two options. You can throw from where the disc is — by staying there or faking a pass — or you can take it out to the nearest point on the goal line by moving from that spot.",
+    "You can signal the goal-line option before you pick it up by fully extending one arm above your head.",
+    "Once you've committed — by moving, staying, faking, or signalling — you can't change your mind."
+  ],
+  "field": "Taking it to the line gives your team more field to work with. Staying deep can catch an unset defence. Decide before you pick it up.",
+  "rules": ["13.11", "13.11.1", "13.11.2", "13.11.2.1", "13.11.3"],
+  "quiz": {
+    "q": "You pick up a turnover in your defending end zone and immediately fake a pass. What have you committed to?",
+    "options": ["The goal line option", "Throwing from the turnover location", "Nothing yet"],
+    "correct": 1,
+    "why": "Staying at the turnover location or faking a pass commits you to establishing the pivot there, and cannot be reversed."
+  }
+},
+{
+  "id": "walking-pace",
+  "title": "You have to fetch the disc promptly",
+  "tag": "Turnovers",
+  "mins": 5,
+  "hook": "There are actual time limits, and they're rarely enforced — until they are.",
+  "body": [
+    "After a turnover or a pull, an offensive player must move at walking pace or faster, directly, to retrieve the disc and set the pivot.",
+    "There are hard limits too: ten seconds once the disc has come to rest in the central zone, twenty seconds in an end zone.",
+    "If you're slow, the defence gives a warning — \"Delay of Game\", or a pre-stall. Keep dawdling after a warning and the marker can just start the stall count on you."
+  ],
+  "field": "Defence isn't allowed to obstruct you from getting to the disc or setting your pivot. If they're in the way, say so.",
+  "rules": ["8.5", "8.5.1.1", "8.5.1.2", "8.5.2", "8.5.2.1", "8.5.3"],
+  "quiz": {
+    "q": "How long do you have to establish a pivot after the disc comes to rest in the central zone?",
+    "options": ["5 seconds", "10 seconds", "20 seconds"],
+    "correct": 1,
+    "why": "Ten seconds in the central zone; twenty seconds in an end zone."
+  }
+},
+{
+  "id": "dead-play",
+  "title": "Live play and dead play",
+  "tag": "Basics",
+  "mins": 5,
+  "hook": "Knowing when the disc is 'hot' tells you when you can be caught out.",
+  "body": [
+    "Play is dead — no turnover possible — from the start of a point until the pull is released, while the disc is being carried to the pivot location, after any call until the check, and after a disc hits the ground until someone establishes possession.",
+    "Everything else is live. Players are free to move during dead play unless a rule says otherwise.",
+    "One restriction that surprises people: during dead play the thrower may not transfer the disc to another player."
+  ],
+  "field": "Dead play is your thinking time. Use the walk to the pivot to look downfield and pick your first throw.",
+  "rules": ["8.1", "8.1.1", "8.1.2", "8.1.3", "8.1.4", "8.2", "8.3"],
+  "quiz": {
+    "q": "You're carrying the disc to the pivot spot after a turnover and hand it to a team-mate. Legal?",
+    "options": ["Yes — play is dead", "No — the thrower may not transfer the disc during dead play", "Only if they're closer to the spot"],
+    "correct": 1,
+    "why": "The thrower may not transfer possession of the disc during dead play."
+  }
+},
+{
+  "id": "dropped-pull",
+  "title": "Don't touch a pull you can't catch",
+  "tag": "Turnovers",
+  "mins": 4,
+  "hook": "A free turnover that beginners hand over constantly.",
+  "body": [
+    "If any offensive player touches the pull before it hits the ground and your team then fails to establish possession, that's a turnover — a dropped pull.",
+    "It counts whether you were in-bounds or out-of-bounds when you touched it. A speculative tip on a pull heading out of bounds is a real risk.",
+    "If you let it land untouched, you simply pick it up where it stops. There's no downside to leaving it."
+  ],
+  "field": "The rule of thumb: if you're not certain you'll catch it cleanly, let it land. You lose nothing.",
+  "rules": ["7.8", "13.1.4", "7.10"],
+  "quiz": {
+    "q": "A team-mate tips a pull, it bounces off their hands and hits the ground. Ruling?",
+    "options": ["Pick it up where it lands", "Turnover — dropped pull", "Re-pull"],
+    "correct": 1,
+    "why": "If the offence touches the pull before it hits the ground and fails to establish possession, that's a turnover."
+  }
+},
+{
+  "id": "brick",
+  "title": "Pulls that go out of bounds: the brick",
+  "tag": "Restarts",
+  "mins": 5,
+  "hook": "Those crossed lines in the middle of the field finally make sense.",
+  "body": [
+    "If the pull lands out-of-bounds without first touching the field or an offensive player, you get a choice.",
+    "You can take it at the brick mark nearest your defending end zone — that's the little cross in the middle of the field, one end-zone-length in from the goal line — or at the spot where it crossed the perimeter line.",
+    "The brick is usually the better choice: it puts the disc in the middle of the field rather than trapped on a sideline."
+  ],
+  "field": "Signal the brick by raising one arm and calling \"brick\" as you walk to the mark. Say it before you pick the disc up.",
+  "rules": ["7.12", "2.5", "7.11"],
+  "quiz": {
+    "q": "A pull sails out of bounds without touching anything. Where can you start?",
+    "options": ["Only at the brick mark", "At the brick mark, or where it crossed the line — your choice", "Only where it crossed the line"],
+    "correct": 1,
+    "why": "The thrower may choose either the brick mark nearest their defending end zone, or the location where it crossed the line."
+  }
+},
+{
+  "id": "timeouts",
+  "title": "Calling a time-out",
+  "tag": "Game",
+  "mins": 5,
+  "hook": "Who can call one, and what happens to everybody's feet.",
+  "body": [
+    "Form a \"T\" with your hands, or one hand and the disc, and call \"time-out\". After the pull, only a thrower holding the disc may call one. Before the pull, either team can.",
+    "A time-out lasts 75 seconds. Play restarts at the same pivot spot with the same thrower — no swapping, and no substitutions except for injury.",
+    "Then a small dance: the offence picks their positions first and freezes, then the defence picks theirs. The stall count restarts at maximum nine, or at one if the marker changed."
+  ],
+  "field": "How many time-outs you get isn't in the core rules — it's set by your event's format. Ask your captain before the first game.",
+  "rules": ["20.1", "20.2", "20.3", "20.3.1", "20.3.4", "20.3.5", "20.3.6"],
+  "quiz": {
+    "q": "During a point, who may call a time-out?",
+    "options": ["Any player on either team", "Only a thrower in possession of the disc", "Only the captain"],
+    "correct": 1,
+    "why": "After the pull, only a thrower with possession of the disc may call a time-out."
+  }
+},
+{
+  "id": "no-timeouts-left",
+  "title": "Calling a time-out you don't have",
+  "tag": "Game",
+  "mins": 3,
+  "hook": "A small, precise penalty worth knowing before you need it.",
+  "body": [
+    "If you try to call a time-out during live play and your team has none left, play stops anyway.",
+    "The marker then adds two seconds to the stall count they would otherwise have restarted on, and play resumes with a check.",
+    "Two seconds is not catastrophic, but at stall seven it can effectively end the possession."
+  ],
+  "field": "Know your team's remaining time-outs. It's the captain's job to keep everyone updated during the game.",
+  "rules": ["20.4"],
+  "quiz": {
+    "q": "You call a time-out you don't have, and the count would have restarted at six. What does it restart at?",
+    "options": ["Six", "Eight", "One"],
+    "correct": 1,
+    "why": "The marker adds two seconds to the count they would otherwise have restarted on."
+  }
+},
+{
+  "id": "injury",
+  "title": "Injury stoppages",
+  "tag": "Safety",
+  "mins": 5,
+  "hook": "What happens when someone goes down.",
+  "body": [
+    "Any player on the injured player's team, or the injured player themselves, can call \"Injury\". The stoppage counts as having happened at the moment of the injury, not the moment of the call.",
+    "If an opponent didn't cause it, the injured player must either be substituted or charge their own team a time-out. If an opponent did cause it, they can simply stay in.",
+    "If the injured player had the disc and dropped it because of the injury, they keep possession."
+  ],
+  "field": "If the disc is in the air when injury is called, play continues until someone catches it or it lands. Don't stop mid-flight.",
+  "rules": ["19.1.1", "19.1.2", "19.1.3", "19.1.4", "19.1.5", "19.1.6"],
+  "quiz": {
+    "q": "You roll an ankle with no opponent involved. What are your options?",
+    "options": ["Stay on, no cost", "Be substituted, or charge your team a time-out", "Your team automatically loses possession"],
+    "correct": 1,
+    "why": "If the injury was not caused by an opponent, the player must choose to be substituted or charge their team a time-out."
+  }
+},
+{
+  "id": "technical-stoppage",
+  "title": "Technical stoppages and blood",
+  "tag": "Safety",
+  "mins": 4,
+  "hook": "Anyone can stop the game for a safety issue. Anyone.",
+  "body": [
+    "If you spot a condition that endangers players — an open wound, a dog on the pitch, a stray disc rolling through — call \"technical\" or \"stop\". Play halts immediately.",
+    "A player with an open or bleeding wound gets 70 seconds to deal with it. If they need longer, they must be substituted or their team takes a time-out.",
+    "The thrower can also call a technical stoppage during play to swap out a badly damaged disc."
+  ],
+  "field": "This is the one call that isn't about advantage. Make it early and loudly.",
+  "rules": ["19.2.1", "19.2.1.1", "19.2.1.2", "19.2.2", "19.2.3"],
+  "quiz": {
+    "q": "Who may call a technical stoppage for a dangerous condition?",
+    "options": ["Only a captain", "Any player who recognises the condition", "Only the affected player"],
+    "correct": 1,
+    "why": "Any player who recognises a condition that endangers players should call a technical stoppage."
+  }
+},
+{
+  "id": "subs",
+  "title": "Substitutions",
+  "tag": "Game",
+  "mins": 4,
+  "hook": "Unlimited — but only in a narrow window.",
+  "body": [
+    "You can substitute as many players as you like after a goal is scored, up until your team signals readiness for the pull. After that signal, the line is set.",
+    "Mid-point substitutions only happen for injury, illegal or faulty equipment. When one team subs for injury, the opposition may also swap one player.",
+    "A substitute inherits everything: field position, possession, the stall count, and the right to make calls on behalf of the player they replaced."
+  ],
+  "field": "Signal readiness only when your line is genuinely on the field. Raising a hand early is how teams end up playing a point with six.",
+  "rules": ["5.3", "19.3", "19.3.1"],
+  "quiz": {
+    "q": "Your team subs a player off for injury mid-point. What can the other team do?",
+    "options": ["Nothing", "Also substitute one player", "Substitute freely"],
+    "correct": 1,
+    "why": "If a player is substituted after an injury or for faulty equipment, the opposing team may also choose to substitute one player."
+  }
+},
+{
+  "id": "game-format",
+  "title": "The shape of a game",
+  "tag": "Game",
+  "mins": 4,
+  "hook": "Fifteen goals, and one thing that changes at eight.",
+  "body": [
+    "A game is won by the first team to fifteen goals. Half time comes when a team first reaches eight.",
+    "At half time the initial choices from the start of the game are switched — so if you chose to receive, you now pull.",
+    "Each team fields a maximum of seven and a minimum of five players per point. You can play with fewer than seven; you cannot play with fewer than five."
+  ],
+  "field": "Most social and league games shorten this with time caps. Check the format before your first game — it changes late-game tactics completely.",
+  "rules": ["4.2", "4.3", "6.3", "5.1"],
+  "quiz": {
+    "q": "When does half time occur?",
+    "options": ["After 45 minutes", "When a team first scores eight goals", "When the teams agree"],
+    "correct": 1,
+    "why": "Half time occurs when a team first scores eight goals."
+  }
+},
+{
+  "id": "switching-ends",
+  "title": "After every goal, you switch ends",
+  "tag": "Game",
+  "mins": 3,
+  "hook": "A small rule that keeps catching new players facing the wrong way.",
+  "body": [
+    "When a goal is scored, the next point starts immediately, the teams switch which end zone they're defending, and the team that just scored becomes defence and pulls.",
+    "So scoring means walking to the other end of the field and pulling. There's no restart from the middle.",
+    "Combined with unlimited subs in that window, this is when your team gets organised for the next point."
+  ],
+  "field": "Before every pull, physically point at the end zone you're attacking. It takes a second and prevents an embarrassing mistake.",
+  "rules": ["4.5", "4.5.1", "4.5.2", "4.5.3"],
+  "quiz": {
+    "q": "Your team just scored. What happens next?",
+    "options": ["You receive the next pull", "You switch ends and pull to the other team", "The other team pulls to you"],
+    "correct": 1,
+    "why": "Teams switch the end zone they're defending, and the team that scored becomes defence and pulls."
+  }
+},
+{
+  "id": "offside-false-start",
+  "title": "Offside and false start on the pull",
+  "tag": "Restarts",
+  "mins": 5,
+  "hook": "Two calls with usefully different remedies.",
+  "body": [
+    "A false start is the offence moving relative to each other, or off the goal line, after signalling readiness. Offside is the defence crossing their goal line before the pull is released.",
+    "Either must be called before the offence touches the disc. If the defence calls false start, the offence sets a pivot per the normal pull rules and play restarts as if a time-out had been called there.",
+    "If the offence calls offside, they must let the disc land untouched — then they resume as if a brick had been called, with no check needed."
+  ],
+  "field": "If you call offside, shout it and then deliberately don't touch the disc. Catching it forfeits the call.",
+  "rules": ["7.3", "7.4", "7.5", "7.5.1", "7.5.2"],
+  "quiz": {
+    "q": "You call offside on the pull. What must your team do next?",
+    "options": ["Catch the pull and take it at the brick", "Let the disc hit the ground untouched, then resume as if a brick was called", "Ask for a re-pull"],
+    "correct": 1,
+    "why": "The offence must let the disc hit the ground untouched and then resume play as if a brick had been called."
+  }
+},
+{
+  "id": "spirit-duties",
+  "title": "The Spirit rules are actual rules",
+  "tag": "Spirit",
+  "mins": 6,
+  "hook": "Chapter 1 uses the word \"must\", not \"should\".",
+  "body": [
+    "Players must know and abide by the rules, be fair-minded and objective, be truthful, explain their viewpoint clearly and briefly, let opponents speak, listen, use respectful language, resolve disputes efficiently, and make calls consistently through the whole game.",
+    "Consistency matters more than most people realise: if you weren't calling minor travels in the first point, you don't get to start calling them at 14-14.",
+    "And you should only make a call where the breach was significant enough to affect the outcome, or where safety is at risk."
+  ],
+  "field": "Introducing yourself to your opponent before the point is explicitly listed as good Spirit. It changes every subsequent conversation.",
+  "rules": ["1.3", "1.3.1", "1.3.9", "1.3.10", "1.5.4", "1.4"],
+  "quiz": {
+    "q": "You've let small travels go all game. It's 14-14. Should you start calling them?",
+    "options": ["Yes — the game is on the line", "No — calls must be consistent throughout the game", "Only if the other team does"],
+    "correct": 1,
+    "why": "Players must make calls in a consistent manner throughout the game, regardless of the game situation."
+  }
+},
+{
+  "id": "helping-beginners",
+  "title": "Helping beginners is written into the rules",
+  "tag": "Spirit",
+  "mins": 4,
+  "hook": "If you're new, this rule is on your side.",
+  "body": [
+    "If a novice player is involved in a breach and doesn't know the rule, experienced players are told to explain it. Not to exploit it — to explain it.",
+    "An experienced player may also supervise games involving beginners, offering advice on rules and guiding on-field arbitration.",
+    "Teams are also obliged to teach their own players the rules and good Spirit, and to give other teams constructive feedback."
+  ],
+  "field": "If you don't know a rule, say \"I'm new — can you explain that?\" It's a completely normal thing to say and you'll get a good answer.",
+  "rules": ["1.8", "1.9", "1.7.1", "1.7.3"],
+  "quiz": {
+    "q": "A beginner breaches a rule they clearly don't know. What should experienced players do?",
+    "options": ["Take the advantage — that's the rule", "Assist by explaining the breach", "Call a Spirit violation"],
+    "correct": 1,
+    "why": "Where a novice is involved in a breach and doesn't know the rules, experienced players should assist to explain it."
+  }
+},
+{
+  "id": "multiple-breaches",
+  "title": "When several things go wrong at once",
+  "tag": "Calls",
+  "mins": 5,
+  "hook": "The tiebreaker for messy, multi-call plays.",
+  "body": [
+    "If multiple breaches happen on the same play, or before play stops, you resolve them in reverse sequence: latest breach first, earliest last.",
+    "Separately, if the offence and defence both have accepted fouls on the same play, they offset and the disc returns to the last undisputed thrower.",
+    "Contact caused by two or more opposing players moving to the same point simultaneously is also treated as offsetting fouls."
+  ],
+  "field": "In a genuinely tangled play, going back to the last undisputed thrower is almost always the fair answer. Reach for it.",
+  "rules": ["15.12", "17.9.1", "17.9.2"],
+  "quiz": {
+    "q": "An offensive and a defensive foul are both accepted on the same play. Result?",
+    "options": ["They cancel and the disc goes back to the last undisputed thrower", "The defensive foul takes precedence", "The first call made wins"],
+    "correct": 1,
+    "why": "Fouls called by both teams on the same play are offsetting; the disc returns to the last non-disputed thrower."
+  }
+},
+{
+  "id": "incorrect-stoppage",
+  "title": "Stopping play when you shouldn't have",
+  "tag": "Calls",
+  "mins": 5,
+  "hook": "You misheard a call and yelled \"stop\". Now what?",
+  "body": [
+    "It happens: you mishear, or you make a call late, or you didn't know the rule. The rules handle it without drama.",
+    "If the opposition gains or retains possession anyway, whatever happened stands. If they don't, the disc goes back to the last undisputed thrower.",
+    "The stall count then resumes as if you had committed the breach — so at maximum nine if you're on offence. A small cost for the interruption."
+  ],
+  "field": "Don't echo a call you're not sure you heard. Half of incorrect stoppages start as a well-meant echo.",
+  "rules": ["15.9", "15.9.1", "15.9.2", "15.9.3"],
+  "quiz": {
+    "q": "You wrongly stop play, and the other team had already gained possession. What happens?",
+    "options": ["Disc goes back to the thrower", "Their possession stands", "Replay from the check"],
+    "correct": 1,
+    "why": "If the opposition gains or retains possession, any subsequent play stands."
+  }
+},
+{
+  "id": "obstructions",
+  "title": "Obstructions and people on the sideline",
+  "tag": "Safety",
+  "mins": 4,
+  "hook": "For everyone who has run into a bag at the edge of the field.",
+  "body": [
+    "The area around the field must be kept clear of movable objects. Bags, jackets and bystanders belong well back.",
+    "If a non-player or object within three metres of the perimeter line obstructs a player or the thrower, that player may call a violation.",
+    "Remember also that non-players are part of the out-of-bounds area — so a disc that hits a spectator standing beyond the sideline is out."
+  ],
+  "field": "Sideline players: three metres back, and watch discs coming your way. Getting hit is unpleasant and it's a violation.",
+  "rules": ["2.7", "11.1", "11.2"],
+  "quiz": {
+    "q": "A disc hits a spectator standing just outside the sideline. Ruling?",
+    "options": ["Play on — they're not part of the game", "The disc is out-of-bounds", "Re-throw"],
+    "correct": 1,
+    "why": "All non-players are part of the out-of-bounds area, so the disc becomes out-of-bounds."
+  }
+},
+{
+  "id": "stopping-a-roller",
+  "title": "Stopping a disc that's rolling away",
+  "tag": "Turnovers",
+  "mins": 3,
+  "hook": "A tiny rule that comes up more than you'd expect on a windy day.",
+  "body": [
+    "Any player — either team — may try to stop a disc that's rolling or sliding after it has hit the ground.",
+    "But if in doing so you significantly change where the disc ends up, the opposition can ask for the pivot to be set where you first touched it.",
+    "So there's no advantage in booting a rolling disc towards your own end. It just gets reset."
+  ],
+  "field": "Stopping a roller is a courtesy that speeds up the game. Do it, and accept the reset if you moved it much.",
+  "rules": ["8.4", "8.4.1"],
+  "quiz": {
+    "q": "You stop a rolling disc but knock it 10 m closer to your end zone. What can the opposition do?",
+    "options": ["Nothing", "Request the pivot be set where you contacted it", "Claim a turnover"],
+    "correct": 1,
+    "why": "If a player significantly alters the disc's position while stopping it, the opposition may request the pivot at the contact point."
+  }
+},
+{
+  "id": "equipment",
+  "title": "Discs, kit, and what you can't wear",
+  "tag": "Game",
+  "mins": 3,
+  "hook": "Short chapter, two things that actually matter.",
+  "body": [
+    "Any disc acceptable to both captains may be used. WFDF maintains a list of approved discs, but agreement between captains is the operative test.",
+    "Every player must wear a uniform that distinguishes their team — which is why pick-up games spend the first five minutes sorting bibs.",
+    "You may not wear anything that could harm you or another player, or that impedes an opponent's ability to play. Jewellery, watches and stiff-brimmed caps are the usual culprits."
+  ],
+  "field": "Take rings and watches off before you play. It's the most common preventable injury cause in the sport.",
+  "rules": ["3.1", "3.2", "3.3", "3.4"],
+  "quiz": {
+    "q": "Who decides which disc is used?",
+    "options": ["The home team", "Any disc acceptable to both captains", "Whoever brought one"],
+    "correct": 1,
+    "why": "Any flying disc acceptable to both captains may be used."
+  }
+},
+{
+  "id": "start-of-game",
+  "title": "Choosing ends at the start",
+  "tag": "Game",
+  "mins": 3,
+  "hook": "The coin flip, formalised.",
+  "body": [
+    "Representatives of the two teams fairly determine which team gets the first choice — often a disc flip, but the rules just say \"fairly determine\".",
+    "That team picks one of two things: whether to receive or throw the initial pull, or which end zone to defend first. The other team gets the remaining choice.",
+    "At the start of the second half, both of those initial selections are switched."
+  ],
+  "field": "In heavy wind, the end choice is often worth more than receiving. Look at the flags before you decide.",
+  "rules": ["6.1", "6.1.1", "6.1.2", "6.2", "6.3"],
+  "quiz": {
+    "q": "You win the flip and choose to receive. What does the other team choose?",
+    "options": ["Nothing else", "Which end zone they initially defend", "Whether to switch at half"],
+    "correct": 1,
+    "why": "One team chooses receive/throw or which end to defend; the other team is given the remaining choice."
+  }
+},
+{
+  "id": "self-catch",
+  "title": "Three ways to turn it over by yourself",
+  "tag": "Turnovers",
+  "mins": 4,
+  "hook": "No defender required.",
+  "body": [
+    "Catch your own throw before anyone else touches it — that's a self-catch, and a turnover.",
+    "Deliberately deflect a pass off another player back to yourself — a deflection, also a turnover.",
+    "Intentionally bobble or delay the disc to yourself purely to move in a direction you want — that's a travel infraction, not a turnover, but you'll be moved back."
+  ],
+  "field": "A wobbly throw that comes back to you in the wind is fine if a defender touched it. If nobody did, it's yours and you've lost it.",
+  "rules": ["13.2.4", "13.2.5", "18.2.4.5"],
+  "quiz": {
+    "q": "Your throw is blocked by a defender's hand and comes straight back to you. You catch it. Ruling?",
+    "options": ["Turnover — self-catch", "Legal — the disc was contacted by another player", "Travel"],
+    "correct": 1,
+    "why": "A self-catch is a turnover only if the disc was not contacted by another player after release."
+  }
+},
+{
+  "id": "assisted-catch",
+  "title": "No boosting, no props",
+  "tag": "Turnovers",
+  "mins": 3,
+  "hook": "Yes, someone had to write this down.",
+  "body": [
+    "No player may physically assist another player's movement — no lifting a team-mate up to catch a high disc.",
+    "No player may use equipment or any object to help them contact the disc.",
+    "Doing either is a turnover if it's an offensive player catching a pass, at the location where that player was."
+  ],
+  "field": "This includes well-meant helping hands. If you'd lift a team-mate to reach one, don't.",
+  "rules": ["12.10", "13.2.6", "13.2.7", "13.7.4"],
+  "quiz": {
+    "q": "A team-mate boosts you up and you catch a high pass. Ruling?",
+    "options": ["Great catch", "Turnover", "Violation, disc back to the thrower"],
+    "correct": 1,
+    "why": "An offensive player intentionally assisting a team-mate's movement to catch a pass is a turnover."
+  }
+},
+{
+  "id": "unknowing-play",
+  "title": "When play carried on after a turnover nobody noticed",
+  "tag": "Turnovers",
+  "mins": 4,
+  "hook": "The disc was down and both teams kept going. Untangle it.",
+  "body": [
+    "If play continued unknowingly after an accepted turnover, play stops, the disc goes back to the turnover location, and players return to the positions they held when the turnover actually happened.",
+    "Play then restarts with a check. Everything that happened in between is erased.",
+    "This is why it pays to call turnovers immediately and loudly — the longer play runs on, the more players have to reconstruct."
+  ],
+  "field": "If you think it hit the ground, say so straight away. Waiting to see what happens next makes it much harder to resolve.",
+  "rules": ["13.12", "13.3", "15.8"],
+  "quiz": {
+    "q": "Both teams realise 15 seconds late that the disc had touched the ground. What happens?",
+    "options": ["Play stands from that point", "Disc returns to the turnover location, players reset, check", "The team who noticed gets possession"],
+    "correct": 1,
+    "why": "Play stops, the disc returns to the turnover location, players resume their positions at the time of the turnover, and play restarts with a check."
+  }
+},
+{
+  "id": "positioning",
+  "title": "Claiming space legally",
+  "tag": "Contact",
+  "mins": 5,
+  "hook": "Where you're allowed to stand, and when you can't move there.",
+  "body": [
+    "Every player may occupy any position not already occupied by an opponent — provided they don't initiate contact getting there, and aren't moving recklessly or dangerously.",
+    "A player already in an established position is entitled to stay there and must not be contacted.",
+    "One specific restriction: when the disc is in the air, you may not move purely to stop an opponent taking an unoccupied path to play it. Blocking the route rather than playing the disc is illegal."
+  ],
+  "field": "Under a floaty disc, move to where the disc is going, not to where your opponent wants to run.",
+  "rules": ["12.5", "12.5.1", "12.4", "12.9"],
+  "quiz": {
+    "q": "The disc is in the air. You slide across to block your opponent's running lane without playing the disc. Legal?",
+    "options": ["Yes — you got there first", "No — you may not move solely to prevent an opponent taking an unoccupied path", "Only if you don't touch them"],
+    "correct": 1,
+    "why": "When the disc is in the air, a player may not move solely to prevent an opponent taking an unoccupied path to the disc."
+  }
+},
+{
+  "id": "contested-goal",
+  "title": "Contested goals",
+  "tag": "Scoring",
+  "mins": 4,
+  "hook": "You called goal, they said no.",
+  "body": [
+    "If you believe a goal has been scored you may call \"goal\" and play stops.",
+    "If the goal call is contested or retracted, play restarts with a check, and the call is treated as having been made at the moment the player believed the goal was scored.",
+    "The moment a goal is deemed scored is when the player established possession — not when they caught it, and not when someone called it."
+  ],
+  "field": "If it's close, look down at your feet immediately rather than celebrating. You'll be asked, and you should know.",
+  "rules": ["14.2", "14.4"],
+  "quiz": {
+    "q": "At what moment is a goal deemed to have been scored?",
+    "options": ["When the disc is caught", "When the player established possession", "When a player calls \"goal\""],
+    "correct": 1,
+    "why": "The time at which a goal is deemed scored is when the player established possession."
+  }
+},
+{
+  "id": "stall-out-details",
+  "title": "The fine print on stall-outs",
+  "tag": "Marking",
+  "mins": 6,
+  "hook": "For when the count and the throw happen at the same instant.",
+  "body": [
+    "If you still have the disc and believe a fast count denied you a fair chance to call it before the stall-out, the play is treated as a fast count rather than a turnover.",
+    "If you completed a pass, you may still contest — either that it wasn't a stall-out, or that a fast count came immediately before it.",
+    "But if you contest a stall-out and also throw, and the pass is incomplete, the turnover stands. You don't get both."
+  ],
+  "field": "A contested stall-out restarts the count at eight, not one. Contesting buys you very little time.",
+  "rules": ["13.4.1", "13.4.2", "13.4.3", "9.5.3"],
+  "quiz": {
+    "q": "You contest a stall-out, throw anyway, and the pass is incomplete. Result?",
+    "options": ["Disc back to you", "The turnover stands, restart with a check", "Stall count restarts at eight"],
+    "correct": 1,
+    "why": "If the thrower contests a stall-out but also attempts a pass and it's incomplete, the turnover stands."
+  }
+},
+{
+  "id": "delay-of-game",
+  "title": "Delay of game",
+  "tag": "Game",
+  "mins": 4,
+  "hook": "The remedy for a team that won't get on with it.",
+  "body": [
+    "If there's an unnecessary delay in checking the disc in, the opposition may warn you by calling \"Delay of Game\".",
+    "If the delay continues, the team that gave the warning can simply check the disc in themselves by calling \"Disc In\" — play restarts whether you're ready or not.",
+    "The same warning applies to a team that's slow retrieving the disc after a turnover. After a warning, the marker can start counting on you."
+  ],
+  "field": "Teams must also prepare for the pull without unreasonable delay. Huddles between points have a natural limit.",
+  "rules": ["10.5", "8.5.2", "8.5.2.1", "7.1.1"],
+  "quiz": {
+    "q": "After a \"Delay of Game\" warning your team keeps stalling before the check. What can the opposition do?",
+    "options": ["Nothing further", "Check the disc in themselves by calling \"Disc In\"", "Claim a turnover"],
+    "correct": 1,
+    "why": "If the delay continues, the team that gave the warning may check the disc in by calling \"Disc In\"."
+  }
+},
+{
+  "id": "mixed",
+  "title": "Mixed division basics",
+  "tag": "Game",
+  "mins": 3,
+  "hook": "If you're playing mixed, there's a ratio.",
+  "body": [
+    "In mixed games, a form of alternating 4:3 personnel ratio should be used — so the gender ratio on the field alternates between points rather than staying fixed.",
+    "Teams are also encouraged to discuss, before the game, any strategies that make personnel match-ups easier to identify.",
+    "The exact mechanism for deciding the ratio each point varies by event, so ask at the captains' meeting."
+  ],
+  "field": "Most social mixed leagues run their own variant. Ask before the first pull rather than mid-point.",
+  "rules": ["5.4", "6.4"],
+  "quiz": {
+    "q": "What ratio does the rulebook describe for mixed games?",
+    "options": ["A fixed 4:3", "A form of alternating 4:3", "Whatever the teams agree each point"],
+    "correct": 1,
+    "why": "For Mixed games, a form of an alternating 4:3 personnel ratio should be used."
+  }
+},
+{
+  "id": "equipment-fix",
+  "title": "Fixing your shoelace",
+  "tag": "Game",
+  "mins": 3,
+  "hook": "You can't stop play for it. You can use a stoppage that's already happening.",
+  "body": [
+    "Any player may briefly extend an existing stoppage to fix faulty equipment, by calling \"equipment\".",
+    "What you may not do is stop active play for it. A trailing lace or a slipping brace waits until the next natural break.",
+    "If equipment is genuinely illegal or unsafe, that's different — that's a technical stoppage, and the opposition may also substitute a player."
+  ],
+  "field": "Double-knot before the game. It's the whole solution to this rule.",
+  "rules": ["10.3", "19.3", "3.4"],
+  "quiz": {
+    "q": "Your shoe comes untied during live play. What can you do?",
+    "options": ["Call \"equipment\" and stop play", "Wait for the next stoppage, then briefly extend it", "Play on and never fix it"],
+    "correct": 1,
+    "why": "A player may briefly extend a stoppage to fix faulty equipment, but active play may not be stopped for this purpose."
+  }
+},
+{
+  "id": "hand-signals",
+  "title": "Use your hands",
+  "tag": "Spirit",
+  "mins": 3,
+  "hook": "The sideline is 40 metres away and the wind is loud.",
+  "body": [
+    "Players are encouraged to use the WFDF hand signals to communicate all calls. There's a standard signal for every common call.",
+    "This matters more than it sounds. In international play, opponents may not share your language — a gesture communicates where words don't.",
+    "The rules also ask everyone to echo calls loudly so that players at the far end of the field know play has stopped."
+  ],
+  "field": "Learn three to start: travel, foul, and stall count. They'll cover most of what you need to signal.",
+  "rules": ["15.13", "15.7", "1.3.7"],
+  "quiz": {
+    "q": "Why does the rulebook encourage hand signals?",
+    "options": ["They're required for all calls", "They communicate calls across distance and language barriers", "They replace verbal calls"],
+    "correct": 1,
+    "why": "Players are encouraged to use hand signals to communicate calls; calls should also be echoed so distant players know."
+  }
+},
+{
+  "id": "spirit-violations",
+  "title": "What clearly breaks Spirit",
+  "tag": "Spirit",
+  "mins": 5,
+  "hook": "A short, specific list. Worth reading once.",
+  "body": [
+    "The rules name seven things as clear Spirit violations that must be avoided: dangerous play and aggressive behaviour; intentional fouling or rule-breaking; taunting or intimidating opponents; celebrating disrespectfully after scoring; making calls in retaliation for an opponent's call; calling for a pass from an opposition player; and any other win-at-all-costs behaviour.",
+    "Retaliatory calls are the one beginners fall into. If you feel a call was unfair, the response is a conversation, not a call of your own on the next point.",
+    "Teams are guardians of Spirit: they must discipline team-mates who show poor Spirit, and may call a Spirit stoppage to address issues."
+  ],
+  "field": "Highly competitive play is explicitly encouraged. Spirit isn't about playing softly — it's about how you treat people while playing hard.",
+  "rules": ["1.6", "1.6.5", "1.6.7", "1.7.2", "1.7.4", "1.4"],
+  "quiz": {
+    "q": "You think their last call was bogus. What does the rulebook say about calling something back on the next play?",
+    "options": ["Fair enough — it evens out", "Making calls in retaliation is a clear Spirit violation", "It's fine if the breach really happened"],
+    "correct": 1,
+    "why": "Making calls in retaliation to an opponent's call is listed as a clear violation of the Spirit of the Game."
+  }
+},
+{
+  "id": "egregious",
+  "title": "When the normal remedy isn't enough",
+  "tag": "Spirit",
+  "mins": 5,
+  "hook": "The rules have a release valve for genuinely bad behaviour.",
+  "body": [
+    "If there's a deliberate or egregious breach of the rules or Spirit, the captains should discuss it and determine an appropriate outcome — even one that isn't in the rules.",
+    "\"Egregious\" means a breach you wouldn't normally expect in a game of ultimate, or one with no reasonable justification in the rules.",
+    "So a captain might award a goal to a receiver who was dangerously fouled in the end zone, rather than giving them possession at the spot."
+  ],
+  "field": "This is rare and deliberately so. It exists for the cases where applying the normal rule would reward cheating.",
+  "rules": ["1.2.1", "1.2"],
+  "quiz": {
+    "q": "Who decides the outcome after a deliberate or egregious breach?",
+    "options": ["The fouled player", "The two captains, in discussion", "The tournament director"],
+    "correct": 1,
+    "why": "The captains should discuss it and determine an appropriate outcome, even if that outcome isn't in a specific rule."
+  }
+}
+]

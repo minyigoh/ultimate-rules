@@ -1,0 +1,322 @@
+[
+{
+  "id": "the-game",
+  "title": "The whole game in one paragraph",
+  "tag": "Basics",
+  "mins": 4,
+  "hook": "Before any detail makes sense, you need the shape of the thing.",
+  "body": [
+    "Two teams of seven. A rectangular field with an end zone at each end. You score by catching a pass inside the end zone you are attacking — that's the entire objective.",
+    "You cannot run with the disc. Once you catch it you stop, plant a foot, and throw to a team-mate. Any direction is legal: forwards, sideways, backwards.",
+    "If a pass isn't completed, the other team picks the disc up right there and immediately starts attacking the opposite way. There is no stoppage, no reset, no whistle. Possession just flips."
+  ],
+  "field": "New players often freeze after catching. Don't — you have ten seconds, which is longer than it feels. Look up first.",
+  "rules": ["4.1", "14.1", "18.2.2", "13.1"],
+  "quiz": {
+    "q": "You catch the disc near your own end zone. Which way can you throw?",
+    "options": ["Only forwards, towards the end zone you're attacking", "Any direction at all", "Any direction except straight backwards"],
+    "correct": 1,
+    "why": "A pass may go in any direction to any team-mate. Backwards passes to a safe target are a normal, good habit."
+  }
+},
+{
+  "id": "no-running",
+  "title": "You can't run with the disc — but you can pivot",
+  "tag": "Basics",
+  "mins": 5,
+  "hook": "The single most misunderstood beginner rule, and the easiest to get right.",
+  "body": [
+    "Once you have the disc, one foot becomes your pivot point. That foot stays planted on the same spot until you release the throw. The other foot can go anywhere — step around, lunge wide, reach past a defender.",
+    "Pivoting is not a grudging allowance, it's a core skill. Good throwers move their whole body a long way while their pivot foot never moves.",
+    "If you end up on the ground with the disc, any part of your body can serve as the pivot point. You're allowed to stand up afterwards, as long as you re-establish the pivot in the same place."
+  ],
+  "field": "Pick your pivot foot deliberately as you catch, then plant it. Deciding late is what causes travels.",
+  "rules": ["18.2.2", "18.2.3", "18.2.3.1"],
+  "quiz": {
+    "q": "You catch the disc, plant your left foot, and step forward and back with your right foot four times looking for a throw. Legal?",
+    "options": ["No — that's a travel", "Yes, as long as the left foot stays put", "Only if you throw within three steps"],
+    "correct": 1,
+    "why": "The non-pivot foot can move as much as you like. Only the pivot foot is fixed."
+  }
+},
+{
+  "id": "stall-count",
+  "title": "Ten seconds: the stall count",
+  "tag": "Basics",
+  "mins": 5,
+  "hook": "The clock that only exists when someone says it out loud.",
+  "body": [
+    "The defender guarding you — the marker — counts you down out loud: \"Stalling one, two, three…\" up to ten. Each number must be at least a full second apart.",
+    "If they start to say \"ten\" before you release the disc, it's a turnover. Note the wording: the disc has to be gone before the word \"ten\" begins, not before it finishes.",
+    "The count is only legal if the marker is within three metres of your pivot and everyone on defence is legally positioned. If the marker drifts further away, or a different defender takes over the mark, the count restarts at one."
+  ],
+  "field": "Count along in your head. If their count is running faster than yours, call \"fast count\" — it's a normal, non-confrontational call.",
+  "rules": ["9.1", "9.3", "9.4", "13.2.2"],
+  "quiz": {
+    "q": "The marker says \"Stalling nine\" and you release the throw as they begin \"ten\". What happens?",
+    "options": ["Turnover — the count reached ten", "The pass counts, if it was gone before \"ten\" began", "The pass counts only if it's completed"],
+    "correct": 1,
+    "why": "A stall-out is only when the thrower has not released before the marker first starts to say \"ten\"."
+  }
+},
+{
+  "id": "turnovers",
+  "title": "Five ways to lose the disc",
+  "tag": "Basics",
+  "mins": 5,
+  "hook": "Know these and you'll stop being surprised by sudden changes of possession.",
+  "body": [
+    "Possession flips immediately, with no stoppage, when: the disc hits the ground; a defender catches it; the disc goes out-of-bounds; or the pull is touched by the offence and then dropped.",
+    "Possession also flips, but with a stoppage first, when the stall count reaches ten, or on a few unusual acts — handing the disc to a team-mate, catching your own throw, or deflecting a pass to yourself off another player.",
+    "The key difference matters: after a live turnover, the defence is already attacking while you're still standing there. Turn and chase immediately."
+  ],
+  "field": "The moment a disc hits the ground, sprint to guard someone. Points are lost in the two seconds after a turnover.",
+  "rules": ["13.1", "13.2"],
+  "quiz": {
+    "q": "Your team-mate hands you the disc rather than throwing it. What's the ruling?",
+    "options": ["Fine — it's a completed pass", "Turnover (a handover)", "A violation, disc goes back"],
+    "correct": 1,
+    "why": "A disc intentionally transferred between team-mates without ever being untouched by both is a turnover."
+  }
+},
+{
+  "id": "no-referees",
+  "title": "There are no referees. You are the referee.",
+  "tag": "Spirit",
+  "mins": 5,
+  "hook": "This is what makes ultimate different from every other field sport.",
+  "body": [
+    "Every call in the game is made by the players on the field, including calls against your own interest. Nobody is watching to catch you — the whole system runs on the assumption that you'll be honest.",
+    "The rules assume no player breaks them on purpose. That's why penalties are gentle: instead of punishing, the rules try to recreate what probably would have happened without the breach.",
+    "If two players genuinely disagree and can't resolve it, the disc goes back to the thrower and play restarts. Nobody \"wins\" the argument."
+  ],
+  "field": "Only the player who was fouled can call the foul. Don't call fouls on behalf of team-mates.",
+  "rules": ["1.1", "1.2", "15.4", "13.3"],
+  "quiz": {
+    "q": "You see a defender clearly foul your team-mate. Can you call it?",
+    "options": ["Yes, any team-mate can call it", "No — only the player fouled may call a foul", "Only if your team-mate agrees first"],
+    "correct": 1,
+    "why": "Only the player fouled may claim a foul. You can offer your perspective during the discussion, though."
+  }
+},
+{
+  "id": "the-field",
+  "title": "The field, and why the lines are out",
+  "tag": "Basics",
+  "mins": 4,
+  "hook": "One counter-intuitive detail trips up almost every new player.",
+  "body": [
+    "A full field is 100 m long and 37 m wide. The middle 64 m is the central zone, and each end zone is 18 m deep.",
+    "Here's the catch: the perimeter lines — the sidelines and endlines — are not part of the field. Standing on the sideline means you are out-of-bounds.",
+    "The goal lines are different. They are part of the central zone, not the end zone. Catching the disc with a foot on the goal line is not a goal."
+  ],
+  "field": "When you catch near the sideline, look down. Toeing the line is out, not in — the opposite of most sports.",
+  "rules": ["2.1", "2.2", "2.3", "2.4", "11.1"],
+  "quiz": {
+    "q": "You catch a pass in the end zone but your heel is touching the goal line. Goal?",
+    "options": ["Yes — the goal line counts as end zone", "No — the goal line is part of the central zone", "Yes, if the rest of you is in the end zone"],
+    "correct": 1,
+    "why": "The goal line separates the zones and belongs to the central zone. All ground contact must be entirely inside the end zone."
+  }
+},
+{
+  "id": "the-pull",
+  "title": "The pull: how every point starts",
+  "tag": "Basics",
+  "mins": 5,
+  "hook": "It's the kick-off, and it has its own small ritual.",
+  "body": [
+    "Every point begins with the defence throwing the disc the length of the field to the offence. That throw is the pull.",
+    "Before it's thrown, both teams signal they're ready by raising a hand — one player on offence, and the puller. Until the disc is released, the offence must keep one foot on their own goal line, and the defence must stay entirely behind theirs.",
+    "The instant the pull leaves the hand, everyone can move. Not before."
+  ],
+  "field": "Raise your hand clearly and early. Half of all pull confusion is a team that never actually signalled.",
+  "rules": ["7.1", "7.2", "7.3", "7.4", "7.6"],
+  "quiz": {
+    "q": "When may defenders leave their goal line on the pull?",
+    "options": ["When the puller starts their run-up", "As soon as the pull is released", "As soon as both teams signal ready"],
+    "correct": 1,
+    "why": "Defenders must keep their feet behind the goal line until the pull is released. Leaving early is \"offside\"."
+  }
+},
+{
+  "id": "catch-vs-possession",
+  "title": "A catch and possession are not the same thing",
+  "tag": "Possession",
+  "mins": 6,
+  "hook": "The 2017 change that still catches out experienced players.",
+  "body": [
+    "A catch is the moment you first trap a non-spinning disc between two body parts. Possession is what happens next: you keep hold of it for more than a noticeable instant, through all the ground contact that follows.",
+    "This means the disc can touch the ground, or you can slide out-of-bounds, without it being a turnover — as long as you never lose the catch and you end up establishing possession.",
+    "Where it goes wrong: you catch it, hit the ground, and it pops out. Because you never established possession, that's a turnover, not a completed pass."
+  ],
+  "field": "On a diving catch, the priority is squeezing through the landing. The catch isn't finished until you've stopped moving.",
+  "rules": ["12.1", "12.1.1", "13.1.1.1"],
+  "quiz": {
+    "q": "You dive, catch the disc, and the disc touches the grass while still trapped in your hands. Turnover?",
+    "options": ["Yes — the disc hit the ground", "No, provided you maintain the catch and establish possession", "Only if a defender was nearby"],
+    "correct": 1,
+    "why": "It is not \"down\" if the receiver catches the pass before it hits the ground and maintains the catch throughout."
+  }
+},
+{
+  "id": "in-bounds-feet",
+  "title": "Where your feet have to be",
+  "tag": "Possession",
+  "mins": 5,
+  "hook": "Ultimate has no \"two feet in\" rule — it has something simpler and stricter.",
+  "body": [
+    "If any part of you is out-of-bounds at the moment you touch the disc, it's a turnover and no catch happened at all.",
+    "If you're airborne when you catch it, your first contact with the ground has to be in-bounds. Land on the line and you're out.",
+    "Once you have landed in-bounds and kept the catch, momentum carrying you out doesn't hurt you — you just walk back and set your pivot where you crossed the line."
+  ],
+  "field": "Sprinting for a disc near the sideline? Catch it before your foot lands, not after.",
+  "rules": ["11.3", "11.3.1", "11.3.2", "11.4"],
+  "quiz": {
+    "q": "You leap, catch the disc in the air, land in-bounds, then your momentum takes you over the sideline. Ruling?",
+    "options": ["Turnover — you went out-of-bounds", "Good catch; set your pivot where you crossed the line", "Good catch; set your pivot where you landed"],
+    "correct": 1,
+    "why": "A player who contacts the field and then goes out is still in-bounds, and establishes the pivot where they crossed the perimeter line."
+  }
+},
+{
+  "id": "going-out",
+  "title": "You're allowed to leave the field",
+  "tag": "Possession",
+  "mins": 4,
+  "hook": "The disc can fly out and come back. So can you.",
+  "body": [
+    "A disc that curves outside the sideline and back over the field is still live. It only becomes out-of-bounds when it actually touches the out-of-bounds ground, or an out-of-bounds offensive player.",
+    "Players are explicitly allowed to run out-of-bounds to make a play on the disc. What matters is where you are when you touch it, and where you land.",
+    "One asymmetry worth knowing: defensive players are always considered in-bounds. The out-of-bounds rules only constrain the offence."
+  ],
+  "field": "Chase discs that look like they're drifting out. Curving them back in is a real throw, not an accident.",
+  "rules": ["11.6", "11.7", "11.2"],
+  "quiz": {
+    "q": "A defender standing outside the sideline reaches in and blocks the disc. Legal?",
+    "options": ["No — they were out-of-bounds", "Yes — defensive players are always considered in-bounds", "Only if they had one foot in"],
+    "correct": 1,
+    "why": "The out-of-bounds area excludes defensive players, who are always in-bounds."
+  }
+},
+{
+  "id": "simultaneous",
+  "title": "Tie goes to the offence",
+  "tag": "Possession",
+  "mins": 3,
+  "hook": "A short rule with a satisfying answer.",
+  "body": [
+    "If an offensive and a defensive player catch the disc at the same time, the offence keeps it.",
+    "This isn't a judgement call about who had \"more\" of it — if you both genuinely established possession simultaneously, it's offence.",
+    "In practice, the two players usually need a quick conversation. Say what you saw, listen, and move on quickly."
+  ],
+  "field": "If you both come down with it, the honest question is \"did you have it first?\" — not \"whose is it?\"",
+  "rules": ["12.3"],
+  "quiz": {
+    "q": "Offence and defence land holding the disc together, genuinely simultaneously. Who gets it?",
+    "options": ["Defence — it counts as a block", "Offence", "Disc goes back to the thrower"],
+    "correct": 1,
+    "why": "If offensive and defensive players catch the disc simultaneously, the offence retains possession."
+  }
+},
+{
+  "id": "scoring",
+  "title": "What actually counts as a goal",
+  "tag": "Scoring",
+  "mins": 5,
+  "hook": "Catching it in the end zone is necessary but not quite sufficient.",
+  "body": [
+    "A goal needs three things: you're in-bounds, the pass was legal, and all of your ground contact is entirely inside your attacking end zone.",
+    "If you're airborne when you catch it, then all of your first points of ground contact must be in the end zone. Landing with one foot on the goal line is not a goal.",
+    "You also have to establish possession — the same rule as any catch. Bobbling it through the landing means no goal."
+  ],
+  "field": "Don't celebrate until you've stopped moving with the disc still in your hands. That's when the goal is scored.",
+  "rules": ["14.1", "14.1.1", "14.1.2", "14.4"],
+  "quiz": {
+    "q": "You catch it airborne over the end zone and land with one foot in the end zone and one on the goal line. Goal?",
+    "options": ["Yes — one foot in is enough", "No — all first points of contact must be entirely in the end zone", "Yes, if the disc was over the line"],
+    "correct": 1,
+    "why": "All of the first simultaneous points of ground contact must be entirely within the attacking end zone."
+  }
+},
+{
+  "id": "overshoot",
+  "title": "Caught it past the end zone? Walk it back.",
+  "tag": "Scoring",
+  "mins": 4,
+  "hook": "The most common \"wait, what do I do now?\" moment for beginners.",
+  "body": [
+    "If you end up holding the disc in the end zone you're attacking, but you didn't score under the goal rules — say you caught it in the central zone and drifted in, or you landed with a foot on the line — you don't get a do-over and you haven't lost it.",
+    "You simply walk to the nearest point on the goal line and set your pivot there.",
+    "This happens constantly. It isn't a penalty, it's just where play resumes."
+  ],
+  "field": "Walk out calmly and set your pivot. The stall count doesn't start until you've established the pivot point.",
+  "rules": ["14.3", "11.3.2.1"],
+  "quiz": {
+    "q": "You catch a pass in the central zone and your momentum carries you into your attacking end zone. Where do you throw from?",
+    "options": ["Where you stopped, in the end zone", "The nearest point on the goal line", "Back where you caught it"],
+    "correct": 1,
+    "why": "A player who ends up in their attacking end zone without scoring establishes a pivot at the nearest point on the goal line."
+  }
+},
+{
+  "id": "establishing-pivot",
+  "title": "Slowing down after the catch",
+  "tag": "Movement",
+  "mins": 5,
+  "hook": "You caught it at full sprint. Now what?",
+  "body": [
+    "After catching, you must reduce speed as quickly as you reasonably can, without changing direction, until you plant your pivot.",
+    "Two words do the work there. \"As quickly as possible\" means no coasting for an extra few metres. \"Without changing direction\" means you can't curl your deceleration into a run towards a better throwing angle.",
+    "Where you stop is where your pivot goes. It's honest and it's self-policed — nobody is measuring."
+  ],
+  "field": "Decelerate in a straight line. Drifting sideways as you slow is the travel most beginners commit without realising.",
+  "rules": ["18.2.1", "18.2.4.1"],
+  "quiz": {
+    "q": "You catch it sprinting and curve gently to your left while slowing down. Legal?",
+    "options": ["Yes — you were slowing down", "No — you must not change direction while reducing speed", "Yes, if it's within three steps"],
+    "correct": 1,
+    "why": "You must reduce speed as quickly as possible without changing direction until the pivot is established."
+  }
+},
+{
+  "id": "two-touches",
+  "title": "Throwing on the run: the two-contact allowance",
+  "tag": "Movement",
+  "mins": 6,
+  "hook": "Yes, you can throw without ever stopping. There are conditions.",
+  "body": [
+    "If you catch the disc while running or jumping, you're allowed to release a pass without stopping at all — no pivot required.",
+    "The conditions are strict: you can't change direction or increase speed before releasing, and you get a maximum of two additional points of ground contact after the catch and before the release.",
+    "Two contacts is not \"two steps and then a throw\". Count the contacts: catch, one, two, and the disc must already be gone."
+  ],
+  "field": "This is how continuation offence works. Practise catching and releasing inside two contacts — it's a real skill, not a loophole.",
+  "rules": ["18.2.1.1", "18.2.4.2"],
+  "quiz": {
+    "q": "You catch on the run, take three ground contacts, then throw. Ruling?",
+    "options": ["Legal — three steps is standard", "Travel — the maximum is two additional contacts", "Legal if you didn't speed up"],
+    "correct": 1,
+    "why": "A maximum of two additional points of ground contact are allowed after the catch and before release."
+  }
+},
+{
+  "id": "travel",
+  "title": "Travel: the call that doesn't stop play",
+  "tag": "Calls",
+  "mins": 6,
+  "hook": "Almost everyone gets the consequence of this one wrong.",
+  "body": [
+    "A travel is an infraction, not a violation — which means play does not stop. The defence calls \"travel\", you fix your pivot, and the game carries on.",
+    "While you're correcting the pivot, the stall count is paused and you may not throw. Once you're in the right place, the marker resumes counting — and doesn't need to say \"Stalling\" again.",
+    "If you throw a completed pass after a travel but before fixing the pivot, the defence can call a travel violation: play stops and the disc comes back to you."
+  ],
+  "field": "Any defensive player may call travel, not just the marker. Fix it without arguing and you lose almost nothing.",
+  "rules": ["18.2.5", "18.2.5.1", "18.2.5.2", "18.2.6", "18.2.7", "15.5.1"],
+  "quiz": {
+    "q": "\"Travel\" is called against you. What happens to play?",
+    "options": ["Play stops and restarts with a check", "Play continues; you correct the pivot while the count is paused", "Turnover"],
+    "correct": 1,
+    "why": "Travel is an infraction. Play does not stop; the pivot is corrected and the stall count is paused meanwhile."
+  }
+}
+]
