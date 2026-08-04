@@ -20,7 +20,7 @@
   --legal-wash:#E3F0E8;
   --illegal-wash:#F7E4E1;
   --sc-shadow: rgba(12,20,14,.20);
-  --sc-hi: rgba(255,255,255,.34);
+  --sc-opp: #3C433F;
   --shadow:    0 1px 2px rgba(19,26,21,.05), 0 8px 24px -12px rgba(19,26,21,.18);
   --shadow-lg: 0 2px 4px rgba(19,26,21,.06), 0 24px 60px -20px rgba(19,26,21,.30);
 
@@ -50,7 +50,7 @@
     --legal-wash:#13251B;
     --illegal-wash:#2A1512;
     --sc-shadow: rgba(0,0,0,.45);
-    --sc-hi: rgba(255,255,255,.26);
+    --sc-opp: #9AA5A0;
     --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
     --shadow-lg: 0 2px 4px rgba(0,0,0,.4), 0 24px 60px -20px rgba(0,0,0,.75);
   }
@@ -60,7 +60,7 @@
   --ink-faint:#6E7F72; --line:#D3DACE; --line-soft:#E2E7DE; --accent:#E24A12; --accent-ink:#FFFFFF;
   --accent-wash:#FBE9E1; --legal:#2E7D51; --illegal:#B7382C; --caution:#A5720B;
   --legal-wash:#E3F0E8; --illegal-wash:#F7E4E1;
-  --sc-shadow:rgba(12,20,14,.20); --sc-hi:rgba(255,255,255,.34);
+  --sc-shadow:rgba(12,20,14,.20); --sc-opp:#3C433F;
   --shadow:0 1px 2px rgba(19,26,21,.05), 0 8px 24px -12px rgba(19,26,21,.18);
   --shadow-lg:0 2px 4px rgba(19,26,21,.06), 0 24px 60px -20px rgba(19,26,21,.30);
 }
@@ -69,7 +69,7 @@
   --ink-faint:#7C8F82; --line:#27342B; --line-soft:#1E2A22; --accent:#FF6B33; --accent-ink:#1A0E07;
   --accent-wash:#2A1811; --legal:#59B383; --illegal:#E0705F; --caution:#D4A43C;
   --legal-wash:#13251B; --illegal-wash:#2A1512;
-  --sc-shadow:rgba(0,0,0,.45); --sc-hi:rgba(255,255,255,.26);
+  --sc-shadow:rgba(0,0,0,.45); --sc-opp:#9AA5A0;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
   --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 24px 60px -20px rgba(0,0,0,.75);
 }
@@ -284,25 +284,22 @@ section { scroll-margin-top: 4.5rem; }
 .sc-event { fill: var(--ink-soft); transition: opacity .15s; }
 .sc-link { stroke: var(--line); }
 
-/* top-down figures: one --pl colour per player drives every body part, so a
-   legal/illegal state change recolours the whole figure in one declaration */
-.pl { --pl: var(--ink-soft); transition: opacity .15s; }
+/* top-down figures, one flat tone per player. Your team is the accent, the
+   opposition is neutral grey. A violation is flagged with a red ring rather
+   than by recolouring the body — in dark mode a red figure is almost
+   indistinguishable from the orange one. */
+.pl { --pl: var(--sc-opp); transition: opacity .15s; }
 .pl-you { --pl: var(--accent); }
-.pl-offence { --pl: var(--accent); opacity: .5; }
-.pl-defence { --pl: var(--ink-soft); }
-.pl.state-legal { --pl: var(--legal); opacity: 1; }
-.pl.state-illegal { --pl: var(--illegal); opacity: 1; }
+.pl-offence { --pl: var(--accent); opacity: .55; }
+.pl-defence { --pl: var(--sc-opp); }
 .pl.state-fade { opacity: .28; }
-.pl-torso, .pl-head, .pl-hand, .pl-foot { fill: var(--pl); transition: fill .15s; }
-.pl-torso { stroke: var(--raise); }
-.pl-head-shade { fill: #000; opacity: .22; }
+.pl-body, .pl-hand, .pl-foot { fill: var(--pl); transition: fill .15s; }
 .pl-limb { stroke: var(--pl); fill: none; transition: stroke .15s; }
-.pl-shadow { fill: var(--sc-shadow); opacity: .8; }
-.pl-hi { fill: var(--sc-hi); }
-.pl-nose { fill: var(--sc-hi); opacity: .85; }
+.pl-shadow { fill: var(--sc-shadow); opacity: .85; }
 .pl-disc { fill: var(--ink); stroke: var(--raise); }
 .pl-pivot { fill: none; stroke: var(--accent); }
-.pl.state-illegal .pl-pivot { stroke: var(--illegal); }
+.pl-flag { fill: none; stroke: var(--illegal); opacity: 0; transition: opacity .15s; }
+.pl.state-illegal .pl-flag { opacity: 1; }
 
 .sc-disc { fill: var(--ink); stroke: var(--raise); }
 .sc-disc-shadow { fill: var(--sc-shadow); }
@@ -312,8 +309,8 @@ section { scroll-margin-top: 4.5rem; }
 .sc-chip { display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; }
 .sc-sw { width: .62rem; height: .62rem; border-radius: 50%; flex: none; box-sizing: border-box; }
 .sc-sw-you { background: var(--accent); }
-.sc-sw-offence { background: var(--accent); opacity: .5; }
-.sc-sw-defence { background: var(--ink-soft); }
+.sc-sw-offence { background: var(--accent); opacity: .55; }
+.sc-sw-defence { background: var(--sc-opp); }
 .sc-sw-disc { background: var(--ink); border-radius: 50%; width: .74rem; height: .44rem; }
 .sc-sw-ring { border-radius: 0; border-top: 1.5px dashed var(--ink-faint); width: .7rem; height: 0; align-self: center; }
 .sc-sw-ghost { border-radius: 50%; border: 1.5px dashed var(--accent); background: none; }
@@ -905,80 +902,82 @@ function captionAt(caps, t) {
 }
 
 /* ---------------------------------------------------------- player figure */
+const BODY_R = 0.68;   /* body radius in pr; feet must clear it or the body hides the legs */
+
 function makePlayer(role, pr, hasPivot, hand) {
   const g = svgEl("g", { class: `pl pl-${role}` });
   const mk = {};
-  /* shadow sits under the torso only — any larger and it reads as a grey halo
-     rather than a cast shadow */
-  mk.shadow = svgEl("ellipse", { class: "pl-shadow", rx: pr * 0.60, ry: pr * 0.84 });
-  mk.legL = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.24, "stroke-linecap": "round" });
-  mk.legR = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.24, "stroke-linecap": "round" });
-  mk.footL = svgEl("ellipse", { class: "pl-foot", rx: pr * 0.25, ry: pr * 0.14 });
-  mk.footR = svgEl("ellipse", { class: "pl-foot", rx: pr * 0.25, ry: pr * 0.14 });
-  mk.body = svgEl("g", {});
-  /* every solid part carries a background-coloured outline so overlapping
-     bodies, limbs and heads stay separable at small sizes */
-  mk.torso = svgEl("ellipse", { class: "pl-torso", cx: 0, cy: 0, rx: pr * 0.60, ry: pr * 0.92, "stroke-width": pr * 0.10 });
-  mk.armL = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.20, "stroke-linecap": "round" });
-  mk.armR = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.20, "stroke-linecap": "round" });
-  mk.handL = svgEl("circle", { class: "pl-hand", r: pr * 0.17 });
-  mk.handR = svgEl("circle", { class: "pl-hand", r: pr * 0.17 });
+  mk.shadow = svgEl("ellipse", { class: "pl-shadow", rx: pr * BODY_R, ry: pr * (BODY_R - 0.08) });
+  mk.legL = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.21, "stroke-linecap": "round" });
+  mk.legR = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.21, "stroke-linecap": "round" });
+  mk.footL = svgEl("ellipse", { class: "pl-foot", rx: pr * 0.24, ry: pr * 0.14 });
+  mk.footR = svgEl("ellipse", { class: "pl-foot", rx: pr * 0.24, ry: pr * 0.14 });
+  mk.armL = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.18, "stroke-linecap": "round" });
+  mk.armR = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.18, "stroke-linecap": "round" });
+  mk.handL = svgEl("circle", { class: "pl-hand", r: pr * 0.14 });
+  mk.handR = svgEl("circle", { class: "pl-hand", r: pr * 0.14 });
+  mk.body = svgEl("circle", { class: "pl-body", r: pr * BODY_R });
   if (hand) mk.disc = svgEl("ellipse", { class: "pl-disc", rx: pr * 0.40, ry: pr * 0.26, "stroke-width": pr * 0.05 });
-  mk.nose = svgEl("circle", { class: "pl-nose", r: pr * 0.09 });
-  /* head is the same hue as the torso, just shaded down and given a sheen —
-     that reads as a head above shoulders without introducing another colour */
-  mk.head = svgEl("circle", { class: "pl-head", r: pr * 0.42 });
-  mk.headShade = svgEl("circle", { class: "pl-head-shade", r: pr * 0.42 });
-  mk.hi = svgEl("circle", { class: "pl-hi", r: pr * 0.14 });
-  if (hasPivot) mk.pivot = svgEl("circle", { class: "pl-pivot", r: pr * 0.46, "stroke-width": pr * 0.07, "stroke-dasharray": `${pr * 0.22} ${pr * 0.16}` });
+  if (hasPivot) mk.pivot = svgEl("circle", { class: "pl-pivot", r: pr * 0.42, "stroke-width": pr * 0.07, "stroke-dasharray": `${pr * 0.22} ${pr * 0.16}` });
+  mk.flag = svgEl("circle", { class: "pl-flag", r: pr * (BODY_R + 0.30), "stroke-width": pr * 0.13 });
 
-  g.append(mk.shadow, mk.legL, mk.legR, mk.footL, mk.footR);
-  mk.body.append(mk.torso, mk.armL, mk.armR, mk.handL, mk.handR);
-  if (mk.disc) mk.body.appendChild(mk.disc);
-  mk.body.appendChild(mk.nose);
-  g.appendChild(mk.body);
-  g.append(mk.head, mk.headShade, mk.hi);
+  g.append(mk.shadow, mk.legL, mk.legR, mk.footL, mk.footR,
+           mk.armL, mk.armR, mk.handL, mk.handR, mk.body);
+  if (mk.disc) g.appendChild(mk.disc);
   if (mk.pivot) g.appendChild(mk.pivot);
+  g.appendChild(mk.flag);
   mk.g = g;
   return mk;
 }
 
-function updatePlayer(mk, pose, pr, pivotPos, hand) {
+function updatePlayer(mk, pose, pr, pivotPos, hand, switchPivot) {
   const { x, y, face } = pose;
   const rad = face * Math.PI / 180, c = Math.cos(rad), s = Math.sin(rad);
-  const W = (lx, ly) => ({ x: x + lx * c - ly * s, y: y + lx * s + ly * c });
+  const W = (lx, ly) => ({ x: x + lx * pr * c - ly * pr * s, y: y + lx * pr * s + ly * pr * c });
+  const set = (ln, a, b) => { ln.setAttribute("x1", a.x); ln.setAttribute("y1", a.y); ln.setAttribute("x2", b.x); ln.setAttribute("y2", b.y); };
 
-  mk.shadow.setAttribute("cx", x + pr * 0.22);
+  mk.shadow.setAttribute("cx", x + pr * 0.20);
   mk.shadow.setAttribute("cy", y + pr * 0.26);
-  mk.shadow.setAttribute("transform", `rotate(${face} ${x + pr * 0.22} ${y + pr * 0.26})`);
 
-  const hipL = W(-0.10 * pr, -0.34 * pr), hipR = W(-0.10 * pr, 0.34 * pr);
-  const footL = pivotPos ? pivotPos : W(-0.14 * pr, -0.42 * pr);
-  const footR = W(-0.14 * pr, 0.42 * pr);
-  const setLeg = (ln, a, b) => { ln.setAttribute("x1", a.x); ln.setAttribute("y1", a.y); ln.setAttribute("x2", b.x); ln.setAttribute("y2", b.y); };
-  setLeg(mk.legL, hipL, footL); setLeg(mk.legR, hipR, footR);
+  /* feet sit behind and outside the body radius so both legs stay visible.
+     A right-handed thrower pivots on the left foot (and vice versa), so the
+     pinned foot always goes to that leg. Scenes are posed to keep the pivot
+     on that side of the body — otherwise the leg reaches across and the legs
+     cross, which is what buildStage's dev check catches. */
+  const hipL = W(-0.34, -0.30), hipR = W(-0.34, 0.30);
+  let footL, footR;
+  if (pivotPos) {
+    /* switchPivot scenes deliberately move the pivot onto the other foot —
+       that is the travel being illustrated — so there the nearer hip takes it */
+    const useLeft = switchPivot
+      ? (hipL.x - pivotPos.x) ** 2 + (hipL.y - pivotPos.y) ** 2 <=
+        (hipR.x - pivotPos.x) ** 2 + (hipR.y - pivotPos.y) ** 2
+      : hand !== "l";
+    if (useLeft) { footL = pivotPos; footR = W(-1.04, 0.46); }
+    else { footR = pivotPos; footL = W(-1.04, -0.46); }
+  } else {
+    footL = W(-1.08, -0.42); footR = W(-0.94, 0.46);
+  }
+  set(mk.legL, hipL, footL);
+  set(mk.legR, hipR, footR);
   mk.footL.setAttribute("transform", `translate(${footL.x} ${footL.y}) rotate(${face})`);
   mk.footR.setAttribute("transform", `translate(${footR.x} ${footR.y}) rotate(${face})`);
 
-  mk.body.setAttribute("transform", `translate(${x} ${y}) rotate(${face})`);
   const la = pose.la ?? -52, ra = pose.ra ?? 52, al = pose.al ?? 1;
-  const armLen = pr * 0.92 * al;
-  const shL = { x: 0.12 * pr, y: -0.72 * pr }, shR = { x: 0.12 * pr, y: 0.72 * pr };
-  const endL = { x: shL.x + Math.cos(la * Math.PI / 180) * armLen, y: shL.y + Math.sin(la * Math.PI / 180) * armLen };
-  const endR = { x: shR.x + Math.cos(ra * Math.PI / 180) * armLen, y: shR.y + Math.sin(ra * Math.PI / 180) * armLen };
-  setLeg(mk.armL, shL, endL); setLeg(mk.armR, shR, endR);
+  const len = 0.95 * al;
+  const shL = W(0.10, -0.66), shR = W(0.10, 0.66);
+  const endL = W(0.10 + Math.cos(la * Math.PI / 180) * len, -0.66 + Math.sin(la * Math.PI / 180) * len);
+  const endR = W(0.10 + Math.cos(ra * Math.PI / 180) * len, 0.66 + Math.sin(ra * Math.PI / 180) * len);
+  set(mk.armL, shL, endL); set(mk.armR, shR, endR);
   mk.handL.setAttribute("cx", endL.x); mk.handL.setAttribute("cy", endL.y);
   mk.handR.setAttribute("cx", endR.x); mk.handR.setAttribute("cy", endR.y);
+
+  mk.body.setAttribute("cx", x); mk.body.setAttribute("cy", y);
+  mk.flag.setAttribute("cx", x); mk.flag.setAttribute("cy", y);
   if (mk.disc) {
     const e = hand === "l" ? endL : endR;
     mk.disc.setAttribute("cx", e.x); mk.disc.setAttribute("cy", e.y);
   }
-  mk.nose.setAttribute("cx", 0.42 * pr); mk.nose.setAttribute("cy", 0);
-
-  /* head and its highlight stay unrotated so the light source is consistent */
-  mk.head.setAttribute("cx", x); mk.head.setAttribute("cy", y);
-  mk.headShade.setAttribute("cx", x); mk.headShade.setAttribute("cy", y);
-  mk.hi.setAttribute("cx", x - pr * 0.13); mk.hi.setAttribute("cy", y - pr * 0.14);
   if (mk.pivot && pivotPos) { mk.pivot.setAttribute("cx", pivotPos.x); mk.pivot.setAttribute("cy", pivotPos.y); }
 }
 
@@ -1108,7 +1107,7 @@ function buildStage(host, spec, v, capEl) {
         return;
       }
       const piv = A.a.pivot ? poseAt(A.a.pivot, t) : null;
-      updatePlayer(A.mk, p, pr, piv, A.a.hand);
+      updatePlayer(A.mk, p, pr, piv, A.a.hand, A.a.pivotSwitch);
       const cls = stateAt(A.a.states, t);
       A.mk.g.setAttribute("class", `pl pl-${A.a.role}${cls ? " state-" + cls : ""}`);
     });

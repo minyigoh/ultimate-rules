@@ -9,7 +9,7 @@ Output: docs/  — a static site ready for GitHub Pages, and openable straight
 The folder is named docs/ because GitHub Pages can only publish from a repo
 root or from /docs — no other directory name works without a build action.
 """
-import json, os, struct, sys, urllib.parse, zlib
+import json, math, os, struct, sys, urllib.parse, zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(HERE, "content")
@@ -172,6 +172,44 @@ def load(name):
         return json.load(f)
 
 
+def _pose(kfs, t):
+    if t <= kfs[0]["t"]:
+        a = kfs[0]
+        return a["x"], a["y"], a.get("face", 0)
+    if t >= kfs[-1]["t"]:
+        a = kfs[-1]
+        return a["x"], a["y"], a.get("face", 0)
+    for a, b in zip(kfs, kfs[1:]):
+        if a["t"] <= t <= b["t"]:
+            f = 0 if b["t"] == a["t"] else (t - a["t"]) / (b["t"] - a["t"])
+            fa, fb = a.get("face", 0), b.get("face", 0)
+            df = ((fb - fa + 540) % 360) - 180
+            return (a["x"] + (b["x"] - a["x"]) * f,
+                    a["y"] + (b["y"] - a["y"]) * f, fa + df * f)
+    return kfs[-1]["x"], kfs[-1]["y"], kfs[-1].get("face", 0)
+
+
+def check_pivot_side(sid, v):
+    """A right-handed thrower pivots on the left foot. If a pose puts the pivot
+    on the other side of the body, the renderer has to reach that leg across
+    the torso and the legs visibly cross — so fail the build instead."""
+    for a in v["actors"]:
+        if "pivot" not in a or a.get("pivotSwitch"):
+            continue
+        want_negative = a.get("hand", "r") != "l"
+        for i in range(41):
+            t = v["duration"] * i / 40
+            bx, by, face = _pose(a["keyframes"], t)
+            px, py, _ = _pose(a["pivot"], t)
+            r = math.radians(-face)
+            ly = (px - bx) * math.sin(r) + (py - by) * math.cos(r)
+            if abs(ly) > 1e-6 and (ly < 0) != want_negative:
+                side = "left" if want_negative else "right"
+                sys.exit(f"scene '{sid}/{v['id']}' actor '{a['id']}': at t={t:.2f} the pivot "
+                         f"is on the wrong side of the body (should be the {side} foot); "
+                         f"the legs would cross")
+
+
 def main():
     rules = load("rules.json")
     extras = load("extras.json")
@@ -232,6 +270,7 @@ def main():
             for c in v["captions"]:
                 if c["t"] > v["duration"] + 1e-9:
                     sys.exit(f"scene '{sid}/{v['id']}': caption at t={c['t']} is past duration")
+            check_pivot_side(sid, v)
 
     data = {
         "rules": rules["rules"],

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figure styles — pick one</title>
+<style>
+:root {
+  --ground:#F1F3EE; --raise:#FFFFFF; --sunk:#E7EAE3; --ink:#131A15; --ink-soft:#46564A;
+  --ink-faint:#6E7F72; --line:#D3DACE; --line-soft:#E2E7DE; --accent:#E24A12;
+  --illegal:#B7382C; --sc-shadow:rgba(12,20,14,.20); --sc-opp:#3C433F;
+  --f-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Arial,sans-serif;
+  --f-mono:ui-monospace,"Cascadia Mono","Segoe UI Mono",Consolas,monospace;
+}
+:root[data-theme="dark"] {
+  --ground:#0F1712; --raise:#17211B; --sunk:#0A100C; --ink:#E6EDE6; --ink-soft:#A8BAAD;
+  --ink-faint:#7C8F82; --line:#27342B; --line-soft:#1E2A22; --accent:#FF6B33;
+  --illegal:#E0705F; --sc-shadow:rgba(0,0,0,.45); --sc-opp:#9AA5A0;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--f-ui); font-size:16px; line-height:1.6; }
+.wrap { width:min(100% - 2rem, 76rem); margin-inline:auto; padding:2.5rem 0 4rem; }
+h1 { font-size:1.9rem; font-weight:800; letter-spacing:-.03em; margin:0 0 .4rem; }
+.sub { color:var(--ink-soft); max-width:40rem; margin:0 0 1.5rem; }
+.bar { display:flex; gap:.5rem; align-items:center; margin-bottom:2rem; flex-wrap:wrap; }
+.btn { font:inherit; font-size:.85rem; font-weight:650; color:var(--ink-soft); background:var(--raise);
+  border:1px solid var(--line); border-radius:100px; padding:.4rem .9rem; cursor:pointer; }
+.btn:hover { color:var(--ink); border-color:var(--ink-faint); }
+.btn.on { color:var(--accent); border-color:var(--accent); background:var(--raise); }
+
+.row { border:1px solid var(--line); border-radius:10px; background:var(--raise); margin-bottom:1.1rem; overflow:hidden; }
+.row-head { display:flex; align-items:baseline; gap:.7rem; padding:.85rem 1.1rem; border-bottom:1px solid var(--line-soft); background:var(--sunk); flex-wrap:wrap; }
+.row-key { font-family:var(--f-mono); font-size:.72rem; font-weight:700; color:var(--accent);
+  background:var(--raise); border:1px solid var(--line); border-radius:3px; padding:.1rem .4rem; }
+.row-name { font-weight:750; font-size:1.02rem; }
+.row-desc { color:var(--ink-faint); font-size:.85rem; }
+.cells { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-soft); }
+@media (max-width:760px){ .cells { grid-template-columns:1fr; } }
+.cell { background:var(--raise); padding:.5rem; }
+.cell figcaption { font-family:var(--f-mono); font-size:.63rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-faint); padding:.2rem .4rem .5rem; }
+svg { width:100%; height:auto; display:block; }
+.sc-turf { fill:var(--sunk); }
+.sc-ring { fill:none; stroke:var(--ink-faint); }
+.sc-pivot { fill:none; stroke:var(--accent); }
+.sc-disc { fill:var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ways to draw the players</h1>
+  <p class="sub">Same three moments in every row, so you can compare directly. Toggle the theme and the illegal state —
+     a style has to hold up in all of them. Orange is your team, grey the opposition.</p>
+  <p class="sub"><strong>Note on F:</strong> this is my attempt at your reference, built procedurally from
+     jointed limbs. It doesn&rsquo;t get there — assembling a body from circles and capsules gives a lumpy
+     shape, and the head reads as a lollipop. Matching that reference properly needs hand-drawn pose
+     artwork rather than generated geometry. See the chat for the two options.</p>
+  <div class="bar">
+    <button class="btn" id="theme">Dark theme</button>
+    <button class="btn" id="bad">Show illegal state</button>
+    <button class="btn" id="big">Bigger</button>
+  </div>
+  <div id="rows"></div>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const E=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+const R=(lx,ly,c,s,x,y)=>({x:x+lx*c-ly*s, y:y+lx*s+ly*c});
+
+/* ---- the three test moments -------------------------------------------------
+   pivot   : pinned foot + long reach  -> can the style show feet?
+   marking : two players close together -> do they stay separable? do arms read?
+   running : plain locomotion           -> is facing obvious at a glance?        */
+const SITUATIONS = [
+  { id:"pivot", label:"Pivoting (feet matter)", box:[-1.5,-1.15,3.0,2.3],
+    pivotRing:[-0.35,0.25],
+    players:[{ x:0.15,y:-0.45, face:-42, role:"you", pinned:[-0.35,0.25], la:-38, ra:34, al:1.35, disc:"r" }] },
+  { id:"marking", label:"Marking (arms matter)", box:[-1.5,-1.15,3.0,2.3],
+    players:[
+      { x:-0.45,y:0, face:0, role:"you", pinned:[-0.6,0.22], la:-58, ra:44, al:1, disc:"r" },
+      { x:0.5,y:0, face:180, role:"def", la:-76, ra:76, al:1.2, flag:true }] },
+  { id:"running", label:"Running (facing matters)", box:[-1.5,-1.15,3.0,2.3],
+    players:[{ x:-0.1,y:0, face:14, role:"you", la:-46, ra:52, al:1.1, disc:"r" }] }
+];
+
+const STYLES = [
+  { key:"F", name:"Anatomical silhouette", desc:"Jointed limbs with elbows and knees, tapered, merged into one flat mass. Orange = your team, grey = opposition." },
+  { key:"A", name:"Chip", desc:"Flat directional chip. No head, no shading. Limbs only when the moment needs them." },
+  { key:"B", name:"Outline", desc:"Line art — hollow bodies, coloured strokes. Lightest on the page; overlaps stay clear." },
+  { key:"C", name:"Soft puck — single tone", desc:"One flat colour throughout, lifted by a soft ground shadow. Both legs now clear the body. Facing reads from the limbs." },
+  { key:"D", name:"Silhouette", desc:"Head and shoulders merged into one flat shape, like an icon. Human, but no internal lines." },
+  { key:"E", name:"Current", desc:"What is live now — outlined torso, separately shaded head, blurred shadow." }
+];
+
+let PR = 0.30, BAD = false;
+
+function drawPlayer(svg, p, style, blurId) {
+  const pr = PR * (style==="A"||style==="C" ? 1.15 : 1);
+  const col = p.flag && BAD ? "var(--illegal)" : (p.role==="you" ? "var(--accent)" : "var(--sc-opp)");
+  const rad = p.face*Math.PI/180, c=Math.cos(rad), s=Math.sin(rad);
+  const W = (lx,ly)=>R(lx,ly,c,s,p.x,p.y);
+  const g = E("g",{});
+  const line=(a,b,w)=>E("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:col,"stroke-width":w,"stroke-linecap":"round"});
+
+  const la=p.la??-52, ra=p.ra??52, al=p.al??1;
+  const armLen = pr*0.95*al;
+  const shL=W(0.10*pr,-0.66*pr), shR=W(0.10*pr,0.66*pr);
+  const eL=W(0.10*pr+Math.cos(la*Math.PI/180)*armLen, -0.66*pr+Math.sin(la*Math.PI/180)*armLen);
+  const eR=W(0.10*pr+Math.cos(ra*Math.PI/180)*armLen,  0.66*pr+Math.sin(ra*Math.PI/180)*armLen);
+  const footL = p.pinned ? {x:p.pinned[0],y:p.pinned[1]} : W(-0.16*pr,-0.40*pr);
+  const footR = W(-0.16*pr, 0.40*pr);
+  const hipL=W(-0.08*pr,-0.30*pr), hipR=W(-0.08*pr,0.30*pr);
+
+  if (style==="F") {
+    /* one flat silhouette: every part shares a fill and carries no stroke, so
+       jointed limbs and body mass union into a single organic shape.
+       pr here is half the shoulder width; limbs are long and comparatively
+       thin so they stay legible instead of melting into the torso */
+    const D=(a,len,from)=>({x:from.x+Math.cos((p.face+a)*Math.PI/180)*len,
+                            y:from.y+Math.sin((p.face+a)*Math.PI/180)*len});
+    const cap=(a,b,w)=>E("line",{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:col,"stroke-width":w,"stroke-linecap":"round"});
+    const fL = p.pinned ? {x:p.pinned[0],y:p.pinned[1]} : W(-1.35*pr,-0.46*pr);
+    const fR = W(-1.20*pr, 0.52*pr);
+    for (const [sg,ft] of [[-1,fL],[1,fR]]) {
+      const hip=W(-0.74*pr, sg*0.30*pr);
+      const mx=(hip.x+ft.x)/2, my=(hip.y+ft.y)/2;
+      const dx=ft.x-hip.x, dy=ft.y-hip.y, L=Math.hypot(dx,dy)||1;
+      const knee={x:mx - dy/L*0.18*pr*sg, y:my + dx/L*0.18*pr*sg};
+      g.append(cap(hip,knee,pr*0.26), cap(knee,ft,pr*0.20));
+      g.append(E("ellipse",{cx:ft.x,cy:ft.y,rx:pr*0.26,ry:pr*0.14,fill:col,
+        transform:`rotate(${p.face} ${ft.x} ${ft.y})`}));
+    }
+    const hands={};
+    for (const [sg,ang] of [[-1,la],[1,ra]]) {
+      const sh=W(0.20*pr, sg*0.74*pr);
+      const total=pr*2.0*al;
+      const elbow=D(ang,total*0.52,sh);
+      const hand=D(ang+sg*34,total*0.48,elbow);   // forearm tucks in, not splayed
+      g.append(cap(sh,elbow,pr*0.21), cap(elbow,hand,pr*0.16));
+      g.append(E("circle",{cx:hand.x,cy:hand.y,r:pr*0.13,fill:col}));
+      hands[sg<0?"l":"r"]=hand;
+    }
+    /* one smooth tapered path for the whole trunk — shoulders at the front
+       easing back to narrower hips, so there are no ellipse-overlap bulges */
+    const P=(lx,ly)=>{const q=W(lx*pr,ly*pr);return `${q.x} ${q.y}`;};
+    g.append(E("path",{fill:col,d:
+      `M ${P(0.10,-0.86)} C ${P(0.46,-0.72)} ${P(0.46,0.72)} ${P(0.10,0.86)}`+
+      ` C ${P(-0.20,0.92)} ${P(-0.70,0.58)} ${P(-0.92,0.34)}`+
+      ` C ${P(-1.18,0.16)} ${P(-1.18,-0.16)} ${P(-0.92,-0.34)}`+
+      ` C ${P(-0.70,-0.58)} ${P(-0.20,-0.92)} ${P(0.10,-0.86)} Z`}));
+    // neck + head: the constriction is what makes it read as a person
+    const neckA=W(0.20*pr,0), headC=W(0.74*pr,0);
+    g.append(cap(neckA,headC,pr*0.34));
+    g.append(E("circle",{cx:headC.x,cy:headC.y,r:pr*0.42,fill:col}));
+    if (p.disc) {
+      const e=hands[p.disc]||hands.r;
+      g.append(E("ellipse",{cx:e.x,cy:e.y,rx:pr*0.40,ry:pr*0.26,class:"sc-disc"}));
+    }
+    svg.appendChild(g);
+    return;
+  }
+  else if (style==="A") {
+    g.append(line(hipL,footL,pr*0.20), line(hipR,footR,pr*0.20));
+    g.append(E("ellipse",{cx:footL.x,cy:footL.y,rx:pr*0.20,ry:pr*0.13,fill:col,transform:`rotate(${p.face} ${footL.x} ${footL.y})`}));
+    g.append(E("ellipse",{cx:footR.x,cy:footR.y,rx:pr*0.20,ry:pr*0.13,fill:col,transform:`rotate(${p.face} ${footR.x} ${footR.y})`}));
+    g.append(line(shL,eL,pr*0.18), line(shR,eR,pr*0.18));
+    // teardrop body: ellipse + a wedge pointing along facing
+    const tip=W(1.15*pr,0), wl=W(0.25*pr,-0.52*pr), wr=W(0.25*pr,0.52*pr);
+    g.append(E("path",{d:`M${wl.x} ${wl.y} L${tip.x} ${tip.y} L${wr.x} ${wr.y} Z`,fill:col}));
+    g.append(E("ellipse",{cx:p.x,cy:p.y,rx:pr*0.62,ry:pr*0.70,fill:col,transform:`rotate(${p.face} ${p.x} ${p.y})`}));
+  }
+  else if (style==="B") {
+    const sw=pr*0.15;
+    g.append(line(hipL,footL,sw*0.85), line(hipR,footR,sw*0.85));
+    g.append(E("circle",{cx:footL.x,cy:footL.y,r:pr*0.15,fill:"var(--raise)",stroke:col,"stroke-width":sw*0.8}));
+    g.append(E("circle",{cx:footR.x,cy:footR.y,r:pr*0.15,fill:"var(--raise)",stroke:col,"stroke-width":sw*0.8}));
+    g.append(line(shL,eL,sw), line(shR,eR,sw));
+    g.append(E("circle",{cx:p.x,cy:p.y,r:pr*0.62,fill:"var(--raise)",stroke:col,"stroke-width":sw}));
+    const t1=W(0.18*pr,0), t2=W(0.95*pr,0);
+    g.append(line(t1,t2,sw));
+  }
+  else if (style==="C") {
+    /* single tone: body, limbs and feet all one flat colour. Facing is read
+       from where the feet and arms sit, so no notch or highlight is needed.
+       Feet must sit clear of the body radius or the body covers the legs. */
+    const BR = 0.68;                                    // body radius, in pr
+    const fL = p.pinned ? {x:p.pinned[0],y:p.pinned[1]} : W(-1.02*pr,-0.40*pr);
+    const fR = W(-0.86*pr, 0.44*pr);
+    g.append(E("ellipse",{cx:p.x+pr*0.20,cy:p.y+pr*0.26,rx:pr*BR,ry:pr*(BR-0.08),
+      fill:"var(--sc-shadow)",filter:`url(#${blurId})`}));
+    for (const [sg,ft] of [[-1,fL],[1,fR]]) {
+      const hip=W(-0.34*pr, sg*0.30*pr);
+      g.append(line(hip,ft,pr*0.21));
+      g.append(E("ellipse",{cx:ft.x,cy:ft.y,rx:pr*0.24,ry:pr*0.14,fill:col,
+        transform:`rotate(${p.face} ${ft.x} ${ft.y})`}));
+    }
+    g.append(line(shL,eL,pr*0.18), line(shR,eR,pr*0.18));
+    g.append(E("circle",{cx:eL.x,cy:eL.y,r:pr*0.14,fill:col}));
+    g.append(E("circle",{cx:eR.x,cy:eR.y,r:pr*0.14,fill:col}));
+    g.append(E("circle",{cx:p.x,cy:p.y,r:pr*BR,fill:col}));
+  }
+  else if (style==="D") {
+    g.append(line(hipL,footL,pr*0.22), line(hipR,footR,pr*0.22));
+    g.append(E("ellipse",{cx:footL.x,cy:footL.y,rx:pr*0.22,ry:pr*0.14,fill:col,transform:`rotate(${p.face} ${footL.x} ${footL.y})`}));
+    g.append(E("ellipse",{cx:footR.x,cy:footR.y,rx:pr*0.22,ry:pr*0.14,fill:col,transform:`rotate(${p.face} ${footR.x} ${footR.y})`}));
+    g.append(line(shL,eL,pr*0.20), line(shR,eR,pr*0.20));
+    g.append(E("circle",{cx:eL.x,cy:eL.y,r:pr*0.15,fill:col}));
+    g.append(E("circle",{cx:eR.x,cy:eR.y,r:pr*0.15,fill:col}));
+    // shoulders + head share one fill and no stroke, so they read as one shape
+    g.append(E("ellipse",{cx:p.x,cy:p.y,rx:pr*0.56,ry:pr*0.86,fill:col,transform:`rotate(${p.face} ${p.x} ${p.y})`}));
+    const hd=W(0.16*pr,0);
+    g.append(E("circle",{cx:hd.x,cy:hd.y,r:pr*0.44,fill:col}));
+  }
+  else {
+    g.append(E("ellipse",{cx:p.x+pr*0.22,cy:p.y+pr*0.26,rx:pr*0.60,ry:pr*0.84,fill:"var(--sc-shadow)",opacity:.8,
+      filter:`url(#${blurId})`,transform:`rotate(${p.face} ${p.x+pr*0.22} ${p.y+pr*0.26})`}));
+    g.append(line(hipL,footL,pr*0.24), line(hipR,footR,pr*0.24));
+    g.append(E("ellipse",{cx:footL.x,cy:footL.y,rx:pr*0.25,ry:pr*0.14,fill:col,transform:`rotate(${p.face} ${footL.x} ${footL.y})`}));
+    g.append(E("ellipse",{cx:footR.x,cy:footR.y,rx:pr*0.25,ry:pr*0.14,fill:col,transform:`rotate(${p.face} ${footR.x} ${footR.y})`}));
+    g.append(E("ellipse",{cx:p.x,cy:p.y,rx:pr*0.60,ry:pr*0.92,fill:col,stroke:"var(--raise)","stroke-width":pr*0.10,
+      transform:`rotate(${p.face} ${p.x} ${p.y})`}));
+    g.append(line(shL,eL,pr*0.20), line(shR,eR,pr*0.20));
+    g.append(E("circle",{cx:eL.x,cy:eL.y,r:pr*0.17,fill:col}));
+    g.append(E("circle",{cx:eR.x,cy:eR.y,r:pr*0.17,fill:col}));
+    g.append(E("circle",{cx:p.x,cy:p.y,r:pr*0.42,fill:col}));
+    g.append(E("circle",{cx:p.x,cy:p.y,r:pr*0.42,fill:"#000",opacity:.22}));
+    g.append(E("circle",{cx:p.x-pr*0.13,cy:p.y-pr*0.14,r:pr*0.14,fill:"#fff",opacity:.34}));
+  }
+
+  if (p.disc) {
+    const e = p.disc==="l" ? eL : eR;
+    g.append(E("ellipse",{cx:e.x,cy:e.y,rx:pr*0.40,ry:pr*0.26,class:"sc-disc"}));
+  }
+  svg.appendChild(g);
+}
+
+let uid=0;
+function render() {
+  const host=document.getElementById("rows");
+  host.replaceChildren();
+  for (const st of STYLES) {
+    const row=document.createElement("div"); row.className="row";
+    row.innerHTML=`<div class="row-head"><span class="row-key">${st.key}</span>
+      <span class="row-name">${st.name}</span><span class="row-desc">${st.desc}</span></div>`;
+    const cells=document.createElement("div"); cells.className="cells";
+    for (const sit of SITUATIONS) {
+      const fig=document.createElement("figure"); fig.className="cell"; fig.style.margin="0";
+      const [x0,y0,w,h]=sit.box;
+      const svg=E("svg",{viewBox:`${x0} ${y0} ${w} ${h}`});
+      const blurId=`b${++uid}`;
+      const defs=E("defs",{}); const f=E("filter",{id:blurId,x:"-60%",y:"-60%",width:"220%",height:"220%"});
+      f.appendChild(E("feGaussianBlur",{stdDeviation:PR*0.16})); defs.appendChild(f); svg.appendChild(defs);
+      svg.appendChild(E("rect",{x:x0,y:y0,width:w,height:h,class:"sc-turf"}));
+      if (sit.pivotRing) svg.appendChild(E("circle",{cx:sit.pivotRing[0],cy:sit.pivotRing[1],r:PR*0.46,
+        class:"sc-pivot","stroke-width":PR*0.07,"stroke-dasharray":`${PR*0.22} ${PR*0.16}`}));
+      sit.players.forEach(p=>drawPlayer(svg,p,st.key,blurId));
+      fig.appendChild(svg);
+      const cap=document.createElement("figcaption"); cap.textContent=sit.label; fig.appendChild(cap);
+      cells.appendChild(fig);
+    }
+    row.appendChild(cells); host.appendChild(row);
+  }
+}
+
+document.getElementById("theme").addEventListener("click",e=>{
+  const dark=document.documentElement.getAttribute("data-theme")==="dark";
+  document.documentElement.setAttribute("data-theme",dark?"light":"dark");
+  e.target.textContent=dark?"Dark theme":"Light theme"; e.target.classList.toggle("on",!dark);
+});
+document.getElementById("bad").addEventListener("click",e=>{
+  BAD=!BAD; e.target.classList.toggle("on",BAD);
+  e.target.textContent=BAD?"Show normal state":"Show illegal state"; render();
+});
+document.getElementById("big").addEventListener("click",e=>{
+  PR = PR===0.30 ? 0.44 : 0.30; e.target.classList.toggle("on",PR!==0.30);
+  e.target.textContent = PR===0.30 ? "Bigger" : "Smaller"; render();
+});
+render();
+</script>
+</body>
+</html>

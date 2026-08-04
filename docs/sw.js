@@ -1,4 +1,4 @@
-const VERSION = "learn-ultimate-8905c148";
+const VERSION = "learn-ultimate-f4d5f065";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest",
                 "./icon-180.png", "./icon-192.png", "./icon-512.png"];
 
