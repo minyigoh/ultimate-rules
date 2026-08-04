@@ -904,6 +904,79 @@ function captionAt(caps, t) {
 /* ---------------------------------------------------------- player figure */
 const BODY_R = 0.68;   /* body radius in pr; feet must clear it or the body hides the legs */
 
+/* ---- gait ------------------------------------------------------------------
+   Feet used to be fixed offsets from the body, so they slid along with it and
+   players appeared to glide. Instead we measure distance travelled along the
+   path and plant each foot alternately: a planted foot holds its world
+   position while the body moves past it, then swings ahead to the next plant.
+   That is what reads as taking steps from directly above. */
+function buildPath(kfs) {
+  const N = 240, t0 = kfs[0].t, t1 = kfs[kfs.length - 1].t;
+  const pts = [];
+  for (let i = 0; i <= N; i++) {
+    const t = t0 + (t1 - t0) * i / N;
+    const p = poseAt(kfs, t);
+    pts.push({ t, x: p.x, y: p.y, face: p.face || 0, s: 0 });
+  }
+  let acc = 0;
+  for (let i = 1; i < pts.length; i++) {
+    acc += Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y);
+    pts[i].s = acc;
+  }
+  return { pts, total: acc };
+}
+function distanceAt(path, t) {
+  const p = path.pts;
+  if (t <= p[0].t) return 0;
+  if (t >= p[p.length - 1].t) return path.total;
+  for (let i = 1; i < p.length; i++) {
+    if (t <= p[i].t) {
+      const f = (t - p[i - 1].t) / (p[i].t - p[i - 1].t || 1);
+      return p[i - 1].s + (p[i].s - p[i - 1].s) * f;
+    }
+  }
+  return path.total;
+}
+function pointAtDistance(path, d) {
+  const p = path.pts;
+  d = Math.max(0, Math.min(path.total, d));
+  for (let i = 1; i < p.length; i++) {
+    if (d <= p[i].s) {
+      const seg = p[i].s - p[i - 1].s || 1;
+      const f = (d - p[i - 1].s) / seg;
+      const x = p[i - 1].x + (p[i].x - p[i - 1].x) * f;
+      const y = p[i - 1].y + (p[i].y - p[i - 1].y) * f;
+      return { x, y, face: lerpAngle(p[i - 1].face, p[i].face, f) };
+    }
+  }
+  const b = p[p.length - 1];
+  return { x: b.x, y: b.y, face: b.face };
+}
+function stepFeet(path, s, pr) {
+  const S = 2.4 * pr, cyc = 2 * S, half = 0.44 * pr, lead = 0.30 * pr;
+  /* stance is offset relative to the body's facing, not the direction of
+     travel — a marker shuffles sideways while facing the thrower, and using
+     the path tangent would put the feet on the wrong sides and cross the legs */
+  const plant = (d, side) => {
+    const q = pointAtDistance(path, d);
+    const r = q.face * Math.PI / 180, c = Math.cos(r), sn = Math.sin(r);
+    const lx = lead, ly = side * half;
+    return { x: q.x + lx * c - ly * sn, y: q.y + lx * sn + ly * c };
+  };
+  const foot = (offset, side) => {
+    const rel = s - offset;
+    const k = Math.floor(rel / cyc);
+    const local = rel - k * cyc;
+    const dPlant = offset + k * cyc;
+    if (local < cyc * 0.58) return plant(dPlant, side);      // planted: world-fixed
+    const u = (local - cyc * 0.58) / (cyc * 0.42);           // swinging to next plant
+    const a = plant(dPlant, side), b = plant(dPlant + cyc, side);
+    const e = u * u * (3 - 2 * u);                            // ease the swing
+    return { x: a.x + (b.x - a.x) * e, y: a.y + (b.y - a.y) * e };
+  };
+  return { L: foot(0, -1), R: foot(S, 1) };
+}
+
 function makePlayer(role, pr, hasPivot, hand) {
   const g = svgEl("g", { class: `pl pl-${role}` });
   const mk = {};
@@ -930,7 +1003,7 @@ function makePlayer(role, pr, hasPivot, hand) {
   return mk;
 }
 
-function updatePlayer(mk, pose, pr, pivotPos, hand, switchPivot) {
+function updatePlayer(mk, pose, pr, pivotPos, hand, switchPivot, gaitFeet) {
   const { x, y, face } = pose;
   const rad = face * Math.PI / 180, c = Math.cos(rad), s = Math.sin(rad);
   const W = (lx, ly) => ({ x: x + lx * pr * c - ly * pr * s, y: y + lx * pr * s + ly * pr * c });
@@ -955,6 +1028,20 @@ function updatePlayer(mk, pose, pr, pivotPos, hand, switchPivot) {
       : hand !== "l";
     if (useLeft) { footL = pivotPos; footR = W(-1.04, 0.46); }
     else { footR = pivotPos; footL = W(-1.04, -0.46); }
+  } else if (gaitFeet) {
+    /* when a player turns sharply, a foot planted under the earlier facing can
+       drift across the body's centreline. Keep the forward/back plant — that
+       is what reads as a step — but hold each foot inside its own half, so the
+       two legs stay in opposite half-planes and cannot cross. */
+    const keepSide = (q, side) => {
+      const dx = q.x - x, dy = q.y - y;
+      const lx = dx * c + dy * s;
+      let ly = -dx * s + dy * c;
+      ly = side < 0 ? Math.min(ly, -0.18 * pr) : Math.max(ly, 0.18 * pr);
+      return { x: x + lx * c - ly * s, y: y + lx * s + ly * c };
+    };
+    footL = keepSide(gaitFeet.L, -1);
+    footR = keepSide(gaitFeet.R, 1);
   } else {
     footL = W(-1.08, -0.42); footR = W(-0.94, 0.46);
   }
@@ -1085,7 +1172,11 @@ function buildStage(host, spec, v, capEl) {
     const mk = makePlayer(a.role, pr, !!a.pivot, a.hand);
     mk.shadow.setAttribute("filter", `url(#${blurId})`);
     svg.appendChild(mk.g);
-    return { a, kind: "player", mk };
+    /* players who actually travel get a step cycle; a pinned pivot or a
+       near-stationary player keeps a fixed stance instead */
+    const path = buildPath(a.keyframes);
+    const walks = !a.pivot && path.total > 2.4 * pr * 0.6;
+    return { a, kind: "player", mk, path: walks ? path : null };
   });
 
   host.innerHTML = "";
@@ -1107,7 +1198,8 @@ function buildStage(host, spec, v, capEl) {
         return;
       }
       const piv = A.a.pivot ? poseAt(A.a.pivot, t) : null;
-      updatePlayer(A.mk, p, pr, piv, A.a.hand, A.a.pivotSwitch);
+      const gait = A.path ? stepFeet(A.path, distanceAt(A.path, t), pr) : null;
+      updatePlayer(A.mk, p, pr, piv, A.a.hand, A.a.pivotSwitch, gait);
       const cls = stateAt(A.a.states, t);
       A.mk.g.setAttribute("class", `pl pl-${A.a.role}${cls ? " state-" + cls : ""}`);
     });
