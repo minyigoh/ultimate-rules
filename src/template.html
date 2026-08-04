@@ -19,6 +19,8 @@
   --caution:   #A5720B;
   --legal-wash:#E3F0E8;
   --illegal-wash:#F7E4E1;
+  --sc-shadow: rgba(12,20,14,.20);
+  --sc-hi: rgba(255,255,255,.34);
   --shadow:    0 1px 2px rgba(19,26,21,.05), 0 8px 24px -12px rgba(19,26,21,.18);
   --shadow-lg: 0 2px 4px rgba(19,26,21,.06), 0 24px 60px -20px rgba(19,26,21,.30);
 
@@ -47,6 +49,8 @@
     --caution:   #D4A43C;
     --legal-wash:#13251B;
     --illegal-wash:#2A1512;
+    --sc-shadow: rgba(0,0,0,.45);
+    --sc-hi: rgba(255,255,255,.26);
     --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
     --shadow-lg: 0 2px 4px rgba(0,0,0,.4), 0 24px 60px -20px rgba(0,0,0,.75);
   }
@@ -56,6 +60,7 @@
   --ink-faint:#6E7F72; --line:#D3DACE; --line-soft:#E2E7DE; --accent:#E24A12; --accent-ink:#FFFFFF;
   --accent-wash:#FBE9E1; --legal:#2E7D51; --illegal:#B7382C; --caution:#A5720B;
   --legal-wash:#E3F0E8; --illegal-wash:#F7E4E1;
+  --sc-shadow:rgba(12,20,14,.20); --sc-hi:rgba(255,255,255,.34);
   --shadow:0 1px 2px rgba(19,26,21,.05), 0 8px 24px -12px rgba(19,26,21,.18);
   --shadow-lg:0 2px 4px rgba(19,26,21,.06), 0 24px 60px -20px rgba(19,26,21,.30);
 }
@@ -64,6 +69,7 @@
   --ink-faint:#7C8F82; --line:#27342B; --line-soft:#1E2A22; --accent:#FF6B33; --accent-ink:#1A0E07;
   --accent-wash:#2A1811; --legal:#59B383; --illegal:#E0705F; --caution:#D4A43C;
   --legal-wash:#13251B; --illegal-wash:#2A1512;
+  --sc-shadow:rgba(0,0,0,.45); --sc-hi:rgba(255,255,255,.26);
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
   --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 24px 60px -20px rgba(0,0,0,.75);
 }
@@ -278,27 +284,73 @@ section { scroll-margin-top: 4.5rem; }
 .sc-event { fill: var(--ink-soft); transition: opacity .15s; }
 .sc-link { stroke: var(--line); }
 
-.tok { transition: fill .15s, stroke .15s, opacity .15s; }
-.tok-you { fill: var(--accent); }
-.tok-you2 { fill: none; stroke: var(--accent); }
-.tok-offence { fill: var(--ink-soft); }
-.tok-defence { fill: var(--raise); stroke: var(--ink-faint); }
-.tok-disc { fill: var(--ink); opacity: .88; }
-.tok.state-legal { fill: var(--legal); stroke: var(--legal); }
-.tok.state-illegal { fill: var(--illegal); stroke: var(--illegal); }
-.tok.state-fade { opacity: .3; }
+/* top-down figures: one --pl colour per player drives every body part, so a
+   legal/illegal state change recolours the whole figure in one declaration */
+.pl { --pl: var(--ink-soft); transition: opacity .15s; }
+.pl-you { --pl: var(--accent); }
+.pl-offence { --pl: var(--accent); opacity: .5; }
+.pl-defence { --pl: var(--ink-soft); }
+.pl.state-legal { --pl: var(--legal); opacity: 1; }
+.pl.state-illegal { --pl: var(--illegal); opacity: 1; }
+.pl.state-fade { opacity: .28; }
+.pl-torso, .pl-head, .pl-hand, .pl-foot { fill: var(--pl); transition: fill .15s; }
+.pl-torso { stroke: var(--raise); }
+.pl-head-shade { fill: #000; opacity: .22; }
+.pl-limb { stroke: var(--pl); fill: none; transition: stroke .15s; }
+.pl-shadow { fill: var(--sc-shadow); opacity: .8; }
+.pl-hi { fill: var(--sc-hi); }
+.pl-nose { fill: var(--sc-hi); opacity: .85; }
+.pl-disc { fill: var(--ink); stroke: var(--raise); }
+.pl-pivot { fill: none; stroke: var(--accent); }
+.pl.state-illegal .pl-pivot { stroke: var(--illegal); }
+
+.sc-disc { fill: var(--ink); stroke: var(--raise); }
+.sc-disc-shadow { fill: var(--sc-shadow); }
 
 .scene-caption { min-height: 2.5em; padding: .95rem 1.1rem .3rem; margin: 0; font-size: .92rem; color: var(--ink-soft); font-weight: 550; }
 .scene-legend { display: flex; flex-wrap: wrap; gap: .8rem 1.1rem; padding: 0 1.1rem .85rem; font-size: .74rem; color: var(--ink-faint); }
 .sc-chip { display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; }
 .sc-sw { width: .62rem; height: .62rem; border-radius: 50%; flex: none; box-sizing: border-box; }
 .sc-sw-you { background: var(--accent); }
-.sc-sw-you2 { background: none; border: 1.5px solid var(--accent); }
-.sc-sw-offence { background: var(--ink-soft); }
-.sc-sw-defence { background: var(--raise); border: 1.5px solid var(--ink-faint); }
+.sc-sw-offence { background: var(--accent); opacity: .5; }
+.sc-sw-defence { background: var(--ink-soft); }
 .sc-sw-disc { background: var(--ink); border-radius: 50%; width: .74rem; height: .44rem; }
 .sc-sw-ring { border-radius: 0; border-top: 1.5px dashed var(--ink-faint); width: .7rem; height: 0; align-self: center; }
 .sc-sw-ghost { border-radius: 50%; border: 1.5px dashed var(--accent); background: none; }
+.sc-sw-pivot { border-radius: 50%; border: 1.5px dashed var(--accent); background: none; }
+
+/* scenario tabs — the legal/illegal contrast is the point of the diagram,
+   so the verdict is encoded in the tab itself, not just the caption */
+.scene-tabs { display: flex; flex-wrap: wrap; gap: .3rem; padding: .6rem .6rem .1rem; }
+.scene-tab {
+  display: inline-flex; align-items: center; gap: .38rem;
+  font-size: .78rem; font-weight: 650; color: var(--ink-faint);
+  border: 1px solid var(--line); border-radius: 100px; padding: .3rem .7rem;
+  background: var(--raise); transition: color .12s, border-color .12s, background .12s;
+}
+.scene-tab:hover { color: var(--ink); }
+.scene-tab .sc-mk {
+  width: .82rem; height: .82rem; border-radius: 50%; flex: none;
+  display: grid; place-items: center; font-size: .6rem; font-weight: 800; line-height: 1;
+  color: var(--raise);
+}
+.scene-tab[data-v="legal"] .sc-mk { background: var(--legal); }
+.scene-tab[data-v="illegal"] .sc-mk { background: var(--illegal); }
+.scene-tab[data-v="note"] .sc-mk { background: var(--ink-faint); }
+.scene-tab[aria-selected="true"] { color: var(--ink); border-color: currentColor; }
+.scene-tab[data-v="legal"][aria-selected="true"] { color: var(--legal); background: var(--legal-wash); }
+.scene-tab[data-v="illegal"][aria-selected="true"] { color: var(--illegal); background: var(--illegal-wash); }
+.scene-tab[data-v="note"][aria-selected="true"] { color: var(--accent); background: var(--accent-wash); }
+
+.scene-verdict {
+  display: flex; align-items: flex-start; gap: .55rem;
+  padding: .7rem 1.1rem; font-size: .88rem; font-weight: 600;
+  border-top: 1px solid var(--line-soft);
+}
+.scene-verdict[data-v="legal"] { color: var(--legal); background: var(--legal-wash); }
+.scene-verdict[data-v="illegal"] { color: var(--illegal); background: var(--illegal-wash); }
+.scene-verdict[data-v="note"] { color: var(--accent); background: var(--accent-wash); }
+.scene-verdict svg { width: 15px; height: 15px; flex: none; margin-top: .12rem; }
 
 .scene-controls { display: flex; align-items: center; gap: .7rem; padding: .7rem 1.1rem; border-top: 1px solid var(--line-soft); }
 .scene-play { border: 1px solid var(--line); background: var(--raise); flex: none; }
@@ -786,16 +838,29 @@ function refsHtml(nums, label) {
 }
 
 /* ============================================================ rule animations
-   Every scene is authored directly in metres. Field-mode scenes crop a window
-   (spec.focus) out of the canonical 100x37 field; closeup scenes centre a
-   small box (spec.world) on a thrower's pivot point. Because the SVG viewBox
-   is set in those same metre units, positions need no manual px projection —
-   the browser does all the scaling, and stroke/font sizes are derived once
-   from the box size so nothing needs per-scene tuning. */
+   Top-down scenes authored directly in metres; the SVG viewBox uses those same
+   metre units so the browser does all scaling and nothing needs px maths.
+
+   Players are drawn as articulated figures rather than dots: a ground shadow
+   for lift, a torso oriented along the facing angle, posable arms and hands,
+   and legs whose feet can be pinned in world space — which is what makes a
+   pivot foot (and a travel) legible at a glance.
+
+   Each scene holds several variants, contrasting legal and illegal versions of
+   the same situation; the tabs switch between them. */
 const FIELD_W = 100, FIELD_H = 37, GOAL_A = 18, GOAL_B = 82, BRICK_A = 36, BRICK_B = 64, BRICK_Y = 18.5;
 const svgns = "http://www.w3.org/2000/svg";
 
-function interpAt(kfs, t) {
+function svgEl(tag, attrs) {
+  const n = document.createElementNS(svgns, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  return n;
+}
+function lerp(a, b, f) { return a + (b - a) * f; }
+function lerpAngle(a, b, f) { return a + (((b - a + 540) % 360) - 180) * f; }
+
+/* keyframe lookup: numeric fields lerp, `face` takes the shorter way round */
+function poseAt(kfs, t) {
   if (t <= kfs[0].t) return kfs[0];
   const last = kfs[kfs.length - 1];
   if (t >= last.t) return last;
@@ -803,10 +868,29 @@ function interpAt(kfs, t) {
     const a = kfs[i], b = kfs[i + 1];
     if (t >= a.t && t <= b.t) {
       const f = b.t === a.t ? 1 : (t - a.t) / (b.t - a.t);
-      return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
+      const o = { x: lerp(a.x, b.x, f), y: lerp(a.y, b.y, f) };
+      o.face = lerpAngle(a.face || 0, b.face || 0, f);
+      for (const k of ["la", "ra", "al"]) {
+        if (a[k] != null || b[k] != null) o[k] = lerp(a[k] ?? b[k], b[k] ?? a[k], f);
+      }
+      return o;
     }
   }
   return last;
+}
+/* where an author gave no facing, point the figure along its own path */
+function fillFacing(kfs) {
+  const has = kfs.some(k => k.face != null);
+  if (has) {
+    let prev = kfs.find(k => k.face != null).face;
+    kfs.forEach(k => { if (k.face == null) k.face = prev; else prev = k.face; });
+    return;
+  }
+  for (let i = 0; i < kfs.length; i++) {
+    const a = kfs[i], b = kfs[i + 1] || kfs[i - 1] || a;
+    const dx = (kfs[i + 1] ? b.x - a.x : a.x - b.x), dy = (kfs[i + 1] ? b.y - a.y : a.y - b.y);
+    a.face = (dx || dy) ? Math.atan2(dy, dx) * 180 / Math.PI : (i ? kfs[i - 1].face : 0);
+  }
 }
 function stateAt(states, t) {
   if (!states) return "";
@@ -819,157 +903,218 @@ function captionAt(caps, t) {
   for (const x of caps) { if (t >= x.t) c = x; else break; }
   return c ? c.text : "";
 }
-function svgEl(tag, attrs) {
-  const n = document.createElementNS(svgns, tag);
-  for (const k in attrs) n.setAttribute(k, attrs[k]);
-  return n;
+
+/* ---------------------------------------------------------- player figure */
+function makePlayer(role, pr, hasPivot, hand) {
+  const g = svgEl("g", { class: `pl pl-${role}` });
+  const mk = {};
+  /* shadow sits under the torso only — any larger and it reads as a grey halo
+     rather than a cast shadow */
+  mk.shadow = svgEl("ellipse", { class: "pl-shadow", rx: pr * 0.60, ry: pr * 0.84 });
+  mk.legL = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.24, "stroke-linecap": "round" });
+  mk.legR = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.24, "stroke-linecap": "round" });
+  mk.footL = svgEl("ellipse", { class: "pl-foot", rx: pr * 0.25, ry: pr * 0.14 });
+  mk.footR = svgEl("ellipse", { class: "pl-foot", rx: pr * 0.25, ry: pr * 0.14 });
+  mk.body = svgEl("g", {});
+  /* every solid part carries a background-coloured outline so overlapping
+     bodies, limbs and heads stay separable at small sizes */
+  mk.torso = svgEl("ellipse", { class: "pl-torso", cx: 0, cy: 0, rx: pr * 0.60, ry: pr * 0.92, "stroke-width": pr * 0.10 });
+  mk.armL = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.20, "stroke-linecap": "round" });
+  mk.armR = svgEl("line", { class: "pl-limb", "stroke-width": pr * 0.20, "stroke-linecap": "round" });
+  mk.handL = svgEl("circle", { class: "pl-hand", r: pr * 0.17 });
+  mk.handR = svgEl("circle", { class: "pl-hand", r: pr * 0.17 });
+  if (hand) mk.disc = svgEl("ellipse", { class: "pl-disc", rx: pr * 0.40, ry: pr * 0.26, "stroke-width": pr * 0.05 });
+  mk.nose = svgEl("circle", { class: "pl-nose", r: pr * 0.09 });
+  /* head is the same hue as the torso, just shaded down and given a sheen —
+     that reads as a head above shoulders without introducing another colour */
+  mk.head = svgEl("circle", { class: "pl-head", r: pr * 0.42 });
+  mk.headShade = svgEl("circle", { class: "pl-head-shade", r: pr * 0.42 });
+  mk.hi = svgEl("circle", { class: "pl-hi", r: pr * 0.14 });
+  if (hasPivot) mk.pivot = svgEl("circle", { class: "pl-pivot", r: pr * 0.46, "stroke-width": pr * 0.07, "stroke-dasharray": `${pr * 0.22} ${pr * 0.16}` });
+
+  g.append(mk.shadow, mk.legL, mk.legR, mk.footL, mk.footR);
+  mk.body.append(mk.torso, mk.armL, mk.armR, mk.handL, mk.handR);
+  if (mk.disc) mk.body.appendChild(mk.disc);
+  mk.body.appendChild(mk.nose);
+  g.appendChild(mk.body);
+  g.append(mk.head, mk.headShade, mk.hi);
+  if (mk.pivot) g.appendChild(mk.pivot);
+  mk.g = g;
+  return mk;
 }
-function legendFor(spec) {
-  const roles = new Set(spec.actors.map(a => a.role));
+
+function updatePlayer(mk, pose, pr, pivotPos, hand) {
+  const { x, y, face } = pose;
+  const rad = face * Math.PI / 180, c = Math.cos(rad), s = Math.sin(rad);
+  const W = (lx, ly) => ({ x: x + lx * c - ly * s, y: y + lx * s + ly * c });
+
+  mk.shadow.setAttribute("cx", x + pr * 0.22);
+  mk.shadow.setAttribute("cy", y + pr * 0.26);
+  mk.shadow.setAttribute("transform", `rotate(${face} ${x + pr * 0.22} ${y + pr * 0.26})`);
+
+  const hipL = W(-0.10 * pr, -0.34 * pr), hipR = W(-0.10 * pr, 0.34 * pr);
+  const footL = pivotPos ? pivotPos : W(-0.14 * pr, -0.42 * pr);
+  const footR = W(-0.14 * pr, 0.42 * pr);
+  const setLeg = (ln, a, b) => { ln.setAttribute("x1", a.x); ln.setAttribute("y1", a.y); ln.setAttribute("x2", b.x); ln.setAttribute("y2", b.y); };
+  setLeg(mk.legL, hipL, footL); setLeg(mk.legR, hipR, footR);
+  mk.footL.setAttribute("transform", `translate(${footL.x} ${footL.y}) rotate(${face})`);
+  mk.footR.setAttribute("transform", `translate(${footR.x} ${footR.y}) rotate(${face})`);
+
+  mk.body.setAttribute("transform", `translate(${x} ${y}) rotate(${face})`);
+  const la = pose.la ?? -52, ra = pose.ra ?? 52, al = pose.al ?? 1;
+  const armLen = pr * 0.92 * al;
+  const shL = { x: 0.12 * pr, y: -0.72 * pr }, shR = { x: 0.12 * pr, y: 0.72 * pr };
+  const endL = { x: shL.x + Math.cos(la * Math.PI / 180) * armLen, y: shL.y + Math.sin(la * Math.PI / 180) * armLen };
+  const endR = { x: shR.x + Math.cos(ra * Math.PI / 180) * armLen, y: shR.y + Math.sin(ra * Math.PI / 180) * armLen };
+  setLeg(mk.armL, shL, endL); setLeg(mk.armR, shR, endR);
+  mk.handL.setAttribute("cx", endL.x); mk.handL.setAttribute("cy", endL.y);
+  mk.handR.setAttribute("cx", endR.x); mk.handR.setAttribute("cy", endR.y);
+  if (mk.disc) {
+    const e = hand === "l" ? endL : endR;
+    mk.disc.setAttribute("cx", e.x); mk.disc.setAttribute("cy", e.y);
+  }
+  mk.nose.setAttribute("cx", 0.42 * pr); mk.nose.setAttribute("cy", 0);
+
+  /* head and its highlight stay unrotated so the light source is consistent */
+  mk.head.setAttribute("cx", x); mk.head.setAttribute("cy", y);
+  mk.headShade.setAttribute("cx", x); mk.headShade.setAttribute("cy", y);
+  mk.hi.setAttribute("cx", x - pr * 0.13); mk.hi.setAttribute("cy", y - pr * 0.14);
+  if (mk.pivot && pivotPos) { mk.pivot.setAttribute("cx", pivotPos.x); mk.pivot.setAttribute("cy", pivotPos.y); }
+}
+
+/* ---------------------------------------------------------- legend */
+function legendFor(v) {
+  const roles = new Set(v.actors.map(a => a.role));
   const items = [];
   if (roles.has("you")) items.push(["you", "You"]);
-  if (roles.has("you2")) items.push(["you2", "Free foot"]);
   if (roles.has("offence")) items.push(["offence", "Team-mate"]);
   if (roles.has("defence")) items.push(["defence", "Defender"]);
-  if (roles.has("disc")) items.push(["disc", "Disc"]);
-  if (spec.rings && spec.rings.length) items.push(["ring", spec.rings[0].tag || "Measured distance"]);
-  if (spec.ghosts && spec.ghosts.length) items.push(["ghost", "Reference spot"]);
+  if (roles.has("disc") || v.actors.some(a => a.hand)) items.push(["disc", "Disc"]);
+  if (v.actors.some(a => a.pivot)) items.push(["pivot", "Pivot foot"]);
+  if (v.rings && v.rings.length) items.push(["ring", v.rings[0].tag || "Measured distance"]);
+  if (v.ghosts && v.ghosts.length) items.push(["ghost", "Reference spot"]);
   return items;
 }
 
 const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5l12 7-12 7V5z"/></svg>';
 const PAUSE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8 5v14M16 5v14"/></svg>';
+const TICK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg>';
+const CROSS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+const INFO_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 11v6M12 7.2v.2"/><circle cx="12" cy="12" r="9"/></svg>';
+const VERDICT_ICON = { legal: TICK_ICON, illegal: CROSS_ICON, note: INFO_ICON };
 
-/* builds and runs one scene inside `mount`; returns a stop() function the
-   caller must invoke before discarding the mount, so the rAF loop doesn't
-   keep animating detached DOM after the card is replaced or the panel closes */
-function buildScene(mount, spec) {
+/* builds one variant's stage into `host`; returns stop() to kill its rAF loop */
+buildStage.n = 0;
+function buildStage(host, spec, v, capEl) {
   const isField = spec.mode === "field";
-  const world = isField
-    ? { x0: spec.focus.x0, y0: spec.focus.y0, w: spec.focus.x1 - spec.focus.x0, h: spec.focus.y1 - spec.focus.y0 }
-    : { x0: -spec.world.halfW, y0: -spec.world.halfH, w: spec.world.halfW * 2, h: spec.world.halfH * 2 };
-  const unit = Math.min(world.w, world.h);
-  const tokenR = Math.max(unit * 0.028, 0.12);
-  const thin = unit * 0.006, med = unit * 0.013;
-  const dash = unit * 0.032, fontXS = unit * 0.038;
+  const box = isField
+    ? { x0: v.focus.x0, y0: v.focus.y0, w: v.focus.x1 - v.focus.x0, h: v.focus.y1 - v.focus.y0 }
+    : { x0: -v.world.halfW, y0: -v.world.halfH, w: v.world.halfW * 2, h: v.world.halfH * 2 };
+  const unit = Math.min(box.w, box.h);
+  /* closeups stay near life-size, where the measured distances (a disc width,
+     three metres) have to be believable. Field views are diagrams, not scale
+     drawings, so figures are enlarged to stay readable — capped so a wide
+     view doesn't end up with giants standing on it */
+  const pr = isField
+    ? Math.min(1.2, Math.max(0.45, unit * 0.075))
+    : Math.max(0.28, unit * 0.042);
+  const thin = unit * 0.005, med = unit * 0.011;
+  const dash = unit * 0.028, fontXS = unit * 0.036;
 
-  const svg = svgEl("svg", { viewBox: `${world.x0} ${world.y0} ${world.w} ${world.h}`, "aria-hidden": "true", class: "scene-svg" });
+  const svg = svgEl("svg", { viewBox: `${box.x0} ${box.y0} ${box.w} ${box.h}`, "aria-hidden": "true", class: "scene-svg" });
+
+  /* a soft cast shadow needs a real blur — a hard-edged ellipse just reads as
+     a second silhouette next to the player */
+  const blurId = `scblur${++buildStage.n}`;
+  const defs = svgEl("defs", {});
+  const filt = svgEl("filter", { id: blurId, x: "-60%", y: "-60%", width: "220%", height: "220%" });
+  filt.appendChild(svgEl("feGaussianBlur", { stdDeviation: pr * 0.16 }));
+  defs.appendChild(filt);
+  svg.appendChild(defs);
 
   if (isField) {
-    svg.appendChild(svgEl("rect", { x: world.x0 - 300, y: world.y0 - 300, width: world.w + 600, height: world.h + 600, class: "sc-oob" }));
+    svg.appendChild(svgEl("rect", { x: box.x0 - 300, y: box.y0 - 300, width: box.w + 600, height: box.h + 600, class: "sc-oob" }));
     svg.appendChild(svgEl("rect", { x: 0, y: 0, width: FIELD_W, height: FIELD_H, class: "sc-turf" }));
-    svg.appendChild(svgEl("line", { x1: GOAL_A, y1: 0, x2: GOAL_A, y2: FIELD_H, class: "sc-goal", "stroke-width": med }));
-    svg.appendChild(svgEl("line", { x1: GOAL_B, y1: 0, x2: GOAL_B, y2: FIELD_H, class: "sc-goal", "stroke-width": med }));
+    for (const gx of [GOAL_A, GOAL_B]) svg.appendChild(svgEl("line", { x1: gx, y1: 0, x2: gx, y2: FIELD_H, class: "sc-goal", "stroke-width": med }));
     svg.appendChild(svgEl("rect", { x: 0, y: 0, width: FIELD_W, height: FIELD_H, class: "sc-sideline", "stroke-width": thin }));
     for (const bx of [BRICK_A, BRICK_B]) {
-      svg.appendChild(svgEl("line", { x1: bx - 0.5, y1: BRICK_Y, x2: bx + 0.5, y2: BRICK_Y, class: "sc-brick", "stroke-width": thin }));
-      svg.appendChild(svgEl("line", { x1: bx, y1: BRICK_Y - 0.5, x2: bx, y2: BRICK_Y + 0.5, class: "sc-brick", "stroke-width": thin }));
+      svg.appendChild(svgEl("line", { x1: bx - 0.6, y1: BRICK_Y, x2: bx + 0.6, y2: BRICK_Y, class: "sc-brick", "stroke-width": thin }));
+      svg.appendChild(svgEl("line", { x1: bx, y1: BRICK_Y - 0.6, x2: bx, y2: BRICK_Y + 0.6, class: "sc-brick", "stroke-width": thin }));
     }
-  } else {
-    svg.appendChild(svgEl("line", { x1: world.x0, y1: 0, x2: world.x0 + world.w, y2: 0, class: "sc-axis", "stroke-width": thin }));
-    svg.appendChild(svgEl("line", { x1: 0, y1: world.y0, x2: 0, y2: world.y0 + world.h, class: "sc-axis", "stroke-width": thin }));
   }
 
-  (spec.rings || []).forEach(r => {
+  (v.rings || []).forEach(r => {
     svg.appendChild(svgEl("circle", { cx: r.cx, cy: r.cy, r: r.r, class: "sc-ring", "stroke-width": thin, "stroke-dasharray": `${dash} ${dash * 0.7}` }));
     if (r.tag) {
-      const t = svgEl("text", { x: r.cx, y: r.cy - r.r - fontXS * 0.6, class: "sc-tag", "font-size": fontXS, "text-anchor": "middle" });
+      const t = svgEl("text", { x: r.cx, y: r.cy - r.r - fontXS * 0.75, class: "sc-tag", "font-size": fontXS, "text-anchor": "middle" });
       t.textContent = r.tag; svg.appendChild(t);
     }
   });
 
-  const ghostEls = (spec.ghosts || []).map(g => {
+  const ghostEls = (v.ghosts || []).map(g => {
     const c = svgEl("circle", { cx: g.cx, cy: g.cy, r: g.r, class: "sc-ghost", "stroke-width": thin, "stroke-dasharray": `${dash * 0.8} ${dash * 0.6}` });
     svg.appendChild(c);
     let tag = null;
     if (g.tag) {
-      tag = svgEl("text", { x: g.cx, y: g.cy + g.r + fontXS * 1.15, class: "sc-tag sc-tag-accent", "font-size": fontXS, "text-anchor": "middle" });
+      tag = svgEl("text", { x: g.cx, y: g.cy + g.r + fontXS * 1.1, class: "sc-tag sc-tag-accent", "font-size": fontXS, "text-anchor": "middle" });
       tag.textContent = g.tag; svg.appendChild(tag);
     }
     return { g, c, tag };
   });
 
-  const eventEls = (spec.events || []).map(ev => {
-    const c = svgEl("circle", { cx: ev.x, cy: ev.y, r: tokenR * 0.5, class: "sc-event" });
+  const eventEls = (v.events || []).map(ev => {
+    const c = svgEl("circle", { cx: ev.x, cy: ev.y, r: pr * 0.2, class: "sc-event" });
     svg.appendChild(c);
     let tag = null;
     if (ev.tag) {
-      tag = svgEl("text", { x: ev.x, y: ev.y - tokenR * 1.25, class: "sc-tag", "font-size": fontXS, "text-anchor": "middle" });
+      tag = svgEl("text", { x: ev.x, y: ev.y - pr * 0.55, class: "sc-tag", "font-size": fontXS, "text-anchor": "middle" });
       tag.textContent = ev.tag; svg.appendChild(tag);
     }
     return { ev, c, tag };
   });
 
-  const linkEls = (spec.links || []).map(l => {
-    const ln = svgEl("line", { class: "sc-link", "stroke-width": thin });
-    svg.appendChild(ln);
-    return { l, ln };
+  const actors = v.actors.map(a => {
+    fillFacing(a.keyframes);
+    if (a.role === "disc") {
+      const g = svgEl("g", { class: "pl" });
+      const sh = svgEl("ellipse", { class: "sc-disc-shadow", rx: pr * 0.4, ry: pr * 0.26, filter: `url(#${blurId})` });
+      const d = svgEl("ellipse", { class: "sc-disc", rx: pr * 0.44, ry: pr * 0.28, "stroke-width": pr * 0.05 });
+      g.append(sh, d);
+      svg.appendChild(g);
+      return { a, kind: "disc", g, sh, d };
+    }
+    const mk = makePlayer(a.role, pr, !!a.pivot, a.hand);
+    mk.shadow.setAttribute("filter", `url(#${blurId})`);
+    svg.appendChild(mk.g);
+    return { a, kind: "player", mk };
   });
 
-  const actorEls = spec.actors.map(a => {
-    const isDisc = a.role === "disc";
-    const needsStroke = a.role === "defence" || a.role === "you2";
-    const el = isDisc
-      ? svgEl("ellipse", { rx: tokenR * 0.95, ry: tokenR * 0.6, class: `tok tok-${a.role}` })
-      : svgEl("circle", { r: tokenR, class: `tok tok-${a.role}` });
-    if (needsStroke) el.setAttribute("stroke-width", med);
-    svg.appendChild(el);
-    return { a, el, isDisc, base: a.role };
-  });
-
-  mount.innerHTML = "";
-  const wrap = el("div", "scene");
-  wrap.dataset.mode = spec.mode;
+  host.innerHTML = "";
   const stage = el("div", "scene-stage");
-  stage.style.aspectRatio = `${world.w} / ${world.h}`;
+  stage.style.aspectRatio = `${box.w} / ${box.h}`;
   stage.appendChild(svg);
-  wrap.appendChild(stage);
-
-  const cap = el("p", "scene-caption");
-  wrap.appendChild(cap);
-
-  const legend = el("div", "scene-legend");
-  legendFor(spec).forEach(([cls, label]) => {
-    const chip = el("span", "sc-chip");
-    chip.innerHTML = `<i class="sc-sw sc-sw-${cls}"></i>${esc(label)}`;
-    legend.appendChild(chip);
-  });
-  wrap.appendChild(legend);
-
-  const controls = el("div", "scene-controls");
-  const playBtn = el("button", "icon-btn scene-play", PLAY_ICON);
-  playBtn.type = "button";
-  playBtn.setAttribute("aria-label", "Play animation");
-  const scrub = document.createElement("input");
-  scrub.type = "range"; scrub.className = "scene-scrub";
-  scrub.min = 0; scrub.max = Math.round(spec.duration * 1000); scrub.step = 10; scrub.value = 0;
-  scrub.setAttribute("aria-label", "Scrub through the animation");
-  const timeEl = el("span", "scene-time num", "0.0s");
-  controls.append(playBtn, scrub, timeEl);
-  wrap.appendChild(controls);
-
-  mount.appendChild(wrap);
+  host.appendChild(stage);
 
   let playing = false, raf = null, last = null, t = 0;
-  const fmt = s => `${Math.max(0, s).toFixed(1)}s`;
+  const controls = { scrub: null, btn: null, time: null };
 
   function render() {
-    actorEls.forEach(({ a, el: node, isDisc, base }) => {
-      const p = interpAt(a.keyframes, t);
-      if (isDisc) node.setAttribute("transform", `translate(${p.x} ${p.y})`);
-      else { node.setAttribute("cx", p.x); node.setAttribute("cy", p.y); }
-      const cls = stateAt(a.states, t);
-      node.setAttribute("class", `tok tok-${base}${cls ? " state-" + cls : ""}`);
-    });
-    linkEls.forEach(({ l, ln }) => {
-      const pa = interpAt(spec.actors.find(x => x.id === l.a).keyframes, t);
-      const pb = interpAt(spec.actors.find(x => x.id === l.b).keyframes, t);
-      ln.setAttribute("x1", pa.x); ln.setAttribute("y1", pa.y);
-      ln.setAttribute("x2", pb.x); ln.setAttribute("y2", pb.y);
+    actors.forEach(A => {
+      const p = poseAt(A.a.keyframes, t);
+      if (A.kind === "disc") {
+        A.sh.setAttribute("cx", p.x + pr * 0.14); A.sh.setAttribute("cy", p.y + pr * 0.18);
+        A.d.setAttribute("cx", p.x); A.d.setAttribute("cy", p.y);
+        A.g.setAttribute("class", "pl" + (stateAt(A.a.states, t) ? " state-" + stateAt(A.a.states, t) : ""));
+        return;
+      }
+      const piv = A.a.pivot ? poseAt(A.a.pivot, t) : null;
+      updatePlayer(A.mk, p, pr, piv, A.a.hand);
+      const cls = stateAt(A.a.states, t);
+      A.mk.g.setAttribute("class", `pl pl-${A.a.role}${cls ? " state-" + cls : ""}`);
     });
     ghostEls.forEach(({ g, c, tag }) => {
       const on = t >= (g.fadeInAt || 0);
-      c.style.opacity = on ? .8 : 0;
+      c.style.opacity = on ? .75 : 0;
       if (tag) tag.style.opacity = on ? 1 : 0;
     });
     eventEls.forEach(({ ev, c, tag }) => {
@@ -977,38 +1122,109 @@ function buildScene(mount, spec) {
       c.style.opacity = on ? 1 : 0;
       if (tag) tag.style.opacity = on ? 1 : 0;
     });
-    cap.textContent = captionAt(spec.captions, t);
-    scrub.value = Math.round(t * 1000);
-    timeEl.textContent = fmt(t);
+    if (capEl) capEl.textContent = captionAt(v.captions, t);
+    if (controls.scrub) controls.scrub.value = Math.round(t * 1000);
+    if (controls.time) controls.time.textContent = `${Math.max(0, t).toFixed(1)}s`;
   }
-
-  function setPlayIcon(isPlaying) {
-    playBtn.innerHTML = isPlaying ? PAUSE_ICON : PLAY_ICON;
-    playBtn.setAttribute("aria-label", isPlaying ? "Pause animation" : "Play animation");
+  function setIcon(on) {
+    if (!controls.btn) return;
+    controls.btn.innerHTML = on ? PAUSE_ICON : PLAY_ICON;
+    controls.btn.setAttribute("aria-label", on ? "Pause animation" : "Play animation");
   }
   function tick(now) {
     if (!playing) return;
     if (last == null) last = now;
-    const dt = (now - last) / 1000; last = now;
-    t = Math.min(spec.duration, t + dt);
+    t = Math.min(v.duration, t + (now - last) / 1000); last = now;
     render();
-    if (t >= spec.duration) { playing = false; last = null; setPlayIcon(false); return; }
+    if (t >= v.duration) { playing = false; last = null; setIcon(false); return; }
     raf = requestAnimationFrame(tick);
   }
-  playBtn.addEventListener("click", () => {
-    if (playing) { playing = false; setPlayIcon(false); return; }
-    if (t >= spec.duration) t = 0;
-    playing = true; last = null; setPlayIcon(true);
-    raf = requestAnimationFrame(tick);
-  });
-  scrub.addEventListener("input", () => {
-    playing = false; setPlayIcon(false);
-    t = Number(scrub.value) / 1000;
-    render();
+  return {
+    render, attach(btn, scrub, time) {
+      controls.btn = btn; controls.scrub = scrub; controls.time = time;
+      scrub.max = Math.round(v.duration * 1000);
+      btn.addEventListener("click", () => {
+        if (playing) { playing = false; setIcon(false); return; }
+        if (t >= v.duration) t = 0;
+        playing = true; last = null; setIcon(true);
+        raf = requestAnimationFrame(tick);
+      });
+      scrub.addEventListener("input", () => {
+        playing = false; setIcon(false);
+        t = Number(scrub.value) / 1000;
+        render();
+      });
+      setIcon(false);
+      render();
+    },
+    stop() { playing = false; if (raf) cancelAnimationFrame(raf); }
+  };
+}
+
+/* builds the whole component (tabs + stage + verdict + controls) into `mount`;
+   returns stop() the caller must call before discarding the mount */
+function buildScene(mount, spec) {
+  mount.innerHTML = "";
+  const wrap = el("div", "scene");
+
+  const tabs = el("div", "scene-tabs");
+  tabs.setAttribute("role", "tablist");
+  const host = el("div", "");
+  const verdict = el("div", "scene-verdict");
+  const cap = el("p", "scene-caption");
+  const legend = el("div", "scene-legend");
+  const controls = el("div", "scene-controls");
+  const playBtn = el("button", "icon-btn scene-play");
+  playBtn.type = "button";
+  const scrub = document.createElement("input");
+  scrub.type = "range"; scrub.className = "scene-scrub";
+  scrub.min = 0; scrub.step = 10; scrub.value = 0;
+  scrub.setAttribute("aria-label", "Scrub through the animation");
+  const timeEl = el("span", "scene-time num", "0.0s");
+  controls.append(playBtn, scrub, timeEl);
+
+  wrap.append(tabs, host, verdict, cap, legend, controls);
+  mount.appendChild(wrap);
+
+  let current = null;
+  const tabBtns = spec.variants.map((v, i) => {
+    const b = el("button", "scene-tab");
+    b.type = "button";
+    b.dataset.v = v.verdict;
+    b.setAttribute("role", "tab");
+    b.innerHTML = `<span class="sc-mk">${v.verdict === "illegal" ? "&times;" : v.verdict === "legal" ? "&check;" : "i"}</span>${esc(v.label)}`;
+    b.addEventListener("click", () => select(i));
+    tabs.appendChild(b);
+    return b;
   });
 
-  render();
-  return () => { playing = false; if (raf) cancelAnimationFrame(raf); };
+  function select(i) {
+    if (current) current.stop();
+    const v = spec.variants[i];
+    tabBtns.forEach((b, j) => b.setAttribute("aria-selected", j === i ? "true" : "false"));
+
+    /* the play button and scrubber are rebuilt per variant so their listeners
+       can't accumulate across tab switches */
+    const freshBtn = playBtn.cloneNode(false);
+    const freshScrub = scrub.cloneNode(false);
+    playBtn.replaceWith(freshBtn); scrub.replaceWith(freshScrub);
+    controls.replaceChildren(freshBtn, freshScrub, timeEl);
+
+    verdict.dataset.v = v.verdict;
+    verdict.innerHTML = VERDICT_ICON[v.verdict] + `<span>${esc(v.verdictText)}</span>`;
+
+    legend.replaceChildren();
+    legendFor(v).forEach(([cls, label]) => {
+      const chip = el("span", "sc-chip");
+      chip.innerHTML = `<i class="sc-sw sc-sw-${cls}"></i>${esc(label)}`;
+      legend.appendChild(chip);
+    });
+
+    current = buildStage(host, spec, v, cap);
+    current.attach(freshBtn, freshScrub, timeEl);
+  }
+  select(0);
+  return () => { if (current) current.stop(); };
 }
 
 function sceneBlockHtml(mountId) {

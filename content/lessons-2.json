@@ -1,7 +1,7 @@
 [
 {
   "id": "disc-space",
-  "scene": "disc-space",
+  "scene": "marking",
   "title": "Disc space: give the thrower room",
   "tag": "Marking",
   "mins": 5,
@@ -22,6 +22,7 @@
 },
 {
   "id": "straddle-wrap",
+  "scene": "marking",
   "title": "Straddle and wrapping",
   "tag": "Marking",
   "mins": 5,

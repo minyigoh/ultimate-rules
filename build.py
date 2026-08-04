@@ -201,15 +201,37 @@ def main():
         if "scene" in l and l["scene"] not in scenes:
             sys.exit(f"lesson {l['id']} references unknown scene '{l['scene']}'")
 
+    n_variants = 0
     for sid, sc in scenes.items():
-        if sc["mode"] == "field" and "focus" not in sc:
-            sys.exit(f"scene '{sid}' is field mode but has no focus rect")
-        if sc["mode"] == "closeup" and "world" not in sc:
-            sys.exit(f"scene '{sid}' is closeup mode but has no world extent")
-        actor_ids = {a["id"] for a in sc["actors"]}
-        for link in sc.get("links", []):
-            if link["a"] not in actor_ids or link["b"] not in actor_ids:
-                sys.exit(f"scene '{sid}' has a link referencing an unknown actor id")
+        if not sc.get("variants"):
+            sys.exit(f"scene '{sid}' has no variants")
+        seen = set()
+        for v in sc["variants"]:
+            n_variants += 1
+            if v["id"] in seen:
+                sys.exit(f"scene '{sid}' has duplicate variant id '{v['id']}'")
+            seen.add(v["id"])
+            if v["verdict"] not in ("legal", "illegal", "note"):
+                sys.exit(f"scene '{sid}/{v['id']}' has unknown verdict '{v['verdict']}'")
+            if sc["mode"] == "field" and "focus" not in v:
+                sys.exit(f"scene '{sid}/{v['id']}' is field mode but has no focus rect")
+            if sc["mode"] == "closeup" and "world" not in v:
+                sys.exit(f"scene '{sid}/{v['id']}' is closeup mode but has no world extent")
+            if not v.get("actors"):
+                sys.exit(f"scene '{sid}/{v['id']}' has no actors")
+            for a in v["actors"]:
+                for track in ("keyframes", "pivot"):
+                    kfs = a.get(track)
+                    if not kfs:
+                        continue
+                    ts = [k["t"] for k in kfs]
+                    if ts != sorted(ts):
+                        sys.exit(f"scene '{sid}/{v['id']}' actor '{a['id']}': {track} times out of order")
+                    if ts[-1] > v["duration"] + 1e-9:
+                        sys.exit(f"scene '{sid}/{v['id']}' actor '{a['id']}': {track} runs past duration")
+            for c in v["captions"]:
+                if c["t"] > v["duration"] + 1e-9:
+                    sys.exit(f"scene '{sid}/{v['id']}': caption at t={c['t']} is past duration")
 
     data = {
         "rules": rules["rules"],
@@ -254,6 +276,7 @@ def main():
     print(f"  {len(data['rules'])} rules, {len(data['chapters'])} chapters, "
           f"{len(data['definitions'])} definitions")
     print(f"  {len(lessons)} daily lessons, {len(data['situations'])} common questions")
+    print(f"  {len(scenes)} animated scenes, {n_variants} scenario variants")
     print(f"  index.html {os.path.getsize(dest)/1024:.0f} KB  ·  sw version {version}")
 
 

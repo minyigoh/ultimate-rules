@@ -1,276 +1,2836 @@
 {
   "pivot-foot": {
-    "title": "The pivot foot never moves",
+    "title": "The pivot foot",
     "mode": "closeup",
-    "world": { "halfW": 3, "halfH": 2.2 },
-    "duration": 4.2,
-    "actors": [
-      { "id": "pivot", "role": "you", "keyframes": [{ "t": 0, "x": 0, "y": 0 }, { "t": 4.2, "x": 0, "y": 0 }] },
-      { "id": "free", "role": "you2", "keyframes": [
-        { "t": 0, "x": 0.5, "y": 0.3 },
-        { "t": 1.0, "x": 1.4, "y": -0.5 },
-        { "t": 2.0, "x": -1.2, "y": -0.8 },
-        { "t": 3.0, "x": -0.3, "y": 1.1 },
-        { "t": 4.2, "x": 0.8, "y": 0.7 }
-      ]}
-    ],
-    "links": [{ "a": "pivot", "b": "free" }],
-    "captions": [
-      { "t": 0, "text": "You catch the disc and plant one foot — your pivot." },
-      { "t": 1.0, "text": "The other foot can step anywhere, any distance." },
-      { "t": 2.0, "text": "Reach, lunge, spin — the pivot foot never lifts or slides." },
-      { "t": 3.3, "text": "Only releasing the throw frees it to move." }
+    "variants": [
+      {
+        "id": "legal-pivot",
+        "label": "Pivoting properly",
+        "verdict": "legal",
+        "verdictText": "Legal. The pivot foot never lifts or slides, however far the rest of you goes.",
+        "world": {
+          "halfW": 2.25,
+          "halfH": 1.21
+        },
+        "duration": 5.4,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.34,
+                "y": 0.26
+              },
+              {
+                "t": 5.4,
+                "x": -0.34,
+                "y": 0.26
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -52,
+                "ra": 40,
+                "al": 1
+              },
+              {
+                "t": 1.5,
+                "x": 0.14,
+                "y": -0.62,
+                "face": -46,
+                "la": -40,
+                "ra": 30,
+                "al": 1.35
+              },
+              {
+                "t": 3.0,
+                "x": 0.18,
+                "y": 0.66,
+                "face": 52,
+                "la": -30,
+                "ra": 44,
+                "al": 1.35
+              },
+              {
+                "t": 4.3,
+                "x": -0.02,
+                "y": 0.06,
+                "face": 6,
+                "la": -52,
+                "ra": 40,
+                "al": 1
+              },
+              {
+                "t": 5.4,
+                "x": -0.02,
+                "y": 0.06,
+                "face": 6,
+                "la": -52,
+                "ra": 40,
+                "al": 1
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "You catch it and plant one foot. That foot is now your pivot."
+          },
+          {
+            "t": 1.5,
+            "text": "Step wide to the open side — reach right past a defender."
+          },
+          {
+            "t": 3.0,
+            "text": "Swing all the way back the other way."
+          },
+          {
+            "t": 4.3,
+            "text": "The free foot went everywhere. The pivot never moved."
+          }
+        ]
+      },
+      {
+        "id": "switch-feet",
+        "label": "Switching feet",
+        "verdict": "illegal",
+        "verdictText": "Travel. Once you've established a pivot, that foot can't change.",
+        "world": {
+          "halfW": 2.25,
+          "halfH": 1.21
+        },
+        "duration": 4.8,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.34,
+                "y": 0.26
+              },
+              {
+                "t": 2.2,
+                "x": -0.34,
+                "y": 0.26
+              },
+              {
+                "t": 3.2,
+                "x": 0.3,
+                "y": -0.4
+              },
+              {
+                "t": 4.8,
+                "x": 0.3,
+                "y": -0.4
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -52,
+                "ra": 40
+              },
+              {
+                "t": 1.6,
+                "x": 0.12,
+                "y": -0.5,
+                "face": -38,
+                "la": -40,
+                "ra": 30,
+                "al": 1.3
+              },
+              {
+                "t": 3.2,
+                "x": 0.62,
+                "y": -0.12,
+                "face": -8,
+                "la": -50,
+                "ra": 40
+              },
+              {
+                "t": 4.8,
+                "x": 0.62,
+                "y": -0.12,
+                "face": -8,
+                "la": -50,
+                "ra": 40
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.4,
+                "t1": 4.8,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Same start — pivot planted, stepping out to throw."
+          },
+          {
+            "t": 1.6,
+            "text": "So far this is all perfectly legal."
+          },
+          {
+            "t": 2.4,
+            "text": "Then you plant the other foot and lift the first one…"
+          },
+          {
+            "t": 3.3,
+            "text": "That's a travel. You only ever get one pivot foot."
+          }
+        ]
+      },
+      {
+        "id": "drifting",
+        "label": "Never planting",
+        "verdict": "illegal",
+        "verdictText": "Travel. After catching you must slow down and plant a pivot, without changing direction.",
+        "world": {
+          "halfW": 2.25,
+          "halfH": 1.21
+        },
+        "duration": 4.2,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -1.7,
+                "y": 0.5,
+                "face": -8,
+                "la": -52,
+                "ra": 40
+              },
+              {
+                "t": 1.4,
+                "x": -0.7,
+                "y": 0.34,
+                "face": -8
+              },
+              {
+                "t": 2.8,
+                "x": 0.35,
+                "y": 0.1,
+                "face": -10
+              },
+              {
+                "t": 4.2,
+                "x": 1.35,
+                "y": -0.1,
+                "face": -10
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.6,
+                "t1": 4.2,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "You catch it moving and just… keep going."
+          },
+          {
+            "t": 1.6,
+            "text": "Both feet are still moving. No pivot was ever established."
+          },
+          {
+            "t": 3.0,
+            "text": "Travel — and the most common one at beginner level."
+          }
+        ]
+      }
     ]
   },
-
   "two-contact": {
-    "title": "Catch, two contacts, throw",
+    "title": "Catching on the run",
     "mode": "closeup",
-    "world": { "halfW": 4.5, "halfH": 1.8 },
-    "duration": 4,
-    "actors": [
-      { "id": "runner", "role": "you", "keyframes": [
-        { "t": 0, "x": -3.2, "y": 0 },
-        { "t": 1.0, "x": -1.6, "y": 0 },
-        { "t": 1.6, "x": -0.2, "y": 0 },
-        { "t": 2.2, "x": 1.2, "y": 0 },
-        { "t": 4.0, "x": 1.2, "y": 0 }
-      ]},
-      { "id": "disc", "role": "disc", "keyframes": [
-        { "t": 0, "x": -4.0, "y": 0.9 },
-        { "t": 1.0, "x": -1.6, "y": 0 },
-        { "t": 1.6, "x": -0.2, "y": 0 },
-        { "t": 2.2, "x": 1.2, "y": 0 },
-        { "t": 3.2, "x": 3.4, "y": -0.7 },
-        { "t": 4.0, "x": 3.4, "y": -0.7 }
-      ]}
-    ],
-    "events": [
-      { "t": 1.0, "x": -1.6, "y": 0.55, "tag": "catch" },
-      { "t": 1.6, "x": -0.2, "y": 0.55, "tag": "1" },
-      { "t": 2.2, "x": 1.2, "y": 0.55, "tag": "2" }
-    ],
-    "captions": [
-      { "t": 0, "text": "Catch it at full sprint — no need to stop." },
-      { "t": 1.0, "text": "That catch is the first contact." },
-      { "t": 1.6, "text": "One more ground contact is fine…" },
-      { "t": 2.2, "text": "…and a second. That's the limit." },
-      { "t": 3.0, "text": "Release before a third contact, or it's a travel." }
+    "variants": [
+      {
+        "id": "legal-two",
+        "label": "Released in two",
+        "verdict": "legal",
+        "verdictText": "Legal. Catch, at most two more ground contacts, and the disc is gone before a third.",
+        "world": {
+          "halfW": 4.95,
+          "halfH": 1.98
+        },
+        "duration": 4.4,
+        "actors": [
+          {
+            "id": "runner",
+            "role": "you",
+            "hand": "r",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -3.6,
+                "y": 0,
+                "face": 0
+              },
+              {
+                "t": 1.0,
+                "x": -1.8,
+                "y": 0,
+                "face": 0,
+                "ra": 8,
+                "al": 1.3
+              },
+              {
+                "t": 1.7,
+                "x": -0.5,
+                "y": 0,
+                "face": 0
+              },
+              {
+                "t": 2.4,
+                "x": 0.9,
+                "y": 0,
+                "face": 0,
+                "ra": 62,
+                "al": 1.35
+              },
+              {
+                "t": 3.2,
+                "x": 2.0,
+                "y": 0,
+                "face": 0
+              },
+              {
+                "t": 4.4,
+                "x": 2.6,
+                "y": 0,
+                "face": 0
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -4.4,
+                "y": 1.0
+              },
+              {
+                "t": 1.0,
+                "x": -1.8,
+                "y": 0
+              },
+              {
+                "t": 2.4,
+                "x": 0.9,
+                "y": 0
+              },
+              {
+                "t": 3.4,
+                "x": 3.4,
+                "y": -1.1
+              },
+              {
+                "t": 4.4,
+                "x": 4.2,
+                "y": -1.4
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "t": 1.0,
+            "x": -1.8,
+            "y": 0.7,
+            "tag": "catch"
+          },
+          {
+            "t": 1.7,
+            "x": -0.5,
+            "y": 0.7,
+            "tag": "1"
+          },
+          {
+            "t": 2.4,
+            "x": 0.9,
+            "y": 0.7,
+            "tag": "2"
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Sprinting onto a pass — no need to stop at all."
+          },
+          {
+            "t": 1.0,
+            "text": "The catch itself is where the count starts."
+          },
+          {
+            "t": 1.7,
+            "text": "One ground contact after the catch is fine…"
+          },
+          {
+            "t": 2.4,
+            "text": "…and a second. That's your limit — throw now."
+          },
+          {
+            "t": 3.2,
+            "text": "Released before a third contact. Perfectly legal."
+          }
+        ]
+      },
+      {
+        "id": "three-contacts",
+        "label": "Three contacts",
+        "verdict": "illegal",
+        "verdictText": "Travel. Two additional ground contacts is the maximum before the disc must be gone.",
+        "world": {
+          "halfW": 4.95,
+          "halfH": 1.98
+        },
+        "duration": 4.6,
+        "actors": [
+          {
+            "id": "runner",
+            "role": "you",
+            "hand": "r",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -3.6,
+                "y": 0,
+                "face": 0
+              },
+              {
+                "t": 1.0,
+                "x": -2.0,
+                "y": 0,
+                "face": 0,
+                "ra": 8,
+                "al": 1.3
+              },
+              {
+                "t": 1.6,
+                "x": -0.9,
+                "y": 0,
+                "face": 0
+              },
+              {
+                "t": 2.2,
+                "x": 0.2,
+                "y": 0,
+                "face": 0
+              },
+              {
+                "t": 2.9,
+                "x": 1.4,
+                "y": 0,
+                "face": 0,
+                "ra": 62,
+                "al": 1.35
+              },
+              {
+                "t": 4.6,
+                "x": 2.4,
+                "y": 0,
+                "face": 0
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.9,
+                "t1": 4.6,
+                "cls": "illegal"
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -4.4,
+                "y": 1.0
+              },
+              {
+                "t": 1.0,
+                "x": -2.0,
+                "y": 0
+              },
+              {
+                "t": 2.9,
+                "x": 1.4,
+                "y": 0
+              },
+              {
+                "t": 3.8,
+                "x": 3.6,
+                "y": -1.1
+              },
+              {
+                "t": 4.6,
+                "x": 4.2,
+                "y": -1.4
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "t": 1.0,
+            "x": -2.0,
+            "y": 0.7,
+            "tag": "catch"
+          },
+          {
+            "t": 1.6,
+            "x": -0.9,
+            "y": 0.7,
+            "tag": "1"
+          },
+          {
+            "t": 2.2,
+            "x": 0.2,
+            "y": 0.7,
+            "tag": "2"
+          },
+          {
+            "t": 2.9,
+            "x": 1.4,
+            "y": 0.7,
+            "tag": "3"
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Identical catch, identical speed."
+          },
+          {
+            "t": 1.6,
+            "text": "One… two… so far so good."
+          },
+          {
+            "t": 2.9,
+            "text": "But a third contact lands before the throw goes."
+          },
+          {
+            "t": 3.4,
+            "text": "Travel. Count contacts, not strides."
+          }
+        ]
+      },
+      {
+        "id": "changed-direction",
+        "label": "Curving to get free",
+        "verdict": "illegal",
+        "verdictText": "Travel. While slowing down you must not change direction to gain a better angle.",
+        "world": {
+          "halfW": 4.95,
+          "halfH": 1.98
+        },
+        "duration": 4.2,
+        "actors": [
+          {
+            "id": "runner",
+            "role": "you",
+            "hand": "r",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -3.6,
+                "y": -0.9
+              },
+              {
+                "t": 1.0,
+                "x": -1.9,
+                "y": -0.9
+              },
+              {
+                "t": 2.1,
+                "x": -0.5,
+                "y": -0.2
+              },
+              {
+                "t": 3.1,
+                "x": 0.5,
+                "y": 0.9
+              },
+              {
+                "t": 4.2,
+                "x": 0.9,
+                "y": 1.2
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.1,
+                "t1": 4.2,
+                "cls": "illegal"
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": -4.4,
+                "y": 0.2
+              },
+              {
+                "t": 1.0,
+                "x": -1.9,
+                "y": -0.9
+              },
+              {
+                "t": 3.1,
+                "x": 0.5,
+                "y": 0.9
+              },
+              {
+                "t": 4.2,
+                "x": 0.9,
+                "y": 1.2
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "You catch it running flat out down the line."
+          },
+          {
+            "t": 1.2,
+            "text": "Now you need to slow down — in a straight line."
+          },
+          {
+            "t": 2.1,
+            "text": "Instead you curl inwards to open up a better throw."
+          },
+          {
+            "t": 3.2,
+            "text": "Travel. Decelerate straight, then pivot."
+          }
+        ]
+      }
     ]
   },
-
-  "disc-space": {
-    "title": "Disc space: one diameter",
+  "marking": {
+    "title": "Marking legally",
     "mode": "closeup",
-    "world": { "halfW": 1.6, "halfH": 1.3 },
-    "duration": 4,
-    "rings": [{ "cx": 0, "cy": 0, "r": 0.27, "tag": "1 disc ≈ 27 cm" }],
-    "actors": [
-      { "id": "thrower", "role": "you", "keyframes": [{ "t": 0, "x": 0, "y": 0 }, { "t": 4, "x": 0, "y": 0 }] },
-      { "id": "marker", "role": "defence", "keyframes": [
-        { "t": 0, "x": 0.9, "y": 0.2 },
-        { "t": 1.2, "x": 0.9, "y": 0.2 },
-        { "t": 2.0, "x": 0.12, "y": 0.05 },
-        { "t": 2.6, "x": 0.12, "y": 0.05 },
-        { "t": 3.4, "x": 0.55, "y": 0.15 },
-        { "t": 4.0, "x": 0.55, "y": 0.15 }
-      ], "states": [{ "t0": 0, "t1": 1.9, "cls": "legal" }, { "t0": 1.9, "t1": 3.0, "cls": "illegal" }, { "t0": 3.0, "t1": 4, "cls": "legal" }] }
-    ],
-    "captions": [
-      { "t": 0, "text": "The marker starts at a fair distance." },
-      { "t": 1.4, "text": "Drifting in…" },
-      { "t": 2.0, "text": "—inside one disc diameter of your torso. Disc space!" },
-      { "t": 3.0, "text": "They step back out — legal again." }
+    "variants": [
+      {
+        "id": "good-mark",
+        "label": "A good mark",
+        "verdict": "legal",
+        "verdictText": "Legal. Arms wide and active, but a clear disc's width off the thrower's torso.",
+        "world": {
+          "halfW": 1.71,
+          "halfH": 1.49
+        },
+        "duration": 3.6,
+        "rings": [
+          {
+            "cx": 0,
+            "cy": 0,
+            "r": 0.52,
+            "tag": "1 disc ≈ 27 cm"
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.16,
+                "y": 0.24
+              },
+              {
+                "t": 3.6,
+                "x": -0.16,
+                "y": 0.24
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -60,
+                "ra": 46
+              },
+              {
+                "t": 1.8,
+                "x": 0.02,
+                "y": -0.3,
+                "face": -22,
+                "la": -48,
+                "ra": 34,
+                "al": 1.25
+              },
+              {
+                "t": 3.6,
+                "x": 0,
+                "y": 0.16,
+                "face": 14,
+                "la": -60,
+                "ra": 50,
+                "al": 1.1
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0.92,
+                "y": 0.02,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 1.8,
+                "x": 0.9,
+                "y": -0.24,
+                "face": 174,
+                "la": -80,
+                "ra": 76,
+                "al": 1.15
+              },
+              {
+                "t": 3.6,
+                "x": 0.94,
+                "y": 0.14,
+                "face": 186,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "The marker sets up about a forearm off the thrower."
+          },
+          {
+            "t": 1.4,
+            "text": "Arms wide to take away throwing lanes — that's all legal."
+          },
+          {
+            "t": 2.6,
+            "text": "They shuffle with the pivot but never close the gap."
+          }
+        ]
+      },
+      {
+        "id": "disc-space",
+        "label": "Disc space",
+        "verdict": "illegal",
+        "verdictText": "Disc space. No part of the marker may be within one disc diameter of your torso.",
+        "world": {
+          "halfW": 1.71,
+          "halfH": 1.49
+        },
+        "duration": 3.8,
+        "rings": [
+          {
+            "cx": 0,
+            "cy": 0,
+            "r": 0.52,
+            "tag": "1 disc ≈ 27 cm"
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.16,
+                "y": 0.24
+              },
+              {
+                "t": 3.8,
+                "x": -0.16,
+                "y": 0.24
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -60,
+                "ra": 46
+              },
+              {
+                "t": 3.8,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -60,
+                "ra": 46
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0.95,
+                "y": 0.02,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 1.6,
+                "x": 0.44,
+                "y": 0.02,
+                "face": 180,
+                "la": -74,
+                "ra": 74,
+                "al": 1.15
+              },
+              {
+                "t": 2.8,
+                "x": 0.44,
+                "y": 0.02,
+                "face": 180,
+                "la": -74,
+                "ra": 74,
+                "al": 1.15
+              },
+              {
+                "t": 3.8,
+                "x": 0.95,
+                "y": 0.02,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.3,
+                "t1": 3.2,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Starting legally, a clear gap to the thrower."
+          },
+          {
+            "t": 1.3,
+            "text": "They creep in, and their body crosses the ring."
+          },
+          {
+            "t": 2.0,
+            "text": "Call \"disc space\" — play carries on, they back off."
+          },
+          {
+            "t": 3.2,
+            "text": "Gap restored. Legal again, count resumes one lower."
+          }
+        ]
+      },
+      {
+        "id": "straddle",
+        "label": "Straddle",
+        "verdict": "illegal",
+        "verdictText": "Straddle. A line between the marker's feet came within a disc's width of your pivot point.",
+        "world": {
+          "halfW": 1.71,
+          "halfH": 1.49
+        },
+        "duration": 3.4,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.05,
+                "y": 0.1
+              },
+              {
+                "t": 3.4,
+                "x": -0.05,
+                "y": 0.1
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0.05,
+                "y": -0.15,
+                "face": -14,
+                "la": -60,
+                "ra": 44
+              },
+              {
+                "t": 3.4,
+                "x": 0.05,
+                "y": -0.15,
+                "face": -14,
+                "la": -60,
+                "ra": 44
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 1.0,
+                "y": 0.3,
+                "face": 184,
+                "la": -76,
+                "ra": 76,
+                "al": 1.15
+              },
+              {
+                "t": 1.6,
+                "x": 0.02,
+                "y": 0.12,
+                "face": 200,
+                "la": -70,
+                "ra": 70,
+                "al": 1.15
+              },
+              {
+                "t": 3.4,
+                "x": 0.02,
+                "y": 0.12,
+                "face": 200,
+                "la": -70,
+                "ra": 70,
+                "al": 1.15
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.4,
+                "t1": 3.4,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "The marker steps right in on the pivot."
+          },
+          {
+            "t": 1.4,
+            "text": "Now your pivot foot sits between their two feet."
+          },
+          {
+            "t": 2.3,
+            "text": "That's a straddle — an infraction, even without contact."
+          }
+        ]
+      },
+      {
+        "id": "wrapping",
+        "label": "Wrapping",
+        "verdict": "illegal",
+        "verdictText": "Wrapping. The marker's arms closed around your torso — illegal even if they never touch you.",
+        "world": {
+          "halfW": 1.71,
+          "halfH": 1.49
+        },
+        "duration": 3.4,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.16,
+                "y": 0.24
+              },
+              {
+                "t": 3.4,
+                "x": -0.16,
+                "y": 0.24
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -60,
+                "ra": 44
+              },
+              {
+                "t": 3.4,
+                "x": 0,
+                "y": 0,
+                "face": 0,
+                "la": -60,
+                "ra": 44
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0.92,
+                "y": 0.02,
+                "face": 180,
+                "la": -76,
+                "ra": 76,
+                "al": 1.15
+              },
+              {
+                "t": 1.5,
+                "x": 0.78,
+                "y": 0.02,
+                "face": 180,
+                "la": -30,
+                "ra": 30,
+                "al": 1.75
+              },
+              {
+                "t": 3.4,
+                "x": 0.78,
+                "y": 0.02,
+                "face": 180,
+                "la": -30,
+                "ra": 30,
+                "al": 1.75
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.4,
+                "t1": 3.4,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "A normal mark, arms spread wide."
+          },
+          {
+            "t": 1.4,
+            "text": "Then they curl both arms in around your body."
+          },
+          {
+            "t": 2.4,
+            "text": "Wrapping. Mark with your arms out, not around."
+          }
+        ]
+      }
     ]
   },
-
   "double-team": {
-    "title": "Double team: the three-metre ring",
+    "title": "Double team",
     "mode": "closeup",
-    "world": { "halfW": 4.4, "halfH": 3.4 },
-    "duration": 4.4,
-    "rings": [{ "cx": 0, "cy": 0, "r": 3, "tag": "3 m" }],
-    "actors": [
-      { "id": "thrower", "role": "you", "keyframes": [{ "t": 0, "x": 0, "y": 0 }, { "t": 4.4, "x": 0, "y": 0 }] },
-      { "id": "marker", "role": "defence", "keyframes": [{ "t": 0, "x": 0.8, "y": 0 }, { "t": 4.4, "x": 0.8, "y": 0 }] },
-      { "id": "cutter", "role": "offence", "keyframes": [{ "t": 0, "x": 2.3, "y": 1.9 }, { "t": 4.4, "x": 2.3, "y": 1.9 }] },
-      { "id": "poacher", "role": "defence", "keyframes": [
-        { "t": 0, "x": 3.6, "y": 2.6 },
-        { "t": 1.4, "x": 1.6, "y": 1.1 },
-        { "t": 2.6, "x": 1.6, "y": 1.1 },
-        { "t": 3.4, "x": 2.2, "y": 1.8 },
-        { "t": 4.4, "x": 2.2, "y": 1.8 }
-      ], "states": [{ "t0": 0, "t1": 1.3, "cls": "legal" }, { "t0": 1.3, "t1": 2.6, "cls": "illegal" }, { "t0": 2.6, "t1": 4.4, "cls": "legal" }] }
-    ],
-    "captions": [
-      { "t": 0, "text": "A second defender drifts toward the thrower." },
-      { "t": 1.4, "text": "Inside three metres, guarding no one — double team." },
-      { "t": 2.8, "text": "Now marking the cutter instead — legal, even this close." }
+    "variants": [
+      {
+        "id": "legal-poach",
+        "label": "Guarding someone",
+        "verdict": "legal",
+        "verdictText": "Legal. A second defender may stand this close — as long as they're genuinely guarding another player.",
+        "world": {
+          "halfW": 4.57,
+          "halfH": 3.97
+        },
+        "duration": 4.0,
+        "rings": [
+          {
+            "cx": 0,
+            "cy": 0,
+            "r": 3,
+            "tag": "3 m"
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.2,
+                "y": 0.3
+              },
+              {
+                "t": 4,
+                "x": -0.2,
+                "y": 0.3
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 20,
+                "la": -58,
+                "ra": 44
+              },
+              {
+                "t": 4,
+                "x": 0,
+                "y": 0,
+                "face": 20,
+                "la": -58,
+                "ra": 44
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 1.0,
+                "y": 0.1,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 4,
+                "x": 1.0,
+                "y": 0.1,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              }
+            ]
+          },
+          {
+            "id": "cutter",
+            "role": "offence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 2.4,
+                "y": 2.0,
+                "face": 200
+              },
+              {
+                "t": 4,
+                "x": 2.4,
+                "y": 2.0,
+                "face": 200
+              }
+            ]
+          },
+          {
+            "id": "poacher",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 3.7,
+                "y": 2.7,
+                "face": 210
+              },
+              {
+                "t": 1.8,
+                "x": 1.9,
+                "y": 1.5,
+                "face": 30,
+                "la": -72,
+                "ra": 72,
+                "al": 1.1
+              },
+              {
+                "t": 4,
+                "x": 1.9,
+                "y": 1.5,
+                "face": 30,
+                "la": -72,
+                "ra": 72,
+                "al": 1.1
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "A second defender drops in toward the thrower."
+          },
+          {
+            "t": 1.8,
+            "text": "They're inside three metres — but marking the cutter."
+          },
+          {
+            "t": 2.8,
+            "text": "Completely legal. This is how every zone defence works."
+          }
+        ]
+      },
+      {
+        "id": "double",
+        "label": "Guarding nobody",
+        "verdict": "illegal",
+        "verdictText": "Double team. Inside three metres of the pivot without guarding anyone — any offensive player can call it.",
+        "world": {
+          "halfW": 4.57,
+          "halfH": 3.97
+        },
+        "duration": 4.2,
+        "rings": [
+          {
+            "cx": 0,
+            "cy": 0,
+            "r": 3,
+            "tag": "3 m"
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.2,
+                "y": 0.3
+              },
+              {
+                "t": 4.2,
+                "x": -0.2,
+                "y": 0.3
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 20,
+                "la": -58,
+                "ra": 44
+              },
+              {
+                "t": 4.2,
+                "x": 0,
+                "y": 0,
+                "face": 20,
+                "la": -58,
+                "ra": 44
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 1.0,
+                "y": 0.1,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 4.2,
+                "x": 1.0,
+                "y": 0.1,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              }
+            ]
+          },
+          {
+            "id": "cutter",
+            "role": "offence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 2.6,
+                "y": 2.2,
+                "face": 200
+              },
+              {
+                "t": 4.2,
+                "x": 3.4,
+                "y": 2.8,
+                "face": 40
+              }
+            ]
+          },
+          {
+            "id": "poacher",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 3.6,
+                "y": 2.6,
+                "face": 215
+              },
+              {
+                "t": 1.8,
+                "x": 0.9,
+                "y": 1.3,
+                "face": 200,
+                "la": -74,
+                "ra": 74,
+                "al": 1.2
+              },
+              {
+                "t": 4.2,
+                "x": 0.9,
+                "y": 1.3,
+                "face": 200,
+                "la": -74,
+                "ra": 74,
+                "al": 1.2
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.7,
+                "t1": 4.2,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Same start — the poacher drops in again."
+          },
+          {
+            "t": 1.7,
+            "text": "But this time they leave their cutter and crowd the thrower."
+          },
+          {
+            "t": 2.8,
+            "text": "Nobody is being guarded. That's a double team."
+          }
+        ]
+      }
     ]
   },
-
   "stall-count-position": {
-    "title": "Stay within three metres to count",
+    "title": "Where the marker must stand",
     "mode": "closeup",
-    "world": { "halfW": 4, "halfH": 3 },
-    "duration": 4.2,
-    "rings": [{ "cx": 0, "cy": 0, "r": 3, "tag": "3 m" }],
-    "actors": [
-      { "id": "thrower", "role": "you", "keyframes": [{ "t": 0, "x": 0, "y": 0 }, { "t": 4.2, "x": 0, "y": 0 }] },
-      { "id": "marker", "role": "defence", "keyframes": [
-        { "t": 0, "x": 1.0, "y": 0.4 },
-        { "t": 1.3, "x": 1.0, "y": 0.4 },
-        { "t": 2.2, "x": 3.7, "y": 1.6 },
-        { "t": 2.9, "x": 3.7, "y": 1.6 },
-        { "t": 3.7, "x": 1.1, "y": 0.5 },
-        { "t": 4.2, "x": 1.1, "y": 0.5 }
-      ], "states": [{ "t0": 0, "t1": 2.1, "cls": "legal" }, { "t0": 2.1, "t1": 3.6, "cls": "illegal" }, { "t0": 3.6, "t1": 4.2, "cls": "legal" }] }
-    ],
-    "captions": [
-      { "t": 0, "text": "The marker counts from inside three metres." },
-      { "t": 2.2, "text": "Drift past the ring and the count has to stop." },
-      { "t": 3.6, "text": "Come back in — counting restarts at one." }
+    "variants": [
+      {
+        "id": "in-range",
+        "label": "Close enough to count",
+        "verdict": "legal",
+        "verdictText": "Legal. Within three metres of the pivot, so the stall count runs.",
+        "world": {
+          "halfW": 4.57,
+          "halfH": 3.97
+        },
+        "duration": 3.4,
+        "rings": [
+          {
+            "cx": 0,
+            "cy": 0,
+            "r": 3,
+            "tag": "3 m"
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.2,
+                "y": 0.3
+              },
+              {
+                "t": 3.4,
+                "x": -0.2,
+                "y": 0.3
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 10,
+                "la": -58,
+                "ra": 44
+              },
+              {
+                "t": 3.4,
+                "x": 0,
+                "y": 0,
+                "face": 10,
+                "la": -58,
+                "ra": 44
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 1.1,
+                "y": 0.4,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 1.8,
+                "x": 1.9,
+                "y": 0.9,
+                "face": 186,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 3.4,
+                "x": 1.3,
+                "y": 0.5,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "\"Stalling one, two, three…\""
+          },
+          {
+            "t": 1.8,
+            "text": "They can move around freely inside the ring."
+          },
+          {
+            "t": 2.8,
+            "text": "The count keeps running the whole time."
+          }
+        ]
+      },
+      {
+        "id": "out-of-range",
+        "label": "Too far away",
+        "verdict": "illegal",
+        "verdictText": "No count. Beyond three metres the marker must stop counting, and restarts at one on returning.",
+        "world": {
+          "halfW": 4.57,
+          "halfH": 3.97
+        },
+        "duration": 4.4,
+        "rings": [
+          {
+            "cx": 0,
+            "cy": 0,
+            "r": 3,
+            "tag": "3 m"
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": -0.2,
+                "y": 0.3
+              },
+              {
+                "t": 4.4,
+                "x": -0.2,
+                "y": 0.3
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 0,
+                "y": 0,
+                "face": 10,
+                "la": -58,
+                "ra": 44
+              },
+              {
+                "t": 4.4,
+                "x": 0,
+                "y": 0,
+                "face": 10,
+                "la": -58,
+                "ra": 44
+              }
+            ]
+          },
+          {
+            "id": "marker",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 1.1,
+                "y": 0.4,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              },
+              {
+                "t": 1.9,
+                "x": 3.4,
+                "y": 1.5,
+                "face": 190,
+                "la": -70,
+                "ra": 70
+              },
+              {
+                "t": 2.9,
+                "x": 3.4,
+                "y": 1.5,
+                "face": 190,
+                "la": -70,
+                "ra": 70
+              },
+              {
+                "t": 4.4,
+                "x": 1.2,
+                "y": 0.45,
+                "face": 180,
+                "la": -78,
+                "ra": 78,
+                "al": 1.15
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.6,
+                "t1": 3.9,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "The count starts legally, close to the pivot."
+          },
+          {
+            "t": 1.6,
+            "text": "They chase a cutter and drift outside three metres."
+          },
+          {
+            "t": 2.2,
+            "text": "The count must stop — there's no clock on you now."
+          },
+          {
+            "t": 3.9,
+            "text": "Back inside, and it restarts at \"Stalling one\"."
+          }
+        ]
+      }
     ]
   },
-
   "in-bounds-feet": {
-    "title": "Catch first, then go out",
+    "title": "Where your feet land",
     "mode": "field",
-    "focus": { "x0": 30, "x1": 56, "y0": -4, "y1": 13 },
-    "duration": 4.4,
-    "actors": [
-      { "id": "receiver", "role": "you", "keyframes": [
-        { "t": 0, "x": 34, "y": 10 },
-        { "t": 1.4, "x": 42, "y": 3.5 },
-        { "t": 1.9, "x": 44, "y": 1.2 },
-        { "t": 2.8, "x": 46, "y": -1.4 },
-        { "t": 4.4, "x": 46, "y": -1.4 }
-      ]},
-      { "id": "disc", "role": "disc", "keyframes": [
-        { "t": 0, "x": 40, "y": 6 },
-        { "t": 1.4, "x": 42, "y": 3.5 },
-        { "t": 1.9, "x": 44, "y": 1.2 },
-        { "t": 2.8, "x": 46, "y": -1.4 },
-        { "t": 4.4, "x": 46, "y": -1.4 }
-      ]}
-    ],
-    "captions": [
-      { "t": 0, "text": "Sprinting for a disc drifting toward the line." },
-      { "t": 1.4, "text": "Leap, catch it in the air…" },
-      { "t": 1.9, "text": "…land in-bounds first. That's what counts." },
-      { "t": 2.8, "text": "Momentum carries you out — doesn't matter now." },
-      { "t": 3.7, "text": "Walk back and set your pivot where you crossed the line." }
+    "variants": [
+      {
+        "id": "land-in",
+        "label": "Land in, drift out",
+        "verdict": "legal",
+        "verdictText": "Good catch. You landed in-bounds first — momentum taking you out afterwards doesn't matter.",
+        "focus": {
+          "x0": 31.5,
+          "x1": 52.9,
+          "y0": -4.4,
+          "y1": 12.1
+        },
+        "duration": 4.6,
+        "ghosts": [
+          {
+            "cx": 45.4,
+            "cy": 1.6,
+            "r": 1.0,
+            "tag": "first contact — in",
+            "fadeInAt": 2.0
+          }
+        ],
+        "actors": [
+          {
+            "id": "receiver",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 37,
+                "y": 9.5
+              },
+              {
+                "t": 1.5,
+                "x": 43.4,
+                "y": 4.2,
+                "ra": 30,
+                "al": 1.35
+              },
+              {
+                "t": 2.0,
+                "x": 45.4,
+                "y": 1.6,
+                "ra": 20,
+                "al": 1.2
+              },
+              {
+                "t": 3.1,
+                "x": 47.4,
+                "y": -1.6
+              },
+              {
+                "t": 4.6,
+                "x": 47.4,
+                "y": -1.6
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 42,
+                "y": 6.5
+              },
+              {
+                "t": 1.5,
+                "x": 43.4,
+                "y": 4.2
+              },
+              {
+                "t": 3.1,
+                "x": 47.4,
+                "y": -1.6
+              },
+              {
+                "t": 4.6,
+                "x": 47.4,
+                "y": -1.6
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Chasing a pass drifting towards the sideline."
+          },
+          {
+            "t": 1.5,
+            "text": "You catch it in the air — feet still off the ground."
+          },
+          {
+            "t": 2.0,
+            "text": "First contact lands inside the line. That's what counts."
+          },
+          {
+            "t": 3.1,
+            "text": "Now momentum carries you out. Doesn't matter."
+          },
+          {
+            "t": 3.9,
+            "text": "Walk back and pivot where you crossed the line."
+          }
+        ]
+      },
+      {
+        "id": "foot-on-line",
+        "label": "Landing on the line",
+        "verdict": "illegal",
+        "verdictText": "Turnover. The perimeter line is not part of the field, so landing on it is out.",
+        "focus": {
+          "x0": 31.5,
+          "x1": 52.9,
+          "y0": -4.4,
+          "y1": 12.1
+        },
+        "duration": 4.0,
+        "ghosts": [
+          {
+            "cx": 45.4,
+            "cy": 0,
+            "r": 1.0,
+            "tag": "first contact — out",
+            "fadeInAt": 2.0
+          }
+        ],
+        "actors": [
+          {
+            "id": "receiver",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 37,
+                "y": 9.5
+              },
+              {
+                "t": 1.5,
+                "x": 43.6,
+                "y": 3.6,
+                "ra": 30,
+                "al": 1.35
+              },
+              {
+                "t": 2.0,
+                "x": 45.4,
+                "y": 0,
+                "ra": 20,
+                "al": 1.2
+              },
+              {
+                "t": 4.0,
+                "x": 45.4,
+                "y": 0
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.0,
+                "t1": 4.0,
+                "cls": "illegal"
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 42,
+                "y": 6.5
+              },
+              {
+                "t": 1.5,
+                "x": 43.6,
+                "y": 3.6
+              },
+              {
+                "t": 2.0,
+                "x": 45.4,
+                "y": 0
+              },
+              {
+                "t": 4.0,
+                "x": 45.4,
+                "y": 0
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Same catch, a metre further across."
+          },
+          {
+            "t": 1.5,
+            "text": "Airborne catch again, looking good…"
+          },
+          {
+            "t": 2.0,
+            "text": "…but the first foot lands on the sideline itself."
+          },
+          {
+            "t": 2.8,
+            "text": "Out. Unusually for a field sport, the line is not in."
+          }
+        ]
+      },
+      {
+        "id": "caught-while-out",
+        "label": "Catching while out",
+        "verdict": "illegal",
+        "verdictText": "Turnover, and no catch is deemed to have happened at all.",
+        "focus": {
+          "x0": 31.5,
+          "x1": 52.9,
+          "y0": -4.4,
+          "y1": 12.1
+        },
+        "duration": 3.8,
+        "actors": [
+          {
+            "id": "receiver",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 38,
+                "y": 8.5
+              },
+              {
+                "t": 1.4,
+                "x": 44.5,
+                "y": 1.2
+              },
+              {
+                "t": 2.0,
+                "x": 46.4,
+                "y": -1.8,
+                "ra": 25,
+                "al": 1.35
+              },
+              {
+                "t": 3.8,
+                "x": 46.4,
+                "y": -1.8
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.0,
+                "t1": 3.8,
+                "cls": "illegal"
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 42,
+                "y": 5
+              },
+              {
+                "t": 2.0,
+                "x": 46.4,
+                "y": -1.8
+              },
+              {
+                "t": 3.8,
+                "x": 46.4,
+                "y": -1.8
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "This time you run out first, then reach back in."
+          },
+          {
+            "t": 1.4,
+            "text": "Both feet are already over the line…"
+          },
+          {
+            "t": 2.0,
+            "text": "…when you make contact with the disc."
+          },
+          {
+            "t": 2.7,
+            "text": "Turnover. If any part of you is out, you can't catch it."
+          }
+        ]
+      }
     ]
   },
-
   "force-out": {
-    "title": "Force-out foul",
+    "title": "Force-out fouls",
     "mode": "field",
-    "focus": { "x0": 68, "x1": 96, "y0": -4, "y1": 15 },
-    "duration": 4.2,
-    "ghosts": [{ "cx": 88, "cy": 3, "r": 1.1, "tag": "would-be catch", "fadeInAt": 0 }],
-    "actors": [
-      { "id": "receiver", "role": "you", "keyframes": [
-        { "t": 0, "x": 76, "y": 9 },
-        { "t": 1.3, "x": 83, "y": 5 },
-        { "t": 2.0, "x": 80, "y": -1 },
-        { "t": 4.2, "x": 80, "y": -1 }
-      ]},
-      { "id": "defender", "role": "defence", "keyframes": [
-        { "t": 0, "x": 80, "y": 6 },
-        { "t": 1.3, "x": 83.4, "y": 4.6 },
-        { "t": 4.2, "x": 83.4, "y": 4.6 }
-      ]},
-      { "id": "disc", "role": "disc", "keyframes": [
-        { "t": 0, "x": 72, "y": 11 },
-        { "t": 1.3, "x": 83, "y": 5 },
-        { "t": 2.0, "x": 80, "y": -1 },
-        { "t": 4.2, "x": 80, "y": -1 }
-      ]}
-    ],
-    "captions": [
-      { "t": 0, "text": "About to catch it — right near the goal line." },
-      { "t": 1.3, "text": "A defender makes contact just before the catch…" },
-      { "t": 2.0, "text": "…and it pushes you out-of-bounds instead of in." },
-      { "t": 3.1, "text": "Force-out foul. Land in-bounds instead and it's a goal." }
+    "variants": [
+      {
+        "id": "clean",
+        "label": "Clean catch",
+        "verdict": "legal",
+        "verdictText": "Goal. No contact, and all ground contact was inside the end zone.",
+        "focus": {
+          "x0": 68.6,
+          "x1": 92.6,
+          "y0": -3.8,
+          "y1": 14.6
+        },
+        "duration": 3.6,
+        "actors": [
+          {
+            "id": "receiver",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 78,
+                "y": 9
+              },
+              {
+                "t": 1.6,
+                "x": 84.5,
+                "y": 4.5,
+                "ra": 28,
+                "al": 1.35
+              },
+              {
+                "t": 2.4,
+                "x": 86,
+                "y": 3.2
+              },
+              {
+                "t": 3.6,
+                "x": 86,
+                "y": 3.2
+              }
+            ]
+          },
+          {
+            "id": "defender",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 81,
+                "y": 6.5
+              },
+              {
+                "t": 1.6,
+                "x": 85.6,
+                "y": 6.0
+              },
+              {
+                "t": 3.6,
+                "x": 86.4,
+                "y": 5.6
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 74,
+                "y": 12
+              },
+              {
+                "t": 1.6,
+                "x": 84.5,
+                "y": 4.5
+              },
+              {
+                "t": 3.6,
+                "x": 86,
+                "y": 3.2
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "A pass into the end zone, defender trailing."
+          },
+          {
+            "t": 1.6,
+            "text": "You catch it cleanly, no contact at all."
+          },
+          {
+            "t": 2.4,
+            "text": "Both feet down inside the end zone. Goal."
+          }
+        ]
+      },
+      {
+        "id": "forced-out",
+        "label": "Pushed out",
+        "verdict": "illegal",
+        "verdictText": "Force-out foul. The contact made you land out instead of in — if it would have been a goal, you get the goal.",
+        "focus": {
+          "x0": 68.6,
+          "x1": 92.6,
+          "y0": -3.8,
+          "y1": 14.6
+        },
+        "duration": 4.2,
+        "ghosts": [
+          {
+            "cx": 86,
+            "cy": 3.2,
+            "r": 1.2,
+            "tag": "would have landed here",
+            "fadeInAt": 2.4
+          }
+        ],
+        "actors": [
+          {
+            "id": "receiver",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 78,
+                "y": 9
+              },
+              {
+                "t": 1.6,
+                "x": 84.5,
+                "y": 4.5,
+                "ra": 28,
+                "al": 1.35
+              },
+              {
+                "t": 2.6,
+                "x": 84.2,
+                "y": -1.2
+              },
+              {
+                "t": 4.2,
+                "x": 84.2,
+                "y": -1.2
+              }
+            ]
+          },
+          {
+            "id": "defender",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 81,
+                "y": 7.5
+              },
+              {
+                "t": 1.6,
+                "x": 85.0,
+                "y": 5.6,
+                "la": -40,
+                "ra": 40,
+                "al": 1.4
+              },
+              {
+                "t": 4.2,
+                "x": 85.4,
+                "y": 5.2,
+                "la": -40,
+                "ra": 40,
+                "al": 1.3
+              }
+            ],
+            "states": [
+              {
+                "t0": 1.6,
+                "t1": 4.2,
+                "cls": "illegal"
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 74,
+                "y": 12
+              },
+              {
+                "t": 1.6,
+                "x": 84.5,
+                "y": 4.5
+              },
+              {
+                "t": 2.6,
+                "x": 84.2,
+                "y": -1.2
+              },
+              {
+                "t": 4.2,
+                "x": 84.2,
+                "y": -1.2
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Identical pass, identical run."
+          },
+          {
+            "t": 1.6,
+            "text": "But the defender makes contact as you're catching…"
+          },
+          {
+            "t": 2.6,
+            "text": "…and it carries you across the line instead of down."
+          },
+          {
+            "t": 3.3,
+            "text": "Force-out. Only call it if contact changed where you landed."
+          }
+        ]
+      }
     ]
   },
-
   "own-end-zone": {
-    "title": "Your choice in your own end zone",
+    "title": "Turnover in your own end zone",
     "mode": "field",
-    "focus": { "x0": -3, "x1": 30, "y0": 4, "y1": 32 },
-    "duration": 4.6,
-    "ghosts": [{ "cx": 18, "cy": 18, "r": 1.1, "tag": "goal line option", "fadeInAt": 0 }],
-    "actors": [
-      { "id": "thrower", "role": "you", "keyframes": [
-        { "t": 0, "x": 8, "y": 18 },
-        { "t": 0.4, "x": 8.3, "y": 18.2 },
-        { "t": 0.8, "x": 7.8, "y": 17.9 },
-        { "t": 1.2, "x": 8, "y": 18 },
-        { "t": 2.2, "x": 8, "y": 18 },
-        { "t": 3.6, "x": 18, "y": 18 },
-        { "t": 4.6, "x": 18, "y": 18 }
-      ]}
-    ],
-    "captions": [
-      { "t": 0, "text": "Pick up a turnover deep in your own end zone." },
-      { "t": 0.3, "text": "Option A — stay right here, or fake a pass." },
-      { "t": 2.2, "text": "Option B — instead, walk straight to the goal line." },
-      { "t": 3.9, "text": "Whichever you commit to first is where the pivot goes." }
+    "variants": [
+      {
+        "id": "stay",
+        "label": "Throw from here",
+        "verdict": "legal",
+        "verdictText": "Legal. Staying put, or faking a pass, commits you to the pivot right where the disc was.",
+        "focus": {
+          "x0": 4.8,
+          "x1": 21.9,
+          "y0": 14.7,
+          "y1": 22.5
+        },
+        "duration": 3.6,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "pivot": [
+              {
+                "t": 0,
+                "x": 7.4,
+                "y": 18.6
+              },
+              {
+                "t": 3.6,
+                "x": 7.4,
+                "y": 18.6
+              }
+            ],
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 8,
+                "y": 18,
+                "face": 0,
+                "la": -55,
+                "ra": 44
+              },
+              {
+                "t": 1.6,
+                "x": 8.1,
+                "y": 17.4,
+                "face": -26,
+                "la": -44,
+                "ra": 32,
+                "al": 1.4
+              },
+              {
+                "t": 3.6,
+                "x": 8,
+                "y": 18.4,
+                "face": 14,
+                "la": -55,
+                "ra": 48,
+                "al": 1.15
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "You pick up a turnover deep in your own end zone."
+          },
+          {
+            "t": 1.4,
+            "text": "Stay where you are — or fake a pass — and you've chosen."
+          },
+          {
+            "t": 2.6,
+            "text": "Your pivot is here now. Can catch an unset defence out."
+          }
+        ]
+      },
+      {
+        "id": "goal-line",
+        "label": "Take it to the line",
+        "verdict": "legal",
+        "verdictText": "Also legal. Moving straight off commits you to the nearest point on the goal line.",
+        "focus": {
+          "x0": 4.8,
+          "x1": 21.9,
+          "y0": 14.7,
+          "y1": 22.5
+        },
+        "duration": 4.4,
+        "ghosts": [
+          {
+            "cx": 18,
+            "cy": 18.6,
+            "r": 1.3,
+            "tag": "goal line pivot",
+            "fadeInAt": 0.8
+          }
+        ],
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 8,
+                "y": 18.6,
+                "face": 0,
+                "la": -55,
+                "ra": 44
+              },
+              {
+                "t": 0.9,
+                "x": 8.4,
+                "y": 18.6,
+                "face": 0,
+                "la": -150,
+                "ra": 44,
+                "al": 1.5
+              },
+              {
+                "t": 3.4,
+                "x": 18,
+                "y": 18.6,
+                "face": 0,
+                "la": -55,
+                "ra": 44
+              },
+              {
+                "t": 4.4,
+                "x": 18,
+                "y": 18.6,
+                "face": 0,
+                "la": -55,
+                "ra": 44
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Same turnover, same spot."
+          },
+          {
+            "t": 0.9,
+            "text": "Raise an arm to signal, then walk straight out."
+          },
+          {
+            "t": 2.0,
+            "text": "Moving off commits you to the goal line option."
+          },
+          {
+            "t": 3.4,
+            "text": "Pivot here instead — more field for your team to use."
+          }
+        ]
+      },
+      {
+        "id": "reversed",
+        "label": "Changing your mind",
+        "verdict": "illegal",
+        "verdictText": "Not allowed. Whichever option you commit to first cannot be reversed.",
+        "focus": {
+          "x0": 4.8,
+          "x1": 21.9,
+          "y0": 14.7,
+          "y1": 22.5
+        },
+        "duration": 4.4,
+        "actors": [
+          {
+            "id": "thrower",
+            "role": "you",
+            "hand": "r",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 8,
+                "y": 18.6,
+                "face": 0,
+                "la": -55,
+                "ra": 44
+              },
+              {
+                "t": 1.8,
+                "x": 13.5,
+                "y": 18.6,
+                "face": 0
+              },
+              {
+                "t": 2.4,
+                "x": 13.5,
+                "y": 18.6,
+                "face": 160
+              },
+              {
+                "t": 4.0,
+                "x": 8.6,
+                "y": 18.6,
+                "face": 180
+              },
+              {
+                "t": 4.4,
+                "x": 8.6,
+                "y": 18.6,
+                "face": 180
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.4,
+                "t1": 4.4,
+                "cls": "illegal"
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "You start walking out — that's the goal line option."
+          },
+          {
+            "t": 1.8,
+            "text": "Then you spot a deep look and turn back…"
+          },
+          {
+            "t": 2.4,
+            "text": "…but you already committed by moving."
+          },
+          {
+            "t": 3.4,
+            "text": "You can't reverse it. Decide before you pick the disc up."
+          }
+        ]
+      }
     ]
   },
-
   "brick": {
-    "title": "Pull out of bounds: your choice",
+    "title": "A pull that lands out of bounds",
     "mode": "field",
-    "focus": { "x0": -3, "x1": 45, "y0": -5, "y1": 32 },
-    "duration": 4.4,
-    "ghosts": [
-      { "cx": 36, "cy": 18.5, "r": 1.3, "tag": "brick mark", "fadeInAt": 1.8 },
-      { "cx": 25, "cy": 0, "r": 1.0, "tag": "crossed here", "fadeInAt": 1.2 }
-    ],
-    "actors": [
-      { "id": "disc", "role": "disc", "keyframes": [
-        { "t": 0, "x": 40, "y": 26 },
-        { "t": 1.2, "x": 25, "y": 0 },
-        { "t": 1.6, "x": 25, "y": -3 },
-        { "t": 4.4, "x": 25, "y": -3 }
-      ]},
-      { "id": "thrower", "role": "you", "keyframes": [
-        { "t": 0, "x": 25, "y": -3 },
-        { "t": 1.6, "x": 25, "y": -3 },
-        { "t": 3.2, "x": 36, "y": 18.5 },
-        { "t": 4.4, "x": 36, "y": 18.5 }
-      ]}
-    ],
-    "captions": [
-      { "t": 0, "text": "A pull sails out of bounds without touching anyone." },
-      { "t": 1.2, "text": "It crosses the sideline here." },
-      { "t": 1.8, "text": "You get a choice: that spot, or the brick mark—" },
-      { "t": 3.2, "text": "—the cross in the middle, one end-zone-length in." }
+    "variants": [
+      {
+        "id": "take-brick",
+        "label": "Take the brick",
+        "verdict": "legal",
+        "verdictText": "Legal. The brick mark is one end-zone length in from your goal line, in the centre.",
+        "focus": {
+          "x0": 8.9,
+          "x1": 54.1,
+          "y0": -5.2,
+          "y1": 29.6
+        },
+        "duration": 4.4,
+        "ghosts": [
+          {
+            "cx": 36,
+            "cy": 18.5,
+            "r": 1.5,
+            "tag": "brick mark",
+            "fadeInAt": 1.6
+          }
+        ],
+        "actors": [
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 41,
+                "y": 27
+              },
+              {
+                "t": 1.2,
+                "x": 25,
+                "y": 0
+              },
+              {
+                "t": 1.6,
+                "x": 25,
+                "y": -2.6
+              },
+              {
+                "t": 4.4,
+                "x": 25,
+                "y": -2.6
+              }
+            ]
+          },
+          {
+            "id": "thrower",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 22,
+                "y": 3,
+                "face": -60
+              },
+              {
+                "t": 1.7,
+                "x": 24.6,
+                "y": -1.6,
+                "face": -70,
+                "la": -150,
+                "ra": 44,
+                "al": 1.5
+              },
+              {
+                "t": 2.2,
+                "x": 24.6,
+                "y": -1.6,
+                "face": 20,
+                "la": -150,
+                "ra": 44,
+                "al": 1.5
+              },
+              {
+                "t": 4.0,
+                "x": 36,
+                "y": 18.5,
+                "face": 20
+              },
+              {
+                "t": 4.4,
+                "x": 36,
+                "y": 18.5,
+                "face": 20
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "The pull sails out without touching anyone."
+          },
+          {
+            "t": 1.2,
+            "text": "It crosses the sideline here and lands out."
+          },
+          {
+            "t": 1.7,
+            "text": "Raise an arm and call \"brick\" before picking it up."
+          },
+          {
+            "t": 2.4,
+            "text": "Then walk to the mark in the middle of the field."
+          },
+          {
+            "t": 4.0,
+            "text": "Far better than starting trapped on a sideline."
+          }
+        ]
+      },
+      {
+        "id": "take-sideline",
+        "label": "Take the sideline",
+        "verdict": "legal",
+        "verdictText": "Also legal. You may instead start where the disc crossed the perimeter line.",
+        "focus": {
+          "x0": 8.9,
+          "x1": 54.1,
+          "y0": -5.2,
+          "y1": 29.6
+        },
+        "duration": 3.6,
+        "ghosts": [
+          {
+            "cx": 25,
+            "cy": 0.9,
+            "r": 1.3,
+            "tag": "crossed here",
+            "fadeInAt": 1.2
+          }
+        ],
+        "actors": [
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 41,
+                "y": 27
+              },
+              {
+                "t": 1.2,
+                "x": 25,
+                "y": 0
+              },
+              {
+                "t": 1.6,
+                "x": 25,
+                "y": -2.6
+              },
+              {
+                "t": 3.6,
+                "x": 25,
+                "y": -2.6
+              }
+            ]
+          },
+          {
+            "id": "thrower",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 22,
+                "y": 4,
+                "face": -60
+              },
+              {
+                "t": 1.8,
+                "x": 24.6,
+                "y": -1.6,
+                "face": -70
+              },
+              {
+                "t": 3.0,
+                "x": 25,
+                "y": 0.9,
+                "face": 40
+              },
+              {
+                "t": 3.6,
+                "x": 25,
+                "y": 0.9,
+                "face": 40
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Exactly the same pull, out of bounds again."
+          },
+          {
+            "t": 1.2,
+            "text": "You can simply take it where it crossed the line."
+          },
+          {
+            "t": 2.6,
+            "text": "Quicker to start — but you're stuck on a sideline."
+          }
+        ]
+      }
     ]
   },
-
   "simultaneous": {
-    "title": "Tie goes to the offence",
+    "title": "Who ends up with it",
     "mode": "field",
-    "focus": { "x0": 40, "x1": 62, "y0": 8, "y1": 29 },
-    "duration": 3.6,
-    "actors": [
-      { "id": "off", "role": "you", "keyframes": [{ "t": 0, "x": 44, "y": 12 }, { "t": 1.6, "x": 51, "y": 18.5 }, { "t": 3.6, "x": 51, "y": 18.5 }] },
-      { "id": "def", "role": "defence", "keyframes": [
-        { "t": 0, "x": 58, "y": 25 },
-        { "t": 1.6, "x": 51, "y": 18.5 },
-        { "t": 2.2, "x": 54, "y": 22 },
-        { "t": 3.6, "x": 54, "y": 22 }
-      ], "states": [{ "t0": 0, "t1": 1.6, "cls": "" }, { "t0": 1.6, "t1": 3.6, "cls": "fade" }] },
-      { "id": "disc", "role": "disc", "keyframes": [{ "t": 0, "x": 51, "y": 18.5 }, { "t": 1.6, "x": 51, "y": 18.5 }, { "t": 3.6, "x": 51, "y": 18.5 }] }
-    ],
-    "captions": [
-      { "t": 0, "text": "Both players close in on the disc…" },
-      { "t": 1.6, "text": "…and catch it at the exact same instant." },
-      { "t": 2.2, "text": "Simultaneous catch — offence keeps it, every time." }
+    "variants": [
+      {
+        "id": "tie",
+        "label": "Caught together",
+        "verdict": "note",
+        "verdictText": "Offence keeps it. A genuinely simultaneous catch always goes to the offence.",
+        "focus": {
+          "x0": 41.1,
+          "x1": 62.9,
+          "y0": 10.9,
+          "y1": 27.6
+        },
+        "duration": 3.6,
+        "actors": [
+          {
+            "id": "off",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 46,
+                "y": 13.5
+              },
+              {
+                "t": 1.7,
+                "x": 51.6,
+                "y": 18.6,
+                "ra": 26,
+                "al": 1.4
+              },
+              {
+                "t": 3.6,
+                "x": 51.6,
+                "y": 18.6,
+                "ra": 30,
+                "al": 1.2
+              }
+            ]
+          },
+          {
+            "id": "def",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 58,
+                "y": 25
+              },
+              {
+                "t": 1.7,
+                "x": 53.4,
+                "y": 20.2,
+                "la": -30,
+                "al": 1.4
+              },
+              {
+                "t": 2.5,
+                "x": 55,
+                "y": 22.5
+              },
+              {
+                "t": 3.6,
+                "x": 55,
+                "y": 22.5
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.4,
+                "t1": 3.6,
+                "cls": "fade"
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 52.5,
+                "y": 19.4
+              },
+              {
+                "t": 1.7,
+                "x": 52.5,
+                "y": 19.4
+              },
+              {
+                "t": 3.6,
+                "x": 52.0,
+                "y": 19.0
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Both players attack the same floating disc."
+          },
+          {
+            "t": 1.7,
+            "text": "They get hands on it at the exact same instant."
+          },
+          {
+            "t": 2.4,
+            "text": "Tie goes to the offence — every time."
+          }
+        ]
+      },
+      {
+        "id": "def-first",
+        "label": "Defender got there first",
+        "verdict": "note",
+        "verdictText": "Turnover. If the defender establishes possession first, it's simply an interception.",
+        "focus": {
+          "x0": 41.1,
+          "x1": 62.9,
+          "y0": 10.9,
+          "y1": 27.6
+        },
+        "duration": 3.6,
+        "actors": [
+          {
+            "id": "off",
+            "role": "you",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 46,
+                "y": 13.5
+              },
+              {
+                "t": 1.9,
+                "x": 50.6,
+                "y": 17.8,
+                "ra": 26,
+                "al": 1.4
+              },
+              {
+                "t": 3.6,
+                "x": 51.0,
+                "y": 18.2
+              }
+            ],
+            "states": [
+              {
+                "t0": 2.2,
+                "t1": 3.6,
+                "cls": "fade"
+              }
+            ]
+          },
+          {
+            "id": "def",
+            "role": "defence",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 58,
+                "y": 25
+              },
+              {
+                "t": 1.4,
+                "x": 53.4,
+                "y": 20.4,
+                "la": -26,
+                "al": 1.45
+              },
+              {
+                "t": 3.6,
+                "x": 54.4,
+                "y": 21.4
+              }
+            ]
+          },
+          {
+            "id": "disc",
+            "role": "disc",
+            "keyframes": [
+              {
+                "t": 0,
+                "x": 52.6,
+                "y": 19.6
+              },
+              {
+                "t": 1.4,
+                "x": 52.8,
+                "y": 19.8
+              },
+              {
+                "t": 3.6,
+                "x": 53.6,
+                "y": 20.6
+              }
+            ]
+          }
+        ],
+        "captions": [
+          {
+            "t": 0,
+            "text": "Same disc in the air, same two players."
+          },
+          {
+            "t": 1.4,
+            "text": "This time the defender clearly has it first."
+          },
+          {
+            "t": 2.2,
+            "text": "That's not simultaneous — it's just an interception."
+          }
+        ]
+      }
     ]
   }
 }

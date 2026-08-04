@@ -265,6 +265,7 @@
 },
 {
   "id": "establishing-pivot",
+  "scene": "two-contact",
   "title": "Slowing down after the catch",
   "tag": "Movement",
   "mins": 5,
@@ -306,6 +307,7 @@
 },
 {
   "id": "travel",
+  "scene": "pivot-foot",
   "title": "Travel: the call that doesn't stop play",
   "tag": "Calls",
   "mins": 6,
