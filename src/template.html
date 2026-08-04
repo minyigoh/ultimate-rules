@@ -260,6 +260,52 @@ section { scroll-margin-top: 4.5rem; }
 }
 .ref:hover { border-color: var(--accent); color: var(--accent); }
 
+/* rule animations — small top-down diagrams, coordinates authored directly
+   in metres and used as SVG user units, so the browser does all scaling */
+.scene { margin-top: 1.7rem; max-width: var(--read); border: 1px solid var(--line); border-radius: 8px; background: var(--sunk); overflow: hidden; }
+.scene-stage { width: 100%; background: var(--raise); }
+.scene-svg { width: 100%; height: 100%; display: block; }
+.sc-oob { fill: var(--ground); }
+.sc-turf { fill: var(--sunk); }
+.sc-sideline { fill: none; stroke: var(--ink-faint); }
+.sc-goal { stroke: var(--accent); }
+.sc-brick { stroke: var(--accent); opacity: .65; }
+.sc-axis { stroke: var(--line); }
+.sc-ring { fill: none; stroke: var(--ink-faint); }
+.sc-ghost { fill: none; stroke: var(--accent); opacity: .6; }
+.sc-tag { fill: var(--ink-faint); font-family: var(--f-mono); }
+.sc-tag-accent { fill: var(--accent); }
+.sc-event { fill: var(--ink-soft); transition: opacity .15s; }
+.sc-link { stroke: var(--line); }
+
+.tok { transition: fill .15s, stroke .15s, opacity .15s; }
+.tok-you { fill: var(--accent); }
+.tok-you2 { fill: none; stroke: var(--accent); }
+.tok-offence { fill: var(--ink-soft); }
+.tok-defence { fill: var(--raise); stroke: var(--ink-faint); }
+.tok-disc { fill: var(--ink); opacity: .88; }
+.tok.state-legal { fill: var(--legal); stroke: var(--legal); }
+.tok.state-illegal { fill: var(--illegal); stroke: var(--illegal); }
+.tok.state-fade { opacity: .3; }
+
+.scene-caption { min-height: 2.5em; padding: .95rem 1.1rem .3rem; margin: 0; font-size: .92rem; color: var(--ink-soft); font-weight: 550; }
+.scene-legend { display: flex; flex-wrap: wrap; gap: .8rem 1.1rem; padding: 0 1.1rem .85rem; font-size: .74rem; color: var(--ink-faint); }
+.sc-chip { display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; }
+.sc-sw { width: .62rem; height: .62rem; border-radius: 50%; flex: none; box-sizing: border-box; }
+.sc-sw-you { background: var(--accent); }
+.sc-sw-you2 { background: none; border: 1.5px solid var(--accent); }
+.sc-sw-offence { background: var(--ink-soft); }
+.sc-sw-defence { background: var(--raise); border: 1.5px solid var(--ink-faint); }
+.sc-sw-disc { background: var(--ink); border-radius: 50%; width: .74rem; height: .44rem; }
+.sc-sw-ring { border-radius: 0; border-top: 1.5px dashed var(--ink-faint); width: .7rem; height: 0; align-self: center; }
+.sc-sw-ghost { border-radius: 50%; border: 1.5px dashed var(--accent); background: none; }
+
+.scene-controls { display: flex; align-items: center; gap: .7rem; padding: .7rem 1.1rem; border-top: 1px solid var(--line-soft); }
+.scene-play { border: 1px solid var(--line); background: var(--raise); flex: none; }
+.scene-play svg { width: 15px; height: 15px; }
+.scene-scrub { flex: 1; accent-color: var(--accent); height: 4px; min-width: 0; }
+.scene-time { font-family: var(--f-mono); font-size: .72rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; min-width: 2.8em; text-align: right; }
+
 /* quiz */
 .quiz { margin-top: 2rem; max-width: var(--read); border-top: 1px solid var(--line-soft); padding-top: 1.6rem; }
 .quiz-q { font-weight: 700; font-size: 1.05rem; margin-top: .55rem; }
@@ -476,9 +522,13 @@ mark { background: var(--accent-wash); color: var(--accent); border-radius: 2px;
 .panel-box {
   width: min(100%, 40rem); margin-inline: auto; background: var(--raise);
   border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg);
-  padding: clamp(1.4rem, 4vw, 2.2rem);
+  overflow: hidden;
 }
-.panel-close { position: absolute; top: 1rem; right: 1rem; }
+/* a real header row, not an absolute overlay, so a long wrapped title
+   can never sit underneath the buttons */
+.panel-bar { display: flex; align-items: center; gap: .4rem; padding: .8rem .8rem 0; }
+.panel-bar-spacer { flex: 1; }
+.panel-content { padding: .5rem clamp(1.4rem, 4vw, 2.2rem) clamp(1.4rem, 4vw, 2.2rem); }
 .panel h3 { font-size: 1.4rem; margin: .6rem 0 .8rem; }
 .panel-prose { display: flex; flex-direction: column; gap: .85rem; color: var(--ink-soft); font-size: .96rem; }
 
@@ -675,7 +725,7 @@ footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3.5rem; }
 "use strict";
 /* ============================================================ data */
 const DATA = /*__DATA__*/;
-const { rules, chapters, definitions, lessons, basics, situations, synonyms } = DATA;
+const { rules, chapters, definitions, lessons, basics, situations, synonyms, scenes } = DATA;
 const ruleIndex = new Map(rules.map(r => [r.num, r]));
 
 /* ============================================================ helpers */
@@ -735,6 +785,241 @@ function refsHtml(nums, label) {
     nums.map(n => `<button class="ref" data-rule="${esc(n)}">${esc(n)}</button>`).join("") + `</div>`;
 }
 
+/* ============================================================ rule animations
+   Every scene is authored directly in metres. Field-mode scenes crop a window
+   (spec.focus) out of the canonical 100x37 field; closeup scenes centre a
+   small box (spec.world) on a thrower's pivot point. Because the SVG viewBox
+   is set in those same metre units, positions need no manual px projection —
+   the browser does all the scaling, and stroke/font sizes are derived once
+   from the box size so nothing needs per-scene tuning. */
+const FIELD_W = 100, FIELD_H = 37, GOAL_A = 18, GOAL_B = 82, BRICK_A = 36, BRICK_B = 64, BRICK_Y = 18.5;
+const svgns = "http://www.w3.org/2000/svg";
+
+function interpAt(kfs, t) {
+  if (t <= kfs[0].t) return kfs[0];
+  const last = kfs[kfs.length - 1];
+  if (t >= last.t) return last;
+  for (let i = 0; i < kfs.length - 1; i++) {
+    const a = kfs[i], b = kfs[i + 1];
+    if (t >= a.t && t <= b.t) {
+      const f = b.t === a.t ? 1 : (t - a.t) / (b.t - a.t);
+      return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
+    }
+  }
+  return last;
+}
+function stateAt(states, t) {
+  if (!states) return "";
+  let cur = "";
+  for (const s of states) if (t >= s.t0 && t <= s.t1) cur = s.cls;
+  return cur;
+}
+function captionAt(caps, t) {
+  let c = caps[0];
+  for (const x of caps) { if (t >= x.t) c = x; else break; }
+  return c ? c.text : "";
+}
+function svgEl(tag, attrs) {
+  const n = document.createElementNS(svgns, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  return n;
+}
+function legendFor(spec) {
+  const roles = new Set(spec.actors.map(a => a.role));
+  const items = [];
+  if (roles.has("you")) items.push(["you", "You"]);
+  if (roles.has("you2")) items.push(["you2", "Free foot"]);
+  if (roles.has("offence")) items.push(["offence", "Team-mate"]);
+  if (roles.has("defence")) items.push(["defence", "Defender"]);
+  if (roles.has("disc")) items.push(["disc", "Disc"]);
+  if (spec.rings && spec.rings.length) items.push(["ring", spec.rings[0].tag || "Measured distance"]);
+  if (spec.ghosts && spec.ghosts.length) items.push(["ghost", "Reference spot"]);
+  return items;
+}
+
+const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5l12 7-12 7V5z"/></svg>';
+const PAUSE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8 5v14M16 5v14"/></svg>';
+
+/* builds and runs one scene inside `mount`; returns a stop() function the
+   caller must invoke before discarding the mount, so the rAF loop doesn't
+   keep animating detached DOM after the card is replaced or the panel closes */
+function buildScene(mount, spec) {
+  const isField = spec.mode === "field";
+  const world = isField
+    ? { x0: spec.focus.x0, y0: spec.focus.y0, w: spec.focus.x1 - spec.focus.x0, h: spec.focus.y1 - spec.focus.y0 }
+    : { x0: -spec.world.halfW, y0: -spec.world.halfH, w: spec.world.halfW * 2, h: spec.world.halfH * 2 };
+  const unit = Math.min(world.w, world.h);
+  const tokenR = Math.max(unit * 0.028, 0.12);
+  const thin = unit * 0.006, med = unit * 0.013;
+  const dash = unit * 0.032, fontXS = unit * 0.038;
+
+  const svg = svgEl("svg", { viewBox: `${world.x0} ${world.y0} ${world.w} ${world.h}`, "aria-hidden": "true", class: "scene-svg" });
+
+  if (isField) {
+    svg.appendChild(svgEl("rect", { x: world.x0 - 300, y: world.y0 - 300, width: world.w + 600, height: world.h + 600, class: "sc-oob" }));
+    svg.appendChild(svgEl("rect", { x: 0, y: 0, width: FIELD_W, height: FIELD_H, class: "sc-turf" }));
+    svg.appendChild(svgEl("line", { x1: GOAL_A, y1: 0, x2: GOAL_A, y2: FIELD_H, class: "sc-goal", "stroke-width": med }));
+    svg.appendChild(svgEl("line", { x1: GOAL_B, y1: 0, x2: GOAL_B, y2: FIELD_H, class: "sc-goal", "stroke-width": med }));
+    svg.appendChild(svgEl("rect", { x: 0, y: 0, width: FIELD_W, height: FIELD_H, class: "sc-sideline", "stroke-width": thin }));
+    for (const bx of [BRICK_A, BRICK_B]) {
+      svg.appendChild(svgEl("line", { x1: bx - 0.5, y1: BRICK_Y, x2: bx + 0.5, y2: BRICK_Y, class: "sc-brick", "stroke-width": thin }));
+      svg.appendChild(svgEl("line", { x1: bx, y1: BRICK_Y - 0.5, x2: bx, y2: BRICK_Y + 0.5, class: "sc-brick", "stroke-width": thin }));
+    }
+  } else {
+    svg.appendChild(svgEl("line", { x1: world.x0, y1: 0, x2: world.x0 + world.w, y2: 0, class: "sc-axis", "stroke-width": thin }));
+    svg.appendChild(svgEl("line", { x1: 0, y1: world.y0, x2: 0, y2: world.y0 + world.h, class: "sc-axis", "stroke-width": thin }));
+  }
+
+  (spec.rings || []).forEach(r => {
+    svg.appendChild(svgEl("circle", { cx: r.cx, cy: r.cy, r: r.r, class: "sc-ring", "stroke-width": thin, "stroke-dasharray": `${dash} ${dash * 0.7}` }));
+    if (r.tag) {
+      const t = svgEl("text", { x: r.cx, y: r.cy - r.r - fontXS * 0.6, class: "sc-tag", "font-size": fontXS, "text-anchor": "middle" });
+      t.textContent = r.tag; svg.appendChild(t);
+    }
+  });
+
+  const ghostEls = (spec.ghosts || []).map(g => {
+    const c = svgEl("circle", { cx: g.cx, cy: g.cy, r: g.r, class: "sc-ghost", "stroke-width": thin, "stroke-dasharray": `${dash * 0.8} ${dash * 0.6}` });
+    svg.appendChild(c);
+    let tag = null;
+    if (g.tag) {
+      tag = svgEl("text", { x: g.cx, y: g.cy + g.r + fontXS * 1.15, class: "sc-tag sc-tag-accent", "font-size": fontXS, "text-anchor": "middle" });
+      tag.textContent = g.tag; svg.appendChild(tag);
+    }
+    return { g, c, tag };
+  });
+
+  const eventEls = (spec.events || []).map(ev => {
+    const c = svgEl("circle", { cx: ev.x, cy: ev.y, r: tokenR * 0.5, class: "sc-event" });
+    svg.appendChild(c);
+    let tag = null;
+    if (ev.tag) {
+      tag = svgEl("text", { x: ev.x, y: ev.y - tokenR * 1.25, class: "sc-tag", "font-size": fontXS, "text-anchor": "middle" });
+      tag.textContent = ev.tag; svg.appendChild(tag);
+    }
+    return { ev, c, tag };
+  });
+
+  const linkEls = (spec.links || []).map(l => {
+    const ln = svgEl("line", { class: "sc-link", "stroke-width": thin });
+    svg.appendChild(ln);
+    return { l, ln };
+  });
+
+  const actorEls = spec.actors.map(a => {
+    const isDisc = a.role === "disc";
+    const needsStroke = a.role === "defence" || a.role === "you2";
+    const el = isDisc
+      ? svgEl("ellipse", { rx: tokenR * 0.95, ry: tokenR * 0.6, class: `tok tok-${a.role}` })
+      : svgEl("circle", { r: tokenR, class: `tok tok-${a.role}` });
+    if (needsStroke) el.setAttribute("stroke-width", med);
+    svg.appendChild(el);
+    return { a, el, isDisc, base: a.role };
+  });
+
+  mount.innerHTML = "";
+  const wrap = el("div", "scene");
+  wrap.dataset.mode = spec.mode;
+  const stage = el("div", "scene-stage");
+  stage.style.aspectRatio = `${world.w} / ${world.h}`;
+  stage.appendChild(svg);
+  wrap.appendChild(stage);
+
+  const cap = el("p", "scene-caption");
+  wrap.appendChild(cap);
+
+  const legend = el("div", "scene-legend");
+  legendFor(spec).forEach(([cls, label]) => {
+    const chip = el("span", "sc-chip");
+    chip.innerHTML = `<i class="sc-sw sc-sw-${cls}"></i>${esc(label)}`;
+    legend.appendChild(chip);
+  });
+  wrap.appendChild(legend);
+
+  const controls = el("div", "scene-controls");
+  const playBtn = el("button", "icon-btn scene-play", PLAY_ICON);
+  playBtn.type = "button";
+  playBtn.setAttribute("aria-label", "Play animation");
+  const scrub = document.createElement("input");
+  scrub.type = "range"; scrub.className = "scene-scrub";
+  scrub.min = 0; scrub.max = Math.round(spec.duration * 1000); scrub.step = 10; scrub.value = 0;
+  scrub.setAttribute("aria-label", "Scrub through the animation");
+  const timeEl = el("span", "scene-time num", "0.0s");
+  controls.append(playBtn, scrub, timeEl);
+  wrap.appendChild(controls);
+
+  mount.appendChild(wrap);
+
+  let playing = false, raf = null, last = null, t = 0;
+  const fmt = s => `${Math.max(0, s).toFixed(1)}s`;
+
+  function render() {
+    actorEls.forEach(({ a, el: node, isDisc, base }) => {
+      const p = interpAt(a.keyframes, t);
+      if (isDisc) node.setAttribute("transform", `translate(${p.x} ${p.y})`);
+      else { node.setAttribute("cx", p.x); node.setAttribute("cy", p.y); }
+      const cls = stateAt(a.states, t);
+      node.setAttribute("class", `tok tok-${base}${cls ? " state-" + cls : ""}`);
+    });
+    linkEls.forEach(({ l, ln }) => {
+      const pa = interpAt(spec.actors.find(x => x.id === l.a).keyframes, t);
+      const pb = interpAt(spec.actors.find(x => x.id === l.b).keyframes, t);
+      ln.setAttribute("x1", pa.x); ln.setAttribute("y1", pa.y);
+      ln.setAttribute("x2", pb.x); ln.setAttribute("y2", pb.y);
+    });
+    ghostEls.forEach(({ g, c, tag }) => {
+      const on = t >= (g.fadeInAt || 0);
+      c.style.opacity = on ? .8 : 0;
+      if (tag) tag.style.opacity = on ? 1 : 0;
+    });
+    eventEls.forEach(({ ev, c, tag }) => {
+      const on = t >= ev.t;
+      c.style.opacity = on ? 1 : 0;
+      if (tag) tag.style.opacity = on ? 1 : 0;
+    });
+    cap.textContent = captionAt(spec.captions, t);
+    scrub.value = Math.round(t * 1000);
+    timeEl.textContent = fmt(t);
+  }
+
+  function setPlayIcon(isPlaying) {
+    playBtn.innerHTML = isPlaying ? PAUSE_ICON : PLAY_ICON;
+    playBtn.setAttribute("aria-label", isPlaying ? "Pause animation" : "Play animation");
+  }
+  function tick(now) {
+    if (!playing) return;
+    if (last == null) last = now;
+    const dt = (now - last) / 1000; last = now;
+    t = Math.min(spec.duration, t + dt);
+    render();
+    if (t >= spec.duration) { playing = false; last = null; setPlayIcon(false); return; }
+    raf = requestAnimationFrame(tick);
+  }
+  playBtn.addEventListener("click", () => {
+    if (playing) { playing = false; setPlayIcon(false); return; }
+    if (t >= spec.duration) t = 0;
+    playing = true; last = null; setPlayIcon(true);
+    raf = requestAnimationFrame(tick);
+  });
+  scrub.addEventListener("input", () => {
+    playing = false; setPlayIcon(false);
+    t = Number(scrub.value) / 1000;
+    render();
+  });
+
+  render();
+  return () => { playing = false; if (raf) cancelAnimationFrame(raf); };
+}
+
+function sceneBlockHtml(mountId) {
+  return `<div class="eyebrow" style="margin-top:1.6rem">Watch it</div><div class="scene-mount" id="${mountId}"></div>`;
+}
+
+let todaySceneStop = null;
+function stopTodayScene() { if (todaySceneStop) { todaySceneStop(); todaySceneStop = null; } }
+let panelSceneStop = null;
+function stopPanelScene() { if (panelSceneStop) { panelSceneStop(); panelSceneStop = null; } }
+
 function renderToday() {
   const off = bonusOffset;
   const L = lessonFor(off);
@@ -762,6 +1047,7 @@ function renderToday() {
       <h3>${esc(L.title)}</h3>
       <p class="today-hook">${esc(L.hook)}</p>
       <div class="today-prose">${L.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      ${L.scene && scenes[L.scene] ? sceneBlockHtml("sceneMount") : ""}
       <div class="onfield"><strong>On the field</strong><span>${esc(L.field)}</span></div>
       ${refsHtml(L.rules, "In the rulebook")}
       <div class="quiz">
@@ -784,6 +1070,9 @@ function renderToday() {
       <button class="btn-ghost" id="moreBtn">${off ? "Another one" : "I've got more time →"}</button>
       ${off ? `<button class="btn-ghost" id="backToday">Back to today</button>` : ""}
     </div>`;
+
+  stopTodayScene();
+  if (L.scene && scenes[L.scene]) todaySceneStop = buildScene($("#sceneMount"), scenes[L.scene]);
 
   if (answered) applyAnswer(answered, L, opts);
 
@@ -1143,22 +1432,58 @@ function wireTries(root) {
 
 /* ============================================================ detail panel */
 const panel = $("#panel"), panelBox = $("#panelBox");
+
+/* navigation history within the panel: clicking a rule reference inside
+   an already-open panel pushes the current view so Back can return to it,
+   however many levels deep. Opening the panel fresh (from the page or a
+   search result) always starts a new stack. */
+let panelStack = [];
+let panelCurrent = null;
+
+function panelPush(entry) {
+  if (panel.classList.contains("open") && panelCurrent) panelStack.push(panelCurrent);
+  else panelStack = [];
+  panelCurrent = entry;
+  paintPanel(entry);
+}
+function panelPop() {
+  const prev = panelStack.pop();
+  if (!prev) { closePanel(); return; }
+  panelCurrent = prev;
+  paintPanel(prev);
+}
+
 function openPanel(html) {
-  panelBox.innerHTML = `<button class="icon-btn panel-close" id="panelClose" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>` + html;
+  stopPanelScene();
+  const showBack = panelStack.length > 0;
+  panelBox.innerHTML = `
+    <div class="panel-bar">
+      ${showBack ? `<button class="icon-btn panel-back" id="panelBack" aria-label="Back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>` : ""}
+      <span class="panel-bar-spacer"></span>
+      <button class="icon-btn panel-close" id="panelClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="panel-content">${html}</div>`;
   panel.classList.add("open");
   document.body.style.overflow = "hidden";
+  panelBox.scrollTop = 0;
   $("#panelClose").addEventListener("click", closePanel);
+  if (showBack) $("#panelBack").addEventListener("click", panelPop);
   panelBox.querySelectorAll("[data-rule]").forEach(b =>
     b.addEventListener("click", () => showRule(b.dataset.rule)));
 }
 function closePanel() {
   panel.classList.remove("open");
+  stopPanelScene();
+  panelStack = [];
+  panelCurrent = null;
   if (!ovl.classList.contains("open")) document.body.style.overflow = "";
 }
 
-function showRule(num) {
+function paintRule(num) {
   const r = ruleIndex.get(num);
   if (!r) return;
   const kids = rules.filter(x => x.num.startsWith(num + ".") && x.depth === r.depth + 1);
@@ -1171,31 +1496,46 @@ function showRule(num) {
       <div class="eyebrow">Official annotation</div>
       ${r.ann.map(a => `<p><b>${esc(a.title)}.</b> ${esc(a.body.join(" "))}</p>`).join("")}</div>` : ""}`);
 }
+function paintDef(i) {
+  const d = definitions[i];
+  openPanel(`<div class="eyebrow">Defined term</div><h3>${esc(d.term)}</h3>
+    <div class="panel-prose"><p>${esc(d.text)}</p></div>`);
+}
+function paintSituation(i) {
+  const s = situations[i];
+  openPanel(`<div class="eyebrow">Common question</div><h3>${esc(s.q)}</h3>
+    <div class="panel-prose"><p>${esc(s.a)}</p></div>${refsHtml(s.rules)}`);
+}
+function paintLesson(i) {
+  const l = lessons[i];
+  const hasScene = l.scene && scenes[l.scene];
+  openPanel(`<div class="eyebrow">Lesson &middot; ${esc(l.tag)}</div><h3>${esc(l.title)}</h3>
+    <p class="today-hook">${esc(l.hook)}</p>
+    <div class="panel-prose" style="margin-top:1rem">${l.body.map(x => `<p>${esc(x)}</p>`).join("")}</div>
+    ${hasScene ? sceneBlockHtml("panelSceneMount") : ""}
+    <div class="onfield"><strong>On the field</strong><span>${esc(l.field)}</span></div>
+    ${refsHtml(l.rules, "In the rulebook")}`);
+  if (hasScene) panelSceneStop = buildScene($("#panelSceneMount"), scenes[l.scene]);
+}
+function paintPanel(entry) {
+  if (entry.kind === "rule") paintRule(entry.num);
+  else if (entry.kind === "def") paintDef(entry.i);
+  else if (entry.kind === "situation") paintSituation(entry.i);
+  else if (entry.kind === "lesson") paintLesson(entry.i);
+}
+
+function showRule(num) { panelPush({ kind: "rule", num }); }
+function showDef(i) { panelPush({ kind: "def", i }); }
+function showSituation(i) { panelPush({ kind: "situation", i }); }
+function showLesson(i) { panelPush({ kind: "lesson", i }); }
 
 function openHit(h) {
   if (!h) return;
   const p = h.payload;
-  if (p.type === "rule") { showRule(p.num); return; }
-  if (p.type === "def") {
-    const d = definitions[p.i];
-    openPanel(`<div class="eyebrow">Defined term</div><h3>${esc(d.term)}</h3>
-      <div class="panel-prose"><p>${esc(d.text)}</p></div>`);
-    return;
-  }
-  if (p.type === "situation") {
-    const s = situations[p.i];
-    openPanel(`<div class="eyebrow">Common question</div><h3>${esc(s.q)}</h3>
-      <div class="panel-prose"><p>${esc(s.a)}</p></div>${refsHtml(s.rules)}`);
-    return;
-  }
-  if (p.type === "lesson") {
-    const l = lessons[p.i];
-    openPanel(`<div class="eyebrow">Lesson &middot; ${esc(l.tag)}</div><h3>${esc(l.title)}</h3>
-      <p class="today-hook">${esc(l.hook)}</p>
-      <div class="panel-prose" style="margin-top:1rem">${l.body.map(x => `<p>${esc(x)}</p>`).join("")}</div>
-      <div class="onfield"><strong>On the field</strong><span>${esc(l.field)}</span></div>
-      ${refsHtml(l.rules, "In the rulebook")}`);
-  }
+  if (p.type === "rule") showRule(p.num);
+  else if (p.type === "def") showDef(p.i);
+  else if (p.type === "situation") showSituation(p.i);
+  else if (p.type === "lesson") showLesson(p.i);
 }
 
 /* ============================================================ wiring */

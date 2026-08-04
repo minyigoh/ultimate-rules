@@ -175,6 +175,7 @@ def load(name):
 def main():
     rules = load("rules.json")
     extras = load("extras.json")
+    scenes = load("scenes.json")
     lessons = []
     for n in (1, 2, 3):
         lessons += load(f"lessons-{n}.json")
@@ -197,6 +198,18 @@ def main():
         q = l["quiz"]
         if not (0 <= q["correct"] < len(q["options"])):
             sys.exit(f"lesson {l['id']}: quiz correct index out of range")
+        if "scene" in l and l["scene"] not in scenes:
+            sys.exit(f"lesson {l['id']} references unknown scene '{l['scene']}'")
+
+    for sid, sc in scenes.items():
+        if sc["mode"] == "field" and "focus" not in sc:
+            sys.exit(f"scene '{sid}' is field mode but has no focus rect")
+        if sc["mode"] == "closeup" and "world" not in sc:
+            sys.exit(f"scene '{sid}' is closeup mode but has no world extent")
+        actor_ids = {a["id"] for a in sc["actors"]}
+        for link in sc.get("links", []):
+            if link["a"] not in actor_ids or link["b"] not in actor_ids:
+                sys.exit(f"scene '{sid}' has a link referencing an unknown actor id")
 
     data = {
         "rules": rules["rules"],
@@ -206,6 +219,7 @@ def main():
         "basics": extras["basics"],
         "situations": extras["situations"],
         "synonyms": extras["synonyms"],
+        "scenes": scenes,
     }
 
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))

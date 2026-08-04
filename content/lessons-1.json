@@ -21,6 +21,7 @@
 },
 {
   "id": "no-running",
+  "scene": "pivot-foot",
   "title": "You can't run with the disc — but you can pivot",
   "tag": "Basics",
   "mins": 5,
@@ -41,6 +42,7 @@
 },
 {
   "id": "stall-count",
+  "scene": "stall-count-position",
   "title": "Ten seconds: the stall count",
   "tag": "Basics",
   "mins": 5,
@@ -161,6 +163,7 @@
 },
 {
   "id": "in-bounds-feet",
+  "scene": "in-bounds-feet",
   "title": "Where your feet have to be",
   "tag": "Possession",
   "mins": 5,
@@ -201,6 +204,7 @@
 },
 {
   "id": "simultaneous",
+  "scene": "simultaneous",
   "title": "Tie goes to the offence",
   "tag": "Possession",
   "mins": 3,
@@ -281,6 +285,7 @@
 },
 {
   "id": "two-touches",
+  "scene": "two-contact",
   "title": "Throwing on the run: the two-contact allowance",
   "tag": "Movement",
   "mins": 6,

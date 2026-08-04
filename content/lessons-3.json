@@ -161,6 +161,7 @@
 },
 {
   "id": "own-end-zone",
+  "scene": "own-end-zone",
   "title": "Turnover in your own end zone: you choose",
   "tag": "Turnovers",
   "mins": 6,
@@ -241,6 +242,7 @@
 },
 {
   "id": "brick",
+  "scene": "brick",
   "title": "Pulls that go out of bounds: the brick",
   "tag": "Restarts",
   "mins": 5,

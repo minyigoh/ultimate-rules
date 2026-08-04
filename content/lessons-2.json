@@ -1,6 +1,7 @@
 [
 {
   "id": "disc-space",
+  "scene": "disc-space",
   "title": "Disc space: give the thrower room",
   "tag": "Marking",
   "mins": 5,
@@ -61,6 +62,7 @@
 },
 {
   "id": "double-team",
+  "scene": "double-team",
   "title": "Double team: the three-metre rule",
   "tag": "Marking",
   "mins": 5,
@@ -281,6 +283,7 @@
 },
 {
   "id": "force-out",
+  "scene": "force-out",
   "title": "Force-out fouls",
   "tag": "Fouls",
   "mins": 5,
