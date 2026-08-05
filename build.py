@@ -1,4 +1,4 @@
-"""Build the Learn Ultimate site from the template + parsed rules + authored lessons.
+"""Build the Learn Ultimate Frisbee site from the template + parsed rules + authored lessons.
 
 Usage:  python build.py
 Output: docs/  — a static site ready for GitHub Pages, and openable straight
@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(HERE, "content")
 DIST = os.path.join(HERE, "docs")
 
-TITLE = "Learn Ultimate — the rules, five minutes a day"
+TITLE = "Learn Ultimate Frisbee — the rules, five minutes a day"
 DESC = ("Every rule of ultimate frisbee in plain English, one short lesson a day, "
         "and a search bar that understands what beginners actually type.")
 ACCENT = (226, 74, 18)      # --accent, light theme
@@ -95,7 +95,7 @@ HEAD = """<!doctype html>
 <meta name="theme-color" content="#0F1712" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Learn Ultimate">
+<meta name="apple-mobile-web-app-title" content="Learn Ultimate Frisbee">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
@@ -117,8 +117,8 @@ if ("serviceWorker" in navigator && location.protocol === "https:") {
 """
 
 MANIFEST = {
-    "name": "Learn Ultimate",
-    "short_name": "Ultimate",
+    "name": "Learn Ultimate Frisbee",
+    "short_name": "Learn UF",
     "description": DESC,
     "start_url": ".",
     "scope": ".",

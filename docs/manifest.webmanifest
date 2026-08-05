@@ -1,6 +1,6 @@
 {
-  "name": "Learn Ultimate",
-  "short_name": "Ultimate",
+  "name": "Learn Ultimate Frisbee",
+  "short_name": "Learn UF",
   "description": "Every rule of ultimate frisbee in plain English, one short lesson a day, and a search bar that understands what beginners actually type.",
   "start_url": ".",
   "scope": ".",

@@ -1,4 +1,4 @@
-# Learn Ultimate
+# Learn Ultimate Frisbee
 
 A beginner's guide to the rules of ultimate frisbee: every rule in plain English,
 one short lesson a day, and a search bar that understands what new players
