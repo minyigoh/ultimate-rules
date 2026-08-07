@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+<rect width="1080" height="1080" fill="#0F1712"/>
+
+<ellipse cx="540" cy="340.00" rx="168.75" ry="86.25" fill="none" stroke="#E24A12" stroke-width="16.25"/>
+<ellipse cx="540" cy="326.25" rx="92.50" ry="45.00" fill="none" stroke="#E24A12" stroke-width="11.25" opacity="0.55"/>
+
+<text x="540" y="602.50" font-family="Liberation Sans" font-weight="bold" font-size="115" fill="#F1F3EE" stroke="#F1F3EE" stroke-width="4.375" stroke-linejoin="round" text-anchor="middle">Learn Ultimate</text>
+<text x="540" y="740.00" font-family="Liberation Sans" font-weight="bold" font-size="115" fill="#F1F3EE" stroke="#F1F3EE" stroke-width="4.375" stroke-linejoin="round" text-anchor="middle">Frisbee</text>
+
+<text x="540" y="817.50" font-family="Liberation Sans" font-weight="bold" font-size="36" fill="#E24A12" stroke="#E24A12" stroke-width="2.0" stroke-linejoin="round" text-anchor="middle">F I V E   M I N U T E S   A   D A Y</text>
+
+</svg>

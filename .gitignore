@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# local dev server config — hardcoded interpreter path, not portable
+.claude/

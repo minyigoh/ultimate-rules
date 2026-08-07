@@ -33,8 +33,42 @@ src/
   template.html     the page: markup, styles, and all behaviour
   parse.py          regenerates content/rules.json from a urules.org dump
 build.py            inlines the data into a single page -> docs/
+social/
+  brand-identity.md voice, palette, attribution rules for the social account
+  dashboard/        the content desk (source) -> docs/desk/
 docs/               the built site (this is what GitHub Pages serves)
+docs/desk/          the built content desk
 ```
+
+## Content desk
+
+`social/dashboard/` is a private-ish dashboard for the social account: the
+posting queue, each post's script and both captions, its media, and an approval
+control for signing content off.
+
+```bash
+python social/dashboard/build_desk.py
+```
+
+That inlines `data.js` into the page, downscales the carousel PNGs to JPEG and
+copies the reel MP4s, and writes `docs/desk/` (~3 MB). Open
+`social/dashboard/index.html` directly to work on it locally — that copy reads
+media straight out of `content/`.
+
+Approvals and review notes are held in the browser's `localStorage`, never in
+the build, so they stay on whichever device you reviewed from. **Export
+decisions** prints them as a markdown table shaped like `content/calendar.md`,
+which is how a decision becomes permanent — the desk deliberately can't write to
+the repo itself.
+
+Two things worth knowing before you rely on it:
+
+- **A GitHub Pages site is public**, including from a private repo. Anything in
+  `docs/desk/` — unposted scripts, captions, draft media — is readable by anyone
+  with the link, and lands in git history. The page carries `noindex` so it
+  shouldn't be searchable, but that's obscurity, not access control.
+- `data.js` is maintained by hand against the files listed in its header. It
+  doesn't parse `content/calendar.md`, so the two can drift.
 
 ## Building
 

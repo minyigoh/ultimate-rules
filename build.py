@@ -151,6 +151,10 @@ self.addEventListener("activate", e => {{
 
 self.addEventListener("fetch", e => {{
   if (e.request.method !== "GET") return;
+  // /desk/ is the private content dashboard, not part of the offline lesson
+  // site. Leave it to the network so edits show up instead of being pinned to
+  // whatever version happened to be cached first.
+  if (new URL(e.request.url).pathname.includes("/desk/")) return;
   e.respondWith(
     caches.match(e.request, {{ ignoreSearch: true }}).then(hit => hit || fetch(e.request)
       .then(res => {{
