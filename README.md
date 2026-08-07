@@ -48,6 +48,10 @@ approvals that move a post along.
 
 ### Two approvals, not one
 
+The process of record is `content/CONTENT_REVIEW.md`; the desk is a view onto
+it and uses its status vocabulary verbatim, so what the desk shows and what
+`content/calendar.md` records are the same words.
+
 Every post carries two independent review tracks, because approving the words
 says nothing about whether the cut that came out of the render is any good.
 
@@ -67,24 +71,20 @@ says nothing about whether the cut that came out of the render is any good.
 Sending back a cut that has already been posted is allowed — the queue flags it
 `alreadyPosted` so a run knows it's a reshoot rather than a first render.
 
-### Handing the queue to the render task
+### Handing decisions back to the repo
 
 The desk is a static page. It cannot write to this repo, and a scheduled task
-cannot read your browser's `localStorage`. So the desk's job is to *produce* the
-queue, and you carry it across:
+cannot read your browser's `localStorage`. So the desk *produces* the artefacts
+and you carry them across. **Export decisions** emits, in the shapes
+`CONTENT_REVIEW.md` already defines:
 
-**Render queue** (or **Export decisions**) emits `render-queue.json`:
-
-```json
-{ "id": "reel-3", "action": "render", "priority": "scheduled",
-  "scriptSource": "content/pending-review/week-1-reels.md § 3",
-  "feedback": null }
-```
-
-Commit that to `content/render-queue.json` and the scheduled render task has an
-unambiguous work list, ordered urgent-first then by post date. `action` is
-`render` (never rendered) or `rerender` (sent back), and `feedback.issues`
-carries the tags you picked.
+1. the `content/calendar.md` table, with the Status column in that file's own
+   vocabulary — it round-trips, so a clean desk reproduces the file byte for byte
+2. a `content/<post>/feedback.md` block per rejected cut, in the documented
+   `## Round N — DATE — REJECTED` format
+3. a diff of what changed against the repo
+4. optionally `render-queue.json`, a machine-readable work list — a convenience
+   only; `calendar.md` and `feedback.md` remain authoritative
 
 **On "can a re-render happen immediately?"** — not by itself. A daily cron runs
 daily; marking a send-back *"regenerate on the next run"* sets

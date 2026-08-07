@@ -3,6 +3,8 @@
  * Mirrors the repo's own content files. Regenerate/edit by hand when content
  * changes; this file is the dashboard's single source of truth for what exists.
  *
+ *   content/CONTENT_REVIEW.md               the two-gate process and the status
+ *                                           vocabulary — the desk uses its words
  *   content/calendar.md                     queue, status, posted dates
  *   content/pending-review/week-1-reels.md  the week-1 batch (scripts + captions)
  *   content/reel-1|2/script-and-caption.md  standalone film-ready copy + scenes
@@ -13,7 +15,12 @@
  *
  *   review.script   the words        pending | approved | changes | rejected
  *   review.content  the rendered cut awaiting-render | in-review | approved
- *                                    | rerender | rejected
+ *                                    | rerender
+ *
+ * Those keys map onto CONTENT_REVIEW.md's statuses: awaiting-render is
+ * "Script approved", in-review is "Content pending review", approved is
+ * "Ready to post", rerender is "Content rejected — regenerate". There is no
+ * permanent reject for a cut — per that doc, rejecting one means regenerate.
  *
  * They gate each other in one direction only: nothing renders until the script
  * is approved, and approving a script never implies the cut that comes out of
@@ -156,7 +163,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
   {
     id: 'reel-2',
     date: '2026-08-07',
-    title: `You can't run — but you can pivot`,
+    title: `You can't run with the disc — but you can pivot`,
     type: 'Reel',
     typeDetail: '1080×1920 · 30.2s · 30fps',
     pillar: 'Rules',
@@ -166,7 +173,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['18.2.2', '18.2.3', '18.2.3.1'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'approved', on: '2026-08-06'}
+      content: {status: 'approved', on: '2026-08-07'}
     },
     postedDate: '2026-08-07',
     folder: 'reel-2',
@@ -174,7 +181,6 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     sourceLesson: 'content/lessons-1.json → no-running',
     video: 'reel2-you-cant-run-but-you-can-pivot.mp4',
     slides: null,
-    flag: 'Date mismatch: content/reel-2/script-and-caption.md says "Queued: 2026-08-08", but content/calendar.md records it as posted 2026-08-07. Calendar treated as authoritative here.',
     script: {
       hook: 'The most misunderstood beginner rule — and the easiest one to get right.',
       explanation: `Once you catch the disc, one foot becomes your pivot. It stays planted until you release the throw. The other foot can go anywhere — step around, lunge wide, reach past a defender. Pivoting isn't a workaround, it's a real skill.`,

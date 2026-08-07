@@ -400,6 +400,8 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
  * Mirrors the repo's own content files. Regenerate/edit by hand when content
  * changes; this file is the dashboard's single source of truth for what exists.
  *
+ *   content/CONTENT_REVIEW.md               the two-gate process and the status
+ *                                           vocabulary — the desk uses its words
  *   content/calendar.md                     queue, status, posted dates
  *   content/pending-review/week-1-reels.md  the week-1 batch (scripts + captions)
  *   content/reel-1|2/script-and-caption.md  standalone film-ready copy + scenes
@@ -410,7 +412,12 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
  *
  *   review.script   the words        pending | approved | changes | rejected
  *   review.content  the rendered cut awaiting-render | in-review | approved
- *                                    | rerender | rejected
+ *                                    | rerender
+ *
+ * Those keys map onto CONTENT_REVIEW.md's statuses: awaiting-render is
+ * "Script approved", in-review is "Content pending review", approved is
+ * "Ready to post", rerender is "Content rejected — regenerate". There is no
+ * permanent reject for a cut — per that doc, rejecting one means regenerate.
  *
  * They gate each other in one direction only: nothing renders until the script
  * is approved, and approving a script never implies the cut that comes out of
@@ -553,7 +560,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
   {
     id: 'reel-2',
     date: '2026-08-07',
-    title: `You can't run — but you can pivot`,
+    title: `You can't run with the disc — but you can pivot`,
     type: 'Reel',
     typeDetail: '1080×1920 · 30.2s · 30fps',
     pillar: 'Rules',
@@ -563,7 +570,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['18.2.2', '18.2.3', '18.2.3.1'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'approved', on: '2026-08-06'}
+      content: {status: 'approved', on: '2026-08-07'}
     },
     postedDate: '2026-08-07',
     folder: 'reel-2',
@@ -571,7 +578,6 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     sourceLesson: 'content/lessons-1.json → no-running',
     video: 'reel2-you-cant-run-but-you-can-pivot.mp4',
     slides: null,
-    flag: 'Date mismatch: content/reel-2/script-and-caption.md says "Queued: 2026-08-08", but content/calendar.md records it as posted 2026-08-07. Calendar treated as authoritative here.',
     script: {
       hook: 'The most misunderstood beginner rule — and the easiest one to get right.',
       explanation: `Once you catch the disc, one foot becomes your pivot. It stays planted until you release the throw. The other foot can go anywhere — step around, lunge wide, reach past a defender. Pivoting isn't a workaround, it's a real skill.`,
@@ -860,17 +866,20 @@ const isMobile = () => window.matchMedia('(max-width:900px)').matches;
 /* Two tracks. The script is the words; the content is the cut that comes out of
    the render. Approving one says nothing about the other. */
 const SCRIPT_STATUS = {
-  pending:  {label:'Needs review',  color:'var(--warn)'},
-  approved: {label:'Approved',      color:'var(--ok)'},
-  changes:  {label:'Changes asked', color:'var(--warn)'},
-  rejected: {label:'Rejected',      color:'var(--bad)'}
+  pending:  {label:'Needs review',  color:'var(--warn)', calendar:'Pending review'},
+  approved: {label:'Script approved', color:'var(--ok)', calendar:'Script approved'},
+  changes:  {label:'Changes asked', color:'var(--warn)', calendar:'Pending review — changes requested'},
+  rejected: {label:'Rejected',      color:'var(--bad)',  calendar:'Rejected'}
 };
+/* Labels are the status vocabulary from content/CONTENT_REVIEW.md verbatim, so
+   what the desk shows and what calendar.md records are the same words. There is
+   deliberately no permanent "rejected" for a render — per that doc, rejecting a
+   cut always means regenerate. */
 const CONTENT_STATUS = {
-  'awaiting-render': {label:'Awaiting render', color:'var(--info)'},
-  'in-review':       {label:'Needs review',    color:'var(--warn)'},
-  approved:          {label:'Approved',        color:'var(--ok)'},
-  rerender:          {label:'Re-render asked', color:'var(--accent)'},
-  rejected:          {label:'Rejected',        color:'var(--bad)'}
+  'awaiting-render': {label:'Not yet rendered',  color:'var(--info)',   calendar:'Script approved'},
+  'in-review':       {label:'Content pending review', color:'var(--warn)', calendar:'Content pending review'},
+  approved:          {label:'Ready to post',     color:'var(--ok)',     calendar:'Ready to post'},
+  rerender:          {label:'Rejected — regenerate', color:'var(--accent)', calendar:'Content rejected — regenerate'}
 };
 
 /* What the render task can be told is wrong, in its own vocabulary. Free text
@@ -955,10 +964,20 @@ function stageOf(p){
   if (s !== 'approved') return 'script-review';
   // An explicit send-back outranks "posted" — pulling a shipped cut back for a
   // fix is a deliberate act, and hiding it under a Posted badge loses it.
-  if (c === 'in-review' || c === 'rerender' || c === 'rejected') return 'content-review';
+  if (c === 'in-review' || c === 'rerender') return 'content-review';
   if (postedOn(p)) return 'posted';
   if (c === 'approved') return 'ready';
   return 'awaiting-render';
+}
+
+/* The single status that belongs in content/calendar.md's Status column, using
+   that file's own vocabulary. Posted wins unless a cut has been sent back. */
+function calendarStatus(p){
+  const s = scriptStatus(p), c = contentStatus(p);
+  if (s !== 'approved') return SCRIPT_STATUS[s].calendar;
+  if (c === 'rerender') return CONTENT_STATUS.rerender.calendar;
+  if (postedOn(p)) return 'Posted';
+  return CONTENT_STATUS[c].calendar;
 }
 
 /* ---------- helpers ---------- */
@@ -1287,9 +1306,8 @@ function tracksHTML(p){
       this is where you approve or send it back.</div>`;
   } else {
     const cBtns = [
-      ['approved','Approve content','var(--ok)'],
-      ['rerender','Request re-render','var(--accent)'],
-      ['rejected','Reject','var(--bad)']
+      ['approved','Approve — ready to post','var(--ok)'],
+      ['rerender','Reject — regenerate','var(--accent)']
     ].map(([k,l,col]) =>
       `<button class="act" data-track="content" data-set="${k}" style="--c:${col}" aria-pressed="${c===k}">${esc(l)}</button>`
     ).join('');
@@ -1526,65 +1544,90 @@ function queueJSON(){
   }, null, 2);
 }
 
-/* ---------- export ---------- */
-function exportMarkdown(){
+/* ---------- export ----------
+   Two artefacts, both in the shapes content/CONTENT_REVIEW.md already defines:
+   the calendar table, and per-post feedback.md rounds. Those are what the
+   render task reads — render-queue.json below is a convenience on top, not a
+   replacement for them. */
+function exportCalendar(){
+  let md = `| Queued | Post | Type | Status | Posted | Performance |\n|---|---|---|---|---|---|\n`;
+  for (const p of [...POSTS].sort((a,b) => a.date.localeCompare(b.date))){
+    const name = p.type === 'Carousel' ? `${p.folder} — "${p.title}"` : p.title;
+    md += `| ${p.date} | ${name} | ${p.type}${p.type === 'Carousel' ? ' (' + p.slides.length + ' slides)' : ''}`
+        + ` | ${calendarStatus(p)} | ${postedOn(p) || '—'} | — |\n`;
+  }
+  return md;
+}
+
+function exportFeedback(){
+  const out = [];
+  for (const p of POSTS){
+    if (contentStatus(p) !== 'rerender') continue;
+    const body = [contentTags(p).length ? contentTags(p).join(', ') + '.' : '', contentNote(p)]
+      .filter(x => x && x.trim()).join(' ') || 'Rejected — no detail given.';
+    out.push(`# content/${p.folder || p.id}/feedback.md\n\n`
+           + `## Round 1 — ${TODAY} — REJECTED\n${body}\n`);
+  }
+  return out.length ? out.join('\n') : 'No cuts are currently sent back, so there is nothing to log.\n';
+}
+
+function exportDecisions(){
   const changed = POSTS.filter(overridden);
   const stamp = new Date().toISOString().slice(0,16).replace('T',' ');
   let md = `# Review decisions — ${stamp}\n\n`;
+  if (!changed.length) return md + `No decisions differ from what the repo already records.\n`;
 
-  if (!changed.length){
-    md += `No decisions differ from what the repo already records.\n`;
-  } else {
-    md += `| Date | Post | Track | Repo | Your call | Note |\n|---|---|---|---|---|---|\n`;
-    for (const p of changed){
-      const rows = [];
-      if (scriptStatus(p) !== p.review.script.status || scriptNote(p).trim())
-        rows.push(['Script', SCRIPT_STATUS[p.review.script.status].label,
-                   SCRIPT_STATUS[scriptStatus(p)].label, scriptNote(p)]);
-      if (contentStatus(p) !== p.review.content.status || contentNote(p).trim() || contentTags(p).length)
-        rows.push(['Content', CONTENT_STATUS[p.review.content.status].label,
-                   CONTENT_STATUS[contentStatus(p)].label,
-                   [contentTags(p).join(', '), contentNote(p)].filter(Boolean).join(' — ')]);
-      for (const [t, was, now, note] of rows){
-        const n = (note || '—').replace(/\|/g,'\\|').replace(/\n+/g,' ');
-        md += `| ${p.date} | ${p.title} | ${t} | ${was} | ${now} | ${n} |\n`;
-      }
+  md += `| Date | Post | Gate | Repo | Your call | Note |\n|---|---|---|---|---|---|\n`;
+  for (const p of changed){
+    const rows = [];
+    if (scriptStatus(p) !== p.review.script.status || scriptNote(p).trim())
+      rows.push(['Script', SCRIPT_STATUS[p.review.script.status].label,
+                 SCRIPT_STATUS[scriptStatus(p)].label, scriptNote(p)]);
+    if (contentStatus(p) !== p.review.content.status || contentNote(p).trim() || contentTags(p).length)
+      rows.push(['Content', CONTENT_STATUS[p.review.content.status].label,
+                 CONTENT_STATUS[contentStatus(p)].label,
+                 [contentTags(p).join(', '), contentNote(p)].filter(Boolean).join(' — ')]);
+    for (const [t, was, now, note] of rows){
+      const n = (note || '—').replace(/\|/g,'\\|').replace(/\n+/g,' ');
+      md += `| ${p.date} | ${p.title} | ${t} | ${was} | ${now} | ${n} |\n`;
     }
-  }
-
-  md += `\n## Pipeline as it now stands\n\n| Queued | Post | Type | Script | Content | Stage | Posted |\n|---|---|---|---|---|---|---|\n`;
-  for (const p of [...POSTS].sort((a,b) => a.date.localeCompare(b.date))){
-    md += `| ${p.date} | ${p.title} | ${p.type} | ${SCRIPT_STATUS[scriptStatus(p)].label}`
-        + ` | ${CONTENT_STATUS[contentStatus(p)].label} | ${STAGES[stageOf(p)].label}`
-        + ` | ${postedOn(p) || '—'} |\n`;
   }
   return md;
 }
 
 $('#exportBtn').addEventListener('click', () => {
-  const md = exportMarkdown();
+  const cal = exportCalendar();
+  const fb = exportFeedback();
+  const dec = exportDecisions();
   const qj = queueJSON();
   $('#modalTitle').textContent = 'Export decisions';
   $('#modalBody').innerHTML = `
     <p class="hint">Your clicks live in this browser only — a scheduled task
-      cannot read them. These two blocks are the handoff: commit the JSON to
-      <span class="src">content/render-queue.json</span> for the render task, and
-      use the markdown to update <span class="src">content/calendar.md</span>.
-      Or paste either to Claude and say "apply these".</p>
-    <h4>Render queue → content/render-queue.json</h4>
-    <pre>${esc(qj)}</pre>
-    <h4>Decisions → content/calendar.md</h4>
-    <pre>${esc(md)}</pre>`;
+      cannot read them. These blocks are the handoff, in the shapes
+      <span class="src">content/CONTENT_REVIEW.md</span> already defines. Paste
+      them to Claude and say "apply these", or edit the files yourself.</p>
+    <h4>1 · Calendar table → content/calendar.md</h4>
+    <pre>${esc(cal)}</pre>
+    <h4>2 · Rejection feedback → content/&lt;post&gt;/feedback.md</h4>
+    <pre>${esc(fb)}</pre>
+    <h4>3 · What changed since the repo</h4>
+    <pre>${esc(dec)}</pre>
+    <h4>4 · Machine-readable queue (optional)</h4>
+    <p class="hint" style="margin-top:-6px">A convenience for the render task.
+      calendar.md and feedback.md remain authoritative.</p>
+    <pre>${esc(qj)}</pre>`;
   $('#modalFoot').innerHTML = `
-    <button class="hbtn primary" id="cpQ">Copy queue JSON</button>
-    <button class="hbtn" id="cpMd">Copy markdown</button>
-    <button class="hbtn" id="dlAll">Download both</button>
+    <button class="hbtn primary" id="cpCal">Copy calendar</button>
+    <button class="hbtn" id="cpFb">Copy feedback</button>
+    <button class="hbtn" id="cpQ">Copy queue JSON</button>
+    <button class="hbtn" id="dlAll">Download all</button>
     <button class="hbtn" data-close style="margin-left:auto">Close</button>`;
+  $('#cpCal').onclick = () => copy(cal, 'Calendar table');
+  $('#cpFb').onclick = () => copy(fb, 'Feedback');
   $('#cpQ').onclick = () => copy(qj, 'Render queue');
-  $('#cpMd').onclick = () => copy(md, 'Markdown');
   $('#dlAll').onclick = () => {
+    dl(cal + '\n' + fb + '\n' + dec, `review-${TODAY}.md`, 'text/markdown');
     dl(qj, `render-queue-${TODAY}.json`, 'application/json');
-    dl(md, `review-decisions-${TODAY}.md`, 'text/markdown');
   };
   $('#modal').showModal();
 });
