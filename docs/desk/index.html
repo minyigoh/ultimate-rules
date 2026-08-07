@@ -21,6 +21,7 @@
   --ok:#4CAF7D;
   --warn:#E0A32E;
   --bad:#D4553F;
+  --info:#4A9E8F;
   --radius:12px;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 }
@@ -51,10 +52,11 @@ header{
 .stats{display:flex;gap:8px;flex-wrap:wrap}
 .stat{
   background:var(--panel);border:1px solid var(--line);border-radius:10px;
-  padding:7px 13px;min-width:78px;
+  padding:7px 13px;min-width:86px;
 }
 .stat b{display:block;font-size:19px;font-weight:650;line-height:1.15}
 .stat span{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint)}
+.stat.hl{border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
 .stat.hl b{color:var(--accent)}
 .hbtn{
   background:var(--panel);border:1px solid var(--line-strong);border-radius:9px;
@@ -63,48 +65,18 @@ header{
 .hbtn:hover{border-color:var(--accent);color:var(--accent)}
 .hbtn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .hbtn.primary:hover{filter:brightness(1.12);color:#fff}
+.hbtn .badge{
+  display:inline-block;background:var(--accent);color:#fff;border-radius:20px;
+  font-size:11px;font-weight:700;padding:0 6px;margin-left:6px;
+}
+.hbtn.primary .badge{background:rgba(0,0,0,.28)}
 
 /* ---------- layout ---------- */
 .wrap{display:grid;grid-template-columns:340px minmax(0,1fr);height:calc(100vh - 83px)}
 .backbar{display:none}
-
-/* On narrow screens the two panes become master → detail: the queue is the
-   page, tapping a post swaps to its script, and a sticky back bar returns. */
-@media(max-width:900px){
-  header{padding:13px 16px;gap:11px}
-  .brand{margin-right:0;flex:1 1 100%}
-  .stats{flex:1 1 100%}
-  .stat{flex:1;min-width:0;padding:6px 9px;text-align:center}
-  .stat b{font-size:17px}
-  .stat span{font-size:9.5px;letter-spacing:.04em}
-  .hbtn{flex:1;text-align:center}
-
-  .wrap{grid-template-columns:1fr;height:auto}
-  .queue{border-right:none;overflow:visible;padding:12px 15px 48px}
-  .detail{display:none;overflow:visible;padding:0 15px 64px}
-  body.viewing .queue{display:none}
-  body.viewing .detail{display:block}
-
-  .backbar{
-    display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5;
-    background:var(--bg);border-bottom:1px solid var(--line);
-    margin:0 -15px 20px;padding:13px 15px;
-  }
-  .backbar button{
-    background:transparent;border:none;color:var(--accent);
-    font-size:14px;font-weight:600;padding:4px 0;display:flex;align-items:center;gap:6px;
-  }
-  .backbar .ctx{font-size:12px;color:var(--faint);margin-left:auto;font-family:var(--mono)}
-
-  .dhead h2{font-size:22px;max-width:none}
-  .media{gap:14px}
-  .media video{width:100%;max-width:320px}
-  .strip{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
-  .act{flex:1 1 auto;justify-content:center;padding:11px 12px}
-  .act.ghost{flex:1 1 100%;margin-left:0}
-  .repo-note{margin-left:0;flex:1 1 100%}
-  table.scenes td:nth-child(2){white-space:normal}
-}
+/* The narrow-screen block lives at the very end of this stylesheet — it has to
+   come after every rule it overrides, or the base rules win on equal
+   specificity and the mobile layout silently reverts to the desktop one. */
 
 /* ---------- queue ---------- */
 .queue{border-right:1px solid var(--line);overflow-y:auto;padding:14px}
@@ -115,6 +87,7 @@ header{
 }
 .filters button:hover{border-color:var(--line-strong);color:var(--text)}
 .filters button[aria-pressed=true]{background:var(--text);color:var(--bg);border-color:var(--text);font-weight:600}
+.filters button .n{opacity:.6;margin-left:3px}
 .search{
   width:100%;background:var(--panel);border:1px solid var(--line);border-radius:9px;
   padding:9px 12px;color:var(--text);font:inherit;font-size:13px;margin-bottom:12px;
@@ -138,9 +111,17 @@ header{
   color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:2px 5px;
 }
 .card .today{background:var(--accent);color:#fff;border-color:var(--accent)}
-.card h3{margin:0 0 6px;font-size:13.5px;font-weight:550;line-height:1.35}
-.card .foot{display:flex;align-items:center;gap:7px}
+.card h3{margin:0 0 7px;font-size:13.5px;font-weight:550;line-height:1.35}
+.card .foot{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .edited{font-size:10px;color:var(--accent);font-weight:600}
+
+/* two-segment track indicator on each card */
+.tt{display:flex;gap:3px;align-items:center}
+.tt i{
+  width:22px;height:4px;border-radius:2px;background:var(--c);display:block;
+  font-style:normal;
+}
+.tt i.empty{background:var(--line-strong)}
 
 .pill{
   display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:650;
@@ -152,11 +133,10 @@ header{
 
 /* ---------- detail ---------- */
 .detail{overflow-y:auto;padding:26px 32px 80px}
-@media(max-width:900px){.detail{padding:22px 18px 60px}}
 .empty{display:grid;place-content:center;height:60vh;text-align:center;color:var(--faint)}
 .empty .disc{font-size:44px;margin-bottom:12px}
 
-.dhead{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+.dhead{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:22px}
 .dhead h2{margin:0 0 10px;font-size:26px;font-weight:650;letter-spacing:-.02em;line-height:1.2;max-width:24ch}
 .meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
 .chip{
@@ -173,27 +153,75 @@ header{
 }
 .flag .ico{color:var(--warn);font-weight:700;flex:none}
 
-/* approval */
-.approval{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:26px}
-.approval > .lbl{display:flex;align-items:center;gap:10px;margin-bottom:13px;flex-wrap:wrap}
-.lbl h4{margin:0;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint);font-weight:650}
-.repo-note{font-size:11.5px;color:var(--faint);margin-left:auto}
-.acts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+/* pipeline rail */
+.rail{display:flex;gap:4px;margin-bottom:22px}
+.rail .step{
+  flex:1;text-align:center;font-size:10px;text-transform:uppercase;
+  letter-spacing:.06em;font-weight:650;color:var(--faint);
+  padding:7px 4px;border-radius:7px;background:var(--panel);
+  border:1px solid var(--line);position:relative;
+}
+.rail .step.done{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 30%,transparent)}
+.rail .step.now{
+  color:var(--bg);background:var(--sc);border-color:var(--sc);
+}
+.rail .step b{display:block;font-size:15px;line-height:1.1;margin-bottom:2px;font-weight:700}
+
+/* two approval tracks */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.track{
+  background:var(--panel);border:1px solid var(--line);
+  border-top:3px solid var(--tc);border-radius:var(--radius);padding:16px;
+  display:flex;flex-direction:column;
+}
+.track.locked{opacity:.62}
+.track-head{display:flex;align-items:center;gap:9px;margin-bottom:6px;flex-wrap:wrap}
+.track-head .num{
+  width:20px;height:20px;border-radius:50%;background:var(--tc);color:var(--bg);
+  display:grid;place-items:center;font-size:11px;font-weight:750;flex:none;
+}
+.track-head h4{margin:0;font-size:13.5px;font-weight:650;letter-spacing:-.01em}
+.track .what{font-size:12px;color:var(--faint);margin:0 0 13px;line-height:1.45}
+.track .repo-note{font-size:11px;color:var(--faint);margin-top:10px}
+.track .repo-note b{color:var(--muted)}
+
+.acts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
 .act{
   background:transparent;border:1px solid var(--line-strong);border-radius:9px;
-  padding:9px 15px;font-size:13px;font-weight:550;display:flex;align-items:center;gap:7px;
+  padding:8px 13px;font-size:12.5px;font-weight:550;display:flex;align-items:center;gap:6px;
 }
 .act:hover{border-color:var(--c);color:var(--c)}
 .act[aria-pressed=true]{background:var(--c);border-color:var(--c);color:#0F1712;font-weight:650}
-.act.ghost{margin-left:auto;border-color:transparent;color:var(--faint);font-weight:450;font-size:12.5px}
+.act:disabled{opacity:.4;cursor:not-allowed}
+.act.ghost{border-color:transparent;color:var(--faint);font-weight:450;font-size:12px}
 .act.ghost:hover{color:var(--text);border-color:var(--line)}
-.approval textarea{
-  width:100%;min-height:72px;resize:vertical;background:var(--bg);
-  border:1px solid var(--line);border-radius:9px;padding:11px 13px;
-  color:var(--text);font:inherit;font-size:13.5px;line-height:1.5;
+
+.track textarea{
+  width:100%;min-height:66px;resize:vertical;background:var(--bg);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;
+  color:var(--text);font:inherit;font-size:13px;line-height:1.5;
 }
-.approval textarea:focus{outline:none;border-color:var(--accent)}
-.saved{font-size:11.5px;color:var(--muted);margin-top:8px;min-height:16px}
+.track textarea:focus{outline:none;border-color:var(--accent)}
+.saved{font-size:11px;color:var(--muted);margin-top:7px;min-height:14px}
+
+.lockmsg{
+  font-size:12.5px;color:var(--muted);background:var(--bg);border:1px dashed var(--line-strong);
+  border-radius:9px;padding:12px 13px;line-height:1.5;
+}
+.lockmsg b{color:var(--text)}
+
+/* re-render feedback block */
+.fb{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.fb > .lb{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:650;margin-bottom:8px}
+.issues{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:11px}
+.issue{
+  background:transparent;border:1px solid var(--line);border-radius:20px;
+  padding:4px 10px;font-size:11.5px;color:var(--muted);
+}
+.issue:hover{border-color:var(--accent);color:var(--text)}
+.issue[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.urgent{display:flex;align-items:center;gap:9px;margin-top:11px;font-size:12.5px;color:var(--muted);cursor:pointer}
+.urgent input{accent-color:var(--accent);width:16px;height:16px;flex:none;cursor:pointer}
 
 /* sections */
 section{margin-bottom:30px}
@@ -244,7 +272,7 @@ table.scenes td:nth-child(2){color:var(--text);font-weight:550;white-space:nowra
 .strip img{width:100%;aspect-ratio:1080/1350;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block;cursor:zoom-in;background:var(--panel)}
 .strip img:hover{border-color:var(--accent)}
 .strip figcaption{font-size:10px;color:var(--faint);margin-top:4px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.missing{font-size:12.5px;color:var(--faint);background:var(--panel);border:1px dashed var(--line-strong);border-radius:var(--radius);padding:14px 16px}
+.missing{font-size:12.5px;color:var(--faint);background:var(--panel);border:1px dashed var(--line-strong);border-radius:var(--radius);padding:14px 16px;line-height:1.5}
 
 ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px}
 ul.notes li{margin-bottom:6px}
@@ -253,7 +281,7 @@ ul.notes li{margin-bottom:6px}
 /* modal */
 dialog{
   border:1px solid var(--line-strong);border-radius:14px;background:var(--panel);
-  color:var(--text);padding:0;max-width:820px;width:92vw;max-height:86vh;
+  color:var(--text);padding:0;max-width:860px;width:92vw;max-height:86vh;
 }
 dialog::backdrop{background:rgba(0,0,0,.72)}
 .mh{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
@@ -261,12 +289,19 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
 .mh .x{margin-left:auto;background:transparent;border:none;font-size:22px;color:var(--faint);line-height:1;padding:0 4px}
 .mh .x:hover{color:var(--text)}
 .mb{padding:18px 20px;overflow-y:auto;max-height:64vh}
-.mb p.hint{margin:0 0 14px;font-size:13px;color:var(--muted)}
+.mb p.hint{margin:0 0 14px;font-size:13px;color:var(--muted);line-height:1.55}
+.mb h4{margin:20px 0 9px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
+.mb h4:first-child{margin-top:0}
 .mb pre{
   background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:14px;
   font:12px/1.6 var(--mono);white-space:pre-wrap;word-wrap:break-word;margin:0 0 16px;
 }
 .mf{display:flex;gap:9px;padding:14px 20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.rq{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:9px;background:var(--bg)}
+.rq .rqh{display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap}
+.rq .rqh b{font-size:13.5px;font-weight:600}
+.rq .why{font-size:12.5px;color:var(--muted);line-height:1.5}
+.rq .why em{color:var(--text);font-style:normal}
 #lightbox{max-width:min(640px,94vw);padding:0;background:transparent;border:none}
 #lightbox img{width:100%;border-radius:12px;display:block}
 
@@ -277,6 +312,50 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
 }
 .toast.on{transform:translate(-50%,0);opacity:1}
 kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--muted)}
+
+/* ---------- narrow screens ----------
+   Deliberately last in the file. The two panes become master → detail: the
+   queue is the page, tapping a post swaps to its script, and a sticky back bar
+   returns. Both approval tracks stack so neither gets squeezed. */
+@media(max-width:900px){
+  header{padding:13px 16px;gap:11px}
+  .brand{margin-right:0;flex:1 1 100%}
+  .stats{flex:1 1 100%}
+  .stat{flex:1;min-width:0;padding:6px 7px;text-align:center}
+  .stat b{font-size:16px}
+  .stat span{font-size:8.5px;letter-spacing:.02em}
+  .hbtn{flex:1;text-align:center;padding:9px 10px}
+
+  .wrap{grid-template-columns:1fr;height:auto}
+  .queue{border-right:none;overflow:visible;padding:12px 15px 48px}
+  .detail{display:none;overflow:visible;padding:0 15px 64px}
+  body.viewing .queue{display:none}
+  body.viewing .detail{display:block}
+
+  .backbar{
+    display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    margin:0 -15px 20px;padding:13px 15px;
+  }
+  .backbar button{
+    background:transparent;border:none;color:var(--accent);
+    font-size:14px;font-weight:600;padding:4px 0;display:flex;align-items:center;gap:6px;
+  }
+  .backbar .ctx{font-size:12px;color:var(--faint);margin-left:auto;font-family:var(--mono)}
+
+  .dhead h2{font-size:22px;max-width:none}
+  .rail .step{font-size:9px;padding:6px 2px}
+  .rail .step span{display:none}
+  .tracks{grid-template-columns:1fr;gap:12px}
+  .act{flex:1 1 auto;justify-content:center}
+  .media{gap:14px}
+  .media video{width:100%;max-width:320px}
+  .strip{grid-template-columns:repeat(auto-fill,minmax(88px,1fr));min-width:0}
+  table.scenes td:nth-child(2){white-space:normal}
+  .mb{max-height:58vh}
+  .mf{gap:7px}
+  .mf .hbtn{flex:1 1 auto}
+}
 </style>
 </head>
 <body>
@@ -292,6 +371,7 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
   </div>
   <div class="stats" id="stats"></div>
   <button class="hbtn" id="briefBtn">Brand brief</button>
+  <button class="hbtn" id="queueBtn">Render queue</button>
   <button class="hbtn primary" id="exportBtn">Export decisions</button>
 </header>
 
@@ -326,9 +406,20 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
  *   content/carousel-post-1/caption.md      carousel captions
  *   social/brand-identity.md                voice, palette, attribution rules
  *
- * `baseStatus` is what the repo says today. Anything you click in the dashboard
- * is stored separately in localStorage and shown as an override, so the two
- * never get confused — use Export to write your decisions back to the repo.
+ * Each post carries two independent review tracks:
+ *
+ *   review.script   the words        pending | approved | changes | rejected
+ *   review.content  the rendered cut awaiting-render | in-review | approved
+ *                                    | rerender | rejected
+ *
+ * They gate each other in one direction only: nothing renders until the script
+ * is approved, and approving a script never implies the cut that comes out of
+ * it is any good. `awaiting-render` means the render task hasn't produced a
+ * file yet; `in-review` means one exists and is waiting on you.
+ *
+ * `review` is what the repo says today. Anything you click in the dashboard is
+ * stored separately in localStorage and shown as an override, so the two never
+ * get confused — use Export to write your decisions back to the repo.
  */
 
 const ACCOUNT = {
@@ -351,9 +442,11 @@ const POSTS = [
     lesson: null,
     duration: null,
     rules: ['2.1', '2.3', '2.4', '2.5', '4.1', '9.3', '13.1', '14.1', '17.x'],
-    baseStatus: 'posted',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'approved', on: '2026-08-06'}
+    },
     postedDate: '2026-08-06',
-    approvedOn: '2026-08-06',
     folder: 'carousel-post-1',
     source: 'content/carousel-post-1/caption.md',
     sourceLesson: null,
@@ -410,9 +503,11 @@ rules quoted from the WFDF Rules of Ultimate 2025–2028 — full breakdown in b
     lesson: 1,
     duration: '~25s script / 40.9s cut',
     rules: ['4.1', '14.1', '18.2.2', '13.1'],
-    baseStatus: 'posted',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'approved', on: '2026-08-06'}
+    },
     postedDate: '2026-08-06',
-    approvedOn: '2026-08-06',
     folder: 'reel-1',
     source: 'content/reel-1/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json → the-game',
@@ -466,9 +561,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 2,
     duration: '~25s script / 30.2s cut',
     rules: ['18.2.2', '18.2.3', '18.2.3.1'],
-    baseStatus: 'posted',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'approved', on: '2026-08-06'}
+    },
     postedDate: '2026-08-07',
-    approvedOn: '2026-08-06',
     folder: 'reel-2',
     source: 'content/reel-2/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json → no-running',
@@ -520,9 +617,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 3,
     duration: '~25s',
     rules: ['9.1', '9.3', '9.4', '13.2.2'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 3',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -564,9 +663,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 4,
     duration: '~25s',
     rules: ['13.1', '13.2'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 4',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -609,9 +710,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 5,
     duration: '~25s',
     rules: ['1.1', '1.2', '15.4', '13.3'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 5',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -653,9 +756,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 6,
     duration: '~20s',
     rules: ['2.1', '2.2', '2.3', '2.4', '11.1'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 6',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -698,9 +803,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 7,
     duration: '~25s',
     rules: ['7.1', '7.2', '7.3', '7.4', '7.6'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 7',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -743,37 +850,116 @@ const IMG_EXT    = '.jpg';
 const PFP        = 'media/pfp.png';
 /* /BUILD:CONFIG */
 
-const STORE = 'luf-content-desk-v1';
+const STORE = 'luf-content-desk-v2';
+const STORE_V1 = 'luf-content-desk-v1';
 const TODAY = new Date().toISOString().slice(0,10);
 
 const mediaURL = (folder, file) => MEDIA_BASE + folder + '/' + file;
 const isMobile = () => window.matchMedia('(max-width:900px)').matches;
 
-const STATUS = {
-  pending:  {label:'Needs review', color:'var(--warn)'},
-  approved: {label:'Approved',     color:'var(--ok)'},
-  changes:  {label:'Changes asked',color:'var(--warn)'},
-  rejected: {label:'Rejected',     color:'var(--bad)'},
-  posted:   {label:'Posted',       color:'var(--faint)'}
+/* Two tracks. The script is the words; the content is the cut that comes out of
+   the render. Approving one says nothing about the other. */
+const SCRIPT_STATUS = {
+  pending:  {label:'Needs review',  color:'var(--warn)'},
+  approved: {label:'Approved',      color:'var(--ok)'},
+  changes:  {label:'Changes asked', color:'var(--warn)'},
+  rejected: {label:'Rejected',      color:'var(--bad)'}
 };
+const CONTENT_STATUS = {
+  'awaiting-render': {label:'Awaiting render', color:'var(--info)'},
+  'in-review':       {label:'Needs review',    color:'var(--warn)'},
+  approved:          {label:'Approved',        color:'var(--ok)'},
+  rerender:          {label:'Re-render asked', color:'var(--accent)'},
+  rejected:          {label:'Rejected',        color:'var(--bad)'}
+};
+
+/* What the render task can be told is wrong, in its own vocabulary. Free text
+   alone tends to produce "make it better"; these make the ask actionable. */
+const ISSUES = [
+  'Pacing / timing',
+  'On-screen text',
+  'Visuals / layout',
+  'Rule citation',
+  'Audio',
+  'Framing / crop',
+  'Wrong take'
+];
+
+const STAGES = {
+  'script-review':   {n:1, label:'Script',  color:'var(--warn)'},
+  'awaiting-render': {n:2, label:'Render',  color:'var(--info)'},
+  'content-review':  {n:3, label:'Content', color:'var(--warn)'},
+  ready:             {n:4, label:'Ready',   color:'var(--ok)'},
+  posted:            {n:5, label:'Posted',  color:'var(--faint)'}
+};
+const STAGE_ORDER = ['script-review','awaiting-render','content-review','ready','posted'];
 
 /* ---------- persistence ---------- */
 let state = load();
+
 function load(){
-  try { return JSON.parse(localStorage.getItem(STORE)) || {}; }
-  catch { return {}; }
+  let s = {};
+  try { s = JSON.parse(localStorage.getItem(STORE)) || {}; } catch { s = {}; }
+
+  // v1 stored a single flat decision per post — that was the script track.
+  if (!localStorage.getItem(STORE) && localStorage.getItem(STORE_V1)){
+    try {
+      const old = JSON.parse(localStorage.getItem(STORE_V1)) || {};
+      for (const [id, d] of Object.entries(old)){
+        if (!d || !d.status) continue;
+        s[id] = {script: {status: d.status === 'posted' ? 'approved' : d.status,
+                          note: d.note || '', updatedAt: d.updatedAt || Date.now()}};
+        if (d.status === 'posted') s[id].posted = TODAY;
+      }
+      localStorage.setItem(STORE, JSON.stringify(s));
+    } catch { /* a failed migration must not block the desk */ }
+  }
+  return s;
 }
 function save(){
   try { localStorage.setItem(STORE, JSON.stringify(state)); }
   catch { toast('Could not save — browser storage is blocked'); }
 }
-const decision = id => state[id] || null;
-const statusOf = p => (decision(p.id) && decision(p.id).status) || p.baseStatus;
-const noteOf   = p => (decision(p.id) && decision(p.id).note) || '';
-const overridden = p => {
-  const d = decision(p.id);
-  return !!d && (d.status !== p.baseStatus || (d.note || '').trim() !== '');
-};
+
+const track = (id, name) => (state[id] && state[id][name]) || null;
+
+function scriptStatus(p){
+  const t = track(p.id, 'script');
+  return (t && t.status) || p.review.script.status;
+}
+function contentStatus(p){
+  const t = track(p.id, 'content');
+  return (t && t.status) || p.review.content.status;
+}
+const scriptNote  = p => (track(p.id,'script')  || {}).note || '';
+const contentNote = p => (track(p.id,'content') || {}).note || '';
+const contentTags = p => (track(p.id,'content') || {}).tags || [];
+const isUrgent    = p => !!(track(p.id,'content') || {}).urgent;
+const postedOn    = p => (state[p.id] && state[p.id].posted) || p.postedDate;
+
+/* Has the render actually produced a file we can look at? */
+const hasMedia = p => !!(p.video || p.slides);
+
+function overridden(p){
+  const d = state[p.id];
+  if (!d) return false;
+  if (d.posted && d.posted !== p.postedDate) return true;
+  if (d.script && (d.script.status !== p.review.script.status || (d.script.note||'').trim())) return true;
+  if (d.content && (d.content.status !== p.review.content.status ||
+      (d.content.note||'').trim() || (d.content.tags||[]).length || d.content.urgent)) return true;
+  return false;
+}
+
+function stageOf(p){
+  const s = scriptStatus(p), c = contentStatus(p);
+  if (s !== 'approved') return 'script-review';
+  // An explicit send-back outranks "posted" — pulling a shipped cut back for a
+  // fix is a deliberate act, and hiding it under a Posted badge loses it.
+  if (c === 'in-review' || c === 'rerender' || c === 'rejected') return 'content-review';
+  if (postedOn(p)) return 'posted';
+  if (c === 'approved') return 'ready';
+  return 'awaiting-render';
+}
 
 /* ---------- helpers ---------- */
 const $  = s => document.querySelector(s);
@@ -788,10 +974,8 @@ function toast(msg){
   toastT = setTimeout(()=>t.classList.remove('on'), 1900);
 }
 async function copy(text, what){
-  try {
-    await navigator.clipboard.writeText(text);
-    toast(what + ' copied');
-  } catch {
+  try { await navigator.clipboard.writeText(text); toast(what + ' copied'); }
+  catch {
     const ta = document.createElement('textarea');
     ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
     document.body.appendChild(ta); ta.select();
@@ -799,6 +983,25 @@ async function copy(text, what){
     catch { toast('Copy failed — select the text manually'); }
     ta.remove();
   }
+}
+
+/* ---------- render queue: what a scheduled run would pick up ---------- */
+function renderQueue(){
+  const out = [];
+  for (const p of POSTS){
+    if (scriptStatus(p) !== 'approved') continue;
+    const c = contentStatus(p);
+    if (c === 'rerender'){
+      // Explicit send-back — queue it even if the post already went out, since
+      // asking for it was deliberate. Flagged so the run knows it's a reshoot.
+      out.push({post: p, action: 'rerender', urgent: isUrgent(p),
+                tags: contentTags(p), note: contentNote(p), posted: !!postedOn(p)});
+    } else if (c === 'awaiting-render' && !postedOn(p)){
+      out.push({post: p, action: 'render', urgent: false, tags: [], note: '', posted: false});
+    }
+  }
+  // Anything flagged urgent should be the first thing a run touches.
+  return out.sort((a,b) => (b.urgent - a.urgent) || a.post.date.localeCompare(b.post.date));
 }
 
 /* ---------- header ---------- */
@@ -809,16 +1012,22 @@ pfp.src = PFP;
 pfp.onerror = () => { pfp.style.display='none'; $('#pfpfb').style.display='grid'; };
 
 function renderStats(){
-  const by = k => POSTS.filter(p => statusOf(p) === k).length;
-  const upcoming = POSTS.filter(p => statusOf(p) !== 'posted' && p.date >= TODAY).length;
-  const needs = by('pending') + by('changes');
-  const runway = POSTS.filter(p => p.date >= TODAY && statusOf(p) === 'approved').length;
+  const at = k => POSTS.filter(p => stageOf(p) === k).length;
+  const scriptTodo = POSTS.filter(p => stageOf(p) === 'script-review').length;
+  const contentTodo = POSTS.filter(p => stageOf(p) === 'content-review').length;
+  const q = renderQueue();
+
   $('#stats').innerHTML = [
-    ['Posted', by('posted'), false],
-    ['Approved', by('approved'), false],
-    ['Awaiting you', needs, needs > 0],
-    ['Days queued', runway, runway < 3]
+    ['Script review', scriptTodo, scriptTodo > 0],
+    ['To render', q.length, false],
+    ['Content review', contentTodo, contentTodo > 0],
+    ['Ready to post', at('ready'), false],
+    ['Posted', at('posted'), false]
   ].map(([l,v,hl]) => `<div class="stat${hl?' hl':''}"><b>${v}</b><span>${esc(l)}</span></div>`).join('');
+
+  const urgent = q.filter(x => x.urgent).length;
+  $('#queueBtn').innerHTML = 'Render queue' +
+    (q.length ? `<span class="badge">${q.length}${urgent ? '!' : ''}</span>` : '');
 }
 
 /* ---------- queue ---------- */
@@ -827,19 +1036,25 @@ let query = '';
 let selected = null;
 
 const FILTERS = [
-  ['all','All'],
-  ['todo','Awaiting you'],
-  ['approved','Approved'],
-  ['posted','Posted'],
-  ['upcoming','Upcoming']
+  ['all','All', () => true],
+  ['script','Script review', p => stageOf(p) === 'script-review'],
+  ['render','To render', p => renderQueue().some(x => x.post.id === p.id)],
+  ['content','Content review', p => stageOf(p) === 'content-review'],
+  ['ready','Ready', p => stageOf(p) === 'ready'],
+  ['posted','Posted', p => stageOf(p) === 'posted']
 ];
-$('#filters').innerHTML = FILTERS.map(([k,l]) =>
-  `<button data-f="${k}" aria-pressed="${k===filter}">${esc(l)}</button>`).join('');
+
+function renderFilters(){
+  $('#filters').innerHTML = FILTERS.map(([k,l,fn]) => {
+    const n = k === 'all' ? POSTS.length : POSTS.filter(fn).length;
+    return `<button data-f="${k}" aria-pressed="${k===filter}">${esc(l)}<span class="n">${n}</span></button>`;
+  }).join('');
+}
 $('#filters').addEventListener('click', e => {
   const b = e.target.closest('button[data-f]');
   if (!b) return;
   filter = b.dataset.f;
-  [...$('#filters').children].forEach(x => x.setAttribute('aria-pressed', x.dataset.f === filter));
+  renderFilters();
   renderList();
 });
 
@@ -848,20 +1063,13 @@ $('#search').addEventListener('input', e => { query = e.target.value.toLowerCase
 function haystack(p){
   const s = p.script || {};
   return [p.title, p.type, p.difficulty, p.ig, p.tiktok, s.hook, s.explanation, s.example, s.cta,
-          (p.hashtags||[]).join(' '), (p.rules||[]).join(' '), noteOf(p)]
+          (p.hashtags||[]).join(' '), (p.rules||[]).join(' '), scriptNote(p), contentNote(p)]
     .filter(Boolean).join(' ').toLowerCase();
 }
 
 function visible(){
-  return POSTS.filter(p => {
-    const st = statusOf(p);
-    if (filter === 'todo' && !(st === 'pending' || st === 'changes')) return false;
-    if (filter === 'approved' && st !== 'approved') return false;
-    if (filter === 'posted' && st !== 'posted') return false;
-    if (filter === 'upcoming' && !(p.date >= TODAY && st !== 'posted')) return false;
-    if (query && !haystack(p).includes(query)) return false;
-    return true;
-  });
+  const fn = (FILTERS.find(f => f[0] === filter) || FILTERS[0])[2];
+  return POSTS.filter(p => fn(p) && (!query || haystack(p).includes(query)));
 }
 
 function renderList(){
@@ -875,7 +1083,12 @@ function renderList(){
   for (const p of items){
     const g = p.date < TODAY ? 'Published' : p.date === TODAY ? 'Today' : 'Scheduled';
     if (g !== lastGroup){ html += `<div class="daygroup">${g}</div>`; lastGroup = g; }
-    const st = statusOf(p), meta = STATUS[st];
+
+    const stage = stageOf(p), meta = STAGES[stage];
+    const sc = SCRIPT_STATUS[scriptStatus(p)].color;
+    const cc = CONTENT_STATUS[contentStatus(p)].color;
+    const contentStarted = contentStatus(p) !== 'awaiting-render';
+
     html += `
       <button class="card" data-id="${esc(p.id)}" style="--st:${meta.color}"
               aria-current="${p.id === selected}">
@@ -885,8 +1098,12 @@ function renderList(){
         </div>
         <h3>${esc(p.title)}</h3>
         <div class="foot">
-          <span class="pill"><span class="dot"></span>${esc(meta.label)}</span>
-          ${overridden(p) ? '<span class="edited">● unsaved to repo</span>' : ''}
+          <span class="tt" title="Script · Content">
+            <i style="--c:${sc}"></i><i class="${contentStarted?'':'empty'}" style="--c:${cc}"></i>
+          </span>
+          <span class="pill">${esc(meta.label)}</span>
+          ${isUrgent(p) ? '<span class="edited">● urgent</span>' : ''}
+          ${overridden(p) ? '<span class="edited">● unsaved</span>' : ''}
         </div>
       </button>`;
   }
@@ -899,8 +1116,6 @@ $('#list').addEventListener('click', e => {
 });
 
 /* ---------- detail ---------- */
-/* On mobile the detail pane is a pushed screen, so the phone's own back
-   gesture returns to the queue rather than leaving the page. */
 function select(id, fromUser){
   selected = id;
   renderList();
@@ -929,6 +1144,7 @@ function renderDetail(preserveScroll){
   const el = $('#detail');
   const keepY = preserveScroll ? el.scrollTop : 0;
   const keepWinY = preserveScroll ? window.scrollY : 0;
+
   if (!p){
     el.innerHTML = `<div class="empty">
       <div class="disc">🥏</div>
@@ -938,16 +1154,13 @@ function renderDetail(preserveScroll){
     return;
   }
 
-  const st = statusOf(p);
   const parts = [];
-
   const idx = POSTS.indexOf(p) + 1;
   parts.push(`<div class="backbar">
     <button id="backBtn">← Queue</button>
     <span class="ctx">${idx} / ${POSTS.length}</span>
   </div>`);
 
-  /* head */
   parts.push(`<div class="dhead">
     <h2>${esc(p.title)}</h2>
     <div class="meta">
@@ -962,34 +1175,12 @@ function renderDetail(preserveScroll){
     ${p.flag ? `<div class="flag"><span class="ico">!</span><span>${esc(p.flag)}</span></div>` : ''}
   </div>`);
 
-  /* approval */
-  const buttons = [
-    ['approved','Approve','var(--ok)'],
-    ['changes','Request changes','var(--warn)'],
-    ['rejected','Reject','var(--bad)']
-  ].map(([k,l,c]) =>
-    `<button class="act" data-set="${k}" style="--c:${c}" aria-pressed="${st===k}">${esc(l)}</button>`).join('');
-
-  const d = decision(p.id);
-  parts.push(`<div class="approval">
-    <div class="lbl">
-      <h4>Your call</h4>
-      <span class="pill" style="--st:${STATUS[st].color}"><span class="dot"></span>${esc(STATUS[st].label)}</span>
-      <span class="repo-note">Repo says: <b>${esc(STATUS[p.baseStatus].label)}</b>${p.approvedOn ? ' (' + esc(p.approvedOn) + ')' : ''}</span>
-    </div>
-    <div class="acts">
-      ${buttons}
-      ${st === 'approved' || st === 'posted'
-        ? `<button class="act" data-set="posted" style="--c:var(--text)" aria-pressed="${st==='posted'}">Mark posted</button>` : ''}
-      ${d ? `<button class="act ghost" data-reset>Revert to repo</button>` : ''}
-    </div>
-    <textarea id="note" placeholder="Notes for this post — line edits, reshoot reasons, anything to carry back into the repo.">${esc(noteOf(p))}</textarea>
-    <div class="saved" id="savedAt">${d && d.updatedAt ? 'Saved locally ' + new Date(d.updatedAt).toLocaleString() : ''}</div>
-  </div>`);
+  parts.push(railHTML(p));
+  parts.push(tracksHTML(p));
 
   /* media */
-  if (p.video || p.slides){
-    parts.push('<section><h3>Media</h3><div class="media">');
+  if (hasMedia(p)){
+    parts.push('<section><h3>Rendered content</h3><div class="media">');
     if (p.video){
       parts.push(`<video src="${esc(mediaURL(p.folder, p.video))}" controls preload="metadata" playsinline></video>`);
     }
@@ -1002,10 +1193,13 @@ function renderDetail(preserveScroll){
     }
     parts.push('</div></section>');
   } else {
-    parts.push(`<section><h3>Media</h3><div class="missing">Not rendered yet — no video or slides on disk for this post. Script and captions below are what you're approving.</div></section>`);
+    const why = scriptStatus(p) === 'approved'
+      ? 'Script is approved, so this is in the render queue. Nothing to review until a file exists.'
+      : 'The render task only picks up posts whose script is approved, so nothing will be produced yet.';
+    parts.push(`<section><h3>Rendered content</h3>
+      <div class="missing"><b style="color:var(--text)">Not rendered yet.</b><br>${esc(why)}</div></section>`);
   }
 
-  /* script */
   if (p.script){
     const S = p.script;
     parts.push(`<section><h3>Script</h3>
@@ -1016,7 +1210,6 @@ function renderDetail(preserveScroll){
     </section>`);
   }
 
-  /* scene breakdown */
   if (p.scenes){
     parts.push(`<section><h3>Scene breakdown</h3>
       <table class="scenes">
@@ -1026,14 +1219,12 @@ function renderDetail(preserveScroll){
     </section>`);
   }
 
-  /* captions */
   parts.push(`<section><h3>Captions</h3>
     ${captionCard('Instagram', p.ig)}
     ${captionCard('TikTok', p.tiktok)}
     <div class="tags">${(p.hashtags||[]).map(h => `<span class="tag">${esc(h)}</span>`).join('')}</div>
   </section>`);
 
-  /* notes */
   parts.push(`<section><h3>Production notes</h3>
     <ul class="notes">${(p.notes||[]).map(n => `<li>${esc(n)}</li>`).join('')}</ul>
     <p class="src" style="margin-top:12px">Source: ${esc(p.source)}${p.sourceLesson ? ' · ' + esc(p.sourceLesson) : ''}</p>
@@ -1046,6 +1237,113 @@ function renderDetail(preserveScroll){
   wireDetail(p);
 }
 
+function railHTML(p){
+  const stage = stageOf(p);
+  const at = STAGE_ORDER.indexOf(stage);
+  return '<div class="rail">' + STAGE_ORDER.map((k,i) => {
+    const s = STAGES[k];
+    const cls = i < at ? 'done' : i === at ? 'now' : '';
+    return `<div class="step ${cls}" style="--sc:${s.color}"><b>${s.n}</b><span>${esc(s.label)}</span></div>`;
+  }).join('') + '</div>';
+}
+
+function tracksHTML(p){
+  const s = scriptStatus(p), c = contentStatus(p);
+  const sMeta = SCRIPT_STATUS[s], cMeta = CONTENT_STATUS[c];
+
+  /* ---- track 1: the words ---- */
+  const sBtns = [
+    ['approved','Approve','var(--ok)'],
+    ['changes','Request changes','var(--warn)'],
+    ['rejected','Reject','var(--bad)']
+  ].map(([k,l,col]) =>
+    `<button class="act" data-track="script" data-set="${k}" style="--c:${col}" aria-pressed="${s===k}">${esc(l)}</button>`
+  ).join('');
+
+  const scriptTrack = `
+    <div class="track" style="--tc:${sMeta.color}">
+      <div class="track-head">
+        <span class="num">1</span><h4>Script approval</h4>
+        <span class="pill" style="--st:${sMeta.color}"><span class="dot"></span>${esc(sMeta.label)}</span>
+      </div>
+      <p class="what">The words — hook, explanation, example, CTA. Approving this
+      is what puts the post into the render queue.</p>
+      <div class="acts">${sBtns}
+        ${state[p.id] && state[p.id].script ? '<button class="act ghost" data-revert="script">Revert</button>' : ''}
+      </div>
+      <textarea data-note="script" placeholder="Line edits, tone, a rule that needs re-checking…">${esc(scriptNote(p))}</textarea>
+      <div class="saved" data-saved="script">${savedLabel(p,'script')}</div>
+      <p class="repo-note">Repo says: <b>${esc(SCRIPT_STATUS[p.review.script.status].label)}</b>${p.review.script.on ? ' (' + esc(p.review.script.on) + ')' : ''}</p>
+    </div>`;
+
+  /* ---- track 2: the cut that came out ---- */
+  let contentBody;
+  if (s !== 'approved'){
+    contentBody = `<div class="lockmsg"><b>Waiting on the script.</b> Nothing gets
+      rendered until track 1 is approved, so there's no content to judge yet.</div>`;
+  } else if (!hasMedia(p)){
+    contentBody = `<div class="lockmsg"><b>In the render queue.</b> The scheduled
+      run picks this up because its script is approved. Once a file lands here,
+      this is where you approve or send it back.</div>`;
+  } else {
+    const cBtns = [
+      ['approved','Approve content','var(--ok)'],
+      ['rerender','Request re-render','var(--accent)'],
+      ['rejected','Reject','var(--bad)']
+    ].map(([k,l,col]) =>
+      `<button class="act" data-track="content" data-set="${k}" style="--c:${col}" aria-pressed="${c===k}">${esc(l)}</button>`
+    ).join('');
+
+    const tags = contentTags(p);
+    const fb = c === 'rerender' ? `
+      <div class="fb">
+        <div class="lb">What should the re-render fix?</div>
+        <div class="issues">${ISSUES.map(t =>
+          `<button class="issue" data-issue="${esc(t)}" aria-pressed="${tags.includes(t)}">${esc(t)}</button>`
+        ).join('')}</div>
+        <label class="urgent">
+          <input type="checkbox" data-urgent ${isUrgent(p) ? 'checked' : ''}>
+          <span>Regenerate on the next run, don't wait for tomorrow's schedule</span>
+        </label>
+      </div>` : '';
+
+    contentBody = `
+      <div class="acts">${cBtns}
+        ${state[p.id] && state[p.id].content ? '<button class="act ghost" data-revert="content">Revert</button>' : ''}
+      </div>
+      <textarea data-note="content" placeholder="${c === 'rerender'
+        ? 'What&#39;s wrong with this cut, specifically — this text is handed to the render task.'
+        : 'Notes on the rendered cut…'}">${esc(contentNote(p))}</textarea>
+      <div class="saved" data-saved="content">${savedLabel(p,'content')}</div>
+      ${fb}`;
+  }
+
+  const contentTrack = `
+    <div class="track ${s !== 'approved' || !hasMedia(p) ? 'locked' : ''}" style="--tc:${cMeta.color}">
+      <div class="track-head">
+        <span class="num">2</span><h4>Content approval</h4>
+        <span class="pill" style="--st:${cMeta.color}"><span class="dot"></span>${esc(cMeta.label)}</span>
+      </div>
+      <p class="what">The rendered cut — pacing, on-screen text, visuals. A rejected
+      cut goes back to the render task with your feedback; the script stays approved.</p>
+      ${contentBody}
+      <p class="repo-note">Repo says: <b>${esc(CONTENT_STATUS[p.review.content.status].label)}</b>${p.review.content.on ? ' (' + esc(p.review.content.on) + ')' : ''}</p>
+    </div>`;
+
+  const posted = postedOn(p);
+  const markBtn = (contentStatus(p) === 'approved' || posted)
+    ? `<div style="margin-bottom:26px"><button class="act" data-posted style="--c:var(--text)" aria-pressed="${!!posted}">
+         ${posted ? 'Posted ' + esc(posted) : 'Mark as posted'}</button></div>`
+    : '';
+
+  return `<div class="tracks">${scriptTrack}${contentTrack}</div>${markBtn}`;
+}
+
+function savedLabel(p, name){
+  const t = track(p.id, name);
+  return t && t.updatedAt ? 'Saved locally ' + new Date(t.updatedAt).toLocaleString() : '';
+}
+
 function captionCard(platform, text){
   return `<div class="caption-card">
     <div class="ch"><b>${esc(platform)}</b><span class="len">${text.length} chars</span>
@@ -1054,44 +1352,107 @@ function captionCard(platform, text){
   </div>`;
 }
 
+/* ---------- mutations ---------- */
+function entry(p){
+  return state[p.id] || (state[p.id] = {});
+}
+function tidy(p){
+  /* Drop anything that has drifted back to matching the repo, so "unsaved"
+     means what it says. */
+  const d = state[p.id];
+  if (!d) return;
+  if (d.script && d.script.status === p.review.script.status && !(d.script.note||'').trim()) delete d.script;
+  if (d.content && d.content.status === p.review.content.status &&
+      !(d.content.note||'').trim() && !(d.content.tags||[]).length && !d.content.urgent) delete d.content;
+  if (d.posted === p.postedDate) delete d.posted;
+  if (!Object.keys(d).length) delete state[p.id];
+}
+function commit(p, msg){
+  tidy(p); save(); renderStats(); renderFilters(); renderList(); renderDetail(true);
+  if (msg) toast(msg);
+}
+
+function setTrack(p, name, status){
+  const d = entry(p);
+  const cur = d[name] || (d[name] = {});
+  const now = name === 'script' ? scriptStatus(p) : contentStatus(p);
+  const base = p.review[name].status;
+  cur.status = (status === now) ? base : status;
+  cur.note = cur.note || '';
+  cur.updatedAt = Date.now();
+  if (name === 'content'){
+    cur.tags = cur.tags || [];
+    if (cur.status !== 'rerender'){ cur.tags = []; cur.urgent = false; }
+  }
+  const label = name === 'script' ? SCRIPT_STATUS[cur.status].label : CONTENT_STATUS[cur.status].label;
+  commit(p, (name === 'script' ? 'Script: ' : 'Content: ') + label);
+}
+
 function wireDetail(p){
   const back = $('#backBtn');
   if (back) back.addEventListener('click', backToQueue);
 
   $('#detail').querySelectorAll('[data-set]').forEach(b => {
+    b.addEventListener('click', () => setTrack(p, b.dataset.track, b.dataset.set));
+  });
+
+  $('#detail').querySelectorAll('[data-revert]').forEach(b => {
     b.addEventListener('click', () => {
-      const next = b.dataset.set;
-      const cur = statusOf(p);
-      setDecision(p, next === cur ? p.baseStatus : next);
+      const name = b.dataset.revert;
+      if (state[p.id]) delete state[p.id][name];
+      commit(p, 'Reverted ' + name + ' to repo');
     });
   });
 
-  const reset = $('#detail').querySelector('[data-reset]');
-  if (reset) reset.addEventListener('click', () => {
-    delete state[p.id]; save(); renderStats(); renderList(); renderDetail();
-    toast('Reverted to repo state');
+  $('#detail').querySelectorAll('[data-issue]').forEach(b => {
+    b.addEventListener('click', () => {
+      const d = entry(p); const c = d.content || (d.content = {status:'rerender', note:''});
+      c.tags = c.tags || [];
+      const t = b.dataset.issue;
+      const i = c.tags.indexOf(t);
+      if (i === -1) c.tags.push(t); else c.tags.splice(i, 1);
+      c.updatedAt = Date.now();
+      commit(p);
+    });
   });
 
-  const note = $('#note');
-  if (note){
+  const urg = $('#detail').querySelector('[data-urgent]');
+  if (urg) urg.addEventListener('change', () => {
+    const d = entry(p); const c = d.content || (d.content = {status:'rerender', note:''});
+    c.urgent = urg.checked;
+    c.updatedAt = Date.now();
+    commit(p, urg.checked ? 'Flagged for the next run' : 'Back on the normal schedule');
+  });
+
+  const mark = $('#detail').querySelector('[data-posted]');
+  if (mark) mark.addEventListener('click', () => {
+    const d = entry(p);
+    d.posted = d.posted ? null : TODAY;
+    if (!d.posted) delete d.posted;
+    commit(p, d.posted ? 'Marked posted' : 'Un-marked');
+  });
+
+  $('#detail').querySelectorAll('[data-note]').forEach(ta => {
     let t;
-    note.addEventListener('input', () => {
+    ta.addEventListener('input', () => {
       clearTimeout(t);
       t = setTimeout(() => {
-        const d = state[p.id] || (state[p.id] = {status: statusOf(p)});
-        d.note = note.value;
-        d.updatedAt = Date.now();
+        const name = ta.dataset.note;
+        const d = entry(p);
+        const cur = d[name] || (d[name] = {status: name === 'script' ? scriptStatus(p) : contentStatus(p)});
+        cur.note = ta.value;
+        cur.updatedAt = Date.now();
         save(); renderStats(); renderList();
-        $('#savedAt').textContent = 'Saved locally ' + new Date(d.updatedAt).toLocaleString();
+        const lbl = $('#detail').querySelector(`[data-saved="${name}"]`);
+        if (lbl) lbl.textContent = 'Saved locally ' + new Date(cur.updatedAt).toLocaleString();
       }, 400);
     });
-  }
+  });
 
   $('#detail').querySelectorAll('[data-copy]').forEach(b => {
     b.addEventListener('click', () => {
       const text = b.closest('.caption-card').querySelector('pre').textContent;
-      const full = text + '\n\n' + (p.hashtags || []).join(' ');
-      copy(full, b.dataset.copy + ' caption');
+      copy(text + '\n\n' + (p.hashtags || []).join(' '), b.dataset.copy + ' caption');
     });
   });
 
@@ -1104,69 +1465,137 @@ function wireDetail(p){
   });
 }
 
-function setDecision(p, status){
-  const d = state[p.id] || (state[p.id] = {});
-  d.status = status;
-  d.note = d.note || '';
-  d.updatedAt = Date.now();
-  if (status === p.baseStatus && !d.note.trim()) delete state[p.id];
-  save(); renderStats(); renderList(); renderDetail(true);
-  toast(STATUS[status].label);
+/* ---------- render queue modal ---------- */
+$('#queueBtn').addEventListener('click', () => {
+  const q = renderQueue();
+  $('#modalTitle').textContent = 'Render queue';
+
+  let body = `<p class="hint">What a scheduled run would pick up, in the order it
+    should touch them. This is derived from your approvals — it is not a live
+    feed, and the task only sees it once these decisions reach the repo.</p>`;
+
+  if (!q.length){
+    body += `<div class="lockmsg">Nothing queued. Every approved script has a
+      rendered cut, and no cut has been sent back.</div>`;
+  } else {
+    body += q.map(x => {
+      const p = x.post;
+      const why = x.action === 'render'
+        ? 'Script approved, no cut rendered yet.'
+        : 'Cut sent back' + (x.tags.length ? ' — <em>' + x.tags.map(esc).join(', ') + '</em>' : '') + '.';
+      return `<div class="rq">
+        <div class="rqh">
+          <b>${esc(p.title)}</b>
+          <span class="chip">${esc(p.date)}</span>
+          <span class="chip">${esc(p.type)}</span>
+          <span class="pill" style="--st:${x.action === 'render' ? 'var(--info)' : 'var(--accent)'}">
+            ${x.action === 'render' ? 'Render' : 'Re-render'}</span>
+          ${x.urgent ? '<span class="pill" style="--st:var(--bad)">Next run</span>' : ''}
+          ${x.posted ? '<span class="pill" style="--st:var(--warn)">Already posted</span>' : ''}
+        </div>
+        <div class="why">${why}${x.note ? '<br>' + esc(x.note) : ''}</div>
+      </div>`;
+    }).join('');
+  }
+
+  $('#modalBody').innerHTML = body;
+  $('#modalFoot').innerHTML = `
+    <button class="hbtn primary" id="cpQueue">Copy queue JSON</button>
+    <button class="hbtn" data-close style="margin-left:auto">Close</button>`;
+  $('#cpQueue').onclick = () => copy(queueJSON(), 'Render queue');
+  $('#modal').showModal();
+});
+
+function queueJSON(){
+  return JSON.stringify({
+    generated: new Date().toISOString(),
+    note: 'Consumed by the scheduled reel-render task. Order is significant: urgent first, then by post date.',
+    queue: renderQueue().map(x => ({
+      id: x.post.id,
+      date: x.post.date,
+      title: x.post.title,
+      type: x.post.type,
+      action: x.action,
+      priority: x.urgent ? 'next-run' : 'scheduled',
+      alreadyPosted: x.posted,
+      scriptSource: x.post.source,
+      sourceLesson: x.post.sourceLesson,
+      rules: x.post.rules,
+      feedback: x.action === 'rerender' ? {issues: x.tags, note: x.note} : null
+    }))
+  }, null, 2);
 }
 
 /* ---------- export ---------- */
-function exportText(){
+function exportMarkdown(){
   const changed = POSTS.filter(overridden);
   const stamp = new Date().toISOString().slice(0,16).replace('T',' ');
-
   let md = `# Review decisions — ${stamp}\n\n`;
+
   if (!changed.length){
-    md += `No decisions differ from what the repo already records. Nothing to write back.\n`;
+    md += `No decisions differ from what the repo already records.\n`;
   } else {
-    md += `| Date | Post | Repo status | Your call | Note |\n|---|---|---|---|---|\n`;
+    md += `| Date | Post | Track | Repo | Your call | Note |\n|---|---|---|---|---|---|\n`;
     for (const p of changed){
-      const note = (noteOf(p) || '—').replace(/\|/g,'\\|').replace(/\n+/g,' ');
-      md += `| ${p.date} | ${p.title} | ${STATUS[p.baseStatus].label} | ${STATUS[statusOf(p)].label} | ${note} |\n`;
-    }
-    md += `\n## Notes in full\n\n`;
-    for (const p of changed){
-      if (!noteOf(p).trim()) continue;
-      md += `### ${p.title} (${p.date}) — ${STATUS[statusOf(p)].label}\n\n${noteOf(p)}\n\n`;
+      const rows = [];
+      if (scriptStatus(p) !== p.review.script.status || scriptNote(p).trim())
+        rows.push(['Script', SCRIPT_STATUS[p.review.script.status].label,
+                   SCRIPT_STATUS[scriptStatus(p)].label, scriptNote(p)]);
+      if (contentStatus(p) !== p.review.content.status || contentNote(p).trim() || contentTags(p).length)
+        rows.push(['Content', CONTENT_STATUS[p.review.content.status].label,
+                   CONTENT_STATUS[contentStatus(p)].label,
+                   [contentTags(p).join(', '), contentNote(p)].filter(Boolean).join(' — ')]);
+      for (const [t, was, now, note] of rows){
+        const n = (note || '—').replace(/\|/g,'\\|').replace(/\n+/g,' ');
+        md += `| ${p.date} | ${p.title} | ${t} | ${was} | ${now} | ${n} |\n`;
+      }
     }
   }
 
-  md += `\n---\n\n## Full queue as it now stands\n\n| Queued | Post | Type | Status | Posted |\n|---|---|---|---|---|\n`;
+  md += `\n## Pipeline as it now stands\n\n| Queued | Post | Type | Script | Content | Stage | Posted |\n|---|---|---|---|---|---|---|\n`;
   for (const p of [...POSTS].sort((a,b) => a.date.localeCompare(b.date))){
-    md += `| ${p.date} | ${p.title} | ${p.type} | ${STATUS[statusOf(p)].label} | ${p.postedDate || '—'} |\n`;
+    md += `| ${p.date} | ${p.title} | ${p.type} | ${SCRIPT_STATUS[scriptStatus(p)].label}`
+        + ` | ${CONTENT_STATUS[contentStatus(p)].label} | ${STAGES[stageOf(p)].label}`
+        + ` | ${postedOn(p) || '—'} |\n`;
   }
   return md;
 }
 
 $('#exportBtn').addEventListener('click', () => {
-  const md = exportText();
-  const json = JSON.stringify(state, null, 2);
+  const md = exportMarkdown();
+  const qj = queueJSON();
   $('#modalTitle').textContent = 'Export decisions';
   $('#modalBody').innerHTML = `
-    <p class="hint">Your clicks live in this browser only. Copy this back into the repo — or hand it to Claude and say "apply these" — to make it permanent in <span class="src">content/calendar.md</span>.</p>
-    <pre id="exMd">${esc(md)}</pre>
-    <p class="hint">Raw state (localStorage <span class="src">${STORE}</span>):</p>
-    <pre id="exJson">${esc(json)}</pre>`;
+    <p class="hint">Your clicks live in this browser only — a scheduled task
+      cannot read them. These two blocks are the handoff: commit the JSON to
+      <span class="src">content/render-queue.json</span> for the render task, and
+      use the markdown to update <span class="src">content/calendar.md</span>.
+      Or paste either to Claude and say "apply these".</p>
+    <h4>Render queue → content/render-queue.json</h4>
+    <pre>${esc(qj)}</pre>
+    <h4>Decisions → content/calendar.md</h4>
+    <pre>${esc(md)}</pre>`;
   $('#modalFoot').innerHTML = `
-    <button class="hbtn primary" id="cpMd">Copy markdown</button>
-    <button class="hbtn" id="cpJson">Copy JSON</button>
-    <button class="hbtn" id="dlMd">Download .md</button>
+    <button class="hbtn primary" id="cpQ">Copy queue JSON</button>
+    <button class="hbtn" id="cpMd">Copy markdown</button>
+    <button class="hbtn" id="dlAll">Download both</button>
     <button class="hbtn" data-close style="margin-left:auto">Close</button>`;
+  $('#cpQ').onclick = () => copy(qj, 'Render queue');
   $('#cpMd').onclick = () => copy(md, 'Markdown');
-  $('#cpJson').onclick = () => copy(json, 'JSON');
-  $('#dlMd').onclick = () => {
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([md], {type:'text/markdown'}));
-    a.download = `review-decisions-${TODAY}.md`;
-    a.click();
-    URL.revokeObjectURL(a.href);
+  $('#dlAll').onclick = () => {
+    dl(qj, `render-queue-${TODAY}.json`, 'application/json');
+    dl(md, `review-decisions-${TODAY}.md`, 'text/markdown');
   };
   $('#modal').showModal();
 });
+
+function dl(text, name, type){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
 
 $('#briefBtn').addEventListener('click', () => {
   $('#modalTitle').textContent = 'Brand brief';
@@ -1210,12 +1639,14 @@ document.addEventListener('keydown', e => {
 
 /* ---------- boot ---------- */
 renderStats();
+renderFilters();
 renderList();
-const firstTodo = POSTS.find(p => ['pending','changes'].includes(statusOf(p)))
+const first = POSTS.find(p => stageOf(p) === 'content-review')
+  || POSTS.find(p => stageOf(p) === 'script-review')
   || POSTS.find(p => p.date === TODAY)
   || POSTS.find(p => p.date >= TODAY)
   || POSTS[0];
-select(firstTodo.id);
+select(first.id);
 </script>
 </body>
 </html>

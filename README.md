@@ -43,8 +43,55 @@ docs/desk/          the built content desk
 ## Content desk
 
 `social/dashboard/` is a private-ish dashboard for the social account: the
-posting queue, each post's script and both captions, its media, and an approval
-control for signing content off.
+posting queue, each post's script and both captions, its media, and the
+approvals that move a post along.
+
+### Two approvals, not one
+
+Every post carries two independent review tracks, because approving the words
+says nothing about whether the cut that came out of the render is any good.
+
+```
+1 Script ──approved──> 2 Render ──file exists──> 3 Content ──approved──> Ready ──> Posted
+    ^                                                 │
+    └────────── changes asked                         └── re-render asked ──> back to 2
+```
+
+- **Script approval** — hook, explanation, example, CTA. Approving is what puts
+  a post into the render queue; nothing renders off an unapproved script.
+- **Content approval** — the rendered reel or carousel. Approve it, or send it
+  back with tagged feedback (pacing, on-screen text, rule citation, …) plus a
+  note. A send-back returns the post to the render queue **without** touching
+  the script approval.
+
+Sending back a cut that has already been posted is allowed — the queue flags it
+`alreadyPosted` so a run knows it's a reshoot rather than a first render.
+
+### Handing the queue to the render task
+
+The desk is a static page. It cannot write to this repo, and a scheduled task
+cannot read your browser's `localStorage`. So the desk's job is to *produce* the
+queue, and you carry it across:
+
+**Render queue** (or **Export decisions**) emits `render-queue.json`:
+
+```json
+{ "id": "reel-3", "action": "render", "priority": "scheduled",
+  "scriptSource": "content/pending-review/week-1-reels.md § 3",
+  "feedback": null }
+```
+
+Commit that to `content/render-queue.json` and the scheduled render task has an
+unambiguous work list, ordered urgent-first then by post date. `action` is
+`render` (never rendered) or `rerender` (sent back), and `feedback.issues`
+carries the tags you picked.
+
+**On "can a re-render happen immediately?"** — not by itself. A daily cron runs
+daily; marking a send-back *"regenerate on the next run"* sets
+`priority: "next-run"`, which only means it sorts first when a run happens. To
+actually get a same-day regeneration you need either a manually triggered run,
+or a task that polls more often than once a day. The flag is there so that
+whichever you choose, the intent is recorded.
 
 ```bash
 python social/dashboard/build_desk.py
@@ -56,10 +103,10 @@ copies the reel MP4s, and writes `docs/desk/` (~3 MB). Open
 media straight out of `content/`.
 
 Approvals and review notes are held in the browser's `localStorage`, never in
-the build, so they stay on whichever device you reviewed from. **Export
-decisions** prints them as a markdown table shaped like `content/calendar.md`,
-which is how a decision becomes permanent — the desk deliberately can't write to
-the repo itself.
+the build, so they stay on whichever device you reviewed from — approve
+something on your phone and your laptop won't know. **Export decisions** prints
+both the render queue and a markdown table shaped like `content/calendar.md`,
+which is how a decision becomes permanent.
 
 Two things worth knowing before you rely on it:
 

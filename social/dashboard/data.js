@@ -9,9 +9,20 @@
  *   content/carousel-post-1/caption.md      carousel captions
  *   social/brand-identity.md                voice, palette, attribution rules
  *
- * `baseStatus` is what the repo says today. Anything you click in the dashboard
- * is stored separately in localStorage and shown as an override, so the two
- * never get confused — use Export to write your decisions back to the repo.
+ * Each post carries two independent review tracks:
+ *
+ *   review.script   the words        pending | approved | changes | rejected
+ *   review.content  the rendered cut awaiting-render | in-review | approved
+ *                                    | rerender | rejected
+ *
+ * They gate each other in one direction only: nothing renders until the script
+ * is approved, and approving a script never implies the cut that comes out of
+ * it is any good. `awaiting-render` means the render task hasn't produced a
+ * file yet; `in-review` means one exists and is waiting on you.
+ *
+ * `review` is what the repo says today. Anything you click in the dashboard is
+ * stored separately in localStorage and shown as an override, so the two never
+ * get confused — use Export to write your decisions back to the repo.
  */
 
 const ACCOUNT = {
@@ -34,9 +45,11 @@ const POSTS = [
     lesson: null,
     duration: null,
     rules: ['2.1', '2.3', '2.4', '2.5', '4.1', '9.3', '13.1', '14.1', '17.x'],
-    baseStatus: 'posted',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'approved', on: '2026-08-06'}
+    },
     postedDate: '2026-08-06',
-    approvedOn: '2026-08-06',
     folder: 'carousel-post-1',
     source: 'content/carousel-post-1/caption.md',
     sourceLesson: null,
@@ -93,9 +106,11 @@ rules quoted from the WFDF Rules of Ultimate 2025–2028 — full breakdown in b
     lesson: 1,
     duration: '~25s script / 40.9s cut',
     rules: ['4.1', '14.1', '18.2.2', '13.1'],
-    baseStatus: 'posted',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'approved', on: '2026-08-06'}
+    },
     postedDate: '2026-08-06',
-    approvedOn: '2026-08-06',
     folder: 'reel-1',
     source: 'content/reel-1/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json → the-game',
@@ -149,9 +164,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 2,
     duration: '~25s script / 30.2s cut',
     rules: ['18.2.2', '18.2.3', '18.2.3.1'],
-    baseStatus: 'posted',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'approved', on: '2026-08-06'}
+    },
     postedDate: '2026-08-07',
-    approvedOn: '2026-08-06',
     folder: 'reel-2',
     source: 'content/reel-2/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json → no-running',
@@ -203,9 +220,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 3,
     duration: '~25s',
     rules: ['9.1', '9.3', '9.4', '13.2.2'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 3',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -247,9 +266,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 4,
     duration: '~25s',
     rules: ['13.1', '13.2'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 4',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -292,9 +313,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 5,
     duration: '~25s',
     rules: ['1.1', '1.2', '15.4', '13.3'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 5',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -336,9 +359,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 6,
     duration: '~20s',
     rules: ['2.1', '2.2', '2.3', '2.4', '11.1'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 6',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
@@ -381,9 +406,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     lesson: 7,
     duration: '~25s',
     rules: ['7.1', '7.2', '7.3', '7.4', '7.6'],
-    baseStatus: 'approved',
+    review: {
+      script:  {status: 'approved', on: '2026-08-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
     postedDate: null,
-    approvedOn: '2026-08-06',
     folder: null,
     source: 'content/pending-review/week-1-reels.md § 7',
     sourceLesson: 'content/lessons-1.json (tag: Basics)',
