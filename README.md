@@ -102,11 +102,30 @@ copies the reel MP4s, and writes `docs/desk/` (~3 MB). Open
 `social/dashboard/index.html` directly to work on it locally — that copy reads
 media straight out of `content/`.
 
-Approvals and review notes are held in the browser's `localStorage`, never in
-the build, so they stay on whichever device you reviewed from — approve
-something on your phone and your laptop won't know. **Export decisions** prints
-both the render queue and a markdown table shaped like `content/calendar.md`,
-which is how a decision becomes permanent.
+### Getting approvals into the repo
+
+By default, approvals are held in the browser's `localStorage` and stay on
+whichever device you reviewed from — approve on your phone and your laptop
+won't know. **Export decisions** prints the calendar table and feedback blocks
+for you to apply by hand.
+
+To make that automatic, deploy the sync Worker in
+[`social/dashboard/worker/`](social/dashboard/worker/README.md) and set
+`SYNC_URL` in `social/dashboard/index.html`. Then every approve/reject commits
+straight to `content/calendar.md` and `content/review-state.json`, and the desk
+reads that state back on load, so a decision made on your phone shows up on
+your PC. The 7 AM render task just reads `calendar.md` as it always has.
+
+The desk is a public page and can't hold a repo-write credential, which is the
+whole reason the Worker exists — it holds the GitHub token, the desk only holds
+a passphrase you set once per browser.
+
+If a sync fails (offline, wrong passphrase, Worker not deployed), the decision
+stays in `localStorage` and is retried automatically on the next page load —
+nothing is lost, and the card shows `● not synced` until it lands.
+
+**Not synced:** the *Mark as posted* toggle is still local-only. Everything on
+both approval gates syncs.
 
 Two things worth knowing before you rely on it:
 

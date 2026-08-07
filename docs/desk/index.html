@@ -863,6 +863,105 @@ const TODAY = new Date().toISOString().slice(0,10);
 const mediaURL = (folder, file) => MEDIA_BASE + folder + '/' + file;
 const isMobile = () => window.matchMedia('(max-width:900px)').matches;
 
+/* ---------- cross-device sync ----------
+   The desk is public and can never hold a credential able to write to the
+   repo, so a small Cloudflare Worker does that instead — see
+   social/dashboard/worker/README.md to deploy one. Until SYNC_URL is set,
+   everything below is inert and the desk behaves exactly as it did before:
+   approvals stay local to this browser only. */
+const SYNC_URL = '';
+const PASS_KEY = 'luf-desk-pass';
+const REMOTE_STATE_URL = 'https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/review-state.json';
+
+let remoteState = {};
+const syncing = new Set(); // `${postId}:${track}` currently in flight — in-memory only, resets on reload
+
+async function loadRemoteState(){
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 4000);
+    const res = await fetch(REMOTE_STATE_URL + '?t=' + Date.now(), {cache:'no-store', signal: ctrl.signal});
+    clearTimeout(timer);
+    if (res.ok) remoteState = await res.json();
+  } catch { /* offline, first run before the file exists, or a slow network — fall back to data.js's baseline */ }
+}
+
+/* What another device has already synced for this post/track, or failing
+   that, the snapshot baked in at the last full rebuild. This sits between
+   data.js and localStorage: fresher than the former, overridden by anything
+   this browser hasn't confirmed synced yet. */
+function baseline(p, name){
+  return (remoteState[p.id] && remoteState[p.id][name]) || p.review[name];
+}
+function repoNote(p, name){
+  const r = remoteState[p.id] && remoteState[p.id][name];
+  if (r && r.updatedAt) return new Date(r.updatedAt).toLocaleDateString();
+  return p.review[name].on;
+}
+
+function getPassphrase(){
+  let pass = localStorage.getItem(PASS_KEY);
+  if (!pass){
+    pass = prompt('Passphrase for syncing approvals to the repo (set once per browser — must match the Worker’s DESK_PASSPHRASE):');
+    if (pass) localStorage.setItem(PASS_KEY, pass);
+  }
+  return pass;
+}
+
+async function syncToRepo(p, trackName, value){
+  if (!SYNC_URL) return;
+  const key = p.id + ':' + trackName;
+  if (syncing.has(key)) return;
+  const pass = getPassphrase();
+  if (!pass) return;
+
+  syncing.add(key);
+  renderList();
+  try {
+    const res = await fetch(SYNC_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        passphrase: pass,
+        postId: p.id, postDate: p.date, postTitle: p.title, folder: p.folder,
+        track: trackName, status: value.status, note: value.note || '', tags: value.tags || [],
+        calendarLabel: calendarStatus(p), postedDate: postedOn(p) || null
+      })
+    });
+    if (res.status === 401){
+      localStorage.removeItem(PASS_KEY);
+      toast('Wrong passphrase — try again from this post');
+    } else if (!res.ok){
+      throw new Error(await res.text());
+    } else {
+      // Fold into the in-memory baseline immediately so the badge clears
+      // without waiting on the next fetch of review-state.json.
+      remoteState[p.id] = remoteState[p.id] || {};
+      remoteState[p.id][trackName] = value;
+      if (state[p.id]) { delete state[p.id][trackName]; tidy(p); }
+      save();
+      toast((trackName === 'script' ? 'Script' : 'Content') + ' decision synced');
+    }
+  } catch {
+    toast('Sync failed — kept locally, will retry on next load');
+  }
+  syncing.delete(key);
+  renderStats(); renderList(); renderDetail(true);
+}
+
+// Runs once on boot: anything still sitting in localStorage never made it to
+// the repo last time (offline, a typo'd passphrase, the Worker not deployed
+// yet) — try each one again rather than waiting for you to notice.
+function syncSweep(){
+  if (!SYNC_URL) return;
+  for (const p of POSTS){
+    const d = state[p.id];
+    if (!d) continue;
+    if (d.script)  syncToRepo(p, 'script', d.script);
+    if (d.content) syncToRepo(p, 'content', d.content);
+  }
+}
+
 /* Two tracks. The script is the words; the content is the cut that comes out of
    the render. Approving one says nothing about the other. */
 const SCRIPT_STATUS = {
@@ -934,16 +1033,20 @@ const track = (id, name) => (state[id] && state[id][name]) || null;
 
 function scriptStatus(p){
   const t = track(p.id, 'script');
-  return (t && t.status) || p.review.script.status;
+  return (t && t.status) || baseline(p,'script').status;
 }
 function contentStatus(p){
   const t = track(p.id, 'content');
-  return (t && t.status) || p.review.content.status;
+  return (t && t.status) || baseline(p,'content').status;
 }
-const scriptNote  = p => (track(p.id,'script')  || {}).note || '';
-const contentNote = p => (track(p.id,'content') || {}).note || '';
-const contentTags = p => (track(p.id,'content') || {}).tags || [];
-const isUrgent    = p => !!(track(p.id,'content') || {}).urgent;
+const scriptNote  = p => (track(p.id,'script')  || {}).note || baseline(p,'script').note || '';
+const contentNote = p => (track(p.id,'content') || {}).note || baseline(p,'content').note || '';
+const contentTags = p => (track(p.id,'content') || {}).tags || baseline(p,'content').tags || [];
+const isUrgent    = p => {
+  const t = track(p.id, 'content');
+  return t && 'urgent' in t ? !!t.urgent : !!baseline(p,'content').urgent;
+};
+// "Posted" isn't synced yet — see the worker README's known-limitations note.
 const postedOn    = p => (state[p.id] && state[p.id].posted) || p.postedDate;
 
 /* Has the render actually produced a file we can look at? */
@@ -953,8 +1056,8 @@ function overridden(p){
   const d = state[p.id];
   if (!d) return false;
   if (d.posted && d.posted !== p.postedDate) return true;
-  if (d.script && (d.script.status !== p.review.script.status || (d.script.note||'').trim())) return true;
-  if (d.content && (d.content.status !== p.review.content.status ||
+  if (d.script && (d.script.status !== baseline(p,'script').status || (d.script.note||'').trim())) return true;
+  if (d.content && (d.content.status !== baseline(p,'content').status ||
       (d.content.note||'').trim() || (d.content.tags||[]).length || d.content.urgent)) return true;
   return false;
 }
@@ -1107,6 +1210,7 @@ function renderList(){
     const sc = SCRIPT_STATUS[scriptStatus(p)].color;
     const cc = CONTENT_STATUS[contentStatus(p)].color;
     const contentStarted = contentStatus(p) !== 'awaiting-render';
+    const syncingNow = syncing.has(p.id+':script') || syncing.has(p.id+':content');
 
     html += `
       <button class="card" data-id="${esc(p.id)}" style="--st:${meta.color}"
@@ -1122,7 +1226,8 @@ function renderList(){
           </span>
           <span class="pill">${esc(meta.label)}</span>
           ${isUrgent(p) ? '<span class="edited">● urgent</span>' : ''}
-          ${overridden(p) ? '<span class="edited">● unsaved</span>' : ''}
+          ${syncingNow ? '<span class="edited">● syncing…</span>'
+            : overridden(p) ? `<span class="edited">● ${SYNC_URL ? 'not synced' : 'unsaved'}</span>` : ''}
         </div>
       </button>`;
   }
@@ -1292,7 +1397,7 @@ function tracksHTML(p){
       </div>
       <textarea data-note="script" placeholder="Line edits, tone, a rule that needs re-checking…">${esc(scriptNote(p))}</textarea>
       <div class="saved" data-saved="script">${savedLabel(p,'script')}</div>
-      <p class="repo-note">Repo says: <b>${esc(SCRIPT_STATUS[p.review.script.status].label)}</b>${p.review.script.on ? ' (' + esc(p.review.script.on) + ')' : ''}</p>
+      <p class="repo-note">Repo says: <b>${esc(SCRIPT_STATUS[baseline(p,'script').status].label)}</b>${repoNote(p,'script') ? ' (' + esc(repoNote(p,'script')) + ')' : ''}</p>
     </div>`;
 
   /* ---- track 2: the cut that came out ---- */
@@ -1345,7 +1450,7 @@ function tracksHTML(p){
       <p class="what">The rendered cut — pacing, on-screen text, visuals. A rejected
       cut goes back to the render task with your feedback; the script stays approved.</p>
       ${contentBody}
-      <p class="repo-note">Repo says: <b>${esc(CONTENT_STATUS[p.review.content.status].label)}</b>${p.review.content.on ? ' (' + esc(p.review.content.on) + ')' : ''}</p>
+      <p class="repo-note">Repo says: <b>${esc(CONTENT_STATUS[baseline(p,'content').status].label)}</b>${repoNote(p,'content') ? ' (' + esc(repoNote(p,'content')) + ')' : ''}</p>
     </div>`;
 
   const posted = postedOn(p);
@@ -1359,7 +1464,13 @@ function tracksHTML(p){
 
 function savedLabel(p, name){
   const t = track(p.id, name);
-  return t && t.updatedAt ? 'Saved locally ' + new Date(t.updatedAt).toLocaleString() : '';
+  if (t && t.updatedAt){
+    const when = new Date(t.updatedAt).toLocaleString();
+    if (!SYNC_URL) return 'Saved locally ' + when;
+    return syncing.has(p.id+':'+name) ? 'Saved locally ' + when + ' — syncing…' : 'Saved locally ' + when + ' — not yet synced';
+  }
+  const r = remoteState[p.id] && remoteState[p.id][name];
+  return r && r.updatedAt ? 'Synced to repo ' + new Date(r.updatedAt).toLocaleString() : '';
 }
 
 function captionCard(platform, text){
@@ -1374,13 +1485,28 @@ function captionCard(platform, text){
 function entry(p){
   return state[p.id] || (state[p.id] = {});
 }
+
+/* A local override to mutate, seeded from whatever is currently in effect.
+   Critical once syncing is on: a successful sync deletes the local override
+   (it lives in the repo now), so the next edit would otherwise start from a
+   blank object and silently drop the note or tags already recorded. */
+function mutableTrack(p, name){
+  const d = entry(p);
+  if (!d[name]){
+    d[name] = name === 'script'
+      ? {status: scriptStatus(p), note: scriptNote(p)}
+      : {status: contentStatus(p), note: contentNote(p),
+         tags: contentTags(p).slice(), urgent: isUrgent(p)};
+  }
+  return d[name];
+}
 function tidy(p){
   /* Drop anything that has drifted back to matching the repo, so "unsaved"
      means what it says. */
   const d = state[p.id];
   if (!d) return;
-  if (d.script && d.script.status === p.review.script.status && !(d.script.note||'').trim()) delete d.script;
-  if (d.content && d.content.status === p.review.content.status &&
+  if (d.script && d.script.status === baseline(p,'script').status && !(d.script.note||'').trim()) delete d.script;
+  if (d.content && d.content.status === baseline(p,'content').status &&
       !(d.content.note||'').trim() && !(d.content.tags||[]).length && !d.content.urgent) delete d.content;
   if (d.posted === p.postedDate) delete d.posted;
   if (!Object.keys(d).length) delete state[p.id];
@@ -1391,10 +1517,9 @@ function commit(p, msg){
 }
 
 function setTrack(p, name, status){
-  const d = entry(p);
-  const cur = d[name] || (d[name] = {});
   const now = name === 'script' ? scriptStatus(p) : contentStatus(p);
-  const base = p.review[name].status;
+  const cur = mutableTrack(p, name);
+  const base = baseline(p, name).status;
   cur.status = (status === now) ? base : status;
   cur.note = cur.note || '';
   cur.updatedAt = Date.now();
@@ -1404,6 +1529,7 @@ function setTrack(p, name, status){
   }
   const label = name === 'script' ? SCRIPT_STATUS[cur.status].label : CONTENT_STATUS[cur.status].label;
   commit(p, (name === 'script' ? 'Script: ' : 'Content: ') + label);
+  syncToRepo(p, name, cur);
 }
 
 function wireDetail(p){
@@ -1424,22 +1550,24 @@ function wireDetail(p){
 
   $('#detail').querySelectorAll('[data-issue]').forEach(b => {
     b.addEventListener('click', () => {
-      const d = entry(p); const c = d.content || (d.content = {status:'rerender', note:''});
+      const c = mutableTrack(p, 'content');
       c.tags = c.tags || [];
       const t = b.dataset.issue;
       const i = c.tags.indexOf(t);
       if (i === -1) c.tags.push(t); else c.tags.splice(i, 1);
       c.updatedAt = Date.now();
       commit(p);
+      syncToRepo(p, 'content', c);
     });
   });
 
   const urg = $('#detail').querySelector('[data-urgent]');
   if (urg) urg.addEventListener('change', () => {
-    const d = entry(p); const c = d.content || (d.content = {status:'rerender', note:''});
+    const c = mutableTrack(p, 'content');
     c.urgent = urg.checked;
     c.updatedAt = Date.now();
     commit(p, urg.checked ? 'Flagged for the next run' : 'Back on the normal schedule');
+    syncToRepo(p, 'content', c);
   });
 
   const mark = $('#detail').querySelector('[data-posted]');
@@ -1456,13 +1584,13 @@ function wireDetail(p){
       clearTimeout(t);
       t = setTimeout(() => {
         const name = ta.dataset.note;
-        const d = entry(p);
-        const cur = d[name] || (d[name] = {status: name === 'script' ? scriptStatus(p) : contentStatus(p)});
+        const cur = mutableTrack(p, name);
         cur.note = ta.value;
         cur.updatedAt = Date.now();
         save(); renderStats(); renderList();
         const lbl = $('#detail').querySelector(`[data-saved="${name}"]`);
-        if (lbl) lbl.textContent = 'Saved locally ' + new Date(cur.updatedAt).toLocaleString();
+        if (lbl) lbl.textContent = savedLabel(p, name);
+        syncToRepo(p, name, cur);
       }, 400);
     });
   });
@@ -1681,15 +1809,19 @@ document.addEventListener('keydown', e => {
 });
 
 /* ---------- boot ---------- */
-renderStats();
-renderFilters();
-renderList();
-const first = POSTS.find(p => stageOf(p) === 'content-review')
-  || POSTS.find(p => stageOf(p) === 'script-review')
-  || POSTS.find(p => p.date === TODAY)
-  || POSTS.find(p => p.date >= TODAY)
-  || POSTS[0];
-select(first.id);
+(async function boot(){
+  await loadRemoteState();
+  renderStats();
+  renderFilters();
+  renderList();
+  const first = POSTS.find(p => stageOf(p) === 'content-review')
+    || POSTS.find(p => stageOf(p) === 'script-review')
+    || POSTS.find(p => p.date === TODAY)
+    || POSTS.find(p => p.date >= TODAY)
+    || POSTS[0];
+  select(first.id);
+  syncSweep();
+})();
 </script>
 </body>
 </html>

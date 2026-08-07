@@ -1,0 +1,5 @@
+# Config for CLI deploys (`wrangler deploy`). Not required if you deploy via
+# the Cloudflare dashboard's Quick Edit instead — see README.md.
+name = "luf-content-desk-sync"
+main = "worker.js"
+compatibility_date = "2026-08-01"
