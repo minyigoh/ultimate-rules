@@ -7,3 +7,4 @@ video at roughly 30 seconds.
 Applies to every reel, not just this one — the house rhythm is now recorded in
 `content/REEL_TIMING.md` and implemented by the retime()/fit() pass in
 render_v3.py. Re-render with the updated pipeline; no copy changes.
+Regenerated: 2026-08-08 (daily-reel-render)

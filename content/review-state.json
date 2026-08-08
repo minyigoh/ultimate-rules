@@ -7,12 +7,10 @@
       "updatedAt": "2026-08-07T12:29:26.053Z"
     },
     "content": {
-      "status": "rerender",
-      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
-      "tags": [
-        "Pacing / timing"
-      ],
-      "updatedAt": "2026-08-08T14:00:00.000Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-08T07:34:00.000Z"
     },
     "revisions": [
       {
@@ -21,17 +19,22 @@
         "duration": "39.1s",
         "file": "reel3-ten-seconds-stall-count.v1.mp4",
         "changed": "Initial render from the approved week-1 script."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-08",
+        "duration": "29.2s",
+        "file": "reel3-ten-seconds-stall-count.mp4",
+        "changed": "Retimed to the house rhythm: faster sequential reveals (0.22s stagger), each finished slide holds ~2x longer. 39.4s to 29.2s."
       }
     ]
   },
   "reel-4": {
     "content": {
-      "status": "rerender",
-      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
-      "tags": [
-        "Pacing / timing"
-      ],
-      "updatedAt": "2026-08-08T14:00:00.000Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-08T07:34:00.000Z"
     },
     "revisions": [
       {
@@ -40,17 +43,22 @@
         "duration": "30.8s",
         "file": "reel4-five-ways-to-lose-the-disc.v1.mp4",
         "changed": "Initial render from the approved week-1 script."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-08",
+        "duration": "28.3s",
+        "file": "reel4-five-ways-to-lose-the-disc.mp4",
+        "changed": "Retimed to the house rhythm: faster sequential reveals, longer read-holds on finished slides. 31.2s to 28.3s."
       }
     ]
   },
   "reel-5": {
     "content": {
-      "status": "rerender",
-      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
-      "tags": [
-        "Pacing / timing"
-      ],
-      "updatedAt": "2026-08-08T14:00:00.000Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-08T07:34:00.000Z"
     },
     "revisions": [
       {
@@ -59,17 +67,22 @@
         "duration": "46.2s",
         "file": "reel5-there-are-no-referees-you-are-the-referee.v1.mp4",
         "changed": "Initial render from the approved week-1 script."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-08",
+        "duration": "30.2s",
+        "file": "reel5-there-are-no-referees-you-are-the-referee.mp4",
+        "changed": "Retimed to the house rhythm; 11-scene reel scaled hardest. 46.6s to 30.2s."
       }
     ]
   },
   "reel-6": {
     "content": {
-      "status": "rerender",
-      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
-      "tags": [
-        "Pacing / timing"
-      ],
-      "updatedAt": "2026-08-08T14:00:00.000Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-08T07:34:00.000Z"
     },
     "revisions": [
       {
@@ -78,17 +91,22 @@
         "duration": "40.7s",
         "file": "reel6-the-field-why-lines-are-out.v1.mp4",
         "changed": "Initial render from the approved week-1 script."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-08",
+        "duration": "29.2s",
+        "file": "reel6-the-field-why-lines-are-out.mp4",
+        "changed": "Retimed to the house rhythm: faster sequential reveals, longer read-holds on finished slides. 41.1s to 29.2s."
       }
     ]
   },
   "reel-7": {
     "content": {
-      "status": "rerender",
-      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
-      "tags": [
-        "Pacing / timing"
-      ],
-      "updatedAt": "2026-08-08T14:00:00.000Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-08T07:34:00.000Z"
     },
     "revisions": [
       {
@@ -97,6 +115,13 @@
         "duration": "40.7s",
         "file": "reel7-the-pull-how-every-point-starts.v1.mp4",
         "changed": "Initial render from the approved week-1 script."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-08",
+        "duration": "29.2s",
+        "file": "reel7-the-pull-how-every-point-starts.mp4",
+        "changed": "Retimed to the house rhythm: faster sequential reveals, longer read-holds on finished slides. 41.1s to 29.2s."
       }
     ]
   }
