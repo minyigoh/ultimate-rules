@@ -257,6 +257,26 @@ different keys on the same post and both belong in the merged file. If you
 can't resolve it cleanly, stop, leave the repo as-is, and say so loudly in
 Step 8 rather than discarding either side.
 
+**Expect the push to fail.** The sandbox this task runs in has no route to
+github.com — it returns `HTTP 403 from proxy after CONNECT`. That is an
+environment limit, not a repo problem, and retrying won't help. When it
+happens:
+
+- still make the commit, so the work is captured and nothing is lost
+- do **not** try to work around it (no new remotes, no credential changes)
+- report it as the first line of Step 8, with the commit SHA and the exact
+  two commands needed to publish it:
+
+  ```
+  git pull --rebase origin main
+  git push origin main
+  ```
+
+Line endings are handled by `.gitattributes` (`* text=auto eol=lf`), so files
+touched on Windows should no longer appear as whole-file CRLF diffs. If you
+still see files modified with no content change, leave them out of the commit
+and mention it — don't commit thousands of lines of churn.
+
 ## Step 8 — Report, and flag low queues
 
 Report concisely: what was newly built, what was regenerated (and a one-line

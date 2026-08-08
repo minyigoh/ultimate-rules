@@ -1,0 +1,14 @@
+# Normalise line endings so the repo stores LF regardless of the machine that
+# wrote a file. Without this, anything touched on Windows comes back as a
+# whole-file diff of pure CRLF churn -- the 2026-08-08 render run had to skip
+# several files and report ~5,700 lines of noise it could not safely commit.
+* text=auto eol=lf
+
+# Binary: never touch these.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.mp4  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary
