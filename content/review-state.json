@@ -29,9 +29,9 @@
       }
     ],
     "posted": {
-      "status": "unposted",
-      "date": null,
-      "updatedAt": "2026-08-08T05:14:06.123Z"
+      "status": "posted",
+      "date": "2026-08-08",
+      "updatedAt": "2026-08-08T05:14:15.601Z"
     }
   },
   "reel-4": {
