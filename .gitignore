@@ -5,3 +5,9 @@ Thumbs.db
 
 # local dev server config — hardcoded interpreter path, not portable
 .claude/
+
+# Intermediate render output. render_v3.py regenerates v4/ on every run: one
+# day's five reels is ~1,800 files and 116 MB of frames that rebuild from the
+# committed .py files and rules.json. Only the finished .mp4 belongs in git.
+content/**/v4/
+content/**/frames/
