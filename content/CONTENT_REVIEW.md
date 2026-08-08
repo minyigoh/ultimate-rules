@@ -68,8 +68,15 @@ Regenerated: 2026-08-10 (daily-reel-render)
 ## Versioning
 
 Regenerating a rejected render overwrites the primary file, but the prior
-attempt is kept alongside it (e.g. `reel-3-<slug>.v1.mp4`), so you can
-compare before/after if you want to.
+attempt is kept alongside it (e.g. `reel3-<slug>.v1.mp4`), so you can compare
+before/after if you want to. The unsuffixed filename is always the newest cut.
+
+Each regeneration also appends an entry to that post's `revisions` array in
+`content/review-state.json`, with a one-line `changed` description. The Content
+Desk renders that as a revision list under the video — newest first, older ones
+playable — so you can see what actually changed between rounds without opening
+two files. **Save to phone always exports the latest revision**, never whichever
+one you happen to be previewing.
 
 ## Applies to both formats
 

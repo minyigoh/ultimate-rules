@@ -1,5 +1,5 @@
 import json, os
-FPS=30; IN_SCENE, BETWEEN = 0.25, 0.50
+FPS=30; IN_SCENE, BETWEEN = 0.12, 0.40
 states = json.load(open("v4/manifest.json"))
 lines=[]; total=0.0
 def add(p,d):

@@ -104,6 +104,12 @@ def build_media():
             stem, ext = os.path.splitext(name)
             ext = ext.lower()
 
+            # Superseded cuts (<name>.v1.mp4) stay out of the bundle -- the desk
+            # previews those from the repo instead, so history doesn't cost
+            # every phone another megabyte per round.
+            if re.search(r"\.v\d+$", stem):
+                continue
+
             if ext == ".png":
                 out = os.path.join(out_dir, stem + ".jpg")
                 with Image.open(src) as im:

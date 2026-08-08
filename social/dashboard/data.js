@@ -228,7 +228,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['9.1', '9.3', '9.4', '13.2.2'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-3',
@@ -284,7 +284,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['13.1', '13.2'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-4',
@@ -339,7 +339,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['1.1', '1.2', '15.4', '13.3'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-5',
@@ -397,7 +397,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['2.1', '2.2', '2.3', '2.4', '11.1'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-6',
@@ -454,7 +454,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['7.1', '7.2', '7.3', '7.4', '7.6'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-7',

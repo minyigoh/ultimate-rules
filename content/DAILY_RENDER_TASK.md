@@ -83,6 +83,17 @@ Reuse the working pipeline as-is rather than redesigning it:
   `g_detail()` pattern.
 - Text elements within each scene fade in staggered; scenes crossfade into each
   other via `blend.py`.
+- **Do not hand-tune the per-scene duration lists in `SCENES`.** Timing is set
+  by the `retime()` / `fit()` pass at the bottom of `render_v3.py`, documented
+  in `content/REEL_TIMING.md`: text arrives quickly and in sequence, then the
+  finished slide holds long enough to read, and the whole video is scaled to
+  land near 30 seconds. Whatever durations you write in `SCENES` get rewritten
+  by that pass, so leave them at any plausible placeholder. `render_v3.py`
+  prints its projected duration — if it lands outside roughly 28–33s, the scene
+  count is the cause, so drop a topic block rather than editing the constants.
+- `IN_SCENE` and `BETWEEN` must stay identical in `render_v3.py`, `blend.py`
+  and `concat_build.py`, or the blended frames and the concat timeline
+  disagree.
 - Run render → blend → concat_build in order, then encode with ffmpeg exactly as
   done for reel-1: concat demuxer input,
   `-vf fps=30,format=yuv420p -c:v libx264 -preset slow -crf 19 -movflags +faststart`,
@@ -122,9 +133,16 @@ For each row in the regeneration worklist:
   re-render.
 - Before overwriting an asset you're fixing, save the current version alongside
   it with a `.v1` (or next unused version number) suffix, e.g.
-  `reel3-<slug>.v1.mp4`, so the before/after can be compared.
+  `reel3-<slug>.v1.mp4`, so the before/after can be compared. The primary
+  filename always holds the newest cut — the desk and the Save-to-phone button
+  both rely on that.
 - Append a line to the feedback round you addressed:
   `Regenerated: <today's date> (daily-reel-render)`.
+- **Record the new revision** in `content/review-state.json` under that post's
+  `revisions` array (see Step 6b). The desk shows this history, so the
+  `changed` field must say concretely what is different about this cut —
+  "Retimed to the house rhythm; 39.1s to 30.0s" or "Scene 3 now holds 2.4s so
+  rule 9.1 is readable", not "regenerated per feedback".
 
 ## Step 6 — Record the new state in all three places
 
@@ -154,6 +172,25 @@ absent. For each post you rendered this run, set:
 
 The key is the folder name (`reel-3`, `carousel-post-2`). `updatedAt` is an ISO
 8601 UTC timestamp.
+
+Alongside `content`, maintain a `revisions` array on the same post — **newest
+last** — one entry per cut you have produced:
+
+```json
+"revisions": [
+  {"v": 1, "renderedAt": "2026-08-08", "duration": "39.1s",
+   "file": "reel3-ten-seconds-stall-count.v1.mp4",
+   "changed": "Initial render from the approved week-1 script."},
+  {"v": 2, "renderedAt": "2026-08-09", "duration": "30.0s",
+   "file": "reel3-ten-seconds-stall-count.mp4",
+   "changed": "Retimed to the house rhythm: faster sequential reveals, each slide holds ~2x longer. 39.1s to 30.0s."}
+]
+```
+
+The last entry is the current cut and its `file` is always the unsuffixed
+primary name; earlier entries point at their `.vN` archives. Append, never
+rewrite — the desk renders this as the revision history, and `changed` is the
+one-line "what's different" the reviewer reads before deciding.
 
 **Preserve every other key in this file.** It also holds approvals Min-Yi made
 from the Content Desk, written there by a Cloudflare Worker. Read the file,

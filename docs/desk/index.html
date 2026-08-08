@@ -276,6 +276,17 @@ table.scenes td:nth-child(2){color:var(--text);font-weight:550;white-space:nowra
 .save{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
 .save .act{flex:none}
 .savehint{font-size:11.5px;color:var(--faint);line-height:1.45;flex:1;min-width:200px}
+.savehint b{color:var(--muted);font-weight:650}
+
+.rev{
+  background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--line-strong);border-radius:var(--radius);
+  padding:11px 14px;margin-bottom:8px;
+}
+.rev.now{border-left-color:var(--ok)}
+.revh{display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap}
+.revh b{font-size:13.5px;font-weight:700;font-family:var(--mono)}
+.revwhat{font-size:13px;color:var(--muted);line-height:1.5}
 
 ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px}
 ul.notes li{margin-bottom:6px}
@@ -628,7 +639,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['9.1', '9.3', '9.4', '13.2.2'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-3',
@@ -684,7 +695,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['13.1', '13.2'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-4',
@@ -739,7 +750,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['1.1', '1.2', '15.4', '13.3'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-5',
@@ -797,7 +808,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['2.1', '2.2', '2.3', '2.4', '11.1'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-6',
@@ -854,7 +865,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['7.1', '7.2', '7.3', '7.4', '7.6'],
     review: {
       script:  {status: 'approved', on: '2026-08-06'},
-      content: {status: 'in-review', on: '2026-08-08'}
+      content: {status: 'rerender', on: '2026-08-08'}
     },
     postedDate: null,
     folder: 'reel-7',
@@ -1184,6 +1195,29 @@ function assetList(p){
   return [];
 }
 
+/* ---------- revision history ----------
+   Written by the render task into review-state.json, newest last. The latest
+   revision is always the unsuffixed filename in data.js; earlier attempts are
+   kept beside it as <name>.vN.<ext>, per content/CONTENT_REVIEW.md. When
+   nothing has been recorded, whatever is on disk is v1 by definition. */
+function revisionsOf(p){
+  const rec = (remoteState[p.id] && remoteState[p.id].revisions) || [];
+  if (rec.length) return rec;
+  if (!hasMedia(p)) return [];
+  return [{v: 1, renderedAt: baseline(p,'content').on || null,
+           changed: 'Initial render.'}];
+}
+
+/* Older revisions aren't bundled into docs/desk/ — only the current cut is —
+   so previewing one goes to the original in the repo. */
+function revisionURL(p, rev){
+  const revs = revisionsOf(p);
+  const isLatest = rev === revs[revs.length - 1];
+  if (isLatest) return p.video ? mediaURL(p.folder, p.video) : null;
+  if (!rev.file) return null;
+  return RAW_BASE + p.folder + '/' + rev.file;
+}
+
 function downloadFiles(files){
   files.forEach((f, i) => {
     // Stagger: browsers drop rapid-fire programmatic downloads.
@@ -1442,13 +1476,16 @@ function renderDetail(preserveScroll){
     }
     parts.push('</div>');
     const n = assetList(p).length;
+    const revs = revisionsOf(p);
     parts.push(`<div class="save">
       <button class="act" id="saveBtn" style="--c:var(--ok)">
         ${p.video ? 'Save video to phone' : `Save all ${n} slides`}</button>
       <span class="savehint">Opens your phone's share sheet — Save to Photos, or straight into Instagram.
-        Downloads the full-quality original, not the preview above.</span>
+        Always saves <b>v${revs.length ? revs[revs.length-1].v : 1}, the latest</b>, at full quality —
+        never the preview above or an older revision.</span>
     </div>`);
     parts.push('</section>');
+    parts.push(revisionsHTML(p));
   } else {
     const why = scriptStatus(p) === 'approved'
       ? 'Script is approved, so this is in the render queue. Nothing to review until a file exists.'
@@ -1606,6 +1643,33 @@ function savedLabel(p, name){
   return r && r.updatedAt ? 'Synced to repo ' + new Date(r.updatedAt).toLocaleString() : '';
 }
 
+function revisionsHTML(p){
+  const revs = revisionsOf(p);
+  if (revs.length < 1) return '';
+  const latest = revs[revs.length - 1];
+
+  const rows = [...revs].reverse().map(r => {
+    const url = revisionURL(p, r);
+    const isLatest = r === latest;
+    return `<div class="rev${isLatest ? ' now' : ''}">
+      <div class="revh">
+        <b>v${esc(String(r.v))}</b>
+        ${isLatest ? '<span class="pill" style="--st:var(--ok)">Latest</span>'
+                   : '<span class="pill" style="--st:var(--faint)">Superseded</span>'}
+        ${r.renderedAt ? `<span class="chip">${esc(r.renderedAt)}</span>` : ''}
+        ${r.duration ? `<span class="chip">${esc(r.duration)}</span>` : ''}
+        ${url && p.video ? `<button class="copy" data-rev="${esc(url)}">Preview</button>` : ''}
+      </div>
+      <div class="revwhat">${esc(r.changed || 'No description recorded.')}</div>
+    </div>`;
+  }).join('');
+
+  return `<section><h3>Revisions</h3>${rows}
+    ${revs.length === 1
+      ? '<p class="src" style="margin-top:10px">Only one cut so far. Rejecting it logs the next round here.</p>'
+      : ''}</section>`;
+}
+
 function captionCard(platform, text){
   return `<div class="caption-card">
     <div class="ch"><b>${esc(platform)}</b><span class="len">${text.length} chars</span>
@@ -1671,6 +1735,21 @@ function wireDetail(p){
 
   const saveBtn = $('#saveBtn');
   if (saveBtn) saveBtn.addEventListener('click', () => saveToPhone(p, saveBtn));
+
+  // Preview swaps only what the player shows. Saving stays pinned to the
+  // latest cut regardless of what you're currently watching.
+  $('#detail').querySelectorAll('[data-rev]').forEach(b => {
+    b.addEventListener('click', () => {
+      const v = $('#detail').querySelector('video');
+      if (!v) return;
+      v.src = b.dataset.rev;
+      v.load();
+      v.play().catch(() => {});
+      v.scrollIntoView({behavior:'smooth', block:'center'});
+      $('#detail').querySelectorAll('[data-rev]').forEach(x =>
+        x.textContent = x === b ? 'Playing' : 'Preview');
+    });
+  });
 
   $('#detail').querySelectorAll('[data-set]').forEach(b => {
     b.addEventListener('click', () => setTrack(p, b.dataset.track, b.dataset.set));

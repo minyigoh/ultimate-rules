@@ -7,42 +7,97 @@
       "updatedAt": "2026-08-07T12:29:26.053Z"
     },
     "content": {
-      "status": "in-review",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-08-08T07:20:00.000Z"
-    }
+      "status": "rerender",
+      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
+      "tags": [
+        "Pacing / timing"
+      ],
+      "updatedAt": "2026-08-08T14:00:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-08",
+        "duration": "39.1s",
+        "file": "reel3-ten-seconds-stall-count.v1.mp4",
+        "changed": "Initial render from the approved week-1 script."
+      }
+    ]
   },
   "reel-4": {
     "content": {
-      "status": "in-review",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-08-08T07:20:00.000Z"
-    }
+      "status": "rerender",
+      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
+      "tags": [
+        "Pacing / timing"
+      ],
+      "updatedAt": "2026-08-08T14:00:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-08",
+        "duration": "30.8s",
+        "file": "reel4-five-ways-to-lose-the-disc.v1.mp4",
+        "changed": "Initial render from the approved week-1 script."
+      }
+    ]
   },
   "reel-5": {
     "content": {
-      "status": "in-review",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-08-08T07:20:00.000Z"
-    }
+      "status": "rerender",
+      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
+      "tags": [
+        "Pacing / timing"
+      ],
+      "updatedAt": "2026-08-08T14:00:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-08",
+        "duration": "46.2s",
+        "file": "reel5-there-are-no-referees-you-are-the-referee.v1.mp4",
+        "changed": "Initial render from the approved week-1 script."
+      }
+    ]
   },
   "reel-6": {
     "content": {
-      "status": "in-review",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-08-08T07:20:00.000Z"
-    }
+      "status": "rerender",
+      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
+      "tags": [
+        "Pacing / timing"
+      ],
+      "updatedAt": "2026-08-08T14:00:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-08",
+        "duration": "40.7s",
+        "file": "reel6-the-field-why-lines-are-out.v1.mp4",
+        "changed": "Initial render from the approved week-1 script."
+      }
+    ]
   },
   "reel-7": {
     "content": {
-      "status": "in-review",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-08-08T07:21:00.000Z"
-    }
+      "status": "rerender",
+      "note": "Text animates in too slowly and the slide cuts away as the last element lands. Faster sequential reveals, longer hold on the finished slide, ~30s overall.",
+      "tags": [
+        "Pacing / timing"
+      ],
+      "updatedAt": "2026-08-08T14:00:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-08",
+        "duration": "40.7s",
+        "file": "reel7-the-pull-how-every-point-starts.v1.mp4",
+        "changed": "Initial render from the approved week-1 script."
+      }
+    ]
   }
 }

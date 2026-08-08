@@ -9,7 +9,7 @@ VW, VH = 1080, 1920
 Y_OFFSET = (VH - H) / 2
 
 RULES_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rules.json")
-_r = json.load(open(RULES_JSON))
+_r = json.load(open(RULES_JSON, encoding="utf-8"))
 RULE = {r["num"]: r for r in _r["rules"]}
 
 def esc(s):
@@ -169,6 +169,54 @@ SCENES = [
     ("close",    g_closing(7),                                           [0.30, 0.80, 1.00, 1.40]),
 ]
 
+# ---------------- timing (see content/REEL_TIMING.md) ----------------
+# House rhythm, applied over whatever per-state durations SCENES carries above:
+# text arrives quickly and in sequence, then the finished slide holds long
+# enough to actually read. Retiming here instead of hand-tuning every scene
+# keeps all reels identical in feel and makes the rule a single edit.
+STAGGER = 0.22                       # any state where text is still arriving
+HOLD = {"cover": 1.5, "main": 1.6,   # the complete slide: time to read it
+        "detail": 2.4, "tip": 1.6, "close": 2.0}
+TARGET = 30.0                        # seconds for the finished video
+IN_SCENE, BETWEEN = 0.12, 0.40       # crossfades; must match blend/concat_build
+
+def _kind(name):
+    if name in ("cover", "close", "tip"):
+        return name
+    return "detail" if name.endswith("_r") else "main"
+
+def retime(name, durs):
+    kind = _kind(name)
+    out = [STAGGER] * len(durs)
+    out[-1] = HOLD[kind]
+    # A rules slide carrying more than one rule block needs each earlier block
+    # readable before the next lands, or the stagger buries it.
+    if kind == "detail" and len(durs) > 2:
+        for i in range(1, len(durs) - 1):
+            out[i] = round(HOLD["detail"] * 0.7, 2)
+    return out
+
+def fit(scenes):
+    """Scale the read-holds so the finished video lands near TARGET.
+
+    Reels run two to four topic blocks, which on a fixed rhythm alone spreads
+    them over 22-35s. Only the holds scale -- the stagger stays put, since
+    that is the part being kept snappy -- and the factor is clamped so rule
+    text never becomes unreadable at one end or draggy at the other.
+    """
+    n_states = sum(len(d) for _, _, d in scenes)
+    n_between = len(scenes) - 1
+    trans = n_between*BETWEEN + (n_states - 1 - n_between)*IN_SCENE
+    held = sum(sum(x for x in d if x != STAGGER) for _, _, d in scenes)
+    fixed = sum(sum(x for x in d if x == STAGGER) for _, _, d in scenes) + trans
+    if held <= 0:
+        return scenes
+    k = max(0.8, min(1.5, (TARGET - fixed) / held))
+    return [(n, g, [x if x == STAGGER else round(x*k, 2) for x in d])
+            for n, g, d in scenes]
+
+SCENES = fit([(n, g, retime(n, d)) for n, g, d in SCENES])
+
 os.makedirs("v4/svg", exist_ok=True); os.makedirs("v4/png", exist_ok=True)
 
 manifest = []   # (png_path, hold_seconds, is_scene_start)
@@ -179,7 +227,7 @@ for si, (name, groups, durs) in enumerate(SCENES):
         cumulative += grp
         svg = base("\n".join(cumulative))
         p = f"v4/svg/{si:02d}_{name}_{gi}.svg"
-        open(p, "w").write(svg)
+        open(p, "w", encoding="utf-8").write(svg)
         manifest.append((f"v4/png/{si:02d}_{name}_{gi}.png", durs[gi], gi == 0, p))
 
 for png, dur, start, svgp in manifest:
@@ -188,3 +236,9 @@ for png, dur, start, svgp in manifest:
 json.dump([[p, d, s] for p, d, s, _ in manifest], open("v4/manifest.json", "w"))
 print("states:", len(manifest))
 print("raw total:", round(sum(d for _, d, _, _ in manifest), 2), "s")
+
+raw = sum(d for _, d, _, _ in manifest)
+n_states = len(manifest)
+n_between = sum(1 for _, _, s, _ in manifest if s) - 1
+trans = n_between * BETWEEN + (n_states - 1 - n_between) * IN_SCENE
+print(f"projected: {raw + trans:.1f}s   (house target ~30s; drop a topic block if over 33s)")
