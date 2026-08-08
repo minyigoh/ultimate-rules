@@ -27,7 +27,12 @@
         "file": "reel3-ten-seconds-stall-count.mp4",
         "changed": "Retimed to the house rhythm: faster sequential reveals (0.22s stagger), each finished slide holds ~2x longer. 39.4s to 29.2s."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-08",
+      "updatedAt": "2026-08-08T05:14:01.250Z"
+    }
   },
   "reel-4": {
     "content": {
