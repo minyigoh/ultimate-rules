@@ -1,9 +1,10 @@
 /*
  * Content Desk sync proxy — Cloudflare Worker
  *
- * Single job: take a script/content approval decision from the desk and
- * commit it to the repo, atomically, across:
- *   - content/calendar.md         the human-readable queue (Status column only)
+ * Single job: take a decision from the desk — a script approval, a content
+ * approval, or a mark-as-posted — and commit it to the repo, atomically,
+ * across:
+ *   - content/calendar.md         the human-readable queue (Status and Posted)
  *   - content/review-state.json   structured state the desk reads back on load,
  *                                  so a decision made on one device shows up
  *                                  on another
@@ -58,8 +59,8 @@ export default {
     if (!postId || !postDate || !postTitle || !trackName || !status || !calendarLabel) {
       return withCORS(new Response('Missing required field', {status: 400}));
     }
-    if (trackName !== 'script' && trackName !== 'content') {
-      return withCORS(new Response('track must be "script" or "content"', {status: 400}));
+    if (trackName !== 'script' && trackName !== 'content' && trackName !== 'posted') {
+      return withCORS(new Response('track must be "script", "content" or "posted"', {status: 400}));
     }
 
     try {
@@ -70,17 +71,18 @@ export default {
       const stateFile = await gh.getFile(STATE_PATH).catch(() => null);
       const state = stateFile ? JSON.parse(stateFile.text) : {};
       state[postId] = state[postId] || {};
-      state[postId][trackName] = {
-        status, note: note || '', tags: tags || [],
-        updatedAt: new Date().toISOString()
-      };
+      // The posted track carries a date where the review tracks carry a note
+      // and tags; storing empty ones would just be noise the desk ignores.
+      state[postId][trackName] = trackName === 'posted'
+        ? {status, date: postedDate || null, updatedAt: new Date().toISOString()}
+        : {status, note: note || '', tags: tags || [], updatedAt: new Date().toISOString()};
       writes.push({path: STATE_PATH, content: JSON.stringify(state, null, 2) + '\n'});
 
       // 2. calendar.md — patch just this one row's Status (and Posted, if set).
       const calFile = await gh.getFile(CALENDAR_PATH);
       writes.push({
         path: CALENDAR_PATH,
-        content: patchCalendarRow(calFile.text, postDate, calendarLabel, postedDate)
+        content: patchCalendarRow(calFile.text, postDate, calendarLabel, postedDate, trackName === 'posted')
       });
 
       // 3. A content rejection also logs a feedback round, in the format
@@ -107,7 +109,7 @@ export default {
 
 // calendar.md currently has exactly one row per date. If that stops being
 // true, fail loudly rather than guess which row to patch.
-function patchCalendarRow(md, date, statusLabel, postedDate) {
+function patchCalendarRow(md, date, statusLabel, postedDate, clearIfUnset) {
   const lines = md.split('\n');
   const matches = [];
   lines.forEach((l, i) => { if (l.startsWith(`| ${date} |`)) matches.push(i); });
@@ -118,7 +120,10 @@ function patchCalendarRow(md, date, statusLabel, postedDate) {
   const cells = lines[idx].split('|').map(c => c.trim());
   // ['', date, post, type, status, posted, performance, '']
   cells[4] = statusLabel;
+  // An approval only ever fills the Posted column in passing, so it must not
+  // blank it. Un-marking from the desk is the one case that has to.
   if (postedDate) cells[5] = postedDate;
+  else if (clearIfUnset) cells[5] = '—';
   lines[idx] = '| ' + cells.slice(1, 7).join(' | ') + ' |';
   return lines.join('\n');
 }

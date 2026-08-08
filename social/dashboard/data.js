@@ -27,6 +27,10 @@
  * it is any good. `awaiting-render` means the render task hasn't produced a
  * file yet; `in-review` means one exists and is waiting on you.
  *
+ * `postedDate` is the baseline for a third, non-review track: whether the post
+ * has gone out. It sits beside `review` rather than inside it because it
+ * records a date, not an approval, but it syncs the same way the other two do.
+ *
  * `review` is what the repo says today. Anything you click in the dashboard is
  * stored separately in localStorage and shown as an override, so the two never
  * get confused — use Export to write your decisions back to the repo.

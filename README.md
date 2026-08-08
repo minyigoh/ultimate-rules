@@ -111,10 +111,11 @@ for you to apply by hand.
 
 To make that automatic, deploy the sync Worker in
 [`social/dashboard/worker/`](social/dashboard/worker/README.md) and set
-`SYNC_URL` in `social/dashboard/index.html`. Then every approve/reject commits
-straight to `content/calendar.md` and `content/review-state.json`, and the desk
-reads that state back on load, so a decision made on your phone shows up on
-your PC. The 7 AM render task just reads `calendar.md` as it always has.
+`SYNC_URL` in `social/dashboard/index.html`. Then every approve/reject — and
+every *Mark as posted* — commits straight to `content/calendar.md` and
+`content/review-state.json`, and the desk reads that state back on load, so a
+decision made on your phone shows up on your PC. The 7 AM render task just
+reads `calendar.md` as it always has.
 
 The desk is a public page and can't hold a repo-write credential, which is the
 whole reason the Worker exists — it holds the GitHub token, the desk only holds
@@ -124,8 +125,9 @@ If a sync fails (offline, wrong passphrase, Worker not deployed), the decision
 stays in `localStorage` and is retried automatically on the next page load —
 nothing is lost, and the card shows `● not synced` until it lands.
 
-**Not synced:** the *Mark as posted* toggle is still local-only. Everything on
-both approval gates syncs.
+*Mark as posted* is a third synced track alongside the two approval gates. It
+carries a date rather than a note, and it writes both the Status and the Posted
+column of `calendar.md`; un-marking clears that column again.
 
 Two things worth knowing before you rely on it:
 
