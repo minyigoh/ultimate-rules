@@ -273,6 +273,9 @@ table.scenes td:nth-child(2){color:var(--text);font-weight:550;white-space:nowra
 .strip img:hover{border-color:var(--accent)}
 .strip figcaption{font-size:10px;color:var(--faint);margin-top:4px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .missing{font-size:12.5px;color:var(--faint);background:var(--panel);border:1px dashed var(--line-strong);border-radius:var(--radius);padding:14px 16px;line-height:1.5}
+.save{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.save .act{flex:none}
+.savehint{font-size:11.5px;color:var(--faint);line-height:1.45;flex:1;min-width:200px}
 
 ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px}
 ul.notes li{margin-bottom:6px}
@@ -421,7 +424,8 @@ const isMobile = () => window.matchMedia('(max-width:900px)').matches;
    approvals stay local to this browser only. */
 const SYNC_URL = 'https://luf-content-desk-sync.learnultimatefrisbee.workers.dev';
 const PASS_KEY = 'luf-desk-pass';
-const REMOTE_STATE_URL = 'https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/review-state.json';
+const RAW_BASE = 'https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/';
+const REMOTE_STATE_URL = RAW_BASE + 'review-state.json';
 
 let remoteState = {};
 const syncing = new Set(); // `${postId}:${track}` currently in flight — in-memory only, resets on reload
@@ -657,6 +661,77 @@ async function copy(text, what){
   }
 }
 
+/* ---------- save the finished asset to the phone ----------
+   Always pulls the ORIGINAL out of content/ on GitHub, never the desk's own
+   bundled copy: build_desk.py downscales carousel slides to 900px JPEG for
+   preview, which is not what should go on Instagram. Reels are copied
+   untouched, so for those the two are identical.
+
+   navigator.share hands the file to the OS share sheet — "Save to Photos" or
+   Instagram directly. Not everywhere supports it (desktop Firefox, older
+   Safari), and iOS can reject the call if too long passes between the tap and
+   the share, so a plain download is always the fallback. */
+function mimeFor(name){
+  if (name.endsWith('.mp4')) return 'video/mp4';
+  if (name.endsWith('.png')) return 'image/png';
+  if (name.endsWith('.jpg') || name.endsWith('.jpeg')) return 'image/jpeg';
+  return 'application/octet-stream';
+}
+
+function assetList(p){
+  if (p.video) return [p.video];
+  if (p.slides) return p.slides.map(([f]) => f + '.png');
+  return [];
+}
+
+function downloadFiles(files){
+  files.forEach((f, i) => {
+    // Stagger: browsers drop rapid-fire programmatic downloads.
+    setTimeout(() => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(f);
+      a.download = f.name;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }, i * 350);
+  });
+  toast(files.length > 1 ? files.length + ' files downloading' : 'Downloading');
+}
+
+async function saveToPhone(p, btn){
+  const names = assetList(p);
+  if (!names.length) return;
+  const label = btn.textContent;
+  btn.disabled = true;
+
+  try {
+    const files = [];
+    for (let i = 0; i < names.length; i++){
+      btn.textContent = names.length > 1 ? `Fetching ${i+1}/${names.length}…` : 'Fetching…';
+      const res = await fetch(RAW_BASE + p.folder + '/' + names[i]);
+      if (!res.ok) throw new Error(names[i] + ' → HTTP ' + res.status);
+      files.push(new File([await res.blob()], names[i], {type: mimeFor(names[i])}));
+    }
+
+    if (navigator.canShare && navigator.canShare({files})){
+      btn.textContent = 'Opening…';
+      try {
+        await navigator.share({files, title: p.title});
+      } catch (err) {
+        if (err && err.name === 'AbortError') { /* share sheet dismissed — not an error */ }
+        else downloadFiles(files); // NotAllowedError and friends: fall back rather than dead-end
+      }
+    } else {
+      downloadFiles(files);
+    }
+  } catch (err) {
+    toast('Save failed — ' + (err.message || 'check your connection'));
+  }
+
+  btn.disabled = false;
+  btn.textContent = label;
+}
+
 /* ---------- render queue: what a scheduled run would pick up ---------- */
 function renderQueue(){
   const out = [];
@@ -865,7 +940,15 @@ function renderDetail(preserveScroll){
                 <figcaption>${esc(label)}</figcaption></figure>`;
       }).join('') + '</div>');
     }
-    parts.push('</div></section>');
+    parts.push('</div>');
+    const n = assetList(p).length;
+    parts.push(`<div class="save">
+      <button class="act" id="saveBtn" style="--c:var(--ok)">
+        ${p.video ? 'Save video to phone' : `Save all ${n} slides`}</button>
+      <span class="savehint">Opens your phone's share sheet — Save to Photos, or straight into Instagram.
+        Downloads the full-quality original, not the preview above.</span>
+    </div>`);
+    parts.push('</section>');
   } else {
     const why = scriptStatus(p) === 'approved'
       ? 'Script is approved, so this is in the render queue. Nothing to review until a file exists.'
@@ -1085,6 +1168,9 @@ function setTrack(p, name, status){
 function wireDetail(p){
   const back = $('#backBtn');
   if (back) back.addEventListener('click', backToQueue);
+
+  const saveBtn = $('#saveBtn');
+  if (saveBtn) saveBtn.addEventListener('click', () => saveToPhone(p, saveBtn));
 
   $('#detail').querySelectorAll('[data-set]').forEach(b => {
     b.addEventListener('click', () => setTrack(p, b.dataset.track, b.dataset.set));
