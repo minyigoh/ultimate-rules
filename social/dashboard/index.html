@@ -440,6 +440,11 @@ const REMOTE_STATE_URL = RAW_BASE + 'review-state.json';
 
 let remoteState = {};
 const syncing = new Set(); // `${postId}:${track}` currently in flight — in-memory only, resets on reload
+const SYNC_TOAST = {
+  script:  'Script decision synced',
+  content: 'Content decision synced',
+  posted:  'Posted state synced'
+};
 
 async function loadRemoteState(){
   try {
@@ -456,8 +461,17 @@ async function loadRemoteState(){
    data.js and localStorage: fresher than the former, overridden by anything
    this browser hasn't confirmed synced yet. */
 function baseline(p, name){
-  return (remoteState[p.id] && remoteState[p.id][name]) || p.review[name];
+  const r = remoteState[p.id] && remoteState[p.id][name];
+  if (r) return r;
+  // data.js keeps the posted date beside `review` rather than inside it, so
+  // this one track's fallback is synthesised instead of read straight out.
+  if (name === 'posted'){
+    return p.postedDate ? {status:'posted', date: p.postedDate} : {status:'unposted', date: null};
+  }
+  return p.review[name];
 }
+const samePosted = (a, b) =>
+  !!a && !!b && a.status === b.status && (a.date || null) === (b.date || null);
 function repoNote(p, name){
   const r = remoteState[p.id] && remoteState[p.id][name];
   if (r && r.updatedAt) return new Date(r.updatedAt).toLocaleDateString();
@@ -505,7 +519,7 @@ async function syncToRepo(p, trackName, value){
       remoteState[p.id][trackName] = value;
       if (state[p.id]) { delete state[p.id][trackName]; tidy(p); }
       save();
-      toast((trackName === 'script' ? 'Script' : 'Content') + ' decision synced');
+      toast(SYNC_TOAST[trackName]);
     }
   } catch {
     toast('Sync failed — kept locally, will retry on next load');
@@ -524,6 +538,7 @@ function syncSweep(){
     if (!d) continue;
     if (d.script)  syncToRepo(p, 'script', d.script);
     if (d.content) syncToRepo(p, 'content', d.content);
+    if (d.posted)  syncToRepo(p, 'posted', d.posted);
   }
 }
 
@@ -574,6 +589,15 @@ function load(){
   let s = {};
   try { s = JSON.parse(localStorage.getItem(STORE)) || {}; } catch { s = {}; }
 
+  /* `posted` used to be a bare date string, because it was local-only and a
+     date was all it had to say. It syncs now, so lift any of those into the
+     same {status, date} shape the other two tracks use — otherwise a post
+     marked before this change would never sweep up to the repo. */
+  for (const d of Object.values(s)){
+    if (typeof d.posted === 'string') d.posted = {status:'posted', date: d.posted, updatedAt: Date.now()};
+    else if (!d.posted) delete d.posted;
+  }
+
   // v1 stored a single flat decision per post — that was the script track.
   if (!localStorage.getItem(STORE) && localStorage.getItem(STORE_V1)){
     try {
@@ -582,7 +606,7 @@ function load(){
         if (!d || !d.status) continue;
         s[id] = {script: {status: d.status === 'posted' ? 'approved' : d.status,
                           note: d.note || '', updatedAt: d.updatedAt || Date.now()}};
-        if (d.status === 'posted') s[id].posted = TODAY;
+        if (d.status === 'posted') s[id].posted = {status:'posted', date: TODAY, updatedAt: Date.now()};
       }
       localStorage.setItem(STORE, JSON.stringify(s));
     } catch { /* a failed migration must not block the desk */ }
@@ -611,8 +635,14 @@ const isUrgent    = p => {
   const t = track(p.id, 'content');
   return t && 'urgent' in t ? !!t.urgent : !!baseline(p,'content').urgent;
 };
-// "Posted" isn't synced yet — see the worker README's known-limitations note.
-const postedOn    = p => (state[p.id] && state[p.id].posted) || p.postedDate;
+/* The third track. Unlike the other two it carries a date rather than a note,
+   but it resolves the same way — local override, then what another device
+   synced, then data.js's baseline — so marking a post on your phone reaches
+   your PC instead of sitting in that browser forever. */
+function postedOn(p){
+  const t = track(p.id, 'posted') || baseline(p, 'posted');
+  return t.status === 'posted' ? (t.date || null) : null;
+}
 
 /* Has the render actually produced a file we can look at? */
 const hasMedia = p => !!(p.video || p.slides);
@@ -620,7 +650,7 @@ const hasMedia = p => !!(p.video || p.slides);
 function overridden(p){
   const d = state[p.id];
   if (!d) return false;
-  if (d.posted && d.posted !== p.postedDate) return true;
+  if (d.posted && !samePosted(d.posted, baseline(p,'posted'))) return true;
   if (d.script && (d.script.status !== baseline(p,'script').status || (d.script.note||'').trim())) return true;
   if (d.content && (d.content.status !== baseline(p,'content').status ||
       (d.content.note||'').trim() || (d.content.tags||[]).length || d.content.urgent)) return true;
@@ -1126,7 +1156,8 @@ function tracksHTML(p){
   const posted = postedOn(p);
   const markBtn = (contentStatus(p) === 'approved' || posted)
     ? `<div style="margin-bottom:26px"><button class="act" data-posted style="--c:var(--text)" aria-pressed="${!!posted}">
-         ${posted ? 'Posted ' + esc(posted) : 'Mark as posted'}</button></div>`
+         ${posted ? 'Posted ' + esc(posted) : 'Mark as posted'}</button>
+       <div class="saved" data-saved="posted">${savedLabel(p,'posted')}</div></div>`
     : '';
 
   return `<div class="tracks">${scriptTrack}${contentTrack}</div>${markBtn}`;
@@ -1192,6 +1223,8 @@ function mutableTrack(p, name){
   if (!d[name]){
     d[name] = name === 'script'
       ? {status: scriptStatus(p), note: scriptNote(p)}
+      : name === 'posted'
+      ? {status: postedOn(p) ? 'posted' : 'unposted', date: postedOn(p) || null}
       : {status: contentStatus(p), note: contentNote(p),
          tags: contentTags(p).slice(), urgent: isUrgent(p)};
   }
@@ -1205,7 +1238,7 @@ function tidy(p){
   if (d.script && d.script.status === baseline(p,'script').status && !(d.script.note||'').trim()) delete d.script;
   if (d.content && d.content.status === baseline(p,'content').status &&
       !(d.content.note||'').trim() && !(d.content.tags||[]).length && !d.content.urgent) delete d.content;
-  if (d.posted === p.postedDate) delete d.posted;
+  if (d.posted && samePosted(d.posted, baseline(p,'posted'))) delete d.posted;
   if (!Object.keys(d).length) delete state[p.id];
 }
 function commit(p, msg){
@@ -1287,10 +1320,13 @@ function wireDetail(p){
 
   const mark = $('#detail').querySelector('[data-posted]');
   if (mark) mark.addEventListener('click', () => {
-    const d = entry(p);
-    d.posted = d.posted ? null : TODAY;
-    if (!d.posted) delete d.posted;
-    commit(p, d.posted ? 'Marked posted' : 'Un-marked');
+    const wasPosted = !!postedOn(p);
+    const cur = mutableTrack(p, 'posted');
+    cur.status = wasPosted ? 'unposted' : 'posted';
+    cur.date = wasPosted ? null : TODAY;
+    cur.updatedAt = Date.now();
+    commit(p, wasPosted ? 'Un-marked' : 'Marked posted');
+    syncToRepo(p, 'posted', cur);
   });
 
   $('#detail').querySelectorAll('[data-note]').forEach(ta => {

@@ -1,9 +1,10 @@
 /*
  * Content Desk sync proxy — Cloudflare Worker
  *
- * Single job: take a script/content approval decision from the desk and
- * commit it to the repo, atomically, across:
- *   - content/calendar.md         the human-readable queue (Status column only)
+ * Single job: take a decision from the desk — a script approval, a content
+ * approval, or a mark-as-posted — and commit it to the repo, atomically,
+ * across:
+ *   - content/calendar.md         the human-readable queue (Status and Posted)
  *   - content/review-state.json   structured state the desk reads back on load,
  *                                  so a decision made on one device shows up
  *                                  on another
@@ -58,8 +59,8 @@ export default {
     if (!postId || !postDate || !postTitle || !trackName || !status || !calendarLabel) {
       return withCORS(new Response('Missing required field', {status: 400}));
     }
-    if (trackName !== 'script' && trackName !== 'content') {
-      return withCORS(new Response('track must be "script" or "content"', {status: 400}));
+    if (trackName !== 'script' && trackName !== 'content' && trackName !== 'posted') {
+      return withCORS(new Response('track must be "script", "content" or "posted"', {status: 400}));
     }
 
     try {
@@ -70,17 +71,22 @@ export default {
       const stateFile = await gh.getFile(STATE_PATH).catch(() => null);
       const state = stateFile ? JSON.parse(stateFile.text) : {};
       state[postId] = state[postId] || {};
-      state[postId][trackName] = {
-        status, note: note || '', tags: tags || [],
-        updatedAt: new Date().toISOString()
-      };
+      // The posted track carries a date where the review tracks carry a note
+      // and tags; storing empty ones would just be noise the desk ignores.
+      state[postId][trackName] = trackName === 'posted'
+        ? {status, date: postedDate || null, updatedAt: new Date().toISOString()}
+        : {status, note: note || '', tags: tags || [], updatedAt: new Date().toISOString()};
       writes.push({path: STATE_PATH, content: JSON.stringify(state, null, 2) + '\n'});
 
       // 2. calendar.md — patch just this one row's Status (and Posted, if set).
       const calFile = await gh.getFile(CALENDAR_PATH);
       writes.push({
         path: CALENDAR_PATH,
-        content: patchCalendarRow(calFile.text, postDate, calendarLabel, postedDate)
+        content: patchCalendarRow(calFile.text, {
+          date: postDate, title: postTitle, folder,
+          statusLabel: calendarLabel, postedDate,
+          clearPosted: trackName === 'posted'
+        })
       });
 
       // 3. A content rejection also logs a feedback round, in the format
@@ -105,22 +111,49 @@ export default {
   }
 };
 
-// calendar.md currently has exactly one row per date. If that stops being
-// true, fail loudly rather than guess which row to patch.
-function patchCalendarRow(md, date, statusLabel, postedDate) {
+function patchCalendarRow(md, {date, title, folder, statusLabel, postedDate, clearPosted}) {
   const lines = md.split('\n');
-  const matches = [];
-  lines.forEach((l, i) => { if (l.startsWith(`| ${date} |`)) matches.push(i); });
-  if (matches.length !== 1) {
-    throw new Error(`Expected exactly one calendar row for ${date}, found ${matches.length}`);
-  }
-  const idx = matches[0];
-  const cells = lines[idx].split('|').map(c => c.trim());
+  const row = findCalendarRow(lines, date, title, folder);
   // ['', date, post, type, status, posted, performance, '']
+  const cells = row.cells;
   cells[4] = statusLabel;
+  // An approval only ever fills the Posted column in passing, so it must not
+  // blank it. Un-marking from the desk is the one case that has to.
   if (postedDate) cells[5] = postedDate;
-  lines[idx] = '| ' + cells.slice(1, 7).join(' | ') + ' |';
+  else if (clearPosted) cells[5] = '—';
+  lines[row.i] = '| ' + cells.slice(1, 7).join(' | ') + ' |';
   return lines.join('\n');
+}
+
+/* Two posts can share a queue date — the launch day had a carousel and a reel
+   both on 2026-08-06 — so the date alone does not identify a row. The Post
+   column carries the title (the carousel prefixes its folder), which makes
+   date + post the real key. Either half alone is accepted as a fallback when
+   it is unambiguous, so a calendar hand-edited out of step with data.js (a
+   post moved to a new date, or a title tidied up) still patches instead of
+   failing. Beyond that, refuse to guess. */
+function findCalendarRow(lines, date, title, folder) {
+  const rows = [];
+  lines.forEach((l, i) => {
+    if (!l.startsWith('| ')) return;
+    const cells = l.split('|').map(c => c.trim());
+    // Skips the header and the |---| separator: only a queued row leads with a date.
+    if (cells.length !== 8 || !/^\d{4}-\d{2}-\d{2}$/.test(cells[1])) return;
+    rows.push({i, cells});
+  });
+
+  const identifies = cell => (!!folder && cell.includes(folder)) || (!!title && cell.includes(title));
+  const byDate = rows.filter(r => r.cells[1] === date);
+  const byPost = rows.filter(r => identifies(r.cells[2]));
+  const both   = byDate.filter(r => byPost.includes(r));
+
+  for (const candidates of [both, byPost, byDate]) {
+    if (candidates.length === 1) return candidates[0];
+  }
+  throw new Error(
+    `Could not identify a unique calendar row for "${title}" (${date}) — ` +
+    `${both.length} matched on date and post, ${byPost.length} on post, ${byDate.length} on date`
+  );
 }
 
 function ghClient(token) {

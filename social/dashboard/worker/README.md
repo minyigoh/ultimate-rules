@@ -9,8 +9,8 @@ The Content Desk (`social/dashboard/index.html`, published at
 `minyigoh.github.io/ultimate-rules/desk/`) is a public page. It can never hold
 a credential able to write to your repo — anyone could open dev tools and take
 it. This Worker is the one thing that holds that credential. The desk sends it
-your approve/reject clicks; it commits them to `content/calendar.md` and
-`content/review-state.json`.
+your approve/reject clicks and your *Mark as posted* toggles; it commits them
+to `content/calendar.md` and `content/review-state.json`.
 
 Until you finish this setup, the desk works exactly as it always has —
 approvals stay local to whichever browser made them. Nothing breaks by
