@@ -1559,9 +1559,27 @@ function renderDetail(preserveScroll){
     <p class="src">Attribution required in every caption: ${esc(ACCOUNT.attribution)}</p>
   </section>`);
 
+  /* A re-render swaps in fresh <textarea> nodes. If one is being typed into —
+     a sync landing mid-sentence is the usual way — that drops focus and the
+     caret, and rolls the box back to the last saved value, losing whatever was
+     typed since. Carry all three across. */
+  const a = document.activeElement;
+  const live = a && a.matches && el.contains(a) && a.matches('[data-note]')
+    ? {name: a.dataset.note, value: a.value, start: a.selectionStart, end: a.selectionEnd}
+    : null;
+
   el.innerHTML = parts.join('');
   el.scrollTop = keepY;
   if (preserveScroll) window.scrollTo(0, keepWinY);
+
+  if (live){
+    const ta = el.querySelector(`[data-note="${live.name}"]`);
+    if (ta){
+      ta.value = live.value;
+      ta.focus({preventScroll: true});
+      try { ta.setSelectionRange(live.start, live.end); } catch { /* older browsers */ }
+    }
+  }
   wireDetail(p);
 }
 
@@ -1750,6 +1768,31 @@ function commit(p, msg){
   if (msg) toast(msg);
 }
 
+/* Notes save on two cadences. The local write is cheap, so it follows your
+   typing closely; the repo sync is a git commit, so it waits for a real pause
+   rather than landing one commit per gap between words. Both timers are held
+   here rather than per-textarea, so a re-render mid-edit can't leave an older
+   one racing the handler that replaced it. */
+let noteSaveTimer, noteSyncTimer;
+const NOTE_SAVE_MS = 400;
+const NOTE_SYNC_MS = 2500;
+
+function flushNote(p, name, sync){
+  // Read the node that is live now, not one a closure captured — a timer can
+  // outlive the re-render that replaced the box it was started from.
+  const node = $('#detail').querySelector(`[data-note="${name}"]`);
+  if (!node) return;
+  const cur = mutableTrack(p, name);
+  if (cur.note !== node.value){
+    cur.note = node.value;
+    cur.updatedAt = Date.now();
+    save(); renderStats(); renderList();
+    const lbl = $('#detail').querySelector(`[data-saved="${name}"]`);
+    if (lbl) lbl.textContent = savedLabel(p, name);
+  }
+  if (sync) syncToRepo(p, name, cur);
+}
+
 function setTrack(p, name, status){
   const now = name === 'script' ? scriptStatus(p) : contentStatus(p);
   const cur = mutableTrack(p, name);
@@ -1834,19 +1877,19 @@ function wireDetail(p){
   });
 
   $('#detail').querySelectorAll('[data-note]').forEach(ta => {
-    let t;
     ta.addEventListener('input', () => {
-      clearTimeout(t);
-      t = setTimeout(() => {
-        const name = ta.dataset.note;
-        const cur = mutableTrack(p, name);
-        cur.note = ta.value;
-        cur.updatedAt = Date.now();
-        save(); renderStats(); renderList();
-        const lbl = $('#detail').querySelector(`[data-saved="${name}"]`);
-        if (lbl) lbl.textContent = savedLabel(p, name);
-        syncToRepo(p, name, cur);
-      }, 400);
+      ta.dataset.dirty = '1';
+      clearTimeout(noteSaveTimer); clearTimeout(noteSyncTimer);
+      noteSaveTimer = setTimeout(() => flushNote(p, ta.dataset.note, false), NOTE_SAVE_MS);
+      noteSyncTimer = setTimeout(() => flushNote(p, ta.dataset.note, true),  NOTE_SYNC_MS);
+    });
+    // Leaving the field means you're done with it — don't sit on the note.
+    // `isConnected` filters the blur a re-render causes by removing the node,
+    // which is not you clicking away and must not trigger a sync.
+    ta.addEventListener('blur', () => {
+      if (!ta.isConnected || ta.dataset.dirty !== '1') return;
+      clearTimeout(noteSaveTimer); clearTimeout(noteSyncTimer);
+      flushNote(p, ta.dataset.note, true);
     });
   });
 

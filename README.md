@@ -71,6 +71,20 @@ says nothing about whether the cut that came out of the render is any good.
 Sending back a cut that has already been posted is allowed — the queue flags it
 `alreadyPosted` so a run knows it's a reshoot rather than a first render.
 
+### Two scheduled tasks feed it
+
+Both are prompts of record, version-controlled beside the pipeline they drive:
+
+- **`content/BATCH_DRAFT_TASK.md`** — drafts the next 7 lessons into
+  `content/pending-review/` when the queue drops below three days of runway, so
+  the pipeline doesn't stall waiting on copy. It drafts; it never approves.
+- **`content/DAILY_RENDER_TASK.md`** — renders approved scripts into reels and
+  carousels, then commits and pushes them. It renders; it never writes copy.
+
+Neither can move a post through a gate — both gates are yours. A run with
+nothing to do makes no git writes at all, so an idle run can't leave a stale
+`.git/index.lock` behind and block the next one.
+
 ### Handing decisions back to the repo
 
 The desk is a static page. It cannot write to this repo, and a scheduled task

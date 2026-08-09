@@ -8,6 +8,11 @@ Steps 1–5 render assets. **Steps 6–8 publish them** — added 2026-08-08 aft
 run built all five week-1 reels correctly and then left them sitting
 uncommitted on one machine, invisible to GitHub and to the Content Desk.
 
+Amended 2026-08-09: a run with nothing to build must not touch git at all. The
+old Step 1 sent even an empty run through `git pull --rebase`, which cannot
+succeed in this sandbox; it failed, left `.git/index.lock` behind, and blocked
+every git write in the repo until the file was deleted by hand.
+
 ---
 
 You maintain the daily content pipeline for the "Learn Ultimate Frisbee"
@@ -39,8 +44,15 @@ this run — not just one:
   have a "Regenerated:" line under it.
 
 If both worklists are empty, skip to Step 8 and just report status — do not
-build anything. Still run Step 7's `git pull --rebase` so your view of the repo
-is current before you report.
+build anything, and **do not run any git command that writes**: no pull, no
+rebase, no commit, no add. There is nothing to publish, so a pull buys nothing,
+and in this sandbox it cannot succeed anyway (Step 7). A run with no work to do
+must leave the repo exactly as it found it.
+
+Read-only git — `git status`, `git log`, `git diff` — is fine. Your checkout may
+therefore be behind `origin/main`, because Min-Yi's Content Desk decisions commit
+straight to `main` between runs. That is expected and harmless on a no-op run:
+say so in Step 8, naming the local HEAD, rather than trying to fix it.
 
 ## Step 2 — Locate the approved script + captions (new builds only)
 
@@ -272,6 +284,22 @@ happens:
   git push origin main
   ```
 
+**If a git command fails, make sure it did not leave a lock behind.** A pull
+that is interrupted or killed part-way can leave `.git/index.lock` in place, and
+while that file exists *every* git write in this repo fails — including every
+future run of this task. One failed run otherwise silently blocks all the
+following ones. So after any git failure:
+
+```bash
+test -f .git/index.lock && rm -f .git/index.lock
+```
+
+Only do this when a git command of yours has just failed. This task is the
+repo's only automated writer, so there is no other git process whose lock you
+could be stealing. If the unlink is refused — a mounted volume can do that —
+report the **full path** as the first line of Step 8, and say plainly that
+every future run fails until it is deleted by hand.
+
 Line endings are handled by `.gitattributes` (`* text=auto eol=lf`), so files
 touched on Windows should no longer appear as whole-file CRLF diffs. If you
 still see files modified with no content change, leave them out of the commit
@@ -289,18 +317,22 @@ exact error if it failed. A render nobody can see is the same as no render, so
 a silent failure here is the worst possible outcome. If the push failed, say
 what's sitting uncommitted so she can finish it by hand.
 
+**If a `.git/index.lock` survived the run, that is the headline of your report**
+— above what you built, above the queue flags. It blocks every subsequent run,
+so it is the one failure that compounds. Give the full path and the two commands
+that clear it.
+
 Separately, check two things and flag clearly if either is true:
 
 - Rows that are "Ready to post" but not yet posted number fewer than 2 — the
   content-approval queue is running low; she should review what's pending in
   "Content pending review".
 - Zero rows are in any of "Script approved", "Content pending review", or
-  "Content rejected — regenerate" — the whole pipeline is empty and a new weekly
-  batch of 7 needs script approval (pulling the next 7 lessons in curriculum
-  order from `content/lessons-1.json`/`lessons-2.json`/`lessons-3.json`,
-  formatted like `content/pending-review/week-1-reels.md`). Do not draft that
-  batch yourself; drafting new scripts/captions requires her review and approval
-  first, per this project's cadence.
+  "Content rejected — regenerate" — the pipeline is empty and a new batch of 7
+  needs script approval. **Do not draft it yourself.** That is the batch-draft
+  task's job (`content/BATCH_DRAFT_TASK.md`), which runs after you and writes
+  into `content/pending-review/` for her approval. Flag the empty pipeline
+  anyway: if that task has also gone quiet, she needs to hear it from you.
 
 ## Constraints
 

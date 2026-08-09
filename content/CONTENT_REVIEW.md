@@ -4,7 +4,10 @@ Two separate approval gates, not one — don't collapse them.
 
 1. **Script approval** (existing) — you review a weekly batch of scripts/
    captions in `content/pending-review/week-N-*.md` and approve the batch in
-   chat. Status in `content/calendar.md` moves to **Script approved**.
+   chat. Status in `content/calendar.md` moves to **Script approved**. The
+   batches themselves are drafted by the `batch-draft` task
+   (`content/BATCH_DRAFT_TASK.md`) when the queue runs short — drafting is not
+   approving, and that task can never do the second.
 2. **Content approval** (new) — once the daily render builds the actual reel
    video or carousel images from an approved script, you review the
    *rendered asset itself* (not the words — the finished visual) and either
@@ -18,6 +21,7 @@ Nothing posts without clearing both gates.
 
 | Status | Meaning | Set by |
 |---|---|---|
+| Pending review | Script drafted, waiting on your approval | `batch-draft` |
 | Script approved | Script/caption approved, not yet rendered | You, in chat, approving a weekly batch |
 | Content pending review | Rendered reel/carousel exists, waiting on your review | `daily-reel-render` |
 | Content rejected — regenerate | You rejected the render; feedback logged | You, in chat |
