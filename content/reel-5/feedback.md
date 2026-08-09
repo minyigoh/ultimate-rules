@@ -10,4 +10,7 @@ render_v3.py. Re-render with the updated pipeline; no copy changes.
 Regenerated: 2026-08-08 (daily-reel-render)
 
 ## Round 2 — 2026-08-09 — REJECTED
-There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness 
+There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness
+
+## Round 3 — 2026-08-09 — REJECTED
+Visuals / layout. There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness 
