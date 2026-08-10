@@ -65,10 +65,10 @@
   },
   "reel-5": {
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-10T02:45:00.000Z"
+      "updatedAt": "2026-08-10T03:18:09.289Z"
     },
     "revisions": [
       {
