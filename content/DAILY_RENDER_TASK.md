@@ -1,326 +1,244 @@
 # Daily render task — prompt of record
 
-This is the prompt behind the 7 AM Cowork scheduled task. Kept here so it is
+This is the prompt behind the daily Cowork scheduled task. Kept here so it is
 version-controlled and reviewable alongside the pipeline it drives; edit here
 first, then paste into the task.
 
-Steps 1–5 render assets. **Steps 6–8 publish them** — added 2026-08-08 after a
-run built all five week-1 reels correctly and then left them sitting
-uncommitted on one machine, invisible to GitHub and to the Content Desk.
+---
+
+## Read this first: what this sandbox cannot do
+
+The scheduled-task sandbox is **not** the same environment as an interactive
+Cowork chat. Measured on 2026-08-10:
+
+- **No outbound network.** No DNS for `github.com`; the HTTP proxy reaches only
+  Anthropic hosts. `git pull` and `git push` **cannot work here.** Interactive
+  chat sessions *do* have network — that asymmetry is why the repo history
+  shows successful pulls from `minyigoh` but never from `daily-reel-render`.
+- **No file deletion.** The workspace mount allows create and write but not
+  unlink. So stale `v4/` frames can never be cleared in place, and
+  `social/dashboard/build_desk.py` fails outright (it opens with
+  `shutil.rmtree`).
+- **`mcp__workspace__web_fetch` does work**, including
+  `raw.githubusercontent.com`. That is the only way this run can see the truth.
+
+On 2026-08-08–10 these limits silently produced three days of wrong output: the
+run read a checkout frozen days earlier, found nothing to do, and reported a
+clean queue while three rejected reels sat unbuilt. Everything below exists to
+make that impossible to repeat.
 
 ---
 
-You maintain the daily content pipeline for the "Learn Ultimate Frisbee"
-Instagram/TikTok account, inside the folder
-`C:\Users\Min Yi\Claude\Projects\Learn Ultimate Frisbee`. Each run, your job is
-to render or regenerate assets from already-approved script/caption text and any
-logged content-review feedback — never to write new copy yourself, and never to
-approve or reject anything. Read `content/CONTENT_REVIEW.md` first — it defines
-the two-gate approval process (script approval, then content approval) that this
-job sits inside, the status vocabulary, and the feedback file format.
+## Step 0 — Establish authoritative state. Non-negotiable.
 
-**A run is not finished when the files exist. It is finished when they are
-pushed to GitHub and the Content Desk can see them.** Steps 6–8 are as
-mandatory as the rendering.
+Before reading anything local, fetch both of these over `web_fetch`:
 
-## Step 1 — Find everything to build this run
+- `https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/calendar.md`
+- `https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/review-state.json`
 
-Read `content/calendar.md`. Build two worklists and process EVERY matching row
-this run — not just one:
+**The GitHub copy is the truth. The local checkout is a cache and is very
+likely stale** — Min-Yi approves and rejects from the Content Desk during the
+day and a Cloudflare Worker commits those decisions straight to `main`.
 
-- **New builds:** every row with Status "Script approved" that does not yet have
-  a rendered asset in a matching `content/reel-N/` or `content/carousel-post-N/`
-  folder. Build these regardless of Queued date — rendering ahead of the post
-  date is expected now, so there's buffer for a content-review round trip
-  (possible rejection + regeneration) before the post is actually due.
-- **Regenerations:** every row with Status "Content rejected — regenerate". Its
-  feedback lives in `content/reel-N/feedback.md` or
-  `content/carousel-post-N/feedback.md` — read the latest round that doesn't yet
-  have a "Regenerated:" line under it.
+Then:
 
-If both worklists are empty, skip to Step 8 and just report status — do not
-build anything. Still run Step 7's `git pull --rebase` so your view of the repo
-is current before you report.
+- Diff the two. If they differ, say so explicitly in your report and work from
+  the GitHub copy.
+- **If `web_fetch` fails for either file, STOP.** Do not build, do not
+  regenerate, and do not report on queue health — you cannot see the queue.
+  Report the fetch failure as the entire result of the run. Never let "I could
+  not check" turn into "there is nothing to do."
+- Never conclude "nothing to build" from local files alone.
 
-## Step 2 — Locate the approved script + captions (new builds only)
+Read `content/CONTENT_REVIEW.md` for the two-gate approval process, status
+vocabulary and feedback format.
 
-- If `content/reel-N/script-and-caption.md` (or the carousel-post-N equivalent)
-  already exists for this topic, use it directly.
-- Otherwise, the copy lives in the relevant weekly batch file under
-  `content/pending-review/` (e.g. `week-1-reels.md`) — find the matching topic
-  section there and create the per-post file for it, following the exact
-  structure of `content/reel-1/script-and-caption.md` (status line, scene table,
-  both captions, hashtags, regeneration notes). N = the next sequential number
-  not yet used for that content type in `content/`.
+## Step 1 — Build the worklists
 
-Never invent, edit, or paraphrase caption/script copy that isn't already sitting
-approved in `content/calendar.md` / `content/pending-review/`. If the copy for a
-queued topic doesn't exist anywhere yet, skip that row (note it in Step 8) and
-flag that it needs a batch approval first.
+From the **authoritative** calendar, process every matching row this run:
+
+- **New builds:** every row at "Script approved" with no rendered asset in a
+  matching `content/reel-N/` or `content/carousel-post-N/`. Build ahead of the
+  post date — buffer for a review round trip is expected.
+- **Regenerations:** every row at "Content rejected — regenerate". Feedback is
+  in that post's `feedback.md`; work the latest round with no `Regenerated:`
+  line. Note that the desk appends a fresh round per rejection, so the same
+  complaint can appear two or three times — address it once and say which
+  rounds you covered.
+
+If both lists are genuinely empty *after* a successful Step 0, skip to Step 7
+and report.
+
+## Step 2 — Locate approved copy (new builds only)
+
+- Use `content/reel-N/script-and-caption.md` if it exists.
+- Otherwise pull the matching topic section from `content/pending-review/`
+  (e.g. `week-1-reels.md`) and create the per-post file following
+  `content/reel-1/script-and-caption.md`'s structure exactly. N = next unused
+  number for that content type.
+
+**Never invent, edit or paraphrase script/caption copy.** If a queued topic has
+no approved copy anywhere, skip the row and flag that it needs batch approval.
 
 ## Step 3 — Build reels
 
-Reuse the working pipeline as-is rather than redesigning it:
+**Render into a scratch directory under `/tmp`, never into the repo's `v4/`.**
+This sandbox cannot delete, so a repo-side `v4/` accumulates stale frames from
+previous runs and `blend.py` skips any transition frame that already exists
+(`if not os.path.exists(f)`). Copy `render_v3.py`, `blend.py` and `encode.py`
+into `/tmp/work/reel-N/`, along with `rules.json` at the parent level, build
+there, and copy only the finished `.mp4` back into the repo.
 
-- Copy `content/reel-1/render_v3.py`, `content/reel-1/blend.py`, and
-  `content/reel-1/concat_build.py` into the new `content/reel-N/` folder as your
-  starting point.
-- In the copied `render_v3.py`, edit only the `SCENES` list to match this
-  lesson: a cover scene (the hook line), then alternating topic-explainer /
-  rules-detail scene pairs, a field-tip scene, and a closing scene ("Lesson N of
-  75" + "Follow @learn.ultimatefrisbee"). Pull the rule numbers to cite from the
-  source lesson's `rules` array in `content/lessons-1.json` /
-  `lessons-2.json` / `lessons-3.json`, and pull the verbatim WFDF text for each
-  from `content/rules.json` programmatically (`RULE[num]["text"]`) — never
-  hand-type or paraphrase rule text.
-- Do not change any of the shared constants (MARGIN, canvas size 1080×1350
-  letterboxed into 1080×1920, font sizes, logo `mini_icon`, colors
-  `#0F1712`/`#E24A12`/`#F1F3EE`, header layout) — those come from
-  `content/carousel-post-1/make_carousel.py` and must stay pixel-identical
-  across every reel.
-- Sub-rule numbers (e.g. "14.1.1") render as their own line in the same orange
-  bold 22px as the parent "RULE X.X · CHAPTER" label — follow the existing
-  `g_detail()` pattern.
-- Text elements within each scene fade in staggered; scenes crossfade into each
-  other via `blend.py`.
-- **Do not hand-tune the per-scene duration lists in `SCENES`.** Timing is set
-  by the `retime()` / `fit()` pass at the bottom of `render_v3.py`, documented
-  in `content/REEL_TIMING.md`: text arrives quickly and in sequence, then the
-  finished slide holds long enough to read, and the whole video is scaled to
-  land near 30 seconds. Whatever durations you write in `SCENES` get rewritten
-  by that pass, so leave them at any plausible placeholder. `render_v3.py`
-  prints its projected duration — if it lands outside roughly 28–33s, the scene
-  count is the cause, so drop a topic block rather than editing the constants.
-- `IN_SCENE` and `BETWEEN` must stay identical in `render_v3.py`, `blend.py`
-  and `concat_build.py`, or the blended frames and the concat timeline
-  disagree.
-- Run render → blend → concat_build in order, then encode with ffmpeg exactly as
-  done for reel-1: concat demuxer input,
-  `-vf fps=30,format=yuv420p -c:v libx264 -preset slow -crf 19 -movflags +faststart`,
-  output 1080×1920.
-- Save as `content/reel-N/reelN-<slug>.mp4` — no dash between "reel" and the
-  number, matching `reel1-lesson1.mp4`, `reel2-you-cant-run-but-you-can-pivot.mp4`,
-  `reel3-ten-seconds-stall-count.mp4`.
+- Edit **only** the `SCENES` list: cover (hook), alternating topic-explainer /
+  rules-detail pairs, a field-tip scene, and a closing scene ("Lesson N of 75" +
+  "Follow @learn.ultimatefrisbee").
+- Rule numbers come from the lesson's `rules` array in
+  `content/lessons-{1,2,3}.json`; rule **text** is pulled programmatically from
+  `content/rules.json` (`RULE[num]["text"]`). Never hand-type or paraphrase it.
+- Do not change any shared constant — MARGIN, 1080×1350 letterboxed into
+  1080×1920, font sizes, `mini_icon`, `#0F1712`/`#E24A12`/`#F1F3EE`, header
+  layout. These come from `content/carousel-post-1/make_carousel.py` and must
+  stay pixel-identical across every asset.
+- Sub-rule numbers (e.g. "14.1.1") render on their own line in the same orange
+  bold 22px as the parent "RULE X.X · CHAPTER" label — follow `g_detail()`.
+- **Do not hand-tune the per-scene durations in `SCENES`.** The `retime()` /
+  `fit()` pass rewrites them (see `content/REEL_TIMING.md`). Leave any plausible
+  placeholder. If the printed projection lands outside ~28–33s, drop a topic
+  block rather than editing constants.
+- `IN_SCENE` and `BETWEEN` must stay identical across `render_v3.py`,
+  `blend.py` and `encode.py`.
+
+### Encoding — use `encode.py`, never a raw concat command
+
+Run `render_v3.py` → `blend.py` → `python3 encode.py <out.mp4> slow`.
+
+Do **not** encode with `-f concat -i concat.txt -vf fps=30`. The concat demuxer
+quantises every `duration` onto a 0.04s grid (image2's 25fps default), so
+adjacent entries collide on identical timestamps and a 50%-opacity crossfade
+frame inherits the finished slide's read time. That is the "orange text looks
+dull until just before the page flips" bug rejected on reels 5–7.
+`encode.py` sidesteps demuxer timing entirely by emitting exact CFR — each
+frame repeated `round(duration*30)` times. `concat_build.py` is retained only
+for reference.
+
+Save as `content/reel-N/reelN-<slug>.mp4` — no dash between "reel" and the
+number.
 
 ## Step 4 — Build carousels
 
-Same principle, static slides instead of video. Copy
-`content/carousel-post-1/make_carousel.py` into a new
-`content/carousel-post-N/` folder and adapt only the topic content — headlines,
-slide count, rule citations — per the structure in
-`content/CAROUSEL_TEMPLATE.md` (cover → optional context/diagram slides →
-numbered topic/rules-detail slide pairs → closing). Keep the visual-system
-section of that doc (canvas, colors, header lockup, citation footer)
-pixel-identical to carousel-post-1. Rule text pulled verbatim from
-`content/rules.json`, same as reels. Render SVG→PNG with
-`convert -background "#0F1712" in.svg -resize <2.083x>! out.png`. Save slides
-following the existing `NN_description.png` naming pattern, plus a `caption.md`
-following `content/carousel-post-1/caption.md`'s structure.
+Same principle, static slides. Copy `content/carousel-post-1/make_carousel.py`
+into `/tmp`, adapt only topic content — headlines, slide count, rule citations —
+per `content/CAROUSEL_TEMPLATE.md` (cover → optional context/diagram slides →
+numbered topic/rules-detail pairs → closing). Visual system stays
+pixel-identical. Rule text verbatim from `rules.json`. Render SVG→PNG with
+`convert -background "#0F1712" in.svg -resize <2.083x>! out.png`. Save as
+`NN_description.png` plus a `caption.md` following carousel-post-1's structure.
 
-## Step 5 — Regenerations (feedback-driven)
+## Step 5 — Verify before you believe it
 
-For each row in the regeneration worklist:
+A file existing is not evidence it is correct. For every asset you built or
+regenerated:
 
-- Read the latest un-addressed round in its `feedback.md`.
-- If the feedback is about rendering/visual execution — pacing, on-screen
-  duration, wrong rule cited, layout, scene/slide order, a styling mismatch —
-  apply it directly by re-running the relevant build (Step 3 or Step 4) with
-  that fix, changing nothing else.
-- If the feedback actually needs different words — a new hook, a reworded
-  caption, a different example — do not invent copy. Leave that row exactly
-  where it is (still "Content rejected — regenerate", files untouched) and flag
-  clearly in Step 8 that it's blocked on a copy fix from Min-Yi, not a
-  re-render.
-- Before overwriting an asset you're fixing, save the current version alongside
-  it with a `.v1` (or next unused version number) suffix, e.g.
-  `reel3-<slug>.v1.mp4`, so the before/after can be compared. The primary
-  filename always holds the newest cut — the desk and the Save-to-phone button
-  both rely on that.
-- Append a line to the feedback round you addressed:
-  `Regenerated: <today's date> (daily-reel-render)`.
-- **Record the new revision** in `content/review-state.json` under that post's
-  `revisions` array (see Step 6b). The desk shows this history, so the
-  `changed` field must say concretely what is different about this cut —
-  "Retimed to the house rhythm; 39.1s to 30.0s" or "Scene 3 now holds 2.4s so
-  rule 9.1 is readable", not "regenerated per feedback".
+- Confirm duration lands in ~28–33s.
+- **Measure, don't eyeball.** Sample frames and check that no orange element
+  sits below ~R200 for more than ~0.45s consecutively (anything longer is a
+  stuck crossfade, not the intended 0.4s scene blend). Isolate elements by row
+  band — a whole-frame maximum will always read full because of the header
+  logo, which is exactly how this bug survived earlier checks.
+- If a regeneration does not measurably improve on the cut it replaces, do not
+  ship it. Report the measurement and stop.
 
-## Step 6 — Record the new state in all three places
+### Feedback you must NOT act on
 
-The desk and the calendar read different files. Updating only one leaves them
-disagreeing, which is how a rendered reel ends up invisible.
+If feedback needs different *words* — a new hook, reworded caption, different
+example — leave the row at "Content rejected — regenerate", change nothing, and
+flag that it is blocked on a copy fix from Min-Yi. Only visual/rendering
+execution is yours to change.
 
-**6a. `content/calendar.md`** — for every row you newly built or successfully
-regenerated, set Status to "Content pending review" (leave Queued date and Post
-name columns as-is). Never set a row to "Ready to post" or "Posted" yourself —
-only Min-Yi's review, in chat or in the Content Desk, can do that. Rows blocked
-on a copy fix keep their "Content rejected — regenerate" status unchanged.
+Before overwriting an asset, archive the current version alongside it with the
+next unused `.vN` suffix. The unsuffixed filename always holds the newest cut.
+Append `Regenerated: <today> (daily-reel-render)` to the feedback round you
+addressed, plus a one-line cause note.
 
-**6b. `content/review-state.json`** — this is the file the Content Desk fetches
-to know the current state; `calendar.md` alone is not enough. Create it if
-absent. For each post you rendered this run, set:
+## Step 6 — Record state in all three places
+
+**6a. `content/calendar.md`** — rows you built or successfully regenerated go to
+"Content pending review". Never set "Ready to post" or "Posted" — those are
+Min-Yi's alone. Rows blocked on copy keep their existing status.
+
+**6b. `content/review-state.json`** — read, modify only your posts' keys, write
+back. **Never overwrite wholesale**; it also holds desk approvals. For each post
+rendered:
 
 ```json
-"reel-3": {
-  "content": {
-    "status": "in-review",
-    "note": "",
-    "tags": [],
-    "updatedAt": "2026-08-08T07:20:00.000Z"
-  }
-}
+"reel-3": {"content": {"status": "in-review", "note": "", "tags": [],
+                       "updatedAt": "<ISO 8601 UTC>"}}
 ```
 
-The key is the folder name (`reel-3`, `carousel-post-2`). `updatedAt` is an ISO
-8601 UTC timestamp.
+Maintain a `revisions` array, newest last, one entry per cut. The last entry's
+`file` is the unsuffixed primary; earlier entries point at their `.vN`
+archives — update an older entry's `file` when it gets archived. `changed` must
+state concretely what differs ("Retimed to the house rhythm; 39.1s to 30.0s"),
+never "regenerated per feedback".
 
-Alongside `content`, maintain a `revisions` array on the same post — **newest
-last** — one entry per cut you have produced:
+**6c. `social/dashboard/data.js`** — for each post rendered set `folder`,
+`video`, `typeDetail`, `duration`, `source`, `scenes`, and
+`review.content = {status: 'in-review', on: '<today>'}`; drop stale `notes`
+saying the video is still to render. Plain JavaScript — a syntax error breaks
+the whole desk. Check it parses (`node --check`) and if its structure doesn't
+match, leave it alone and flag it.
 
-```json
-"revisions": [
-  {"v": 1, "renderedAt": "2026-08-08", "duration": "39.1s",
-   "file": "reel3-ten-seconds-stall-count.v1.mp4",
-   "changed": "Initial render from the approved week-1 script."},
-  {"v": 2, "renderedAt": "2026-08-09", "duration": "30.0s",
-   "file": "reel3-ten-seconds-stall-count.mp4",
-   "changed": "Retimed to the house rhythm: faster sequential reveals, each slide holds ~2x longer. 39.1s to 30.0s."}
-]
-```
+**6d. Rebuild the desk** — `python social/dashboard/build_desk.py`. **This will
+fail in this sandbox** (`shutil.rmtree` → PermissionError). That is expected;
+it runs from `tools/sync.bat` in Step 7 instead. Do not try to work around it.
 
-The last entry is the current cut and its `file` is always the unsuffixed
-primary name; earlier entries point at their `.vN` archives. Append, never
-rewrite — the desk renders this as the revision history, and `changed` is the
-one-line "what's different" the reviewer reads before deciding.
+## Step 7 — Publish (you cannot do this alone)
 
-**Preserve every other key in this file.** It also holds approvals Min-Yi made
-from the Content Desk, written there by a Cloudflare Worker. Read the file,
-modify only the posts you rendered, write it back. Overwriting it wholesale
-silently discards her decisions.
+You have no network. Do not fake success and do not silently skip this.
 
-**6c. `social/dashboard/data.js`** — the desk's content-approval controls stay
-locked until this file knows a video exists. For each post you rendered, find
-its entry (matched on `id`) and set:
+1. Write the commit message to `_commit_msg.txt` in the repo root — subject on
+   line 1, blank line, then body.
+2. Report, in the first line of your output, that **a push is required** and
+   that Min-Yi should double-click `tools\sync.bat`. That script clears stale
+   git locks, pulls with rebase, rebuilds the desk, stages the explicit paths
+   only, commits with your message, rebases again and pushes.
+3. If you are running inside an interactive chat rather than the schedule, you
+   may instead drive `tools\sync.bat` yourself via File Explorer with
+   computer-use, then read `tools\_last_sync.log` and report the resulting SHA.
 
-- `folder` — e.g. `'reel-3'` (was `null`)
-- `video` — the mp4 filename only, no path
-- `typeDetail` — e.g. `'1080×1920 · 39.1s · 30fps'`
-- `duration` — e.g. `'~25s script / 39.1s cut'`
-- `source` — `'content/reel-3/script-and-caption.md'`
-- `scenes` — the scene table as an array of `['1', 'Cover', 'description']`
-  rows, matching the table in that post's `script-and-caption.md`
-- `review.content` — `{status: 'in-review', on: '<today>'}`
-- remove any now-stale entry in `notes` saying the video is still to render
+**Never `git add content` wholesale and never commit `v4/`** — one run's frames
+are ~1,800 files and 116 MB. `.gitignore` covers them; explicit paths keep it
+that way.
 
-This is a plain JavaScript file — a syntax error here breaks the whole desk. If
-its structure doesn't match what's described above, do not guess: leave it
-untouched and flag it in Step 8 so Min-Yi can patch it by hand.
+Until `tools\sync.bat` runs, nothing you built is visible to GitHub or the
+Content Desk. A render nobody can see is the same as no render.
 
-**6d. Rebuild the desk** so it bundles the new media:
+## Step 8 — Report
 
-```bash
-python social/dashboard/build_desk.py
-```
+State plainly: what was built, what was regenerated (with the feedback each
+addressed and the before/after measurement), what is blocked on a copy fix,
+what now sits in "Content pending review", and **whether the push has
+happened** — SHA if yes, "PUSH REQUIRED" if not.
 
-It prints the file count and total size — sanity-check that the new videos are
-included before moving on.
+Also flag if either is true:
 
-## Step 7 — Commit and push
-
-Nothing above counts until this succeeds.
-
-```bash
-git add content/calendar.md content/review-state.json social/dashboard/data.js
-git add content/reel-*/script-and-caption.md content/reel-*/*.mp4 content/reel-*/*.py
-git add content/reel-*/feedback.md
-git add content/carousel-post-*/caption.md content/carousel-post-*/*.png content/carousel-post-*/*.py
-git add docs/desk
-git commit -m "daily render: <what you built or regenerated>"
-git pull --rebase origin main
-git push origin main
-```
-
-**Never `git add content` wholesale, and never commit `content/reel-*/v4/` or
-any other intermediate render frames.** A single run's `v4/` folders are ~1,800
-files and 116 MB of regenerable SVG/PNG output; committing them once already
-bloated this repo. `.gitignore` excludes them, so `git add` on the explicit
-paths above is safe — adding whole directories is not.
-
-**The `git pull --rebase` is not optional.** Min-Yi approves content from the
-Content Desk during the day, and a Cloudflare Worker commits those decisions
-straight to `main` between your runs. Pushing without rebasing first will be
-rejected as non-fast-forward.
-
-If the rebase hits a conflict in `content/review-state.json`, it means she
-approved something while you were rendering. Resolve it by **keeping both
-sides** — her `script`/`content` decisions and your new `content` entries are
-different keys on the same post and both belong in the merged file. If you
-can't resolve it cleanly, stop, leave the repo as-is, and say so loudly in
-Step 8 rather than discarding either side.
-
-**Expect the push to fail.** The sandbox this task runs in has no route to
-github.com — it returns `HTTP 403 from proxy after CONNECT`. That is an
-environment limit, not a repo problem, and retrying won't help. When it
-happens:
-
-- still make the commit, so the work is captured and nothing is lost
-- do **not** try to work around it (no new remotes, no credential changes)
-- report it as the first line of Step 8, with the commit SHA and the exact
-  two commands needed to publish it:
-
-  ```
-  git pull --rebase origin main
-  git push origin main
-  ```
-
-Line endings are handled by `.gitattributes` (`* text=auto eol=lf`), so files
-touched on Windows should no longer appear as whole-file CRLF diffs. If you
-still see files modified with no content change, leave them out of the commit
-and mention it — don't commit thousands of lines of churn.
-
-## Step 8 — Report, and flag low queues
-
-Report concisely: what was newly built, what was regenerated (and a one-line
-summary of the feedback each addressed), what's blocked waiting on a copy fix
-(and why), and what's now sitting in "Content pending review" waiting on her
-review — include file paths so she can open/watch them directly.
-
-**State the push result explicitly** — the commit SHA if it succeeded, or the
-exact error if it failed. A render nobody can see is the same as no render, so
-a silent failure here is the worst possible outcome. If the push failed, say
-what's sitting uncommitted so she can finish it by hand.
-
-Separately, check two things and flag clearly if either is true:
-
-- Rows that are "Ready to post" but not yet posted number fewer than 2 — the
-  content-approval queue is running low; she should review what's pending in
-  "Content pending review".
-- Zero rows are in any of "Script approved", "Content pending review", or
-  "Content rejected — regenerate" — the whole pipeline is empty and a new weekly
-  batch of 7 needs script approval (pulling the next 7 lessons in curriculum
-  order from `content/lessons-1.json`/`lessons-2.json`/`lessons-3.json`,
-  formatted like `content/pending-review/week-1-reels.md`). Do not draft that
-  batch yourself; drafting new scripts/captions requires her review and approval
-  first, per this project's cadence.
+- Fewer than 2 rows are "Ready to post" — the queue is running low.
+- Zero rows are in "Script approved", "Content pending review" or "Content
+  rejected — regenerate" — the pipeline is empty and a new batch of 7 needs
+  script approval, pulled in curriculum order from the lessons JSONs and
+  formatted like `content/pending-review/week-1-reels.md`. Do not draft it
+  yourself; new copy needs her approval first.
 
 ## Constraints
 
-- Never post to any social platform — there is no posting integration. Your job
-  ends at producing files, pushing them, and reporting they're ready for review.
-- Never mark anything "Ready to post" or "Posted" — content approval is Min-Yi's
-  decision, made in chat or in the Content Desk, never something this scheduled
-  run does on its own.
-- Never invent, edit, or paraphrase script/caption copy — only re-render or
-  re-draw from already-approved text, adjusting visual execution per logged
-  feedback.
-- Never commit intermediate render output (`v4/`, loose frame PNGs/SVGs), and
-  never `git add` a whole directory — always the explicit paths in Step 7.
-- Never overwrite `content/review-state.json` wholesale — read, modify your
-  posts' keys, write back.
-- Every rules-citation card/slide must quote WFDF text verbatim from
-  `content/rules.json`, with the "WFDF Rules of Ultimate 2025–2028" +
-  rule-number footer, exactly like reel 1 / carousel-post-1.
-- No growth/reach/virality promises anywhere in captions, scripts, or your
-  report — consistency and a clear angle raise the odds of traction, never
-  guaranteed.
-- This run is fully automated and non-interactive — do not wait for
-  confirmation, but do not skip any constraint above to move faster.
+- Never post to any social platform — there is no posting integration.
+- Never mark anything "Ready to post" or "Posted".
+- Never invent, edit or paraphrase script/caption copy.
+- Never commit intermediate render output; never `git add` a whole directory.
+- Never overwrite `review-state.json` wholesale.
+- Every rules card quotes WFDF text verbatim from `rules.json`, with the
+  "WFDF Rules of Ultimate 2025–2028" + rule-number footer.
+- No growth, reach or virality promises anywhere.
+- Never report a healthy queue you did not actually verify against GitHub.
+- This run is non-interactive — do not wait for confirmation, but do not skip a
+  constraint to move faster.

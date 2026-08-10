@@ -11,3 +11,11 @@ Thumbs.db
 # committed .py files and rules.json. Only the finished .mp4 belongs in git.
 content/**/v4/
 content/**/frames/
+
+# Scratch for the Windows-side sync helper (tools/sync.bat). The helper itself
+# is committed; its logs and the one-shot commit message are not.
+/_sync_pull.bat
+/_sync_log.txt
+/_commit_msg.txt
+tools/_last_sync.log
+desktop.ini
