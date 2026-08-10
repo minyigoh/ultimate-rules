@@ -65,12 +65,10 @@
   },
   "reel-5": {
     "content": {
-      "status": "rerender",
-      "note": "There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness ",
-      "tags": [
-        "Visuals / layout"
-      ],
-      "updatedAt": "2026-08-10T01:56:53.450Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-10T02:45:00.000Z"
     },
     "revisions": [
       {
@@ -84,17 +82,24 @@
         "v": 2,
         "renderedAt": "2026-08-08",
         "duration": "30.2s",
-        "file": "reel5-there-are-no-referees-you-are-the-referee.mp4",
+        "file": "reel5-there-are-no-referees-you-are-the-referee.v2.mp4",
         "changed": "Retimed to the house rhythm; 11-scene reel scaled hardest. 46.6s to 30.2s."
+      },
+      {
+        "v": 3,
+        "renderedAt": "2026-08-10",
+        "duration": "30.5s",
+        "file": "reel5-there-are-no-referees-you-are-the-referee.mp4",
+        "changed": "Fixed the dull-orange hold. The concat demuxer was quantising every hold onto a 0.04s grid (image2's 25fps default), so adjacent entries collided and a 50%-opacity crossfade frame inherited the finished slide's read time. Now encoded as exact CFR via encode.py. Longest sustained dull run 1.95s to 0.15s."
       }
     ]
   },
   "reel-6": {
     "content": {
-      "status": "rerender",
-      "note": "There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness ",
+      "status": "in-review",
+      "note": "",
       "tags": [],
-      "updatedAt": "2026-08-10T01:57:03.758Z"
+      "updatedAt": "2026-08-10T02:45:00.000Z"
     },
     "revisions": [
       {
@@ -108,19 +113,24 @@
         "v": 2,
         "renderedAt": "2026-08-08",
         "duration": "29.2s",
-        "file": "reel6-the-field-why-lines-are-out.mp4",
+        "file": "reel6-the-field-why-lines-are-out.v2.mp4",
         "changed": "Retimed to the house rhythm: faster sequential reveals, longer read-holds on finished slides. 41.1s to 29.2s."
+      },
+      {
+        "v": 3,
+        "renderedAt": "2026-08-10",
+        "duration": "29.5s",
+        "file": "reel6-the-field-why-lines-are-out.mp4",
+        "changed": "Fixed the dull-orange hold. The concat demuxer was quantising every hold onto a 0.04s grid (image2's 25fps default), so adjacent entries collided and a 50%-opacity crossfade frame inherited the finished slide's read time. Now encoded as exact CFR via encode.py. Longest sustained dull run 2.20s to 0.20s."
       }
     ]
   },
   "reel-7": {
     "content": {
-      "status": "rerender",
-      "note": "There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness ",
-      "tags": [
-        "Visuals / layout"
-      ],
-      "updatedAt": "2026-08-09T12:43:49.790Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-10T02:45:00.000Z"
     },
     "revisions": [
       {
@@ -134,8 +144,15 @@
         "v": 2,
         "renderedAt": "2026-08-08",
         "duration": "29.2s",
-        "file": "reel7-the-pull-how-every-point-starts.mp4",
+        "file": "reel7-the-pull-how-every-point-starts.v2.mp4",
         "changed": "Retimed to the house rhythm: faster sequential reveals, longer read-holds on finished slides. 41.1s to 29.2s."
+      },
+      {
+        "v": 3,
+        "renderedAt": "2026-08-10",
+        "duration": "29.5s",
+        "file": "reel7-the-pull-how-every-point-starts.mp4",
+        "changed": "Fixed the dull-orange hold. The concat demuxer was quantising every hold onto a 0.04s grid (image2's 25fps default), so adjacent entries collided and a 50%-opacity crossfade frame inherited the finished slide's read time. Now encoded as exact CFR via encode.py. Longest sustained dull run 2.15s to 0.20s."
       }
     ]
   }

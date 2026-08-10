@@ -16,4 +16,7 @@ There is a small issue where those fonts in orange, is a bit dull until the last
 Visuals / layout. There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness
 
 ## Round 4 — 2026-08-10 — REJECTED
-Visuals / layout. There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness 
+Visuals / layout. There is a small issue where those fonts in orange, is a bit dull until the last moment before it flips to the next page that it will become its usual brightness
+Regenerated: 2026-08-10 (daily-reel-render)
+Cause: concat-demuxer timestamp quantisation, not the brand colour — the orange was always
+#E24A12 in the source frames. Encode switched to exact CFR; addresses rounds 2-4 (the same note, logged three times).
