@@ -33,8 +33,17 @@ make that impossible to repeat.
 
 Before reading anything local, fetch both of these over `web_fetch`:
 
-- `https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/calendar.md`
-- `https://raw.githubusercontent.com/minyigoh/ultimate-rules/main/content/review-state.json`
+- `.../main/content/calendar.md?cb=<timestamp>`
+- `.../main/content/review-state.json?cb=<timestamp>`
+
+on `https://raw.githubusercontent.com/minyigoh/ultimate-rules`.
+
+**The `?cb=` cache-buster is required, not decorative.** raw.githubusercontent
+is CDN-cached for several minutes and will happily serve you a copy from before
+the Worker's most recent commit — which is the exact failure mode this step
+exists to prevent. Use a fresh value each run (e.g. `?cb=20260810T0310`).
+Verified on 2026-08-10: the bare URL returned a state three commits old while
+the cache-busted URL returned current.
 
 **The GitHub copy is the truth. The local checkout is a cache and is very
 likely stale** — Min-Yi approves and rejects from the Content Desk during the
