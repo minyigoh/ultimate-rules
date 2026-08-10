@@ -8,7 +8,7 @@
 | 2026-08-08 | Ten seconds: the stall count | Reel | Posted | 2026-08-08 | — |
 | 2026-08-09 | Five ways to lose the disc | Reel | Posted | 2026-08-09 | — |
 | 2026-08-10 | There are no referees. You are the referee. | Reel | Posted | 2026-08-10 | — |
-| 2026-08-11 | The field, and why the lines are out | Reel | Content pending review | — | — |
+| 2026-08-11 | The field, and why the lines are out | Reel | Ready to post | — | — |
 | 2026-08-12 | The pull: how every point starts | Reel | Content pending review | — | — |
 
 ## Status legend
