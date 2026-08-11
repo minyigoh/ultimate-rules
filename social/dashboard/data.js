@@ -517,7 +517,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Mixed',
     lesson: null,
-    rules: ['18.2.2', '18.2.3', '18.2.3.1', '9.1', '9.3', '9.4', '13.2.2', '13.1', '13.2', '1.1', '1.2', '15.4', '13.3', '2.1', '2.2', '2.3', '2.4', '11.1', '7.1', '7.2', '7.3', '7.4', '7.6', '12.1', '12.1.1', '13.1.1.1'],
+    rules: ['4.1', '14.1', '18.2.2', '13.1', '18.2.3', '18.2.3.1', '9.1', '9.3', '9.4', '13.2.2', '13.2', '1.1', '1.2', '15.4', '13.3', '2.1', '2.2', '2.3', '2.4', '11.1', '7.1', '7.2', '7.3', '7.4', '7.6'],
     review: {
       script:  {status: 'pending', on: '2026-08-11'},
       content: {status: 'awaiting-render', on: null}
@@ -525,19 +525,19 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     postedDate: null,
     folder: 'carousel-post-2',
     source: 'content/carousel-post-2/script-and-caption.md',
-    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 2-8',
+    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 1-7',
     video: null,
     slides: null,
     scenes: null,
     script: {
       hook: `Seven lessons this week. Here's the whole set in one swipe.`,
-      explanation: `Pivoting, the stall count, the five turnovers, self-officiating, the sidelines, the pull, and the gap between a catch and possession.`,
+      explanation: `The shape of the game, pivoting, the stall count, the five turnovers, self-officiating, the sidelines, and how every point starts.`,
       example: `If one of these is still fuzzy, the reel it came from is on the grid — each slide carries its rule numbers so you can look it up yourself.`,
-      cta: `Lessons 2 to 8 of 75 — new lesson daily.`
+      cta: `Lessons 1 to 7 of 75 — new lesson daily.`
     },
-    ig: `Week two, all seven lessons in one place.
+    ig: `The first seven lessons, all in one place.
 
-Pivoting without travelling. The ten-second stall count. The five ways possession flips. Why there's nobody with a whistle. Why the sideline is out, not in. How every point starts. And the difference between catching the disc and actually having it.
+What the game actually is. Pivoting without travelling. The ten-second stall count. The five ways possession flips. Why there's nobody with a whistle. And why the sideline is out, not in. Plus how every point starts.
 
 Each slide carries its rule numbers — so you can check any of it against the rulebook rather than taking our word for it.
 
@@ -546,14 +546,15 @@ Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 Follow @learn.ultimatefrisbee — one lesson a day.`,
     tiktok: `everything the daily reels covered this week, seven slides 🥏
 
-pivots, stall counts, turnovers, no refs, sidelines, the pull, and the catch-vs-possession one that gets everybody
+the shape of the game, pivots, stall counts, turnovers, no refs, sidelines, and the pull
 
 rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'First weekly recap. Nine slides: cover, one per reel posted 2026-08-07 to 2026-08-13, closing.',
+      'Redrafted 2026-08-11 against the desk note "Can you recap lessons 1 - 7? Not 2-8". Window moved back one lesson; previous copy archived as content/carousel-post-2/script-and-caption.v1.md. Back at script review.',
+      'First weekly recap. Nine slides: cover, one per reel posted 2026-08-06 to 2026-08-12, closing.',
       'Recap slides cite rule numbers but carry no rule text — see content/CAROUSEL_TEMPLATE.md. Nothing on them to paraphrase, by design.',
-      'Slide 8 recaps Reel 8, queued the same day and still at script review. If that script changes topic, slide 8 has to change with it.'
+      'Window is one day wider on the early side than the standing "seven days ending Thursday" rule, so the recap starts where the curriculum does. Lesson 8 moves to next Thursday, which covers 8-14.'
     ]
   },
   {
@@ -561,21 +562,33 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-13',
     title: 'A catch and possession are not the same thing',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Intermediate',
     lesson: 8,
+    duration: '~25s script / 29.5s cut',
     rules: ['12.1', '12.1.1', '13.1.1.1'],
     review: {
-      script:  {status: 'pending', on: '2026-08-11'},
-      content: {status: 'awaiting-render', on: null}
+      script:  {status: 'approved', on: '2026-08-11'},
+      content: {status: 'in-review', on: '2026-08-11'}
     },
     postedDate: null,
     folder: 'reel-8',
     source: 'content/reel-8/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json (tag: Possession)',
-    video: null,
+    video: 'reel8-a-catch-and-possession-are-not-the-same-thing.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"A catch and possession are not the same thing" · kicker INTERMEDIATE · LESSON 8 / 75'],
+      ['2', '#1 THE CATCH', '"Trapped between two body parts." · footer cites 12.1'],
+      ['3', 'Rules detail', 'Verbatim 12.1'],
+      ['4', '#2 THEN THE LANDING', '"Hold it through the ground." · footer cites 12.1.1'],
+      ['5', 'Rules detail', 'Verbatim 12.1.1'],
+      ['6', '#3 THE DISC MAY TOUCH GRASS', '"Keep the catch and it\'s still yours." · footer cites 13.1.1.1'],
+      ['7', 'Rules detail', 'Verbatim 13.1.1.1'],
+      ['8', 'FIELD TIP', '"Squeeze through the landing" — the catch isn\'t finished until you\'ve stopped moving'],
+      ['9', 'Closing', '"Lesson 8 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You caught it. That doesn't mean you have it.`,
       explanation: `A catch is one moment: a non-spinning disc trapped between two body parts. Possession is everything after it — keeping hold through the landing, the slide, and any contact that came with the catch.`,
@@ -596,7 +609,7 @@ catch and possession are two different things and the gap between them is where 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-11 by the daily task. Awaiting script review — nothing renders until the words are approved.',
+      'Rendered 2026-08-11 by the daily task from the approved script. 29.5s, exact CFR via encode.py. Awaiting content review.',
       '13.1.1.1 is a continuation clause reading off 13.1.1. On the citation card it stands alone as written; do not stitch the two into one sentence.'
     ]
   },

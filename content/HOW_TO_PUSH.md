@@ -55,8 +55,8 @@ path in, press `Enter`.
 
 You are looking for a file named **`sync.bat`**. It has a gear-like icon.
 
-> **Careful:** there are four `.bat` files in this folder — `sync.bat`,
-> `finish_rebase.bat`, `unstick_rebase.bat`. For a normal push you want
+> **Careful:** there are three `.bat` files in this folder — `sync.bat`,
+> `finish_rebase.bat` and `unstick_rebase.bat`. For a normal push you want
 > **`sync.bat`**. The other two are only for when something has gone wrong;
 > Part 4 covers them.
 
