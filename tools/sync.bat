@@ -40,6 +40,8 @@ where python >nul 2>&1 || set PY=py
 
 cd /d "%REPO%"
 
+set PUSHOK=0
+
 REM Refuse to run on top of an unfinished rebase -- staging and committing into
 REM one would bury the conflict instead of resolving it.
 if exist ".git\rebase-merge" goto :midrebase
@@ -64,7 +66,14 @@ if exist ".git\rebase-apply" goto :midrebase
 
   echo ===== 3. stage explicit paths only =====
   REM Never "git add content" wholesale -- v4/ is ~1800 files / 116 MB per run.
-  %GIT% add "content/*.md" content/review-state.json social/dashboard/data.js
+  REM
+  REM _pending_additions.json MUST be staged here even though step 7 commits it
+  REM again after draining. The daily task rewrites it, and "git pull --rebase"
+  REM refuses to run with ANY tracked file modified-but-unstaged. On 2026-08-11
+  REM it was the only dirty file left at step 5, the pull died with rc=128, and
+  REM because nothing checked that rc the run sailed on and pushed into a remote
+  REM it had never merged -- rejected, silently, after a successful commit.
+  %GIT% add "content/*.md" content/review-state.json content/_pending_additions.json social/dashboard/data.js
   REM script-and-caption.md (incl. .vN archives) and script-feedback.md are the
   REM drafting-era files -- carousels now get scripts too, and both types get a
   REM script-feedback round when the desk asks for changes. Unstaged means
@@ -120,6 +129,15 @@ if exist ".git\rebase-apply" goto :midrebase
   if exist ".git\rebase-merge" set CONFLICT=1
   if exist ".git\rebase-apply" set CONFLICT=1
 
+  REM A pull can fail WITHOUT leaving a rebase in progress -- "cannot pull with
+  REM rebase: You have unstaged changes" exits 128 and starts nothing. Checking
+  REM only for a rebase directory therefore misses it entirely, and a run that
+  REM never merged the remote cannot possibly fast-forward it. Pushing anyway
+  REM just converts a clear local error into a confusing rejection at the end.
+  REM Never push on top of a pull that did not succeed.
+  set PULLOK=1
+  if !RC! NEQ 0 set PULLOK=0
+
   echo ===== 6. apply queued additions =====
   REM This runs AFTER the pull, against the freshly merged tree, which is the
   REM whole point. The daily task no longer writes calendar.md or
@@ -157,23 +175,41 @@ if exist ".git\rebase-apply" goto :midrebase
   REM A conflict can still happen on any file the task and the Worker both
   REM touch. Do not push through it -- resolve, then run finish_rebase.bat.
   if "!CONFLICT!"=="1" (
-    echo REBASE CONFLICT - NOT PUSHING.
+    echo SYNC FAILED: REBASE CONFLICT - NOT PUSHING.
     echo Conflicted files are marked UU below. Resolution rule: for any row that
     echo already existed, the remote/desk version wins - it is the truth. Keep
     echo the local version only for rows this run newly appended.
     echo Then double-click tools\finish_rebase.bat.
     %GIT% status --short
+  ) else if "!PULLOK!"=="0" (
+    echo SYNC FAILED: THE PULL DID NOT SUCCEED - NOT PUSHING.
+    echo git pull --rebase exited non-zero without starting a rebase, so this
+    echo repo has not merged what is on main. Pushing would be rejected anyway.
+    echo The usual cause is a tracked file left modified-but-unstaged; step 3
+    echo is supposed to stage everything this pipeline writes, so if you see
+    echo this, something new is being written that step 3 does not know about.
+    %GIT% status --short
   ) else (
     %GIT% push origin main
     set RC=!ERRORLEVEL!
     echo push rc=!RC!
-    if !RC! NEQ 0 echo PUSH FAILED - nothing reached GitHub or the desk.
+    if !RC! EQU 0 (set PUSHOK=1) else (echo SYNC FAILED: PUSH REJECTED - nothing reached GitHub or the desk.)
   )
   echo.
 
   echo ===== 9. final state =====
   %GIT% log --oneline -3
   %GIT% status -sb
+  echo.
+  REM One unambiguous verdict line, always last. Everything above it is detail.
+  REM The daily task greps for this at the start of its next run, so a failed
+  REM sync surfaces in the next morning's report instead of being discovered
+  REM days later by noticing the desk is stale.
+  if "!PUSHOK!"=="1" (
+    echo SYNC RESULT: OK - main is pushed and the desk is current.
+  ) else (
+    echo SYNC RESULT: FAILED - local work has NOT reached GitHub or the desk.
+  )
   echo ===== DONE =====
 )
 
