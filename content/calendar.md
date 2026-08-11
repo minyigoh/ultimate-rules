@@ -10,7 +10,7 @@
 | 2026-08-10 | There are no referees. You are the referee. | Reel | Posted | 2026-08-10 | — |
 | 2026-08-11 | The field, and why the lines are out | Reel | Posted | 2026-08-11 | — |
 | 2026-08-12 | The pull: how every point starts | Reel | Ready to post | — | — |
-| 2026-08-13 | carousel-post-2 — "Seven lessons, one week" | Carousel (9 slides) | Pending review — changes requested | — | — |
+| 2026-08-13 | carousel-post-2 — "Seven lessons, one week" | Carousel (9 slides) | Script approved | — | — |
 | 2026-08-13 | A catch and possession are not the same thing | Reel | Script approved | — | — |
 | 2026-08-14 | Where your feet have to be | Reel | Pending review | — | — |
 

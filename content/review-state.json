@@ -182,10 +182,10 @@
   },
   "carousel-post-2": {
     "script": {
-      "status": "changes",
+      "status": "approved",
       "note": "Can you recap lessons 1 - 7? Not 2-8",
       "tags": [],
-      "updatedAt": "2026-08-11T13:29:26.356Z"
+      "updatedAt": "2026-08-11T14:08:36.616Z"
     },
     "content": {
       "status": "awaiting-render",
