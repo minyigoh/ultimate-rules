@@ -128,7 +128,12 @@
         "file": "reel6-the-field-why-lines-are-out.mp4",
         "changed": "Fixed the dull-orange hold. The concat demuxer was quantising every hold onto a 0.04s grid (image2's 25fps default), so adjacent entries collided and a 50%-opacity crossfade frame inherited the finished slide's read time. Now encoded as exact CFR via encode.py. Longest sustained dull run 2.20s to 0.20s."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-11",
+      "updatedAt": "2026-08-11T09:34:36.761Z"
+    }
   },
   "reel-7": {
     "content": {
