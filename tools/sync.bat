@@ -84,7 +84,7 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/*.png"
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
-  %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat .gitignore
+  %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
   %GIT% diff --cached --stat
   echo.
 
@@ -111,13 +111,47 @@ if exist ".git\rebase-apply" goto :midrebase
   echo pull rc=!RC!
   echo.
 
-  echo ===== 6. push =====
-  REM A conflict here is expected and normal: the sandbox rewrites calendar.md
-  REM and review-state.json from the snapshot it fetched at the start of its
-  REM run, and the Worker keeps editing those same two files every time you
-  REM approve something on the desk. Any decision made after that fetch
-  REM collides. Do not push through it -- resolve, then run finish_rebase.bat.
-  if exist ".git\rebase-merge" (
+  set CONFLICT=0
+  if exist ".git\rebase-merge" set CONFLICT=1
+  if exist ".git\rebase-apply" set CONFLICT=1
+
+  echo ===== 6. apply queued additions =====
+  REM This runs AFTER the pull, against the freshly merged tree, which is the
+  REM whole point. The daily task no longer writes calendar.md or
+  REM review-state.json -- it queues its new rows and entries in
+  REM content/_pending_additions.json instead, and they get folded in here on
+  REM top of whatever the desk did today. Nothing to conflict over.
+  REM Idempotent: rows are keyed on date + post title, entries on post id, and
+  REM anything already present is left exactly as the desk left it.
+  if "!CONFLICT!"=="1" (
+    echo skipped - repo is mid-rebase, resolve first
+  ) else (
+    %PY% tools\apply_additions.py
+    set RC=!ERRORLEVEL!
+    echo apply_additions rc=!RC!
+    if !RC! NEQ 0 echo ADDITIONS FAILED - calendar/review-state not updated.
+  )
+  echo.
+
+  echo ===== 7. commit the additions =====
+  if "!CONFLICT!"=="1" (
+    echo skipped - repo is mid-rebase
+  ) else (
+    %GIT% add content/calendar.md content/review-state.json content/_pending_additions.json
+    %GIT% diff --cached --quiet
+    if !ERRORLEVEL! EQU 0 (
+      echo no additions to commit
+    ) else (
+      %GIT% commit -m "apply queued calendar and review-state additions"
+      echo additions commit rc=!ERRORLEVEL!
+    )
+  )
+  echo.
+
+  echo ===== 8. push =====
+  REM A conflict can still happen on any file the task and the Worker both
+  REM touch. Do not push through it -- resolve, then run finish_rebase.bat.
+  if "!CONFLICT!"=="1" (
     echo REBASE CONFLICT - NOT PUSHING.
     echo Conflicted files are marked UU below. Resolution rule: for any row that
     echo already existed, the remote/desk version wins - it is the truth. Keep
@@ -125,19 +159,14 @@ if exist ".git\rebase-apply" goto :midrebase
     echo Then double-click tools\finish_rebase.bat.
     %GIT% status --short
   ) else (
-    if exist ".git\rebase-apply" (
-      echo REBASE CONFLICT - NOT PUSHING. See tools\finish_rebase.bat.
-      %GIT% status --short
-    ) else (
-      %GIT% push origin main
-      set RC=!ERRORLEVEL!
-      echo push rc=!RC!
-      if !RC! NEQ 0 echo PUSH FAILED - nothing reached GitHub or the desk.
-    )
+    %GIT% push origin main
+    set RC=!ERRORLEVEL!
+    echo push rc=!RC!
+    if !RC! NEQ 0 echo PUSH FAILED - nothing reached GitHub or the desk.
   )
   echo.
 
-  echo ===== 7. final state =====
+  echo ===== 9. final state =====
   %GIT% log --oneline -3
   %GIT% status -sb
   echo ===== DONE =====

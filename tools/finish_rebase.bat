@@ -21,6 +21,8 @@ set LOG=%~dp0_last_finish.log
 
 set GIT=git
 where git >nul 2>&1 || set GIT="C:\Program Files\Git\cmd\git.exe"
+set PY=python
+where python >nul 2>&1 || set PY=py
 
 cd /d "%REPO%"
 set GIT_EDITOR=true
@@ -62,9 +64,22 @@ if "%MARKERS%"=="1" goto :markers
   )
   echo.
 
-  echo ===== 4. commit anything left over =====
-  %GIT% add "content/*.md" content/review-state.json social/dashboard/data.js
-  %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat .gitignore
+  echo ===== 4. apply queued additions =====
+  REM sync.bat skips this when it stops on a conflict, so do it here instead --
+  REM now, after the rebase, against the merged tree.
+  if exist ".git\rebase-merge" (
+    echo skipped - still mid-rebase
+  ) else (
+    %PY% tools\apply_additions.py
+    set RC=!ERRORLEVEL!
+    echo apply_additions rc=!RC!
+    if !RC! NEQ 0 echo ADDITIONS FAILED - calendar/review-state not updated.
+  )
+  echo.
+
+  echo ===== 5. commit anything left over =====
+  %GIT% add "content/*.md" content/review-state.json content/_pending_additions.json social/dashboard/data.js
+  %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
   %GIT% diff --cached --quiet
   if !ERRORLEVEL! EQU 0 (
     echo nothing further staged - skipping second commit
@@ -81,7 +96,7 @@ if "%MARKERS%"=="1" goto :markers
   )
   echo.
 
-  echo ===== 5. push =====
+  echo ===== 6. push =====
   if exist ".git\rebase-merge" (
     echo STILL MID-REBASE - not pushing. Resolve and run this again.
     %GIT% status --short
@@ -93,7 +108,7 @@ if "%MARKERS%"=="1" goto :markers
   )
   echo.
 
-  echo ===== 6. final state =====
+  echo ===== 7. final state =====
   %GIT% log --oneline -5
   %GIT% status -sb
   echo ===== DONE =====

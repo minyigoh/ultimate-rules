@@ -38,12 +38,21 @@ make that impossible to repeat.
 
 ## Step 0 — Establish authoritative state. Non-negotiable.
 
-Before reading anything local, fetch both of these over `web_fetch`:
+Before reading anything local, fetch all three of these over `web_fetch`:
 
+- `.../main/content/DAILY_RENDER_TASK.md?cb=<timestamp>`
 - `.../main/content/calendar.md?cb=<timestamp>`
 - `.../main/content/review-state.json?cb=<timestamp>`
 
 on `https://raw.githubusercontent.com/minyigoh/ultimate-rules`.
+
+**Fetch this file first and follow the fetched copy, not the pasted one.** The
+text pasted into the Cowork scheduled task is a bootstrap; this file is the
+prompt of record and it changes more often than anyone re-pastes. Reading the
+local checkout is not good enough either — the sandbox cannot pull, so
+`content/DAILY_RENDER_TASK.md` on disk is only as fresh as the last time
+`sync.bat` ran. If the fetched copy differs from the instructions you were
+given, say so in your report and follow the fetched copy.
 
 **The `?cb=` cache-buster is required, not decorative.** raw.githubusercontent
 is CDN-cached for several minutes and will happily serve you a copy from before
@@ -60,10 +69,12 @@ Then:
 
 - Diff the two. If they differ, say so explicitly in your report and work from
   the GitHub copy.
-- **If `web_fetch` fails for either file, STOP.** Do not draft, do not build,
-  do not regenerate, and do not report on queue health — you cannot see the
-  queue. Report the fetch failure as the entire result of the run. Never let
-  "I could not check" turn into "there is nothing to do."
+- **If `web_fetch` fails for any of the three, STOP.** Do not draft, do not
+  build, do not regenerate, and do not report on queue health — you cannot see
+  the queue. Report the fetch failure as the entire result of the run. Never let
+  "I could not check" turn into "there is nothing to do." This applies to this
+  file too: if you cannot fetch your own instructions, you do not know what the
+  current rules are, and improvising is worse than doing nothing.
 - Never conclude "nothing to do" from local files alone. In particular, never
   decide a date is already covered by reading the local calendar.
 
@@ -137,9 +148,10 @@ content type**. Create the folder. There is no weekly batch file any more —
 `content/pending-review/week-1-reels.md` stays as history and nothing new goes
 in that directory.
 
-Then register it in all three places, exactly as Step 7 describes: a new
-calendar row at **`Pending review`**, a `script` entry in `review-state.json`
-at `"status": "pending"`, and a new `POSTS` object in
+Then register it in all three places, exactly as Step 7 describes: a calendar
+row at **`Pending review`** and a `script` entry at `"status": "pending"`, both
+**queued in `content/_pending_additions.json`** rather than written into
+`calendar.md` or `review-state.json` directly, plus a new `POSTS` object in
 `social/dashboard/data.js` with `review.script = {status: 'pending', on:
 '<today>'}` and `review.content = {status: 'awaiting-render', on: null}`.
 
@@ -165,8 +177,11 @@ run, addressing the note Min-Yi left in that entry.
 - Append a dated round to `content/<folder>/script-feedback.md` recording her
   note and a one-line summary of what you changed in response. Same format as
   `feedback.md`, which stays reserved for rendered-content rounds.
-- Set the script track back to `"status": "pending"` in `review-state.json` and
-  `data.js`, so it re-enters her review queue rather than sitting in limbo.
+- Set the script track back to `"status": "pending"` in `data.js`, and queue the
+  same flip in `content/_pending_additions.json`, so it re-enters her review
+  queue rather than sitting in limbo. The post's `review-state.json` key already
+  exists, so `apply_additions.py` will not overwrite it — call that out in your
+  report as a change she needs to apply from the desk.
 
 `script.status` of `rejected` means the topic is dead, not that it needs a
 rewrite. Leave the row alone, do not redraft it, and flag it in your report —
@@ -317,31 +332,59 @@ addressed, plus a one-line cause note.
 
 Everything you touched in Steps 1, 2, 4 and 5 lands here.
 
-**7a. `content/calendar.md`**
+**Do not edit `content/calendar.md` or `content/review-state.json`. Ever.**
 
-- New drafts: append a row at **`Pending review`**, Posted `—`, Performance `—`.
-  Keep rows in date order.
-- Rows you built or successfully regenerated: **`Content pending review`**.
-- Rows you redrafted: **`Pending review`**.
-- Never set `Script approved`, `Ready to post` or `Posted` — all three are
-  Min-Yi's, via the desk.
+Those two files are the only ones both you and the Worker write, and you are
+always working from a snapshot — the one you fetched in Step 0. Min-Yi keeps
+approving things on the desk while you run, so anything you write from that
+snapshot is stale before it lands, and the push conflicts by construction. That
+is what broke the 2026-08-11 push.
 
-**7b. `content/review-state.json`** — read, modify only your posts' keys, write
-back. **Never overwrite wholesale**; it also holds desk approvals.
+Instead you queue your additions and `sync.bat` folds them in **after** its
+pull, on top of whatever the desk decided today.
+
+**7a + 7b. `content/_pending_additions.json`** — append to the two arrays, keep
+the `_readme` key, write the file back:
 
 ```json
-"reel-8": {"script":  {"status": "pending", "note": "", "tags": [],
-                       "updatedAt": "<ISO 8601 UTC>"},
-           "content": {"status": "awaiting-render", "note": "", "tags": [],
-                       "updatedAt": "<ISO 8601 UTC>"}}
+{
+  "_readme": "<leave exactly as found>",
+  "calendar_rows": [
+    {"date": "2026-08-13", "post": "A catch and possession are not the same thing",
+     "type": "Reel", "status": "Pending review", "posted": "—", "performance": "—"}
+  ],
+  "review_state": {
+    "reel-8": {"script":  {"status": "pending", "note": "", "tags": [],
+                           "updatedAt": "<ISO 8601 UTC>"},
+               "content": {"status": "awaiting-render", "note": "", "tags": [],
+                           "updatedAt": "<ISO 8601 UTC>"}}
+  },
+  "generated": "<ISO 8601 UTC>",
+  "by": "daily-reel-render"
+}
 ```
 
-For each post rendered, set `content.status` to `in-review` and maintain a
-`revisions` array, newest last, one entry per cut. The last entry's `file` is
-the unsuffixed primary; earlier entries point at their `.vN` archives — update
-an older entry's `file` when it gets archived. `changed` must state concretely
-what differs ("Retimed to the house rhythm; 39.1s to 30.0s"), never
-"regenerated per feedback".
+`tools/apply_additions.py` drains this during `sync.bat`. It only ever **adds**:
+a calendar row already present (keyed on date + post title, same as the Worker)
+or a review-state key already present (keyed on post id) is left exactly as the
+desk left it. Re-running it is a no-op, so a retried sync cannot double-post a
+row. Status vocabulary is unchanged — `Pending review` for new drafts and
+redrafts, `Content pending review` for anything you built or regenerated, and
+never `Script approved` / `Ready to post` / `Posted`.
+
+**Rendered posts are the one case that needs an existing key changed** — the
+`content.status` → `in-review` flip and the `revisions` array. Queue those in
+`review_state` too, under the same post id, with the **complete** entry as it
+should end up: `apply_additions.py` skips keys that already exist, so say so in
+your report and Min-Yi will apply it. Keep maintaining `revisions` newest-last,
+one entry per cut; the last entry's `file` is the unsuffixed primary, earlier
+ones point at their `.vN` archives. `changed` must state concretely what differs
+("Retimed to the house rhythm; 39.1s to 30.0s"), never "regenerated per
+feedback".
+
+Reading those two files is still fine and still necessary — just read the
+**authoritative** copies from Step 0, never the local checkout, and never write
+either one.
 
 **7c. `social/dashboard/data.js`** — the desk's queue. For a new draft, append a
 `POSTS` object with `id`, `date`, `title`, `type`, `pillar`, `difficulty`,
@@ -371,28 +414,22 @@ You have no network. Do not fake success and do not silently skip this.
 2. Report, in the first line of your output, that **a push is required** and
    that Min-Yi should double-click `tools\sync.bat`. That script clears stale
    git locks, rebuilds the desk, stages the explicit paths only, commits with
-   your message, pulls with rebase, and pushes — one pull, after the commit.
+   your message, pulls with rebase, **applies your queued additions on top of
+   the merged tree**, commits those, and pushes. One pull, after the commit.
 
-### Expect a calendar.md conflict, and know how to resolve it
+### Why you don't touch calendar.md or review-state.json
 
-`content/calendar.md` and `content/review-state.json` are the only two files
-both this task and the Worker write. You rebuild them from the snapshot you
-fetched in Step 0; the Worker rewrites rows every time Min-Yi approves, rejects
-or marks something posted during the day. **Any desk decision made between your
-Step 0 fetch and the push collides**, so a conflict on those two files is a
-normal event, not a malfunction. `review-state.json` is keyed per post and
-almost always auto-merges; `calendar.md` is a single table and usually does not.
+Because of the ordering above. Your commit contains neither file, so the pull
+can't conflict on them; `apply_additions.py` writes them afterwards, against
+the version that just came down from main. A desk decision made while you were
+running is already in the tree by the time your rows get added.
 
-The resolution rule is deterministic — put it in your report whenever a
-conflict is likely:
-
-- **Rows that already existed: the remote/desk version wins.** It reflects a
-  decision Min-Yi made after your fetch, so it is newer and truer than yours.
-- **Rows this run newly appended: keep the local version.** The remote has
-  never seen them.
-
-`sync.bat` stops before pushing when it lands mid-rebase and prints that rule.
-`tools\finish_rebase.bat` stages the resolution, continues, and pushes.
+If a conflict does happen on some other file, `sync.bat` stops before pushing
+rather than retrying into a non-fast-forward rejection. The resolution rule is
+deterministic: **anything that already existed takes the remote/desk version**
+(it reflects a decision made after your snapshot, so it is newer and truer),
+**anything this run newly created stays local**. `tools\finish_rebase.bat`
+stages the resolution, continues the rebase, applies the additions, and pushes.
 
 ### Two failure modes that have already bitten this pipeline
 
@@ -447,7 +484,9 @@ Also flag if any of these is true:
 - Draft freely, but never invent rules text — it is quoted verbatim from
   `rules.json` or it doesn't ship.
 - Never commit intermediate render output; never `git add` a whole directory.
-- Never overwrite `review-state.json` wholesale.
+- **Never write `content/calendar.md` or `content/review-state.json` at all.**
+  Read the authoritative copies, queue changes in
+  `content/_pending_additions.json`, and let `sync.bat` apply them post-pull.
 - Every rules card quotes WFDF text verbatim, with the "WFDF Rules of Ultimate
   2025–2028" + rule-number footer.
 - No growth, reach or virality promises anywhere.
