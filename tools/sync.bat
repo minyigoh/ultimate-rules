@@ -12,8 +12,24 @@ REM
 REM Run it by double-clicking. It logs to tools\_last_sync.log.
 REM If _commit_msg.txt exists in the repo root, its first line is the commit
 REM subject and the rest is the body; otherwise a generic message is used.
+REM The message file is deleted ONLY after a commit actually succeeds -- a
+REM failed run must not destroy the message it still needs.
+REM
+REM Ordering note (changed 2026-08-11): there is exactly ONE pull, and it comes
+REM AFTER the commit. The old script also pulled at the start, before staging,
+REM where it could never work -- the sandbox always leaves unstaged changes, so
+REM that pull aborted with "cannot pull with rebase: You have unstaged changes"
+REM on every single run. It was dead code that made conflicts surface late, at
+REM push time, instead of being handled deliberately.
+REM
+REM Error reporting note (changed 2026-08-11): this script uses delayed
+REM expansion (!ERRORLEVEL!, not %ERRORLEVEL%). Inside a parenthesised block
+REM %ERRORLEVEL% expands when the block is PARSED, not when the line runs, so
+REM the old log printed a stale value every time -- it reported "push rc=0"
+REM immediately below a rejected push. For a pipeline whose whole purpose is to
+REM stop silent failures, a log that lies is worse than no log.
 REM ---------------------------------------------------------------------------
-setlocal
+setlocal enabledelayedexpansion
 set REPO=%~dp0..
 set LOG=%~dp0_last_sync.log
 
@@ -24,44 +40,125 @@ where python >nul 2>&1 || set PY=py
 
 cd /d "%REPO%"
 
+REM Refuse to run on top of an unfinished rebase -- staging and committing into
+REM one would bury the conflict instead of resolving it.
+if exist ".git\rebase-merge" goto :midrebase
+if exist ".git\rebase-apply" goto :midrebase
+
 > "%LOG%" 2>&1 (
   echo ===== 1. clear stale locks =====
   if exist ".git\ORIG_HEAD.lock" del /f /q ".git\ORIG_HEAD.lock" && echo cleared ORIG_HEAD.lock
   if exist ".git\index.lock"     del /f /q ".git\index.lock"     && echo cleared index.lock
   if exist ".git\refs\heads\main.lock" del /f /q ".git\refs\heads\main.lock" && echo cleared main.lock
   echo.
-  echo ===== 2. pull --rebase =====
-  %GIT% pull --rebase origin main
-  echo pull rc=%ERRORLEVEL%
-  echo.
-  echo ===== 3. rebuild desk =====
+
+  echo ===== 2. rebuild desk =====
+  REM Safe here, before the pull: build_desk.py reads only social/dashboard's
+  REM index.html and data.js plus the media it copies. The Worker never commits
+  REM data.js -- it only ever touches calendar.md, review-state.json and reel
+  REM feedback.md -- so pulling afterwards cannot stale the build.
   %PY% social\dashboard\build_desk.py
-  echo build_desk rc=%ERRORLEVEL%
+  set RC=!ERRORLEVEL!
+  echo build_desk rc=!RC!
   echo.
-  echo ===== 4. stage explicit paths only =====
+
+  echo ===== 3. stage explicit paths only =====
   REM Never "git add content" wholesale -- v4/ is ~1800 files / 116 MB per run.
   %GIT% add "content/*.md" content/review-state.json social/dashboard/data.js
-  %GIT% add "content/reel-*/script-and-caption.md" "content/reel-*/*.mp4" "content/reel-*/*.py" "content/reel-*/feedback.md"
-  %GIT% add "content/carousel-post-*/caption.md" "content/carousel-post-*/*.png" "content/carousel-post-*/*.py"
-  %GIT% add docs/desk tools/sync.bat .gitignore
+  REM script-and-caption.md (incl. .vN archives) and script-feedback.md are the
+  REM drafting-era files -- carousels now get scripts too, and both types get a
+  REM script-feedback round when the desk asks for changes. Unstaged means
+  REM invisible to the desk, which means it can never be approved.
+  REM
+  REM ONE PATTERN PER "git add". A pathspec matching nothing is a fatal error
+  REM that aborts the whole invocation, silently dropping every later pattern
+  REM on the same line -- on 2026-08-11 an absent script-feedback.md took the
+  REM .mp4 and .py patterns down with it. Separate calls fail independently.
+  %GIT% add "content/reel-*/script-and-caption*.md"
+  %GIT% add "content/reel-*/*.mp4"
+  %GIT% add "content/reel-*/*.py"
+  %GIT% add "content/reel-*/feedback.md"
+  %GIT% add "content/reel-*/script-feedback.md"
+  %GIT% add "content/carousel-post-*/script-and-caption*.md"
+  %GIT% add "content/carousel-post-*/caption.md"
+  %GIT% add "content/carousel-post-*/*.png"
+  %GIT% add "content/carousel-post-*/*.py"
+  %GIT% add "content/carousel-post-*/script-feedback.md"
+  %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat .gitignore
   %GIT% diff --cached --stat
   echo.
-  echo ===== 5. commit =====
-  %GIT% diff --cached --quiet && echo nothing staged - skipping commit || (
-    if exist "_commit_msg.txt" ( %GIT% commit -F "_commit_msg.txt" ) else ( %GIT% commit -m "content pipeline sync" )
+
+  echo ===== 4. commit =====
+  set COMMITTED=0
+  %GIT% diff --cached --quiet
+  if !ERRORLEVEL! EQU 0 (
+    echo nothing staged - skipping commit
+  ) else (
+    if exist "_commit_msg.txt" (
+      %GIT% commit -F "_commit_msg.txt"
+    ) else (
+      %GIT% commit -m "content pipeline sync"
+    )
+    set RC=!ERRORLEVEL!
+    echo commit rc=!RC!
+    if !RC! EQU 0 set COMMITTED=1
   )
-  echo commit rc=%ERRORLEVEL%
   echo.
-  echo ===== 6. pull --rebase again, then push =====
+
+  echo ===== 5. pull --rebase =====
   %GIT% pull --rebase origin main
-  %GIT% push origin main
-  echo push rc=%ERRORLEVEL%
+  set RC=!ERRORLEVEL!
+  echo pull rc=!RC!
   echo.
+
+  echo ===== 6. push =====
+  REM A conflict here is expected and normal: the sandbox rewrites calendar.md
+  REM and review-state.json from the snapshot it fetched at the start of its
+  REM run, and the Worker keeps editing those same two files every time you
+  REM approve something on the desk. Any decision made after that fetch
+  REM collides. Do not push through it -- resolve, then run finish_rebase.bat.
+  if exist ".git\rebase-merge" (
+    echo REBASE CONFLICT - NOT PUSHING.
+    echo Conflicted files are marked UU below. Resolution rule: for any row that
+    echo already existed, the remote/desk version wins - it is the truth. Keep
+    echo the local version only for rows this run newly appended.
+    echo Then double-click tools\finish_rebase.bat.
+    %GIT% status --short
+  ) else (
+    if exist ".git\rebase-apply" (
+      echo REBASE CONFLICT - NOT PUSHING. See tools\finish_rebase.bat.
+      %GIT% status --short
+    ) else (
+      %GIT% push origin main
+      set RC=!ERRORLEVEL!
+      echo push rc=!RC!
+      if !RC! NEQ 0 echo PUSH FAILED - nothing reached GitHub or the desk.
+    )
+  )
+  echo.
+
   echo ===== 7. final state =====
   %GIT% log --oneline -3
   %GIT% status -sb
   echo ===== DONE =====
 )
 
-if exist "_commit_msg.txt" del /f /q "_commit_msg.txt"
+REM Only now, and only if the commit landed, is the message file expendable.
+if "%COMMITTED%"=="1" if exist "_commit_msg.txt" del /f /q "_commit_msg.txt"
 endlocal
+goto :eof
+
+:midrebase
+> "%LOG%" 2>&1 (
+  echo ===== ABORTED =====
+  echo A rebase is already in progress in this repo, so sync.bat will not run.
+  echo Staging and committing on top of one would bury the conflict rather than
+  echo resolve it.
+  echo.
+  echo Fix the conflicted files, then double-click tools\finish_rebase.bat.
+  echo.
+  %GIT% status -sb
+  echo ===== DONE =====
+)
+endlocal
+goto :eof

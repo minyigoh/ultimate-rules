@@ -411,16 +411,24 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
 <script>
 /* Content Desk — data
  *
- * Mirrors the repo's own content files. Regenerate/edit by hand when content
- * changes; this file is the dashboard's single source of truth for what exists.
+ * Mirrors the repo's own content files. The daily render task appends to this
+ * file as it drafts; edit by hand only to correct it. Either way this file is
+ * the dashboard's single source of truth for what exists — a script that isn't
+ * here is invisible to the desk and can never be approved.
  *
  *   content/CONTENT_REVIEW.md               the two-gate process and the status
  *                                           vocabulary — the desk uses its words
+ *   content/DAILY_RENDER_TASK.md            what the daily task drafts, builds
+ *                                           and is forbidden from approving
  *   content/calendar.md                     queue, status, posted dates
- *   content/pending-review/week-1-reels.md  the week-1 batch (scripts + captions)
  *   content/reel-N/script-and-caption.md    standalone film-ready copy + scenes
  *   content/carousel-post-1/caption.md      carousel captions
  *   social/brand-identity.md                voice, palette, attribution rules
+ *
+ * content/pending-review/week-1-reels.md is history: scripts are no longer
+ * written in weekly batches. The task keeps three days of calendar coverage,
+ * drafting in curriculum order, and each draft lands here at review.script
+ * 'pending' for approval on the desk.
  *
  * Each post carries two independent review tracks:
  *
@@ -452,7 +460,7 @@ const ACCOUNT = {
   handle: '@learn.ultimatefrisbee',
   bio: 'Everything ultimate frisbee: rules, strategy, mindset, training. One lesson a day, five minutes at a time.',
   attribution: 'WFDF Rules of Ultimate 2025–2028, used under CC BY 4.0',
-  cadence: 'Daily. Written in weekly batches of 7, nothing goes out un-reviewed.'
+  cadence: 'Daily. Scripts drafted automatically three days ahead, nothing goes out un-reviewed.'
 };
 
 const POSTS = [
@@ -909,7 +917,143 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
       'Rendered 2026-08-08 by the scheduled reel-render task. Awaiting content review.',
-      'Last of week one — week two batch needs writing before 2026-08-13.'
+      'Last of the original week-one batch. Subsequent scripts are drafted automatically, three days of coverage at a time.'
+    ]
+  },
+  {
+    id: 'carousel-post-2',
+    date: '2026-08-13',
+    title: 'Seven lessons, one week',
+    type: 'Carousel',
+    pillar: 'Rules',
+    difficulty: 'Mixed',
+    lesson: null,
+    rules: ['18.2.2', '18.2.3', '18.2.3.1', '9.1', '9.3', '9.4', '13.2.2', '13.1', '13.2', '1.1', '1.2', '15.4', '13.3', '2.1', '2.2', '2.3', '2.4', '11.1', '7.1', '7.2', '7.3', '7.4', '7.6', '12.1', '12.1.1', '13.1.1.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-11'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-2',
+    source: 'content/carousel-post-2/script-and-caption.md',
+    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 2-8',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Seven lessons this week. Here's the whole set in one swipe.`,
+      explanation: `Pivoting, the stall count, the five turnovers, self-officiating, the sidelines, the pull, and the gap between a catch and possession.`,
+      example: `If one of these is still fuzzy, the reel it came from is on the grid — each slide carries its rule numbers so you can look it up yourself.`,
+      cta: `Lessons 2 to 8 of 75 — new lesson daily.`
+    },
+    ig: `Week two, all seven lessons in one place.
+
+Pivoting without travelling. The ten-second stall count. The five ways possession flips. Why there's nobody with a whistle. Why the sideline is out, not in. How every point starts. And the difference between catching the disc and actually having it.
+
+Each slide carries its rule numbers — so you can check any of it against the rulebook rather than taking our word for it.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+pivots, stall counts, turnovers, no refs, sidelines, the pull, and the catch-vs-possession one that gets everybody
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'First weekly recap. Nine slides: cover, one per reel posted 2026-08-07 to 2026-08-13, closing.',
+      'Recap slides cite rule numbers but carry no rule text — see content/CAROUSEL_TEMPLATE.md. Nothing on them to paraphrase, by design.',
+      'Slide 8 recaps Reel 8, queued the same day and still at script review. If that script changes topic, slide 8 has to change with it.'
+    ]
+  },
+  {
+    id: 'reel-8',
+    date: '2026-08-13',
+    title: 'A catch and possession are not the same thing',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Intermediate',
+    lesson: 8,
+    rules: ['12.1', '12.1.1', '13.1.1.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-11'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-8',
+    source: 'content/reel-8/script-and-caption.md',
+    sourceLesson: 'content/lessons-1.json (tag: Possession)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You caught it. That doesn't mean you have it.`,
+      explanation: `A catch is one moment: a non-spinning disc trapped between two body parts. Possession is everything after it — keeping hold through the landing, the slide, and any contact that came with the catch.`,
+      example: `Dive, catch it, hit the ground, and it pops out — that's a turnover, because possession never happened. But if the disc scrapes the grass and you never lose the catch, play on.`,
+      cta: `Lesson 8 of 75 — new lesson daily.`
+    },
+    ig: `You caught it. That doesn't mean you have it.
+
+A catch is one moment — a non-spinning disc trapped between two body parts. Possession is what comes after: holding on through the landing and everything that comes with it. Dive, catch, hit the ground, pop it out, and it's a turnover. Let the disc scrape the grass without ever losing the catch, and it's still yours.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `the disc touched the ground and it's somehow still your point 🥏
+
+catch and possession are two different things and the gap between them is where the turnovers live
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-11 by the daily task. Awaiting script review — nothing renders until the words are approved.',
+      '13.1.1.1 is a continuation clause reading off 13.1.1. On the citation card it stands alone as written; do not stitch the two into one sentence.'
+    ]
+  },
+  {
+    id: 'reel-9',
+    date: '2026-08-14',
+    title: 'Where your feet have to be',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 9,
+    rules: ['11.3', '11.3.1', '11.3.2', '11.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-11'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-9',
+    source: 'content/reel-9/script-and-caption.md',
+    sourceLesson: 'content/lessons-1.json (tag: Possession)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Ultimate has no "two feet in" rule. It has something simpler, and stricter.`,
+      explanation: `If any part of you is out-of-bounds when you touch the disc, no catch happened at all. Catch it airborne and your first contact with the ground has to be in-bounds — and the line itself is out.`,
+      example: `Land in-bounds, keep the catch, and momentum carrying you over the sideline costs you nothing. You walk back and set your pivot where you crossed the line.`,
+      cta: `Lesson 9 of 75 — new lesson daily.`
+    },
+    ig: `Ultimate has no "two feet in" rule. It has something simpler, and stricter.
+
+If any part of you is out-of-bounds when you touch the disc, there was no catch. Airborne, your first contact with the ground has to be in-bounds — and the line is out, not in. Land clean and keep the catch, though, and momentum carrying you over the sideline costs you nothing: walk back and set your pivot where you crossed.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `no "two feet in" here. one toe on the line and you were never in 🥏
+
+but landing in and then running out? completely fine
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-11 by the daily task. Awaiting script review.',
+      '11.4 is a stem clause — it only reads correctly with 11.4.1 and 11.4.2 beneath it on the same card.',
+      'Deliberate callback to Lesson 6 (the field, and why the lines are out).'
     ]
   }
 ];

@@ -12,7 +12,11 @@ and go through the same rendered-content review gate before they're postable
 *Settled on 2026-08-06 after a few rounds of revision — see git history on this
 file's folder for the iteration.*
 
-## Structure
+There are two carousel shapes. The **topic carousel** below is the original
+(carousel-post-1). The **weekly recap** further down runs every Thursday and
+reuses the identical visual system with a different slide sequence.
+
+## Structure — topic carousel
 
 1. **Cover slide** — kicker (e.g. "NEVER PLAYED BEFORE"), a big two-line
    headline, a one-sentence subhead, "SWIPE →".
@@ -27,6 +31,31 @@ file's folder for the iteration.*
    slides rather than shrinking type or cramming. See the field slide's two
    rules-detail cards (2.1+2.3, then 2.4+2.5) for the pattern.
 5. **Closing slide** — short wrap-up line + "Follow @learn.ultimatefrisbee".
+
+## Structure — weekly recap carousel
+
+Posts every Thursday alongside that day's reel, recapping the seven reels whose
+post dates fall in the seven days ending that Thursday. Nine slides for a full
+week.
+
+1. **Cover slide** — kicker "THIS WEEK", headline naming the span (e.g.
+   "Seven lessons, one week"), one-sentence subhead, "SWIPE →". If the window
+   held fewer than seven reels, the cover says the real number.
+2. **Seven recap slides**, one per reel, in the order they posted. Each carries
+   the lesson number ("LESSON 8"), the reel's title as the headline, its
+   one-line takeaway as the body, and that lesson's rule numbers in the
+   standard citation footer.
+3. **Closing slide** — wrap-up line + "Follow @learn.ultimatefrisbee".
+
+**A recap slide is not a rules card.** It cites rule numbers but carries no
+rule text, so there is nothing on it to paraphrase — which is the point. If a
+recap slide is growing rule quotes, it has drifted into re-teaching; cut back
+to the takeaway and let the reel do the work. The "WFDF Rules of Ultimate
+2025–2028" attribution still appears in the footer and the caption.
+
+The recap does **not** consume a lesson number and never introduces curriculum
+the week's reels didn't already cover. If fewer than three reels fall in the
+window, skip that week's recap rather than padding it.
 
 ## Visual system
 

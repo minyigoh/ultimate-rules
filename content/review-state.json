@@ -165,5 +165,47 @@
         "changed": "Fixed the dull-orange hold. The concat demuxer was quantising every hold onto a 0.04s grid (image2's 25fps default), so adjacent entries collided and a 50%-opacity crossfade frame inherited the finished slide's read time. Now encoded as exact CFR via encode.py. Longest sustained dull run 2.15s to 0.20s."
       }
     ]
+  },
+  "reel-8": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T09:18:44.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T09:18:44.000Z"
+    }
+  },
+  "carousel-post-2": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T09:18:44.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T09:18:44.000Z"
+    }
+  },
+  "reel-9": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T09:18:44.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T09:18:44.000Z"
+    }
   }
 }

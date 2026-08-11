@@ -4,6 +4,10 @@ This is the prompt behind the daily Cowork scheduled task. Kept here so it is
 version-controlled and reviewable alongside the pipeline it drives; edit here
 first, then paste into the task.
 
+The task drafts scripts, renders assets, and records state. It never approves
+anything and never posts. Both approval gates belong to Min-Yi, and both are
+worked from the Content Desk — not from chat.
+
 ---
 
 ## Read this first: what this sandbox cannot do
@@ -21,6 +25,9 @@ Cowork chat. Measured on 2026-08-10:
   `shutil.rmtree`).
 - **`mcp__workspace__web_fetch` does work**, including
   `raw.githubusercontent.com`. That is the only way this run can see the truth.
+
+Drafting copy needs none of that, so **Step 1 and Step 2 always work here.**
+Only publishing (Step 8) is blocked.
 
 On 2026-08-08–10 these limits silently produced three days of wrong output: the
 run read a checkout frozen days earlier, found nothing to do, and reported a
@@ -53,16 +60,127 @@ Then:
 
 - Diff the two. If they differ, say so explicitly in your report and work from
   the GitHub copy.
-- **If `web_fetch` fails for either file, STOP.** Do not build, do not
-  regenerate, and do not report on queue health — you cannot see the queue.
-  Report the fetch failure as the entire result of the run. Never let "I could
-  not check" turn into "there is nothing to do."
-- Never conclude "nothing to build" from local files alone.
+- **If `web_fetch` fails for either file, STOP.** Do not draft, do not build,
+  do not regenerate, and do not report on queue health — you cannot see the
+  queue. Report the fetch failure as the entire result of the run. Never let
+  "I could not check" turn into "there is nothing to do."
+- Never conclude "nothing to do" from local files alone. In particular, never
+  decide a date is already covered by reading the local calendar.
 
-Read `content/CONTENT_REVIEW.md` for the two-gate approval process, status
-vocabulary and feedback format.
+Read `content/CONTENT_REVIEW.md` for the two-gate process, status vocabulary
+and feedback format.
 
-## Step 1 — Build the worklists
+---
+
+## Step 1 — Top up the script queue (drafting)
+
+**Target: every date from tomorrow through tomorrow + 2 has a post row on the
+authoritative calendar.** Three days of coverage, counted from the day this run
+fires.
+
+A date counts as covered if its row exists at *any* stage — `Pending review`,
+`Script approved`, `Content pending review`, `Ready to post`, `Posted`. You are
+filling calendar gaps, not maintaining a fixed pile of unapproved drafts. In
+steady state that is roughly one new script a day; after an outage it is
+however many dates are bare.
+
+**Every day gets a reel. Thursdays additionally get a weekly recap carousel** —
+two posts, two rows, same date. A Thursday is only covered when *both* rows
+exist; a Thursday holding just the reel is still a gap. Two posts sharing a
+queue date is expected and handled: the Worker keys calendar rows on date +
+post title, not date alone (launch day already had a carousel and a reel both
+on 2026-08-06).
+
+For each gap, in date order:
+
+**The daily reel — pick the topic.** The next unused lesson in curriculum
+order — the array order of `content/lessons-1.json`, then `-2`, then `-3`. A
+lesson is used if any calendar row on the **authoritative** calendar already
+carries its title. Do not skip ahead, do not reorder for variety: the account
+promises "Lesson N of 75" and the numbering has to stay honest.
+
+**The Thursday carousel — a recap, not a lesson.** It reviews the seven reels
+whose post dates fall in the seven days ending that Thursday. **It does not
+consume a lesson number** and never introduces new curriculum; the reels have
+already taught this material and the carousel is the week's index to it.
+
+- If fewer than seven reels fall in the window, recap what is actually there
+  and say so on the cover ("This week's five lessons"). If fewer than three,
+  skip the carousel entirely for that week and note why — there isn't enough
+  to recap.
+- Draw each entry's takeaway from that lesson's `field` line or the script's
+  own example beat. Do not re-teach and do not introduce a rule the week's
+  reels never cited.
+
+**Write the copy.** Follow `content/reel-1/script-and-caption.md`'s structure
+exactly — front-matter block, scene table, Instagram caption, TikTok caption,
+hashtags, notes. The four script beats are hook / explanation / example / CTA.
+
+- Draw the substance from that lesson's `hook`, `body` and `field` fields. The
+  lesson JSON is the brief; the script is your writing from it.
+- **Rule text on any citation card is verbatim from `content/rules.json`
+  (`RULE[num]["text"]`), pulled programmatically. Never hand-typed, never
+  paraphrased, in the script file or anywhere else.** Rule numbers come from
+  that lesson's `rules` array.
+- Voice per `social/brand-identity.md`. Plain, calm, second person. No hype.
+- **Hashtags are the fixed set, every time**, not tuned per topic:
+  `#UltimateFrisbee #SpiritOfTheGame #WFDFRulesofUltimate #LearnUltimateFrisbee
+  #UltimateFrisbeeTips`
+- Every caption carries the attribution line naming **WFDF Rules of Ultimate
+  2025–2028**.
+- **No growth, reach or virality claims** — not in captions, not in notes.
+- CTA is "Lesson N of 75 — new lesson daily" or a close variant.
+
+Save to `content/reel-N/script-and-caption.md` (or
+`content/carousel-post-N/`), where N is the next unused number **for that
+content type**. Create the folder. There is no weekly batch file any more —
+`content/pending-review/week-1-reels.md` stays as history and nothing new goes
+in that directory.
+
+Then register it in all three places, exactly as Step 7 describes: a new
+calendar row at **`Pending review`**, a `script` entry in `review-state.json`
+at `"status": "pending"`, and a new `POSTS` object in
+`social/dashboard/data.js` with `review.script = {status: 'pending', on:
+'<today>'}` and `review.content = {status: 'awaiting-render', on: null}`.
+
+**A draft that isn't in `data.js` does not exist.** The desk renders its queue
+from that file; a script-and-caption.md alone is invisible and will never get
+approved.
+
+**You draft. You never approve.** Never write `Script approved` — that status
+only ever arrives from the desk via the Worker.
+
+---
+
+## Step 2 — Redraft scripts the desk sent back
+
+Any post whose `script.status` in the authoritative `review-state.json` is
+`changes` (calendar: "Pending review — changes requested") gets rewritten this
+run, addressing the note Min-Yi left in that entry.
+
+- Keep the topic, lesson number and rule citations unless her note asks
+  otherwise.
+- Archive the previous copy alongside as `script-and-caption.v<N>.md`, next
+  unused N. The unsuffixed file is always the newest.
+- Append a dated round to `content/<folder>/script-feedback.md` recording her
+  note and a one-line summary of what you changed in response. Same format as
+  `feedback.md`, which stays reserved for rendered-content rounds.
+- Set the script track back to `"status": "pending"` in `review-state.json` and
+  `data.js`, so it re-enters her review queue rather than sitting in limbo.
+
+`script.status` of `rejected` means the topic is dead, not that it needs a
+rewrite. Leave the row alone, do not redraft it, and flag it in your report —
+if it was blocking a calendar date, that date is uncovered and Step 1 should
+have filled it with the next lesson instead.
+
+**What you may not redraft:** nothing. Copy is yours now. But if her note asks
+for something the rules don't support — a rule that doesn't exist in
+`rules.json`, a claim about reach, a citation to a different rulebook edition —
+don't invent it. Leave the row at `changes`, change nothing, and say why.
+
+---
+
+## Step 3 — Build the render worklists
 
 From the **authoritative** calendar, process every matching row this run:
 
@@ -75,21 +193,15 @@ From the **authoritative** calendar, process every matching row this run:
   complaint can appear two or three times — address it once and say which
   rounds you covered.
 
-If both lists are genuinely empty *after* a successful Step 0, skip to Step 7
-and report.
+Rows still at `Pending review` are **not** render work. Nothing renders until
+its script clears the first gate.
 
-## Step 2 — Locate approved copy (new builds only)
+If both lists are empty *after* a successful Step 0, that is a normal outcome —
+you may still have drafted in Step 1. Skip to Step 7.
 
-- Use `content/reel-N/script-and-caption.md` if it exists.
-- Otherwise pull the matching topic section from `content/pending-review/`
-  (e.g. `week-1-reels.md`) and create the per-post file following
-  `content/reel-1/script-and-caption.md`'s structure exactly. N = next unused
-  number for that content type.
+---
 
-**Never invent, edit or paraphrase script/caption copy.** If a queued topic has
-no approved copy anywhere, skip the row and flag that it needs batch approval.
-
-## Step 3 — Build reels
+## Step 4 — Build reels
 
 **Render into a scratch directory under `/tmp`, never into the repo's `v4/`.**
 This sandbox cannot delete, so a repo-side `v4/` accumulates stale frames from
@@ -133,17 +245,36 @@ for reference.
 Save as `content/reel-N/reelN-<slug>.mp4` — no dash between "reel" and the
 number.
 
-## Step 4 — Build carousels
+---
+
+## Step 5 — Build carousels
 
 Same principle, static slides. Copy `content/carousel-post-1/make_carousel.py`
 into `/tmp`, adapt only topic content — headlines, slide count, rule citations —
-per `content/CAROUSEL_TEMPLATE.md` (cover → optional context/diagram slides →
-numbered topic/rules-detail pairs → closing). Visual system stays
-pixel-identical. Rule text verbatim from `rules.json`. Render SVG→PNG with
+per `content/CAROUSEL_TEMPLATE.md`. Visual system stays pixel-identical: reuse
+that script's code as-is rather than re-deriving the layout from the brand
+doc's prose. Rule text verbatim from `rules.json`. Render SVG→PNG with
 `convert -background "#0F1712" in.svg -resize <2.083x>! out.png`. Save as
 `NN_description.png` plus a `caption.md` following carousel-post-1's structure.
 
-## Step 5 — Verify before you believe it
+Two carousel shapes, both documented in `CAROUSEL_TEMPLATE.md`:
+
+- **Topic carousel** (carousel-post-1) — cover → optional context/diagram
+  slides → numbered topic/rules-detail pairs → closing.
+- **Weekly recap** (every Thursday) — cover → one slide per reel from the past
+  seven days → closing. Nine slides for a full week. Each recap slide carries
+  the lesson number, the reel's title, its one-line takeaway, and that
+  lesson's rule numbers in the standard citation footer.
+
+A recap slide is **not** a rules card: it cites rule numbers but does not quote
+rule text, so there is nothing on it to paraphrase. If you find yourself
+wanting to put rule text on a recap slide, you are re-teaching — cut it back to
+the takeaway. The "WFDF Rules of Ultimate 2025–2028" attribution still appears
+in the footer and the caption.
+
+---
+
+## Step 6 — Verify before you believe it
 
 A file existing is not evidence it is correct. For every asset you built or
 regenerated:
@@ -157,51 +288,81 @@ regenerated:
 - If a regeneration does not measurably improve on the cut it replaces, do not
   ship it. Report the measurement and stop.
 
+For every script you drafted or redrafted:
+
+- Every rule number you cite resolves in `rules.json`, and the text on the page
+  is byte-identical to it.
+- The attribution line and the fixed hashtag set are present.
+- No growth/reach/virality claim anywhere.
+- "Lesson N of 75" matches the lesson's actual curriculum position. Reels only
+  — a recap carousel has no lesson number of its own, and every lesson number
+  it cites must match the reel it is recapping.
+
 ### Feedback you must NOT act on
 
-If feedback needs different *words* — a new hook, reworded caption, different
-example — leave the row at "Content rejected — regenerate", change nothing, and
-flag that it is blocked on a copy fix from Min-Yi. Only visual/rendering
-execution is yours to change.
+Content-track feedback that needs different *words* is no longer a dead end —
+you own the copy now. But it is still a **script** change: redraft under Step 2,
+set the script track back to `pending`, and leave the content row where it is.
+Do not quietly rewrite copy and re-render in the same pass; she approves words
+before she sees them rendered.
 
 Before overwriting an asset, archive the current version alongside it with the
 next unused `.vN` suffix. The unsuffixed filename always holds the newest cut.
 Append `Regenerated: <today> (daily-reel-render)` to the feedback round you
 addressed, plus a one-line cause note.
 
-## Step 6 — Record state in all three places
+---
 
-**6a. `content/calendar.md`** — rows you built or successfully regenerated go to
-"Content pending review". Never set "Ready to post" or "Posted" — those are
-Min-Yi's alone. Rows blocked on copy keep their existing status.
+## Step 7 — Record state in all three places
 
-**6b. `content/review-state.json`** — read, modify only your posts' keys, write
-back. **Never overwrite wholesale**; it also holds desk approvals. For each post
-rendered:
+Everything you touched in Steps 1, 2, 4 and 5 lands here.
+
+**7a. `content/calendar.md`**
+
+- New drafts: append a row at **`Pending review`**, Posted `—`, Performance `—`.
+  Keep rows in date order.
+- Rows you built or successfully regenerated: **`Content pending review`**.
+- Rows you redrafted: **`Pending review`**.
+- Never set `Script approved`, `Ready to post` or `Posted` — all three are
+  Min-Yi's, via the desk.
+
+**7b. `content/review-state.json`** — read, modify only your posts' keys, write
+back. **Never overwrite wholesale**; it also holds desk approvals.
 
 ```json
-"reel-3": {"content": {"status": "in-review", "note": "", "tags": [],
+"reel-8": {"script":  {"status": "pending", "note": "", "tags": [],
+                       "updatedAt": "<ISO 8601 UTC>"},
+           "content": {"status": "awaiting-render", "note": "", "tags": [],
                        "updatedAt": "<ISO 8601 UTC>"}}
 ```
 
-Maintain a `revisions` array, newest last, one entry per cut. The last entry's
-`file` is the unsuffixed primary; earlier entries point at their `.vN`
-archives — update an older entry's `file` when it gets archived. `changed` must
-state concretely what differs ("Retimed to the house rhythm; 39.1s to 30.0s"),
-never "regenerated per feedback".
+For each post rendered, set `content.status` to `in-review` and maintain a
+`revisions` array, newest last, one entry per cut. The last entry's `file` is
+the unsuffixed primary; earlier entries point at their `.vN` archives — update
+an older entry's `file` when it gets archived. `changed` must state concretely
+what differs ("Retimed to the house rhythm; 39.1s to 30.0s"), never
+"regenerated per feedback".
 
-**6c. `social/dashboard/data.js`** — for each post rendered set `folder`,
-`video`, `typeDetail`, `duration`, `source`, `scenes`, and
+**7c. `social/dashboard/data.js`** — the desk's queue. For a new draft, append a
+`POSTS` object with `id`, `date`, `title`, `type`, `pillar`, `difficulty`,
+`lesson`, `rules`, `folder`, `source`, `sourceLesson`, the four-beat `script`
+object, `ig`, `tiktok`, `hashtags`, `notes`, `video: null`, `slides: null`,
+`scenes: null`, `postedDate: null`, and `review` as above. For a post rendered,
+set `video`, `typeDetail`, `duration`, `scenes` and
 `review.content = {status: 'in-review', on: '<today>'}`; drop stale `notes`
-saying the video is still to render. Plain JavaScript — a syntax error breaks
-the whole desk. Check it parses (`node --check`) and if its structure doesn't
-match, leave it alone and flag it.
+saying the video is still to render.
 
-**6d. Rebuild the desk** — `python social/dashboard/build_desk.py`. **This will
-fail in this sandbox** (`shutil.rmtree` → PermissionError). That is expected;
-it runs from `tools/sync.bat` in Step 7 instead. Do not try to work around it.
+Plain JavaScript — a syntax error breaks the whole desk. Check it parses
+(`node --check`) and if its structure doesn't match what's documented here,
+leave it alone and flag it.
 
-## Step 7 — Publish (you cannot do this alone)
+**7d. Rebuild the desk** — `python social/dashboard/build_desk.py`. **This will
+fail in this sandbox** (`shutil.rmtree` → PermissionError). That is expected; it
+runs from `tools/sync.bat` in Step 8 instead. Do not try to work around it.
+
+---
+
+## Step 8 — Publish (you cannot do this alone)
 
 You have no network. Do not fake success and do not silently skip this.
 
@@ -209,8 +370,41 @@ You have no network. Do not fake success and do not silently skip this.
    line 1, blank line, then body.
 2. Report, in the first line of your output, that **a push is required** and
    that Min-Yi should double-click `tools\sync.bat`. That script clears stale
-   git locks, pulls with rebase, rebuilds the desk, stages the explicit paths
-   only, commits with your message, rebases again and pushes.
+   git locks, rebuilds the desk, stages the explicit paths only, commits with
+   your message, pulls with rebase, and pushes — one pull, after the commit.
+
+### Expect a calendar.md conflict, and know how to resolve it
+
+`content/calendar.md` and `content/review-state.json` are the only two files
+both this task and the Worker write. You rebuild them from the snapshot you
+fetched in Step 0; the Worker rewrites rows every time Min-Yi approves, rejects
+or marks something posted during the day. **Any desk decision made between your
+Step 0 fetch and the push collides**, so a conflict on those two files is a
+normal event, not a malfunction. `review-state.json` is keyed per post and
+almost always auto-merges; `calendar.md` is a single table and usually does not.
+
+The resolution rule is deterministic — put it in your report whenever a
+conflict is likely:
+
+- **Rows that already existed: the remote/desk version wins.** It reflects a
+  decision Min-Yi made after your fetch, so it is newer and truer than yours.
+- **Rows this run newly appended: keep the local version.** The remote has
+  never seen them.
+
+`sync.bat` stops before pushing when it lands mid-rebase and prints that rule.
+`tools\finish_rebase.bat` stages the resolution, continues, and pushes.
+
+### Two failure modes that have already bitten this pipeline
+
+- **A `git add` pathspec that matches nothing is fatal and aborts the whole
+  invocation**, silently dropping every later pattern on the same line. On
+  2026-08-11 a missing `script-feedback.md` took the `.mp4` and `.py` patterns
+  down with it. `sync.bat` therefore uses one `git add` per pattern. If you add
+  a new file type to the pipeline, give it its own line.
+- **`%ERRORLEVEL%` inside a parenthesised batch block expands at parse time**,
+  so it reports a stale value. The log said `push rc=0` directly beneath a
+  rejected push. `sync.bat` uses `setlocal enabledelayedexpansion` and
+  `!ERRORLEVEL!`. Never trust an rc from a script that does not.
 3. If you are running inside an interactive chat rather than the schedule, you
    may instead drive `tools\sync.bat` yourself via File Explorer with
    computer-use, then read `tools\_last_sync.log` and report the resulting SHA.
@@ -219,34 +413,43 @@ You have no network. Do not fake success and do not silently skip this.
 are ~1,800 files and 116 MB. `.gitignore` covers them; explicit paths keep it
 that way.
 
-Until `tools\sync.bat` runs, nothing you built is visible to GitHub or the
-Content Desk. A render nobody can see is the same as no render.
+Until `tools\sync.bat` runs, nothing you drafted or built is visible to GitHub
+or the Content Desk. **A script nobody can see cannot be approved, and the
+queue stalls a day later.** This matters more now than it did when the task only
+rendered: drafting is upstream of everything.
 
-## Step 8 — Report
+---
 
-State plainly: what was built, what was regenerated (with the feedback each
-addressed and the before/after measurement), what is blocked on a copy fix,
-what now sits in "Content pending review", and **whether the push has
+## Step 9 — Report
+
+State plainly: what was drafted (topic, lesson number, date it covers), what was
+redrafted and against which note, what was built, what was regenerated (with the
+feedback each addressed and the before/after measurement), what now sits at
+`Pending review` versus `Content pending review`, and **whether the push has
 happened** — SHA if yes, "PUSH REQUIRED" if not.
 
-Also flag if either is true:
+Also flag if any of these is true:
 
-- Fewer than 2 rows are "Ready to post" — the queue is running low.
-- Zero rows are in "Script approved", "Content pending review" or "Content
-  rejected — regenerate" — the pipeline is empty and a new batch of 7 needs
-  script approval, pulled in curriculum order from the lessons JSONs and
-  formatted like `content/pending-review/week-1-reels.md`. Do not draft it
-  yourself; new copy needs her approval first.
+- Fewer than 2 rows are "Ready to post" — the postable queue is running low.
+- More than 5 rows sit at `Pending review` — drafts are piling up faster than
+  they're being approved, which usually means the desk hasn't been opened in a
+  few days. Say so; don't just keep drafting into the void.
+- A lesson's `rules` array cites a number missing from `rules.json`.
+- You have run out of lessons in `lessons-{1,2,3}.json`.
+
+---
 
 ## Constraints
 
 - Never post to any social platform — there is no posting integration.
-- Never mark anything "Ready to post" or "Posted".
-- Never invent, edit or paraphrase script/caption copy.
+- **Never approve anything.** Never mark "Script approved", "Ready to post" or
+  "Posted". Both gates are Min-Yi's, worked from the Content Desk.
+- Draft freely, but never invent rules text — it is quoted verbatim from
+  `rules.json` or it doesn't ship.
 - Never commit intermediate render output; never `git add` a whole directory.
 - Never overwrite `review-state.json` wholesale.
-- Every rules card quotes WFDF text verbatim from `rules.json`, with the
-  "WFDF Rules of Ultimate 2025–2028" + rule-number footer.
+- Every rules card quotes WFDF text verbatim, with the "WFDF Rules of Ultimate
+  2025–2028" + rule-number footer.
 - No growth, reach or virality promises anywhere.
 - Never report a healthy queue you did not actually verify against GitHub.
 - This run is non-interactive — do not wait for confirmation, but do not skip a
