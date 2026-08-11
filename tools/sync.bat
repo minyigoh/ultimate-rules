@@ -85,6 +85,11 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM unstick_rebase.bat was written on 2026-08-11 to break the finish_rebase
+  REM loop, but was never added to this list -- so it stayed untracked and no
+  REM run could ever push it. A helper that only exists on one machine is not
+  REM a helper. Its own line, so a missing file cannot abort the invocation.
+  %GIT% add tools/unstick_rebase.bat
   %GIT% diff --cached --stat
   echo.
 
