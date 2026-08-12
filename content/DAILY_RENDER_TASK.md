@@ -364,23 +364,37 @@ the `_readme` key, write the file back:
 }
 ```
 
-`tools/apply_additions.py` drains this during `sync.bat`. It only ever **adds**:
-a calendar row already present (keyed on date + post title, same as the Worker)
-or a review-state key already present (keyed on post id) is left exactly as the
-desk left it. Re-running it is a no-op, so a retried sync cannot double-post a
+`tools/apply_additions.py` drains this during `sync.bat`. A calendar row already
+present (keyed on date + post title, same as the Worker) is left exactly as the
+desk left it, and so is an existing review-state key — **with one exception, the
+render flip.** Re-running it is a no-op, so a retried sync cannot double-post a
 row. Status vocabulary is unchanged — `Pending review` for new drafts and
 redrafts, `Content pending review` for anything you built or regenerated, and
 never `Script approved` / `Ready to post` / `Posted`.
 
-**Rendered posts are the one case that needs an existing key changed** — the
-`content.status` → `in-review` flip and the `revisions` array. Queue those in
-`review_state` too, under the same post id, with the **complete** entry as it
-should end up: `apply_additions.py` skips keys that already exist, so say so in
-your report and Min-Yi will apply it. Keep maintaining `revisions` newest-last,
-one entry per cut; the last entry's `file` is the unsuffixed primary, earlier
-ones point at their `.vN` archives. `changed` must state concretely what differs
-("Retimed to the house rhythm; 39.1s to 30.0s"), never "regenerated per
-feedback".
+**Rendered posts need an existing key changed** — the `content.status` →
+`in-review` flip and the `revisions` array. Queue those in `review_state` under
+the same post id. Since 2026-08-12 `apply_additions.py` applies them: it allows
+`awaiting-render → in-review` and `rerender → in-review`, and appends revision
+entries it hasn't seen (keyed on `v` + `file`). It still refuses everything else
+— it will not write `approved`, will not touch the script or posted tracks of an
+existing key, and will not add a brand-new key that arrives pre-approved. So the
+flip no longer needs a manual step, but it also still cannot approve anything.
+
+For an existing key, queue **only what changes** — the `content` track and
+`revisions`. A queued `script` block is ignored (and logged), because the desk
+owns it.
+
+Before 2026-08-12 this was skipped silently and then lost when the queue
+drained, so reel-8, reel-9 and carousel-post-2 all sat at "Not yet rendered"
+with finished media in the repo, invisible in the content-review queue. If you
+see that symptom again, check the `review-state:` lines in
+`tools\_last_sync.log` first.
+
+Keep maintaining `revisions` newest-last, one entry per cut; the last entry's
+`file` is the unsuffixed primary, earlier ones point at their `.vN` archives.
+`changed` must state concretely what differs ("Retimed to the house rhythm;
+39.1s to 30.0s"), never "regenerated per feedback".
 
 Reading those two files is still fine and still necessary — just read the
 **authoritative** copies from Step 0, never the local checkout, and never write
