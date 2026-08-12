@@ -104,6 +104,10 @@ if exist ".git\rebase-apply" goto :midrebase
   REM run could ever push it. A helper that only exists on one machine is not
   REM a helper. Its own line, so a missing file cannot abort the invocation.
   %GIT% add tools/unstick_rebase.bat
+  REM take_desk_version.bat, same reasoning as the line above: it resolves the
+  REM review-state.json conflict in the Desk's favour, which is the one git
+  REM command in this pipeline whose --ours/--theirs sense is inverted.
+  %GIT% add tools/take_desk_version.bat
   %GIT% diff --cached --stat
   echo.
 
