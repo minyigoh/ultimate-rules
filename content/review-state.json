@@ -212,5 +212,19 @@
       "tags": [],
       "updatedAt": "2026-08-11T09:18:44.000Z"
     }
+  },
+  "reel-10": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T23:07:10.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-11T23:07:10.000Z"
+    }
   }
 }
