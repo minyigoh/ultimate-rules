@@ -188,7 +188,16 @@
       "status": "posted",
       "date": "2026-08-12",
       "updatedAt": "2026-08-12T22:51:56.112Z"
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-11",
+        "duration": "29.5s",
+        "file": "reel8-a-catch-and-possession-are-not-the-same-thing.mp4",
+        "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py; 29.50s."
+      }
+    ]
   },
   "carousel-post-2": {
     "script": {
@@ -207,7 +216,16 @@
       "status": "posted",
       "date": "2026-08-12",
       "updatedAt": "2026-08-12T22:42:51.307Z"
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-12",
+        "duration": "9 slides",
+        "file": "01_cover.png … 09_closing.png",
+        "changed": "Initial render of the first weekly recap, from the lessons 1-7 redraft. Nine slides at 2250x2812, rule numbers only, no rule text."
+      }
+    ]
   },
   "reel-9": {
     "script": {
@@ -221,7 +239,16 @@
       "note": "",
       "tags": [],
       "updatedAt": "2026-08-12T23:29:21.513Z"
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-12",
+        "duration": "29.5s",
+        "file": "reel9-where-your-feet-have-to-be.mp4",
+        "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py."
+      }
+    ]
   },
   "reel-10": {
     "script": {
@@ -231,10 +258,33 @@
       "updatedAt": "2026-08-12T23:29:58.416Z"
     },
     "content": {
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-12T23:44:49.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-13",
+        "duration": "29.5s",
+        "file": "reel10-youre-allowed-to-leave-the-field.mp4",
+        "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py; 11.6, 11.7 and 11.2 quoted verbatim from rules.json."
+      }
+    ]
+  },
+  "reel-11": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-12T23:44:49.000Z"
+    },
+    "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-11T23:07:10.000Z"
+      "updatedAt": "2026-08-12T23:44:49.000Z"
     }
   }
 }
