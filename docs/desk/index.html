@@ -1100,21 +1100,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-15',
     title: "You're allowed to leave the field",
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 10,
+    duration: '~28s script / 29.5s cut',
     rules: ['11.6', '11.7', '11.2'],
     review: {
-      script:  {status: 'pending', on: '2026-08-12'},
-      content: {status: 'awaiting-render', on: null}
+      script:  {status: 'approved', on: '2026-08-12'},
+      content: {status: 'in-review', on: '2026-08-13'}
     },
     postedDate: null,
     folder: 'reel-10',
     source: 'content/reel-10/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json (tag: Possession)',
-    video: null,
+    video: 'reel10-youre-allowed-to-leave-the-field.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"You\'re allowed to leave the field" · kicker BEGINNER · LESSON 10 / 75'],
+      ['2', '#1 THE DISC CAN COME BACK', '"Outside the line isn\'t out yet." · footer cites 11.6 · 11.7'],
+      ['3', 'Rules detail', 'Verbatim 11.7'],
+      ['4', '#2 WHAT ACTUALLY PUTS IT OUT', '"Ground, or an out-of-bounds receiver." · footer cites 11.6'],
+      ['5', 'Rules detail', 'Verbatim 11.6'],
+      ['6', '#3 DEFENDERS ARE ALWAYS IN', '"The rule only constrains the offence." · footer cites 11.2'],
+      ['7', 'Rules detail', 'Verbatim 11.2'],
+      ['8', 'FIELD TIP', '"Chase the ones that look gone"'],
+      ['9', 'Closing', '"Lesson 10 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `The disc can fly out and come back. So can you.`,
       explanation: `A throw that curves outside the sideline and back over the field never went out. The disc is only out-of-bounds once it actually touches out-of-bounds ground, or an offensive player who is standing out there. And you're explicitly allowed to run off the field to make a play on it.`,
@@ -1137,9 +1149,59 @@ and defenders are always "in-bounds" — they can stand off the field and still 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-12 by the daily task. Awaiting script review.',
+      'Rendered 2026-08-13 by the daily task: nine scenes, 29.5s, exact CFR via encode.py.',
       'Direct sequel to Lesson 9: that one covered where your feet are, this one covers where the disc is.',
-      '11.6 is three sentences long — check the projected runtime before adding anything else to its detail card.'
+      '11.6 is three sentences long and wraps to nine lines on its detail card — it fits, but there is no room left on that slide.'
+    ]
+  },
+
+  {
+    id: 'reel-11',
+    date: '2026-08-16',
+    title: 'Tie goes to the offence',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 11,
+    rules: ['12.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-13'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-11',
+    source: 'content/reel-11/script-and-caption.md',
+    sourceLesson: 'content/lessons-1.json (tag: Possession)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You both caught it at the same time. Who gets it?`,
+      explanation: `The offence. If an offensive and a defensive player catch the disc simultaneously, the offence retains possession. That's the whole rule — one sentence, no subclauses, no judgement about who had more of it.`,
+      example: `The word doing the work is "simultaneously". If you got two hands on it first and the defender arrived onto your hands a beat later, that isn't a tie — that's your catch, and it was always your catch. The tie-breaker only applies when it genuinely was a tie, which is rarer than it feels in the moment.`,
+      cta: `Lesson 11 of 75 — new lesson daily.`
+    },
+    ig: `You both came down holding it. Who gets it?
+
+The offence. If an offensive and a defensive player catch the disc simultaneously, the offence retains possession — that's the entire rule, one sentence long.
+
+What trips people up is the word "simultaneously". It is not a question of who had more of the disc, or whose grip was better. If you got hands on it first and the defender arrived a beat later, it was never a tie at all — it was your catch. The rule only decides the genuine dead heat, which happens far less often than it feels like on the field.
+
+So the honest question on the ground isn't "whose is it?" It's "did you have it first?" Say what you saw, listen to what they saw, and restart quickly.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `you both caught it. offence keeps it. that's the whole rule 🥏
+
+but "simultaneously" is doing a lot of work there — if you had hands on it first, it was never a tie
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-13 by the daily task. Awaiting script review.',
+      'One-rule lesson: 12.3 is a single sentence and the lesson brief cites nothing else, so all three topic scenes foot to the same citation. Seven scenes projects to ~29s. Alternatives in the script notes — I did not add 12.1 on my own initiative.',
+      'Pairs with Lesson 8, which established what a catch actually is.'
     ]
   }
 ];
