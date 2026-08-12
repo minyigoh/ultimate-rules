@@ -275,10 +275,10 @@
   },
   "reel-11": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T23:44:49.000Z"
+      "updatedAt": "2026-08-12T23:55:20.452Z"
     },
     "content": {
       "status": "awaiting-render",

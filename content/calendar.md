@@ -14,7 +14,7 @@
 | 2026-08-13 | A catch and possession are not the same thing | Reel | Posted | 2026-08-12 | — |
 | 2026-08-14 | Where your feet have to be | Reel | Ready to post | — | — |
 | 2026-08-15 | You're allowed to leave the field | Reel | Script approved | — | — |
-| 2026-08-16 | Tie goes to the offence | Reel | Pending review | — | — |
+| 2026-08-16 | Tie goes to the offence | Reel | Script approved | — | — |
 
 ## Status legend
 
