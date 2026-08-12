@@ -91,6 +91,11 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/script-and-caption*.md"
   %GIT% add "content/carousel-post-*/caption.md"
   %GIT% add "content/carousel-post-*/*.png"
+  REM The .svg sources are tracked for carousel-post-1 but this line was missing,
+  REM so carousel-post-2's nine SVGs would have stayed untracked and unpushed --
+  REM the PNGs are the deliverable, but without the SVGs no later run can edit a
+  REM slide without re-deriving it. Its own line, per the rule above.
+  %GIT% add "content/carousel-post-*/*.svg"
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore

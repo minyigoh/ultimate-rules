@@ -1,7 +1,7 @@
 # Carousel 2 — "Seven lessons, one week" (weekly recap)
 
-**Status:** Pending review
-**Script drafted:** 2026-08-11 (daily-reel-render) · **Redrafted:** 2026-08-11 · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-08-11 (daily-reel-render) · **Redrafted:** 2026-08-11 · **Script approved:** 2026-08-11 · **Rendered:** 2026-08-12
 **Queued:** 2026-08-13 (see `content/calendar.md`) — posts alongside Reel 8
 **Difficulty:** Mixed (never played → intermediate)
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 — rule numbers cited, no rule text

@@ -1,7 +1,7 @@
 # Reel 9 — "Where your feet have to be"
 
-**Status:** Pending review
-**Script drafted:** 2026-08-11 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-08-11 (daily-reel-render) · **Script approved:** 2026-08-11 · **Rendered:** 2026-08-12 (29.5s)
 **Queued:** 2026-08-14 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (11.3, 11.3.1, 11.3.2, 11.4)
