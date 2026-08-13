@@ -386,7 +386,7 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
   <div class="stats" id="stats"></div>
   <button class="hbtn" id="briefBtn">Brand brief</button>
   <button class="hbtn" id="queueBtn">Render queue</button>
-  <button class="hbtn primary" id="exportBtn">Export decisions</button>
+  <button class="hbtn primary" id="unsyncedBtn" hidden>Unsynced</button>
 </header>
 
 <div class="wrap">
@@ -422,7 +422,16 @@ const PFP        = '../logos/profile/luf/learn-ultimate-frisbee-pfp-bold-final.p
 
 const STORE = 'luf-content-desk-v2';
 const STORE_V1 = 'luf-content-desk-v1';
-const TODAY = new Date().toISOString().slice(0,10);
+/* Local calendar date, not UTC. toISOString() reports UTC, so anywhere east of
+   Greenwich the desk spent the first hours of every day still calling it
+   yesterday — at UTC+8 that meant midnight to 08:00 local, which is exactly
+   when the morning review happens. fmtDate() already parses as local, so this
+   also stops the two disagreeing. */
+const TODAY = (() => {
+  const d = new Date();
+  const p = n => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+})();
 
 const mediaURL = (folder, file) => MEDIA_BASE + folder + '/' + file;
 const isMobile = () => window.matchMedia('(max-width:900px)').matches;
@@ -504,7 +513,10 @@ async function syncToRepo(p, trackName, value){
         passphrase: pass,
         postId: p.id, postDate: p.date, postTitle: p.title, folder: p.folder,
         track: trackName, status: value.status, note: value.note || '', tags: value.tags || [],
-        calendarLabel: calendarStatus(p), postedDate: postedOn(p) || null
+        calendarLabel: calendarStatus(p), postedDate: postedOn(p) || null,
+        // The Worker runs on UTC edge nodes; feedback rounds should be dated
+        // in the reviewer's day, not Cloudflare's.
+        localDate: TODAY
       })
     });
     if (res.status === 401){
@@ -839,6 +851,12 @@ function renderStats(){
   const urgent = q.filter(x => x.urgent).length;
   $('#queueBtn').innerHTML = 'Render queue' +
     (q.length ? `<span class="badge">${q.length}${urgent ? '!' : ''}</span>` : '');
+
+  // Only surfaces when something genuinely failed to reach the repo.
+  const pending = unsyncedPosts();
+  const btn = $('#unsyncedBtn');
+  btn.hidden = pending.length === 0;
+  btn.innerHTML = `Unsynced<span class="badge">${pending.length}</span>`;
 }
 
 /* ---------- queue ---------- */
@@ -883,8 +901,34 @@ function visible(){
   return POSTS.filter(p => fn(p) && (!query || haystack(p).includes(query)));
 }
 
+/* Today first, then what's coming, then the archive — which only grows, so it
+   belongs at the bottom rather than pushing live work off the top. Scheduled
+   runs soonest-first; Published runs newest-first, since recent posts are the
+   ones worth glancing back at. */
+const GROUPS = ['Today', 'Scheduled', 'Published'];
+const groupOf = p => p.date === TODAY ? 'Today' : p.date > TODAY ? 'Scheduled' : 'Published';
+
+function sortForQueue(items){
+  return [...items].sort((a, b) => {
+    const ga = GROUPS.indexOf(groupOf(a)), gb = GROUPS.indexOf(groupOf(b));
+    if (ga !== gb) return ga - gb;
+    return groupOf(a) === 'Published'
+      ? b.date.localeCompare(a.date)
+      : a.date.localeCompare(b.date);
+  });
+}
+
+/* "Reel 3" / "Carousel 2" rather than just the format — the number is how
+   these get referred to everywhere else (folders, filenames, the render task's
+   reports), so the queue should speak the same way. */
+function postLabel(p){
+  const m = /^(reel|carousel-post)-(\d+)$/.exec(p.id);
+  if (!m) return p.type;
+  return (m[1] === 'reel' ? 'Reel ' : 'Carousel ') + m[2];
+}
+
 function renderList(){
-  const items = visible();
+  const items = sortForQueue(visible());
   const list = $('#list');
   if (!items.length){
     list.innerHTML = `<p style="color:var(--faint);font-size:13px;padding:10px 2px">Nothing matches.</p>`;
@@ -892,7 +936,7 @@ function renderList(){
   }
   let html = '', lastGroup = '';
   for (const p of items){
-    const g = p.date < TODAY ? 'Published' : p.date === TODAY ? 'Today' : 'Scheduled';
+    const g = groupOf(p);
     if (g !== lastGroup){ html += `<div class="daygroup">${g}</div>`; lastGroup = g; }
 
     const stage = stageOf(p), meta = STAGES[stage];
@@ -906,7 +950,8 @@ function renderList(){
               aria-current="${p.id === selected}">
         <div class="top">
           <span class="date">${esc(fmtDate(p.date))}</span>
-          <span class="kind${p.date===TODAY?' today':''}">${p.date===TODAY?'Today':esc(p.type)}</span>
+          <span class="kind">${esc(postLabel(p))}</span>
+          ${p.date === TODAY ? '<span class="kind today">Today</span>' : ''}
         </div>
         <h3>${esc(p.title)}</h3>
         <div class="foot">
@@ -978,7 +1023,7 @@ function renderDetail(preserveScroll){
     <h2>${esc(p.title)}</h2>
     <div class="meta">
       <span class="chip"><b>${esc(fmtDate(p.date))}</b> ${p.date === TODAY ? '· today' : ''}</span>
-      <span class="chip">${esc(p.type)}${p.typeDetail ? ' · ' + esc(p.typeDetail) : ''}</span>
+      <span class="chip"><b>${esc(postLabel(p))}</b>${p.typeDetail ? ' · ' + esc(p.typeDetail) : ''}</span>
       ${p.lesson ? `<span class="chip">Lesson <b>${p.lesson}</b> / 75</span>` : ''}
       <span class="chip">${esc(p.difficulty)}</span>
       <span class="chip">${esc(p.pillar)} pillar</span>
@@ -1396,128 +1441,80 @@ $('#queueBtn').addEventListener('click', () => {
   }
 
   $('#modalBody').innerHTML = body;
-  $('#modalFoot').innerHTML = `
-    <button class="hbtn primary" id="cpQueue">Copy queue JSON</button>
-    <button class="hbtn" data-close style="margin-left:auto">Close</button>`;
-  $('#cpQueue').onclick = () => copy(queueJSON(), 'Render queue');
+  // No "copy JSON" here any more: the render task reads calendar.md and
+  // feedback.md, both of which the Worker keeps current, so a hand-carried
+  // render-queue.json was a second source of truth nothing consumed.
+  $('#modalFoot').innerHTML =
+    `<button class="hbtn" data-close style="margin-left:auto">Close</button>`;
   $('#modal').showModal();
 });
 
-function queueJSON(){
-  return JSON.stringify({
-    generated: new Date().toISOString(),
-    note: 'Consumed by the scheduled reel-render task. Order is significant: urgent first, then by post date.',
-    queue: renderQueue().map(x => ({
-      id: x.post.id,
-      date: x.post.date,
-      title: x.post.title,
-      type: x.post.type,
-      action: x.action,
-      priority: x.urgent ? 'next-run' : 'scheduled',
-      alreadyPosted: x.posted,
-      scriptSource: x.post.source,
-      sourceLesson: x.post.sourceLesson,
-      rules: x.post.rules,
-      feedback: x.action === 'rerender' ? {issues: x.tags, note: x.note} : null
-    }))
-  }, null, 2);
+/* ---------- unsynced decisions ----------
+   This replaced "Export decisions", which existed when the desk had no way to
+   reach the repo: it printed a calendar table and feedback blocks for you to
+   paste back by hand. The Worker now writes calendar.md, review-state.json and
+   feedback.md itself on every click, so all of that was not just redundant but
+   actively misleading — it opened by telling you a scheduled task could not
+   see your decisions, which stopped being true.
+
+   What remains is the failure case: offline, a wrong passphrase, the Worker
+   down. Those decisions sit in localStorage, get retried on next load, and
+   this is where you can see and force them. The button stays hidden while
+   there is nothing to show. */
+function unsyncedPosts(){
+  return SYNC_URL ? POSTS.filter(overridden) : [];
 }
 
-/* ---------- export ----------
-   Two artefacts, both in the shapes content/CONTENT_REVIEW.md already defines:
-   the calendar table, and per-post feedback.md rounds. Those are what the
-   render task reads — render-queue.json below is a convenience on top, not a
-   replacement for them. */
-function exportCalendar(){
-  let md = `| Queued | Post | Type | Status | Posted | Performance |\n|---|---|---|---|---|---|\n`;
-  for (const p of [...POSTS].sort((a,b) => a.date.localeCompare(b.date))){
-    const name = p.type === 'Carousel' ? `${p.folder} — "${p.title}"` : p.title;
-    md += `| ${p.date} | ${name} | ${p.type}${p.type === 'Carousel' ? ' (' + p.slides.length + ' slides)' : ''}`
-        + ` | ${calendarStatus(p)} | ${postedOn(p) || '—'} | — |\n`;
+function describePending(p){
+  const bits = [];
+  if (scriptStatus(p) !== baseline(p,'script').status || scriptNote(p).trim())
+    bits.push(`script → ${SCRIPT_STATUS[scriptStatus(p)].label}` +
+              (scriptNote(p).trim() ? ` (“${scriptNote(p).trim()}”)` : ''));
+  if (contentStatus(p) !== baseline(p,'content').status || contentNote(p).trim() || contentTags(p).length)
+    bits.push(`content → ${CONTENT_STATUS[contentStatus(p)].label}` +
+              (contentTags(p).length ? ` [${contentTags(p).join(', ')}]` : '') +
+              (contentNote(p).trim() ? ` (“${contentNote(p).trim()}”)` : ''));
+  if (postedOn(p) !== p.postedDate)
+    bits.push(postedOn(p) ? `marked posted ${postedOn(p)}` : 'un-marked as posted');
+  return bits;
+}
+
+$('#unsyncedBtn').addEventListener('click', () => {
+  const pending = unsyncedPosts();
+  $('#modalTitle').textContent = 'Unsynced decisions';
+
+  if (!pending.length){
+    $('#modalBody').innerHTML = `<div class="lockmsg">Everything is synced.</div>`;
+  } else {
+    $('#modalBody').innerHTML = `
+      <p class="hint">These never reached the repo — usually no connection, or a
+        wrong passphrase. They're kept in this browser and retried automatically
+        each time the desk loads. <b>Retry now</b> forces another attempt; the
+        text below is a last resort if it keeps failing.</p>
+      ${pending.map(p => `<div class="rq">
+        <div class="rqh"><b>${esc(p.title)}</b>
+          <span class="chip">${esc(postLabel(p))}</span>
+          <span class="chip">${esc(p.date)}</span></div>
+        <div class="why">${describePending(p).map(esc).join('<br>')}</div>
+      </div>`).join('')}`;
   }
-  return md;
-}
 
-function exportFeedback(){
-  const out = [];
-  for (const p of POSTS){
-    if (contentStatus(p) !== 'rerender') continue;
-    const body = [contentTags(p).length ? contentTags(p).join(', ') + '.' : '', contentNote(p)]
-      .filter(x => x && x.trim()).join(' ') || 'Rejected — no detail given.';
-    out.push(`# content/${p.folder || p.id}/feedback.md\n\n`
-           + `## Round 1 — ${TODAY} — REJECTED\n${body}\n`);
-  }
-  return out.length ? out.join('\n') : 'No cuts are currently sent back, so there is nothing to log.\n';
-}
+  $('#modalFoot').innerHTML = pending.length
+    ? `<button class="hbtn primary" id="retrySync">Retry now</button>
+       <button class="hbtn" id="cpPending">Copy as text</button>
+       <button class="hbtn" data-close style="margin-left:auto">Close</button>`
+    : `<button class="hbtn" data-close style="margin-left:auto">Close</button>`;
 
-function exportDecisions(){
-  const changed = POSTS.filter(overridden);
-  const stamp = new Date().toISOString().slice(0,16).replace('T',' ');
-  let md = `# Review decisions — ${stamp}\n\n`;
-  if (!changed.length) return md + `No decisions differ from what the repo already records.\n`;
+  const retry = $('#retrySync');
+  if (retry) retry.onclick = () => { syncSweep(); $('#modal').close(); };
+  const cp = $('#cpPending');
+  if (cp) cp.onclick = () => copy(
+    pending.map(p => `${p.date} — ${p.title} (${postLabel(p)})\n  ` +
+                     describePending(p).join('\n  ')).join('\n\n'),
+    'Pending decisions');
 
-  md += `| Date | Post | Gate | Repo | Your call | Note |\n|---|---|---|---|---|---|\n`;
-  for (const p of changed){
-    const rows = [];
-    if (scriptStatus(p) !== p.review.script.status || scriptNote(p).trim())
-      rows.push(['Script', SCRIPT_STATUS[p.review.script.status].label,
-                 SCRIPT_STATUS[scriptStatus(p)].label, scriptNote(p)]);
-    if (contentStatus(p) !== p.review.content.status || contentNote(p).trim() || contentTags(p).length)
-      rows.push(['Content', CONTENT_STATUS[p.review.content.status].label,
-                 CONTENT_STATUS[contentStatus(p)].label,
-                 [contentTags(p).join(', '), contentNote(p)].filter(Boolean).join(' — ')]);
-    for (const [t, was, now, note] of rows){
-      const n = (note || '—').replace(/\|/g,'\\|').replace(/\n+/g,' ');
-      md += `| ${p.date} | ${p.title} | ${t} | ${was} | ${now} | ${n} |\n`;
-    }
-  }
-  return md;
-}
-
-$('#exportBtn').addEventListener('click', () => {
-  const cal = exportCalendar();
-  const fb = exportFeedback();
-  const dec = exportDecisions();
-  const qj = queueJSON();
-  $('#modalTitle').textContent = 'Export decisions';
-  $('#modalBody').innerHTML = `
-    <p class="hint">Your clicks live in this browser only — a scheduled task
-      cannot read them. These blocks are the handoff, in the shapes
-      <span class="src">content/CONTENT_REVIEW.md</span> already defines. Paste
-      them to Claude and say "apply these", or edit the files yourself.</p>
-    <h4>1 · Calendar table → content/calendar.md</h4>
-    <pre>${esc(cal)}</pre>
-    <h4>2 · Rejection feedback → content/&lt;post&gt;/feedback.md</h4>
-    <pre>${esc(fb)}</pre>
-    <h4>3 · What changed since the repo</h4>
-    <pre>${esc(dec)}</pre>
-    <h4>4 · Machine-readable queue (optional)</h4>
-    <p class="hint" style="margin-top:-6px">A convenience for the render task.
-      calendar.md and feedback.md remain authoritative.</p>
-    <pre>${esc(qj)}</pre>`;
-  $('#modalFoot').innerHTML = `
-    <button class="hbtn primary" id="cpCal">Copy calendar</button>
-    <button class="hbtn" id="cpFb">Copy feedback</button>
-    <button class="hbtn" id="cpQ">Copy queue JSON</button>
-    <button class="hbtn" id="dlAll">Download all</button>
-    <button class="hbtn" data-close style="margin-left:auto">Close</button>`;
-  $('#cpCal').onclick = () => copy(cal, 'Calendar table');
-  $('#cpFb').onclick = () => copy(fb, 'Feedback');
-  $('#cpQ').onclick = () => copy(qj, 'Render queue');
-  $('#dlAll').onclick = () => {
-    dl(cal + '\n' + fb + '\n' + dec, `review-${TODAY}.md`, 'text/markdown');
-    dl(qj, `render-queue-${TODAY}.json`, 'application/json');
-  };
   $('#modal').showModal();
 });
-
-function dl(text, name, type){
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([text], {type}));
-  a.download = name;
-  a.click();
-  URL.revokeObjectURL(a.href);
-}
 
 $('#briefBtn').addEventListener('click', () => {
   $('#modalTitle').textContent = 'Brand brief';
@@ -1547,7 +1544,7 @@ document.addEventListener('keydown', e => {
   if (e.key === '/' && !typing){ e.preventDefault(); $('#search').focus(); return; }
   if (typing || e.metaKey || e.ctrlKey || e.altKey) return;
   if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-  const items = visible();
+  const items = sortForQueue(visible());   // must match what the queue displays
   if (!items.length) return;
   e.preventDefault();
   const i = items.findIndex(p => p.id === selected);

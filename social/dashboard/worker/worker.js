@@ -96,7 +96,10 @@ export default {
         const fbFile = await gh.getFile(fbPath).catch(() => null);
         const existing = fbFile ? fbFile.text : '';
         const round = (existing.match(/^## Round \d+/gm) || []).length + 1;
-        const today = new Date().toISOString().slice(0, 10);
+        // The desk sends its own calendar date; this Worker runs on UTC edge
+        // nodes, so deriving it here would date a round to the wrong day for
+        // any reviewer east of Greenwich. Fall back only if it's absent.
+        const today = body.localDate || new Date().toISOString().slice(0, 10);
         const bodyText = [tags && tags.length ? tags.join(', ') + '.' : '', note || '']
           .filter(Boolean).join(' ') || 'Rejected — no detail given.';
         const block = `## Round ${round} — ${today} — REJECTED\n${bodyText}\n`;
