@@ -248,7 +248,12 @@
         "file": "reel9-where-your-feet-have-to-be.mp4",
         "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-14",
+      "updatedAt": "2026-08-13T23:44:13.611Z"
+    }
   },
   "reel-10": {
     "script": {
