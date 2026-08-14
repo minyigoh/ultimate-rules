@@ -276,7 +276,12 @@
         "file": "reel10-youre-allowed-to-leave-the-field.mp4",
         "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py; 11.6, 11.7 and 11.2 quoted verbatim from rules.json."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-15",
+      "updatedAt": "2026-08-14T23:28:25.439Z"
+    }
   },
   "reel-11": {
     "script": {

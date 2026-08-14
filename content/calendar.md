@@ -13,7 +13,7 @@
 | 2026-08-13 | carousel-post-2 — "Seven lessons, one week" | Carousel (9 slides) | Posted | 2026-08-12 | — |
 | 2026-08-13 | A catch and possession are not the same thing | Reel | Posted | 2026-08-12 | — |
 | 2026-08-14 | Where your feet have to be | Reel | Posted | 2026-08-14 | — |
-| 2026-08-15 | You're allowed to leave the field | Reel | Ready to post | — | — |
+| 2026-08-15 | You're allowed to leave the field | Reel | Posted | 2026-08-15 | — |
 | 2026-08-16 | Tie goes to the offence | Reel | Content rejected — regenerate | — | — |
 | 2026-08-17 | What actually counts as a goal | Reel | Script approved | — | — |
 
