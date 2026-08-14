@@ -12,3 +12,6 @@ The word tie can be misleadingly
 
 ## Round 5 — 2026-08-14 — REJECTED
 The word tie can be misleadingly referring
+
+## Round 6 — 2026-08-14 — REJECTED
+The word tie can be misleadingly referring to the score
