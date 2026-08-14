@@ -303,10 +303,10 @@
   },
   "reel-12": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-13T22:40:55Z"
+      "updatedAt": "2026-08-14T07:23:24.218Z"
     },
     "content": {
       "status": "awaiting-render",
