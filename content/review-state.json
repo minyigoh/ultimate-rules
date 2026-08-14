@@ -286,10 +286,10 @@
       "updatedAt": "2026-08-12T23:55:20.452Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "rerender",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-13T22:40:55Z"
+      "updatedAt": "2026-08-14T07:21:43.408Z"
     },
     "revisions": [
       {
