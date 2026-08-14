@@ -286,10 +286,33 @@
       "updatedAt": "2026-08-12T23:55:20.452Z"
     },
     "content": {
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-13T22:40:55Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-14",
+        "duration": "28.3s",
+        "file": "reel11-tie-goes-to-the-offence.mp4",
+        "changed": "Initial render from the approved script. Seven scenes (one-rule lesson), exact CFR via encode.py; 28.33s. 12.3 quoted verbatim from rules.json."
+      }
+    ]
+  },
+  "reel-12": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-13T22:40:55Z"
+    },
+    "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T23:44:49.000Z"
+      "updatedAt": "2026-08-13T22:40:55Z"
     }
   }
 }
