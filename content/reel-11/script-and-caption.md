@@ -1,7 +1,7 @@
 # Reel 11 — "Tie goes to the offence"
 
-**Status:** Pending review
-**Script drafted:** 2026-08-13 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-08-13 (daily-reel-render) · **Rendered:** 2026-08-14 (v1, 28.3s)
 **Queued:** 2026-08-16 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (12.3)
@@ -74,6 +74,11 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio
 
 - Film/edit against the brand visual spec in `social/brand-identity.md` (dark
   `#0F1712` bg, `#E24A12` accent for hook + rule chips, one clean sans-serif).
+- **Built 2026-08-14 exactly as approved:** seven scenes, one 12.3 detail card,
+  the three topic scenes all footing 12.3. The script cleared review with no
+  note attached, so I took the version on the page rather than either of the
+  alternatives below. 28.3s. If the repeated footer bothers you on watching it,
+  reject the content and say which alternative you want.
 - **One-rule lesson — worth a decision before this renders.** 12.3 is a single
   sentence and the lesson's `rules` array carries nothing else, so all three
   topic scenes foot to the same citation. Seven scenes projects to roughly 29s,
