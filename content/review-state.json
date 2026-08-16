@@ -285,10 +285,10 @@
   },
   "reel-11": {
     "script": {
-      "status": "changes",
+      "status": "approved",
       "note": "The word tie can be misleadingly referring to the score",
       "tags": [],
-      "updatedAt": "2026-08-16T00:26:08.255Z"
+      "updatedAt": "2026-08-16T00:37:22.840Z"
     },
     "content": {
       "status": "rerender",
