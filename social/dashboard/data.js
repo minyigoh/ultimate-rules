@@ -747,17 +747,17 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
   {
     id: 'reel-11',
     date: '2026-08-16',
-    title: 'Tie goes to the offence',
+    title: 'Caught at the same time? Offence keeps it.',
     type: 'Reel',
-    typeDetail: '1080×1920 · 28.3s · 30fps',
+    typeDetail: '1080×1920 · 28.3s · 30fps (superseded cut)',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 11,
-    duration: '~26s script / 28.3s cut',
+    duration: '~26s script / 28.3s cut (v1, from the superseded copy)',
     rules: ['12.3'],
     review: {
-      script:  {status: 'approved', on: '2026-08-11'},
-      content: {status: 'in-review', on: '2026-08-14'}
+      script:  {status: 'pending', on: '2026-08-15'},
+      content: {status: 'rerender', on: '2026-08-14'}
     },
     postedDate: null,
     folder: 'reel-11',
@@ -766,41 +766,42 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     video: 'reel11-tie-goes-to-the-offence.mp4',
     slides: null,
     scenes: [
-      ['1', 'Cover', '"Tie goes to the offence" · kicker BEGINNER · LESSON 11 / 75'],
-      ['2', '#1 SIMULTANEOUS MEANS OFFENCE', `"Both of you caught it. It's theirs." · footer cites 12.3`],
+      ['1', 'Cover', '"Caught at the same time? Offence keeps it." · kicker BEGINNER · LESSON 11 / 75'],
+      ['2', '#1 SIMULTANEOUS MEANS OFFENCE', `"Both of you have it. It's theirs." · footer cites 12.3`],
       ['3', 'Rules detail', 'Verbatim 12.3'],
       ['4', '#2 NOT A "WHO HAD MORE" CALL', '"There is no percentage to argue about." · footer cites 12.3'],
-      ['5', '#3 IT HAS TO BE GENUINE', '"First hands wins. A tie is rarer than it feels." · footer cites 12.3'],
+      ['5', '#3 IT HAS TO BE GENUINE', '"First hands wins. Truly simultaneous is rare." · footer cites 12.3'],
       ['6', 'FIELD TIP', `"Ask 'did you have it first?'"`],
       ['7', 'Closing', '"Lesson 11 of 75." · Follow @learn.ultimatefrisbee']
     ],
     script: {
-      hook: `You both caught it at the same time. Who gets it?`,
+      hook: `You both came down holding it. Who gets it?`,
       explanation: `The offence. If an offensive and a defensive player catch the disc simultaneously, the offence retains possession. That's the whole rule — one sentence, no subclauses, no judgement about who had more of it.`,
-      example: `The word doing the work is "simultaneously". If you got two hands on it first and the defender arrived onto your hands a beat later, that isn't a tie — that's your catch, and it was always your catch. The tie-breaker only applies when it genuinely was a tie, which is rarer than it feels in the moment.`,
+      example: `The word doing the work is "simultaneously". If you got two hands on it first and the defender arrived onto your hands a beat later, that isn't simultaneous — that's your catch, and it was always your catch. The rule only settles the genuine same-instant catch, which happens far less often than it feels in the moment.`,
       cta: `Lesson 11 of 75 — new lesson daily.`
     },
     ig: `You both came down holding it. Who gets it?
 
 The offence. If an offensive and a defensive player catch the disc simultaneously, the offence retains possession — that's the entire rule, one sentence long.
 
-What trips people up is the word "simultaneously". It is not a question of who had more of the disc, or whose grip was better. If you got hands on it first and the defender arrived a beat later, it was never a tie at all — it was your catch. The rule only decides the genuine dead heat, which happens far less often than it feels like on the field.
+What trips people up is the word "simultaneously". It is not a question of who had more of the disc, or whose grip was better. If you got hands on it first and the defender arrived a beat later, the two catches were never simultaneous — it was your catch. The rule only settles the genuine same-instant catch, which happens far less often than it feels like on the field.
 
 So the honest question on the ground isn't "whose is it?" It's "did you have it first?" Say what you saw, listen to what they saw, and restart quickly.
 
 Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.`,
-    tiktok: `you both caught it. offence keeps it. that's the whole rule 🥏
+    tiktok: `you both caught it at the same instant. offence keeps it. that's the whole rule 🥏
 
-but "simultaneously" is doing a lot of work there — if you had hands on it first, it was never a tie
+but "simultaneously" is doing a lot of work there — if you had hands on it first, the two catches were never simultaneous
 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Rendered 2026-08-14 by the daily task: seven scenes, 28.3s, exact CFR via encode.py.',
-      'One-rule lesson: 12.3 is a single sentence and the lesson brief cites nothing else, so all three topic scenes foot to the same citation. Built exactly as approved — I did not add 12.1 on my own initiative. If the repeated footer reads badly on watching, reject and say which alternative you want.',
-      'Pairs with Lesson 8, which established what a catch actually is.'
+      'REDRAFTED 2026-08-15 — back at script review. The rendered cut was sent back with "The word tie can be misleadingly referring to the score". That needs different words, not a different render, so it went back through the first gate: "tie" is gone from the title, the scenes and both captions, replaced with the rulebook word "simultaneously". Round logged in content/reel-11/script-feedback.md; previous copy at script-and-caption.v1.md.',
+      'The video below is the SUPERSEDED v1 cut, built 2026-08-14 from the old copy — it still says "tie" on screen. It is left here so you can compare, not for approval. Once these words clear review the next run rebuilds it as reel11-caught-at-the-same-time.mp4 and archives this one as .v1.mp4.',
+      'One-rule lesson: 12.3 is a single sentence and the lesson brief cites nothing else, so all three topic scenes foot to the same citation. If the repeated footer reads badly on the rebuild, say so and I will cut to five scenes or add 12.1 as context — I have not added it on my own initiative.',
+      'The 2026-08-16 calendar row still reads the old title. Approvals still land (the Worker falls back to matching on date when a title has been tidied up); the cell text is cosmetic drift worth a hand-edit.'
     ]
   },
 
@@ -809,21 +810,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-17',
     title: 'What actually counts as a goal',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 12,
+    duration: '~29s script / 29.5s cut',
     rules: ['14.1', '14.1.1', '14.1.2', '14.4'],
     review: {
-      script:  {status: 'pending', on: '2026-08-14'},
-      content: {status: 'awaiting-render', on: null}
+      script:  {status: 'approved', on: '2026-08-14'},
+      content: {status: 'in-review', on: '2026-08-15'}
     },
     postedDate: null,
     folder: 'reel-12',
     source: 'content/reel-12/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json (tag: Scoring)',
-    video: null,
+    video: 'reel12-what-actually-counts-as-a-goal.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"What actually counts as a goal" · kicker BEGINNER · LESSON 12 / 75'],
+      ['2', '#1 A GOAL HAS CONDITIONS', '"Catching it in the end zone is only most of the way there." · footer cites 14.1 · 14.1.1'],
+      ['3', 'Rules detail', 'Verbatim 14.1 + 14.1.1'],
+      ['4', '#2 ALL OF YOU, NOT SOME OF YOU', '"One foot on the goal line is not a goal." · footer cites 14.1.1'],
+      ['5', 'Rules detail', 'Verbatim 14.1.2'],
+      ['6', '#3 YOU STILL HAVE TO CATCH IT', '"Bobbling it through the landing means no goal." · footer cites 14.1.2 · 14.4'],
+      ['7', 'Rules detail', 'Verbatim 14.4'],
+      ['8', 'FIELD TIP', `"Don't celebrate until you've stopped moving"`],
+      ['9', 'Closing', '"Lesson 12 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You caught it in the end zone. That might not be a goal yet.`,
       explanation: `A goal needs three things at once. You're in-bounds, the pass was legal, and all of your ground contact is entirely inside the end zone you're attacking. Miss any one of them and it's just a catch.`,
@@ -848,9 +861,114 @@ all of your ground contact has to be inside the zone. one foot on the goal line 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-14 by the daily task. Awaiting script review.',
+      'Rendered 2026-08-15 by the daily task: nine scenes, 29.5s, exact CFR via encode.py.',
       '14.1 is a stem ("…catches a legal pass and:") that hands off to 14.1.1 and 14.1.2, so scene 3 carries 14.1 and 14.1.1 together or the card ends mid-thought. There is no 14.1.3.',
-      'Deliberately not covering 14.3 (caught it past the back of the end zone) — that is Lesson 13 and gets its own reel.'
+      'Deliberately not covering 14.3 (caught it past the back of the end zone) — that is Lesson 13, drafted 2026-08-15 for the 18th.'
+    ]
+  },
+
+  {
+    id: 'reel-13',
+    date: '2026-08-18',
+    title: 'Caught it past the end zone? Walk it back.',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 13,
+    rules: ['14.3', '11.3.2.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-15'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-13',
+    source: 'content/reel-13/script-and-caption.md',
+    sourceLesson: 'content/lessons-1.json (tag: Scoring)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You're standing in the end zone holding the disc, and it isn't a goal. Now what?`,
+      explanation: `Nothing bad has happened. It's not a turnover and you don't get a do-over. You walk to the nearest point on the goal line and set your pivot there. That's the whole procedure.`,
+      example: `Two ways you end up here. You catch it just short and your momentum carries you three metres in. Or you go up for it and land with one foot on the goal line — the line isn't the end zone, so no goal. Same answer both times: nearest point on the line, plant your pivot, play on. It even beats the usual rule for leaving the field — drift out over the back endline and you still come back to the goal line, not to the spot where you crossed.`,
+      cta: `Lesson 13 of 75 — new lesson daily.`
+    },
+    ig: `You're standing in the end zone holding the disc, and it isn't a goal. Now what?
+
+Nothing bad has happened. It isn't a turnover and there's no do-over. You walk to the nearest point on the goal line, set your pivot there, and play carries on. That's the entire procedure, and it happens several times a game.
+
+There are two common ways to end up there. You catch it just short of the line and your own momentum carries you in. Or you catch it airborne and land with one foot in and one foot on the goal line — the line belongs to the central zone, not the end zone, so it's a catch and not a score.
+
+It also overrides the rule you'd normally use after leaving the field. Usually you come back on where you crossed the perimeter line; if you drifted out over the back of the end zone you were attacking, you go to the nearest point on the goal line instead. The rulebook writes that exception into the sideline rule itself.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `in the end zone, holding it, and it's not a goal 🥏
+
+not a turnover. not a do-over. walk to the nearest point on the goal line, set your pivot, keep playing
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-15 by the daily task. Awaiting script review.',
+      'Direct sequel to Lesson 12: that one set out what a goal requires, this one is the "so what happens instead" half.',
+      'Two rules, so eight scenes rather than nine — scenes 2 and 4 both foot to 14.3 with one citation card between them, and 11.3.2.1 gets its own card. A third topic block would have meant citing a rule outside this lesson\'s brief.',
+      'The lesson\'s field line looks wrong and I did not use it. It says the stall count does not start until the pivot is established — true after a turnover (9.3.1), but this is not a turnover: play stays live and 9.3.2 lets the marker count against the pivot location while you are still walking to it. The field tip carries no stall-count claim. Suggest correcting the field line in content/lessons-1.json; flagging rather than editing, since the lesson JSONs are curriculum.'
+    ]
+  },
+
+  {
+    id: 'reel-14',
+    date: '2026-08-19',
+    title: 'Slowing down after the catch',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 14,
+    rules: ['18.2.1', '18.2.4.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-16'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-14',
+    source: 'content/reel-14/script-and-caption.md',
+    sourceLesson: 'content/lessons-1.json (tag: Movement)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You caught it at a dead sprint. What you do in the next two seconds is a rule.`,
+      explanation: `You have to reduce speed as quickly as possible, and you have to do it without changing direction, until you've established your pivot point. Where you come to a stop is where the pivot goes. That's it — two phrases carry the whole thing.`,
+      example: `You catch it on a deep cut at full speed. Coasting an extra five metres because you were going fast isn't allowed — you slow as hard as you can. And drifting is the one nobody notices themselves doing: curling that deceleration towards the middle so you finish facing a better throwing angle is changing direction, and it puts your pivot somewhere it shouldn't be. The rulebook lists exactly that — a pivot at an incorrect location, from not slowing as quickly as possible or from changing direction — as a travel infraction.`,
+      cta: `Lesson 14 of 75 — new lesson daily.`
+    },
+    ig: `You caught it at a dead sprint. What you do in the next two seconds is a rule.
+
+After the catch you have to reduce speed as quickly as possible, without changing direction, until you've established a pivot point. Where you come to a stop is where the pivot goes. Two phrases carry the entire rule, and both of them do real work.
+
+"As quickly as possible" means catching at speed doesn't buy you extra metres. You slow as hard as you actually can, not as hard as is convenient for the throw you already have in mind.
+
+"Without changing direction" is the one most people break without realising. Curling your deceleration towards the middle so you finish facing a better angle is a change of direction, and it leaves your pivot somewhere it isn't allowed to be. The rulebook names that case directly: a pivot established at an incorrect location — including by not reducing speed as quickly as possible, or by changing direction after a catch — is listed among the travel infractions.
+
+Nobody is measuring this with a tape. It's on you, which is the whole point.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `caught it at full sprint — the next two seconds are a rule 🥏
+
+slow down as quickly as possible, and do it in a straight line. where you stop is where your pivot goes. curving as you slow is a travel
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-16 by the daily task. Awaiting script review.',
+      'Two rules, so eight scenes rather than nine — scenes 2 and 4 both foot to 18.2.1 with one citation card between them, and 18.2.4.1 gets its own card.',
+      'Scene 6 cites 18.2.4 as the lead-in to 18.2.4.1. 18.2.4 is not in the lesson rules array, but 18.2.4.1 is a sub-clause and a fragment on its own; its parent supplies "A travel infraction occurs if:". Both strings are verbatim from rules.json, which is the point — writing that lead-in in my own words on a citation card would be an attribution failure.',
+      'Deliberately stops short of what happens after the call. Travel is called and play does not stop, but that is Lesson 16 (18.2.5) and this lesson is not scoped for it.',
+      'Pairs with Lesson 2, which established the pivot; this one is how you legally get to it.'
     ]
   }
 ];
