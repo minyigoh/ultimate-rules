@@ -35,20 +35,35 @@ Pending review and this round stay open, with the rebuild that closes it also
 renaming the output to `reel11-caught-at-the-same-time.mp4` and archiving the
 current cut as `reel11-tie-goes-to-the-offence.v1.mp4`.
 
-## Update — 2026-08-16 (daily-reel-render) — round closed without a rebuild
+**Regenerated:** 2026-08-16 (daily-reel-render) — closes rounds 1–6
 
-Not regenerated, and the rename above has not happened.
+Cause: the copy, not the render. The v1 cut was built from the superseded script
+and carried "tie" in its title and three of its seven scenes.
 
-The 2026-08-15 sync failed on a rebase conflict, so that redraft never reached
-GitHub or the desk. On 2026-08-16T00:24:50Z the desk set reel-11's **script
-track to `rejected`** (seven seconds after setting the content track to
-`rerender`). Under the standing rule a rejected script means the topic is
-parked, not that it needs another rewrite — so this run left the copy, the cut
-and the calendar row untouched.
+Rebuilt from the approved redraft, which uses the rulebook's own word
+"simultaneously" throughout. Changed on the rendered slides:
 
-Worth knowing when this is next picked up: the desk was showing the **original**
-"tie" script at the moment of that rejection, because the 08-15 redraft was
-still stuck in an unpushed commit. The rewritten copy — which removes "tie"
-throughout in favour of the rulebook's own "simultaneously" — is in
-`script-and-caption.md`, with the original archived as
-`script-and-caption.v1.md`. Nothing here reinstates it; that is a desk decision.
+- Cover: "Tie goes to the offence" → "Caught at the same time? Offence keeps
+  it." (size 84 → 76 to fit the longer line, matching reel-8's precedent).
+- Scene 2 headline "Both of you caught it. It's theirs." → "Both of you have
+  it. It's theirs."; body no longer calls 12.3 a "tie-breaker".
+- Scene 5 headline "First hands wins. A tie is rarer than it feels." → "First
+  hands wins. Truly simultaneous is rare."; body now says the two catches
+  "were never simultaneous".
+
+The word "tie" no longer appears anywhere in the render source. Rule 12.3 is
+unchanged and still the only citation, pulled programmatically from
+`rules.json`. 28.33s, longest sustained sub-R200 orange run 0.00s.
+
+Output is `reel11-caught-at-the-same-time.mp4`. The v1 cut keeps its own
+filename, `reel11-tie-goes-to-the-offence.mp4`, rather than taking a `.v1`
+suffix — the title changed, so the two cuts do not collide and the `revisions`
+array already points at v1 under that name.
+
+### Sequence note, for the record
+
+The 2026-08-15 sync failed on a rebase conflict, so the redraft above sat in an
+unpushed commit and never reached the desk. At 00:24:50Z on 08-16 the script
+track was set to `rejected` and at 00:37:26Z to `approved` — both while the desk
+was still displaying the **original** "tie" copy. Min-Yi confirmed on 08-16 that
+the rerender should be built from the redraft, which is what this is.

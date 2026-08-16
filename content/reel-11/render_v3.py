@@ -150,11 +150,11 @@ def g_closing(no, lesson_no):
 def rt(n): return RULE[n]["text"]
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "Tie goes to the offence", "A short rule with a satisfying answer.", 11, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('sim', g_main(2, 'SIMULTANEOUS MEANS OFFENCE', "Both of you caught it. It's theirs.", "If an offensive and a defensive player catch the disc at the same time, the offence keeps it. One sentence, no subclauses \u2014 the tie-breaker is written into the rules so nobody has to argue it out on the field.", ['12.3'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('cover', g_cover(1, 'BEGINNER', "Caught at the same time? Offence keeps it.", "A short rule with a satisfying answer.", 11, size=76), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('sim', g_main(2, 'SIMULTANEOUS MEANS OFFENCE', "Both of you have it. It's theirs.", "If an offensive and a defensive player catch the disc at the same time, the offence keeps it. One sentence, no subclauses \u2014 the outcome is written into the rules so nobody has to argue it out on the field.", ['12.3'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('sim_r', g_detail(3, [('12.3', [rt('12.3')])]), [0.3, 2.0]),
     ('more', g_main(4, 'NOT A "WHO HAD MORE" CALL', 'There is no percentage to argue about.', "The rule does not ask whose grip was better or who had more fingers on it. It asks one thing: did the two catches happen at the same time? If they did, the answer is already decided.", ['12.3'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('genuine', g_main(5, 'IT HAS TO BE GENUINE', 'First hands wins. A tie is rarer than it feels.', "\u201cSimultaneously\u201d is doing the work here. If you got hands on it first and the defender arrived a beat later, that was never a tie \u2014 it was your catch all along.", ['12.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('genuine', g_main(5, 'IT HAS TO BE GENUINE', 'First hands wins. Truly simultaneous is rare.', "\u201cSimultaneously\u201d is doing the work here. If you got hands on it first and the defender arrived a beat later, the two catches were never simultaneous \u2014 it was your catch all along.", ['12.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('tip', g_tip(6, 'Ask "did you have it first?"', "Not \u201cwhose is it?\u201d \u2014 that question has no answer. Say what you saw, listen to what they saw, and restart quickly."), [0.3, 0.45, 0.7, 1.7]),
     ('close', g_closing(7, 11), [0.3, 0.8, 1.0, 1.4]),
 ]
