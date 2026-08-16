@@ -285,10 +285,10 @@
   },
   "reel-11": {
     "script": {
-      "status": "approved",
+      "status": "rejected",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T23:55:20.452Z"
+      "updatedAt": "2026-08-16T00:24:50.310Z"
     },
     "content": {
       "status": "rerender",
