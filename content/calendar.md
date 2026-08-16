@@ -16,7 +16,7 @@
 | 2026-08-15 | You're allowed to leave the field | Reel | Posted | 2026-08-15 | — |
 | 2026-08-16 | Tie goes to the offence | Reel | Posted | 2026-08-16 | — |
 | 2026-08-17 | What actually counts as a goal | Reel | Ready to post | — | — |
-| 2026-08-18 | Caught it past the end zone? Walk it back. | Reel | Pending review | — | — |
+| 2026-08-18 | Caught it past the end zone? Walk it back. | Reel | Script approved | — | — |
 | 2026-08-19 | Slowing down after the catch | Reel | Script approved | — | — |
 
 ## Status legend

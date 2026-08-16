@@ -343,10 +343,10 @@
   },
   "reel-13": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-14T22:45:29Z"
+      "updatedAt": "2026-08-16T07:43:00.413Z"
     },
     "content": {
       "status": "awaiting-render",
