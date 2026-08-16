@@ -314,10 +314,47 @@
       "updatedAt": "2026-08-14T07:23:24.218Z"
     },
     "content": {
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-14T22:45:29Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-15",
+        "duration": "29.5s",
+        "file": "reel12-what-actually-counts-as-a-goal.mp4",
+        "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py; 29.50s. 14.1+14.1.1, 14.1.2 and 14.4 quoted verbatim from rules.json."
+      }
+    ]
+  },
+  "reel-13": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-14T22:45:29Z"
+    },
+    "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-13T22:40:55Z"
+      "updatedAt": "2026-08-14T22:45:29Z"
+    }
+  },
+  "reel-14": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-15T22:38:53Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-15T22:38:53Z"
     }
   }
 }
