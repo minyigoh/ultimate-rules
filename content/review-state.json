@@ -291,10 +291,10 @@
       "updatedAt": "2026-08-16T00:37:26.848Z"
     },
     "content": {
-      "status": "rerender",
-      "note": "The word tie can be misleadingly referring to the score",
+      "status": "in-review",
+      "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T00:24:43.583Z"
+      "updatedAt": "2026-08-16T09:55:00Z"
     },
     "revisions": [
       {
@@ -303,6 +303,13 @@
         "duration": "28.3s",
         "file": "reel11-tie-goes-to-the-offence.mp4",
         "changed": "Initial render from the approved script. Seven scenes (one-rule lesson), exact CFR via encode.py; 28.33s. 12.3 quoted verbatim from rules.json."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-16",
+        "duration": "28.3s",
+        "file": "reel11-caught-at-the-same-time.mp4",
+        "changed": "Rebuilt from the approved redraft to remove \"tie\", which read as a scoreline. Cover retitled to \"Caught at the same time? Offence keeps it.\"; scene 2 and scene 5 headlines and bodies reworded to the rulebook's own \"simultaneously\". Seven scenes, exact CFR via encode.py; 28.33s. 12.3 quoted verbatim from rules.json. v1 keeps its own filename, reel11-tie-goes-to-the-offence.mp4, since the title changed."
       }
     ]
   },
