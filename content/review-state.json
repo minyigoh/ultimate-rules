@@ -339,7 +339,12 @@
         "file": "reel12-what-actually-counts-as-a-goal.mp4",
         "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py; 29.50s. 14.1+14.1.1, 14.1.2 and 14.4 quoted verbatim from rules.json."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-17",
+      "updatedAt": "2026-08-16T23:48:03.255Z"
+    }
   },
   "reel-13": {
     "script": {
