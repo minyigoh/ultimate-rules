@@ -311,7 +311,12 @@
         "file": "reel11-caught-at-the-same-time.mp4",
         "changed": "Rebuilt from the approved redraft to remove \"tie\", which read as a scoreline. Cover retitled to \"Caught at the same time? Offence keeps it.\"; scene 2 and scene 5 headlines and bodies reworded to the rulebook's own \"simultaneously\". Seven scenes, exact CFR via encode.py; 28.33s. 12.3 quoted verbatim from rules.json. v1 keeps its own filename, reel11-tie-goes-to-the-offence.mp4, since the title changed."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-16",
+      "updatedAt": "2026-08-16T07:36:11.921Z"
+    }
   },
   "reel-12": {
     "script": {
