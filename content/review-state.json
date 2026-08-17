@@ -354,11 +354,20 @@
       "updatedAt": "2026-08-16T07:43:00.413Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-14T22:45:29Z"
-    }
+      "updatedAt": "2026-08-16T22:45:44Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-17",
+        "duration": "29.6s",
+        "file": "reel13-caught-it-past-the-end-zone.mp4",
+        "changed": "Initial render from the approved script. Eight scenes (two-rule lesson), exact CFR via encode.py; 29.57s. 14.3 and 11.3.2.1 quoted verbatim from rules.json."
+      }
+    ]
   },
   "reel-14": {
     "script": {
@@ -368,10 +377,47 @@
       "updatedAt": "2026-08-16T07:42:51.344Z"
     },
     "content": {
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-16T22:45:44Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-17",
+        "duration": "29.6s",
+        "file": "reel14-slowing-down-after-the-catch.mp4",
+        "changed": "Initial render from the approved script. Eight scenes (two-rule lesson), exact CFR via encode.py; 29.57s. 18.2.1 and 18.2.4 + 18.2.4.1 quoted verbatim from rules.json."
+      }
+    ]
+  },
+  "reel-15": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-16T22:45:44Z"
+    },
+    "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-15T22:38:53Z"
+      "updatedAt": "2026-08-16T22:45:44Z"
+    }
+  },
+  "carousel-post-3": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-16T22:45:44Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-16T22:45:44Z"
     }
   }
 }
