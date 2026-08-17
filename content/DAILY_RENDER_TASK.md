@@ -110,17 +110,34 @@ lesson is used if any calendar row on the **authoritative** calendar already
 carries its title. Do not skip ahead, do not reorder for variety: the account
 promises "Lesson N of 75" and the numbering has to stay honest.
 
-**The Thursday carousel — a recap, not a lesson.** It reviews the seven reels
-whose post dates fall in the seven days ending that Thursday. **It does not
-consume a lesson number** and never introduces new curriculum; the reels have
-already taught this material and the carousel is the week's index to it.
+**The Thursday carousel — a recap, not a lesson.** It reviews the next seven
+lessons in curriculum order that no earlier recap has covered and whose reels
+have **already posted**. Recaps run in contiguous blocks of seven — 1–7, then
+8–14, then 15–21 — so every lesson is recapped exactly once and none is
+orphaned. **It does not consume a lesson number** and never introduces new
+curriculum; the reels have already taught this material and the carousel is
+the week's index to it.
 
-- If fewer than seven reels fall in the window, recap what is actually there
-  and say so on the cover ("This week's five lessons"). If fewer than three,
+- **The window is lesson numbers, never dates.** Read the previous recap's
+  `script-and-caption.md` front-matter, which names the block it covered; the
+  next block starts at the lesson after its last.
+- The original rule here was "the seven reels whose post dates fall in the
+  seven days ending that Thursday", and it was wrong three ways: the window
+  drifts whenever a post date slips, any lesson falling in the seam is
+  orphaned permanently, and it can put a lesson on a slide the same morning
+  its own reel goes live. Min-Yi corrected it on 2026-08-11 ("Can you recap
+  lessons 1 - 7? Not 2-8") and confirmed the block rule on 2026-08-17. Do not
+  reintroduce the date-based window.
+- A lesson is only eligible once its reel has actually posted. If a reel in
+  the block hasn't gone out yet, the block isn't ready — recap the lessons
+  that have posted and let the rest roll into the next one.
+- If fewer than seven eligible lessons are available, recap what is actually
+  there and say so on the cover ("This week's five lessons"); the next block
+  picks up where this one stopped, so nothing is lost. If fewer than three,
   skip the carousel entirely for that week and note why — there isn't enough
   to recap.
 - Draw each entry's takeaway from that lesson's `field` line or the script's
-  own example beat. Do not re-teach and do not introduce a rule the week's
+  own example beat. Do not re-teach and do not introduce a rule the block's
   reels never cited.
 
 **Write the copy.** Follow `content/reel-1/script-and-caption.md`'s structure
@@ -276,10 +293,11 @@ Two carousel shapes, both documented in `CAROUSEL_TEMPLATE.md`:
 
 - **Topic carousel** (carousel-post-1) — cover → optional context/diagram
   slides → numbered topic/rules-detail pairs → closing.
-- **Weekly recap** (every Thursday) — cover → one slide per reel from the past
-  seven days → closing. Nine slides for a full week. Each recap slide carries
-  the lesson number, the reel's title, its one-line takeaway, and that
-  lesson's rule numbers in the standard citation footer.
+- **Weekly recap** (every Thursday) — cover → one slide per lesson in the
+  block → closing. Nine slides for a full block of seven. Each recap slide
+  carries the lesson number, the reel's title, its one-line takeaway, and that
+  lesson's rule numbers in the standard citation footer. The block is the next
+  seven un-recapped lessons in curriculum order, not a date range — see Step 1.
 
 A recap slide is **not** a rules card: it cites rule numbers but does not quote
 rule text, so there is nothing on it to paraphrase. If you find yourself

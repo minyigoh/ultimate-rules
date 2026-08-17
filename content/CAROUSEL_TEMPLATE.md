@@ -34,14 +34,19 @@ reuses the identical visual system with a different slide sequence.
 
 ## Structure — weekly recap carousel
 
-Posts every Thursday alongside that day's reel, recapping the seven reels whose
-post dates fall in the seven days ending that Thursday. Nine slides for a full
-week.
+Posts every Thursday alongside that day's reel, recapping the next seven
+lessons in curriculum order that no earlier recap has covered and whose reels
+have already posted. Recaps run in contiguous blocks — 1–7, then 8–14, then
+15–21 — so every lesson is recapped exactly once. Nine slides for a full block.
 
-1. **Cover slide** — kicker "THIS WEEK", headline naming the span (e.g.
-   "Seven lessons, one week"), one-sentence subhead, "SWIPE →". If the window
-   held fewer than seven reels, the cover says the real number.
-2. **Seven recap slides**, one per reel, in the order they posted. Each carries
+**The window is lesson numbers, not dates.** An earlier version of this file
+said "the seven days ending that Thursday"; that drifts when a post date slips
+and orphans any lesson landing in the seam. Corrected 2026-08-17.
+
+1. **Cover slide** — kicker "THIS WEEK", headline naming the block (e.g.
+   "Seven lessons, one week"), one-sentence subhead, "SWIPE →". If the block
+   held fewer than seven lessons, the cover says the real number.
+2. **Seven recap slides**, one per lesson, in curriculum order. Each carries
    the lesson number ("LESSON 8"), the reel's title as the headline, its
    one-line takeaway as the body, and that lesson's rule numbers in the
    standard citation footer.
@@ -54,8 +59,10 @@ to the takeaway and let the reel do the work. The "WFDF Rules of Ultimate
 2025–2028" attribution still appears in the footer and the caption.
 
 The recap does **not** consume a lesson number and never introduces curriculum
-the week's reels didn't already cover. If fewer than three reels fall in the
-window, skip that week's recap rather than padding it.
+the block's reels didn't already cover. If fewer than seven eligible lessons
+are available, recap what's there — the next block picks up where this one
+stopped, so nothing is lost. If fewer than three, skip that week's recap
+rather than padding it.
 
 ## Visual system
 

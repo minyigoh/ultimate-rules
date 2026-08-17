@@ -5,7 +5,7 @@
 **Queued:** 2026-08-20 (see `content/calendar.md`) — posts alongside Reel 15
 **Difficulty:** Mixed (beginner)
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 — rule numbers cited, no rule text
-**Source:** the seven reels posted 2026-08-13 → 2026-08-19 (lessons 8–14)
+**Source:** lessons 8–14 (reels posted 2026-08-13 → 2026-08-19)
 
 This is a **weekly recap**, not a topic carousel. It consumes no lesson number
 and introduces no new curriculum — the reels already taught this material and
@@ -16,9 +16,9 @@ but carry **no rule text**; there is deliberately nothing on them to paraphrase.
 
 ## Slides — nine, 1080×1350
 
-Recap window: lessons 8–14, posted 2026-08-13 through 2026-08-19 inclusive.
-This is the window `carousel-post-2/script-feedback.md` committed to when
-Min-Yi moved that recap back to lessons 1–7 — see the note at the bottom.
+Recap block: lessons 8–14, the second contiguous block of seven, following
+carousel-post-2's lessons 1–7. Every reel in it has already posted (13–19
+August).
 
 | # | Slide | Content |
 |---|---|---|
@@ -83,15 +83,15 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio
 
 ## Notes
 
-- **Recap window is lessons 8–14 (posted 13–19 August), not the literal "seven
-  days ending Thursday" (14–20 August).** Two reasons, and they agree.
-  `carousel-post-2/script-feedback.md` states in writing that lesson 8 "moves
-  to next Thursday's recap, which now covers lessons 8–14" — that is this post,
-  and starting at lesson 9 would orphan lesson 8 permanently. It also keeps the
-  precedent carousel-post-2 set of only recapping reels that have **already
-  posted**: lessons 13 and 14 go out on the 18th and 19th, the day before and
-  two days before this carousel. The literal window would have put lesson 15 on
-  a slide on the same morning its own reel went live.
+- **Recap block is lessons 8–14** — the next seven un-recapped lessons in
+  curriculum order, continuing straight on from carousel-post-2's lessons 1–7.
+  Confirmed by Min-Yi on 2026-08-17 and now the documented rule in
+  `content/DAILY_RENDER_TASK.md` and `content/CAROUSEL_TEMPLATE.md`, which
+  previously said "the seven days ending that Thursday". That date-based
+  window would have started at lesson 9 here, orphaning lesson 8 permanently,
+  and would have put lesson 15 on a slide the same morning its own reel went
+  live. Blocks of seven by lesson number; nothing is skipped and nothing is
+  recapped twice.
 - **Slide 7's takeaway does not come from Lesson 13's `field` line.** That line
   reads "the stall count doesn't start until you've established the pivot
   point", which is true after a turnover (9.3.1) but not here — play stays

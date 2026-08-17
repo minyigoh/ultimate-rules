@@ -81,11 +81,13 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio
 ## Notes
 
 - Recap window is lessons 1–7 (posted 6–12 August) per Min-Yi's review note of
-  2026-08-11. That is one day wider on the early side than the standing
-  "seven days ending Thursday" rule in `content/DAILY_RENDER_TASK.md`, which
-  would have started at lesson 2. Her framing is the account's genuine first
-  week, so the recap starts where the curriculum does. Lesson 8 moves to next
-  Thursday's recap, which will then cover lessons 8–14.
+  2026-08-11. That was one day wider on the early side than the date-based
+  "seven days ending Thursday" rule in force at the time, which would have
+  started at lesson 2. Her framing is the account's genuine first week, so the
+  recap starts where the curriculum does. Lesson 8 moves to next Thursday's
+  recap, which covers lessons 8–14. **This note is now history:** the
+  date-based rule was replaced on 2026-08-17 with contiguous blocks of seven
+  lesson numbers, which is what this post was doing all along.
 - Recap slides carry no rule text by design — see `content/CAROUSEL_TEMPLATE.md`.
   If a slide starts growing rule quotes it has drifted into re-teaching.
 - Every lesson recapped here has already posted, so no slide is exposed to a
