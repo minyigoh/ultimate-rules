@@ -872,21 +872,32 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-18',
     title: 'Caught it past the end zone? Walk it back.',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.6s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 13,
+    duration: '~29s script / 29.6s cut',
     rules: ['14.3', '11.3.2.1'],
     review: {
       script:  {status: 'pending', on: '2026-08-15'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-17'}
     },
     postedDate: null,
     folder: 'reel-13',
     source: 'content/reel-13/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json (tag: Scoring)',
-    video: null,
+    video: 'reel13-caught-it-past-the-end-zone.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"Caught it past the end zone? Walk it back." · kicker BEGINNER · LESSON 13 / 75'],
+      ['2', "#1 IT ISN'T A TURNOVER", '"You keep the disc. You just move it." · footer cites 14.3'],
+      ['3', 'Rules detail', 'Verbatim 14.3'],
+      ['4', '#2 TO THE NEAREST POINT', '"Not where you caught it. Not where you stopped." · footer cites 14.3'],
+      ['5', '#3 IT BEATS THE SIDELINE RULE', '"Out the back? Still the goal line." · footer cites 11.3.2.1'],
+      ['6', 'Rules detail', 'Verbatim 11.3.2.1'],
+      ['7', 'FIELD TIP', '"Walk out calmly and set your pivot"'],
+      ['8', 'Closing', '"Lesson 13 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You're standing in the end zone holding the disc, and it isn't a goal. Now what?`,
       explanation: `Nothing bad has happened. It's not a turnover and you don't get a do-over. You walk to the nearest point on the goal line and set your pivot there. That's the whole procedure.`,
@@ -911,7 +922,7 @@ not a turnover. not a do-over. walk to the nearest point on the goal line, set y
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-15 by the daily task. Awaiting script review.',
+      'Rendered 2026-08-17 by the daily task from the approved script. Eight scenes, exact CFR via encode.py; 29.57s. Awaiting content review.',
       'Direct sequel to Lesson 12: that one set out what a goal requires, this one is the "so what happens instead" half.',
       'Two rules, so eight scenes rather than nine — scenes 2 and 4 both foot to 14.3 with one citation card between them, and 11.3.2.1 gets its own card. A third topic block would have meant citing a rule outside this lesson\'s brief.',
       'The lesson\'s field line looks wrong and I did not use it. It says the stall count does not start until the pivot is established — true after a turnover (9.3.1), but this is not a turnover: play stays live and 9.3.2 lets the marker count against the pivot location while you are still walking to it. The field tip carries no stall-count claim. Suggest correcting the field line in content/lessons-1.json; flagging rather than editing, since the lesson JSONs are curriculum.'
@@ -923,21 +934,32 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-19',
     title: 'Slowing down after the catch',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.6s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 14,
+    duration: '~29s script / 29.6s cut',
     rules: ['18.2.1', '18.2.4.1'],
     review: {
       script:  {status: 'pending', on: '2026-08-16'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-17'}
     },
     postedDate: null,
     folder: 'reel-14',
     source: 'content/reel-14/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json (tag: Movement)',
-    video: null,
+    video: 'reel14-slowing-down-after-the-catch.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"Slowing down after the catch" · kicker BEGINNER · LESSON 14 / 75'],
+      ['2', '#1 AS QUICKLY AS POSSIBLE', `"A sprint doesn't buy extra metres." · footer cites 18.2.1`],
+      ['3', 'Rules detail', 'Verbatim 18.2.1'],
+      ['4', '#2 AND IN A STRAIGHT LINE', '"You may slow down. You may not curve." · footer cites 18.2.1'],
+      ['5', '#3 THE WRONG SPOT IS A TRAVEL', '"Where you stop is where the pivot goes." · footer cites 18.2.4.1'],
+      ['6', 'Rules detail', 'Verbatim 18.2.4 + 18.2.4.1'],
+      ['7', 'FIELD TIP', '"Decelerate in a straight line"'],
+      ['8', 'Closing', '"Lesson 14 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You caught it at a dead sprint. What you do in the next two seconds is a rule.`,
       explanation: `You have to reduce speed as quickly as possible, and you have to do it without changing direction, until you've established your pivot point. Where you come to a stop is where the pivot goes. That's it — two phrases carry the whole thing.`,
@@ -964,11 +986,119 @@ slow down as quickly as possible, and do it in a straight line. where you stop i
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-16 by the daily task. Awaiting script review.',
+      'Rendered 2026-08-17 by the daily task from the approved script. Eight scenes, exact CFR via encode.py; 29.57s. Awaiting content review.',
       'Two rules, so eight scenes rather than nine — scenes 2 and 4 both foot to 18.2.1 with one citation card between them, and 18.2.4.1 gets its own card.',
       'Scene 6 cites 18.2.4 as the lead-in to 18.2.4.1. 18.2.4 is not in the lesson rules array, but 18.2.4.1 is a sub-clause and a fragment on its own; its parent supplies "A travel infraction occurs if:". Both strings are verbatim from rules.json, which is the point — writing that lead-in in my own words on a citation card would be an attribution failure.',
       'Deliberately stops short of what happens after the call. Travel is called and play does not stop, but that is Lesson 16 (18.2.5) and this lesson is not scoped for it.',
       'Pairs with Lesson 2, which established the pivot; this one is how you legally get to it.'
+    ]
+  },
+
+  {
+    id: 'carousel-post-3',
+    date: '2026-08-20',
+    title: 'Week two: seven more lessons',
+    type: 'Carousel',
+    pillar: 'Rules',
+    difficulty: 'Mixed',
+    lesson: null,
+    rules: ['12.1', '12.1.1', '13.1.1.1', '11.3', '11.3.1', '11.3.2', '11.4', '11.6', '11.7', '11.2', '12.3', '14.1', '14.1.1', '14.1.2', '14.4', '14.3', '11.3.2.1', '18.2.1', '18.2.4.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-17'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-3',
+    source: 'content/carousel-post-3/script-and-caption.md',
+    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 8-14',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Seven more lessons this week. Here's the whole set in one swipe.`,
+      explanation: `What a catch actually is, where your feet have to be, leaving the field and coming back, two people catching it at once, what counts as a goal, what to do when you overshoot the end zone, and how to stop legally.`,
+      example: `Most of week two is feet and edges — the bits of the game that decide possession without anyone throwing well or badly. Each slide carries its rule numbers so you can look any of it up yourself.`,
+      cta: `Lessons 8 to 14 of 75 — new lesson daily.`
+    },
+    ig: `Week two, all in one place.
+
+What a catch actually is, and why holding it isn't the same as possession. Where your feet have to be near the sideline. How you're allowed to leave the field and come back. What happens when two players catch it at the same time. What actually counts as a goal — and what to do when you end up in the end zone without one. And how to stop legally after catching at a sprint.
+
+Most of this week is feet and edges: the parts of the game that quietly decide possession without anyone throwing well or badly.
+
+Each slide carries its rule numbers — so you can check any of it against the rulebook rather than taking our word for it.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+catches, feet, sidelines, simultaneous catches, goals, overshooting the end zone, and stopping legally
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-17 by the daily task. Awaiting script review. Nine slides, cover + lessons 8-14 + closing.',
+      'Recap window is lessons 8-14 (posted 13-19 August), not the literal "seven days ending Thursday" (14-20 August). carousel-post-2/script-feedback.md states in writing that lesson 8 moves to this recap, which covers 8-14 — starting at lesson 9 would orphan lesson 8 permanently. It also keeps carousel-post-2 precedent of only recapping reels that have already posted.',
+      'Slide 7 does not use Lesson 13 field line. That line says the stall count does not start until the pivot is established, which is true after a turnover (9.3.1) but not here — reel-13 already flagged and dropped it. Takeaway drawn from that reel example beat instead, which DAILY_RENDER_TASK.md permits.',
+      'Slide 5 uses Reel 11 corrected title, "Caught at the same time? Offence keeps it.", not the calendar original "Tie goes to the offence" — the reel was rebuilt on 2026-08-16 against the desk note that "tie" reads as a scoreline.',
+      'Recap slides carry rule numbers but no rule text, by design — see content/CAROUSEL_TEMPLATE.md.'
+    ]
+  },
+
+  {
+    id: 'reel-15',
+    date: '2026-08-20',
+    title: 'Throwing on the run: the two-contact allowance',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 15,
+    rules: ['18.2.1.1', '18.2.4.2'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-17'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-15',
+    source: 'content/reel-15/script-and-caption.md',
+    sourceLesson: 'content/lessons-1.json (tag: Movement)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You're allowed to throw it without ever stopping. There are exactly two conditions.`,
+      explanation: `Catch it while you're running or jumping and you may release a pass without slowing down and without establishing a pivot at all. In exchange: you can't change direction or speed up before the release, and you get a maximum of two extra points of ground contact after the catch.`,
+      example: `Count them rather than estimating. You catch it in the air, land on your left — that's one — land on your right, that's two, and the disc has to already be gone. A third contact is a travel however smooth it looked. And the direction half does just as much work: catching on the run and cutting inside to open a better lane breaks the allowance even if you release on contact two.`,
+      cta: `Lesson 15 of 75 — new lesson daily.`
+    },
+    ig: `You're allowed to throw it without ever stopping. There are exactly two conditions.
+
+Yesterday's lesson was the default: catch, slow down as fast as you can, plant a pivot. This is the exception written directly underneath it. If you catch the disc while running or jumping, you may release a pass without attempting to reduce speed and without establishing a pivot point at all — provided you meet both conditions the rulebook attaches to it.
+
+First: you don't change direction or increase speed until the pass is released. Second: a maximum of two additional points of contact with the ground after the catch and before you throw.
+
+Two contacts is not "two steps, then a throw". Count them. Catch airborne, land left — one — land right — two — and the disc is already gone. A third contact means the allowance no longer applies, and releasing a pass in breach of it is listed among the travel infractions by number.
+
+The direction condition is the one people lose. Catching on the run and curving inside to open up a better lane breaks the allowance even if you got the throw away inside two contacts.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `you can throw without ever stopping — two conditions 🥏
+
+no change of direction, no speeding up, and a maximum of two ground contacts after the catch. catch, one, two, and it's already gone
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-17 by the daily task. Awaiting script review.',
+      'Direct sequel to Lesson 14, which is 18.2.1 — the default obligation to slow down and plant a pivot. 18.2.1.1 is the exception sitting immediately under it in the rulebook.',
+      'Two rules, so eight scenes rather than nine — scenes 2 and 4 both foot to 18.2.1.1 with one citation card between them, and 18.2.4.2 gets its own card.',
+      'Scene 3 uses the parent-plus-children form: 18.2.1.1 ends on "provided that:" and its two conditions live in 18.2.1.1.1 and 18.2.1.1.2, so the card is incomplete without them. All three strings verbatim from rules.json.',
+      'Scene 6 cites 18.2.4 as the lead-in to 18.2.4.2, exactly as reel-14 used it for 18.2.4.1. 18.2.4.2 is a fragment on its own; its parent supplies "A travel infraction occurs if:". Writing that lead-in in my own words on a citation card would be an attribution failure.',
+      'The lesson field line is used in half. Its first sentence borrows "continuation offence", which has a specific and different meaning in the rulebook (16.2, play carrying on after a call) and nothing to do with the two-contact allowance. Dropped that sentence, kept the second half. Suggest correcting content/lessons-1.json; flagging rather than editing, since the lesson JSONs are curriculum.',
+      'Deliberately stops short of what happens once travel is called — that is Lesson 16 (18.2.5) and it lands the next day.'
     ]
   }
 ];
