@@ -399,10 +399,10 @@
   },
   "reel-15": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T22:45:44Z"
+      "updatedAt": "2026-08-18T09:40:28.135Z"
     },
     "content": {
       "status": "awaiting-render",
