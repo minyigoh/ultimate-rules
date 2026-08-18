@@ -367,7 +367,12 @@
         "file": "reel13-caught-it-past-the-end-zone.mp4",
         "changed": "Initial render from the approved script. Eight scenes (two-rule lesson), exact CFR via encode.py; 29.57s. 14.3 and 11.3.2.1 quoted verbatim from rules.json."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-18",
+      "updatedAt": "2026-08-18T00:00:24.020Z"
+    }
   },
   "reel-14": {
     "script": {
