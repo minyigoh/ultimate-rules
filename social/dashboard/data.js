@@ -1110,7 +1110,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 16,
-    rules: ['15.5.1', '18.2.5', '18.2.5.1', '18.2.5.2', '18.2.6', '18.2.7'],
+    rules: ['18.2.5', '18.2.5.1', '18.2.5.2', '18.2.6', '18.2.7', '18.2.8', '15.10'],
     review: {
       script:  {status: 'pending', on: '2026-08-18'},
       content: {status: 'awaiting-render', on: null}
@@ -1123,37 +1123,39 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     slides: null,
     scenes: null,
     script: {
-      hook: `Someone calls travel on you. Here's the part almost everyone gets wrong — nothing stops.`,
-      explanation: `A travel is an infraction, not a violation, and infractions don't stop play. You go back and establish your pivot where the defender indicates, without delay. While you're doing that the stall count is paused and you may not throw. Once the pivot's right, the marker picks the count back up — and doesn't have to say "Stalling" first.`,
-      example: `So you catch it, drift a step, and a defender calls travel. Nobody freezes, nobody checks it in. You reset the pivot, the count resumes, you play on. But if you throw a completed pass before you've corrected it, the defence can call a travel violation — and that one does stop play. The disc comes back to you, you return to where you were, and you restart with a check. Throw an incomplete pass instead and play simply continues; the turnover stands.`,
+      hook: `Travel doesn't stop play. That's the half everyone learns. Almost nobody learns the two things that do stop it.`,
+      explanation: `The default first. A travel is an infraction, so when it's called, nothing halts. You go back and establish your pivot where the defender indicates, without delay, and while you're doing that the stall count is paused and you may not throw. Pivot's right, count resumes, game carries on.`,
+      example: `Now the two exceptions. One — you throw anyway and complete it before fixing the pivot. The defence can call a travel violation, and that does stop play: disc back to you, back to where you stood, restart with a check. Throw it incomplete instead and play just continues, turnover stands. Two — you contest the travel while the disc is still in your hand. Play stops right there. So "travel never stops play" is half a rule.`,
       cta: `Lesson 16 of 75 — new lesson daily.`
     },
-    ig: `Someone calls travel on you. Here's the part almost everyone gets wrong — nothing stops.
+    ig: `Travel doesn't stop play. That's the half everyone learns. Almost nobody learns the two things that do stop it.
 
-A travel is an infraction, not a violation, and infractions do not stop play. The rulebook says it in one line: after an accepted travel infraction is called, play does not stop. No freeze, no check, no restart. The game is still running while you sort it out.
+Start with the default, because it is the default. A travel is an infraction, not a violation, and the rulebook says it plainly: after an accepted travel infraction is called, play does not stop. No freeze, no check. You establish your pivot at the correct location — the one the player who called it indicates — and you do it without delay. Meanwhile the stall count is paused and you may not throw until you're back in the right place. Then the count resumes and the game carries on.
 
-What you owe is the pivot. You establish it at the correct location, the one the player who called it indicates, and you do it without delay — and so do they. Meanwhile the stall count is paused and you may not throw until you're back in the right place. Once you are, the marker resumes the count, and does not need to say "Stalling" before picking it up again.
+Stopper one: you throw it anyway. If you complete a pass after the travel but before correcting the pivot, the defensive team may call a travel violation. Play stops. The disc is returned to you, you go back to the location you occupied when the infraction happened, and play restarts with a check. Note the asymmetry — throw an incomplete pass in the same situation and nothing is rewound. Play continues and the turnover stands.
 
-The expensive mistake is throwing anyway. If you complete a pass after the travel but before correcting the pivot, the defence may call a travel violation — and that one does stop play. The disc comes back to you, you return to where you were standing when the infraction happened, and play restarts with a check. Throw an incomplete pass in the same situation and nothing is rewound: play continues and the turnover stands.
+Stopper two: somebody contests. If you disagree that the travel occurred, or don't think it's a correct call, you may call "Contest". And after a contested travel infraction where you haven't released a pass, play stops. This is the one that catches people out, because it's the same word "travel" producing the opposite outcome — and it's usually the thrower's own contest that halts the game they thought couldn't be halted.
 
-Worth knowing who can say it: any defensive player may call a travel infraction, not only the marker.
+So the useful version isn't "travel doesn't stop play". It's: travel doesn't stop play unless somebody throws through it, or somebody disagrees about it.
 
 Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.`,
-    tiktok: `"travel!" — and then nothing stops 🥏
+    tiktok: `"travel doesn't stop play" is half a rule 🥏
 
-it's an infraction, not a violation. reset your pivot, count is paused while you do it, then play carries on. throw a completed pass before you fix it and the disc comes back with a check
+true by default — reset your pivot, count is paused, carry on. but TWO things do stop it: completing a pass before you've fixed the pivot (defence calls a travel violation, disc comes back with a check), and contesting the call with the disc still in your hand
 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-18 by the daily task. Awaiting script review.',
-      'Closes the three-reel travel arc: lesson 14 was the duty to slow down (18.2.1), lesson 15 the running-catch exception (18.2.1.1), this one the procedure once the call is made (18.2.5-18.2.7).',
-      'Six rules in the lesson array, the most so far. They pair into three citation cards, so this stays at the standard nine scenes.',
-      'Scene 3 quotes 15.5 as the lead-in to 15.5.1 — "However any offensive player may call a double team..." is answering 15.5, so the clause is a fragment without its parent. Same precedent as reel-14 and reel-15.',
-      'Scene 5 carries 18.2.5.3 alongside the two lesson-listed clauses. Not in the lesson rules array, but the lesson body teaches its content ("the marker does not need to say Stalling"), so it has to be quoted rather than paraphrased. Suggest adding it to content/lessons-1.json; flagging rather than editing, since the lesson JSONs are curriculum.',
-      'Contested travel (18.2.8) deliberately out of scope — play does stop on a contested travel with no pass released, which cuts against this reel hook. Contesting properly is Lesson 23.'
+      'Redrafted 2026-08-18 (v2) against the note that the reel taught the infraction half of travel and left the violation half as a footnote. v1 archived as script-and-caption.v1.md; round logged in script-feedback.md. Still awaiting script review.',
+      'Two rules stop play after a travel: 18.2.6 (completed pass thrown before the pivot is corrected) and 18.2.8 (contested travel, no pass released). 18.2.8 was in no lesson at all before this redraft — zero rules arrays across all 75.',
+      'Cut the 15.5.1 beat from v1. Lesson 22 already carries 15.5 and 15.5.1, so that card duplicated a scheduled lesson and was the cheapest thing to trade for 18.2.8. Reel stays at nine scenes.',
+      'Cover headline is now "Travel doesn\'t stop play. Two things make it stop." The calendar row title is unchanged, per the reel-11 precedent — apply_additions keys rows on date + title, so renaming would add a duplicate row.',
+      'Scene 7 cites 15.10 as the lead-in to 18.2.8, which opens "After a contested travel infraction..." and never defines contesting. Same parent-supplies-the-stem precedent as reel-14 and reel-15.',
+      '18.2.5.3 is in the lesson rules array but not on a card — marker courtesy detail, least load-bearing clause, and carding it would put four strings on scene 3.',
+      'lessons-1.json travel body still does not mention contesting, so the website lesson will now cite 18.2.8 without explaining it. Suggest a fourth body bullet; not edited here, since only the rules array was approved.',
+      'Contested travel closes the arc that lesson 14 (18.2.1) and lesson 15 (18.2.1.1) opened.'
     ]
   }
 ];

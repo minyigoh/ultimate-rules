@@ -83,6 +83,13 @@ if exist ".git\rebase-apply" goto :midrebase
   REM that aborts the whole invocation, silently dropping every later pattern
   REM on the same line -- on 2026-08-11 an absent script-feedback.md took the
   REM .mp4 and .py patterns down with it. Separate calls fail independently.
+  REM The lesson JSONs are curriculum -- the source every script is written
+  REM from -- and no pattern here ever covered them. A rules-array correction
+  REM made in the sandbox (18.2.5.3 and 18.2.8 added to lesson 16 on
+  REM 2026-08-18) would have been committed nowhere and silently lost on the
+  REM next run, with the script still citing rules the curriculum did not
+  REM list. Its own line, per the rule above.
+  %GIT% add "content/lessons-*.json"
   %GIT% add "content/reel-*/script-and-caption*.md"
   %GIT% add "content/reel-*/*.mp4"
   %GIT% add "content/reel-*/*.py"
