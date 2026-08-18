@@ -101,11 +101,18 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio
 - **18.2.8 was in no lesson at all before this redraft** — it appeared in zero
   `rules` arrays across all 75. Added to lesson 16 in `content/lessons-1.json`
   this run, along with 18.2.5.3.
-- **`lessons-1.json` → `travel` body still doesn't mention contesting.** The
-  rules array now cites 18.2.8 but the three body bullets don't teach it, so
-  the lesson JSON is internally thin — the website lesson will cite a rule it
-  never explains. Suggest adding a fourth bullet. Not edited here: prose in the
-  lesson JSONs is curriculum, and only the rules array was approved.
+- **`lessons-1.json` → `travel` now teaches contesting too.** A fourth body
+  bullet was added 2026-08-18 so the website lesson explains 18.2.8 rather than
+  just citing it. The reel and the lesson are back in sync.
+- **The lesson's `quiz` still reinforces the half-rule.** Its question is
+  "'Travel' is called against you. What happens to play?" with the `why`
+  reading "Travel is an infraction. Play does not stop; the pivot is corrected
+  and the stall count is paused meanwhile." True as the default, but it's the
+  exact framing this redraft exists to widen. Suggested replacement `why`:
+  "Travel is an infraction, so by default play continues and the pivot is
+  corrected with the count paused. Two things override that: a completed pass
+  thrown before the pivot is fixed, and a contested call — both stop play."
+  Not applied; only the body bullet was approved.
 - **18.2.5.3 is in the rules array but not on a card.** It's the marker
   courtesy detail (no need to re-say "Stalling"), the least load-bearing clause
   in the lesson, and the reframed reel is about when play stops. Carding it
