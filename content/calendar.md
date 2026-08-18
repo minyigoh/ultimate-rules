@@ -20,6 +20,7 @@
 | 2026-08-19 | Slowing down after the catch | Reel | Script approved | — | — |
 | 2026-08-20 | carousel-post-3 — "Week two: seven more lessons" | Carousel (9 slides) | Pending review | — | — |
 | 2026-08-20 | Throwing on the run: the two-contact allowance | Reel | Pending review | — | — |
+| 2026-08-21 | Travel: the call that doesn't stop play | Reel | Pending review | — | — |
 
 ## Status legend
 
