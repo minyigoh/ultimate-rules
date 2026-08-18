@@ -413,10 +413,10 @@
   },
   "carousel-post-3": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T22:45:44Z"
+      "updatedAt": "2026-08-18T09:38:51.822Z"
     },
     "content": {
       "status": "awaiting-render",
