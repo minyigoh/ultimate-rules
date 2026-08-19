@@ -999,20 +999,31 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-20',
     title: 'Week two: seven more lessons',
     type: 'Carousel',
+    typeDetail: '1080×1350 · 9 slides',
     pillar: 'Rules',
     difficulty: 'Mixed',
     lesson: null,
     rules: ['12.1', '12.1.1', '13.1.1.1', '11.3', '11.3.1', '11.3.2', '11.4', '11.6', '11.7', '11.2', '12.3', '14.1', '14.1.1', '14.1.2', '14.4', '14.3', '11.3.2.1', '18.2.1', '18.2.4.1'],
     review: {
       script:  {status: 'pending', on: '2026-08-17'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-19'}
     },
     postedDate: null,
     folder: 'carousel-post-3',
     source: 'content/carousel-post-3/script-and-caption.md',
     sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 8-14',
     video: null,
-    slides: null,
+    slides: [
+      ['01_cover', 'Cover — THIS WEEK'],
+      ['02_lesson8_catch_possession', 'Lesson 8 — A catch and possession are not the same thing'],
+      ['03_lesson9_feet', 'Lesson 9 — Where your feet have to be'],
+      ['04_lesson10_leaving_the_field', "Lesson 10 — You're allowed to leave the field"],
+      ['05_lesson11_simultaneous_catch', 'Lesson 11 — Caught at the same time? Offence keeps it.'],
+      ['06_lesson12_goals', 'Lesson 12 — What actually counts as a goal'],
+      ['07_lesson13_past_the_end_zone', 'Lesson 13 — Caught it past the end zone? Walk it back.'],
+      ['08_lesson14_slowing_down', 'Lesson 14 — Slowing down after the catch'],
+      ['09_closing', `Closing — "That's fourteen of seventy-five."`]
+    ],
     scenes: null,
     script: {
       hook: `Seven more lessons this week. Here's the whole set in one swipe.`,
@@ -1051,21 +1062,32 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-20',
     title: 'Throwing on the run: the two-contact allowance',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.6s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 15,
+    duration: '~29s script / 29.6s cut',
     rules: ['18.2.1.1', '18.2.4.2'],
     review: {
       script:  {status: 'pending', on: '2026-08-17'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-19'}
     },
     postedDate: null,
     folder: 'reel-15',
     source: 'content/reel-15/script-and-caption.md',
     sourceLesson: 'content/lessons-1.json (tag: Movement)',
-    video: null,
+    video: 'reel15-throwing-on-the-run.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"Throwing on the run: the two-contact allowance" · kicker BEGINNER · LESSON 15 / 75'],
+      ['2', '#1 NO PIVOT REQUIRED', '"You can catch it and throw it without ever stopping." · footer cites 18.2.1.1'],
+      ['3', 'Rules detail', 'Verbatim 18.2.1.1 + 18.2.1.1.1 + 18.2.1.1.2'],
+      ['4', '#2 TWO EXTRA CONTACTS, MAX', '"Catch, one, two — and the disc is already gone." · footer cites 18.2.1.1'],
+      ['5', "#3 OTHERWISE IT'S A TRAVEL", '"Miss either condition and the allowance is off." · footer cites 18.2.4.2'],
+      ['6', 'Rules detail', 'Verbatim 18.2.4 + 18.2.4.2'],
+      ['7', 'FIELD TIP', `"Count the contacts, don't estimate them"`],
+      ['8', 'Closing', '"Lesson 15 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You're allowed to throw it without ever stopping. There are exactly two conditions.`,
       explanation: `Catch it while you're running or jumping and you may release a pass without slowing down and without establishing a pivot at all. In exchange: you can't change direction or speed up before the release, and you get a maximum of two extra points of ground contact after the catch.`,
@@ -1157,6 +1179,62 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'lessons-1.json travel now teaches contesting too - a fourth body bullet added 2026-08-18, so the website lesson explains 18.2.8 rather than just citing it.',
       'Open: the lesson quiz still reinforces the half-rule. Its why reads "Travel is an infraction. Play does not stop...", which is the exact framing this redraft widens. A replacement is proposed in script-and-caption.md; not applied, since only the body bullet was approved.',
       'Contested travel closes the arc that lesson 14 (18.2.1) and lesson 15 (18.2.1.1) opened.'
+    ]
+  },
+
+  {
+    id: 'reel-17',
+    date: '2026-08-22',
+    title: 'Disc space: give the thrower room',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 17,
+    rules: ['18.1.1.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-19'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-17',
+    source: 'content/reel-17/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Marking)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `This is the most-called infraction in the sport, and the easiest one to never commit.`,
+      explanation: `No part of a defender may be closer than one disc diameter to the thrower's torso. A disc is about 27 centimetres across — so, roughly a forearm. Stand any closer than that and the thrower can call disc space.`,
+      example: `Two details do most of the work. First, it's measured to the torso, not to the disc and not to the arms — you're allowed to reach, you're just not allowed to crowd the body. Second, if the gap closed only because the thrower pivoted into you, it isn't an infraction. But that exception is narrow, and it's the marker's job to hold the space, not the thrower's job to protect it.`,
+      cta: `Lesson 17 of 75 — new lesson daily.`
+    },
+    ig: `The most-called infraction in the sport, and the easiest one to never commit.
+
+Disc space. No part of a defender may be closer than one disc diameter to the thrower's torso. A disc is about 27 centimetres across, which is roughly a forearm — hold that much air between you and the person with the disc and you have essentially solved this rule for good.
+
+Two details are where the arguments come from.
+
+It is measured to the torso. Not to the disc, not to your hands, not to the disc's edge. You are allowed to reach — a mark that stretches an arm across the throwing lane is doing its job. What you may not do is bring your body in against theirs.
+
+And it isn't automatic. If the gap closes solely because the thrower moved into you, no infraction occurred — the rulebook says so directly. That covers the standing marker who gets pivoted into. It does not cover drifting in and then blaming the pivot. The onus sits with the marker to hold the space, not with the thrower to defend it.
+
+Sixteen lessons in, this is the first one that's about you when you don't have the disc.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `one disc diameter. about 27 cm. roughly a forearm 🥏
+
+measured to the torso, not the disc — you can reach, you just can't crowd. and if the thrower pivots into you, that one's not on you
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'First lesson from content/lessons-2.json — lessons 1-16 exhausted lessons-1.json. The curriculum turns from the thrower\'s obligations to the marker\'s.',
+      '"About 27 cm" is the lesson\'s gloss, not the rulebook\'s. 18.1.1.3 says "one disc diameter" and never names a measurement, so the number stays in the script body and captions and never appears on a citation card.',
+      'The exception is stated narrowly on purpose: 18.1.1.3 turns on "solely" — a marker who has been closing the gap and then gets pivoted into is not covered.',
+      'Scene 3 cards 18.1.1 as the lead-in to 18.1.1.3, the same parent-plus-child pattern reels 14 and 15 used for 18.2.4. Both strings verbatim from rules.json.',
+      'Deliberately does not cover the marking count (Lesson 19) or general call procedure (Lesson 21).'
     ]
   }
 ];
