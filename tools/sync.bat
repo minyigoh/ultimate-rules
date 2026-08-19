@@ -106,6 +106,13 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM The desk SOURCE. docs/desk is the build output and was staged above, so a
+  REM fix to index.html would deploy while the file it came from stayed dirty
+  REM forever -- and would be lost on a fresh clone, silently reverting the
+  REM deployed desk on the next rebuild. Found 2026-08-19 while fixing the
+  REM silent review-state.json read failure. Its own line, per the rule above.
+  %GIT% add social/dashboard/index.html
+  %GIT% add social/dashboard/worker/worker.js social/dashboard/worker/README.md
   REM unstick_rebase.bat was written on 2026-08-11 to break the finish_rebase
   REM loop, but was never added to this list -- so it stayed untracked and no
   REM run could ever push it. A helper that only exists on one machine is not
