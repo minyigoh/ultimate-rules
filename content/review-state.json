@@ -446,7 +446,12 @@
         "file": "01_cover.png … 09_closing.png",
         "changed": "Initial render of the second weekly recap, lessons 8-14. Nine slides at 2250x2812, rule numbers only, no rule text. Layout reused verbatim from carousel-post-2/make_carousel.py."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-20",
+      "updatedAt": "2026-08-19T23:15:01.615Z"
+    }
   },
   "reel-16": {
     "script": {
