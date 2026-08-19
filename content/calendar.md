@@ -18,7 +18,7 @@
 | 2026-08-17 | What actually counts as a goal | Reel | Posted | 2026-08-17 | — |
 | 2026-08-18 | Caught it past the end zone? Walk it back. | Reel | Posted | 2026-08-18 | — |
 | 2026-08-19 | Slowing down after the catch | Reel | Posted | 2026-08-19 | — |
-| 2026-08-20 | carousel-post-3 — "Week two: seven more lessons" | Carousel (9 slides) | Script approved | — | — |
+| 2026-08-20 | carousel-post-3 — "Week two: seven more lessons" | Carousel (9 slides) | Ready to post | — | — |
 | 2026-08-20 | Throwing on the run: the two-contact allowance | Reel | Script approved | — | — |
 | 2026-08-21 | Travel: the call that doesn't stop play | Reel | Script approved | — | — |
 | 2026-08-22 | Disc space: give the thrower room | Reel | Pending review | — | — |
