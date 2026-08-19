@@ -395,7 +395,12 @@
         "file": "reel14-slowing-down-after-the-catch.mp4",
         "changed": "Initial render from the approved script. Eight scenes (two-rule lesson), exact CFR via encode.py; 29.57s. 18.2.1 and 18.2.4 + 18.2.4.1 quoted verbatim from rules.json."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-19",
+      "updatedAt": "2026-08-19T00:23:18.448Z"
+    }
   },
   "reel-15": {
     "script": {
