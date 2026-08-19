@@ -464,10 +464,10 @@
   },
   "reel-17": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-19T06:45:00Z"
+      "updatedAt": "2026-08-19T07:34:18.176Z"
     },
     "content": {
       "status": "awaiting-render",
