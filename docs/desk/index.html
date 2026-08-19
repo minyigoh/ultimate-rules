@@ -1797,7 +1797,14 @@ async function syncToRepo(p, trackName, value){
       // without waiting on the next fetch of review-state.json.
       remoteState[p.id] = remoteState[p.id] || {};
       remoteState[p.id][trackName] = value;
-      if (state[p.id]) { delete state[p.id][trackName]; tidy(p); }
+      /* Do NOT drop the local copy here. The Worker has committed, but
+         raw.githubusercontent serves from a CDN that lags a push by minutes,
+         so the next reload can still fetch a copy that predates this decision.
+         Deleting now meant that reload found no local override, read the stale
+         file, and showed the OLD status -- the decision "reverting" on refresh
+         until the CDN caught up. Instead, stamp it confirmed and keep it; the
+         reconcile pass on boot removes it once the repo demonstrably has it. */
+      if (state[p.id] && state[p.id][trackName]) state[p.id][trackName].syncedAt = Date.now();
       save();
       toast(SYNC_TOAST[trackName]);
     }
@@ -1808,6 +1815,32 @@ async function syncToRepo(p, trackName, value){
   renderStats(); renderList(); renderDetail(true);
 }
 
+/* A local track the Worker has already accepted. Kept only until the repo copy
+   we can actually read catches up with it — see reconcileRemote. */
+const confirmed = t => !!(t && t.syncedAt);
+
+/* Drop local overrides the repo has caught up on, so localStorage can never
+   become a permanent shadow over review-state.json. Compares timestamps rather
+   than assuming: a local track survives only while it is strictly newer than
+   what the repo reports, which is exactly the CDN propagation window. */
+function reconcileRemote(){
+  let dropped = 0;
+  for (const p of POSTS){
+    const d = state[p.id];
+    if (!d) continue;
+    for (const name of ['script', 'content', 'posted']){
+      const local = d[name];
+      if (!confirmed(local)) continue;               // never synced — keep, sweep will retry
+      const r = remoteState[p.id] && remoteState[p.id][name];
+      if (!r) continue;
+      const remoteAt = Date.parse(r.updatedAt || 0) || 0;
+      if (remoteAt >= (local.updatedAt || 0)) { delete d[name]; dropped++; }
+    }
+    if (!Object.keys(d).length) delete state[p.id];
+  }
+  if (dropped){ save(); console.info('[desk] reconciled', dropped, 'local override(s) the repo now has'); }
+}
+
 // Runs once on boot: anything still sitting in localStorage never made it to
 // the repo last time (offline, a typo'd passphrase, the Worker not deployed
 // yet) — try each one again rather than waiting for you to notice.
@@ -1816,9 +1849,12 @@ function syncSweep(){
   for (const p of POSTS){
     const d = state[p.id];
     if (!d) continue;
-    if (d.script)  syncToRepo(p, 'script', d.script);
-    if (d.content) syncToRepo(p, 'content', d.content);
-    if (d.posted)  syncToRepo(p, 'posted', d.posted);
+    // Anything already confirmed is waiting on CDN propagation, not on a retry.
+    // Re-POSTing it would rewrite the repo from this browser's copy and could
+    // clobber a newer decision made on another device.
+    if (d.script  && !confirmed(d.script))  syncToRepo(p, 'script', d.script);
+    if (d.content && !confirmed(d.content)) syncToRepo(p, 'content', d.content);
+    if (d.posted  && !confirmed(d.posted))  syncToRepo(p, 'posted', d.posted);
   }
 }
 
@@ -1930,9 +1966,14 @@ const hasMedia = p => !!(p.video || p.slides);
 function overridden(p){
   const d = state[p.id];
   if (!d) return false;
-  if (d.posted && !samePosted(d.posted, baseline(p,'posted'))) return true;
-  if (d.script && (d.script.status !== baseline(p,'script').status || (d.script.note||'').trim())) return true;
-  if (d.content && (d.content.status !== baseline(p,'content').status ||
+  // A confirmed track is in the repo already — it is only still here because
+  // the copy we can read hasn't propagated yet. Flagging it "unsaved" would
+  // report the CDN's lag as your unfinished work.
+  if (d.posted && !confirmed(d.posted) && !samePosted(d.posted, baseline(p,'posted'))) return true;
+  if (d.script && !confirmed(d.script) &&
+      (d.script.status !== baseline(p,'script').status || (d.script.note||'').trim())) return true;
+  if (d.content && !confirmed(d.content) &&
+      (d.content.status !== baseline(p,'content').status ||
       (d.content.note||'').trim() || (d.content.tags||[]).length || d.content.urgent)) return true;
   return false;
 }
@@ -2833,6 +2874,7 @@ document.addEventListener('keydown', e => {
 /* ---------- boot ---------- */
 (async function boot(){
   await loadRemoteState();
+  reconcileRemote();
   renderStats();
   renderFilters();
   renderList();
