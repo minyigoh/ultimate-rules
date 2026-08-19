@@ -21,6 +21,7 @@
 | 2026-08-20 | carousel-post-3 — "Week two: seven more lessons" | Carousel (9 slides) | Script approved | — | — |
 | 2026-08-20 | Throwing on the run: the two-contact allowance | Reel | Script approved | — | — |
 | 2026-08-21 | Travel: the call that doesn't stop play | Reel | Script approved | — | — |
+| 2026-08-22 | Disc space: give the thrower room | Reel | Pending review | — | — |
 
 ## Status legend
 
