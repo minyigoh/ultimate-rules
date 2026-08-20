@@ -19,3 +19,10 @@ content/**/frames/
 /_commit_msg.txt
 tools/_last_sync.log
 desktop.ini
+
+# Local `wrangler dev` state for worker/lesson-counter. The Worker source and
+# its wrangler.toml are committed; the local Durable Object store and dev logs
+# are not.
+.wrangler/
+node_modules/
+worker/**/wrangler-dev.log

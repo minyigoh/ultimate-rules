@@ -4,8 +4,10 @@ A beginner's guide to the rules of ultimate frisbee: every rule in plain English
 one short lesson a day, and a search bar that understands what new players
 actually type ("how long can I hold it?", "stepped on the line", "got a d").
 
-Built as a single self-contained page — no build step to view it, no network
-calls, no tracking. Everything you learn is stored in your own browser.
+Built as a single self-contained page — no build step to view it, no tracking.
+Everything you learn is stored in your own browser; the only thing that ever
+leaves it is an anonymous +1 to the shared lesson counter, and that is off
+until a Worker is deployed for it.
 
 ## What's in it
 
@@ -20,7 +22,11 @@ calls, no tracking. Everything you learn is stored in your own browser.
 - **Glossary** — all 40 defined terms.
 - **Search** — over lessons, questions, rules and definitions at once, with
   beginner-phrasing synonyms, frequency weighting and keyboard navigation
-  (`/` or `Ctrl/Cmd-K` to open).
+  (`/` or `Ctrl/Cmd-K` to open). A hit opens the rule on its own, with a way up
+  into the rest of its section, a labelled Back through however many rules you
+  followed, and one button back to the results you came from.
+- **Everyone's count** — a dot-matrix tally of how many lessons every visitor
+  has answered between them. Off by default; see *The lesson counter* below.
 
 ## Layout
 
@@ -33,10 +39,12 @@ src/
   template.html     the page: markup, styles, and all behaviour
   parse.py          regenerates content/rules.json from a urules.org dump
 build.py            inlines the data into a single page -> docs/
+worker/
+  lesson-counter/   the shared counter: one integer in a Durable Object
 social/
   brand-identity.md voice, palette, attribution rules for the social account
   dashboard/        the content desk (source) -> docs/desk/
-docs/               the built site (this is what GitHub Pages serves)
+docs/               the built site (this is what the host serves)
 docs/desk/          the built content desk
 ```
 
@@ -156,12 +164,63 @@ resulting `rules.json` into `content/`.
 
 ## Hosting
 
-`docs/` is a static site. On GitHub Pages, set **Settings → Pages → Source** to
-*Deploy from a branch*, branch `main`, folder `/docs`.
+`docs/` is a static site, so anything that serves files will do. Now that the
+site is meant to be shared rather than kept to hand, **Cloudflare Pages** is the
+one to use.
+
+Why it, over staying on GitHub Pages:
+
+- a custom domain and its certificate take about two minutes, rather than the
+  CNAME-and-wait dance
+- the lesson counter is already a Cloudflare Worker, so it is one account, one
+  dashboard, and one place to look when something is wrong
+- `docs/_headers` is honoured (GitHub Pages ignores it), which is what keeps
+  `index.html` and `sw.js` out of the edge cache. That matters more than it
+  sounds: a stale `sw.js` pins a visitor to an old build until they clear it
+- Pages Functions are there if the counter should later move onto the same
+  origin as the page and drop the cross-origin request entirely
+
+Connect the repo under **Workers & Pages → Create → Pages → Connect to Git**:
+
+| Setting | Value |
+| --- | --- |
+| Production branch | `main` |
+| Framework preset | None |
+| Build command | *(leave empty)* |
+| Build output directory | `docs` |
+
+There is no build to run on Cloudflare's side. `python build.py` runs here and
+`docs/` is committed, so a push publishes. The custom domain goes on under the
+project's **Custom domains** tab; if the domain is already on Cloudflare the
+DNS record is written for you.
+
+Both hosts can serve at once while you cut over. Once the Cloudflare domain is
+the one you hand out, turn GitHub Pages off in **Settings → Pages** — two live
+URLs for one site splits its search ranking between them.
+
+For reference, the GitHub Pages setup that is there today: **Settings → Pages →
+Source**, *Deploy from a branch*, branch `main`, folder `/docs`.
 
 The service worker only registers over HTTPS, so once the page has been opened
 online it keeps working offline — which is the point, since pitches rarely have
 signal. Bumping the build changes the cache version and clients pick it up.
+
+## The lesson counter
+
+The counter under today's card — *lessons answered on this page, by everyone
+who has used it* — is a single integer in a Cloudflare Durable Object, read on
+load and incremented the first time you answer a lesson's quick check. It is
+the only part of the site that talks to a server.
+
+It ships switched **off**. Deploy [`worker/lesson-counter/`](worker/lesson-counter/README.md),
+put the Worker's URL in `COUNTER_URL` near the top of the script in
+`src/template.html`, and rebuild. Until then — and whenever the request fails,
+or the visitor is offline — the band never appears and the page makes no
+network calls at all.
+
+Nothing that identifies a visitor is stored: the persisted state is one number.
+The footer line about nothing leaving your browser rewrites itself when the
+counter is live, because at that point it is no longer true.
 
 ## Credits and licence
 

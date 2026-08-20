@@ -151,14 +151,19 @@ self.addEventListener("activate", e => {{
 
 self.addEventListener("fetch", e => {{
   if (e.request.method !== "GET") return;
+  const url = new URL(e.request.url);
+  // The shared lesson counter lives on another origin. Leave it alone: caching
+  // it would freeze the number, and the offline fallback below would hand a
+  // JSON fetch a page of HTML.
+  if (url.origin !== location.origin) return;
   // /desk/ is the private content dashboard, not part of the offline lesson
   // site. Leave it to the network so edits show up instead of being pinned to
   // whatever version happened to be cached first.
-  if (new URL(e.request.url).pathname.includes("/desk/")) return;
+  if (url.pathname.includes("/desk/")) return;
   e.respondWith(
     caches.match(e.request, {{ ignoreSearch: true }}).then(hit => hit || fetch(e.request)
       .then(res => {{
-        if (res.ok && new URL(e.request.url).origin === location.origin) {{
+        if (res.ok) {{
           const copy = res.clone();
           caches.open(VERSION).then(c => c.put(e.request, copy));
         }}
@@ -167,6 +172,29 @@ self.addEventListener("fetch", e => {{
       .catch(() => caches.match("./index.html")))
   );
 }});
+"""
+
+
+HEADERS = """/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate
+
+/desk/*
+  X-Robots-Tag: noindex, nofollow
 """
 
 
@@ -311,6 +339,11 @@ def main():
         json.dump(MANIFEST, f, indent=2)
     # tell GitHub Pages to serve the files as-is
     open(os.path.join(DIST, ".nojekyll"), "w").close()
+    # read by Cloudflare Pages, ignored by GitHub Pages. index.html and the
+    # service worker must not be held in an edge cache or a build can take a
+    # day to reach anyone; the icons never change within a build.
+    with open(os.path.join(DIST, "_headers"), "w", encoding="utf-8") as f:
+        f.write(HEADERS)
 
     for size in (180, 192, 512):
         write_png(os.path.join(DIST, f"icon-{size}.png"), size, GROUND, ACCENT)

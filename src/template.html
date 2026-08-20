@@ -581,6 +581,74 @@ mark { background: var(--accent-wash); color: var(--accent); border-radius: 2px;
 .panel h3 { font-size: 1.4rem; margin: .6rem 0 .8rem; }
 .panel-prose { display: flex; flex-direction: column; gap: .85rem; color: var(--ink-soft); font-size: .96rem; }
 
+/* ============================================================ global tally
+   A dot-matrix readout of how many lessons everyone has answered. Every dot in
+   the 5x7 grid is drawn; the unlit ones are what make it read as a panel of
+   LEDs rather than as a number set in a pixel font. */
+.tally-band { padding: clamp(2rem, 4.5vw, 3rem) 0; }
+.tally { display: flex; flex-direction: column; gap: .9rem; align-items: flex-start; }
+.tally-panel {
+  border: 1px solid var(--line); border-radius: 8px; background: var(--sunk);
+  padding: clamp(.9rem, 3vw, 1.35rem) clamp(1.1rem, 4vw, 1.9rem);
+  max-width: 100%; overflow: hidden;
+}
+.tally-digits { display: block; width: auto; height: clamp(2.1rem, 7vw, 3.1rem); max-width: 100%; }
+.px { fill: var(--ink); opacity: .075; }
+.px.on { fill: var(--accent); opacity: 1; }
+.tally-note { font-size: .84rem; color: var(--ink-faint); max-width: var(--read); }
+/* a single flash when your own answer lands on the board */
+@keyframes tally-bump { 0% { border-color: var(--accent); } 100% { border-color: var(--line); } }
+.tally-band.bump .tally-panel { animation: tally-bump 1.1s ease-out; }
+@media (prefers-reduced-motion: reduce) { .tally-band.bump .tally-panel { animation: none; } }
+
+/* ---- section browsing inside the panel
+   A search hit lands on one rule out of 368, with no sense of what sits
+   around it. These are the two ways back out: up into the rest of the
+   section, and back to the results that got you here. */
+.crumb-btn {
+  display: inline-flex; align-items: center; gap: .35rem; height: 2.1rem; padding: 0 .65rem;
+  border: 1px solid var(--line); border-radius: var(--r); color: var(--ink-soft);
+  font-size: .78rem; font-weight: 600; max-width: min(15rem, 42vw);
+}
+.crumb-btn:hover { background: var(--sunk); color: var(--ink); }
+.crumb-btn svg { width: 14px; height: 14px; flex: none; }
+.crumb-btn > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.panel-nav { margin-top: 1.7rem; padding-top: 1.2rem; border-top: 1px solid var(--line-soft); display: grid; gap: .5rem; }
+.sec-btn {
+  display: flex; align-items: center; gap: .7rem; width: 100%; text-align: left;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--raise); padding: .7rem .9rem;
+}
+.sec-btn:hover { border-color: var(--accent); }
+.sec-btn.prev-next { padding: .55rem .9rem; }
+.sec-n {
+  font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: .76rem;
+  font-weight: 700; color: var(--accent); flex: none;
+}
+.sec-t { font-size: .9rem; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sec-c { margin-left: auto; font-family: var(--f-mono); font-size: .7rem; color: var(--ink-faint); flex: none; }
+.sec-arrow { color: var(--ink-faint); flex: none; font-family: var(--f-mono); font-size: .8rem; }
+
+/* the section listing itself — same shape as a rulebook row, but each row is
+   a button, and the rule you arrived from is marked so you don't lose it */
+.sec-list { margin-top: 1.2rem; border-top: 1px solid var(--line-soft); }
+.sec-row {
+  display: flex; gap: .85rem; align-items: flex-start; width: 100%; text-align: left;
+  padding: .6rem .5rem; border-bottom: 1px solid var(--line-soft);
+}
+.sec-row:hover { background: var(--sunk); }
+.sec-row[data-d="3"] { padding-left: 1.3rem; }
+.sec-row[data-d="4"] { padding-left: 2.1rem; }
+.sec-row[data-d="5"] { padding-left: 2.9rem; }
+.sec-row.here { background: var(--accent-wash); box-shadow: inset 2px 0 0 var(--accent); }
+.sec-row.here .rule-n { color: var(--accent); }
+.sec-row .rule-n { min-width: 3.1rem; }
+.sec-ann { font-family: var(--f-mono); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); display: block; margin-top: .3rem; }
+
+/* landing highlight for "open in the full rulebook" */
+.rule.is-target { background: var(--accent-wash); box-shadow: inset 2px 0 0 var(--accent); border-radius: 0 4px 4px 0; padding-left: .6rem; }
+.rule.is-target .rule-n { color: var(--accent); }
+
 /* ============================================================ footer */
 footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3.5rem; }
 .foot-in { display: flex; flex-direction: column; gap: 1rem; font-size: .84rem; color: var(--ink-faint); max-width: 44rem; }
@@ -664,6 +732,19 @@ footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3.5rem; }
     </div>
   </section>
 
+  <!-- ======================================================== global tally -->
+  <section id="tally" class="band tally-band" hidden>
+    <div class="wrap tally">
+      <div class="eyebrow">Everyone&rsquo;s count</div>
+      <div class="tally-panel">
+        <svg class="tally-digits" id="tallyDigits" role="img" aria-labelledby="tallyLabel"
+             viewBox="0 0 33 7" preserveAspectRatio="xMidYMid meet"></svg>
+        <span class="sr" id="tallyLabel"></span>
+      </div>
+      <p class="tally-note" id="tallyNote"></p>
+    </div>
+  </section>
+
   <!-- ======================================================== basics -->
   <section id="basics" class="band">
     <div class="wrap">
@@ -741,7 +822,7 @@ footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3.5rem; }
   <div class="wrap foot-in">
     <p><strong>An unofficial beginner's guide.</strong> The rule text and annotations are the <em>WFDF Rules of Ultimate 2025&ndash;2028</em> by the World Flying Disc Federation, used under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC&nbsp;BY&nbsp;4.0</a>, and sourced from <a href="https://urules.org/" target="_blank" rel="noopener">urules.org</a>.</p>
     <p>The plain-English lessons, quick answers and quiz questions on this page are written to explain those rules and are not part of the official text. Where anything here disagrees with <a href="https://rules.wfdf.sport" target="_blank" rel="noopener">rules.wfdf.sport</a>, the official rules win.</p>
-    <p>Everything you learn is stored only in this browser. Nothing is sent anywhere.</p>
+    <p>Everything you learn is stored only in this browser. <span id="footPrivacy">Nothing is sent anywhere.</span></p>
   </div>
 </footer>
 
@@ -788,7 +869,7 @@ function hash(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { 
 
 /* ============================================================ storage */
 const KEY = "learn-ultimate:v1";
-let store = { start: todayKey(), done: [], answers: {} };
+let store = { start: todayKey(), done: [], counted: [], answers: {} };
 try {
   const raw = localStorage.getItem(KEY);
   if (raw) {
@@ -796,8 +877,10 @@ try {
     if (p && typeof p === "object") store = Object.assign(store, p);
   }
   if (!Array.isArray(store.done)) store.done = [];
+  if (!Array.isArray(store.counted)) store.counted = [];
   if (!store.answers || typeof store.answers !== "object") store.answers = {};
 } catch (e) { /* private mode — run without persistence */ }
+if (!Array.isArray(store.counted)) store.counted = [];
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} };
 
 function streakOf() {
@@ -1388,6 +1471,7 @@ function renderToday() {
     store.answers[L.id] = i; save();
     applyAnswer(i, L, opts);
     renderProgress();
+    tallyBump(L.id);
   }));
 
   const md = $("#markDone");
@@ -1512,14 +1596,18 @@ function renderChapters() {
         <span class="chap-c">${c.count} rules</span>
       </summary>
       <div class="chap-in" data-chapter="${c.num}"></div>`;
-    d.addEventListener("toggle", () => {
-      const holder = d.querySelector(".chap-in");
-      if (!d.open || holder.dataset.filled) return;
-      holder.dataset.filled = "1";
-      rules.filter(r => r.chapter === c.num).forEach(r => holder.appendChild(ruleNode(r)));
-    }, { once: false });
+    d.addEventListener("toggle", () => { if (d.open) fillChapter(d); });
     box.appendChild(d);
   });
+}
+/* chapters fill on first open — 368 rule nodes up front is a slow first paint,
+   and most visits never open one */
+function fillChapter(d) {
+  const holder = d.querySelector(".chap-in");
+  if (!holder || holder.dataset.filled) return;
+  holder.dataset.filled = "1";
+  const ch = Number(holder.dataset.chapter);
+  rules.filter(r => r.chapter === ch).forEach(r => holder.appendChild(ruleNode(r)));
 }
 function ruleNode(r) {
   const n = el("div", "rule");
@@ -1737,13 +1825,151 @@ function wireTries(root) {
     b.addEventListener("click", () => { qEl.value = b.dataset.try; runSearch(); qEl.focus(); }));
 }
 
+/* ============================================================ global tally
+   The one thing on this page that talks to a server: a shared count of the
+   lessons everyone who has ever opened it has answered. A 5x7 dot-matrix
+   readout, because a plain number would have been a statistic rather than a
+   scoreboard.
+
+   Set COUNTER_URL to the deployed Worker (worker/lesson-counter/) to switch it
+   on. Left empty — or if the request fails, or the visitor is offline — the
+   band never appears and the page behaves exactly as it did before: no
+   requests, nothing sent, everything local. */
+const COUNTER_URL = "https://luf-lesson-counter.learnultimatefrisbee.workers.dev";
+
+/* 5 wide, 7 tall, one string per row — the arcade shapes, not the calculator
+   seven-segment ones, which look wrong at this size */
+const PIXFONT = {
+  "0": ["01110","10001","10011","10101","11001","10001","01110"],
+  "1": ["00100","01100","00100","00100","00100","00100","01110"],
+  "2": ["01110","10001","00001","00010","00100","01000","11111"],
+  "3": ["11111","00010","00100","00010","00001","10001","01110"],
+  "4": ["00010","00110","01010","10010","11111","00010","00010"],
+  "5": ["11111","10000","11110","00001","00001","10001","01110"],
+  "6": ["00110","01000","10000","11110","10001","10001","01110"],
+  "7": ["11111","00001","00010","00100","01000","01000","01000"],
+  "8": ["01110","10001","10001","01110","10001","10001","01110"],
+  "9": ["01110","10001","10001","01111","00001","00010","01100"]
+};
+const PIX_W = 5, PIX_H = 7, PIX_GAP = 2, PIX_MIN = 5;
+
+const tallyBand = $("#tally"), tallySvg = $("#tallyDigits"),
+      tallyNote = $("#tallyNote"), tallyLabel = $("#tallyLabel");
+let tallyShown = -1, tallyRaf = 0;
+/* what is on the panel right now. It has to be tracked separately from
+   tallyShown, which every caller assigns before painting — comparing against
+   it would compare a value with itself and skip every repaint. */
+let tallyPainted = "";
+
+/* every dot is drawn, lit or not — an LED panel with the dead pixels showing
+   is what makes it read as hardware rather than as text */
+function tallyPaint(n) {
+  const s = String(Math.max(0, n)).padStart(PIX_MIN, "0");
+  if (s === tallyPainted) return;
+  tallyPainted = s;
+  const cols = s.length * PIX_W + (s.length - 1) * PIX_GAP;
+  let dots = "";
+  for (let i = 0; i < s.length; i++) {
+    const rows = PIXFONT[s[i]] || PIXFONT["0"];
+    const ox = i * (PIX_W + PIX_GAP);
+    for (let y = 0; y < PIX_H; y++)
+      for (let x = 0; x < PIX_W; x++)
+        dots += `<rect class="px${rows[y][x] === "1" ? " on" : ""}" x="${ox + x + 0.09}" y="${y + 0.09}" width="0.82" height="0.82" rx="0.16"/>`;
+  }
+  tallySvg.setAttribute("viewBox", `0 0 ${cols} ${PIX_H}`);
+  tallySvg.innerHTML = dots;
+}
+
+/* roll up to the number rather than snapping to it, the way a mechanical
+   counter would */
+function tallyTo(target, animate) {
+  cancelAnimationFrame(tallyRaf);
+  const from = tallyShown < 0 ? Math.max(0, target - Math.min(target, 60)) : tallyShown;
+  if (!animate || matchMedia("(prefers-reduced-motion: reduce)").matches || from === target) {
+    tallyShown = target; tallyPaint(target); return;
+  }
+  /* paint the starting value up front: requestAnimationFrame does not run in a
+     backgrounded tab, and an empty panel is worse than a number that has not
+     started moving yet */
+  tallyShown = from;
+  tallyPaint(from);
+  const t0 = performance.now(), dur = 900;
+  const step = now => {
+    const k = Math.min(1, (now - t0) / dur);
+    const e = 1 - Math.pow(1 - k, 3);
+    tallyShown = Math.round(from + (target - from) * e);
+    tallyPaint(tallyShown);
+    if (k < 1) tallyRaf = requestAnimationFrame(step);
+    else { tallyShown = target; tallyPaint(target); }
+  };
+  tallyRaf = requestAnimationFrame(step);
+}
+
+function tallyShow(total, bumped) {
+  if (typeof total !== "number" || !isFinite(total)) return;
+  const n = Math.max(0, Math.round(total));
+  /* what you contributed to this number, not what you have answered — lessons
+     answered before the counter existed were never sent, and counting them
+     here would claim a share of the total that is not there */
+  const mine = store.counted.length;
+  const first = tallyBand.hidden;
+  tallyBand.hidden = false;
+  if (first) {
+    const fp = $("#footPrivacy");
+    /* the footer promised nothing ever leaves the browser; with the counter
+       live that is no longer true, so say what does */
+    if (fp) fp.textContent = "The only thing that leaves it is an anonymous +1 to the counter above — no account, no cookies, nothing that says who you are.";
+  }
+  tallyLabel.textContent = `${n.toLocaleString()} lessons answered here so far`;
+  tallyNote.textContent = mine
+    ? `lessons answered on this page, by everyone who has used it — ${mine} of them yours`
+    : "lessons answered on this page, by everyone who has used it";
+  tallyTo(n, true);
+  if (bumped && !first) {
+    tallyBand.classList.remove("bump");
+    void tallyBand.offsetWidth;
+    tallyBand.classList.add("bump");
+  }
+}
+
+/* text/plain on the POST keeps it a simple CORS request, so there is no
+   preflight round trip before a +1 lands */
+function tallyFetch(init) {
+  if (!COUNTER_URL) return Promise.resolve(null);
+  return fetch(COUNTER_URL, init)
+    .then(r => (r.ok ? r.json() : null))
+    .catch(() => null);
+}
+function tallyLoad() {
+  tallyFetch({ method: "GET", cache: "no-store" }).then(d => d && tallyShow(d.total, false));
+}
+function tallyBump(lessonId) {
+  if (!COUNTER_URL) return;
+  if (store.counted.includes(lessonId)) return;   /* answering twice is not two lessons */
+  store.counted.push(lessonId);
+  save();
+  tallyFetch({ method: "POST", body: JSON.stringify({ lesson: lessonId }) })
+    .then(d => d && tallyShow(d.total, true));
+}
+
 /* ============================================================ detail panel */
 const panel = $("#panel"), panelBox = $("#panelBox");
 
-/* navigation history within the panel: clicking a rule reference inside
-   an already-open panel pushes the current view so Back can return to it,
-   however many levels deep. Opening the panel fresh (from the page or a
-   search result) always starts a new stack. */
+/* A rule's *section* is the depth-2 heading it sits under: 18.1.1.2 belongs to
+   18.1 "Marking Infractions". Every rule number has at least two parts, so
+   every rule has one. Appending the dot before matching keeps 18.1 from
+   swallowing 18.10. */
+const sectionOf = num => num.split(".").slice(0, 2).join(".");
+const sectionMembers = num => rules.filter(r => r.num.startsWith(num + "."));
+const sectionsIn = ch => rules.filter(r => r.depth === 2 && r.chapter === ch);
+const sectionTitle = r => r.text.replace(/\s*:\s*$/, "");
+
+/* navigation history within the panel: opening anything from an already-open
+   panel — a rule reference, a section listing, a rule inside that listing —
+   pushes the current view so Back can return to it, however many levels deep.
+   Opening the panel fresh (from the page or a search result) starts a new
+   stack, and the search overlay stays up behind it, so Results returns to the
+   hits exactly as they were without re-running the query. */
 let panelStack = [];
 let panelCurrent = null;
 
@@ -1760,14 +1986,29 @@ function panelPop() {
   paintPanel(prev);
 }
 
+/* Back is labelled with where it actually goes — three steps into a chapter an
+   unlabelled chevron stops meaning anything */
+function entryLabel(entry) {
+  if (!entry) return "Back";
+  if (entry.kind === "rule") return `Rule ${entry.num}`;
+  if (entry.kind === "section") return `Section ${entry.num}`;
+  if (entry.kind === "def") return definitions[entry.i].term;
+  if (entry.kind === "situation") return situations[entry.i].q;
+  if (entry.kind === "lesson") return lessons[entry.i].title;
+  return "Back";
+}
+
+const ICO_BACK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>`;
+const ICO_FIND = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>`;
+
 function openPanel(html) {
   stopPanelScene();
-  const showBack = panelStack.length > 0;
+  const prev = panelStack[panelStack.length - 1];
+  const fromSearch = ovl.classList.contains("open");
   panelBox.innerHTML = `
     <div class="panel-bar">
-      ${showBack ? `<button class="icon-btn panel-back" id="panelBack" aria-label="Back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-      </button>` : ""}
+      ${prev ? `<button class="crumb-btn" id="panelBack">${ICO_BACK}<span>${esc(entryLabel(prev))}</span></button>` : ""}
+      ${fromSearch ? `<button class="crumb-btn" id="panelResults">${ICO_FIND}<span>Search results</span></button>` : ""}
       <span class="panel-bar-spacer"></span>
       <button class="icon-btn panel-close" id="panelClose" aria-label="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -1776,11 +2017,20 @@ function openPanel(html) {
     <div class="panel-content">${html}</div>`;
   panel.classList.add("open");
   document.body.style.overflow = "hidden";
+  panel.scrollTop = 0;
   panelBox.scrollTop = 0;
   $("#panelClose").addEventListener("click", closePanel);
-  if (showBack) $("#panelBack").addEventListener("click", panelPop);
+  if (prev) $("#panelBack").addEventListener("click", panelPop);
+  if (fromSearch) $("#panelResults").addEventListener("click", backToResults);
+  /* stopPropagation matters: repainting detaches the button mid-click, and the
+     document-level [data-rule] fallback below would then no longer see it as
+     inside the panel and would push the same view a second time */
   panelBox.querySelectorAll("[data-rule]").forEach(b =>
-    b.addEventListener("click", () => showRule(b.dataset.rule)));
+    b.addEventListener("click", e => { e.stopPropagation(); showRule(b.dataset.rule); }));
+  panelBox.querySelectorAll("[data-section]").forEach(b =>
+    b.addEventListener("click", e => { e.stopPropagation(); showSection(b.dataset.section, b.dataset.focus); }));
+  panelBox.querySelectorAll("[data-goto]").forEach(b =>
+    b.addEventListener("click", e => { e.stopPropagation(); openInBook(b.dataset.goto); }));
 }
 function closePanel() {
   panel.classList.remove("open");
@@ -1788,6 +2038,59 @@ function closePanel() {
   panelStack = [];
   panelCurrent = null;
   if (!ovl.classList.contains("open")) document.body.style.overflow = "";
+}
+
+/* drop the panel but leave the overlay standing, so the results are exactly as
+   they were left */
+function backToResults() {
+  closePanel();
+  if (ovl.classList.contains("open")) qEl.focus();
+}
+
+/* the way out of the modal entirely: expand the chapter on the page, scroll to
+   the rule and mark it, so reading on means scrolling rather than tapping */
+function openInBook(num) {
+  const anchor = ruleIndex.has(num) ? num : sectionOf(num);
+  const r = ruleIndex.get(anchor);
+  if (!r) return;
+  closePanel();
+  closeSearch();
+  const holder = $(`#chapterList .chap-in[data-chapter="${r.chapter}"]`);
+  if (!holder) return;
+  const d = holder.closest("details");
+  d.open = true;
+  fillChapter(d);            /* the toggle event fires async — fill it now */
+  const node = document.getElementById("r" + anchor);
+  if (!node) return;
+  document.querySelectorAll(".rule.is-target").forEach(n => n.classList.remove("is-target"));
+  node.classList.add("is-target");
+  node.scrollIntoView({
+    behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    block: "center"
+  });
+}
+
+function sectionBtnHtml(num, focus) {
+  const sec = ruleIndex.get(num);
+  const n = sec ? sectionMembers(num).length : 0;
+  if (!n) return "";
+  return `<button class="sec-btn" data-section="${esc(num)}"${focus ? ` data-focus="${esc(focus)}"` : ""}>
+    <span class="sec-n">${esc(num)}</span>
+    <span class="sec-t">See all of &ldquo;${esc(sectionTitle(sec))}&rdquo;</span>
+    <span class="sec-c">${n} rule${n === 1 ? "" : "s"}</span>
+  </button>`;
+}
+function siblingBtnHtml(s, arrow) {
+  return `<button class="sec-btn prev-next" data-section="${esc(s.num)}">
+    <span class="sec-arrow">${arrow}</span>
+    <span class="sec-n">${esc(s.num)}</span>
+    <span class="sec-t">${esc(sectionTitle(s))}</span>
+  </button>`;
+}
+function inBookBtnHtml(num, label) {
+  return `<button class="sec-btn prev-next" data-goto="${esc(num)}">
+    <span class="sec-arrow">&darr;</span><span class="sec-t">${label}</span>
+  </button>`;
 }
 
 function paintRule(num) {
@@ -1801,8 +2104,45 @@ function paintRule(num) {
       `<p><span class="ref" style="cursor:default">${esc(k.num)}</span> ${esc(k.text)}</p>`).join("")}</div>` : ""}
     ${r.ann && r.ann.length ? `<div class="panel-prose" style="margin-top:1.2rem">
       <div class="eyebrow">Official annotation</div>
-      ${r.ann.map(a => `<p><b>${esc(a.title)}.</b> ${esc(a.body.join(" "))}</p>`).join("")}</div>` : ""}`);
+      ${r.ann.map(a => `<p><b>${esc(a.title)}.</b> ${esc(a.body.join(" "))}</p>`).join("")}</div>` : ""}
+    <div class="panel-nav">
+      ${sectionBtnHtml(sectionOf(num), num)}
+      ${inBookBtnHtml(num, "Open it in the full rulebook")}
+    </div>`);
 }
+
+/* the whole section, in order, with the rule you arrived from marked and
+   scrolled to — so a search hit stops being one rule out of 368 with no
+   sense of what sits around it */
+function paintSection(num, focus) {
+  const sec = ruleIndex.get(num);
+  if (!sec) return;
+  const list = sectionMembers(num);
+  const sibs = sectionsIn(sec.chapter);
+  const at = sibs.findIndex(s => s.num === num);
+  const prev = at > 0 ? sibs[at - 1] : null;
+  const next = at > -1 && at < sibs.length - 1 ? sibs[at + 1] : null;
+  openPanel(`
+    <div class="eyebrow">Chapter ${sec.chapter} &middot; ${esc(sec.chapterTitle)}</div>
+    <h3>${esc(num)}&ensp;${esc(sectionTitle(sec))}</h3>
+    <div class="panel-prose"><p>Every rule in this section, in order. Tap one to read it with its annotations.</p></div>
+    <div class="sec-list">
+      ${list.map(r => `
+        <button class="sec-row${focus === r.num ? " here" : ""}" data-rule="${esc(r.num)}" data-d="${Math.min(r.depth, 5)}"${focus === r.num ? ` id="secHere"` : ""}>
+          <span class="rule-n">${esc(r.num)}</span>
+          <span class="rule-t">${esc(r.text)}${r.ann && r.ann.length
+            ? `<span class="sec-ann">+ ${r.ann.length} annotation${r.ann.length === 1 ? "" : "s"}</span>` : ""}</span>
+        </button>`).join("")}
+    </div>
+    <div class="panel-nav">
+      ${prev ? siblingBtnHtml(prev, "&larr;") : ""}
+      ${next ? siblingBtnHtml(next, "&rarr;") : ""}
+      ${inBookBtnHtml(num, "Open this chapter in the full rulebook")}
+    </div>`);
+  const here = $("#secHere");
+  if (here) here.scrollIntoView({ block: "center", behavior: "auto" });
+}
+
 function paintDef(i) {
   const d = definitions[i];
   openPanel(`<div class="eyebrow">Defined term</div><h3>${esc(d.term)}</h3>
@@ -1826,12 +2166,14 @@ function paintLesson(i) {
 }
 function paintPanel(entry) {
   if (entry.kind === "rule") paintRule(entry.num);
+  else if (entry.kind === "section") paintSection(entry.num, entry.focus);
   else if (entry.kind === "def") paintDef(entry.i);
   else if (entry.kind === "situation") paintSituation(entry.i);
   else if (entry.kind === "lesson") paintLesson(entry.i);
 }
 
 function showRule(num) { panelPush({ kind: "rule", num }); }
+function showSection(num, focus) { panelPush({ kind: "section", num, focus }); }
 function showDef(i) { panelPush({ kind: "def", i }); }
 function showSituation(i) { panelPush({ kind: "situation", i }); }
 function showLesson(i) { panelPush({ kind: "lesson", i }); }
@@ -1892,5 +2234,6 @@ renderBasics();
 renderQA();
 renderChapters();
 renderGlossary();
+tallyLoad();
 save();
 </script>

@@ -1,0 +1,14 @@
+# Config for CLI deploys (`wrangler deploy`). See README.md in this folder.
+name = "luf-lesson-counter"
+main = "worker.js"
+compatibility_date = "2026-08-01"
+
+[[durable_objects.bindings]]
+name = "COUNTER"
+class_name = "Counter"
+
+# SQLite-backed Durable Objects are the ones available on the Workers free
+# plan; a key-value-backed class here would need a paid plan.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Counter"]
