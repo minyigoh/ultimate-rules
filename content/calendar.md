@@ -22,6 +22,7 @@
 | 2026-08-20 | Throwing on the run: the two-contact allowance | Reel | Posted | 2026-08-20 | — |
 | 2026-08-21 | Travel: the call that doesn't stop play | Reel | Script approved | — | — |
 | 2026-08-22 | Disc space: give the thrower room | Reel | Script approved | — | — |
+| 2026-08-23 | Straddle and wrapping | Reel | Pending review | — | — |
 
 ## Status legend
 
