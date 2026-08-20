@@ -252,6 +252,21 @@ there, and copy only the finished `.mp4` back into the repo.
   1080×1920, font sizes, `mini_icon`, `#0F1712`/`#E24A12`/`#F1F3EE`, header
   layout. These come from `content/carousel-post-1/make_carousel.py` and must
   stay pixel-identical across every asset.
+- **The one exception is the kicker, which auto-fits.** The kicker is tracked
+  (letter-spaced), so it grows about twice as fast per character as body text,
+  and it is the only element in `g_main` that never wraps. `fit_kicker()` picks
+  the largest integer size ≤ 34px that fits the 900px column, with a floor at
+  80% of standard (27px); below the floor the render raises `SystemExit` rather
+  than overflowing. Min-Yi approved this on 2026-08-20, per-scene rather than
+  uniform-per-reel, after the alternative — quietly rewording an approved
+  script's kickers to make them fit — was flagged on reel-16. **Never reword an
+  approved kicker to fit the layout.** Let it shrink, or if it trips the floor,
+  say so and leave the row alone. No kicker in reels 1–17 engages this; the
+  widest ever shipped is reel-11's "SIMULTANEOUS MEANS OFFENCE" at 873/900px,
+  so it is a verified no-op on the back catalogue.
+- `tools/check_layout.py` measures every finished SVG against the margins with
+  real font metrics, and `tools/check_dull.py` measures the sustained
+  dull-orange run by row band. Run both in Step 6 rather than re-deriving them.
 - Sub-rule numbers (e.g. "14.1.1") render on their own line in the same orange
   bold 22px as the parent "RULE X.X · CHAPTER" label — follow `g_detail()`.
 - **Do not hand-tune the per-scene durations in `SCENES`.** The `retime()` /

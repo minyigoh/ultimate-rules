@@ -64,9 +64,49 @@ def base(body):
 TOTAL = 9
 
 # ---------------- scene builders ----------------
+# ---------------- kicker auto-fit ----------------
+# The kicker is a tracked (letter-spaced) label, so it grows about twice as
+# fast per character as normal text, and it is the one element in g_main that
+# never wraps. Rather than let it run off the card -- or quietly reword an
+# approved script, which is worse -- shrink the label to fit, down to a floor.
+# Below the floor the render fails and asks for shorter wording, because a
+# kicker much smaller than standard stops reading as the same element.
+#
+# Per-scene sizing, floor 80% of standard; approved by Min-Yi 2026-08-20.
+# No kicker in reels 1-17 needs this -- the widest ever shipped is reel-11's
+# "SIMULTANEOUS MEANS OFFENCE" at 873 of the 900px column -- so it is a no-op
+# on the back catalogue and only engages on new, longer wording.
+KICKER_SIZE = 34
+KICKER_FLOOR = 0.80
+_FONT_FILE = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
+_fonts = {}
+
+def _measure(text, size):
+    from PIL import ImageFont
+    if size not in _fonts:
+        _fonts[size] = ImageFont.truetype(_FONT_FILE, size)
+    return _fonts[size].getlength(text)
+
+def fit_kicker(text, size=KICKER_SIZE, avail=AVAIL_W, floor=KICKER_FLOOR):
+    """Largest integer size <= `size` whose rendered width fits `avail`."""
+    lo = max(1, int(size * floor))
+    s = size
+    while s > lo and _measure(text, s) > avail:
+        s -= 1
+    if _measure(text, s) > avail:
+        raise SystemExit(
+            f"kicker too long: {text!r}\n"
+            f"  needs {_measure(text, s):.0f}px at the {lo}px floor "
+            f"({floor:.0%} of {size}px); the column is {avail}px.\n"
+            f"  Shorten the kicker, or raise KICKER_FLOOR deliberately.")
+    return s
+
+
 def g_cover(no, kicker, title, hook, lesson_no, size=84):
     groups = [[header(no, TOTAL)]]
-    groups.append([bold(MARGIN, 470, tracked(kicker), 32, ORANGE, sw=1.4)])
+    klabel = tracked(kicker)
+    ks = fit_kicker(klabel, size=32)
+    groups.append([bold(MARGIN, 470, klabel, ks, ORANGE, sw=round(1.4*ks/32, 2))])
     y = 600; head = []
     lines = wrap_lines(title, size, ratio=0.56)
     line_h = int(size*1.14)
@@ -82,7 +122,9 @@ def g_cover(no, kicker, title, hook, lesson_no, size=84):
 
 def g_main(no, kicker, headline, body_text, rules, index):
     groups = [[header(no, TOTAL)]]
-    groups.append([bold(MARGIN, 510, f"#{index}   " + tracked(kicker), 34, ORANGE, sw=1.6)])
+    klabel = f"#{index}   " + tracked(kicker)
+    ks = fit_kicker(klabel)
+    groups.append([bold(MARGIN, 510, klabel, ks, ORANGE, sw=round(1.6*ks/34, 2))])
     y = 610; head = []
     for line in wrap_lines(headline, 66, ratio=0.56):
         head.append(bold(MARGIN, y, line, 66, CREAM, sw=3.0)); y += 78
@@ -151,11 +193,11 @@ def rt(n): return RULE[n]["text"]
 
 SCENES = [
     ('cover', g_cover(1, 'BEGINNER', "Travel doesn't stop play. Two things make it stop.", "The default is that nobody freezes. The two exceptions are the part almost nobody learns.", 16, size=70), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('default', g_main(2, 'THE DEFAULT: PLAY ON', "Reset the pivot, take the paused count, carry on.", "A travel is an infraction, not a violation, so the call does not halt anything. You re-establish the pivot where the caller indicates, without delay, and the stall count is paused until you do.", ['18.2.5', '18.2.5.1', '18.2.5.2'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('default', g_main(2, 'THE DEFAULT: NOBODY FREEZES', "Reset the pivot, take the paused count, carry on.", "A travel is an infraction, not a violation, so the call does not halt anything. You re-establish the pivot where the caller indicates, without delay, and the stall count is paused until you do.", ['18.2.5', '18.2.5.1', '18.2.5.2'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('default_r', g_detail(3, [('18.2.5', [rt('18.2.5'), ('18.2.5.1', rt('18.2.5.1')), ('18.2.5.2', rt('18.2.5.2'))])]), [0.3, 2.0]),
-    ('threw', g_main(4, 'STOPPER ONE: YOU THREW IT', "Complete a pass before fixing the pivot and it comes back.", "The defence may call a travel violation. Play stops, the disc returns to you at the spot you occupied, and the game restarts with a check. Throw it incomplete instead and play simply continues.", ['18.2.6', '18.2.7'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('threw', g_main(4, 'STOPPER ONE — YOU THREW IT ANYWAY', "Complete a pass before you've fixed the pivot and it comes back.", "The defence may call a travel violation. Play stops, the disc returns to you at the spot you occupied, and the game restarts with a check. Throw it incomplete instead and play simply continues.", ['18.2.6', '18.2.7'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('threw_r', g_detail(5, [('18.2.6', [rt('18.2.6')]), ('18.2.7', [rt('18.2.7')])]), [0.3, 1.7, 2.0]),
-    ('contest', g_main(6, 'STOPPER TWO: A CONTEST', "Disagree with the disc still in hand and play halts.", "Contesting is your right, but it is not free. A contested travel where the thrower has not released a pass stops the game — often the thrower's own contest halting the play they thought could not be halted.", ['15.10', '18.2.8'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('contest', g_main(6, 'STOPPER TWO — SOMEBODY CONTESTS', "Disagree with the disc still in your hand and play halts.", "Contesting is your right, but it is not free. A contested travel where the thrower has not released a pass stops the game — often the thrower's own contest halting the play they thought could not be halted.", ['15.10', '18.2.8'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('contest_r', g_detail(7, [('15.10', [rt('15.10')]), ('18.2.8', [rt('18.2.8')])]), [0.3, 1.7, 2.0]),
     ('tip', g_tip(8, "If you are not sure, fix the pivot and keep playing", "Contesting stops the game, so it is not the cheap option it looks like. Reset where the caller points, let the count resume, and take the disagreement to the sideline afterwards."), [0.3, 0.45, 0.7, 1.7]),
     ('close', g_closing(9, 16), [0.3, 0.8, 1.0, 1.4]),

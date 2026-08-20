@@ -1,7 +1,7 @@
 # Reel 16 — "Travel: the call that doesn't stop play"
 
 **Status:** Pending review
-**Script drafted:** 2026-08-18 (daily-reel-render) · **Redrafted:** 2026-08-18 · **Rendered:** —
+**Script drafted:** 2026-08-18 (daily-reel-render) · **Redrafted:** 2026-08-18 · **Rendered:** 2026-08-20 (v2)
 **Queued:** 2026-08-21 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (18.2.5, 18.2.5.1, 18.2.5.2, 18.2.6, 18.2.7, 18.2.8, 15.10)
@@ -41,6 +41,12 @@ The cover headline differs from the calendar row title, which stays
 cut was retitled but the row was not — `apply_additions.py` keys calendar rows
 on date + title, so changing the row title would add a duplicate row rather than
 rename the existing one.
+
+The scene kickers above are longer than any previously shipped, so `render_v3.py`
+auto-fits them: scene 2 renders at the standard 34px, scene 6 at 29px and
+scene 4 at 28px (82% of standard, against an 80% floor). Cut v1 shortened the
+wording instead; v2 restores it. See the kicker note in
+`content/DAILY_RENDER_TASK.md` — an approved kicker is never reworded to fit.
 
 **Regenerating:** `render_v3.py` → `blend.py` → `python3 encode.py <out.mp4> slow`.
 `render_v3.py` reuses the exact helpers, constants and coordinates from
