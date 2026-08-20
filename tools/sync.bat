@@ -122,6 +122,12 @@ if exist ".git\rebase-apply" goto :midrebase
   REM review-state.json conflict in the Desk's favour, which is the one git
   REM command in this pipeline whose --ours/--theirs sense is inverted.
   %GIT% add tools/take_desk_version.bat
+  REM The two Step 6 verification scripts, added 2026-08-20. Step 6 requires a
+  REM layout check and a dull-orange measurement on every render, and both were
+  REM being re-derived from scratch in the sandbox each run and then thrown
+  REM away. Own lines, per the rule above.
+  %GIT% add tools/check_layout.py
+  %GIT% add tools/check_dull.py
   %GIT% diff --cached --stat
   echo.
 
