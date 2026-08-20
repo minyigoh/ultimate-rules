@@ -39,6 +39,7 @@ src/
   template.html     the page: markup, styles, and all behaviour
   parse.py          regenerates content/rules.json from a urules.org dump
 build.py            inlines the data into a single page -> docs/
+wrangler.jsonc      serves docs/ as a Cloudflare Worker with static assets
 worker/
   lesson-counter/   the shared counter: one integer in a Durable Object
 social/
@@ -164,42 +165,48 @@ resulting `rules.json` into `content/`.
 
 ## Hosting
 
-`docs/` is a static site, so anything that serves files will do. Now that the
-site is meant to be shared rather than kept to hand, **Cloudflare Pages** is the
-one to use.
+`docs/` is a static site, so anything that serves files will do. It is deployed
+to **Cloudflare Workers** using static assets, configured by `wrangler.jsonc`
+at the repo root:
 
-Why it, over staying on GitHub Pages:
+```jsonc
+{ "name": "ultimate-rules", "assets": { "directory": "./docs" } }
+```
 
-- a custom domain and its certificate take about two minutes, rather than the
-  CNAME-and-wait dance
-- the lesson counter is already a Cloudflare Worker, so it is one account, one
-  dashboard, and one place to look when something is wrong
-- `docs/_headers` is honoured (GitHub Pages ignores it), which is what keeps
-  `index.html` and `sw.js` out of the edge cache. That matters more than it
-  sounds: a stale `sw.js` pins a visitor to an old build until they clear it
-- Pages Functions are there if the counter should later move onto the same
-  origin as the page and drop the cross-origin request entirely
+Cloudflare folded Pages into Workers, and static assets is where new projects
+go — the dashboard's "Pages" path is legacy. Workers static assets honours
+`docs/_headers` (verified: the security headers land, `/desk/*` gets its
+`noindex`, and `_headers` itself 404s rather than being served), which is what
+keeps `index.html` and `sw.js` out of the edge cache. That matters more than it
+sounds: a stale `sw.js` pins a visitor to an old build until they clear it.
 
-Connect the repo under **Workers & Pages → Create → Pages → Connect to Git**:
+Deploying is push-to-deploy through **Workers Builds**. In the dashboard,
+**Workers & Pages → Create → Import a repository**, pick `minyigoh/ultimate-rules`,
+and set:
 
 | Setting | Value |
 | --- | --- |
-| Production branch | `main` |
-| Framework preset | None |
+| Project name | `ultimate-rules` |
 | Build command | *(leave empty)* |
-| Build output directory | `docs` |
+| Deploy command | `npx wrangler deploy` |
 
-There is no build to run on Cloudflare's side. `python build.py` runs here and
-`docs/` is committed, so a push publishes. The custom domain goes on under the
-project's **Custom domains** tab; if the domain is already on Cloudflare the
-DNS record is written for you.
+There is no build to run on Cloudflare's side: `python build.py` runs here and
+`docs/` is committed, so a push publishes. Cloudflare's build image has no
+Python and does not need one.
 
-Both hosts can serve at once while you cut over. Once the Cloudflare domain is
-the one you hand out, turn GitHub Pages off in **Settings → Pages** — two live
-URLs for one site splits its search ranking between them.
+To deploy by hand instead, from the repo root:
 
-For reference, the GitHub Pages setup that is there today: **Settings → Pages →
-Source**, *Deploy from a branch*, branch `main`, folder `/docs`.
+```bash
+npx wrangler deploy
+```
+
+The custom domain goes on under the Worker's **Domains & Routes**. If the
+domain is already on Cloudflare, the DNS record is written for you.
+
+The old GitHub Pages setup — **Settings → Pages → Source**, *Deploy from a
+branch*, `main`, `/docs` — still works and can run alongside during a cutover.
+Turn it off once the Cloudflare domain is the one you hand out: two live URLs
+for one site splits its search ranking between them.
 
 The service worker only registers over HTTPS, so once the page has been opened
 online it keeps working offline — which is the point, since pitches rarely have
