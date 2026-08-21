@@ -1268,21 +1268,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-23',
     title: 'Straddle and wrapping',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 18,
+    duration: '~29s script / 29.5s cut',
     rules: ['18.1.1.2', '18.1.1.4', '18.1.3'],
     review: {
       script:  {status: 'pending', on: '2026-08-20'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-21'}
     },
     postedDate: null,
     folder: 'reel-18',
     source: 'content/reel-18/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Marking)',
-    video: null,
+    video: 'reel18-straddle-and-wrapping.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"Straddle and wrapping" · kicker BEGINNER · LESSON 18 / 75'],
+      ['2', '#1 STRADDLE: THE FEET', `"Don't stand with their pivot foot between your legs." · footer cites 18.1.1.2`],
+      ['3', 'Rules detail', 'Verbatim 18.1.1 + 18.1.1.2'],
+      ['4', '#2 WRAPPING: THE ARMS', '"Wide is fine. Around them is not." · footer cites 18.1.1.4'],
+      ['5', 'Rules detail', 'Verbatim 18.1.1 + 18.1.1.4'],
+      ['6', '#3 THE COUNT DROPS ONE', `"Play doesn't stop. Fix your position and count from lower." · footer cites 18.1.3`],
+      ['7', 'Rules detail', 'Verbatim 18.1.3'],
+      ['8', 'FIELD TIP', '"Feet outside their stance, arms wide but not enveloping"'],
+      ['9', 'Closing', '"Lesson 18 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Two more ways your mark can be illegal without you ever touching anybody.`,
       explanation: `Straddle first. Draw an imaginary line between your feet. If that line passes within one disc diameter of the thrower's pivot point, that's a straddle — in plain terms, don't stand with their pivot foot between your legs.`,
@@ -1313,13 +1325,72 @@ neither stops play. fix your position and the count resumes at the last number f
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-20 by the daily task to cover 2026-08-23. Awaiting script review.',
+      'Drafted 2026-08-20 by the daily task to cover 2026-08-23; rendered 2026-08-21. Nine scenes, exact CFR via encode.py, 29.50s.',
       'Completes the marking-position trio with Lesson 17: disc space (18.1.1.3) is how far away, straddle (18.1.1.2) is where your feet are, wrapping (18.1.1.4) is where your arms are. All three are children of the same 18.1.1 list.',
       '18.1.3 earns its own pair rather than a footnote. It is the only clause here with a consequence attached — the other two describe shapes — and it is the first time the curriculum states the stall-count resume rule for any marking infraction.',
       'The "solely" exception is in the caption but gets no card of its own. 18.1.1.4 carries that sentence in its own text, which scene 5 quotes verbatim; 18.1.1.2 does not carry it, so nothing on screen should imply all three clauses are worded identically.',
       'Scenes 3 and 5 use the parent-plus-child form with 18.1.1 as the stem, the same pattern reel 17 used for 18.1.1.3.',
       'Deliberately does not cover who may call it or what Contest does — Lesson 21 is foul/infraction/violation and Lesson 22 is who calls what.',
       'Next Thursday, 2026-08-27, is due a recap carousel for the next un-recapped block (lessons 15-21). Lesson 21 is not yet drafted and several of the block reels have not posted, so expect a short recap of what has actually posted, or a skip with a note.'
+    ]
+  },
+
+  {
+    id: 'reel-19',
+    date: '2026-08-24',
+    title: 'Fast count',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 19,
+    rules: ['18.1.1.1', '18.1.4', '18.1.4.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-21'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-19',
+    source: 'content/reel-19/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Marking)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Under pressure, almost every marker counts too fast. That is a rule, and you are allowed to say so.`,
+      explanation: `A fast count isn't only counting too quickly. The rulebook lists five ways to get it wrong: counting in under one-second intervals, starting or continuing the count illegally, not saying "Stalling", not starting from the correct number, and not reducing the count when required. Any one of them is a fast count.`,
+      example: `So you call it, and the count gets fixed. But say the same marker keeps racing anyway. You are not stuck making that call forever — where it is a pattern rather than a one-off, the rules let you call a marking violation instead, and a violation stops play.`,
+      cta: `Lesson 19 of 75 — new lesson daily.`
+    },
+    ig: `Under pressure, almost every marker counts too fast. That's a rule, and you're allowed to say so.
+
+It isn't only about speed. The rulebook lists five separate ways a count goes wrong: counting in under one-second intervals, starting or continuing the count illegally, failing to say "Stalling", starting from the wrong number, and failing to reduce or reset the count when required. Any one of them is a fast count. The last two are the ones people never think to call, because they don't feel like speed — a marker who picks the count back up at seven when it should be five hasn't rushed anything, and has still committed the same infraction.
+
+The call itself is cheap. A fast count is a marking infraction, so nothing stops. You say "fast count", the marker corrects the number, and the point carries on around you.
+
+And if it keeps happening, you have somewhere to go. You aren't stuck making the same call every stall. Where the problem is a pattern of repeated marking infractions rather than a single miscount, the rules let you call a marking violation instead — and a violation does stop play. That's a deliberate ladder: the light call first, the heavy one when the light one isn't working.
+
+Worth saying plainly: making this call isn't rude, and it isn't a complaint. It's the designed mechanism. Markers genuinely cannot hear their own tempo — under pressure, at a real stall count, almost nobody can. The call exists because the sport assumes you'll make it.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `your marker is counting too fast. say something 🥏
+
+five ways to count wrong: under one-second intervals, starting the count illegally, not saying "stalling", starting from the wrong number, not reducing the count when required
+
+call "fast count" and play carries on. if it's a pattern, call a marking violation instead — that one stops play
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-21 by the daily task to cover 2026-08-24. Awaiting script review.',
+      'Seven scenes, not nine. The lesson cites two rule groups, so it gets two topic/rules pairs — the same shape as reels 11 and 17. Padding to three would mean either a card without a citation or a citation the lesson\'s rules array does not carry.',
+      'Scene 3 uses 18.1.1.1 itself as the stem rather than 18.1.1, because 18.1.1.1\'s own text ("Fast Count" – the marker:) is the sentence its five children complete. Reels 17 and 18 stemmed from 18.1.1 because their clauses were siblings of this one, not children of it.',
+      'Five children on one card is the densest rules slide drawn so far. A layout dry-run measures it at 1144 of the 1310px budget, with no kicker engaging the auto-fit floor.',
+      'The reset behaviour is deliberately not carded. "Play does not stop and the count resumes one lower" is 18.1.3, which reel 18 carded yesterday and which this lesson\'s rules array does not list. It stays in the spoken script, caption and field tip, where it needs no citation chip.',
+      '18.1.4 is quoted with only its 18.1.4.4 child, matching the lesson\'s rules array. The stem lists four triggers and the caption refers to them in general terms, so nothing on screen claims a number the lesson did not source.',
+      'First escalation lesson in the curriculum — the infraction to violation ladder appears here for the first time. Introduced as a mechanism, not explained in full: Lesson 21 is foul/infraction/violation and Lesson 22 is who may call what.',
+      'Thursday 2026-08-27 is due a recap carousel for lessons 15-21. Lessons 20 and 21 are not drafted and lessons 18-19 have not posted, so that block will not be complete; expect a short recap of what has posted, or a skip with a note.'
     ]
   }
 ];
