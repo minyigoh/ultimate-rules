@@ -23,6 +23,7 @@
 | 2026-08-21 | Travel: the call that doesn't stop play | Reel | Ready to post | — | — |
 | 2026-08-22 | Disc space: give the thrower room | Reel | Ready to post | — | — |
 | 2026-08-23 | Straddle and wrapping | Reel | Script approved | — | — |
+| 2026-08-24 | Fast count | Reel | Pending review | — | — |
 
 ## Status legend
 
