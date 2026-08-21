@@ -486,7 +486,12 @@
         "file": "reel16-travel-doesnt-stop-play.mp4",
         "changed": "Restored the approved script's full-length scene kickers, which v1 had shortened to fit the 900px text column. render_v3.py now auto-fits the kicker instead: largest integer size up to 34px that fits, floor 80% (27px), raising SystemExit below that rather than overflowing. Scene 2 stays at 34px, scene 6 renders at 29px, scene 4 at 28px. Nothing else changed - same nine scenes, same rule cards, exact CFR via encode.py, 29.50s, longest sustained dull-orange run 0.20s. v1 archived as reel16-travel-doesnt-stop-play.v1.mp4."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-21",
+      "updatedAt": "2026-08-21T00:59:52.174Z"
+    }
   },
   "reel-17": {
     "script": {
