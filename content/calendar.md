@@ -23,7 +23,7 @@
 | 2026-08-21 | Travel: the call that doesn't stop play | Reel | Posted | 2026-08-21 | — |
 | 2026-08-22 | Disc space: give the thrower room | Reel | Posted | 2026-08-22 | — |
 | 2026-08-23 | Straddle and wrapping | Reel | Ready to post | — | — |
-| 2026-08-24 | Fast count | Reel | Script approved | — | — |
+| 2026-08-24 | Fast count | Reel | Content pending review | — | — |
 | 2026-08-25 | Double team: the three-metre rule | Reel | Script approved | — | — |
 
 ## Status legend
