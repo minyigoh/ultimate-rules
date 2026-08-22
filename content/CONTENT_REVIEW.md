@@ -79,10 +79,15 @@ of the post — fixed to the screen on a phone, so it is reachable at any scroll
 depth and none of this needs the page moved:
 
 1. **Save video** — share sheet, straight to the camera roll.
-2. **Copy caption** — do this *before* switching to Instagram. The clipboard
+2. **Copy IG / Copy TikTok** — do this *before* switching apps. The clipboard
    survives the reel editor and the music picker, so the caption is a
-   long-press away when Instagram finally asks for it. This is the step that
-   used to mean a second trip back to the desk.
+   long-press away when the app finally asks for it. This is the step that
+   used to mean a second trip back to the desk. Every post carries two
+   captions and they are not interchangeable, so the **IG / TikTok** toggle in
+   the corner of the bar names the one it will take; the button and the hint
+   both say which. The choice sticks per device, and copying from either
+   caption card lower down sets it too. Switch platform after copying and step
+   2 opens again — the clipboard is holding the other one's words.
 3. **Mark posted** — tap it when you come back.
 
 Each step ticks off as you do it and the ticks survive a reload, because the

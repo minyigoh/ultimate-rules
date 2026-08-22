@@ -295,8 +295,21 @@ table.scenes td:nth-child(2){color:var(--text);font-weight:550;white-space:nowra
   border:1px solid var(--line-strong);border-radius:13px;padding:11px 12px;
   box-shadow:0 12px 34px rgba(0,0,0,.45);
 }
-.flowhint{flex:1 1 100%;margin:0 0 2px;font-size:11.5px;line-height:1.45;color:var(--faint)}
+.flowtop{flex:1 1 100%;display:flex;align-items:flex-start;gap:10px;margin-bottom:2px}
+.flowhint{margin:0;font-size:11.5px;line-height:1.45;color:var(--faint)}
 .flowhint b{color:var(--text);font-weight:650}
+/* Two captions per post, and they are not interchangeable — so which one step
+   2 will take is stated, not assumed. */
+.capsel{
+  margin-left:auto;flex:none;display:flex;
+  border:1px solid var(--line-strong);border-radius:7px;overflow:hidden;
+}
+.capsel button{
+  background:transparent;border:0;padding:4px 9px;
+  font-size:11px;font-weight:650;line-height:1.5;color:var(--faint);
+}
+.capsel button:hover{color:var(--text)}
+.capsel button[aria-pressed=true]{background:var(--text);color:var(--bg)}
 .fstep{
   flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:7px;
   background:transparent;border:1px solid var(--line-strong);border-radius:9px;
@@ -414,7 +427,7 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
   }
   .fstep{font-size:12px;padding:10px 6px;gap:6px}
   /* Only the posts that actually show a bar pay for the space under it. */
-  body.viewing .detail:has(.flowbar){padding-bottom:112px}
+  body.viewing .detail:has(.flowbar){padding-bottom:124px}
 }
 </style>
 </head>
@@ -570,7 +583,7 @@ function getPassphrase(){
   return pass;
 }
 
-async function syncToRepo(p, trackName, value){
+async function syncToRepo(p, trackName, value, what){
   if (!SYNC_URL) return;
   const key = p.id + ':' + trackName;
   if (syncing.has(key)) return;
@@ -612,7 +625,7 @@ async function syncToRepo(p, trackName, value){
          reconcile pass on boot removes it once the repo demonstrably has it. */
       if (state[p.id] && state[p.id][trackName]) state[p.id][trackName].syncedAt = Date.now();
       save();
-      toast(SYNC_TOAST[trackName]);
+      toast(what || SYNC_TOAST[trackName]);
     }
   } catch {
     toast('Sync failed — kept locally, will retry on next load');
@@ -623,7 +636,11 @@ async function syncToRepo(p, trackName, value){
 
 /* A local track the Worker has already accepted. Kept only until the repo copy
    we can actually read catches up with it — see reconcileRemote. */
-const confirmed = t => !!(t && t.syncedAt);
+/* Note the timestamp comparison: a track edited again after its sync is not
+   confirmed any more. Without that, typing on after a sync left the edit
+   looking committed — the label said synced, the queue dropped its dot, and
+   the boot sweep skipped the retry it needed. */
+const confirmed = t => !!(t && t.syncedAt && t.syncedAt >= (t.updatedAt || 0));
 
 /* Drop local overrides the repo has caught up on, so localStorage can never
    become a permanent shadow over review-state.json. Compares timestamps rather
@@ -754,9 +771,29 @@ const flow = id => flowState[id] || {};
 function saveFlow(){
   try { localStorage.setItem(FLOW_KEY, JSON.stringify(flowState)); } catch { /* private mode */ }
 }
-function markFlow(id, step){
-  flowState[id] = Object.assign({}, flowState[id], {[step]: Date.now()});
+function markFlow(id, step, extra){
+  flowState[id] = Object.assign({}, flowState[id], {[step]: Date.now()}, extra || {});
   saveFlow();
+}
+function unmarkFlow(id, step){
+  if (!flowState[id] || !flowState[id][step]) return;
+  delete flowState[id][step];
+  saveFlow();
+}
+
+/* Which caption the flow bar copies. There are two per post and they are not
+   interchangeable, so the bar names the one it will take rather than picking
+   quietly. Device-level, not per-post: it describes where you post from this
+   phone, and it survives a reload the way the steps do. */
+const CAP_KEY = 'luf-desk-caption';
+let capTarget = (() => {
+  try { return localStorage.getItem(CAP_KEY) === 'TikTok' ? 'TikTok' : 'Instagram'; }
+  catch { return 'Instagram'; }
+})();
+const capShort = pl => pl === 'TikTok' ? 'TikTok' : 'IG';
+function setCapTarget(pl){
+  capTarget = pl === 'TikTok' ? 'TikTok' : 'Instagram';
+  try { localStorage.setItem(CAP_KEY, capTarget); } catch { /* private mode */ }
 }
 function clearFlow(id){
   if (!flowState[id]) return;
@@ -795,7 +832,7 @@ function flushNote(p, name){
   const cur = track(p.id, name);
   if (!cur) return;
   save(); renderStats(); renderList(); stampSaved(p, name);
-  syncToRepo(p, name, cur);
+  syncToRepo(p, name, cur, (name === 'script' ? 'Script' : 'Content') + ' note synced');
 }
 function flushAllNotes(){
   for (const k of Object.keys(noteT)){
@@ -1000,7 +1037,12 @@ async function saveToPhone(p, btn){
 function copyCaption(p, platform){
   const text = platform === 'TikTok' ? p.tiktok : p.ig;
   copy(text + '\n\n' + (p.hashtags || []).join(' '), platform + ' caption');
-  if (platform === 'Instagram'){ markFlow(p.id, 'copied'); renderDetail(true); }
+  // Whichever caption you took is the one on the clipboard, so it is also the
+  // one the flow is now waiting on you to paste — including when you took it
+  // from the caption cards further down rather than from the bar.
+  setCapTarget(platform);
+  markFlow(p.id, 'copied', {copiedFor: platform});
+  renderDetail(true);
 }
 
 function markPosted(p){
@@ -1196,6 +1238,7 @@ function select(id, fromUser){
 }
 function enterDetail(){
   document.body.classList.add('viewing');
+  padForFlowbar($('#detail'));   // first chance to measure a bar that was hidden
   if (!(history.state && history.state.desk)) history.pushState({desk:1}, '');
   window.scrollTo(0,0);
 }
@@ -1349,8 +1392,25 @@ function renderDetail(preserveScroll){
   el.scrollTop = keepY;
   if (preserveScroll) window.scrollTo(0, keepWinY);
   wireDetail(p);
+  padForFlowbar(el);
   restoreNoteFocus(el, keepFocus);
 }
+
+/* A fixed bar sits outside the flow, so nothing reserves room for it and the
+   last section ends up underneath. The CSS carries a sensible default; this
+   replaces the guess with the height the bar actually came out at, which
+   changes with the hint's wrapping and with orientation. */
+function padForFlowbar(el){
+  const b = el.querySelector('.flowbar');
+  // Height reads 0 while the pane is still hidden — on a phone the detail is
+  // rendered before `viewing` swaps it in — and padding the pane by 16px would
+  // then bury the last section. Leave the CSS default standing until there is
+  // something real to measure; enterDetail() calls back once there is.
+  const h = b ? b.offsetHeight : 0;
+  el.style.paddingBottom = (h && getComputedStyle(b).position === 'fixed')
+    ? (h + 16) + 'px' : '';
+}
+window.addEventListener('resize', () => padForFlowbar($('#detail')));
 
 /* The three things posting actually needs, in the order the phone needs them.
    Only for a cut that is cleared to go out — before that there is nothing to
@@ -1358,21 +1418,37 @@ function renderDetail(preserveScroll){
 function flowbarHTML(p){
   if (!hasMedia(p) || contentStatus(p) !== 'approved' || postedOn(p)) return '';
   const f = flow(p.id);
-  const at = !f.saved ? 1 : !f.copied ? 2 : 3;
+  // A post always carries both captions, but the picker is only worth the room
+  // when there really are two to choose between.
+  const both = !!(p.ig && p.tiktok);
+  const pl = both ? capTarget : 'Instagram';
+  // Copied counts only for the caption now selected: switch platform and the
+  // clipboard is holding the wrong words again.
+  const copied = !!f.copied && (f.copiedFor || 'Instagram') === pl;
+  const at = !f.saved ? 1 : !copied ? 2 : 3;
+
   const hint = at === 1
-    ? '<b>Ready to post.</b> Save the file, then copy the caption — both before you leave this page.'
+    ? `<b>Ready to post.</b> Save the file, then copy the ${esc(capShort(pl))} caption — both before you leave.`
     : at === 2
-    ? 'Saved. <b>Copy the caption now, before you switch apps</b> — it stays on the clipboard through the reel editor and the music picker, so Instagram is one long-press away from done.'
-    : 'Caption is on your clipboard. Paste it in Instagram, post, then come straight back and tap <b>Mark posted</b> — this bar follows you, so there is nothing to scroll for.';
+    ? `<b>Copy the ${esc(capShort(pl))} caption now</b> — it survives the reel editor and the music picker.`
+    : `<b>${esc(pl)}</b> caption copied. Post it, then come back and tap Mark posted.`;
+
+  const picker = both
+    ? `<div class="capsel" role="group" aria-label="Which caption to copy">
+         ${['Instagram','TikTok'].map(k =>
+           `<button data-cap="${k}" aria-pressed="${k === pl}">${k === 'Instagram' ? 'IG' : 'TikTok'}</button>`
+         ).join('')}
+       </div>`
+    : '';
 
   const step = (n, key, label, done) =>
     `<button class="fstep ${done ? 'done' : at === n ? 'now' : ''}" data-flow="${key}">
        <i>${done ? '✓' : n}</i><span>${esc(label)}</span></button>`;
 
   return `<div class="flowbar">
-    <p class="flowhint">${hint}</p>
+    <div class="flowtop"><p class="flowhint">${hint}</p>${picker}</div>
     ${step(1, 'save', p.video ? 'Save video' : 'Save slides', !!f.saved)}
-    ${step(2, 'copy', 'Copy caption', !!f.copied)}
+    ${step(2, 'copy', 'Copy ' + capShort(pl), copied)}
     ${step(3, 'posted', 'Mark posted', false)}
   </div>`;
 }
@@ -1484,7 +1560,15 @@ function savedLabel(p, name){
   if (t && t.updatedAt){
     const when = new Date(t.updatedAt).toLocaleString();
     if (!SYNC_URL) return 'Saved locally ' + when;
-    return syncing.has(p.id+':'+name) ? 'Saved locally ' + when + ' — syncing…' : 'Saved locally ' + when + ' — not yet synced';
+    if (syncing.has(p.id+':'+name)) return 'Saved locally ' + when + ' — syncing…';
+    /* A successful sync deliberately keeps the local copy — raw.githubusercontent
+       lags a push by minutes, so dropping it here would let a reload read the
+       stale file and show the old text. But "not yet synced" then contradicted
+       the toast that had just said it was, and stayed wrong until the next
+       boot reconciled it. The Worker's receipt is what the label should
+       report. */
+    if (confirmed(t)) return 'Synced to repo ' + new Date(t.syncedAt).toLocaleString();
+    return 'Saved locally ' + when + ' — not yet synced';
   }
   const r = remoteState[p.id] && remoteState[p.id][name];
   return r && r.updatedAt ? 'Synced to repo ' + new Date(r.updatedAt).toLocaleString() : '';
@@ -1595,7 +1679,7 @@ function wireDetail(p){
       if (k === 'save'){
         if (await saveToPhone(p, b)){ markFlow(p.id, 'saved'); renderDetail(true); }
       } else if (k === 'copy'){
-        copyCaption(p, 'Instagram');
+        copyCaption(p, p.tiktok ? capTarget : 'Instagram');
       } else {
         markPosted(p);
       }
@@ -1675,6 +1759,17 @@ function wireDetail(p){
 
   $('#detail').querySelectorAll('[data-copy]').forEach(b => {
     b.addEventListener('click', () => copyCaption(p, b.dataset.copy));
+  });
+
+  $('#detail').querySelectorAll('[data-cap]').forEach(b => {
+    b.addEventListener('click', () => {
+      if (b.dataset.cap === capTarget) return;
+      setCapTarget(b.dataset.cap);
+      // The clipboard still holds the other platform's words, so step 2 is
+      // owed again for the one just picked.
+      unmarkFlow(p.id, 'copied');
+      renderDetail(true);
+    });
   });
 
   $('#detail').querySelectorAll('img[data-full]').forEach(img => {
