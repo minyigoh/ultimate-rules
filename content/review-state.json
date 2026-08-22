@@ -514,7 +514,12 @@
         "file": "reel17-disc-space.mp4",
         "changed": "Initial render from the approved script. Seven scenes (single-rule lesson), exact CFR via encode.py; 28.33s. 18.1.1 + 18.1.1.3 quoted verbatim from rules.json."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-22",
+      "updatedAt": "2026-08-22T02:09:13.714Z"
+    }
   },
   "reel-18": {
     "script": {
