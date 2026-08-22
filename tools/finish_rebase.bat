@@ -46,15 +46,22 @@ if "%MARKERS%"=="1" goto :markers
   echo.
 
   echo ===== 3. stage the resolution and continue =====
+  REM Stage whatever git actually reports as unmerged, rather than the two file
+  REM names this script used to hardcode. calendar.md and review-state.json are
+  REM the usual conflict, but not the only one: on 2026-08-22 the Worker and the
+  REM sandbox both created content/reel-18/feedback.md in the same window (the
+  REM desk wrote the rejection round, the run appended its Regenerated block),
+  REM and an unmerged path that never gets staged makes "rebase --continue"
+  REM refuse outright. Marker-free but unstaged is still unmerged to git.
   set COMMITTED2=0
   if exist ".git\rebase-merge" (
-    %GIT% add content/calendar.md content/review-state.json
+    for /f "delims=" %%f in ('%GIT% diff --name-only --diff-filter^=U') do %GIT% add "%%f"
     %GIT% rebase --continue
     set RC=!ERRORLEVEL!
     echo rebase rc=!RC!
   ) else (
     if exist ".git\rebase-apply" (
-      %GIT% add content/calendar.md content/review-state.json
+      for /f "delims=" %%f in ('%GIT% diff --name-only --diff-filter^=U') do %GIT% add "%%f"
       %GIT% rebase --continue
       set RC=!ERRORLEVEL!
       echo rebase rc=!RC!
@@ -80,6 +87,15 @@ if "%MARKERS%"=="1" goto :markers
   echo ===== 5. commit anything left over =====
   %GIT% add "content/*.md" content/review-state.json content/_pending_additions.json social/dashboard/data.js
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM Undated evergreen assets, mirroring the block sync.bat gained on
+  REM 2026-08-22. Own lines: a pathspec matching nothing is fatal and would
+  REM silently drop every later pattern sharing its line.
+  %GIT% add "social/*.md"
+  %GIT% add "content/hook-post-*/*.png"
+  %GIT% add "content/hook-post-*/*.py"
+  %GIT% add "social/highlights/*.png"
+  %GIT% add "social/highlights/*.svg"
+  %GIT% add "social/highlights/*.py"
   %GIT% diff --cached --quiet
   if !ERRORLEVEL! EQU 0 (
     echo nothing further staged - skipping second commit

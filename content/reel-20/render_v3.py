@@ -234,15 +234,17 @@ def g_closing(no, lesson_no):
 def rt(n): return RULE[n]["text"]
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "Straddle and wrapping", "Two more ways a mark can be illegal without any contact at all.", 18, size=80), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('straddle', g_main(2, 'STRADDLE: THE FEET', "Don't stand with their pivot foot between your legs.", "Draw an imaginary line between your feet. If that line comes within one disc diameter of the thrower's pivot point, it is a straddle. It happens by accident constantly, because straddling the pivot feels like good close defence right up until it is called.", ['18.1.1.2'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('straddle_r', g_detail(3, [('18.1.1', [rt('18.1.1'), ('18.1.1.2', rt('18.1.1.2'))])]), [0.3, 2.0]),
-    ('wrap', g_main(4, 'WRAPPING: THE ARMS', "Wide is fine. Around them is not.", "The same idea moved to the arms. A line between your hands or arms coming within a disc diameter of the thrower's torso is wrapping, and so is any part of you sitting above their pivot point. A mark can be wide and it can be active. It cannot be closed around somebody.", ['18.1.1.4'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('wrap_r', g_detail(5, [('18.1.1', [rt('18.1.1'), ('18.1.1.4', rt('18.1.1.4'))])]), [0.3, 2.0]),
-    ('count', g_main(6, 'THE COUNT DROPS ONE', "Play doesn't stop. Fix your position and count from lower.", "Both of these are marking infractions, so nothing halts. The marker corrects their position and resumes at the number last fully said before the call, minus one. Not from zero, and not from where it was — one lower.", ['18.1.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('count_r', g_detail(7, [('18.1.3', [rt('18.1.3')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Feet outside their stance, arms wide but not enveloping", "That is a legal and effective mark. Set the shape before the count starts rather than adjusting after the call — the single-number reset is the whole consequence, and it is cheaper to avoid than to argue about at six."), [0.3, 0.45, 0.7, 1.7]),
-    ('close', g_closing(9, 18), [0.3, 0.8, 1.0, 1.4]),
+    ('cover', g_cover(1, 'BEGINNER', "Double team: the three-metre rule", "Two defenders on the thrower is illegal \u2014 but the exception carries all the weight.", 20, size=76), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('three', g_main(2, 'INSIDE THREE METRES', "A second defender that close to the pivot is illegal.", "Any defender who is not the marker, standing within three metres of the thrower's pivot point without also guarding somebody else, is double teaming. Nothing in that sentence is about hands or intent. The position on its own is the infraction.", ['18.1.1.5'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('three_r', g_detail(3, [('18.1.1', [rt('18.1.1'), ('18.1.1.5', rt('18.1.1.5'))])]), [0.3, 2.0]),
+    ('zone', g_main(4, 'THE ZONE EXCEPTION', "Unless they're actually guarding somebody else.", "A defender who is genuinely guarding another offensive player may stand in that zone, and may go for the block, as long as they keep guarding that player. Every zone defence depends on this clause. Running across the area on your way somewhere is not a double team either.", ['18.1.1.5.1', '18.1.1.5.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('zone_r', g_detail(5, [('18.1.1.5', [rt('18.1.1.5'),
+                                         ('18.1.1.5.1', rt('18.1.1.5.1')),
+                                         ('18.1.1.5.2', rt('18.1.1.5.2'))])]), [0.3, 2.0]),
+    ('call', g_main(6, 'ANYONE CAN CALL IT', "Any offensive player, not just the thrower.", "Almost every marking call belongs to the thrower alone. Double team is one of two carve-outs. So if you are a cutter watching a poacher drift in with nobody to cover, that call is yours to make.", ['15.5.1'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('call_r', g_detail(7, [('15.5', [rt('15.5'), ('15.5.1', rt('15.5.1'))])]), [0.3, 2.0]),
+    ('tip', g_tip(8, "In a zone, watch for the poacher who isn't guarding anyone", "That is the whole test, and it is a question about a player behind you rather than the one in front. If the answer is nobody, it is a double team however still they are standing \u2014 the count resumes one lower and play never stops."), [0.3, 0.45, 0.7, 1.7]),
+    ('close', g_closing(9, 20), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------
 # House rhythm, applied over whatever per-state durations SCENES carries above:

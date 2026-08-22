@@ -128,6 +128,19 @@ if exist ".git\rebase-apply" goto :midrebase
   REM away. Own lines, per the rule above.
   %GIT% add tools/check_layout.py
   %GIT% add tools/check_dull.py
+  REM Undated evergreen assets, added 2026-08-22. hook-post-1's CAPTIONS.md was
+  REM tracked (it matches "content/*.md" -- a git pathspec wildcard crosses
+  REM slashes) but its five PNGs and its build script never were, so the caption
+  REM for a post pointed at slides that existed on exactly one machine. Same for
+  REM social/highlights and social/HOOK_POST_DESIGN_PHILOSOPHY.md. These are not
+  REM calendar content and get no queue row; they are just files that should
+  REM survive a fresh clone. Own lines, per the rule above.
+  %GIT% add "social/*.md"
+  %GIT% add "content/hook-post-*/*.png"
+  %GIT% add "content/hook-post-*/*.py"
+  %GIT% add "social/highlights/*.png"
+  %GIT% add "social/highlights/*.svg"
+  %GIT% add "social/highlights/*.py"
   %GIT% diff --cached --stat
   echo.
 

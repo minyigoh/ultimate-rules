@@ -61,7 +61,7 @@ def base(body):
             f'<g transform="translate(0,{Y_OFFSET})">'
             f'<rect width="{W}" height="{H}" fill="{BG}"/>{body}</g></svg>')
 
-TOTAL = 9
+TOTAL = 7
 
 # ---------------- scene builders ----------------
 # ---------------- kicker auto-fit ----------------
@@ -234,15 +234,18 @@ def g_closing(no, lesson_no):
 def rt(n): return RULE[n]["text"]
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "Straddle and wrapping", "Two more ways a mark can be illegal without any contact at all.", 18, size=80), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('straddle', g_main(2, 'STRADDLE: THE FEET', "Don't stand with their pivot foot between your legs.", "Draw an imaginary line between your feet. If that line comes within one disc diameter of the thrower's pivot point, it is a straddle. It happens by accident constantly, because straddling the pivot feels like good close defence right up until it is called.", ['18.1.1.2'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('straddle_r', g_detail(3, [('18.1.1', [rt('18.1.1'), ('18.1.1.2', rt('18.1.1.2'))])]), [0.3, 2.0]),
-    ('wrap', g_main(4, 'WRAPPING: THE ARMS', "Wide is fine. Around them is not.", "The same idea moved to the arms. A line between your hands or arms coming within a disc diameter of the thrower's torso is wrapping, and so is any part of you sitting above their pivot point. A mark can be wide and it can be active. It cannot be closed around somebody.", ['18.1.1.4'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('wrap_r', g_detail(5, [('18.1.1', [rt('18.1.1'), ('18.1.1.4', rt('18.1.1.4'))])]), [0.3, 2.0]),
-    ('count', g_main(6, 'THE COUNT DROPS ONE', "Play doesn't stop. Fix your position and count from lower.", "Both of these are marking infractions, so nothing halts. The marker corrects their position and resumes at the number last fully said before the call, minus one. Not from zero, and not from where it was — one lower.", ['18.1.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('count_r', g_detail(7, [('18.1.3', [rt('18.1.3')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Feet outside their stance, arms wide but not enveloping", "That is a legal and effective mark. Set the shape before the count starts rather than adjusting after the call — the single-number reset is the whole consequence, and it is cheaper to avoid than to argue about at six."), [0.3, 0.45, 0.7, 1.7]),
-    ('close', g_closing(9, 18), [0.3, 0.8, 1.0, 1.4]),
+    ('cover', g_cover(1, 'BEGINNER', "Fast count", "Under pressure, almost every marker counts too fast. You are allowed to say so.", 19, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('five', g_main(2, 'FIVE WAYS TO COUNT WRONG', "Too quick is only one of them.", "The rulebook lists five ways to get a stall count wrong: counting in under one-second intervals, starting or continuing it illegally, not saying \u201cStalling\u201d, not starting from the correct number, and not reducing the count when required. Any one of them is a fast count.", ['18.1.1.1'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('five_r', g_detail(3, [('18.1.1.1', [rt('18.1.1.1'),
+                                         ('18.1.1.1.1', rt('18.1.1.1.1')),
+                                         ('18.1.1.1.2', rt('18.1.1.1.2')),
+                                         ('18.1.1.1.3', rt('18.1.1.1.3')),
+                                         ('18.1.1.1.4', rt('18.1.1.1.4')),
+                                         ('18.1.1.1.5', rt('18.1.1.1.5'))])]), [0.3, 2.0]),
+    ('esc', g_main(4, 'IF IT KEEPS HAPPENING, ESCALATE', "A pattern of repeats can be called as a marking violation instead.", "You call it, the count gets fixed, and play carries on around you. But if the same marker keeps racing anyway, you are not stuck making that call every stall \u2014 where it is a pattern rather than a one-off, the rules let you call a marking violation, and a violation stops play.", ['18.1.4', '18.1.4.4'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('esc_r', g_detail(5, [('18.1.4', [rt('18.1.4'), ('18.1.4.4', rt('18.1.4.4'))])]), [0.3, 2.0]),
+    ('tip', g_tip(6, "Calling fast count isn't rude. It's the mechanism.", "Markers cannot hear their own tempo \u2014 under pressure, at a real stall count, almost nobody can. The call exists because the sport assumes you will make it, and nothing stops when you do: the number is corrected and the point carries on."), [0.3, 0.45, 0.7, 1.7]),
+    ('close', g_closing(7, 19), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------
 # House rhythm, applied over whatever per-state durations SCENES carries above:

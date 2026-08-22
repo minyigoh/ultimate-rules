@@ -264,9 +264,23 @@ there, and copy only the finished `.mp4` back into the repo.
   say so and leave the row alone. No kicker in reels 1–17 engages this; the
   widest ever shipped is reel-11's "SIMULTANEOUS MEANS OFFENCE" at 873/900px,
   so it is a verified no-op on the back catalogue.
+- **The second exception is the body paragraph, which also auto-fits.** The
+  citation footer sits at a fixed y, so a body that wraps to one line too many
+  does not push it down — it lands on top of it. `fit_body()` picks the largest
+  integer size ≤ 36px whose wrapped block clears the citation (last baseline
+  ≤ `CITE_Y - 60`, the tightest that has shipped clean), scales the line height
+  with it, floors at 80% (29px) and raises `SystemExit` below that. Same rule
+  as the kicker: **shrink the type, never reword approved copy.** Added
+  2026-08-22 after reel-18 v1 was rejected — "The WFDF reference is blocking
+  the content" — with a six-line body overlapping the WFDF line by 17px of ink
+  while every element sat comfortably inside the margins.
 - `tools/check_layout.py` measures every finished SVG against the margins with
-  real font metrics, and `tools/check_dull.py` measures the sustained
-  dull-orange run by row band. Run both in Step 6 rather than re-deriving them.
+  real font metrics **and checks for collisions** between text ink boxes, and
+  `tools/check_dull.py` measures the sustained dull-orange run by row band. Run
+  both in Step 6 rather than re-deriving them. The collision check exists
+  because margins alone passed reel-18 v1: "clean at 1192 of 1310px" was true
+  and the citation was still unreadable. It is silent across reels 8–17 except
+  reel-15 scene 2, which shipped with the same defect at a smaller overlap.
 - Sub-rule numbers (e.g. "14.1.1") render on their own line in the same orange
   bold 22px as the parent "RULE X.X · CHAPTER" label — follow `g_detail()`.
 - **Do not hand-tune the per-scene durations in `SCENES`.** The `retime()` /

@@ -12,11 +12,18 @@ Thumbs.db
 content/**/v4/
 content/**/frames/
 
+# Discarded slides. The sandbox cannot delete files, so a cut slide gets moved
+# into a _to_delete/ folder instead of removed, and then sits there waiting to
+# be swept into a commit by a wildcard. content/hook-post-1/_to_delete/ holds
+# the superseded 04_close.png.
+content/**/_to_delete/
+
 # Scratch for the Windows-side sync helper (tools/sync.bat). The helper itself
 # is committed; its logs and the one-shot commit message are not.
 /_sync_pull.bat
 /_sync_log.txt
 /_commit_msg.txt
+/_commit_msg2.txt
 tools/_last_sync.log
 desktop.ini
 
