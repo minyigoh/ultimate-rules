@@ -1392,5 +1392,68 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'First escalation lesson in the curriculum — the infraction to violation ladder appears here for the first time. Introduced as a mechanism, not explained in full: Lesson 21 is foul/infraction/violation and Lesson 22 is who may call what.',
       'Thursday 2026-08-27 is due a recap carousel for lessons 15-21. Lessons 20 and 21 are not drafted and lessons 18-19 have not posted, so that block will not be complete; expect a short recap of what has posted, or a skip with a note.'
     ]
+  },
+
+  {
+    id: 'reel-20',
+    date: '2026-08-25',
+    title: 'Double team: the three-metre rule',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 20,
+    rules: ['18.1.1.5', '18.1.1.5.1', '18.1.1.5.2', '15.5.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-22'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-20',
+    source: 'content/reel-20/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Marking)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Two defenders on the thrower is illegal. But the exception carries all the weight, and it's the reason zone defence exists.`,
+      explanation: `Any defender who isn't the marker, standing within three metres of the thrower's pivot point, is a double team. Three metres is about ten feet. It doesn't matter whether they're doing anything with their hands — the position on its own is the infraction.`,
+      example: `Unless they're also guarding another offensive player. Then they can stand right there, and they're allowed to reach for the throw, as long as they keep guarding that other player. And simply running through the area on your way somewhere isn't a double team either. One more thing most people don't know: any offensive player can make this call. Not just the thrower.`,
+      cta: `Lesson 20 of 75 — new lesson daily.`
+    },
+    ig: `Two defenders on the thrower is illegal. But the exception carries all the weight, and it's the reason zone defence is legal at all.
+
+The rule itself is a distance. Any defensive player other than the marker who comes within three metres of the thrower's pivot point — about ten feet — without also guarding another offensive player is double teaming. Note what's missing from that sentence: nothing about hands, nothing about intent, nothing about whether they're trying to block the throw. The position is the infraction on its own.
+
+The exception is where the sport actually lives. A defender who is genuinely guarding someone else may stand in that zone, and may attempt to stop the pass, provided they keep guarding that other player. Every zone defence you've ever seen depends on this clause. And merely running across the area — clearing through, chasing a cutter, getting somewhere — is explicitly not a double team.
+
+Which makes this a judgement about someone else. Almost every other marking call is about the marker in front of you. This one asks a question about a player behind you: is that second defender guarding anyone? If the answer is no, it's a double team no matter how still they're standing.
+
+And unusually, you don't have to be the thrower to say so. In general only the thrower may claim an infraction, but double team is one of two carve-outs — any offensive player can call it. So if you're a cutter watching a poacher drift in with nobody to cover, that call is yours to make. It's a marking infraction, so nothing stops: the defender backs out, the count resumes one lower, and the point carries on.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `second defender standing on your thrower? that's a double team 🥏
+
+within three metres of the pivot, not guarding anyone else = illegal. doesn't matter what their hands are doing
+
+BUT if they are guarding someone else they can stand there and even go for the block. that's why zone defence is legal
+
+and any offensive player can call it — you don't have to be the thrower
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-22 by the daily task to cover 2026-08-25. Awaiting script review.',
+      'Nine scenes. Three rule groups — the definition, the two carve-outs, and who may call it — so three topic/rules pairs, the same shape as reels 16 and 18.',
+      'Scene 5 re-states 18.1.1.5 as its own stem before its two children, because 18.1.1.5.1 and 18.1.1.5.2 both begin mid-thought and neither names the three-metre zone it is carving out of. Reel 18 set the precedent for repeating a stem across two cards.',
+      'Scene 7 carries 15.5 as a stem only. 15.5.1 opens with "However", and alone it reads as though double team were the only infraction anyone can call. 15.5 is not in the lesson rules array and is on the card purely as the sentence 15.5.1 contradicts — the same treatment 18.1.1 gets.',
+      'The count-minus-one behaviour is not carded. 18.1.3 applies but is not in this lesson rules array and reel 18 carded it two days ago; it stays in the caption, where it needs no citation chip.',
+      '"About ten feet" is a spoken gloss, not a quotation. The rule says three metres and the card says three metres.',
+      'The travel half of 15.5.1 is on the card because the text is verbatim, but the script does not chase it. Travel was lesson 16 and re-explaining who may call it here would pull the reel in two directions.',
+      'Layout dry-run of all nine scenes: clean, densest slide 1192 of the 1310px budget; all three kickers render at the standard 34px with no auto-fit shrink. Projected duration 30.0s.',
+      'Closes out the marking block (lessons 17-20). Lesson 21 moves to foul / infraction / violation, which is where the general shape of calls gets explained properly.',
+      'Thursday 2026-08-27 is still due a recap carousel for the next un-recapped block, lessons 15-21. As of this draft lessons 15-16 have posted, 17 posts today, 18-20 are queued and 21 is not drafted; expect a short recap of what has posted, or a skip with a note.'
+    ]
   }
 ];
