@@ -549,7 +549,12 @@
         "file": "reel18-straddle-and-wrapping.mp4",
         "changed": "Fixed the citation collision behind \"The WFDF reference is blocking the content\". The \"WFDF Rules of Ultimate 2025-2028\" line sits at a fixed y (1150); on scene 2 the body wrapped to six lines at 36px, putting its last baseline at 1140 and overlapping the citation's ink by 17px. Everything was inside the margins, so v1's layout check reported clean. render_v3.py gained fit_body(), the body-paragraph twin of fit_kicker(): largest integer size up to 36px whose wrapped block clears the citation, line height scaled with it, floor 80% (29px), SystemExit below that. Scene 2 now renders at 31px over five lines, scene 4 at 35px, scene 6 unchanged at 36px. No word of the approved script changed. Nine scenes, exact CFR via encode.py, 29.50s, longest sustained dull-orange run 0.20s. v1 archived as reel18-straddle-and-wrapping.v1.mp4."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-23",
+      "updatedAt": "2026-08-22T23:20:16.743Z"
+    }
   },
   "reel-19": {
     "script": {
