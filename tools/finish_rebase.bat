@@ -46,22 +46,30 @@ if "%MARKERS%"=="1" goto :markers
   echo.
 
   echo ===== 3. stage the resolution and continue =====
-  REM Stage whatever git actually reports as unmerged, rather than the two file
-  REM names this script used to hardcode. calendar.md and review-state.json are
-  REM the usual conflict, but not the only one: on 2026-08-22 the Worker and the
-  REM sandbox both created content/reel-18/feedback.md in the same window (the
-  REM desk wrote the rejection round, the run appended its Regenerated block),
-  REM and an unmerged path that never gets staged makes "rebase --continue"
-  REM refuse outright. Marker-free but unstaged is still unmerged to git.
+  REM Stage every resolved path, not the two file names this script used to
+  REM hardcode. calendar.md and review-state.json are the usual conflict but not
+  REM the only one: on 2026-08-22 the Worker and the sandbox both created
+  REM content/reel-18/feedback.md in the same window (the desk wrote the
+  REM rejection round, the run appended its Regenerated block). That path was
+  REM never staged, and an unmerged path makes "rebase --continue" refuse
+  REM outright. Marker-free but unstaged is still unmerged to git.
+  REM
+  REM "git add -u" and not a "for /f ... --diff-filter=U" loop. The loop was
+  REM tried first and silently staged nothing -- a caret-escaped "=" inside a
+  REM parenthesised block gets re-parsed, the same class of bug as the
+  REM %ERRORLEVEL% one this file already documents. -u has no quoting or
+  REM escaping hazards, never fails on a pathspec that matches nothing, and
+  REM cannot sweep in the untracked v4/ frames because it only touches files
+  REM git already tracks.
   set COMMITTED2=0
   if exist ".git\rebase-merge" (
-    for /f "delims=" %%f in ('%GIT% diff --name-only --diff-filter^=U') do %GIT% add "%%f"
+    %GIT% add -u
     %GIT% rebase --continue
     set RC=!ERRORLEVEL!
     echo rebase rc=!RC!
   ) else (
     if exist ".git\rebase-apply" (
-      for /f "delims=" %%f in ('%GIT% diff --name-only --diff-filter^=U') do %GIT% add "%%f"
+      %GIT% add -u
       %GIT% rebase --continue
       set RC=!ERRORLEVEL!
       echo rebase rc=!RC!
