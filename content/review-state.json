@@ -529,12 +529,10 @@
       "updatedAt": "2026-08-20T00:44:39.685Z"
     },
     "content": {
-      "status": "rerender",
-      "note": "The WFDF reference is blocking the content. Please check",
-      "tags": [
-        "On-screen text"
-      ],
-      "updatedAt": "2026-08-22T02:11:10.998Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-22T10:30:00.000Z"
     },
     "revisions": [
       {
@@ -543,6 +541,13 @@
         "duration": "29.5s",
         "file": "reel18-straddle-and-wrapping.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 18.1.1 + 18.1.1.2, 18.1.1 + 18.1.1.4, and 18.1.3 quoted verbatim from rules.json. Layout clean at 1192 of 1310px; longest sustained dull-orange run 0.20s."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-22",
+        "duration": "29.5s",
+        "file": "reel18-straddle-and-wrapping.mp4",
+        "changed": "Fixed the citation collision behind \"The WFDF reference is blocking the content\". The \"WFDF Rules of Ultimate 2025-2028\" line sits at a fixed y (1150); on scene 2 the body wrapped to six lines at 36px, putting its last baseline at 1140 and overlapping the citation's ink by 17px. Everything was inside the margins, so v1's layout check reported clean. render_v3.py gained fit_body(), the body-paragraph twin of fit_kicker(): largest integer size up to 36px whose wrapped block clears the citation, line height scaled with it, floor 80% (29px), SystemExit below that. Scene 2 now renders at 31px over five lines, scene 4 at 35px, scene 6 unchanged at 36px. No word of the approved script changed. Nine scenes, exact CFR via encode.py, 29.50s, longest sustained dull-orange run 0.20s. v1 archived as reel18-straddle-and-wrapping.v1.mp4."
       }
     ]
   },
@@ -554,11 +559,20 @@
       "updatedAt": "2026-08-22T02:11:34.866Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-20T22:42:51.000Z"
-    }
+      "updatedAt": "2026-08-22T10:30:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-22",
+        "duration": "28.5s",
+        "file": "reel19-fast-count.mp4",
+        "changed": "Initial render from the approved script. Seven scenes (two-rule lesson), exact CFR via encode.py; 28.53s. 18.1.1.1 with all five children, and 18.1.4 + 18.1.4.4, quoted verbatim from rules.json. Scene 4's body renders at 29px, the 80% floor of fit_body(), because its four-line headline leaves nothing larger clearing the citation."
+      }
+    ]
   },
   "reel-20": {
     "script": {
@@ -568,10 +582,19 @@
       "updatedAt": "2026-08-22T02:12:15.556Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-22T01:12:13.000Z"
-    }
+      "updatedAt": "2026-08-22T10:30:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-22",
+        "duration": "29.5s",
+        "file": "reel20-double-team.mp4",
+        "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 18.1.1 + 18.1.1.5, 18.1.1.5 + 18.1.1.5.1 + 18.1.1.5.2, and 15.5 + 15.5.1 quoted verbatim from rules.json. Bodies auto-fit at 32, 34 and 36px; all three kickers at the standard 34px."
+      }
+    ]
   }
 }
