@@ -24,7 +24,7 @@
 | 2026-08-22 | Disc space: give the thrower room | Reel | Posted | 2026-08-22 | — |
 | 2026-08-23 | Straddle and wrapping | Reel | Ready to post | — | — |
 | 2026-08-24 | Fast count | Reel | Ready to post | — | — |
-| 2026-08-25 | Double team: the three-metre rule | Reel | Script approved | — | — |
+| 2026-08-25 | Double team: the three-metre rule | Reel | Ready to post | — | — |
 
 ## Status legend
 
