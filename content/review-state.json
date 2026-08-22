@@ -548,10 +548,10 @@
   },
   "reel-19": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-20T22:42:51.000Z"
+      "updatedAt": "2026-08-22T02:11:34.866Z"
     },
     "content": {
       "status": "awaiting-render",
