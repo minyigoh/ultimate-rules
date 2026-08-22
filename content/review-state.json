@@ -530,9 +530,9 @@
     },
     "content": {
       "status": "in-review",
-      "note": "The WFDF reference is block",
+      "note": "The WFDF reference is blocking the content",
       "tags": [],
-      "updatedAt": "2026-08-22T02:10:42.771Z"
+      "updatedAt": "2026-08-22T02:10:52.873Z"
     },
     "revisions": [
       {
