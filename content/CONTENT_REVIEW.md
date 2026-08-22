@@ -72,6 +72,24 @@ box is where you leave line edits, tone notes, or a rule that needs re-checking.
 note. A send-back logs a round in `content/<folder>/feedback.md` and the next
 daily render picks it up automatically — no need to ask it to.
 
+## Posting a cleared cut
+
+Once the content track is approved, a three-step bar pins itself to the bottom
+of the post — fixed to the screen on a phone, so it is reachable at any scroll
+depth and none of this needs the page moved:
+
+1. **Save video** — share sheet, straight to the camera roll.
+2. **Copy caption** — do this *before* switching to Instagram. The clipboard
+   survives the reel editor and the music picker, so the caption is a
+   long-press away when Instagram finally asks for it. This is the step that
+   used to mean a second trip back to the desk.
+3. **Mark posted** — tap it when you come back.
+
+Each step ticks off as you do it and the ticks survive a reload, because the
+desk is usually evicted from memory while Instagram is in the foreground. The
+bar disappears once the post is marked, and resets if the cut is later sent
+back for a re-render.
+
 ## Feedback file formats
 
 Rendered-content rounds, `content/<folder>/feedback.md`:

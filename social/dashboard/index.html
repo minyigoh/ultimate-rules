@@ -132,7 +132,11 @@ header{
 .dot{width:6px;height:6px;border-radius:50%;background:var(--st);flex:none}
 
 /* ---------- detail ---------- */
-.detail{overflow-y:auto;padding:26px 32px 80px}
+/* The bottom padding is deliberately small: a sticky element can only travel to
+   the bottom of its containing block, which stops at the padding edge, so a
+   generous pad here would leave the flow bar floating in the middle of nowhere.
+   Sections carry their own 30px of tail margin instead. */
+.detail{overflow-y:auto;padding:26px 32px 22px}
 .empty{display:grid;place-content:center;height:60vh;text-align:center;color:var(--faint)}
 .empty .disc{font-size:44px;margin-bottom:12px}
 
@@ -278,6 +282,37 @@ table.scenes td:nth-child(2){color:var(--text);font-weight:550;white-space:nowra
 .savehint{font-size:11.5px;color:var(--faint);line-height:1.45;flex:1;min-width:200px}
 .savehint b{color:var(--muted);font-weight:650}
 
+/* ---------- posting flow bar ----------
+   Posting is a round trip: the file goes to the camera roll here, the caption
+   is pasted in Instagram, and the post is marked here again afterwards. All
+   three used to live at different scroll depths of a long page. This pins them
+   to the bottom of the pane instead, so none of it needs a scroll. */
+.flowbar{
+  position:sticky;bottom:14px;z-index:6;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  background:color-mix(in srgb,var(--panel-2) 96%,transparent);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid var(--line-strong);border-radius:13px;padding:11px 12px;
+  box-shadow:0 12px 34px rgba(0,0,0,.45);
+}
+.flowhint{flex:1 1 100%;margin:0 0 2px;font-size:11.5px;line-height:1.45;color:var(--faint)}
+.flowhint b{color:var(--text);font-weight:650}
+.fstep{
+  flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:7px;
+  background:transparent;border:1px solid var(--line-strong);border-radius:9px;
+  padding:9px 8px;font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap;
+}
+.fstep i{
+  width:17px;height:17px;border-radius:50%;border:1px solid var(--line-strong);
+  display:grid;place-items:center;font:700 10px/1 inherit;font-style:normal;flex:none;
+}
+.fstep:hover{border-color:var(--text);color:var(--text)}
+.fstep.now{border-color:var(--accent);color:var(--text)}
+.fstep.now i{background:var(--accent);border-color:var(--accent);color:#fff}
+.fstep.done{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 38%,transparent)}
+.fstep.done i{background:var(--ok);border-color:var(--ok);color:#0F1712}
+.fstep:disabled{opacity:.45;cursor:default}
+
 .rev{
   background:var(--panel);border:1px solid var(--line);
   border-left:3px solid var(--line-strong);border-radius:var(--radius);
@@ -369,6 +404,17 @@ kbd{font:11px var(--mono);background:var(--panel-2);border:1px solid var(--line)
   .mb{max-height:58vh}
   .mf{gap:7px}
   .mf .hbtn{flex:1 1 auto}
+
+  /* Thumb reach beats page position: on a phone the bar leaves the flow of the
+     page entirely and sits above the home indicator, visible at any scroll. */
+  .flowbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    border-radius:0;border-left:0;border-right:0;border-bottom:0;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  }
+  .fstep{font-size:12px;padding:10px 6px;gap:6px}
+  /* Only the posts that actually show a bar pay for the space under it. */
+  body.viewing .detail:has(.flowbar){padding-bottom:112px}
 }
 </style>
 </head>
@@ -694,6 +740,73 @@ function save(){
   catch { toast('Could not save — browser storage is blocked'); }
 }
 
+/* ---------- posting flow ----------
+   Which of the three posting steps a ready cut has been through. Purely local
+   — it never syncs, because it describes where *this* phone got to, not the
+   post. It is persisted because the desk is nearly always evicted from memory
+   while Instagram is in the foreground: without this, coming back to mark the
+   post looked identical to arriving at it fresh. */
+const FLOW_KEY = 'luf-desk-flow';
+let flowState = (() => {
+  try { return JSON.parse(localStorage.getItem(FLOW_KEY)) || {}; } catch { return {}; }
+})();
+const flow = id => flowState[id] || {};
+function saveFlow(){
+  try { localStorage.setItem(FLOW_KEY, JSON.stringify(flowState)); } catch { /* private mode */ }
+}
+function markFlow(id, step){
+  flowState[id] = Object.assign({}, flowState[id], {[step]: Date.now()});
+  saveFlow();
+}
+function clearFlow(id){
+  if (!flowState[id]) return;
+  delete flowState[id];
+  saveFlow();
+}
+
+/* ---------- note autosave ----------
+   Notes are typed, and the two writes a note needs have very different costs:
+   localStorage is free, while the repo POST is a git commit. They used to share
+   one 400ms debounce, so a paragraph produced a commit every time the typing
+   paused for half a second. The disk write stays eager; the commit waits for a
+   real pause, and is flushed early on blur or when the tab is backgrounded so
+   nothing is left behind when you switch to Instagram mid-sentence. */
+const NOTE_SAVE_MS = 300;
+const NOTE_SYNC_MS = 2500;
+const noteT = {};   // 'postId:track' -> {save, sync}
+
+function stampSaved(p, name){
+  const lbl = $('#detail').querySelector(`[data-saved="${name}"]`);
+  if (lbl) lbl.textContent = savedLabel(p, name);
+}
+function queueNote(p, name){
+  const k = p.id + ':' + name;
+  const t = noteT[k] || (noteT[k] = {});
+  clearTimeout(t.save); clearTimeout(t.sync);
+  t.save = setTimeout(() => { save(); renderStats(); renderList(); stampSaved(p, name); }, NOTE_SAVE_MS);
+  t.sync = setTimeout(() => flushNote(p, name), NOTE_SYNC_MS);
+}
+function flushNote(p, name){
+  const k = p.id + ':' + name;
+  const t = noteT[k];
+  if (!t) return;                       // nothing typed since the last flush
+  clearTimeout(t.save); clearTimeout(t.sync);
+  delete noteT[k];
+  const cur = track(p.id, name);
+  if (!cur) return;
+  save(); renderStats(); renderList(); stampSaved(p, name);
+  syncToRepo(p, name, cur);
+}
+function flushAllNotes(){
+  for (const k of Object.keys(noteT)){
+    const [id, name] = k.split(':');
+    const p = POSTS.find(x => x.id === id);
+    if (p) flushNote(p, name);
+  }
+}
+window.addEventListener('pagehide', flushAllNotes);
+document.addEventListener('visibilitychange', () => { if (document.hidden) flushAllNotes(); });
+
 const track = (id, name) => (state[id] && state[id][name]) || null;
 
 function scriptStatus(p){
@@ -845,9 +958,11 @@ function downloadFiles(files){
 
 async function saveToPhone(p, btn){
   const names = assetList(p);
-  if (!names.length) return;
-  const label = btn.textContent;
+  if (!names.length) return false;
+  // innerHTML, not textContent: the flow bar's button carries a step marker.
+  const label = btn.innerHTML;
   btn.disabled = true;
+  let ok = false;
 
   try {
     const files = [];
@@ -862,19 +977,43 @@ async function saveToPhone(p, btn){
       btn.textContent = 'Opening…';
       try {
         await navigator.share({files, title: p.title});
+        ok = true;
       } catch (err) {
         if (err && err.name === 'AbortError') { /* share sheet dismissed — not an error */ }
-        else downloadFiles(files); // NotAllowedError and friends: fall back rather than dead-end
+        else { downloadFiles(files); ok = true; } // NotAllowedError and friends: fall back rather than dead-end
       }
     } else {
       downloadFiles(files);
+      ok = true;
     }
   } catch (err) {
     toast('Save failed — ' + (err.message || 'check your connection'));
   }
 
   btn.disabled = false;
-  btn.textContent = label;
+  btn.innerHTML = label;
+  return ok;
+}
+
+/* Both the caption card's own button and step 2 of the flow bar come here, so
+   copying from either one moves the flow along. */
+function copyCaption(p, platform){
+  const text = platform === 'TikTok' ? p.tiktok : p.ig;
+  copy(text + '\n\n' + (p.hashtags || []).join(' '), platform + ' caption');
+  if (platform === 'Instagram'){ markFlow(p.id, 'copied'); renderDetail(true); }
+}
+
+function markPosted(p){
+  const wasPosted = !!postedOn(p);
+  const cur = mutableTrack(p, 'posted');
+  cur.status = wasPosted ? 'unposted' : 'posted';
+  cur.date = wasPosted ? null : TODAY;
+  cur.updatedAt = Date.now();
+  // The flow only describes an unposted cut. Clearing it here keeps the store
+  // from growing a stale entry per post, and un-marking starts the steps over.
+  clearFlow(p.id);
+  commit(p, wasPosted ? 'Un-marked' : 'Marked posted — nice one');
+  syncToRepo(p, 'posted', cur);
 }
 
 /* ---------- render queue: what a scheduled run would pick up ---------- */
@@ -1072,11 +1211,40 @@ function backToQueue(){
 }
 window.addEventListener('popstate', exitDetail);
 
+/* Rebuilding the pane replaces every node in it, including the textarea under
+   the caret. A sync landing 1-2s after you started a sentence used to swap in a
+   fresh textarea holding the note as it stood when the debounce last fired —
+   the rest of the sentence gone, and the caret with it. Two defences: the note
+   now reaches state on every keystroke, so a rebuild renders what you actually
+   typed, and the caret is put back exactly where it was. Composition (IME) is
+   the one case a rebuild cannot survive at all, so it is deferred instead. */
+let composingNote = false;
+let pendingDetail = false;
+
+function noteFocus(el){
+  const a = document.activeElement;
+  if (!a || !a.dataset || !a.dataset.note || !el.contains(a)) return null;
+  return {sel: `[data-note="${a.dataset.note}"]`, start: a.selectionStart,
+          end: a.selectionEnd, top: a.scrollTop, h: a.style.height};
+}
+function restoreNoteFocus(el, f){
+  if (!f) return;
+  const n = el.querySelector(f.sel);
+  if (!n) return;
+  if (f.h) n.style.height = f.h;          // keep a textarea you dragged taller
+  n.focus({preventScroll: true});
+  try { n.setSelectionRange(f.start, f.end); } catch { /* not a text field */ }
+  n.scrollTop = f.top;
+}
+
 function renderDetail(preserveScroll){
+  if (composingNote){ pendingDetail = true; return; }
+  pendingDetail = false;
   const p = POSTS.find(x => x.id === selected);
   const el = $('#detail');
   const keepY = preserveScroll ? el.scrollTop : 0;
   const keepWinY = preserveScroll ? window.scrollY : 0;
+  const keepFocus = preserveScroll ? noteFocus(el) : null;
 
   if (!p){
     el.innerHTML = `<div class="empty">
@@ -1175,10 +1343,38 @@ function renderDetail(preserveScroll){
     <p class="src">Attribution required in every caption: ${esc(ACCOUNT.attribution)}</p>
   </section>`);
 
+  parts.push(flowbarHTML(p));
+
   el.innerHTML = parts.join('');
   el.scrollTop = keepY;
   if (preserveScroll) window.scrollTo(0, keepWinY);
   wireDetail(p);
+  restoreNoteFocus(el, keepFocus);
+}
+
+/* The three things posting actually needs, in the order the phone needs them.
+   Only for a cut that is cleared to go out — before that there is nothing to
+   save, and once it is posted the bar has nothing left to say. */
+function flowbarHTML(p){
+  if (!hasMedia(p) || contentStatus(p) !== 'approved' || postedOn(p)) return '';
+  const f = flow(p.id);
+  const at = !f.saved ? 1 : !f.copied ? 2 : 3;
+  const hint = at === 1
+    ? '<b>Ready to post.</b> Save the file, then copy the caption — both before you leave this page.'
+    : at === 2
+    ? 'Saved. <b>Copy the caption now, before you switch apps</b> — it stays on the clipboard through the reel editor and the music picker, so Instagram is one long-press away from done.'
+    : 'Caption is on your clipboard. Paste it in Instagram, post, then come straight back and tap <b>Mark posted</b> — this bar follows you, so there is nothing to scroll for.';
+
+  const step = (n, key, label, done) =>
+    `<button class="fstep ${done ? 'done' : at === n ? 'now' : ''}" data-flow="${key}">
+       <i>${done ? '✓' : n}</i><span>${esc(label)}</span></button>`;
+
+  return `<div class="flowbar">
+    <p class="flowhint">${hint}</p>
+    ${step(1, 'save', p.video ? 'Save video' : 'Save slides', !!f.saved)}
+    ${step(2, 'copy', 'Copy caption', !!f.copied)}
+    ${step(3, 'posted', 'Mark posted', false)}
+  </div>`;
 }
 
 function railHTML(p){
@@ -1376,6 +1572,8 @@ function setTrack(p, name, status){
   if (name === 'content'){
     cur.tags = cur.tags || [];
     if (cur.status !== 'rerender'){ cur.tags = []; cur.urgent = false; }
+    // Whatever was saved to the phone is about to be superseded by a new cut.
+    if (cur.status === 'rerender') clearFlow(p.id);
   }
   const label = name === 'script' ? SCRIPT_STATUS[cur.status].label : CONTENT_STATUS[cur.status].label;
   commit(p, (name === 'script' ? 'Script: ' : 'Content: ') + label);
@@ -1387,7 +1585,22 @@ function wireDetail(p){
   if (back) back.addEventListener('click', backToQueue);
 
   const saveBtn = $('#saveBtn');
-  if (saveBtn) saveBtn.addEventListener('click', () => saveToPhone(p, saveBtn));
+  if (saveBtn) saveBtn.addEventListener('click', async () => {
+    if (await saveToPhone(p, saveBtn)){ markFlow(p.id, 'saved'); renderDetail(true); }
+  });
+
+  $('#detail').querySelectorAll('[data-flow]').forEach(b => {
+    b.addEventListener('click', async () => {
+      const k = b.dataset.flow;
+      if (k === 'save'){
+        if (await saveToPhone(p, b)){ markFlow(p.id, 'saved'); renderDetail(true); }
+      } else if (k === 'copy'){
+        copyCaption(p, 'Instagram');
+      } else {
+        markPosted(p);
+      }
+    });
+  });
 
   // Preview swaps only what the player shows. Saving stays pinned to the
   // latest cut regardless of what you're currently watching.
@@ -1439,38 +1652,29 @@ function wireDetail(p){
   });
 
   const mark = $('#detail').querySelector('[data-posted]');
-  if (mark) mark.addEventListener('click', () => {
-    const wasPosted = !!postedOn(p);
-    const cur = mutableTrack(p, 'posted');
-    cur.status = wasPosted ? 'unposted' : 'posted';
-    cur.date = wasPosted ? null : TODAY;
-    cur.updatedAt = Date.now();
-    commit(p, wasPosted ? 'Un-marked' : 'Marked posted');
-    syncToRepo(p, 'posted', cur);
-  });
+  if (mark) mark.addEventListener('click', () => markPosted(p));
 
   $('#detail').querySelectorAll('[data-note]').forEach(ta => {
-    let t;
+    const name = ta.dataset.note;
     ta.addEventListener('input', () => {
-      clearTimeout(t);
-      t = setTimeout(() => {
-        const name = ta.dataset.note;
-        const cur = mutableTrack(p, name);
-        cur.note = ta.value;
-        cur.updatedAt = Date.now();
-        save(); renderStats(); renderList();
-        const lbl = $('#detail').querySelector(`[data-saved="${name}"]`);
-        if (lbl) lbl.textContent = savedLabel(p, name);
-        syncToRepo(p, name, cur);
-      }, 400);
+      // Straight into state, every keystroke. Nothing here repaints, so it
+      // costs nothing — and it means any repaint that does land renders the
+      // sentence as it stands rather than as it stood a second ago.
+      const cur = mutableTrack(p, name);
+      cur.note = ta.value;
+      cur.updatedAt = Date.now();
+      queueNote(p, name);
     });
+    ta.addEventListener('compositionstart', () => { composingNote = true; });
+    ta.addEventListener('compositionend', () => {
+      composingNote = false;
+      if (pendingDetail) renderDetail(true);
+    });
+    ta.addEventListener('blur', () => flushNote(p, name));
   });
 
   $('#detail').querySelectorAll('[data-copy]').forEach(b => {
-    b.addEventListener('click', () => {
-      const text = b.closest('.caption-card').querySelector('pre').textContent;
-      copy(text + '\n\n' + (p.hashtags || []).join(' '), b.dataset.copy + ' caption');
-    });
+    b.addEventListener('click', () => copyCaption(p, b.dataset.copy));
   });
 
   $('#detail').querySelectorAll('img[data-full]').forEach(img => {
