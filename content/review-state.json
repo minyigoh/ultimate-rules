@@ -604,10 +604,10 @@
   },
   "reel-21": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-23T00:20:00.000Z"
+      "updatedAt": "2026-08-23T03:15:41.862Z"
     },
     "content": {
       "status": "awaiting-render",
