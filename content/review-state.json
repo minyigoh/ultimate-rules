@@ -601,5 +601,19 @@
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 18.1.1 + 18.1.1.5, 18.1.1.5 + 18.1.1.5.1 + 18.1.1.5.2, and 15.5 + 15.5.1 quoted verbatim from rules.json. Bodies auto-fit at 32, 34 and 36px; all three kickers at the standard 34px."
       }
     ]
+  },
+  "reel-21": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-23T00:20:00.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-23T00:20:00.000Z"
+    }
   }
 }

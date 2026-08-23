@@ -25,6 +25,7 @@
 | 2026-08-23 | Straddle and wrapping | Reel | Posted | 2026-08-23 | — |
 | 2026-08-24 | Fast count | Reel | Ready to post | — | — |
 | 2026-08-25 | Double team: the three-metre rule | Reel | Ready to post | — | — |
+| 2026-08-26 | Foul, infraction, violation — what's the difference? | Reel | Pending review | — | — |
 
 ## Status legend
 
