@@ -286,6 +286,19 @@ section { scroll-margin-top: 4.5rem; }
 }
 .ref:hover { border-color: var(--accent); color: var(--accent); }
 
+/* an inline cross-reference inside a sentence. Deliberately not styled like
+   .ref, which is a chip in a list of its own — this has to read as part of the
+   prose, the way a footnote marker does, or 134 of them turn the rulebook into
+   a wall of buttons. */
+.ref-in {
+  font-family: var(--f-mono); font-variant-numeric: tabular-nums;
+  font-size: .93em; font-weight: 600; color: var(--accent);
+  vertical-align: baseline; line-height: inherit; padding: 0 .08em; border-radius: 2px;
+  text-decoration: underline; text-decoration-style: dotted;
+  text-decoration-thickness: 1px; text-underline-offset: 2px;
+}
+.ref-in:hover { background: var(--accent-wash); text-decoration-style: solid; }
+
 /* rule animations — small top-down diagrams, coordinates authored directly
    in metres and used as SVG user units, so the browser does all scaling */
 .scene { margin-top: 1.7rem; max-width: var(--read); border: 1px solid var(--line); border-radius: 8px; background: var(--sunk); overflow: hidden; }
@@ -931,6 +944,22 @@ function shuffled(lesson) {
   return opts;
 }
 
+/* Rule numbers written into the prose — "as per 10.2", "(Section 11.8)", "in
+   breach of 18.2.1.1" — are cross-references the printed rulebook expects you
+   to chase by hand. There are 134 of them. Each becomes a link to the rule it
+   names, and the panel's own history is what gets you back.
+
+   Run after esc(): a rule number is only digits and dots, so escaping can
+   neither alter nor split one. Only exact matches against the real rule index
+   are linked, which is what keeps measurements, scores and years — "three (3)
+   metres", "2025-2028" — as plain text. */
+const REF_RX = /\b\d{1,2}(?:\.\d{1,3})+/g;
+function linkRefs(html) {
+  return html.replace(REF_RX, m => ruleIndex.has(m)
+    ? `<button class="ref-in" data-rule="${m}" aria-label="Open rule ${m}">${m}</button>`
+    : m);
+}
+
 function refsHtml(nums, label) {
   if (!nums || !nums.length) return "";
   return `<div class="reflist"><em>${esc(label || "Rules")}</em>` +
@@ -1456,9 +1485,9 @@ function renderToday() {
       <span class="tag">${esc(L.tag)}</span>
       <h3>${esc(L.title)}</h3>
       <p class="today-hook">${esc(L.hook)}</p>
-      <div class="today-prose">${L.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      <div class="today-prose">${L.body.map(p => `<p>${linkRefs(esc(p))}</p>`).join("")}</div>
       ${L.scene && scenes[L.scene] ? sceneBlockHtml("sceneMount") : ""}
-      <div class="onfield"><strong>On the field</strong><span>${esc(L.field)}</span></div>
+      <div class="onfield"><strong>On the field</strong><span>${linkRefs(esc(L.field))}</span></div>
       ${refsHtml(L.rules, "In the rulebook")}
       <div class="quiz">
         <div class="eyebrow">Quick check</div>
@@ -1520,7 +1549,7 @@ function applyAnswer(chosen, L, opts) {
   });
   const right = opts[chosen] && opts[chosen].right;
   $("#quizWhy").innerHTML =
-    `<p class="quiz-why"><b>${right ? "Correct." : "Not quite."}</b> ${esc(L.quiz.why)}</p>`;
+    `<p class="quiz-why"><b>${right ? "Correct." : "Not quite."}</b> ${linkRefs(esc(L.quiz.why))}</p>`;
 }
 
 function renderProgress(learned, total) {
@@ -1542,7 +1571,7 @@ function renderBasics() {
     c.innerHTML = `
       <span class="cell-label">${esc(b.label)}</span>
       <h3>${esc(b.title)}</h3>
-      <p>${esc(b.text)}</p>
+      <p>${linkRefs(esc(b.text))}</p>
       ${b.demo === "stall" ? stallMarkup() : ""}
       ${refsHtml(b.rules)}`;
     g.appendChild(c);
@@ -1599,7 +1628,7 @@ function renderQA() {
     const d = el("details");
     d.innerHTML = `
       <summary><span class="qa-mark" aria-hidden="true"></span><span>${esc(s.q)}</span></summary>
-      <div class="qa-body"><p>${esc(s.a)}</p>${refsHtml(s.rules)}</div>`;
+      <div class="qa-body"><p>${linkRefs(esc(s.a))}</p>${refsHtml(s.rules)}</div>`;
     box.appendChild(d);
   });
 }
@@ -1633,7 +1662,7 @@ function ruleNode(r) {
   const n = el("div", "rule");
   n.dataset.d = Math.min(r.depth, 3);
   n.id = "r" + r.num;
-  n.innerHTML = `<span class="rule-n">${esc(r.num)}</span><div class="rule-t">${esc(r.text)}${annHtml(r)}</div>`;
+  n.innerHTML = `<span class="rule-n">${esc(r.num)}</span><div class="rule-t">${linkRefs(esc(r.text))}${annHtml(r)}</div>`;
   return n;
 }
 function annHtml(r) {
@@ -1641,7 +1670,7 @@ function annHtml(r) {
   return r.ann.map(a => `
     <details class="ann">
       <summary>+ Annotation: ${esc(a.title)}</summary>
-      <div class="ann-in">${a.body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      <div class="ann-in">${a.body.map(p => `<p>${linkRefs(esc(p))}</p>`).join("")}</div>
     </details>`).join("");
 }
 
@@ -1650,7 +1679,7 @@ function renderGlossary() {
   const box = $("#glossList");
   definitions.forEach(d => {
     const t = el("div", "term");
-    t.innerHTML = `<dt>${esc(d.term)}</dt><dd>${esc(d.text)}</dd>`;
+    t.innerHTML = `<dt>${esc(d.term)}</dt><dd>${linkRefs(esc(d.text))}</dd>`;
     box.appendChild(t);
   });
 }
@@ -2119,12 +2148,12 @@ function paintRule(num) {
   const kids = rules.filter(x => x.num.startsWith(num + ".") && x.depth === r.depth + 1);
   openPanel(`
     <div class="eyebrow">Rule ${esc(r.num)} &middot; ${esc(r.chapterTitle)}</div>
-    <h3>${esc(r.text)}</h3>
+    <h3>${linkRefs(esc(r.text))}</h3>
     ${kids.length ? `<div class="panel-prose">${kids.map(k =>
-      `<p><span class="ref" style="cursor:default">${esc(k.num)}</span> ${esc(k.text)}</p>`).join("")}</div>` : ""}
+      `<p><button class="ref" data-rule="${esc(k.num)}">${esc(k.num)}</button> ${linkRefs(esc(k.text))}</p>`).join("")}</div>` : ""}
     ${r.ann && r.ann.length ? `<div class="panel-prose" style="margin-top:1.2rem">
       <div class="eyebrow">Official annotation</div>
-      ${r.ann.map(a => `<p><b>${esc(a.title)}.</b> ${esc(a.body.join(" "))}</p>`).join("")}</div>` : ""}
+      ${r.ann.map(a => `<p><b>${esc(a.title)}.</b> ${linkRefs(esc(a.body.join(" ")))}</p>`).join("")}</div>` : ""}
     <div class="panel-nav">
       ${sectionBtnHtml(sectionOf(num), num)}
       ${inBookBtnHtml(num, "Open it in the full rulebook")}
@@ -2166,21 +2195,21 @@ function paintSection(num, focus) {
 function paintDef(i) {
   const d = definitions[i];
   openPanel(`<div class="eyebrow">Defined term</div><h3>${esc(d.term)}</h3>
-    <div class="panel-prose"><p>${esc(d.text)}</p></div>`);
+    <div class="panel-prose"><p>${linkRefs(esc(d.text))}</p></div>`);
 }
 function paintSituation(i) {
   const s = situations[i];
   openPanel(`<div class="eyebrow">Common question</div><h3>${esc(s.q)}</h3>
-    <div class="panel-prose"><p>${esc(s.a)}</p></div>${refsHtml(s.rules)}`);
+    <div class="panel-prose"><p>${linkRefs(esc(s.a))}</p></div>${refsHtml(s.rules)}`);
 }
 function paintLesson(i) {
   const l = lessons[i];
   const hasScene = l.scene && scenes[l.scene];
   openPanel(`<div class="eyebrow">Lesson &middot; ${esc(l.tag)}</div><h3>${esc(l.title)}</h3>
     <p class="today-hook">${esc(l.hook)}</p>
-    <div class="panel-prose" style="margin-top:1rem">${l.body.map(x => `<p>${esc(x)}</p>`).join("")}</div>
+    <div class="panel-prose" style="margin-top:1rem">${l.body.map(x => `<p>${linkRefs(esc(x))}</p>`).join("")}</div>
     ${hasScene ? sceneBlockHtml("panelSceneMount") : ""}
-    <div class="onfield"><strong>On the field</strong><span>${esc(l.field)}</span></div>
+    <div class="onfield"><strong>On the field</strong><span>${linkRefs(esc(l.field))}</span></div>
     ${refsHtml(l.rules, "In the rulebook")}`);
   if (hasScene) panelSceneStop = buildScene($("#panelSceneMount"), scenes[l.scene]);
 }
