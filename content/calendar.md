@@ -26,6 +26,8 @@
 | 2026-08-24 | Fast count | Reel | Ready to post | — | — |
 | 2026-08-25 | Double team: the three-metre rule | Reel | Ready to post | — | — |
 | 2026-08-26 | Foul, infraction, violation — what's the difference? | Reel | Script approved | — | — |
+| 2026-08-27 | carousel-post-4 — “Week three: how to mark, and what to call” | Carousel (9 slides) | Pending review | — | — |
+| 2026-08-27 | Who is allowed to make which call | Reel | Pending review | — | — |
 
 ## Status legend
 
