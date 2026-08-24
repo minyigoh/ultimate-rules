@@ -577,7 +577,12 @@
         "file": "reel19-fast-count.mp4",
         "changed": "Initial render from the approved script. Seven scenes (two-rule lesson), exact CFR via encode.py; 28.53s. 18.1.1.1 with all five children, and 18.1.4 + 18.1.4.4, quoted verbatim from rules.json. Scene 4's body renders at 29px, the 80% floor of fit_body(), because its four-line headline leaves nothing larger clearing the citation."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-24",
+      "updatedAt": "2026-08-24T01:20:32.330Z"
+    }
   },
   "reel-20": {
     "script": {
