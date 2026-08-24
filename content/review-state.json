@@ -616,9 +616,9 @@
     },
     "content": {
       "status": "in-review",
-      "note": "On slide 6, there seems to be a typo without the opening \" for the Violation. It currently shows ",
+      "note": "On slide 6, there seems to be a typo without the opening \" for the Violation. It currently shows Violation\".",
       "tags": [],
-      "updatedAt": "2026-08-24T02:50:55.068Z"
+      "updatedAt": "2026-08-24T02:50:59.571Z"
     },
     "revisions": [
       {
