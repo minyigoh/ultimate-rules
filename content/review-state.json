@@ -646,10 +646,10 @@
   },
   "reel-22": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-23T22:45:18.000Z"
+      "updatedAt": "2026-08-24T02:47:04.801Z"
     },
     "content": {
       "status": "awaiting-render",
