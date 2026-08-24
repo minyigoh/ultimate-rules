@@ -616,9 +616,9 @@
     },
     "content": {
       "status": "in-review",
-      "note": "On slide 6, there seems to be a typo",
+      "note": "On slide 6, there seems to be a typo without the opening \"",
       "tags": [],
-      "updatedAt": "2026-08-24T02:50:35.231Z"
+      "updatedAt": "2026-08-24T02:50:40.600Z"
     },
     "revisions": [
       {
