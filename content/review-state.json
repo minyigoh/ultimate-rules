@@ -605,7 +605,12 @@
         "file": "reel20-double-team.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 18.1.1 + 18.1.1.5, 18.1.1.5 + 18.1.1.5.1 + 18.1.1.5.2, and 15.5 + 15.5.1 quoted verbatim from rules.json. Bodies auto-fit at 32, 34 and 36px; all three kickers at the standard 34px."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-25",
+      "updatedAt": "2026-08-24T23:43:59.330Z"
+    }
   },
   "reel-21": {
     "script": {
