@@ -1487,21 +1487,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-26',
     title: `Foul, infraction, violation — what's the difference?`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 21,
+    duration: '~29s script / 29.5s cut',
     rules: ['15.1', '15.2', '15.3', '15.6'],
     review: {
       script:  {status: 'pending', on: '2026-08-23'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-24'}
     },
     postedDate: null,
     folder: 'reel-21',
     source: 'content/reel-21/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Calls)',
-    video: null,
+    video: 'reel21-foul-infraction-violation.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', `"Foul, infraction, violation — what's the difference?" · kicker BEGINNER · LESSON 21 / 75`],
+      ['2', '#1 A FOUL IS CONTACT', `"If nobody touched anybody, it isn't a foul." · footer cites 15.1`],
+      ['3', 'Rules detail', 'Verbatim 15.1'],
+      ['4', '#2 PLAY KEEPS GOING', `"Infractions are marking and travel breaches — and they don't stop play." · footer cites 15.2`],
+      ['5', 'Rules detail', 'Verbatim 15.2'],
+      ['6', '#3 EVERYTHING ELSE', `"Every other breach is a violation, and \"Violation\" is a legal call on its own." · footer cites 15.3, 15.6`],
+      ['7', 'Rules detail', 'Verbatim 15.3 + 15.6'],
+      ['8', 'FIELD TIP', `"Hear a call you don't recognise? Stop — unless it was travel or a marking call"`],
+      ['9', 'Closing', '"Lesson 21 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Foul, infraction, violation. Three words that get used as if they mean the same thing, and one of them is the reason play sometimes doesn't stop.`,
       explanation: `A foul is contact — non-minor contact between players on opposing teams. An infraction is narrower than most people assume: marking breaches and travel, and nothing else. A violation is every other breach of the rules.`,
@@ -1536,15 +1548,145 @@ can't name what you just saw? "Violation" is a legal call on its own
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-23. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Drafted 2026-08-23, script approved same day, rendered 2026-08-24. Nine scenes, exact CFR via encode.py; 29.53s. Layout clean at max_y 1210 of 1310 with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. All three kickers at the standard 34px; bodies auto-fit at 35, 36 and 35px. No word of the approved script was changed to make anything fit.',
       'Planned as nine scenes, the standard three-pair shape (reels 16, 18, 20): cover, three explainer/rules-card pairs for foul, infraction and violation, a field tip, and the closing card.',
       'Scenes 3 and 5 are single-rule cards. 15.1 and 15.2 are each one complete sentence with their own subject, so neither needs the parent stem the 18.1.1 children required on reels 17-20. Scene 7 carries 15.3 and 15.6 together because 15.3 is a definition with no consequence attached and 15.6 is the sentence that gives it one.',
       '"Fouls and violations stop play" is the lesson framing and is not a single quotable sentence. What the rulebook states outright is the negative: 15.2 says infractions do not stop play. 15.7 then describes how players must communicate a stoppage "when a foul or violation call is made that stops play". The reel teaches the asymmetry but only 15.2 half of it is carded — no citation card claims more than the text it quotes. 15.7 is not in the lesson rules array and stays uncarded.',
       '15.4 and 15.5 are deliberately absent. Who may claim a foul and who may claim an infraction are lesson 22 subject matter. 15.6 appears here only because it is what gives 15.3 its consequence, and because the "or Violation" clause is the lesson practical payoff.',
-      'No sub-rule children on any card, a first since reel 13 — 15.1, 15.2, 15.3 and 15.6 are all leaf rules with no numbered children in rules.json. Expect shorter rules cards and correspondingly more room; fit_body() should leave every scene at the standard 36px.',
+      'Correction to the draft note: 15.1 does have a child, 15.1.1 (intentional minor contact is a violation, not a foul). It is simply not in the lesson rules array, so it stays uncarded — a deliberate omission, not an absence. 15.2, 15.3 and 15.6 are genuinely leaf rules, so scene 3 cards 15.1 alone.',
       'Kickers are 18-20 characters each, well inside the 900px column at the standard 34px. Nothing here engages fit_kicker().',
       'First lesson of the calls block. Lessons 17-20 taught four specific marking breaches; this one explains the vocabulary those breaches belong to, and is the prerequisite for lesson 22 (who is allowed to make which call).',
-      'Thursday 2026-08-27 is due a recap carousel covering the next un-recapped block, lessons 15-21. As of this draft lessons 15-17 have posted and 18-20 are queued at Ready to post; lesson 21 is this draft and will not have posted by the 27th. Per Step 1 the recap covers only lessons whose reels have actually posted, so expect a short recap — likely lessons 15-20 — with the remainder rolling into the next block.'
+      'Thursday 2026-08-27 recap covers the full block, lessons 15-21, drafted 2026-08-24 as carousel-post-4. The prediction in this draft (a short 15-20 recap) was wrong: it read "already posted" as of the drafting date, but the test that matters is the carousel own post date. Reels 19, 20 and 21 are queued 24, 25 and 26 August, all ahead of the 27th, and carousel-post-3 was drafted the same way — it shipped lessons 8-14 while reel 14 was still a day from posting.'
+    ]
+  },
+  {
+    id: 'carousel-post-4',
+    date: '2026-08-27',
+    title: 'Week three: how to mark, and what to call',
+    type: 'Carousel',
+    typeDetail: '1080×1350 · 9 slides',
+    pillar: 'Rules',
+    difficulty: 'Mixed',
+    lesson: null,
+    rules: ['18.2.1.1', '18.2.4.2', '18.2.5', '18.2.6', '18.2.7', '18.2.8', '18.1.1.3', '18.1.1.2', '18.1.1.4', '18.1.3', '18.1.1.1', '18.1.4', '18.1.4.4', '18.1.1.5', '18.1.1.5.1', '18.1.1.5.2', '15.1', '15.2', '15.3', '15.6'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-24'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-4',
+    source: 'content/carousel-post-4/script-and-caption.md',
+    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 15-21',
+    video: null,
+    slides: [
+      ['01_cover', 'Cover — THIS WEEK'],
+      ['02_lesson15_two_contacts', 'Lesson 15 — Throwing on the run: the two-contact allowance'],
+      ['03_lesson16_travel', "Lesson 16 — Travel: the call that doesn't stop play"],
+      ['04_lesson17_disc_space', 'Lesson 17 — Disc space: give the thrower room'],
+      ['05_lesson18_straddle_wrapping', 'Lesson 18 — Straddle and wrapping'],
+      ['06_lesson19_fast_count', 'Lesson 19 — Fast count'],
+      ['07_lesson20_double_team', 'Lesson 20 — Double team: the three-metre rule'],
+      ['08_lesson21_three_breaches', "Lesson 21 — Foul, infraction, violation — what's the difference?"],
+      ['09_closing', `Closing — "That's twenty-one of seventy-five."`]
+    ],
+    scenes: null,
+    script: {
+      hook: `Seven more lessons. This week was almost entirely about the mark.`,
+      explanation: `Catching and throwing inside two contacts, what travel actually is and why it doesn't stop play, disc space, straddling and wrapping, fast count, double team — and then the vocabulary for saying any of it out loud.`,
+      example: `Weeks one and two were about the disc and your feet. This week is about the person standing in front of you, and the four things they're not allowed to do. Each slide carries its rule numbers so you can look any of it up yourself.`,
+      cta: `Lessons 15 to 21 of 75 — new lesson daily.`
+    },
+    ig: `Week three, all in one place — and this week was almost entirely about the mark.
+
+Catching at a sprint and releasing inside two contacts. What travel actually is, and why calling it doesn't stop play. Disc space. Straddling and wrapping. Fast count. Double team and the three-metre rule. And then, on Wednesday, the vocabulary underneath all of it: foul, infraction, violation, and which of the three lets play carry on.
+
+Weeks one and two were about the disc and your feet. This week is about the person standing a forearm away from you, and the four specific things they aren't allowed to do — every one of which you're allowed to say out loud.
+
+Each slide carries its rule numbers — so you can check any of it against the rulebook rather than taking our word for it.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+two-contact throws, travel, disc space, straddle + wrapping, fast count, double team, and foul vs infraction vs violation
+
+basically: what your marker can't do, and what to call it
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-24 by the daily task. Awaiting script review. Nine slides, cover + lessons 15-21 + closing.',
+      'Recap block is lessons 15-21, the third contiguous block of seven, continuing straight on from carousel-post-3 lessons 8-14. Blocks run by lesson number, not by date.',
+      'Three of the seven reels had not posted when this was drafted. Lessons 15-18 are posted; 19, 20 and 21 are queued 24, 25 and 26 August, all ahead of this carousel 27 August date — the same way carousel-post-3 was drafted while reel 14 was still a day from posting. The dependency is real though: reel 21 is at Content pending review as of this draft. If it slips past the 27th, drop slide 8, retitle the cover to "This week six lessons" and roll lesson 21 into the next block.',
+      'Slide 3 footer is trimmed. Lesson 16 rules array carries eight numbers; the four on the slide (18.2.5, 18.2.6, 18.2.7, 18.2.8) are the parent rules the reel actually carded. Slide 7 is trimmed the same way — 15.5.1 is dropped there because it is lesson 22 subject matter, not lesson 20 takeaway.',
+      'Recap slides carry rule numbers but no rule text, by design — see content/CAROUSEL_TEMPLATE.md.'
+    ]
+  },
+  {
+    id: 'reel-22',
+    date: '2026-08-27',
+    title: 'Who is allowed to make which call',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 22,
+    rules: ['15.4', '15.5', '15.5.1', '15.6', '1.10'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-24'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-22',
+    source: 'content/reel-22/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Calls)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Calling something that isn't yours to call causes more trouble than the breach you were trying to fix.`,
+      explanation: `Fouls belong to the player who was fouled, and to nobody else. Infractions belong to the thrower — with exactly two carve-outs: any offensive player may call a double team, and any defensive player may call a travel. Violations are the open category: any opposing player may claim one.`,
+      example: `So when you're cutting and you watch the marker hack your thrower's arm, there is nothing for you to call. That feels unhelpful and it is still the rule. The two exceptions are the tell — a double team happens behind the thrower, and a travel happens to the thrower's own feet, which are the two things they are worst placed to judge. And once a call is made, the discussion belongs to the players directly involved plus whoever had the best perspective. That is how the sideline helps without making calls.`,
+      cta: `Lesson 22 of 75 — new lesson daily.`
+    },
+    ig: `Calling something that isn't yours to call causes more trouble than the breach you were trying to fix.
+
+Fouls belong to the player who was fouled. Only they may claim it. You can be certain of what you saw, you can be right, and it is still not your call. This is the one that surprises people most, and it is also the least negotiable.
+
+Infractions belong to the thrower — the marking calls and travel. With exactly two carve-outs, and the carve-outs tell you why they exist. Any offensive player may call a double team, because a double team usually forms behind the thrower's shoulder. Any defensive player may call a travel, because the thrower is the last person able to referee their own feet.
+
+Violations are the open category. Any opposing player may claim one, by naming it or simply by calling "Violation".
+
+And then there's the part after the call. The rulebook says calls should be discussed by the players directly involved and by the players who had the best perspective. So "best perspective" is a real category, not a courtesy — it's how a teammate who saw the whole thing contributes without owning the call.
+
+Which resolves the sideline question: you have no calls. You have perspective, and you offer it when you're asked. That's a smaller job than it sounds and it settles more disagreements than any call does.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `who gets to call what 🥏
+
+fouls → only the player who was fouled. not you. even if you're right
+
+infractions → the thrower only. two exceptions: ANY offensive player can call double team, ANY defensive player can call travel
+
+violations → any opposing player
+
+after the call → discussed by the players involved + whoever had the best perspective
+
+on the sideline? you have no calls. you have perspective, and you give it when asked
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-24. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the standard three-pair shape (reels 16, 18, 20, 21): cover, three explainer/rules-card pairs for fouls, infractions and violations, a field tip, and the closing card.',
+      'Scene 5 is a parent-plus-child card: 15.5 states the general rule and 15.5.1 is the "however" carrying the two exceptions, so they have to appear together or the card says something the rulebook does not. Scene 7 carries two rules from different chapters — 15.6 for who may claim a violation, 1.10 for who may discuss one once it exists.',
+      '15.6 appears here for the second time, after reel 21 scene 7. Not a repeat of the same point: reel 21 carded it to give 15.3 a consequence, here it is carded for its subject, which is who may claim one. Same sentence, different half doing the work.',
+      '1.10 is the only rule in this lesson from outside chapter 15, and it is deliberately on the same card as 15.6 rather than folded into the field tip. It answers the question the first three rules leave open — a call has an owner, but a discussion has a wider cast — and it is the rule the field tip stands on, so it should be quoted rather than paraphrased.',
+      'The two exceptions are the lesson, not a footnote. 15.5.1 is the sentence most beginners have never read, and both halves of it are useful on the field in a way the general rule is not.',
+      'Double team was taught in lesson 20 and travel in lesson 16, so neither needs re-teaching — this reel cites them only as call ownership. Do not let scene 4 drift into re-explaining the three-metre rule.',
+      'Direct sequel to lesson 21: that one gave you the three words, this one says who owns each of them.'
     ]
   }
 ];

@@ -1,7 +1,8 @@
 # Reel 21 — "Foul, infraction, violation — what's the difference?"
 
-**Status:** Pending review
-**Script drafted:** 2026-08-23 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-08-23 (daily-reel-render) · **Script approved:** 2026-08-23
+**Rendered:** 2026-08-24 · **Content approved:** —
 **Queued:** 2026-08-26 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (15.1, 15.2, 15.3, 15.6)
@@ -119,18 +120,27 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio
   the rule text itself, and the card renders it the same way; the SVG needs
   `xml:space="preserve"` on the tracked kicker as usual, but the headline is
   ordinary body-weight text.
-- **No sub-rule children on any card**, a first since reel 13 — 15.1, 15.2,
-  15.3 and 15.6 are all leaf rules with no numbered children in `rules.json`.
-  Expect shorter rules cards and correspondingly more room; `fit_body()`
-  should leave every scene at the standard 36px.
+- **No sub-rule children on any card**, a first since reel 13. Correcting this
+  draft's original wording: 15.1 *does* have a child, 15.1.1 ("A player
+  intentionally initiating minor contact is still a breach of the rules, but is
+  to be treated as a violation, and not a foul."). It is simply not in the
+  lesson's `rules` array, so it stays uncarded — a deliberate omission, not an
+  absence. 15.2, 15.3 and 15.6 are genuinely leaf rules. Scene 3 therefore
+  cards 15.1 alone.
+- **Rendered 2026-08-24, 29.53s, nine scenes.** Layout clean (max_y 1210 of
+  1310, no collisions); longest sustained dull-orange run 0.20s against a
+  0.45s threshold. All three kickers sat at the standard 34px; bodies auto-fit
+  at 35, 36 and 35px. No word of the approved script was changed to make
+  anything fit.
 - **The field tip is the lesson's own `field` line, trimmed.** "If you hear a
   call and don't know what it is, stop — except for travel and marking calls,
   which never stop play."
 - No growth/reach claims in either caption.
-- **Thursday 2026-08-27 is due a recap carousel** covering the next
-  un-recapped block, lessons 15–21. As of this draft, lessons 15–17 have
-  posted and 18–20 are queued at "Ready to post"; lesson 21 is this draft and
-  will not have posted by the 27th. Per Step 1 the recap covers only lessons
-  whose reels have actually posted, so expect a short recap — likely lessons
-  15–20 — with the remainder rolling into the next block.
+- **Thursday 2026-08-27's recap carousel covers lessons 15–21** — the full
+  block, including this one. Drafted 2026-08-24 as `carousel-post-4`. The
+  prediction in this file's first draft (a short 15–20 recap) was wrong: it
+  read "already posted" as of the drafting date, but the test that matters is
+  the carousel's own post date. Reels 19, 20 and 21 are queued 24, 25 and 26
+  August, all ahead of the 27th, and carousel-post-3 was drafted the same way —
+  it shipped lessons 8–14 while reel 14 was still a day from posting.
 - Once posted, report back the numbers and I'll log them in `content/calendar.md`.
