@@ -617,8 +617,10 @@
     "content": {
       "status": "rerender",
       "note": "On slide 6, there seems to be a typo without the opening \" for the Violation. It currently shows Violation\".",
-      "tags": [],
-      "updatedAt": "2026-08-24T02:52:18.017Z"
+      "tags": [
+        "On-screen text"
+      ],
+      "updatedAt": "2026-08-24T02:52:26.103Z"
     },
     "revisions": [
       {
