@@ -256,15 +256,15 @@ def g_closing(no, lesson_no):
 def rt(n): return RULE[n]["text"]
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "Foul, infraction, violation \u2014 what's the difference?", "Three words used as if they mean the same thing. One of them is why play sometimes doesn't stop.", 21, size=70), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('foul', g_main(2, 'A FOUL IS CONTACT', "If nobody touched anybody, it isn't a foul.", "A foul is a breach caused by non-minor contact between two or more opposing players. That is the whole definition. Contact between teammates is not a foul, and neither is something unfair that nobody touched anybody over.", ['15.1'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('foul_r', g_detail(3, [('15.1', [rt('15.1')])]), [0.3, 2.0]),
-    ('infr', g_main(4, 'PLAY KEEPS GOING', "Infractions are marking and travel breaches \u2014 and they don't stop play.", "That short list is the entire category, and the same sentence that defines it says infractions do not stop play.", ['15.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('infr_r', g_detail(5, [('15.2', [rt('15.2')])]), [0.3, 2.0]),
-    ('viol', g_main(6, 'EVERYTHING ELSE', 'Every other breach is a violation, and "Violation" is a legal call on its own.', 'Any opposing player may claim one, by naming it or simply by calling "Violation". You do not need the right word to make a correct call.', ['15.3', '15.6'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('viol_r', g_detail(7, [('15.3', [rt('15.3')]), ('15.6', [rt('15.6')])]), [0.3, 1.7, 2.0]),
-    ('tip', g_tip(8, "Hear a call you don't recognise? Stop \u2014 unless it was travel or a marking call", "Fouls and violations halt the point until it is sorted out. Those two never do \u2014 the disc keeps moving while the count is fixed."), [0.3, 0.45, 0.7, 1.7]),
-    ('close', g_closing(9, 21), [0.3, 0.8, 1.0, 1.4]),
+    ('cover', g_cover(1, 'BEGINNER', "Who is allowed to make which call", "Calling something that isn't yours to call causes more trouble than the original breach.", 22, size=76), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('foul', g_main(2, 'ONLY THE PLAYER FOULED', "Nobody else on your team can call it for you.", "Only the player who was fouled may claim a foul. You can be certain of what you saw, you can be right, and it is still not your call.", ['15.4'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('foul_r', g_detail(3, [('15.4', [rt('15.4')])]), [0.3, 2.0]),
+    ('infr', g_main(4, 'THE THROWER, MOSTLY', "Infractions are the thrower's \u2014 with exactly two carve-outs.", "Any offensive player may call a double team, which usually forms behind the thrower's shoulder. Any defensive player may call a travel, because the thrower is the last person able to referee their own feet.", ['15.5', '15.5.1'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('infr_r', g_detail(5, [('15.5', [rt('15.5'), ('15.5.1', rt('15.5.1'))])]), [0.3, 2.0]),
+    ('viol', g_main(6, 'VIOLATIONS ARE OPEN', "Any opposing player, and then the people who saw it.", "Any opposing player may claim a violation. And once a call exists, it is discussed by the players directly involved and by the players who had the best perspective.", ['15.6', '1.10'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('viol_r', g_detail(7, [('15.6', [rt('15.6')]), ('1.10', [rt('1.10')])]), [0.3, 1.7, 2.0]),
+    ('tip', g_tip(8, "Watching from the sideline? You have no calls.", "You can offer perspective when you are asked, and that is genuinely valuable. Best perspective is a category the rulebook names, not a courtesy."), [0.3, 0.45, 0.7, 1.7]),
+    ('close', g_closing(9, 22), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------
 # House rhythm, applied over whatever per-state durations SCENES carries above:

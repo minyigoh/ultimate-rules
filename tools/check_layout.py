@@ -54,6 +54,10 @@ COLLIDE_TOL = 2.0
 
 
 def unescape(s):
+    # render_v3.py wraps a payload that begins with a quote in a <tspan>, to
+    # dodge ImageMagick 6 swallowing a leading double-quote (see _payload there).
+    # Strip the wrapper before measuring, or the tag names get counted as glyphs.
+    s = re.sub(r"</?tspan[^>]*>", "", s)
     return (s.replace("&quot;", '"').replace("&gt;", ">")
              .replace("&lt;", "<").replace("&amp;", "&"))
 

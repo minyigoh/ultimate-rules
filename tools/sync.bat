@@ -106,6 +106,16 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM The verification tools. check_layout.py and check_dull.py are tracked but
+  REM no pattern above ever covered them, so an edit to either sat modified-but-
+  REM unstaged forever -- and "git pull --rebase" refuses to run with ANY tracked
+  REM file in that state, which is the exact rc=128 that broke the 2026-08-11
+  REM push. Found 2026-08-25, when check_layout.py was taught to strip the
+  REM <tspan> wrappers render_v3.py now emits around a leading quote; without
+  REM this line the tool and the renderer would have drifted apart silently and
+  REM the collision check would have counted tag names as glyphs. Its own line,
+  REM per the rule above.
+  %GIT% add "tools/check_*.py"
   REM The desk SOURCE. docs/desk is the build output and was staged above, so a
   REM fix to index.html would deploy while the file it came from stayed dirty
   REM forever -- and would be lost on a fresh clone, silently reverting the

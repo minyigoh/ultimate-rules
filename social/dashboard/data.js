@@ -1495,7 +1495,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['15.1', '15.2', '15.3', '15.6'],
     review: {
       script:  {status: 'pending', on: '2026-08-23'},
-      content: {status: 'in-review', on: '2026-08-24'}
+      content: {status: 'in-review', on: '2026-08-25'}
     },
     postedDate: null,
     folder: 'reel-21',
@@ -1548,6 +1548,7 @@ can't name what you just saw? "Violation" is a legal call on its own
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
+      'v2 rendered 2026-08-25 against the 2026-08-24 rejection: "On slide 6, there seems to be a typo without the opening \" for the Violation." It was not a typo — the script and the SVG both carried both quotes. ImageMagick 6 lowers each <text> element into an MVG text primitive whose payload is itself double-quoted, and a double-quote at the start of the character data collides with that opening delimiter and is dropped. Slide 6 line 3 is the first line in 21 reels to begin with one. render_v3.py gained _payload(), which wraps a payload starting with &quot; in a <tspan>; every other element emits byte-identical SVG. No word of the approved script changed. 29.53s, layout 0 problems, dull-orange run 0.20s. v1 archived as reel21-foul-infraction-violation.v1.mp4.',
       'Drafted 2026-08-23, script approved same day, rendered 2026-08-24. Nine scenes, exact CFR via encode.py; 29.53s. Layout clean at max_y 1210 of 1310 with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. All three kickers at the standard 34px; bodies auto-fit at 35, 36 and 35px. No word of the approved script was changed to make anything fit.',
       'Planned as nine scenes, the standard three-pair shape (reels 16, 18, 20): cover, three explainer/rules-card pairs for foul, infraction and violation, a field tip, and the closing card.',
       'Scenes 3 and 5 are single-rule cards. 15.1 and 15.2 are each one complete sentence with their own subject, so neither needs the parent stem the 18.1.1 children required on reels 17-20. Scene 7 carries 15.3 and 15.6 together because 15.3 is a definition with no consequence attached and 15.6 is the sentence that gives it one.',
@@ -1571,14 +1572,24 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['18.2.1.1', '18.2.4.2', '18.2.5', '18.2.6', '18.2.7', '18.2.8', '18.1.1.3', '18.1.1.2', '18.1.1.4', '18.1.3', '18.1.1.1', '18.1.4', '18.1.4.4', '18.1.1.5', '18.1.1.5.1', '18.1.1.5.2', '15.1', '15.2', '15.3', '15.6'],
     review: {
       script:  {status: 'pending', on: '2026-08-24'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-25'}
     },
     postedDate: null,
     folder: 'carousel-post-4',
     source: 'content/carousel-post-4/script-and-caption.md',
     sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 15-21',
     video: null,
-    slides: null,
+    slides: [
+      ['01_cover', 'Cover — THIS WEEK'],
+      ['02_lesson15_two_contact_allowance', 'Lesson 15 — Throwing on the run: the two-contact allowance'],
+      ['03_lesson16_travel', "Lesson 16 — Travel: the call that doesn't stop play"],
+      ['04_lesson17_disc_space', 'Lesson 17 — Disc space: give the thrower room'],
+      ['05_lesson18_straddle_and_wrapping', 'Lesson 18 — Straddle and wrapping'],
+      ['06_lesson19_fast_count', 'Lesson 19 — Fast count'],
+      ['07_lesson20_double_team', 'Lesson 20 — Double team: the three-metre rule'],
+      ['08_lesson21_foul_infraction_violation', "Lesson 21 — Foul, infraction, violation — what's the difference?"],
+      ['09_closing', `Closing — "That's twenty-one of seventy-five."`]
+    ],
     scenes: null,
     script: {
       hook: `Seven more lessons. This week was almost entirely about the mark.`,
@@ -1606,10 +1617,11 @@ basically: what your marker can't do, and what to call it
 rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-24 by the daily task. Awaiting script review. Slides not yet rendered — nothing renders until the script clears the first gate.',
-      'Planned as nine slides: 01_cover (THIS WEEK), then one slide per lesson 15-21 (02_lesson15_two_contacts, 03_lesson16_travel, 04_lesson17_disc_space, 05_lesson18_straddle_wrapping, 06_lesson19_fast_count, 07_lesson20_double_team, 08_lesson21_three_breaches), then 09_closing. Full slide index with takeaways and citation footers is in content/carousel-post-4/script-and-caption.md.',
+      'Drafted 2026-08-24, script approved 2026-08-24, rendered 2026-08-25. Nine slides at 2250x2812, rule numbers only, no rule text. Layout checked with tools/check_layout.py: 0 problems, no ink collisions with the citation footer. make_carousel.py reuses carousel-post-3 helpers, constants, rule_slide(), header() and layout verbatim.',
+      'The cover title renders at 84px rather than the usual 96px, with line height scaled 108 to 95. "mark, and what to call" measures 1003px at 96 against a 900px column. Same rule as fit_kicker() and fit_body() in the reel pipeline: shrink the type, never the approved words.',
+      'Slide index: 01_cover (THIS WEEK), one slide per lesson 15-21, then 09_closing. Full index with takeaways and citation footers is in content/carousel-post-4/caption.md.',
       'Recap block is lessons 15-21, the third contiguous block of seven, continuing straight on from carousel-post-3 lessons 8-14. Blocks run by lesson number, not by date.',
-      'Three of the seven reels had not posted when this was drafted. Lessons 15-18 are posted; 19, 20 and 21 are queued 24, 25 and 26 August, all ahead of this carousel 27 August date — the same way carousel-post-3 was drafted while reel 14 was still a day from posting. The dependency is real though: reel 21 is at Content pending review as of this draft. If it slips past the 27th, drop slide 8, retitle the cover to "This week six lessons" and roll lesson 21 into the next block.',
+      'Two of the seven reels had not posted when this was rendered. Lesson 20 is Ready to post for 2026-08-25; lesson 21 was rejected 2026-08-24 over a rendering defect, was regenerated 2026-08-25 and now sits at Content pending review for 2026-08-26. Both are ahead of this carousel 27 August date, so the block as approved still holds — the same way carousel-post-3 was rendered while reel 14 was still a day from posting. If either slips past the 27th, drop that slide, retitle the cover to "This week six lessons" and roll the lesson into next week block; blocks run by lesson number so nothing is lost.',
       'Slide 3 footer is trimmed. Lesson 16 rules array carries eight numbers; the four on the slide (18.2.5, 18.2.6, 18.2.7, 18.2.8) are the parent rules the reel actually carded. Slide 7 is trimmed the same way — 15.5.1 is dropped there because it is lesson 22 subject matter, not lesson 20 takeaway.',
       'Recap slides carry rule numbers but no rule text, by design — see content/CAROUSEL_TEMPLATE.md.'
     ]
@@ -1619,21 +1631,33 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-27',
     title: 'Who is allowed to make which call',
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 22,
+    duration: '~29s script / 29.5s cut',
     rules: ['15.4', '15.5', '15.5.1', '15.6', '1.10'],
     review: {
       script:  {status: 'pending', on: '2026-08-24'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-25'}
     },
     postedDate: null,
     folder: 'reel-22',
     source: 'content/reel-22/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Calls)',
-    video: null,
+    video: 'reel22-who-calls-what.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"Who is allowed to make which call" · kicker BEGINNER · LESSON 22 / 75'],
+      ['2', '#1 ONLY THE PLAYER FOULED', '"Nobody else on your team can call it for you." · footer cites 15.4'],
+      ['3', 'Rules detail', 'Verbatim 15.4'],
+      ['4', '#2 THE THROWER, MOSTLY', `"Infractions are the thrower's — with exactly two carve-outs." · footer cites 15.5, 15.5.1`],
+      ['5', 'Rules detail', 'Verbatim 15.5 + 15.5.1'],
+      ['6', '#3 VIOLATIONS ARE OPEN', '"Any opposing player, and then the people who saw it." · footer cites 15.6, 1.10'],
+      ['7', 'Rules detail', 'Verbatim 15.6 + 1.10'],
+      ['8', 'FIELD TIP', '"Watching from the sideline? You have no calls."'],
+      ['9', 'Closing', '"Lesson 22 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Calling something that isn't yours to call causes more trouble than the breach you were trying to fix.`,
       explanation: `Fouls belong to the player who was fouled, and to nobody else. Infractions belong to the thrower — with exactly two carve-outs: any offensive player may call a double team, and any defensive player may call a travel. Violations are the open category: any opposing player may claim one.`,
@@ -1670,14 +1694,81 @@ on the sideline? you have no calls. you have perspective, and you give it when a
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-24. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'Planned as nine scenes, the standard three-pair shape (reels 16, 18, 20, 21): cover, three explainer/rules-card pairs for fouls, infractions and violations, a field tip, and the closing card.',
+      'Drafted 2026-08-24, script approved 2026-08-24, rendered 2026-08-25. Nine scenes, exact CFR via encode.py; 29.53s. Layout clean with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. All three kickers at the standard 34px and all three bodies at the standard 36px — nothing engaged fit_kicker() or fit_body(). 15.4, 15.5, 15.5.1, 15.6 and 1.10 pulled programmatically from rules.json and byte-identical to it.',
+      'Nine scenes, the standard three-pair shape (reels 16, 18, 20, 21): cover, three explainer/rules-card pairs for fouls, infractions and violations, a field tip, and the closing card.',
       'Scene 5 is a parent-plus-child card: 15.5 states the general rule and 15.5.1 is the "however" carrying the two exceptions, so they have to appear together or the card says something the rulebook does not. Scene 7 carries two rules from different chapters — 15.6 for who may claim a violation, 1.10 for who may discuss one once it exists.',
       '15.6 appears here for the second time, after reel 21 scene 7. Not a repeat of the same point: reel 21 carded it to give 15.3 a consequence, here it is carded for its subject, which is who may claim one. Same sentence, different half doing the work.',
       '1.10 is the only rule in this lesson from outside chapter 15, and it is deliberately on the same card as 15.6 rather than folded into the field tip. It answers the question the first three rules leave open — a call has an owner, but a discussion has a wider cast — and it is the rule the field tip stands on, so it should be quoted rather than paraphrased.',
       'The two exceptions are the lesson, not a footnote. 15.5.1 is the sentence most beginners have never read, and both halves of it are useful on the field in a way the general rule is not.',
       'Double team was taught in lesson 20 and travel in lesson 16, so neither needs re-teaching — this reel cites them only as call ownership. Do not let scene 4 drift into re-explaining the three-metre rule.',
       'Direct sequel to lesson 21: that one gave you the three words, this one says who owns each of them.'
+    ]
+  },
+  {
+    id: 'reel-23',
+    date: '2026-08-28',
+    title: `"Contest" — disagreeing properly`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 23,
+    rules: ['15.10', '13.3', '1.3', '1.3.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-25'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-23',
+    source: 'content/reel-23/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Calls)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Disagreement is built into the rules. There's a word for it, and there's machinery behind the word.`,
+      explanation: `If someone calls a breach against you and you don't think it happened, you say "Contest". Play stops and you talk about it. If you still can't agree — or nobody can work out what actually happened — the disc goes back to the last undisputed thrower and play restarts with a check.`,
+      example: `So contesting costs the caller nothing and gains you nothing. That's the whole design. A contest isn't you calling someone a liar, it's the sport's way of recording that two people saw the same two seconds differently, and then getting on with the point. What the rulebook does ask of you is that you explain your viewpoint clearly and briefly — which in practice means having one sentence ready about what you actually saw, before you start talking.`,
+      cta: `Lesson 23 of 75 — new lesson daily.`
+    },
+    ig: `Disagreement is built into the rules. There's a word for it, and there's machinery behind the word.
+
+Someone calls a breach against you and you don't think it happened. You say "Contest". Play stops, and the two of you talk about it. That's it — that's the whole mechanism, and it's available to you every single time.
+
+Here's the part that makes it safe to use. If, after discussion, you can't agree, or it just isn't clear what happened, the disc goes back to the last non-disputed thrower and play restarts with a check. Not the caller's version. Not yours. Nobody gains.
+
+Which is why contesting isn't hostile. It's not an accusation and it's not a challenge to anyone's honesty. It's the sport's way of recording "we saw that differently" and then getting on with the point. A game where nobody ever contests isn't a game with better spirit — it's a game where people are conceding calls they don't actually agree with.
+
+The rulebook does ask something of you in return. Among the things players must do when they're acting as referees: explain their viewpoint clearly and briefly. Clearly, and briefly. Both halves are the rule.
+
+So have your sentence ready before you start talking. "I saw your pivot foot lift while the disc was still in your hand" is a contest. "That definitely wasn't a travel" is a mood.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `how to disagree, properly 🥏
+
+someone calls something on you and you don't think it happened → say "Contest". play stops, you talk
+
+still can't agree? disc goes back to the last undisputed thrower. nobody gains. that's the whole design
+
+so contesting isn't hostile. it's the sport recording "we saw it differently"
+
+your one duty: explain your viewpoint clearly AND briefly. it's in the rules
+
+have the sentence ready first. "your pivot foot lifted while the disc was in your hand" > "that wasn't a travel"
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-25 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 15.10 (the word itself), 13.3 (the default outcome) and 1.3 + 1.3.4 (the duty to explain), a field tip, and the closing card.',
+      'Scene 7 is a parent-plus-child card. 1.3.4 reads "explain their viewpoint clearly and briefly;" — a fragment grammatically dependent on 1.3 ("Players must:"). Carded alone it would be unreadable, so 1.3 goes above it, exactly as 15.5 carries 15.5.1 on reel 22. 1.3 is the only rule number here not in the lesson rules array, and it is there for grammar, not for extra content.',
+      'The cover title starts with a double quote — a first for this pipeline, and the exact case that got reel 21 rejected on 2026-08-24. render_v3.py _payload() now handles it; check slide 1 renders as "Contest" and not Contest" before submitting.',
+      '13.3 is quoted whole and is the longest single rule text this pipeline has carded — four sentences. fit_body() does not apply to a g_detail card, which wraps at 38px with no auto-fit, so run tools/check_layout.py before encoding. If 13.3 overflows, split it across two reveal groups in the same g_detail block rather than trimming the text.',
+      '13.3 is a turnovers rule doing general work: it is the only place the rulebook states the last-undisputed-thrower default in full, which is why it is carded here rather than a chapter-15 rule. Scene 4 should stay general and not drift into re-teaching turnovers (lesson 4).',
+      '15.10 gives the right to contest to the player the call was made against, mirroring lesson 22 ownership rules. Do not let scene 2 imply anyone may contest.',
+      'Retraction is lesson 24, not this one. 15.11 is deliberately absent — "Changing your mind is a rule, not a weakness" is the next lesson and needs the room.',
+      'Closes the three-lesson calls run: 21 was the vocabulary, 22 was ownership, 23 is the disagreement procedure.'
     ]
   }
 ];
