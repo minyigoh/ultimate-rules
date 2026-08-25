@@ -701,5 +701,19 @@
       "tags": [],
       "updatedAt": "2026-08-25T06:55:00.000Z"
     }
+  },
+  "reel-24": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-25T23:12:17.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-25T23:12:17.000Z"
+    }
   }
 }
