@@ -28,6 +28,7 @@
 | 2026-08-26 | Foul, infraction, violation — what's the difference? | Reel | Content rejected — regenerate | — | — |
 | 2026-08-27 | carousel-post-4 — “Week three: how to mark, and what to call” | Carousel (9 slides) | Script approved | — | — |
 | 2026-08-27 | Who is allowed to make which call | Reel | Script approved | — | — |
+| 2026-08-28 | "Contest" — disagreeing properly | Reel | Pending review | — | — |
 
 ## Status legend
 

@@ -620,12 +620,10 @@
       "updatedAt": "2026-08-23T03:15:41.862Z"
     },
     "content": {
-      "status": "rerender",
-      "note": "On slide 6, there seems to be a typo without the opening \" for the Violation. It currently shows Violation\".",
-      "tags": [
-        "On-screen text"
-      ],
-      "updatedAt": "2026-08-24T02:52:26.103Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-25T06:55:00.000Z"
     },
     "revisions": [
       {
@@ -634,6 +632,13 @@
         "duration": "29.5s",
         "file": "reel21-foul-infraction-violation.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s. 15.1, 15.2, and 15.3 + 15.6 quoted verbatim from rules.json. Layout clean at max_y 1210 of 1310 with no collisions; longest sustained dull-orange run 0.20s. All three kickers at the standard 34px; bodies auto-fit at 35, 36 and 35px."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-08-25",
+        "duration": "29.5s",
+        "file": "reel21-foul-infraction-violation.mp4",
+        "changed": "Fixed the missing opening quote on slide 6. Not a typo: the script and the emitted SVG both carried both quotes. ImageMagick 6 lowers each <text> element into an MVG `text x,y \"...\"` primitive whose payload is itself double-quoted, so a double-quote at the start of the character data collides with that opening delimiter and is dropped; quotes anywhere else survive, which is why the same word renders correctly in the body two lines below. Slide 6 line 3 is the first line in 21 reels to begin with one. render_v3.py gained _payload(), which wraps a payload starting with &quot; in a <tspan> so the quote is no longer first after the delimiter; every other element emits byte-identical SVG. Verified against &#34; (fails identically), a leading zero-width space (works, leaves an invisible character in approved copy) and curly quotes (works, changes the glyph). No word of the approved script changed. Nine scenes, exact CFR via encode.py, 29.53s, layout 0 problems, longest sustained dull-orange run 0.20s. v1 archived as reel21-foul-infraction-violation.v1.mp4."
       }
     ]
   },
@@ -645,11 +650,20 @@
       "updatedAt": "2026-08-24T02:46:10.323Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-23T22:45:18.000Z"
-    }
+      "updatedAt": "2026-08-25T06:55:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-25",
+        "duration": "9 slides",
+        "file": "01_cover.png … 09_closing.png",
+        "changed": "Initial render of the third weekly recap, lessons 15-21. Nine slides at 2250x2812, rule numbers only, no rule text. Layout reused verbatim from carousel-post-3/make_carousel.py; the one deviation is the cover title at 84px instead of 96px, because \"mark, and what to call\" measures 1003px at 96 against a 900px column - type shrunk, words untouched. Layout check 0 problems, no collisions with the citation footer."
+      }
+    ]
   },
   "reel-22": {
     "script": {
@@ -659,10 +673,33 @@
       "updatedAt": "2026-08-24T02:47:04.801Z"
     },
     "content": {
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-25T06:55:00.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-25",
+        "duration": "29.5s",
+        "file": "reel22-who-calls-what.mp4",
+        "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s. 15.4, 15.5 + 15.5.1, and 15.6 + 1.10 quoted verbatim from rules.json. Layout clean with no collisions; longest sustained dull-orange run 0.20s. All three kickers at the standard 34px and all three bodies at the standard 36px - nothing engaged fit_kicker() or fit_body()."
+      }
+    ]
+  },
+  "reel-23": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-25T06:55:00.000Z"
+    },
+    "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-23T22:45:18.000Z"
+      "updatedAt": "2026-08-25T06:55:00.000Z"
     }
   }
 }
