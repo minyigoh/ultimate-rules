@@ -1770,5 +1770,68 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Retraction is lesson 24, not this one. 15.11 is deliberately absent — "Changing your mind is a rule, not a weakness" is the next lesson and needs the room.',
       'Closes the three-lesson calls run: 21 was the vocabulary, 22 was ownership, 23 is the disagreement procedure.'
     ]
+  },
+  {
+    id: 'reel-24',
+    date: '2026-08-29',
+    title: `Changing your mind is a rule, not a weakness`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 24,
+    rules: ['15.11', '1.5', '1.5.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-26'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-24',
+    source: 'content/reel-24/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Spirit)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `There is a formal, written-down way to say "actually, you're right". It takes one word.`,
+      explanation: `If you make a call and then work out that you were wrong — bad angle, or a team-mate had a better view — you say "Retracted". Play then resumes as if the breach had been caused by you, the person who made the call. So it isn't free. You give something up to take it back.`,
+      example: `That cost is deliberate, and it's small. In WFDF's own worked example, a marker who retracts a foul call against the thrower hands the stall count back to "Stalling one". A couple of seconds of count, in exchange for not standing on a call you don't believe. And the rulebook doesn't treat this as a climb-down: retracting a call you no longer believe is listed, by name, as an example of good Spirit.`,
+      cta: `Lesson 24 of 75 — new lesson daily.`
+    },
+    ig: `There is a formal, written-down way to say "actually, you're right". It takes one word.
+
+You make a call. Then you realise you were wrong. Bad angle, or a team-mate saw it better, or you just replayed it in your head and it doesn't hold up. The rulebook has a word waiting for you: "Retracted".
+
+It is not free, and that's the point. Play resumes as if the breach had been caused by you — the player who made the call. WFDF's own annotation works the example: a marker calls a foul on the thrower, then retracts it, and the count comes back at "Stalling one". You pay a little to take it back. Small enough to always be worth it.
+
+Then the part people miss. Retracting a call you no longer believe in isn't merely tolerated. It sits in the rulebook's short list of examples of good Spirit — the same list as checking in with an opponent after a contentious interaction. Changing your mind is not a hole in your game. It's named, in writing, as playing well.
+
+Nobody has ever thought less of a player for saying "retracted, my bad". People think plenty about the player who defends a call they stopped believing in two minutes ago.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `there's a rule for saying "actually, you're right" 🥏
+
+made a call, then realised you were wrong? say "Retracted". one word
+
+it's not free — play resumes as if YOU caused the breach. marker retracts a foul → count comes back at "Stalling one"
+
+small price. always worth paying
+
+and it's not a climb-down: retracting a call you no longer believe is literally listed in the rules as an example of good Spirit
+
+"retracted, my bad" costs you two seconds
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-26 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as seven scenes, the two-pair shape used by reels 11, 17 and 19: cover, then pairs for 15.11 (the mechanism) and 1.5 + 1.5.1 (why it is good Spirit), a field tip, and the closing card.',
+      'Scene 5 is a parent-plus-child card. 1.5.1 reads "retracting a call when you no longer believe the call was correct;" — a fragment grammatically dependent on 1.5 ("The following actions are some examples of good Spirit:"). Carded alone it is unreadable, so 1.5 goes above it, exactly as 1.3 carries 1.3.4 on reel 23. 1.5 is the only rule number here not in the lesson rules array, and it is there for grammar, not for extra content.',
+      '15.11 in rules.json is written as “Retracted“ — an opening curly quote on both sides, not a matched pair. That is the source text and therefore what goes on the card; do not correct it. The quote is mid-sentence, so the _payload() leading-quote fix from reel 21 is not engaged.',
+      'The stall-count detail is annotation, not rule text: it comes from the 15.11 ann block in rules.json. It belongs in the script and captions, attributed as WFDF’s worked example, never on a rules card. 9.5.1 and 9.5.2 are deliberately not cited on screen — what the stall count restarts at is lesson 29.',
+      'Retraction counts as an accepted breach by the retracting player, so the restart number depends on whether they were defending or attacking. The captions work only the marker case, the one WFDF annotates. Scene 4 should not generalise past it.',
+      'Closes the calls run: 21 vocabulary, 22 ownership, 23 contesting, 24 retracting.'
+    ]
   }
 ];
