@@ -709,10 +709,10 @@
   },
   "reel-24": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-25T23:12:17.000Z"
+      "updatedAt": "2026-08-26T15:14:20.431Z"
     },
     "content": {
       "status": "awaiting-render",
