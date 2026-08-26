@@ -640,7 +640,12 @@
         "file": "reel21-foul-infraction-violation.mp4",
         "changed": "Fixed the missing opening quote on slide 6. Not a typo: the script and the emitted SVG both carried both quotes. ImageMagick 6 lowers each <text> element into an MVG `text x,y \"...\"` primitive whose payload is itself double-quoted, so a double-quote at the start of the character data collides with that opening delimiter and is dropped; quotes anywhere else survive, which is why the same word renders correctly in the body two lines below. Slide 6 line 3 is the first line in 21 reels to begin with one. render_v3.py gained _payload(), which wraps a payload starting with &quot; in a <tspan> so the quote is no longer first after the delimiter; every other element emits byte-identical SVG. Verified against &#34; (fails identically), a leading zero-width space (works, leaves an invisible character in approved copy) and curly quotes (works, changes the glyph). No word of the approved script changed. Nine scenes, exact CFR via encode.py, 29.53s, layout 0 problems, longest sustained dull-orange run 0.20s. v1 archived as reel21-foul-infraction-violation.v1.mp4."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-26",
+      "updatedAt": "2026-08-26T00:23:55.779Z"
+    }
   },
   "carousel-post-4": {
     "script": {
