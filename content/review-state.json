@@ -695,10 +695,10 @@
   },
   "reel-23": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-25T06:55:00.000Z"
+      "updatedAt": "2026-08-26T15:14:28.333Z"
     },
     "content": {
       "status": "awaiting-render",
