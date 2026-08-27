@@ -30,7 +30,7 @@
 | 2026-08-27 | Who is allowed to make which call | Reel | Posted | 2026-08-27 | — |
 | 2026-08-28 | "Contest" — disagreeing properly | Reel | Script approved | — | — |
 | 2026-08-29 | Changing your mind is a rule, not a weakness | Reel | Script approved | — | — |
-| 2026-08-30 | The duty to avoid contact | Reel | Pending review | — | — |
+| 2026-08-30 | The duty to avoid contact | Reel | Script approved | — | — |
 
 ## Status legend
 
