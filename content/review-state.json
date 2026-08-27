@@ -668,7 +668,12 @@
         "file": "01_cover.png … 09_closing.png",
         "changed": "Initial render of the third weekly recap, lessons 15-21. Nine slides at 2250x2812, rule numbers only, no rule text. Layout reused verbatim from carousel-post-3/make_carousel.py; the one deviation is the cover title at 84px instead of 96px, because \"mark, and what to call\" measures 1003px at 96 against a 900px column - type shrunk, words untouched. Layout check 0 problems, no collisions with the citation footer."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-27",
+      "updatedAt": "2026-08-27T00:08:50.051Z"
+    }
   },
   "reel-22": {
     "script": {
