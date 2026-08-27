@@ -1,7 +1,65 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
-  "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "calendar_rows": [
+    {
+      "date": "2026-08-30",
+      "post": "The duty to avoid contact",
+      "type": "Reel",
+      "status": "Pending review",
+      "posted": "—",
+      "performance": "—"
+    }
+  ],
+  "review_state": {
+    "reel-23": {
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-27T06:45:00.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-08-27",
+          "duration": "29.5s",
+          "file": "reel23-contest.mp4",
+          "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 15.10, 13.3, and 1.3 + 1.3.4 quoted verbatim from rules.json. First asset to exercise the reel-21 leading-quote fix on a cover title: slide 1 line 1 and slide 2 line 3 both start with a double quote and both emitted through _payload() as a <tspan>. 13.3 carded whole wraps to eight lines at 38px and lands at max_y 704 of 1310, so no split and no trimming. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s. All three kickers at the standard 34px and all three bodies at 36px - nothing engaged fit_kicker() or fit_body()."
+        }
+      ]
+    },
+    "reel-24": {
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-27T06:45:00.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-08-27",
+          "duration": "28.5s",
+          "file": "reel24-retracted.mp4",
+          "changed": "Initial render from the approved script. Seven scenes (two-pair shape), exact CFR via encode.py; 28.53s. 15.11 and 1.5 + 1.5.1 quoted verbatim from rules.json, including 15.11's mismatched curly quotes around “Retracted“, which are what the source carries. Two elements begin with a double quote and both emitted through _payload() as a <tspan>. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s. Both kickers at the standard 34px and all bodies at 36px - nothing engaged fit_kicker() or fit_body()."
+        }
+      ]
+    },
+    "reel-25": {
+      "script": {
+        "status": "pending",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-27T06:45:00.000Z"
+      },
+      "content": {
+        "status": "awaiting-render",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-27T06:45:00.000Z"
+      }
+    }
+  },
+  "generated": "2026-08-27T06:45:00.000Z",
+  "by": "daily-reel-render"
 }

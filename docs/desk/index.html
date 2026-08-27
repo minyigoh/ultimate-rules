@@ -2179,21 +2179,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-28',
     title: `"Contest" — disagreeing properly`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 23,
+    duration: '~29s script / 29.5s cut',
     rules: ['15.10', '13.3', '1.3', '1.3.4'],
     review: {
       script:  {status: 'pending', on: '2026-08-25'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-27'}
     },
     postedDate: null,
     folder: 'reel-23',
     source: 'content/reel-23/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Calls)',
-    video: null,
+    video: 'reel23-contest.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', '"Contest" — disagreeing properly · kicker BEGINNER · LESSON 23 / 75'],
+      ['2', '#1 SAY THE WORD', `"If you don't think it happened, you say \\"Contest\\"." · footer cites 15.10`],
+      ['3', 'Rules detail', 'Verbatim 15.10'],
+      ['4', '#2 NOBODY GAINS', `"Can't agree? The disc goes back, and neither version wins." · footer cites 13.3`],
+      ['5', 'Rules detail', 'Verbatim 13.3'],
+      ['6', '#3 EXPLAIN, BRIEFLY', '"Your whole job in the discussion is one clear sentence." · footer cites 1.3, 1.3.4'],
+      ['7', 'Rules detail', 'Verbatim 1.3 + 1.3.4'],
+      ['8', 'FIELD TIP', '"Have your one sentence ready before you open your mouth."'],
+      ['9', 'Closing', '"Lesson 23 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Disagreement is built into the rules. There's a word for it, and there's machinery behind the word.`,
       explanation: `If someone calls a breach against you and you don't think it happened, you say "Contest". Play stops and you talk about it. If you still can't agree — or nobody can work out what actually happened — the disc goes back to the last undisputed thrower and play restarts with a check.`,
@@ -2230,8 +2242,10 @@ have the sentence ready first. "your pivot foot lifted while the disc was in you
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-25 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 15.10 (the word itself), 13.3 (the default outcome) and 1.3 + 1.3.4 (the duty to explain), a field tip, and the closing card.',
+      'Drafted 2026-08-25, script approved 2026-08-26, rendered 2026-08-27. Nine scenes, exact CFR via encode.py; 29.50s. Layout check 0 problems and no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. All three kickers at the standard 34px and all three bodies at the standard 36px — nothing engaged fit_kicker() or fit_body(). 15.10, 13.3, 1.3 and 1.3.4 pulled programmatically from rules.json and byte-identical to it.',
+      'Nine scenes, the standard three-pair shape: cover, then pairs for 15.10 (the word itself), 13.3 (the default outcome) and 1.3 + 1.3.4 (the duty to explain), a field tip, and the closing card.',
+      'The leading-quote fix held. Slide 1 line 1 and slide 2 line 3 both begin with a double quote and both emitted through _payload() as <tspan>, so "Contest" renders with both quotes. This is the first asset where the reel-21 fix was actually exercised on a cover title.',
+      '13.3 carded whole at 38px wraps to eight lines and lands at max_y 704 of 1310 — no split needed, and no trimming of the text.',
       'Scene 7 is a parent-plus-child card. 1.3.4 reads "explain their viewpoint clearly and briefly;" — a fragment grammatically dependent on 1.3 ("Players must:"). Carded alone it would be unreadable, so 1.3 goes above it, exactly as 15.5 carries 15.5.1 on reel 22. 1.3 is the only rule number here not in the lesson rules array, and it is there for grammar, not for extra content.',
       'The cover title starts with a double quote — a first for this pipeline, and the exact case that got reel 21 rejected on 2026-08-24. render_v3.py _payload() now handles it; check slide 1 renders as "Contest" and not Contest" before submitting.',
       '13.3 is quoted whole and is the longest single rule text this pipeline has carded — four sentences. fit_body() does not apply to a g_detail card, which wraps at 38px with no auto-fit, so run tools/check_layout.py before encoding. If 13.3 overflows, split it across two reveal groups in the same g_detail block rather than trimming the text.',
@@ -2246,21 +2260,31 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-29',
     title: `Changing your mind is a rule, not a weakness`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 28.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 24,
+    duration: '~28s script / 28.5s cut',
     rules: ['15.11', '1.5', '1.5.1'],
     review: {
       script:  {status: 'pending', on: '2026-08-26'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-27'}
     },
     postedDate: null,
     folder: 'reel-24',
     source: 'content/reel-24/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Spirit)',
-    video: null,
+    video: 'reel24-retracted.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'Changing your mind is a rule, not a weakness · kicker BEGINNER · LESSON 24 / 75'],
+      ['2', '#1 SAY THE WORD', `"Realise your call was wrong? Say \\"Retracted\\"." · footer cites 15.11`],
+      ['3', 'Rules detail', 'Verbatim 15.11'],
+      ['4', `#2 IT'S ON THE LIST`, '"The rulebook names it as an example of good Spirit." · footer cites 1.5, 1.5.1'],
+      ['5', 'Rules detail', 'Verbatim 1.5 + 1.5.1'],
+      ['6', 'FIELD TIP', `"\\"Retracted, my bad\\" takes two seconds and settles more than arguing does."`],
+      ['7', 'Closing', '"Lesson 24 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `There is a formal, written-down way to say "actually, you're right". It takes one word.`,
       explanation: `If you make a call and then work out that you were wrong — bad angle, or a team-mate had a better view — you say "Retracted". Play then resumes as if the breach had been caused by you, the person who made the call. So it isn't free. You give something up to take it back.`,
@@ -2295,13 +2319,82 @@ and it's not a climb-down: retracting a call you no longer believe is literally 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-26 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'Planned as seven scenes, the two-pair shape used by reels 11, 17 and 19: cover, then pairs for 15.11 (the mechanism) and 1.5 + 1.5.1 (why it is good Spirit), a field tip, and the closing card.',
+      'Drafted 2026-08-26, script approved 2026-08-26, rendered 2026-08-27. Seven scenes, exact CFR via encode.py; 28.53s. Layout check 0 problems and no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. Both kickers at the standard 34px and all bodies at the standard 36px — nothing engaged fit_kicker() or fit_body(). 15.11, 1.5 and 1.5.1 pulled programmatically from rules.json and byte-identical to it, including the mismatched curly quotes in 15.11.',
+      'Seven scenes, the two-pair shape used by reels 11, 17 and 19: cover, then pairs for 15.11 (the mechanism) and 1.5 + 1.5.1 (why it is good Spirit), a field tip, and the closing card.',
+      'Two elements begin with a double quote and both went through _payload() as <tspan>: the cover hook line ending "actually, you\'re right". and the field-tip headline "Retracted, my bad".',
       'Scene 5 is a parent-plus-child card. 1.5.1 reads "retracting a call when you no longer believe the call was correct;" — a fragment grammatically dependent on 1.5 ("The following actions are some examples of good Spirit:"). Carded alone it is unreadable, so 1.5 goes above it, exactly as 1.3 carries 1.3.4 on reel 23. 1.5 is the only rule number here not in the lesson rules array, and it is there for grammar, not for extra content.',
       '15.11 in rules.json is written as “Retracted“ — an opening curly quote on both sides, not a matched pair. That is the source text and therefore what goes on the card; do not correct it. The quote is mid-sentence, so the _payload() leading-quote fix from reel 21 is not engaged.',
       'The stall-count detail is annotation, not rule text: it comes from the 15.11 ann block in rules.json. It belongs in the script and captions, attributed as WFDF’s worked example, never on a rules card. 9.5.1 and 9.5.2 are deliberately not cited on screen — what the stall count restarts at is lesson 29.',
       'Retraction counts as an accepted breach by the retracting player, so the restart number depends on whether they were defending or attacking. The captions work only the marker case, the one WFDF annotates. Scene 4 should not generalise past it.',
       'Closes the calls run: 21 vocabulary, 22 ownership, 23 contesting, 24 retracting.'
+    ]
+  },
+  {
+    id: 'reel-25',
+    date: '2026-08-30',
+    title: `The duty to avoid contact`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 25,
+    rules: ['12.6', '12.6.1', '12.6.2', '12.6.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-27'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-25',
+    source: 'content/reel-25/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Contact)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `"I was going for the disc" is not a defence. The rulebook names that exact excuse and rejects it.`,
+      explanation: `Every player must attempt to avoid initiating contact, and the rules say flatly that there is no situation where a player may justify initiating contact. That includes contact with someone standing still, and contact with where they were obviously about to be, given the speed and direction they were already moving.`,
+      example: `So the duty runs before the bid, not after it. Before you dive, leap or jump away from your position, you have to be reasonably certain you won't initiate contact. And if you're not reasonably certain you'll get to the disc legally before an opponent who is moving legally, you're required to adjust — and the rulebook adds that if you do adjust, the result of the play still stands. You don't lose anything by pulling out of a bid you weren't sure of.`,
+      cta: `Lesson 25 of 75 — new lesson daily.`
+    },
+    ig: `"I was going for the disc" is not a defence. The rulebook names that exact excuse and rejects it.
+
+Start with how absolute the sentence is. All players must attempt to avoid initiating contact, and there is no situation where a player may justify initiating contact. Not "except when", not "unless". The rules almost never talk like that, and here they do.
+
+It covers more than the person in front of you. You have to avoid initiating contact with a stationary opponent — and also with an opponent's expected position, based on the speed and direction they had already established. Where they obviously were about to be counts as where they are.
+
+Then the duty moves earlier than most people put it. Before you dive, leap or jump away from your position, you must be reasonably certain you won't initiate contact. The decision point is on the ground, before you leave it — not in the air, working out whose fault the collision was.
+
+And here's the part that makes it easy to obey. If you're not reasonably certain you can make a legal play at the disc before an opponent who's moving legally, you must adjust to avoid initiating contact — and if you make that adjustment, the result of the play still stands. Pulling out of a bid you weren't sure of costs you nothing under the rules.
+
+Which is what makes a non-contact sport playable at full speed. Bid hard. Bid into space you're sure is empty.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `"I was going for the disc" is not a defence 🥏
+
+the rulebook literally names that excuse and rejects it
+
+the sentence has no escape hatch: there is NO situation where a player may justify initiating contact
+
+and it covers where someone was about to be, not just where they're standing — expected position, based on established speed and direction
+
+before you dive, leap or jump: you must be reasonably certain you won't initiate contact. the decision is on the ground
+
+not sure you'll get there legally first? you must adjust. and if you adjust, the result of the play still stands
+
+bid hard. into space you're sure is empty
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-27 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 12.6 (the absolute duty), 12.6.1 (the named excuse) and 12.6.2 + 12.6.3 (before you leave the ground), a field tip, and the closing card.',
+      'Scene 7 carries two sibling rules rather than a parent and child. 12.6.2 is the pre-condition and 12.6.3 is the duty that follows when it is not met; carded alone, 12.6.2 reads as a rule with no consequence. Both are full sentences, so this is a content pairing, not a grammar rescue like 1.3 + 1.3.4 on reel 23.',
+      'All four rule numbers come from the lesson rules array — nothing extra is cited on screen.',
+      'The scene 6 kicker BEFORE YOU LEAVE THE GROUND is the longest this pipeline has drafted and will probably engage fit_kicker(). That is intended: the type shrinks, the wording does not. If it trips the 27px floor, report the SystemExit rather than shortening the label.',
+      'Opens the contact run: 25 is the duty itself, 26 is who initiated it, 27 is the minor-contact carve-out. Scene 2 should stay at the level of the general duty and not start naming foul types.',
+      '12.6 has a substantial ann block defining "making a play on the disc", "minor contact" and "affected the play". None of it goes on a card — cards quote text only. Minor contact is lesson 27 and "affected the play" is lesson 37, so both are deliberately left alone.',
+      '12.6.3 final clause is the reassurance and must not be cut: "If that adjustment is made, the result of the play still stands." Without it the rule reads as a penalty for caution, which is the opposite of its purpose.'
     ]
   }
 ];
