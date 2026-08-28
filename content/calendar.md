@@ -31,7 +31,7 @@
 | 2026-08-28 | "Contest" — disagreeing properly | Reel | Posted | 2026-08-28 | — |
 | 2026-08-29 | Changing your mind is a rule, not a weakness | Reel | Ready to post | — | — |
 | 2026-08-30 | The duty to avoid contact | Reel | Script approved | — | — |
-| 2026-08-31 | Who initiated the contact? | Reel | Pending review | — | — |
+| 2026-08-31 | Who initiated the contact? | Reel | Script approved | — | — |
 
 ## Status legend
 
