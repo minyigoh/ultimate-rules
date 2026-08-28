@@ -2334,21 +2334,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-30',
     title: `The duty to avoid contact`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 25,
+    duration: '~29s script / 29.5s cut',
     rules: ['12.6', '12.6.1', '12.6.2', '12.6.3'],
     review: {
       script:  {status: 'pending', on: '2026-08-27'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-28'}
     },
     postedDate: null,
     folder: 'reel-25',
     source: 'content/reel-25/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Contact)',
-    video: null,
+    video: 'reel25-avoid-contact.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'The duty to avoid contact · kicker BEGINNER · LESSON 25 / 75'],
+      ['2', '#1 NO JUSTIFICATION', '"The rulebook does not leave you a situation where contact is fine." · footer cites 12.6'],
+      ['3', 'Rules detail', 'Verbatim 12.6'],
+      ['4', '#2 THE EXCUSE, NAMED', `"\\"I was going for the disc\\" is written down, and rejected." · footer cites 12.6.1`],
+      ['5', 'Rules detail', 'Verbatim 12.6.1'],
+      ['6', '#3 BEFORE YOU LEAVE THE GROUND', `"Not sure you'll get there legally? Then you have to adjust." · footer cites 12.6.2, 12.6.3`],
+      ['7', 'Rules detail', 'Verbatim 12.6.2 + 12.6.3'],
+      ['8', 'FIELD TIP', `"Bid hard, but into space you're sure is empty."`],
+      ['9', 'Closing', '"Lesson 25 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `"I was going for the disc" is not a defence. The rulebook names that exact excuse and rejects it.`,
       explanation: `Every player must attempt to avoid initiating contact, and the rules say flatly that there is no situation where a player may justify initiating contact. That includes contact with someone standing still, and contact with where they were obviously about to be, given the speed and direction they were already moving.`,
@@ -2387,14 +2399,83 @@ bid hard. into space you're sure is empty
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-27 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 12.6 (the absolute duty), 12.6.1 (the named excuse) and 12.6.2 + 12.6.3 (before you leave the ground), a field tip, and the closing card.',
+      'Rendered 2026-08-28: nine scenes, exact CFR via encode.py, 29.53s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s.',
+      'Nine scenes, the standard three-pair shape: cover, then pairs for 12.6 (the absolute duty), 12.6.1 (the named excuse) and 12.6.2 + 12.6.3 (before you leave the ground), a field tip, and the closing card.',
+      'The scene 6 kicker BEFORE YOU LEAVE THE GROUND fits at the standard 34px after all — 893px of the 900px column, the widest kicker shipped so far, past reel-11\'s 873px. fit_kicker() was not engaged and no wording changed. Scene 2\'s body auto-fits one step down to 35px; scenes 4 and 6 stay at 36px.',
       'Scene 7 carries two sibling rules rather than a parent and child. 12.6.2 is the pre-condition and 12.6.3 is the duty that follows when it is not met; carded alone, 12.6.2 reads as a rule with no consequence. Both are full sentences, so this is a content pairing, not a grammar rescue like 1.3 + 1.3.4 on reel 23.',
       'All four rule numbers come from the lesson rules array — nothing extra is cited on screen.',
-      'The scene 6 kicker BEFORE YOU LEAVE THE GROUND is the longest this pipeline has drafted and will probably engage fit_kicker(). That is intended: the type shrinks, the wording does not. If it trips the 27px floor, report the SystemExit rather than shortening the label.',
       'Opens the contact run: 25 is the duty itself, 26 is who initiated it, 27 is the minor-contact carve-out. Scene 2 should stay at the level of the general duty and not start naming foul types.',
       '12.6 has a substantial ann block defining "making a play on the disc", "minor contact" and "affected the play". None of it goes on a card — cards quote text only. Minor contact is lesson 27 and "affected the play" is lesson 37, so both are deliberately left alone.',
       '12.6.3 final clause is the reassurance and must not be cut: "If that adjustment is made, the result of the play still stands." Without it the rule reads as a penalty for caution, which is the opposite of its purpose.'
+    ]
+  },
+  {
+    id: 'reel-26',
+    date: '2026-08-31',
+    title: `Who initiated the contact?`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 26,
+    rules: ['12.7', '12.7.1', '12.7.2', '12.7.3', '12.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-28'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-26',
+    source: 'content/reel-26/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Contact)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Every foul argument is really one question: who got there first? The rulebook actually answers it.`,
+      explanation: `The player who initiates contact is defined, not debated. Limb one: the player who arrived at the point of contact after the opponent had already established a legitimate position there — and that opponent can be standing still or moving. A player in an established position is entitled to stay in it and must not be contacted.`,
+      example: `Limb two catches the other case, where you were there in time but changed your line: the player who adjusted their movements in a way that created unavoidable contact with an opponent who was moving legally, taking everyone's established position, speed and direction into account. And if it is genuinely unclear which of you initiated it, and one of you dived, leapt or jumped away from their position — that player is deemed to have initiated the contact. The person who left the ground carries the risk.`,
+      cta: `Lesson 26 of 75 — new lesson daily.`
+    },
+    ig: `Every foul argument is really one question: who got there first? The rulebook actually answers it.
+
+Limb one — you arrived second. The initiator is the player who arrived at the point of contact after the opponent had already established a legitimate position there. That opponent can be stationary or moving; "they were running too" doesn't undo an established position. And a player in an established position is entitled to remain in it, and must not be contacted by an opponent.
+
+Limb two — you were there in time, but you changed your line. The initiator is also the player who adjusted their movements in a way that created unavoidable contact with an opponent moving legally, taking into account every player's established position, speed and direction. You can be first to the spot and still be the one who caused it.
+
+And the tiebreaker, which settles more arguments than either limb. If it is unclear which player initiated contact and one of them dived, leapt or jumped away from their position, that player is deemed to have initiated it. Leaving the ground is a choice, and the rules put the uncertainty on the player who made it.
+
+Notice what none of this asks about: intent. Nobody has to have meant it. The question is position, speed and direction — things two people can usually reconstruct together in about fifteen seconds.
+
+So the useful sentence isn't "you fouled me". It's "where were you when I got there?"
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `every foul argument is really one question: who got there first 🥏
+
+and the rulebook answers it instead of leaving it to whoever argues hardest
+
+limb 1 — you arrived at the point of contact after they'd already established a legitimate position. stationary or moving, both count
+
+limb 2 — you got there in time but adjusted your movement in a way that made contact unavoidable with someone moving legally
+
+the tiebreaker: genuinely unclear who initiated it, and one of you dived, leapt or jumped away from their position? that player is deemed to have initiated it
+
+nobody asks about intent. it's position, speed, direction
+
+so don't say "you fouled me". say "where were you when I got there?"
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-28 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 12.7 + 12.7.1 with 12.4 (they were already there), 12.7 + 12.7.2 (or whoever changed path) and 12.7.3 (the tiebreaker), a field tip, and the closing card.',
+      '12.7 is a stem ending in a colon, not a sentence, so it appears on both rule cards carrying a different limb each time. Same parent-repeated shape as 18.1.1 on reel 18; here it is a grammar requirement, since 12.7.1 alone starts mid-clause.',
+      '12.4 rides on scene 3 as a second block rather than taking a pair of its own. 12.7.1 turns on the opponent having established a legitimate position, and 12.4 is the rule saying what that position entitles you to.',
+      'All five rule numbers come from the lesson rules array — nothing extra is cited on screen.',
+      'Do not let "initiated" slide into "at fault". 12.7 defines who initiated contact; whether it is a foul is the next few lessons. The word foul appears once in the hook and nowhere else in the spoken script.',
+      'Intent is deliberately absent from the video — nothing in 12.7 mentions it. It gets one line in the Instagram caption because it is the commonest wrong assumption about this rule, but it is a caption beat, not a card.',
+      'Scene 3 is the densest card in the reel, estimated max_y around 1050 of 1310. Run tools/check_layout.py before believing it; if it collides, move 12.4 to scene 5 rather than trimming rule text.',
+      'Longest kicker is #2 OR WHOEVER CHANGED PATH at 788px of the 900px column, so fit_kicker() is not engaged.'
     ]
   }
 ];
