@@ -29,7 +29,7 @@
 | 2026-08-27 | carousel-post-4 — “Week three: how to mark, and what to call” | Carousel (9 slides) | Posted | 2026-08-27 | — |
 | 2026-08-27 | Who is allowed to make which call | Reel | Posted | 2026-08-27 | — |
 | 2026-08-28 | "Contest" — disagreeing properly | Reel | Posted | 2026-08-28 | — |
-| 2026-08-29 | Changing your mind is a rule, not a weakness | Reel | Ready to post | — | — |
+| 2026-08-29 | Changing your mind is a rule, not a weakness | Reel | Posted | 2026-08-29 | — |
 | 2026-08-30 | The duty to avoid contact | Reel | Ready to post | — | — |
 | 2026-08-31 | Who initiated the contact? | Reel | Script approved | — | — |
 
