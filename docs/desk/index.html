@@ -2414,21 +2414,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-08-31',
     title: `Who initiated the contact?`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 26,
+    duration: '~29s script / 29.5s cut',
     rules: ['12.7', '12.7.1', '12.7.2', '12.7.3', '12.4'],
     review: {
       script:  {status: 'pending', on: '2026-08-28'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-29'}
     },
     postedDate: null,
     folder: 'reel-26',
     source: 'content/reel-26/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Contact)',
-    video: null,
+    video: 'reel26-who-initiated.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'Who initiated the contact? · kicker BEGINNER · LESSON 26 / 75'],
+      ['2', '#1 THEY WERE ALREADY THERE', '"The initiator is usually just whoever arrived second." · footer cites 12.7, 12.7.1, 12.4'],
+      ['3', 'Rules detail', 'Verbatim 12.7 + 12.7.1, then 12.4'],
+      ['4', '#2 OR WHOEVER CHANGED PATH', '"You can also initiate contact without arriving late at all." · footer cites 12.7, 12.7.2'],
+      ['5', 'Rules detail', 'Verbatim 12.7 + 12.7.2'],
+      ['6', '#3 IF NOBODY CAN TELL', `"Genuinely unclear, and someone laid out? It's theirs." · footer cites 12.7.3`],
+      ['7', 'Rules detail', 'Verbatim 12.7.3'],
+      ['8', 'FIELD TIP', `"Ask \\"where were you when I got there?\\""`],
+      ['9', 'Closing', '"Lesson 26 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Every foul argument is really one question: who got there first? The rulebook actually answers it.`,
       explanation: `The player who initiates contact is defined, not debated. Limb one: the player who arrived at the point of contact after the opponent had already established a legitimate position there — and that opponent can be standing still or moving. A player in an established position is entitled to stay in it and must not be contacted.`,
@@ -2467,15 +2479,82 @@ so don't say "you fouled me". say "where were you when I got there?"
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-28 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 12.7 + 12.7.1 with 12.4 (they were already there), 12.7 + 12.7.2 (or whoever changed path) and 12.7.3 (the tiebreaker), a field tip, and the closing card.',
+      'Rendered 2026-08-29 by the daily task: nine scenes, exact CFR via encode.py, 29.53s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s.',
+      'Nine scenes, the standard three-pair shape: cover, then pairs for 12.7 + 12.7.1 with 12.4 (they were already there), 12.7 + 12.7.2 (or whoever changed path) and 12.7.3 (the tiebreaker), a field tip, and the closing card.',
       '12.7 is a stem ending in a colon, not a sentence, so it appears on both rule cards carrying a different limb each time. Same parent-repeated shape as 18.1.1 on reel 18; here it is a grammar requirement, since 12.7.1 alone starts mid-clause.',
       '12.4 rides on scene 3 as a second block rather than taking a pair of its own. 12.7.1 turns on the opponent having established a legitimate position, and 12.4 is the rule saying what that position entitles you to.',
       'All five rule numbers come from the lesson rules array — nothing extra is cited on screen.',
       'Do not let "initiated" slide into "at fault". 12.7 defines who initiated contact; whether it is a foul is the next few lessons. The word foul appears once in the hook and nowhere else in the spoken script.',
       'Intent is deliberately absent from the video — nothing in 12.7 mentions it. It gets one line in the Instagram caption because it is the commonest wrong assumption about this rule, but it is a caption beat, not a card.',
-      'Scene 3 is the densest card in the reel, estimated max_y around 1050 of 1310. Run tools/check_layout.py before believing it; if it collides, move 12.4 to scene 5 rather than trimming rule text.',
-      'Longest kicker is #2 OR WHOEVER CHANGED PATH at 788px of the 900px column, so fit_kicker() is not engaged.'
+      'Scene 3 is the densest card in the reel and measured max_y 1008 of 1310 — comfortably under the estimate, so 12.4 stayed on it and no rule text was split or trimmed.',
+      'All three kickers and all three bodies rendered at the standard sizes — neither fit_kicker() nor fit_body() was engaged. No element begins with a double quote, so _payload() is a no-op here.'
+    ]
+  },
+  {
+    id: 'reel-27',
+    date: '2026-09-01',
+    title: `Not every touch is a foul`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 27,
+    rules: ['12.8', '15.1', '1.3.10'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-29'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-27',
+    source: 'content/reel-27/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Contact)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You brushed arms going for the same disc. That's not a foul, and the rulebook says so in one sentence.`,
+      explanation: `Some minor contact may occur as two or more players move towards a single point simultaneously. Minor contact should be minimized — but it is not considered a foul. That is written down as a rule, not offered as a courtesy. The tolerance is deliberate, because two people running hard to one spot is the sport working correctly, not breaking.`,
+      example: `So what makes it a foul? One word. A breach of the rules due to non-minor contact between opposing players is a foul. Non-minor. Brushing shoulders on the way to a disc you caught cleanly anyway does not clear that bar. And there is a second filter on top: only make a call where the breach is significant enough to make a difference to the outcome of the action, or where a player's safety is at risk. Those are the two gates — did it change what happened, or did it put someone at risk?`,
+      cta: `Lesson 27 of 75 — new lesson daily.`
+    },
+    ig: `You brushed arms going for the same disc. That's not a foul, and the rulebook says so in one sentence.
+
+The tolerance is written in on purpose. Some minor contact may occur as two or more players move towards a single point simultaneously. Minor contact should be minimized — but it is not considered a foul. That is a rule, not a courtesy someone is extending to you. Two people running hard to the same spot is the sport working correctly.
+
+What turns contact into a foul is one word: non-minor. A breach of the rules due to non-minor contact between two or more opposing players is a foul. So "there was contact" is never the whole argument — it's the start of one. If you brushed shoulders and caught it cleanly anyway, nothing crossed that line.
+
+And there's a second gate, from the Spirit rules. Only make a call where the breach is significant enough to make a difference to the outcome of the action, or where a player's safety is at risk. Two questions, then: did it change what happened, and is anyone hurt? If both answers are no, there's nothing to call.
+
+This is the balance the previous two lessons were building toward. You must try to avoid contact (12.6), and the rules define who initiated it when it happens (12.7) — but they also refuse to turn every incidental touch into a stoppage. Consistently over-calling is itself a Spirit breach, and it's the fastest way to make a game unpleasant for everyone on it.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `you brushed arms going for the same disc. not a foul 🥏
+
+and it's not a favour someone's doing you — it's written down
+
+"Some minor contact may occur as two or more players move towards a single point simultaneously. Minor contact should be minimized but is not considered a foul."
+
+what makes it a foul is one word: NON-MINOR. a breach due to non-minor contact between opposing players is a foul
+
+so "there was contact" isn't the argument. it's the start of one
+
+second gate, from the spirit rules: only make a call where the breach is significant enough to change the outcome of the action, or where someone's safety is at risk
+
+two questions. did it change what happened? is anyone hurt? both no = nothing to call
+
+over-calling is itself a spirit breach
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-29 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 12.8 (the tolerance is deliberate), 15.1 (a foul needs non-minor contact) and 1.3 + 1.3.10 (did it actually change anything), a field tip, and the closing card.',
+      '1.3 is a stem ending "Players must:" and 1.3.10 begins lowercase, so carded alone the limb is a fragment with no subject. Scene 7 carries both, exactly as reel 23 did with 1.3 + 1.3.4. The lesson rules array lists 1.3.10; 1.3 is on screen only as the grammar its own child requires.',
+      'Closes the setup for the contact run: 25 is the duty, 26 is who initiated it, 27 is the carve-out. Lessons 28-31 are the named foul types, so scene 4 must stay on the definition and not start listing them.',
+      'Do not soften "minimized" into "avoided". The rule says minor contact should be minimized and separately that it is not a foul — two different claims, and the reel needs both or it reads as "contact is fine", the opposite of lesson 25. The -z- spelling is the rulebook own; keep it wherever the rule wording is reproduced.',
+      'Watch the scene 6 kicker, #3 DID IT ACTUALLY CHANGE ANYTHING? — long for the 900px column and the most likely yet to engage fit_kicker(). Let the type shrink; never reword it to fit.',
+      '1.3.10 carries a curly apostrophe in "player’s" — that is what rules.json holds and rt() will emit it. Do not normalise it to a straight quote.'
     ]
   }
 ];
