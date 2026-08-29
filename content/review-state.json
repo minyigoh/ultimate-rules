@@ -780,7 +780,12 @@
         "file": "reel25-avoid-contact.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s. 12.6, 12.6.1, and 12.6.2 + 12.6.3 quoted verbatim from rules.json. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s. The scene 6 kicker \"BEFORE YOU LEAVE THE GROUND\" fits at the standard 34px at 893 of 900px - the widest kicker shipped, past reel-11's 873px - so fit_kicker() was not engaged after all. Scene 2's body auto-fits to 35px; scenes 4 and 6 stay at 36px."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-30",
+      "updatedAt": "2026-08-29T23:17:40.703Z"
+    }
   },
   "reel-26": {
     "script": {
