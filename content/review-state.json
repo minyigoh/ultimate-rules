@@ -790,10 +790,33 @@
       "updatedAt": "2026-08-28T10:26:04.587Z"
     },
     "content": {
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-29T00:48:28.000Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-08-29",
+        "duration": "29.5s",
+        "file": "reel26-who-initiated.mp4",
+        "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s. 12.7 + 12.7.1 with 12.4, 12.7 + 12.7.2, and 12.7.3 quoted verbatim from rules.json. 12.7 is a stem ending in a colon so it repeats across both cards carrying a different limb each time. Scene 3, the densest card, measured max_y 1008 of 1310 against an estimated 1050, so 12.4 stayed on it and no rule text was split. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s. All three kickers and all three bodies at standard size - neither fit_kicker() nor fit_body() engaged."
+      }
+    ]
+  },
+  "reel-27": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-29T00:48:28.000Z"
+    },
+    "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-28T06:45:00.000Z"
+      "updatedAt": "2026-08-29T00:48:28.000Z"
     }
   }
 }
