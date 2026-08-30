@@ -812,10 +812,10 @@
   },
   "reel-27": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-29T00:48:28.000Z"
+      "updatedAt": "2026-08-30T12:56:07.162Z"
     },
     "content": {
       "status": "awaiting-render",
