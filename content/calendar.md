@@ -33,6 +33,7 @@
 | 2026-08-30 | The duty to avoid contact | Reel | Posted | 2026-08-30 | — |
 | 2026-08-31 | Who initiated the contact? | Reel | Script approved | — | — |
 | 2026-09-01 | Not every touch is a foul | Reel | Pending review | — | — |
+| 2026-09-02 | Receiving fouls | Reel | Pending review | — | — |
 
 ## Status legend
 

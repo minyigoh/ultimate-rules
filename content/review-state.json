@@ -823,5 +823,19 @@
       "tags": [],
       "updatedAt": "2026-08-29T00:48:28.000Z"
     }
+  },
+  "reel-28": {
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-29T22:39:20Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-08-29T22:39:20Z"
+    }
   }
 }
