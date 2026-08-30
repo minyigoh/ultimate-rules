@@ -2086,5 +2086,82 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Watch the scene 6 kicker, #3 DID IT ACTUALLY CHANGE ANYTHING? — long for the 900px column and the most likely yet to engage fit_kicker(). Let the type shrink; never reword it to fit.',
       '1.3.10 carries a curly apostrophe in "player’s" — that is what rules.json holds and rt() will emit it. Do not normalise it to a straight quote.'
     ]
+  },
+  {
+    id: 'reel-28',
+    date: '2026-09-02',
+    title: `Receiving fouls`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 28,
+    rules: ['17.2.1', '17.2.1.1', '17.2.2', '15.8'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-30'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-28',
+    source: 'content/reel-28/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Fouls)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Two of you go up for the same disc and there's contact. This is the foul you'll meet first, and it has the biggest reward in the rulebook.`,
+      explanation: `A receiving foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after either player makes a play on the disc. So it isn't contact in general — it's contact on the play, inside that window. And there's a limit at the other end: contact with an opponent's arms or hands after the disc has been caught is not a sufficient basis for a foul, though it should still be avoided.`,
+      example: `Here's why it matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone. Not back to the thrower — the disc, where the contact happened, and play restarts with a check. But you only get that if you call it in time: calls must be made immediately after the breach is recognised.`,
+      cta: `Lesson 28 of 75 — new lesson daily.`
+    },
+    ig: `Two of you go up for the same disc and there's contact. This is the foul you'll meet first, and it has the biggest reward in the rulebook.
+
+A receiving foul is contact on the play, not contact in general. A Receiving Foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after, either player makes a play on the disc. That window — before, while, or directly after — is doing real work. Bumping someone in the stack on the far side of the field is a different rule.
+
+And it stops at the catch. Contact with an opponent’s arms or hands, that occurs after the disc has been caught, or after the opponent can no longer make a play on the disc, is not a sufficient basis for a foul, but should be avoided. So the follow-through where your hand grazes their forearm as they bring it in isn't the call. Don't do it — but don't call it either.
+
+The reward is why this one matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone, and play restarts with a check. Read that again: in an end zone. Not a reset to the thrower — the disc, where the contact happened. If it's contested, the disc goes back to the thrower.
+
+All of which depends on saying it in time. Calls must be made immediately after the breach is recognised. Not after you've watched where the disc landed, and not after you've decided whether you'd have caught it. The moment you feel it.
+
+Lesson 28 of 75. Next up: what happens when contact knocks a disc out of hands that had already caught it.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `two of you go up for the same disc. there's contact. this is the foul you'll meet first 🥏
+
+"A Receiving Foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after, either player makes a play on the disc."
+
+before, while, or directly after. it's contact ON THE PLAY, not contact in general
+
+and it stops at the catch — contact with an opponent’s arms or hands after the disc has been caught "is not a sufficient basis for a foul, but should be avoided"
+
+so the graze on the follow-through? don't do it. don't call it either
+
+now the reward, and this is the part people don't know:
+
+"the fouled player gains possession at the location of the breach, even if that location is in an end zone, and play restarts with a check"
+
+IN AN END ZONE. not back to the thrower. the disc, right where it happened
+
+contested instead? disc goes back to the thrower
+
+one catch: "Calls must be made immediately after the breach is recognised." the moment you feel it — not after you've seen where the disc landed
+
+lesson 28 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-30 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 17.2.1 + 17.2.1.1 (what a receiving foul is, and where it stops), 17.2.2 (possession at the spot, even in an end zone) and 15.8 (call it immediately), a field tip, and the closing card.',
+      '17.2 is a heading stem ("Receiving Fouls:") and is deliberately NOT carded. Unlike 1.3 in reel 27 or 12.7 in reel 26, its child stands alone as a complete sentence, so the stem would only look like a fourth citation.',
+      'Layout measured before drafting: widest kicker is scene 2 at 858 of 900px (standard 34px, under reel-25 893px record); scene 2 body auto-fits to 33px over five lines, last baseline 1074 against the 1090 limit; scenes 4 and 6 stay at 36px. Neither floor is engaged.',
+      'First of the four named foul types — 28 receiving, 29 strip, 30 blocking, 31 force-out. Scene 4 stays on this foul remedy and must not start comparing it to the strip, which is lesson 29 whole point.',
+      'Keep "non-minor" — it is the hinge back to lesson 27 and the rulebook own word. Do not simplify it to "hard" or "real" contact where the rule is being reproduced.',
+      '17.2.1.1 carries a curly apostrophe in "opponent’s" and a trailing parenthetical, "(excluding contact related to Section 17.1 and 17.3)", which is part of the rule. Do not normalise the apostrophe and do not trim the parenthetical to save a line — shrink the type instead.',
+      '17.2.2 middle sentence about 14.3 and the pivot point is on the card but not in the voiceover, deliberately: the card quotes the rule whole because that is what a citation is, while the script stays on the part a beginner needs. Do not cut it from the card to make the two match.',
+      'The field tip must not cite a rule number. Late calls are handled under 15.9, which is not in this lesson rules array, so the tip stays practical rather than introducing a fourth citation on a slide with no citation footer.'
+    ]
   }
 ];
