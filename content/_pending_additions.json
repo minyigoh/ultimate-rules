@@ -1,7 +1,87 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
-  "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "calendar_rows": [
+    {
+      "date": "2026-09-03",
+      "post": "Strip fouls",
+      "type": "Reel",
+      "status": "Pending review",
+      "posted": "—",
+      "performance": "—"
+    },
+    {
+      "date": "2026-09-03",
+      "post": "carousel-post-5 — \"Week four: contact, and who decides\"",
+      "type": "Carousel (9 slides)",
+      "status": "Pending review",
+      "posted": "—",
+      "performance": "—"
+    }
+  ],
+  "review_state": {
+    "reel-27": {
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-30T22:49:24Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-08-31",
+          "duration": "29.5s",
+          "file": "reel27-not-every-touch.mp4",
+          "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 12.8, 15.1, and 1.3 + 1.3.10 quoted verbatim from rules.json. 1.3 is a stem ending \"Players must:\" and 1.3.10 begins lowercase, so scene 7 carries both, exactly as reel 23 did with 1.3 + 1.3.4. fit_kicker() engaged where the script predicted: scene 4 renders at 31px and scene 6 at 30px, scene 2 stays at 34px. Bodies auto-fit at 32, 36 and 32px. No word of the approved script was changed to make anything fit. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.23s against a 0.45s threshold."
+        }
+      ]
+    },
+    "reel-28": {
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-30T22:49:24Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-08-31",
+          "duration": "29.5s",
+          "file": "reel28-receiving-fouls.mp4",
+          "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 17.2.1 + 17.2.1.1, 17.2.2, and 15.8 quoted verbatim from rules.json, including 17.2.1.1's curly apostrophe and its trailing parenthetical. 17.2 is a heading stem and was deliberately not carded. Scene 3 is the densest card at max_y 922 of 1310 and scene 5 at 804, so 17.2.2 was carded whole with no split and no trimming. All three kickers at the standard 34px - fit_kicker() never engaged; bodies auto-fit at 34, 31 and 35px. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold."
+        }
+      ]
+    },
+    "reel-29": {
+      "script": {
+        "status": "pending",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-30T22:49:24Z"
+      },
+      "content": {
+        "status": "awaiting-render",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-30T22:49:24Z"
+      }
+    },
+    "carousel-post-5": {
+      "script": {
+        "status": "pending",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-30T22:49:24Z"
+      },
+      "content": {
+        "status": "awaiting-render",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-30T22:49:24Z"
+      }
+    }
+  },
+  "generated": "2026-08-30T22:49:24Z",
+  "by": "daily-reel-render"
 }

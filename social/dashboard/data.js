@@ -2025,21 +2025,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-09-01',
     title: `Not every touch is a foul`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 27,
+    duration: '~29s script / 29.5s cut',
     rules: ['12.8', '15.1', '1.3.10'],
     review: {
       script:  {status: 'pending', on: '2026-08-29'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-31'}
     },
     postedDate: null,
     folder: 'reel-27',
     source: 'content/reel-27/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Contact)',
-    video: null,
+    video: 'reel27-not-every-touch.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'Not every touch is a foul · kicker BEGINNER · LESSON 27 / 75'],
+      ['2', '#1 THE TOLERANCE IS DELIBERATE', '"Two people going to one point will sometimes touch." · footer cites 12.8'],
+      ['3', 'Rules detail', 'Verbatim 12.8'],
+      ['4', '#2 A FOUL NEEDS MORE THAN CONTACT', '"The word doing the work is \'non-minor\'." · footer cites 15.1'],
+      ['5', 'Rules detail', 'Verbatim 15.1'],
+      ['6', '#3 DID IT ACTUALLY CHANGE ANYTHING?', '"The call has a threshold, and it isn\'t \'I felt that\'." · footer cites 1.3, 1.3.10'],
+      ['7', 'Rules detail', 'Verbatim 1.3 + 1.3.10'],
+      ['8', 'FIELD TIP', '"If it didn\'t change what happened and nobody\'s hurt, let it go."'],
+      ['9', 'Closing', '"Lesson 27 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You brushed arms going for the same disc. That's not a foul, and the rulebook says so in one sentence.`,
       explanation: `Some minor contact may occur as two or more players move towards a single point simultaneously. Minor contact should be minimized — but it is not considered a foul. That is written down as a rule, not offered as a courtesy. The tolerance is deliberate, because two people running hard to one spot is the sport working correctly, not breaking.`,
@@ -2078,7 +2090,8 @@ over-calling is itself a spirit breach
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-29 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Rendered 2026-08-31 by the daily task. Nine scenes, exact CFR via encode.py; 29.50s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.23s against a 0.45s threshold.',
+      'Scene 4 kicker auto-fits to 31px and scene 6 to 30px — fit_kicker() engaged exactly where the script predicted it would. Bodies render at 32, 36 and 32px. No word of the approved script was changed to make anything fit.',
       'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 12.8 (the tolerance is deliberate), 15.1 (a foul needs non-minor contact) and 1.3 + 1.3.10 (did it actually change anything), a field tip, and the closing card.',
       '1.3 is a stem ending "Players must:" and 1.3.10 begins lowercase, so carded alone the limb is a fragment with no subject. Scene 7 carries both, exactly as reel 23 did with 1.3 + 1.3.4. The lesson rules array lists 1.3.10; 1.3 is on screen only as the grammar its own child requires.',
       'Closes the setup for the contact run: 25 is the duty, 26 is who initiated it, 27 is the carve-out. Lessons 28-31 are the named foul types, so scene 4 must stay on the definition and not start listing them.',
@@ -2092,21 +2105,33 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-09-02',
     title: `Receiving fouls`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 28,
+    duration: '~29s script / 29.5s cut',
     rules: ['17.2.1', '17.2.1.1', '17.2.2', '15.8'],
     review: {
       script:  {status: 'pending', on: '2026-08-30'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-08-31'}
     },
     postedDate: null,
     folder: 'reel-28',
     source: 'content/reel-28/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Fouls)',
-    video: null,
+    video: 'reel28-receiving-fouls.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'Receiving fouls · kicker BEGINNER · LESSON 28 / 75'],
+      ['2', '#1 BEFORE, WHILE OR JUST AFTER', '"A receiving foul is contact on the play for the disc." · footer cites 17.2.1, 17.2.1.1'],
+      ['3', 'Rules detail', 'Verbatim 17.2.1 + 17.2.1.1'],
+      ['4', '#2 EVEN IN THE END ZONE', '"The reward is the disc, exactly where it happened." · footer cites 17.2.2'],
+      ['5', 'Rules detail', 'Verbatim 17.2.2'],
+      ['6', '#3 SAY IT IMMEDIATELY', '"A foul called late is a different situation entirely." · footer cites 15.8'],
+      ['7', 'Rules detail', 'Verbatim 15.8'],
+      ['8', 'FIELD TIP', '"Call it at the moment of contact, out loud."'],
+      ['9', 'Closing', '"Lesson 28 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Two of you go up for the same disc and there's contact. This is the foul you'll meet first, and it has the biggest reward in the rulebook.`,
       explanation: `A receiving foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after either player makes a play on the disc. So it isn't contact in general — it's contact on the play, inside that window. And there's a limit at the other end: contact with an opponent's arms or hands after the disc has been caught is not a sufficient basis for a foul, though it should still be avoided.`,
@@ -2153,7 +2178,8 @@ lesson 28 of 75
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-30 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Rendered 2026-08-31 by the daily task. Nine scenes, exact CFR via encode.py; 29.50s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold.',
+      'All three kickers render at the standard 34px — scene 2 measured well inside the 900px column, so fit_kicker() never engaged. Bodies at 34, 31 and 35px. Scene 3 is the densest card at max_y 922 of 1310 and scene 5 at 804, so 17.2.2 was carded whole with no split and no trimming.',
       'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 17.2.1 + 17.2.1.1 (what a receiving foul is, and where it stops), 17.2.2 (possession at the spot, even in an end zone) and 15.8 (call it immediately), a field tip, and the closing card.',
       '17.2 is a heading stem ("Receiving Fouls:") and is deliberately NOT carded. Unlike 1.3 in reel 27 or 12.7 in reel 26, its child stands alone as a complete sentence, so the stem would only look like a fourth citation.',
       'Layout measured before drafting: widest kicker is scene 2 at 858 of 900px (standard 34px, under reel-25 893px record); scene 2 body auto-fits to 33px over five lines, last baseline 1074 against the 1090 limit; scenes 4 and 6 stay at 36px. Neither floor is engaged.',
@@ -2162,6 +2188,139 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       '17.2.1.1 carries a curly apostrophe in "opponent’s" and a trailing parenthetical, "(excluding contact related to Section 17.1 and 17.3)", which is part of the rule. Do not normalise the apostrophe and do not trim the parenthetical to save a line — shrink the type instead.',
       '17.2.2 middle sentence about 14.3 and the pivot point is on the card but not in the voiceover, deliberately: the card quotes the rule whole because that is what a citation is, while the script stays on the part a beginner needs. Do not cut it from the card to make the two match.',
       'The field tip must not cite a rule number. Late calls are handled under 15.9, which is not in this lesson rules array, so the tip stays practical rather than introducing a fourth citation on a slide with no citation footer.'
+    ]
+  },
+  {
+    id: 'reel-29',
+    date: '2026-09-03',
+    title: `Strip fouls`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 29,
+    rules: ['17.3.1', '17.3.2'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-31'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-29',
+    source: 'content/reel-29/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Fouls)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You caught it. Contact knocked it out of your hands. That is a specific foul with a specific name, and it is not the same as being fouled on the catch.`,
+      explanation: `A strip foul occurs when an opponent fouls a player and that causes the player to drop a disc they caught, or to lose possession of the disc. The key word is caught. Lesson 28's receiving foul is contact that stops you completing the catch. A strip is contact that takes away a catch you had already completed — the disc was yours, and the foul is why it isn't any more.`,
+      example: `Which is why the reward is different. If the reception would have otherwise been a goal, and the foul is accepted, a goal is awarded. Not the disc on the goal line. The goal. Because you had already caught it in the end zone, and the only reason you're not celebrating is the contact. Anywhere else on the field, it resolves like any other receiving foul — you keep it where it happened, and play restarts with a check.`,
+      cta: `Lesson 29 of 75 — new lesson daily.`
+    },
+    ig: `You caught it. Contact knocked it out of your hands. That's a specific foul with a specific name, and it isn't the same as being fouled on the catch.
+
+The word doing the work is "caught". A Strip Foul occurs when an opponent fouls a player and that causes the player to drop a disc they caught or to lose possession of the disc. Yesterday's receiving foul is contact that stops you completing a catch. A strip is contact that takes away a catch you had already completed. The disc was yours, and the foul is the reason it isn't any more.
+
+And that's why the reward is bigger. If the reception would have otherwise been a goal, and the foul is accepted, a goal is awarded. Not possession on the goal line — the goal. You had already caught it in the end zone; the only thing standing between you and a point on the board was contact that shouldn't have happened.
+
+Anywhere else on the field, it resolves the ordinary way. You keep possession where it happened, and play restarts with a check — the same remedy lesson 28 covered.
+
+Worth being precise about the name when you call it. "Foul" and "strip" lead to different outcomes, and the person you're calling it on can't agree to something they haven't understood.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `you caught it. contact knocked it out. that's not the same foul as being hit on the catch 🥏
+
+it has its own name: STRIP
+
+"A Strip Foul occurs when an opponent fouls a player and that causes the player to drop a disc they caught or to lose possession of the disc."
+
+the word doing the work is CAUGHT
+
+receiving foul = contact stops you completing the catch
+strip = contact takes away a catch you'd already completed
+
+and the reward is bigger:
+
+"If the reception would have otherwise been a goal, and the foul is accepted, a goal is awarded."
+
+not the disc on the goal line. the GOAL. you'd already caught it in the end zone
+
+anywhere else on the field? possession where it happened, restart with a check — same as lesson 28
+
+so say "strip", not just "foul". different words, different outcome
+
+lesson 29 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-31 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as seven scenes, the two-pair shape used by reels 11, 13, 14, 17, 19 and 24: cover, then pairs for 17.3.1 (what a strip is) and 17.3.2 (the goal is awarded), a field tip, and the closing card. The lesson cites two rules, so two pairs.',
+      '17.3 is a heading stem ("Strip Fouls:") and is deliberately NOT carded — same call as 17.2 in reel 28. Its child stands alone as a complete sentence, so the stem would only look like a third citation.',
+      'The non-goal remedy is spoken but not carded. When the catch would not have been a goal, what applies is lesson 28 ordinary receiving-foul remedy in 17.2.2, which is NOT in this lesson rules array. Scene 4 may refer back to lesson 28 in plain English, but 17.2.2 must not appear in a footer or on a card.',
+      'The whole lesson hinges on one word: caught. Scene 2 has to land that the catch was already complete, because that single fact separates this from lesson 28 and justifies the bigger remedy in scene 4.',
+      'Do not let scene 4 imply the goal is the only outcome. 17.3.2 is conditional — "if the reception would have otherwise been a goal" — and most strips happen mid-field and resolve like any other receiving foul.',
+      'Both rule texts are short (139 and 95 characters), so scenes 3 and 5 are the least crowded detail cards in the recent run. Keep the scene bodies to roughly 200-230 characters: two bodies this week hit the 29px fit_body() floor at ~275 characters before being tightened.'
+    ]
+  },
+  {
+    id: 'carousel-post-5',
+    date: '2026-09-03',
+    title: 'Week four: contact, and who decides',
+    type: 'Carousel',
+    pillar: 'Rules',
+    difficulty: 'Mixed',
+    lesson: null,
+    rules: ['15.4', '15.5', '15.5.1', '15.6', '1.10', '15.10', '13.3', '1.3.4', '15.11', '1.5.1', '12.6', '12.6.1', '12.6.2', '12.6.3', '12.7', '12.7.1', '12.7.2', '12.7.3', '12.4', '12.8', '15.1', '1.3.10', '17.2.1', '17.2.1.1', '17.2.2', '15.8'],
+    review: {
+      script:  {status: 'pending', on: '2026-08-31'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-5',
+    source: 'content/carousel-post-5/script-and-caption.md',
+    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 22-28',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Seven more lessons. This week the game stopped being about the disc and started being about each other.`,
+      explanation: `Who's allowed to make which call. How to contest properly. How to retract. The duty to avoid contact, who's deemed to have initiated it, and the tolerance the rules build in on purpose.`,
+      example: `Then on Wednesday, the first named foul type — receiving fouls, and the fact that an accepted one hands you the disc where it happened, even in an end zone. Each slide carries its rule numbers so you can look any of it up yourself.`,
+      cta: `Lessons 22 to 28 of 75 — new lesson daily.`
+    },
+    ig: `Week four, all in one place — and this was the week the game stopped being about the disc and started being about each other.
+
+Who is actually allowed to make a call, and why the sideline isn't. How to contest properly, and what to have ready when you do. The formal word for "actually, you're right". Then the contact framework in three parts: the duty to avoid it, the rulebook's own definition of who initiated it, and the tolerance built in on purpose — because minor contact is not a foul, and the rules say so in one sentence.
+
+And on Wednesday, the first of the named foul types. A receiving foul is contact on the play for the disc, and an accepted one hands the fouled player possession at the spot of the breach — even inside an end zone.
+
+Weeks one to three were the disc, your feet, and your marker. This week is the part of ultimate that has no referee to fall back on: two people who disagree, working out what happened. All of it is written down, which is the point.
+
+Each slide carries its rule numbers — so you can check any of it against the rulebook rather than taking our word for it.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+who can make which call · how to contest · how to retract · the duty to avoid contact · who initiated it · why minor contact isn't a foul · receiving fouls
+
+basically: the week where the sport stops being about the disc and starts being about the other person
+
+no referees. it's all written down instead
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-08-31 by the daily task. Awaiting script review. Slides not yet rendered — nothing renders until the script clears the first gate.',
+      'Block is lessons 22-28, the fourth contiguous block of seven, continuing straight on from carousel-post-4 15-21. Blocks run by lesson number, not by date. Carousel-post-6 starts at lesson 29.',
+      'Eligibility note: lessons 26, 27 and 28 have reels queued 2026-08-31, 09-01 and 09-02 — all before this carousel own 09-03 date, but after the day it was drafted. Same position carousel-post-4 was drafted in. If any of those three reels slips past 09-03, cut this carousel back to the lessons that actually went out and roll the rest into carousel-post-6.',
+      'No rule text on any slide. Rule numbers only, in the standard citation footer. If a slide starts to want a quotation, it is re-teaching — cut it back to the takeaway.',
+      'Takeaways are the lessons field lines from content/lessons-2.json, unedited. Two carry internal double quotes and one is a quotation in full; keep them exactly and let the type shrink if a line runs long.',
+      'Six slides begin a line with a double quote, which is the reel-21 leading-quote case. Check make_carousel.py carries the _payload() tspan wrapper from content/reel-26/render_v3.py before rendering, and verify the quotes survive in the PNGs, not just the SVGs.',
+      'The closing slide count is 28, not 29. A recap consumes no lesson number — reel 29 is queued the same day and is the week new lesson, not part of this block.'
     ]
   }
 ];
