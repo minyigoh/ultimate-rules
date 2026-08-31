@@ -891,10 +891,10 @@
   },
   "reel-30": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-31T22:39:40Z"
+      "updatedAt": "2026-08-31T23:42:24.854Z"
     },
     "content": {
       "status": "awaiting-render",

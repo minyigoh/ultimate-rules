@@ -36,7 +36,7 @@
 | 2026-09-02 | Receiving fouls | Reel | Script approved | — | — |
 | 2026-09-03 | Strip fouls | Reel | Script approved | — | — |
 | 2026-09-03 | carousel-post-5 — "Week four: contact, and who decides" | Carousel (9 slides) | Script approved | — | — |
-| 2026-09-04 | Blocking fouls | Reel | Pending review | — | — |
+| 2026-09-04 | Blocking fouls | Reel | Script approved | — | — |
 
 ## Status legend
 
