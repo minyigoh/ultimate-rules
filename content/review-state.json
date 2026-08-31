@@ -836,7 +836,12 @@
         "file": "reel27-not-every-touch.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 12.8, 15.1, and 1.3 + 1.3.10 quoted verbatim from rules.json. 1.3 is a stem ending \"Players must:\" and 1.3.10 begins lowercase, so scene 7 carries both, exactly as reel 23 did with 1.3 + 1.3.4. fit_kicker() engaged where the script predicted: scene 4 renders at 31px and scene 6 at 30px, scene 2 stays at 34px. Bodies auto-fit at 32, 36 and 32px. No word of the approved script was changed to make anything fit. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.23s against a 0.45s threshold."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-01",
+      "updatedAt": "2026-08-31T23:54:43.530Z"
+    }
   },
   "reel-28": {
     "script": {
