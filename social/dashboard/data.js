@@ -2322,5 +2322,90 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Six slides begin a line with a double quote, which is the reel-21 leading-quote case. Check make_carousel.py carries the _payload() tspan wrapper from content/reel-26/render_v3.py before rendering, and verify the quotes survive in the PNGs, not just the SVGs.',
       'The closing slide count is 28, not 29. A recap consumes no lesson number — reel 29 is queued the same day and is the week new lesson, not part of this block.'
     ]
+  },
+  {
+    id: 'reel-30',
+    date: '2026-09-04',
+    title: `Blocking fouls`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 30,
+    rules: ['12.5', '17.4.1', '12.9'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-01'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-30',
+    source: 'content/reel-30/script-and-caption.md',
+    sourceLesson: 'content/lessons-2.json (tag: Fouls)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `You got to the spot first, they ran into you, and you think that settles it. It doesn't. Being there first is not the test.`,
+      explanation: `Start with what you are allowed. Every player is entitled to occupy any position on the field not occupied by any opposing player — provided they do not initiate contact taking it, and are not moving in a reckless or dangerously aggressive manner. So the space is genuinely yours. The limit is what the space costs the other player. A blocking foul occurs when a player takes a position that an opponent moving in a legal manner will be unable to avoid, taking into account that opponent's expected position based on their established speed and direction.`,
+      example: `Expected position is the whole thing. A cutter at full speed has already committed to the next few metres. Step into that line at the last instant and it doesn't matter that you technically arrived a fraction earlier — they could not have avoided you, so it's your foul. And the same logic covers your limbs: players may not use their extended arms or legs to obstruct the movement of opposing players. Normal running and jumping isn't extended. Putting an arm out to hold someone off a cut is.`,
+      cta: `Lesson 30 of 75 — new lesson daily.`
+    },
+    ig: `You got to the spot first. They ran into you. You think that settles it — and it doesn't, because being there first is not the test.
+
+Start with what you're allowed. "Every player is entitled to occupy any position on the field not occupied by any opposing player, provided that they do not initiate contact in taking such a position, and are not moving in a reckless or dangerously aggressive manner." So the space really is yours to take. Two conditions, both about how you take it.
+
+The limit is what the space costs the other player. "A Blocking Foul occurs when a player takes a position that an opponent moving in a legal manner will be unable to avoid, taking into account the opponents expected position based on their established speed and direction, and non-minor contact results. This is to be treated as either a receiving foul or an indirect foul, whichever is applicable."
+
+That last sentence points at machinery we haven't covered yet — indirect fouls get their own lesson. Ignore it for now and stay on the first half.
+
+Expected position is the part people skip. A cutter at full speed has already committed to the next few metres — that ground is spoken for by where they are going, not by where they are. Step into it at the last instant and arriving a fraction earlier doesn't save you. They could not have avoided you. That's the foul.
+
+And it covers your limbs, not just your feet. "Players may not use their extended arms or legs to obstruct the movement of opposing players." Normal running and jumping isn't "extended". An arm across someone's chest to hold them off a cut is.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `"i was there first" is not the defence you think it is 🥏
+
+what you ARE allowed:
+
+"Every player is entitled to occupy any position on the field not occupied by any opposing player, provided that they do not initiate contact in taking such a position, and are not moving in a reckless or dangerously aggressive manner."
+
+the space is yours. two conditions on how you take it
+
+the limit:
+
+"A Blocking Foul occurs when a player takes a position that an opponent moving in a legal manner will be unable to avoid, taking into account the opponents expected position based on their established speed and direction, and non-minor contact results. This is to be treated as either a receiving foul or an indirect foul, whichever is applicable."
+
+(that last line is machinery for a later lesson — stay on the first half)
+
+EXPECTED POSITION is the bit everyone skips
+
+a cutter at full speed has already committed to the next few metres. that ground is spoken for
+
+step into it at the last instant? arriving a fraction earlier doesn't save you. they couldn't avoid you
+
+and it's not just your feet:
+
+"Players may not use their extended arms or legs to obstruct the movement of opposing players."
+
+normal running and jumping isn't "extended". an arm across someone's chest is
+
+boxing out is a basketball habit. here it's just illegal
+
+lesson 30 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-01 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Planned as nine scenes, the three-pair shape used by reels 20-23 and 25-28: cover, then pairs for 12.5 (the space is yours), 17.4.1 (the space that is not) and 12.9 (arms and legs), a field tip, and the closing card.',
+      'Order is 12.5 -> 17.4.1 -> 12.9, NOT the lessons array order. The reel has to grant the permission before it draws the limit; leading with 17.4.1 makes the whole thing sound like defence is illegal.',
+      '17.4 is a heading stem ("Blocking Fouls:") and is deliberately NOT carded — same call as 17.2 in reel 28 and 17.3 in reel 29.',
+      'Do not import 17.4 annotation. The "if a tree suddenly materialized in this space" test is the richest annotation in the chapter and it is commentary, not rule text. Scene 4 explains expected position in plain English because 17.4.1 states it; the tree stays out.',
+      '17.4.1 requires non-minor contact, the same qualifier lesson 27 taught. The card carries it verbatim; the spoken script must not imply any contact at all makes it a block.',
+      'The remedy is deferred, not stated. 17.4.1 ends "treated as either a receiving foul or an indirect foul, whichever is applicable" and indirect fouls have not been taught yet. Card it, do not explain it.',
+      '17.4.1 carries "opponents" with no apostrophe. That is what rules.json holds, so it stays that way on the card and in both block quotes. The spoken script is not a quotation and reads "that opponent\'s expected position".',
+      'Measured before drafting: scene 2 kicker 887 of 900px at the standard 34px (second-widest drafted, behind reel-25 893px), scene 4 at 871px, scene 6 engages fit_kicker() at 32px. All three bodies fit at 36px. Detail cards end at max_y 716, 866 and 566 of 1310 — 17.4.1 cards whole at 346 characters with no split.'
+    ]
   }
 ];

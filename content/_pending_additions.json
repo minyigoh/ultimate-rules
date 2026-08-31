@@ -1,7 +1,31 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
-  "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "calendar_rows": [
+    {
+      "date": "2026-09-04",
+      "post": "Blocking fouls",
+      "type": "Reel",
+      "status": "Pending review",
+      "posted": "—",
+      "performance": "—"
+    }
+  ],
+  "review_state": {
+    "reel-30": {
+      "script": {
+        "status": "pending",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-31T22:39:40Z"
+      },
+      "content": {
+        "status": "awaiting-render",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-08-31T22:39:40Z"
+      }
+    }
+  },
+  "generated": "2026-08-31T22:39:40Z",
+  "by": "daily-reel-render"
 }
