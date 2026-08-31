@@ -877,10 +877,10 @@
   },
   "carousel-post-5": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-30T22:49:24Z"
+      "updatedAt": "2026-08-31T23:39:20.444Z"
     },
     "content": {
       "status": "awaiting-render",
