@@ -31,7 +31,7 @@
 | 2026-08-28 | "Contest" — disagreeing properly | Reel | Posted | 2026-08-28 | — |
 | 2026-08-29 | Changing your mind is a rule, not a weakness | Reel | Posted | 2026-08-29 | — |
 | 2026-08-30 | The duty to avoid contact | Reel | Posted | 2026-08-30 | — |
-| 2026-08-31 | Who initiated the contact? | Reel | Ready to post | — | — |
+| 2026-08-31 | Who initiated the contact? | Reel | Posted | 2026-08-31 | — |
 | 2026-09-01 | Not every touch is a foul | Reel | Script approved | — | — |
 | 2026-09-02 | Receiving fouls | Reel | Script approved | — | — |
 

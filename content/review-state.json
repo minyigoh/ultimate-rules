@@ -808,7 +808,12 @@
         "file": "reel26-who-initiated.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s. 12.7 + 12.7.1 with 12.4, 12.7 + 12.7.2, and 12.7.3 quoted verbatim from rules.json. 12.7 is a stem ending in a colon so it repeats across both cards carrying a different limb each time. Scene 3, the densest card, measured max_y 1008 of 1310 against an estimated 1050, so 12.4 stayed on it and no rule text was split. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s. All three kickers and all three bodies at standard size - neither fit_kicker() nor fit_body() engaged."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-08-31",
+      "updatedAt": "2026-08-31T01:03:22.712Z"
+    }
   },
   "reel-27": {
     "script": {
