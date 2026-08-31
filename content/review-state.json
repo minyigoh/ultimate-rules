@@ -848,8 +848,10 @@
     "content": {
       "status": "rerender",
       "note": "Out loud may not be appropriate. We use hand signals in ultimate frisbee. Practically, we shout and use hand signals. ",
-      "tags": [],
-      "updatedAt": "2026-08-31T23:44:11.318Z"
+      "tags": [
+        "Wrong take"
+      ],
+      "updatedAt": "2026-08-31T23:44:17.681Z"
     },
     "revisions": [
       {
