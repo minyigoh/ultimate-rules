@@ -870,10 +870,10 @@
   },
   "reel-29": {
     "script": {
-      "status": "changes",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T13:37:43.485Z"
+      "updatedAt": "2026-09-01T13:40:22.290Z"
     },
     "content": {
       "status": "awaiting-render",
