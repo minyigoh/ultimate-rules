@@ -61,3 +61,28 @@ regenerated in this pass — words clear the first gate before anything is
 re-rendered. The content track stays where the desk left it and the calendar
 row stays at "Content rejected — regenerate"; the next run rebuilds once this
 redraft is approved.
+
+---
+
+## Round 1, addendum — 2026-09-02 (daily-reel-render, at rebuild)
+
+Rebuilt from this redraft today. One thing the 09-01 round missed, fixed on the
+way through:
+
+- **Scene 6's body.** It opened "All of that depends on **saying it** in time",
+  which is the same voice-only framing the note objected to, on the slide
+  immediately before the field tip that corrects it. The 09-01 redraft changed
+  the identical phrase in the Instagram caption ("depends on **making the
+  call** in time") and did not carry it across to the scene body. Now matched:
+  "All of that depends on making the call in time."
+
+Nothing else moved. No rule number, no rule text, no citation footer, no other
+kicker or headline. This is the same wording correction as the rest of the
+round, not a new one.
+
+**The script track still carries its 2026-08-30 `approved` stamp**, which
+predates this redraft. Read the beats and both captions on the desk and click
+**Approve** to re-stamp them against the words that are actually there. If they
+are still wrong, **Request changes** with a note. Do not click Request changes
+merely to park it — the next run would rewrite the redraft rather than protect
+it.

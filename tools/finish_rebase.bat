@@ -95,6 +95,11 @@ if "%MARKERS%"=="1" goto :markers
   echo ===== 5. commit anything left over =====
   %GIT% add "content/*.md" content/review-state.json content/_pending_additions.json social/dashboard/data.js
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM rearm_queue.bat and the drained-batch archive. Own lines, per the rule
+  REM in sync.bat: a pathspec matching nothing is fatal and would silently
+  REM drop every later pattern sharing its line.
+  %GIT% add tools/rearm_queue.bat
+  %GIT% add "content/_pending_additions.applied.json"
   REM Undated evergreen assets, mirroring the block sync.bat gained on
   REM 2026-08-22. Own lines: a pathspec matching nothing is fatal and would
   REM silently drop every later pattern sharing its line.
@@ -128,7 +133,15 @@ if "%MARKERS%"=="1" goto :markers
     %GIT% push origin main
     set RC=!ERRORLEVEL!
     echo push rc=!RC!
-    if !RC! NEQ 0 echo PUSH FAILED - nothing reached GitHub or the desk.
+    if !RC! NEQ 0 (
+      echo PUSH FAILED - nothing reached GitHub or the desk.
+      echo.
+      echo The queue was drained in step 4 onto a commit that cannot land,
+      echo and that commit contains review-state.json. Recover with:
+      echo     1. tools\rearm_queue.bat
+      echo     2. tools\sync.bat
+      echo     3. tools\take_desk_version.bat   ^(only if it stops on a conflict^)
+    )
   )
   echo.
 

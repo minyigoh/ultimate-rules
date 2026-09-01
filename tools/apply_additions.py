@@ -61,6 +61,9 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 ADDITIONS = os.path.join(REPO, "content", "_pending_additions.json")
+# Carbon copy of whatever was last drained, so a rejected push is recoverable.
+# See the "Draining is not the end of the story" note above main().
+APPLIED = os.path.join(REPO, "content", "_pending_additions.applied.json")
 CALENDAR = os.path.join(REPO, "content", "calendar.md")
 REVIEW = os.path.join(REPO, "content", "review-state.json")
 
@@ -262,6 +265,26 @@ def apply_review(entries):
     return added, updated
 
 
+# Draining is not the end of the story
+# ------------------------------------
+# This script runs AFTER the pull and BEFORE the push, and it writes
+# review-state.json. So between it finishing and the push landing there is a
+# window in which the Worker can commit a desk decision and make the push
+# non-fast-forward. When that happens the operator is left holding a local
+# commit that contains review-state.json -- the one file that conflicts with
+# the desk by construction -- and a queue that has already been drained.
+#
+# That is exactly what happened on 2026-09-01: the push was rejected because
+# two script approvals landed at 13:40Z, and the reel-29/reel-30 render flips
+# had to be reconstructed by hand from the run's own report before sync could
+# be retried. Nothing was lost that time only because the report happened to
+# still be on screen.
+#
+# So the drained payload is copied to _pending_additions.applied.json rather
+# than simply deleted. tools\rearm_queue.bat copies it back. Re-applying is a
+# no-op by design (an already-flipped track logs "nothing to do"), so re-arming
+# after a rejected push is always safe, and re-arming after a SUCCESSFUL push
+# is merely pointless rather than harmful.
 def main():
     data = load_additions()
     if data is None:
@@ -290,11 +313,19 @@ def main():
                "generated": None, "by": None}
     if "_readme" in data:
         drained = {"_readme": data["_readme"], **drained}
+
+    # Carbon copy FIRST, so a crash between the two writes loses nothing.
+    with open(APPLIED, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
     with open(ADDITIONS, "w", encoding="utf-8") as f:
         json.dump(drained, f, indent=2, ensure_ascii=False)
         f.write("\n")
     log("applied %d calendar row(s), %d new review-state entr(ies), "
         "%d updated; queue drained" % (n_cal, n_rev, n_upd))
+    log("drained copy kept at content/_pending_additions.applied.json - "
+        "if the push is rejected, run tools\\rearm_queue.bat before retrying")
 
 
 if __name__ == "__main__":

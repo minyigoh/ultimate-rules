@@ -34,9 +34,18 @@ def esc(s):
 #
 # Applied only when the text actually starts with a quote, so every other
 # element in every other asset emits byte-identical SVG to what has shipped.
+# 2026-09-02: the same collision happens at the *closing* delimiter. A payload
+# ending in a double quote loses it too, and a payload that both starts and
+# ends with one loses both. Found while proofing carousel-post-5, whose slide 3
+# wrapped to a last line of `hand."` and rendered `hand.` -- correct in the SVG,
+# missing in the PNG. Measured: bare `hand."` drops it, bare `"a b."` drops
+# both, `say "hi" now` is fine, and the <tspan> fixes all of them. So the
+# condition is startswith OR endswith.
 def _payload(s):
     t = esc(s)
-    return f"<tspan>{t}</tspan>" if t.startswith("&quot;") else t
+    if t.startswith("&quot;") or t.endswith("&quot;"):
+        return f"<tspan>{t}</tspan>"
+    return t
 
 def bold(x, y, text, size, color, anchor="start", sw=2.6):
     return (f'<text x="{x}" y="{y}" font-family="{FONT}" font-weight="bold" font-size="{size}" '
@@ -261,9 +270,9 @@ SCENES = [
     ('window_r', g_detail(3, [('17.2.1', [rt('17.2.1'), ('17.2.1.1', rt('17.2.1.1'))])]), [0.3, 2.0]),
     ('reward', g_main(4, 'EVEN IN THE END ZONE', "The reward is the disc, exactly where it happened.", "After an accepted receiving foul the fouled player gains possession at the location of the breach \u2014 even if that location is in an end zone \u2014 and play restarts with a check. Not a reset to the thrower. If the foul is contested instead, the disc does go back.", ['17.2.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('reward_r', g_detail(5, [('17.2.2', [rt('17.2.2')])]), [0.3, 2.0]),
-    ('immediate', g_main(6, 'SAY IT IMMEDIATELY', "A foul called late is a different situation entirely.", "All of that depends on saying it in time. Calls must be made immediately after the breach is recognised \u2014 not after you have watched where the disc landed, and not after you have decided whether you would have caught it.", ['15.8'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('immediate', g_main(6, 'CALL IT IMMEDIATELY', "A foul called late is a different situation entirely.", "All of that depends on making the call in time. Calls must be made immediately after the breach is recognised \u2014 not after you have watched where the disc landed, and not after you have decided whether you would have caught it.", ['15.8'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('immediate_r', g_detail(7, [('15.8', [rt('15.8')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Call it at the moment of contact, out loud.", "The instinct is to wait and see whether you got the disc anyway. Don't. The call belongs to the moment you felt it, and waiting is what turns a clean decision into an argument."), [0.3, 0.45, 0.7, 1.7]),
+    ('tip', g_tip(8, "Call it at the moment of contact \u2014 shout and signal.", "A call is two things at once: the word and the hand signal. Downfield players will not hear you across a windy sideline, but they can see your arms \u2014 and once they see it, they echo it and the whole field stops together."), [0.3, 0.45, 0.7, 1.7]),
     ('close', g_closing(9, 28), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------

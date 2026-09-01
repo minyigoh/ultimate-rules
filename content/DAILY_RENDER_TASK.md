@@ -526,6 +526,37 @@ deterministic: **anything that already existed takes the remote/desk version**
 **anything this run newly created stays local**. `tools\finish_rebase.bat`
 stages the resolution, continues the rebase, applies the additions, and pushes.
 
+### If the push is rejected, the queue must be re-armed before retrying
+
+`apply_additions.py` runs *after* the pull and *before* the push, and it writes
+`review-state.json`; `sync.bat` then commits that file. So there is a window —
+between the pull and the push — in which the Worker can commit a desk decision
+and make the push non-fast-forward. When that happens two things are true at
+once: the local commit contains `review-state.json`, which conflicts with the
+desk by construction, and the queue that could regenerate it has already been
+drained.
+
+This bit on 2026-09-01. Two script approvals landed at 13:40Z mid-run, the push
+was rejected, and the reel-29 and reel-30 render flips had to be reconstructed
+by hand from the run's own report.
+
+Since then `apply_additions.py` keeps a carbon copy of every drained batch at
+`content/_pending_additions.applied.json`, and `tools\rearm_queue.bat` restores
+it. The recovery, in order:
+
+1. `tools\rearm_queue.bat` — puts the drained batch back on the queue. It
+   refuses if the queue is non-empty, so it cannot silently overwrite newer
+   work.
+2. `tools\sync.bat`
+3. `tools\take_desk_version.bat` — only if the sync stops on a conflict in
+   `review-state.json`. The desk's copy wins; the re-armed queue replays the
+   flips on top of it.
+
+Re-applying is a no-op by design — an already-flipped track logs "nothing to
+do" and `revisions` entries are keyed on `v` + `file` — so re-arming when it
+was not needed costs nothing. Both scripts now print these three steps on a
+rejected push.
+
 ### Two failure modes that have already bitten this pipeline
 
 - **A `git add` pathspec that matches nothing is fatal and aborts the whole

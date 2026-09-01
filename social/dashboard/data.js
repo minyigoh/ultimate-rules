@@ -2113,7 +2113,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     rules: ['17.2.1', '17.2.1.1', '17.2.2', '15.8'],
     review: {
       script:  {status: 'pending', on: '2026-09-01'},
-      content: {status: 'rerender', on: '2026-08-31'}
+      content: {status: 'in-review', on: '2026-09-02'}
     },
     postedDate: null,
     folder: 'reel-28',
@@ -2182,8 +2182,10 @@ lesson 28 of 75
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'REDRAFT v2, 2026-09-01 — script back at the first gate after a content-track note ("Out loud may not be appropriate. We use hand signals in ultimate frisbee."). Scene 6 kicker SAY IT IMMEDIATELY -> CALL IT IMMEDIATELY; scene 8 field tip now "shout and signal"; both captions updated. No rule number, rules card, lesson number or hashtag changed — 15.7 and 15.13 back the note but belong to lesson 73, so nothing new is cited. The cut on disk is v1 and is NOT being rebuilt until this copy is approved. See content/reel-28/script-feedback.md.',
-      'Rendered 2026-08-31 by the daily task. Nine scenes, exact CFR via encode.py; 29.50s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold.',
+      'REBUILT 2026-09-02 from the v2 redraft — v2 cut is on disk, content pending review, v1 archived as reel28-receiving-fouls.v1.mp4. READ BEFORE APPROVING: the script track still carries its 2026-08-30 approved stamp, which predates the redraft. The beats and captions here ARE the redraft, so read them and click Approve on the script track to re-stamp it against the words actually there. Do not click Request changes merely to park it — the next run would rewrite the redraft rather than protect it.',
+      'REDRAFT v2, 2026-09-01 — after a content-track note ("Out loud may not be appropriate. We use hand signals in ultimate frisbee."). Scene 6 kicker SAY IT IMMEDIATELY -> CALL IT IMMEDIATELY; scene 8 field tip now "shout and signal"; both captions updated. No rule number, rules card, lesson number or hashtag changed — 15.7 and 15.13 back the note but belong to lesson 73, so nothing new is cited. See content/reel-28/script-feedback.md.',
+      'One thing the 09-01 redraft missed, fixed at rebuild on 09-02: scene 6 body opened "All of that depends on saying it in time" — the same voice-only framing, on the slide right before the tip that corrects it. Now "depends on making the call in time", matching the phrase the redraft had already changed in the Instagram caption. Nothing else moved.',
+      'Rendered v2 2026-09-02. Nine scenes, exact CFR via encode.py; 29.50s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. All three kickers at the standard 34px, bodies at 34, 31 and 35px — the edits changed no line counts, so every measurement matches v1. This rebuild does not improve on v1 by any metric; the defect was the words.',
       'All three kickers render at the standard 34px — scene 2 measured well inside the 900px column, so fit_kicker() never engaged. Bodies at 34, 31 and 35px. Scene 3 is the densest card at max_y 922 of 1310 and scene 5 at 804, so 17.2.2 was carded whole with no split and no trimming.',
       'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 17.2.1 + 17.2.1.1 (what a receiving foul is, and where it stops), 17.2.2 (possession at the spot, even in an end zone) and 15.8 (call it immediately), a field tip, and the closing card.',
       '17.2 is a heading stem ("Receiving Fouls:") and is deliberately NOT carded. Unlike 1.3 in reel 27 or 12.7 in reel 26, its child stands alone as a complete sentence, so the stem would only look like a fourth citation.',
@@ -2288,16 +2290,26 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     difficulty: 'Mixed',
     lesson: null,
     rules: ['15.4', '15.5', '15.5.1', '15.6', '1.10', '15.10', '13.3', '1.3.4', '15.11', '1.5.1', '12.6', '12.6.1', '12.6.2', '12.6.3', '12.7', '12.7.1', '12.7.2', '12.7.3', '12.4', '12.8', '15.1', '1.3.10'],
+    typeDetail: '2250×2812 · 8 slides',
     review: {
       script:  {status: 'pending', on: '2026-09-01'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-02'}
     },
     postedDate: null,
     folder: 'carousel-post-5',
     source: 'content/carousel-post-5/script-and-caption.md',
     sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 22-27',
     video: null,
-    slides: null,
+    slides: [
+      '01_cover.png',
+      '02_lesson22_who_calls_what.png',
+      '03_lesson23_contest.png',
+      '04_lesson24_retracted.png',
+      '05_lesson25_avoid_contact.png',
+      '06_lesson26_who_initiated.png',
+      '07_lesson27_not_every_touch.png',
+      '08_closing.png'
+    ],
     scenes: [
       ['1', 'Cover', 'kicker THIS WEEK · "Week four: contact, and who decides" · subhead "This week\'s six lessons — everything the daily reels covered, 27 August – 1 September." · SWIPE →'],
       ['2', 'LESSON 22', '"Who is allowed to make which call" · footer 15.4 · 15.5 · 15.5.1 · 15.6 · 1.10'],
@@ -2342,14 +2354,15 @@ six this week instead of seven — the named foul types start next week and get 
 rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'REDRAFT v2, 2026-09-01 — block cut from lessons 22-28 to 22-27, nine slides to eight. Back at the first gate; awaiting script review. TIME-SENSITIVE: queued for 09-03, so it needs approving before the Thursday run can build it. See content/carousel-post-5/script-feedback.md.',
+      'BUILT 2026-09-02 from the v2 redraft — eight slides, content pending review. READ BEFORE APPROVING: the script approval stamped at 21:40 on 09-01 was against v1 (lessons 22-28, nine slides); the redraft landed in the push at 21:46, six minutes later. These slides are the redraft. Everything that changed is visible on them — the cover says six, there is no lesson-28 slide, the counter reads n / 8, the closing says twenty-seven. If the words are right, click Approve on the script track to re-stamp it against what is actually there.',
+      'REDRAFT v2, 2026-09-01 — block cut from lessons 22-28 to 22-27, nine slides to eight. See content/carousel-post-5/script-feedback.md.',
       'Why the cut: v1 attached a condition to the 22-28 block — "if any of those three reels slips past 09-03, cut this carousel back to the lessons that actually went out". Reel 28 was rejected on the content track on 08-31, is back at the script gate, and cannot be approved, rebuilt, content-approved and posted before 09-03. Lesson 28 reel has not posted, so lesson 28 is not eligible.',
       'Carousel-post-6 block is 28-34, NOT 29-35. Lesson 28 rolls forward; blocks stay contiguous and nothing is recapped twice. This is the easiest thing to get wrong next Thursday.',
       'TOTAL is 8, not 9 — first recap that is not nine slides. The n / TOTAL header counter, the slide filenames and the closing slide number all key off it.',
       'The cover states the short block on its face: "This week\'s six lessons". Per the recap rule, a short block says its own size rather than quietly looking like a full one.',
       'No rule text on any slide. Rule numbers only, in the standard citation footer. If a slide starts to want a quotation, it is re-teaching — cut it back to the takeaway.',
       'Takeaways are the lessons field lines from content/lessons-2.json, unedited. Three carry internal double quotes and one is a quotation in full; keep them exactly and let the type shrink if a line runs long.',
-      'Five slides begin a line with a double quote, which is the reel-21 leading-quote case. Check make_carousel.py carries the _payload() tspan wrapper from content/reel-26/render_v3.py before rendering, and verify the quotes survive in the PNGs, not just the SVGs.',
+      'Quote handling: make_carousel.py carries the _payload() tspan wrapper, and rendering it surfaced a NEW defect — a double quote at the END of a line is dropped too, not just one at the start. Slide 3 wrapped to a last line of `hand."` and rendered `hand.` _payload() now wraps on startswith OR endswith. Verified in the PNGs, not just the SVGs. Two already-posted reels shipped with this: reel-11 and reel-26, both on their field tip.',
       'The closing slide count is 27, and it says "More next Thursday" rather than "Seven more" — next week block is 28-34 and the number should not be promised in advance.'
     ]
   },
@@ -2448,6 +2461,105 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'The remedy is deferred, not stated. 17.4.1 ends "treated as either a receiving foul or an indirect foul, whichever is applicable" and indirect fouls have not been taught yet. Card it, do not explain it.',
       '17.4.1 carries "opponents" with no apostrophe. That is what rules.json holds, so it stays that way on the card and in both block quotes. The spoken script is not a quotation and reads "that opponent\'s expected position".',
       'Measured before drafting: scene 2 kicker 887 of 900px at the standard 34px (second-widest drafted, behind reel-25 893px), scene 4 at 871px, scene 6 engages fit_kicker() at 32px. All three bodies fit at 36px. Detail cards end at max_y 716, 866 and 566 of 1310 — 17.4.1 cards whole at 346 characters with no split.'
+    ]
+  },
+  {
+    id: 'reel-31',
+    date: '2026-09-05',
+    title: `Force-out fouls`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 31,
+    duration: '~30s script',
+    rules: ['17.5.1', '17.5.1.1', '17.5.1.2', '17.5.2', '17.5.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-02'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-31',
+    source: 'content/reel-31/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Fouls)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Force-out fouls · kicker BEGINNER · LESSON 31 / 75'],
+      ['2', '#1 THE CONTACT MOVED YOU', '"The foul has to be what put you there." · footer cites 17.5.1, 17.5.1.1, 17.5.1.2'],
+      ['3', 'Rules detail', 'Verbatim 17.5.1 + 17.5.1.1 + 17.5.1.2'],
+      ['4', "#2 IN THE END ZONE, IT'S A GOAL", '"If it would have been a goal, it is a goal." · footer cites 17.5.2'],
+      ['5', 'Rules detail', 'Verbatim 17.5.2'],
+      ['6', '#3 CONTESTED SPLITS TWO WAYS', '"Contested? It depends where you ended up." · footer cites 17.5.3'],
+      ['7', 'Rules detail', 'Verbatim 17.5.3'],
+      ['8', 'FIELD TIP', '"If you were going out anyway, it\'s just out."'],
+      ['9', 'Closing', '"Lesson 31 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `You catch it a step inside the line, a defender bumps you, and your feet land out. Was that just out — or was it a foul that owes you something?`,
+      explanation: `It's a force-out if the contact is what moved you. A force-out foul occurs when a receiver is in the process of establishing possession, and is fouled by a defensive player before establishing it, and the contact caused the receiver to catch the disc out-of-bounds instead of in-bounds, or in the central zone instead of their attacking end zone. Two ways to be moved: across the sideline, or short of the end zone.`,
+      example: `And the remedy matches. If you would have caught the disc in your attacking end zone, it is a goal — not the disc at the line, the point. If the call is contested, it splits on where you actually ended up: if you became out-of-bounds, the disc goes back to the thrower; otherwise it stays with you.`,
+      cta: `Lesson 31 of 75 — new lesson daily.`
+    },
+    ig: `You catch it a step inside the line, a defender bumps you, and your feet land out. Was that just out — or was it a foul that owes you something?
+
+**The test is whether the contact moved you.** "A Force-out Foul occurs when a receiver is in the process of establishing possession of the disc, and is fouled by a defensive player before subsequently establishing possession, and the contact caused the receiver:" — and then two ways to be moved: "to catch the disc out-of-bounds instead of in-bounds; or" "to catch the disc in the central zone instead of their attacking end zone."
+
+Read those two together and the shape of the rule is clear. It isn't about contact near a line. It's about contact that changed which side of a line you finished on.
+
+**The remedy gives back what the contact took.** "If the receiver would have caught the disc in their attacking end zone, it is a goal;" Not the disc at the goal line. The point.
+
+**And if it's contested, the outcome splits.** "If the force-out foul is contested, the disc is returned to the thrower if the receiver became out-of-bounds, otherwise the disc stays with the receiver." So a contested force-out where you went out is a reset; a contested one where you stayed in leaves the disc with you.
+
+That's the fourth and last of the named foul types — receiving, strip, blocking, force-out. Each one names a specific thing contact can take away, and each one hands it back.
+
+Lesson 31 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `you catch it inside the line, get bumped, land out. just out? or a foul that owes you something 🥏
+
+the test is whether the contact MOVED you:
+
+"A Force-out Foul occurs when a receiver is in the process of establishing possession of the disc, and is fouled by a defensive player before subsequently establishing possession, and the contact caused the receiver:"
+
+two ways to be moved —
+
+"to catch the disc out-of-bounds instead of in-bounds; or"
+
+"to catch the disc in the central zone instead of their attacking end zone."
+
+so it's not about contact near a line. it's about contact that changed which side of the line you finished on
+
+the reward:
+
+"If the receiver would have caught the disc in their attacking end zone, it is a goal;"
+
+not the disc at the line. THE POINT
+
+contested? it splits:
+
+"If the force-out foul is contested, the disc is returned to the thrower if the receiver became out-of-bounds, otherwise the disc stays with the receiver."
+
+went out → back to the thrower. stayed in → it's yours
+
+that's all four named foul types now: receiving, strip, blocking, force-out
+
+lesson 31 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-02 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Last of the four named foul types: 28 receiving, 29 strip, 30 blocking, 31 force-out. Nine scenes, the three-pair shape.',
+      '17.5 is a heading stem ("Force-out Fouls:") and is deliberately NOT carded — same call as 17.2, 17.3 and 17.4 in reels 28, 29 and 30.',
+      '17.5.1 is a stem ending in a colon and needs both limbs on the same card. "…and the contact caused the receiver:" is not a sentence on its own; 17.5.1.1 and 17.5.1.2 are the two ways it finishes. Same handling as 12.7 in reel 26 and 1.3 in reels 23 and 27.',
+      '17.5.2 ends with a semicolon. That is what rules.json holds and what the source prints, so it stays — the card is a quotation, not prose.',
+      '"In the process of establishing possession" is the hinge and must not be simplified. The foul has to land BEFORE possession is established; once it is established and contact knocks the disc out, that is lesson 29 strip. The two lessons sit either side of the same instant.',
+      'Do not say "if you were going out anyway it is still a foul" — it is the opposite, and it is the whole point of the field tip. The contact has to have caused the different outcome.',
+      'Dry-rendered and measured 2026-09-02 before the draft was finalised: all three kickers fit at the standard 34px (712, 834 and 826 of the 900px column) and all three bodies at 36px, so neither fit_kicker() nor fit_body() engages. All three main scenes end at max_y 1192 of 1310. Detail cards land at 940, 404 and 504. Layout check 0 problems with no collisions. Projected 30.0s.',
+      'No leading or trailing double quotes anywhere in this reel copy, so the _payload() case does not arise. Start the build from content/reel-28/render_v3.py — it is the newest copy and carries the widened helper.',
+      'content/scenes.json carries a force-out diagram used by the website chapter. Reels have no diagram scene and this one does not introduce it; noted so it is not a surprise later.'
     ]
   }
 ];

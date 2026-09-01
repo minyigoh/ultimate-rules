@@ -106,6 +106,11 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM rearm_queue.bat and the drained-batch archive it restores from. Own
+  REM line, per the rule above: on the first run after this was added the
+  REM archive does not exist yet, and a pathspec matching nothing is fatal.
+  %GIT% add tools/rearm_queue.bat
+  %GIT% add "content/_pending_additions.applied.json"
   REM The verification tools. check_layout.py and check_dull.py are tracked but
   REM no pattern above ever covered them, so an edit to either sat modified-but-
   REM unstaged forever -- and "git pull --rebase" refuses to run with ANY tracked
@@ -261,6 +266,13 @@ if exist ".git\rebase-apply" goto :midrebase
     echo SYNC RESULT: OK - main is pushed and the desk is current.
   ) else (
     echo SYNC RESULT: FAILED - local work has NOT reached GitHub or the desk.
+    echo.
+    echo If the failure above was the PUSH being rejected ^("fetch first"^),
+    echo the queue has already been drained onto a commit that cannot land.
+    echo Recover with, in order:
+    echo     1. tools\rearm_queue.bat
+    echo     2. tools\sync.bat
+    echo     3. tools\take_desk_version.bat   ^(only if it stops on a conflict^)
   )
   echo ===== DONE =====
 )

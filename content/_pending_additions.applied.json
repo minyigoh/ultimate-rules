@@ -1,0 +1,7 @@
+{
+  "_readme": "Carbon copy of the last batch tools/apply_additions.py drained from _pending_additions.json, written immediately BEFORE the queue is cleared. It exists so that a rejected push is recoverable: apply_additions runs after the pull and before the push and writes review-state.json, so if the Worker commits a desk decision in that window the push is rejected, leaving a local commit that contains review-state.json and a queue that has already been drained. tools/rearm_queue.bat copies this file back onto the queue; then sync.bat, then take_desk_version.bat if the sync stops on a conflict. Re-applying is a no-op by design - an already-flipped track logs 'nothing to do' and revisions entries are keyed on v + file - so re-arming when it was not needed costs nothing. Do not hand-edit; apply_additions.py overwrites this on every drain. This seeded copy is deliberately empty so the git add pathspec in sync.bat matches on the first run.",
+  "calendar_rows": [],
+  "review_state": {},
+  "generated": null,
+  "by": null
+}

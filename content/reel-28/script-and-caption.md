@@ -1,9 +1,11 @@
 # Reel 28 — Receiving fouls
 
-**Status:** Pending review — redraft v2, after a content-track note on the
-field tip (see `script-feedback.md`)
+**Status:** Content pending review — rebuilt 2026-09-02 from the v2 redraft.
+The script track's `approved` stamp is dated 2026-08-30 and **predates the
+redraft**; read the beats and captions on the desk and re-Approve to stamp them
+against the words actually there (see `script-feedback.md`).
 **Script drafted:** 2026-08-30 · **Redrafted:** 2026-09-01 (daily-reel-render)
-**Rendered:** v1 2026-08-31 — superseded, awaiting rebuild from this copy
+**Rendered:** v1 2026-08-31 (superseded) · v2 2026-09-02 (daily-reel-render)
 **Queued:** 2026-09-02 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (17.2.1, 17.2.1.1, 17.2.2, 15.8)
@@ -30,7 +32,7 @@ rule-citation cards — the standard three-pair shape, same as reels 16, 18, 20,
 | 3 | Rules detail | Verbatim 17.2.1 + 17.2.1.1 |
 | 4 | #2 EVEN IN THE END ZONE | "The reward is the disc, exactly where it happened." · footer cites 17.2.2 |
 | 5 | Rules detail | Verbatim 17.2.2 |
-| 6 | #3 CALL IT IMMEDIATELY | "A foul called late is a different situation entirely." · footer cites 15.8 |
+| 6 | #3 CALL IT IMMEDIATELY | "A foul called late is a different situation entirely." · body opens "All of that depends on making the call in time" · footer cites 15.8 |
 | 7 | Rules detail | Verbatim 15.8 |
 | 8 | FIELD TIP | "Call it at the moment of contact — shout and signal." |
 | 9 | Closing | "Lesson 28 of 75." · Follow @learn.ultimatefrisbee |
