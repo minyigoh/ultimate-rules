@@ -884,10 +884,10 @@
   },
   "carousel-post-5": {
     "script": {
-      "status": "approved",
+      "status": "changes",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-31T23:39:20.444Z"
+      "updatedAt": "2026-09-01T13:37:53.299Z"
     },
     "content": {
       "status": "awaiting-render",
