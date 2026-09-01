@@ -876,11 +876,20 @@
       "updatedAt": "2026-09-01T13:40:22.290Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-30T22:49:24Z"
-    }
+      "updatedAt": "2026-09-01T13:30:05Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-01",
+        "duration": "28.5s",
+        "file": "reel29-strip-fouls.mp4",
+        "changed": "Initial render from the approved script. Seven scenes (two-pair shape), exact CFR via encode.py; 28.53s. 17.3.1 and 17.3.2 quoted verbatim from rules.json, verified byte-identical against the source. 17.3 is a heading stem and was deliberately not carded, and 17.2.2 was kept off the cards as the script requires - the non-goal remedy is lesson 28's rule and appears in prose only. Both kickers at the standard 34px (870 and 823 of 900px), so fit_kicker() never engaged; scene 2's body auto-fits to 34px over five lines and scene 4 stays at 36px over six. Scenes 3 and 5 are the emptiest detail cards in the run at max_y 504 and 454 of 1310 - no split, no trimming. The field tip wraps so that line 2 begins with a double quote, the reel-21 case; it emitted through _payload() as a <tspan> and both quotes were confirmed present in the PNG, not just the SVG. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold."
+      }
+    ]
   },
   "carousel-post-5": {
     "script": {
@@ -904,10 +913,19 @@
       "updatedAt": "2026-08-31T23:42:24.854Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-31T22:39:40Z"
-    }
+      "updatedAt": "2026-09-01T13:30:05Z"
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-01",
+        "duration": "29.5s",
+        "file": "reel30-blocking-fouls.mp4",
+        "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 12.5, 17.4.1 and 12.9 quoted verbatim from rules.json, verified byte-identical against the source. Carded in the script's order 12.5 -> 17.4.1 -> 12.9 rather than the lesson's array order, so the reel grants the permission before drawing the limit. 17.4 is a heading stem and was not carded, and its annotation - the 'tree suddenly materialized' test - was kept off every scene, since the reel cites rule text only. Every layout prediction in the approved script held exactly: scene 2's kicker at 887px and scene 4's at 871px stayed at the standard 34px, scene 6's at 951px auto-fit to 32px, and all three bodies rendered at the standard 36px. All three main scenes end at max_y 1192 of 1310. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold."
+      }
+    ]
   }
 }
