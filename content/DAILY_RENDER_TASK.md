@@ -195,10 +195,44 @@ run, addressing the note Min-Yi left in that entry.
   note and a one-line summary of what you changed in response. Same format as
   `feedback.md`, which stays reserved for rendered-content rounds.
 - Set the script track back to `"status": "pending"` in `data.js`, and queue the
-  same flip in `content/_pending_additions.json`, so it re-enters her review
-  queue rather than sitting in limbo. The post's `review-state.json` key already
-  exists, so `apply_additions.py` will not overwrite it — call that out in your
-  report as a change she needs to apply from the desk.
+  same flip in `content/_pending_additions.json`. The post's `review-state.json`
+  key already exists, so `apply_additions.py` will ignore the queued flip and
+  log it. That is expected — see the next point for what to do about it.
+
+### Never ask Min-Yi to set a script back to Pending review
+
+**The desk has no control for it.** `pending` exists in `SCRIPT_STATUS` but the
+desk only ever writes it as a post's *initial* state; the three buttons on the
+script track are Approve (`approved`), Request changes (`changes`) and Reject
+(`rejected`). On 2026-09-01 this task's report told her to "move reel-28 and
+carousel-post-5 back to Pending review from the Content Desk" and she went
+looking for a button that does not exist.
+
+**It is also not necessary, which is the more important half.** The desk renders
+the script beats and both captions from `data.js`, which the redraft has already
+rewritten. So once the push lands, the words on the desk *are* the new words.
+The status does not need to round-trip through `pending`; it needs her to read
+the redraft and mean it.
+
+So report it this way instead:
+
+> reel-28's redraft is on the desk. Read it — if it's right, click **Approve**
+> to re-stamp it against the words you actually read. If it's still wrong,
+> **Request changes** with a note.
+
+And warn her off the trap, every time: **do not click Request changes merely to
+park a redraft for later reading.** Step 2 rewrites anything sitting at
+`changes`, so parking it there discards the redraft it was meant to protect and
+writes a third version before she has read the second.
+
+**The underlying gap, for whoever fixes the desk.** A script status cannot
+distinguish *"approved, and I have read the current words"* from *"approved
+against words that have since changed"*. A redrafted script keeps its old
+`approved` stamp, so nothing in the UI marks it as unread, and the next run will
+happily rebuild from copy she never saw — which is exactly the risk reel-28 ran
+on 2026-09-01. Until the desk can express that (a `reviewedAt` compared against
+the script file's mtime would do it), the redraft must be called out by name in
+the report, at the top, with the read-then-Approve instruction spelled out.
 
 `script.status` of `rejected` means the topic is dead, not that it needs a
 rewrite. Leave the row alone, do not redraft it, and flag it in your report —

@@ -1,7 +1,7 @@
 # Reel 29 — Strip fouls
 
-**Status:** Pending review
-**Script drafted:** 2026-08-31 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-08-31 · **Rendered:** 2026-09-01 (daily-reel-render)
 **Queued:** 2026-09-03 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (17.3.1, 17.3.2)
@@ -52,11 +52,18 @@ quietly change what this lesson claims to cover.
 - Widest kicker is scene 4's `#2   IF IT WOULD HAVE BEEN A GOAL` — comfortably
   inside the standard 34px. Scene 2's `#1   YOU HAD IT, AND IT CAME OUT` is
   shorter still. Neither should engage `fit_kicker()`.
+- **Measured at render (2026-09-01):** 870px and 823px of the 900px column,
+  both at the standard 34px. `fit_kicker()` not engaged, as predicted.
 - Both rule texts are short (139 and 95 characters), so scenes 3 and 5 are the
   least crowded detail cards in the recent run — no split, no trimming.
+  **Confirmed:** scene 3 ends at max_y 504 of 1310 and scene 5 at 454, the two
+  emptiest cards in the run. Neither was split or trimmed.
 - Keep the bodies to roughly 200–230 characters. Two bodies in this week's
   reels landed on the 29px `fit_body()` floor at ~275 characters before being
   tightened; the house norm is 32–36px.
+  **As built:** scene 2's body is 237 characters and auto-fits to 34px over
+  five lines; scene 4's is 249 and stays at the standard 36px over six. Both
+  well clear of the 29px floor.
 
 **Rendering:** `render_v3.py` → `blend.py` → `python3 encode.py <out.mp4> slow`.
 `render_v3.py` reuses the exact helpers, constants and coordinates from

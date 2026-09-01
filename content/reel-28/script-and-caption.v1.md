@@ -1,9 +1,7 @@
 # Reel 28 — Receiving fouls
 
-**Status:** Pending review — redraft v2, after a content-track note on the
-field tip (see `script-feedback.md`)
-**Script drafted:** 2026-08-30 · **Redrafted:** 2026-09-01 (daily-reel-render)
-**Rendered:** v1 2026-08-31 — superseded, awaiting rebuild from this copy
+**Status:** Pending review
+**Script drafted:** 2026-08-30 (daily-reel-render) · **Rendered:** —
 **Queued:** 2026-09-02 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (17.2.1, 17.2.1.1, 17.2.2, 15.8)
@@ -30,9 +28,9 @@ rule-citation cards — the standard three-pair shape, same as reels 16, 18, 20,
 | 3 | Rules detail | Verbatim 17.2.1 + 17.2.1.1 |
 | 4 | #2 EVEN IN THE END ZONE | "The reward is the disc, exactly where it happened." · footer cites 17.2.2 |
 | 5 | Rules detail | Verbatim 17.2.2 |
-| 6 | #3 CALL IT IMMEDIATELY | "A foul called late is a different situation entirely." · footer cites 15.8 |
+| 6 | #3 SAY IT IMMEDIATELY | "A foul called late is a different situation entirely." · footer cites 15.8 |
 | 7 | Rules detail | Verbatim 15.8 |
-| 8 | FIELD TIP | "Call it at the moment of contact — shout and signal." |
+| 8 | FIELD TIP | "Call it at the moment of contact, out loud." |
 | 9 | Closing | "Lesson 28 of 75." · Follow @learn.ultimatefrisbee |
 
 Rule text is pulled programmatically from `content/rules.json` — never
@@ -52,8 +50,7 @@ nothing else is cited.
 
 - Widest kicker is scene 2's `#1   BEFORE, WHILE OR JUST AFTER` at 858 of the
   900px column — inside the standard 34px, below reel-25's 893px record.
-  Scenes 4 and 6 measure 644 and 603px (scene 6 was 573px before the
-  redraft renamed it `CALL IT IMMEDIATELY`).
+  Scenes 4 and 6 measure 644 and 573px.
 - Scene 2's body auto-fits to 33px over five lines (last baseline 1074 against
   the 1090 limit); scenes 4 and 6 stay at 36px. Nothing engages either floor.
 - Scene 5's card carries the longest rule text in the reel at 381 characters,
@@ -72,7 +69,7 @@ nothing else is cited.
 
 - Hook: "Two of you go up for the same disc and there's contact. This is the foul you'll meet first, and it has the biggest reward in the rulebook."
 - Explanation: "A receiving foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after either player makes a play on the disc. So it isn't contact in general — it's contact on the play, inside that window. And there's a limit at the other end: contact with an opponent's arms or hands after the disc has been caught is not a sufficient basis for a foul, though it should still be avoided."
-- Example: "Here's why it matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone. Not back to the thrower — the disc, where the contact happened, and play restarts with a check. But you only get that if you call it in time: calls must be made immediately after the breach is recognised. And make the call so it lands — the word and the hand signal together, because half the field will not hear you."
+- Example: "Here's why it matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone. Not back to the thrower — the disc, where the contact happened, and play restarts with a check. But you only get that if you call it in time: calls must be made immediately after the breach is recognised."
 - CTA: "Lesson 28 of 75 — new lesson daily."
 
 ## Instagram caption
@@ -85,9 +82,7 @@ Two of you go up for the same disc and there's contact. This is the foul you'll 
 
 **The reward is why this one matters.** After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone, and play restarts with a check. Read that again: in an end zone. Not a reset to the thrower — the disc, where the contact happened. If it's contested, the disc goes back to the thrower.
 
-**All of which depends on making the call in time.** Calls must be made immediately after the breach is recognised. Not after you've watched where the disc landed, and not after you've decided whether you'd have caught it. The moment you feel it.
-
-**And make it land.** In practice a call is two things at once: you say the word, and you throw the hand signal for it. Players downfield will not hear you over a windy sideline, but they can see your arms — and once they see it, they echo it, and the whole field stops together.
+**All of which depends on saying it in time.** Calls must be made immediately after the breach is recognised. Not after you've watched where the disc landed, and not after you've decided whether you'd have caught it. The moment you feel it.
 
 Lesson 28 of 75. Next up: what happens when contact knocks a disc out of hands that had already caught it.
 
@@ -116,8 +111,6 @@ IN AN END ZONE. not back to the thrower. the disc, right where it happened
 contested instead? disc goes back to the thrower
 
 one catch: "Calls must be made immediately after the breach is recognised." the moment you feel it — not after you've seen where the disc landed
-
-and make it land: say the word AND throw the hand signal. downfield players won't hear you in wind, but they'll see your arms — then they echo it and everyone stops together
 
 lesson 28 of 75
 
@@ -163,13 +156,5 @@ Rule text quoted verbatim from the **WFDF Rules of Ultimate 2025–2028**
   15.9, which is not in this lesson's `rules` array, so the tip stays practical
   ("call it at the moment of contact") rather than introducing a fourth
   citation on a slide that has no citation footer.
-- **"Out loud" is gone, and it is not coming back.** v1's tip said to call it
-  "out loud", which describes half of what actually happens on a field. The
-  rulebook's own wording is 15.7 — players communicate a stoppage "visibly or
-  audibly" — and 15.13 encourages the WFDF Hand Signals for all calls. Both
-  are cited by **lesson 73, "Use your hands"**, so neither may be carded here:
-  this is a wording correction, not a new citation. The tip and the captions
-  now say the word *and* the signal, in plain English, with no rule number
-  attached.
 - No growth/reach claims in either caption.
 - Once posted, report back the numbers and I'll log them in `content/calendar.md`.

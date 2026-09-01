@@ -2112,8 +2112,8 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     duration: '~29s script / 29.5s cut',
     rules: ['17.2.1', '17.2.1.1', '17.2.2', '15.8'],
     review: {
-      script:  {status: 'pending', on: '2026-08-30'},
-      content: {status: 'in-review', on: '2026-08-31'}
+      script:  {status: 'pending', on: '2026-09-01'},
+      content: {status: 'rerender', on: '2026-08-31'}
     },
     postedDate: null,
     folder: 'reel-28',
@@ -2127,15 +2127,15 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       ['3', 'Rules detail', 'Verbatim 17.2.1 + 17.2.1.1'],
       ['4', '#2 EVEN IN THE END ZONE', '"The reward is the disc, exactly where it happened." · footer cites 17.2.2'],
       ['5', 'Rules detail', 'Verbatim 17.2.2'],
-      ['6', '#3 SAY IT IMMEDIATELY', '"A foul called late is a different situation entirely." · footer cites 15.8'],
+      ['6', '#3 CALL IT IMMEDIATELY', '"A foul called late is a different situation entirely." · footer cites 15.8'],
       ['7', 'Rules detail', 'Verbatim 15.8'],
-      ['8', 'FIELD TIP', '"Call it at the moment of contact, out loud."'],
+      ['8', 'FIELD TIP', '"Call it at the moment of contact — shout and signal."'],
       ['9', 'Closing', '"Lesson 28 of 75." · Follow @learn.ultimatefrisbee']
     ],
     script: {
       hook: `Two of you go up for the same disc and there's contact. This is the foul you'll meet first, and it has the biggest reward in the rulebook.`,
       explanation: `A receiving foul occurs when a player initiates non-minor contact with an opponent before, while, or directly after either player makes a play on the disc. So it isn't contact in general — it's contact on the play, inside that window. And there's a limit at the other end: contact with an opponent's arms or hands after the disc has been caught is not a sufficient basis for a foul, though it should still be avoided.`,
-      example: `Here's why it matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone. Not back to the thrower — the disc, where the contact happened, and play restarts with a check. But you only get that if you call it in time: calls must be made immediately after the breach is recognised.`,
+      example: `Here's why it matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone. Not back to the thrower — the disc, where the contact happened, and play restarts with a check. But you only get that if you call it in time: calls must be made immediately after the breach is recognised. And make the call so it lands — the word and the hand signal together, because half the field will not hear you.`,
       cta: `Lesson 28 of 75 — new lesson daily.`
     },
     ig: `Two of you go up for the same disc and there's contact. This is the foul you'll meet first, and it has the biggest reward in the rulebook.
@@ -2146,7 +2146,9 @@ And it stops at the catch. Contact with an opponent’s arms or hands, that occu
 
 The reward is why this one matters. After an accepted receiving foul the fouled player gains possession at the location of the breach, even if that location is in an end zone, and play restarts with a check. Read that again: in an end zone. Not a reset to the thrower — the disc, where the contact happened. If it's contested, the disc goes back to the thrower.
 
-All of which depends on saying it in time. Calls must be made immediately after the breach is recognised. Not after you've watched where the disc landed, and not after you've decided whether you'd have caught it. The moment you feel it.
+All of which depends on making the call in time. Calls must be made immediately after the breach is recognised. Not after you've watched where the disc landed, and not after you've decided whether you'd have caught it. The moment you feel it.
+
+And make it land. In practice a call is two things at once: you say the word, and you throw the hand signal for it. Players downfield will not hear you over a windy sideline, but they can see your arms — and once they see it, they echo it, and the whole field stops together.
 
 Lesson 28 of 75. Next up: what happens when contact knocks a disc out of hands that had already caught it.
 
@@ -2173,11 +2175,14 @@ contested instead? disc goes back to the thrower
 
 one catch: "Calls must be made immediately after the breach is recognised." the moment you feel it — not after you've seen where the disc landed
 
+and make it land: say the word AND throw the hand signal. downfield players won't hear you in wind, but they'll see your arms — then they echo it and everyone stops together
+
 lesson 28 of 75
 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
+      'REDRAFT v2, 2026-09-01 — script back at the first gate after a content-track note ("Out loud may not be appropriate. We use hand signals in ultimate frisbee."). Scene 6 kicker SAY IT IMMEDIATELY -> CALL IT IMMEDIATELY; scene 8 field tip now "shout and signal"; both captions updated. No rule number, rules card, lesson number or hashtag changed — 15.7 and 15.13 back the note but belong to lesson 73, so nothing new is cited. The cut on disk is v1 and is NOT being rebuilt until this copy is approved. See content/reel-28/script-feedback.md.',
       'Rendered 2026-08-31 by the daily task. Nine scenes, exact CFR via encode.py; 29.50s. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold.',
       'All three kickers render at the standard 34px — scene 2 measured well inside the 900px column, so fit_kicker() never engaged. Bodies at 34, 31 and 35px. Scene 3 is the densest card at max_y 922 of 1310 and scene 5 at 804, so 17.2.2 was carded whole with no split and no trimming.',
       'Planned as nine scenes, the standard three-pair shape: cover, then pairs for 17.2.1 + 17.2.1.1 (what a receiving foul is, and where it stops), 17.2.2 (possession at the spot, even in an end zone) and 15.8 (call it immediately), a field tip, and the closing card.',
@@ -2195,21 +2200,31 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-09-03',
     title: `Strip fouls`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 28.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 29,
+    duration: '~29s script / 28.5s cut',
     rules: ['17.3.1', '17.3.2'],
     review: {
       script:  {status: 'pending', on: '2026-08-31'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-01'}
     },
     postedDate: null,
     folder: 'reel-29',
     source: 'content/reel-29/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Fouls)',
-    video: null,
+    video: 'reel29-strip-fouls.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'Strip fouls · kicker BEGINNER · LESSON 29 / 75'],
+      ['2', '#1 YOU HAD IT, AND IT CAME OUT', '"A strip is a foul that costs you a catch you\'d already made." · footer cites 17.3.1'],
+      ['3', 'Rules detail', 'Verbatim 17.3.1'],
+      ['4', '#2 IF IT WOULD HAVE BEEN A GOAL', '"You get the goal, not the disc." · footer cites 17.3.2'],
+      ['5', 'Rules detail', 'Verbatim 17.3.2'],
+      ['6', 'FIELD TIP', '"Say \"strip\", not just \"foul\"."'],
+      ['7', 'Closing', '"Lesson 29 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You caught it. Contact knocked it out of your hands. That is a specific foul with a specific name, and it is not the same as being fouled on the catch.`,
       explanation: `A strip foul occurs when an opponent fouls a player and that causes the player to drop a disc they caught, or to lose possession of the disc. The key word is caught. Lesson 28's receiving foul is contact that stops you completing the catch. A strip is contact that takes away a catch you had already completed — the disc was yours, and the foul is why it isn't any more.`,
@@ -2272,55 +2287,70 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Mixed',
     lesson: null,
-    rules: ['15.4', '15.5', '15.5.1', '15.6', '1.10', '15.10', '13.3', '1.3.4', '15.11', '1.5.1', '12.6', '12.6.1', '12.6.2', '12.6.3', '12.7', '12.7.1', '12.7.2', '12.7.3', '12.4', '12.8', '15.1', '1.3.10', '17.2.1', '17.2.1.1', '17.2.2', '15.8'],
+    rules: ['15.4', '15.5', '15.5.1', '15.6', '1.10', '15.10', '13.3', '1.3.4', '15.11', '1.5.1', '12.6', '12.6.1', '12.6.2', '12.6.3', '12.7', '12.7.1', '12.7.2', '12.7.3', '12.4', '12.8', '15.1', '1.3.10'],
     review: {
-      script:  {status: 'pending', on: '2026-08-31'},
+      script:  {status: 'pending', on: '2026-09-01'},
       content: {status: 'awaiting-render', on: null}
     },
     postedDate: null,
     folder: 'carousel-post-5',
     source: 'content/carousel-post-5/script-and-caption.md',
-    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 22-28',
+    sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 22-27',
     video: null,
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'kicker THIS WEEK · "Week four: contact, and who decides" · subhead "This week\'s six lessons — everything the daily reels covered, 27 August – 1 September." · SWIPE →'],
+      ['2', 'LESSON 22', '"Who is allowed to make which call" · footer 15.4 · 15.5 · 15.5.1 · 15.6 · 1.10'],
+      ['3', 'LESSON 23', '"Contest" — disagreeing properly · footer 15.10 · 13.3 · 1.3.4'],
+      ['4', 'LESSON 24', '"Changing your mind is a rule, not a weakness" · footer 15.11 · 1.5.1'],
+      ['5', 'LESSON 25', '"The duty to avoid contact" · footer 12.6 · 12.6.1 · 12.6.2 · 12.6.3'],
+      ['6', 'LESSON 26', '"Who initiated the contact?" · footer 12.7 · 12.7.1 · 12.7.2 · 12.7.3 · 12.4'],
+      ['7', 'LESSON 27', '"Not every touch is a foul" · footer 12.8 · 15.1 · 1.3.10'],
+      ['8', 'Closing', '"That\'s twenty-seven of seventy-five. More next Thursday." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
-      hook: `Seven more lessons. This week the game stopped being about the disc and started being about each other.`,
-      explanation: `Who's allowed to make which call. How to contest properly. How to retract. The duty to avoid contact, who's deemed to have initiated it, and the tolerance the rules build in on purpose.`,
-      example: `Then on Wednesday, the first named foul type — receiving fouls, and the fact that an accepted one hands you the disc where it happened, even in an end zone. Each slide carries its rule numbers so you can look any of it up yourself.`,
-      cta: `Lessons 22 to 28 of 75 — new lesson daily.`
+      hook: `Six lessons this week. This was the week the game stopped being about the disc and started being about each other.`,
+      explanation: `Who's allowed to make which call, and why the sideline isn't. How to contest properly. How to retract. Then the contact framework in three parts: the duty to avoid it, who's deemed to have initiated it, and the tolerance the rules build in on purpose.`,
+      example: `That last one surprises people. Minor contact is not a foul — the rulebook says so in a single sentence, and it's what lets two players run hard at the same spot without the game stopping every time. Each slide carries its rule numbers so you can look any of it up yourself.`,
+      cta: `Lessons 22 to 27 of 75 — new lesson daily.`
     },
     ig: `Week four, all in one place — and this was the week the game stopped being about the disc and started being about each other.
 
-Who is actually allowed to make a call, and why the sideline isn't. How to contest properly, and what to have ready when you do. The formal word for "actually, you're right". Then the contact framework in three parts: the duty to avoid it, the rulebook's own definition of who initiated it, and the tolerance built in on purpose — because minor contact is not a foul, and the rules say so in one sentence.
+Who is actually allowed to make a call, and why the sideline isn't. How to contest properly, and what to have ready when you do. The formal word for "actually, you're right".
 
-And on Wednesday, the first of the named foul types. A receiving foul is contact on the play for the disc, and an accepted one hands the fouled player possession at the spot of the breach — even inside an end zone.
+Then the contact framework in three parts: the duty to avoid it, the rulebook's own definition of who initiated it, and the tolerance built in on purpose — because minor contact is not a foul, and the rules say so in one sentence.
 
-Weeks one to three were the disc, your feet, and your marker. This week is the part of ultimate that has no referee to fall back on: two people who disagree, working out what happened. All of it is written down, which is the point.
+Weeks one to three were the disc, your feet, and your marker. This week is the part of ultimate that has no referee to fall back on: two people who disagree, working out what happened between them. All of it is written down, which is the point.
 
-Each slide carries its rule numbers — so you can check any of it against the rulebook rather than taking our word for it.
+Six lessons rather than the usual seven — the named foul types start next week, and they'll be recapped together where they belong.
+
+Each slide carries its rule numbers, so you can check any of it against the rulebook rather than taking our word for it.
 
 Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.`,
-    tiktok: `everything the daily reels covered this week, seven slides 🥏
+    tiktok: `everything the daily reels covered this week, six slides 🥏
 
-who can make which call · how to contest · how to retract · the duty to avoid contact · who initiated it · why minor contact isn't a foul · receiving fouls
+who can make which call · how to contest · how to retract · the duty to avoid contact · who initiated it · why minor contact isn't a foul
 
 basically: the week where the sport stops being about the disc and starts being about the other person
 
 no referees. it's all written down instead
 
+six this week instead of seven — the named foul types start next week and get recapped together
+
 rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-08-31 by the daily task. Awaiting script review. Slides not yet rendered — nothing renders until the script clears the first gate.',
-      'Block is lessons 22-28, the fourth contiguous block of seven, continuing straight on from carousel-post-4 15-21. Blocks run by lesson number, not by date. Carousel-post-6 starts at lesson 29.',
-      'Eligibility note: lessons 26, 27 and 28 have reels queued 2026-08-31, 09-01 and 09-02 — all before this carousel own 09-03 date, but after the day it was drafted. Same position carousel-post-4 was drafted in. If any of those three reels slips past 09-03, cut this carousel back to the lessons that actually went out and roll the rest into carousel-post-6.',
+      'REDRAFT v2, 2026-09-01 — block cut from lessons 22-28 to 22-27, nine slides to eight. Back at the first gate; awaiting script review. TIME-SENSITIVE: queued for 09-03, so it needs approving before the Thursday run can build it. See content/carousel-post-5/script-feedback.md.',
+      'Why the cut: v1 attached a condition to the 22-28 block — "if any of those three reels slips past 09-03, cut this carousel back to the lessons that actually went out". Reel 28 was rejected on the content track on 08-31, is back at the script gate, and cannot be approved, rebuilt, content-approved and posted before 09-03. Lesson 28 reel has not posted, so lesson 28 is not eligible.',
+      'Carousel-post-6 block is 28-34, NOT 29-35. Lesson 28 rolls forward; blocks stay contiguous and nothing is recapped twice. This is the easiest thing to get wrong next Thursday.',
+      'TOTAL is 8, not 9 — first recap that is not nine slides. The n / TOTAL header counter, the slide filenames and the closing slide number all key off it.',
+      'The cover states the short block on its face: "This week\'s six lessons". Per the recap rule, a short block says its own size rather than quietly looking like a full one.',
       'No rule text on any slide. Rule numbers only, in the standard citation footer. If a slide starts to want a quotation, it is re-teaching — cut it back to the takeaway.',
-      'Takeaways are the lessons field lines from content/lessons-2.json, unedited. Two carry internal double quotes and one is a quotation in full; keep them exactly and let the type shrink if a line runs long.',
-      'Six slides begin a line with a double quote, which is the reel-21 leading-quote case. Check make_carousel.py carries the _payload() tspan wrapper from content/reel-26/render_v3.py before rendering, and verify the quotes survive in the PNGs, not just the SVGs.',
-      'The closing slide count is 28, not 29. A recap consumes no lesson number — reel 29 is queued the same day and is the week new lesson, not part of this block.'
+      'Takeaways are the lessons field lines from content/lessons-2.json, unedited. Three carry internal double quotes and one is a quotation in full; keep them exactly and let the type shrink if a line runs long.',
+      'Five slides begin a line with a double quote, which is the reel-21 leading-quote case. Check make_carousel.py carries the _payload() tspan wrapper from content/reel-26/render_v3.py before rendering, and verify the quotes survive in the PNGs, not just the SVGs.',
+      'The closing slide count is 27, and it says "More next Thursday" rather than "Seven more" — next week block is 28-34 and the number should not be promised in advance.'
     ]
   },
   {
@@ -2328,21 +2358,33 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-09-04',
     title: `Blocking fouls`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 30,
+    duration: '~29.5s script / 29.5s cut',
     rules: ['12.5', '17.4.1', '12.9'],
     review: {
       script:  {status: 'pending', on: '2026-09-01'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-01'}
     },
     postedDate: null,
     folder: 'reel-30',
     source: 'content/reel-30/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Fouls)',
-    video: null,
+    video: 'reel30-blocking-fouls.mp4',
     slides: null,
-    scenes: null,
+    scenes: [
+      ['1', 'Cover', 'Blocking fouls · kicker BEGINNER · LESSON 30 / 75'],
+      ['2', '#1 EMPTY SPACE IS YOURS TO TAKE', '"Two conditions come attached." · footer cites 12.5'],
+      ['3', 'Rules detail', 'Verbatim 12.5'],
+      ['4', '#2 NOT A SPACE THEY CAN\'T AVOID', '"First by a fraction still isn\'t first." · footer cites 17.4.1'],
+      ['5', 'Rules detail', 'Verbatim 17.4.1'],
+      ['6', '#3 ARMS AND LEGS ARE NOT POSITION', '"You cannot box out." · footer cites 12.9'],
+      ['7', 'Rules detail', 'Verbatim 12.9'],
+      ['8', 'FIELD TIP', '"Boxing out is a habit from another sport."'],
+      ['9', 'Closing', '"Lesson 30 of 75." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `You got to the spot first, they ran into you, and you think that settles it. It doesn't. Being there first is not the test.`,
       explanation: `Start with what you are allowed. Every player is entitled to occupy any position on the field not occupied by any opposing player — provided they do not initiate contact taking it, and are not moving in a reckless or dangerously aggressive manner. So the space is genuinely yours. The limit is what the space costs the other player. A blocking foul occurs when a player takes a position that an opponent moving in a legal manner will be unable to avoid, taking into account that opponent's expected position based on their established speed and direction.`,

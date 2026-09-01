@@ -1,7 +1,7 @@
 # Reel 30 — Blocking fouls
 
-**Status:** Pending review
-**Script drafted:** 2026-09-01 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-09-01 · **Rendered:** 2026-09-01 (daily-reel-render)
 **Queued:** 2026-09-04 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (12.5, 17.4.1, 12.9)
@@ -77,6 +77,10 @@ test in plain English because 17.4.1 states it; it may not import the tree.
   renders at 32px (895px). Expected, not a defect.
 - All three bodies fit at the standard 36px, last baselines at 1040, 962 and
   934 against the 1090 limit.
+- **Measured at render (2026-09-01):** every prediction above held. Scene 2's
+  kicker at 887px and scene 4's at 871px both stayed at 34px; scene 6's at
+  951px auto-fit to 32px. All three bodies rendered at the standard 36px, and
+  all three main scenes ended at max_y 1192 of 1310 with no collisions.
 - Detail cards are uncrowded: 12.5 ends at max_y 716, 17.4.1 at 866 and 12.9 at
   566, all against 1310. No split, no trimming — 17.4.1 is carded whole despite
   being the longest rule text in the reel at 346 characters.
