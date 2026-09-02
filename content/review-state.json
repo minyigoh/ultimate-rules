@@ -871,7 +871,12 @@
         "file": "reel28-receiving-fouls.mp4",
         "changed": "Rebuilt from the 09-01 redraft, addressing feedback rounds 1-2 (\"Out loud may not be appropriate. We use hand signals in ultimate frisbee.\"). Copy only - no rules card, rule number or rule text moved, so scenes 3, 5 and 7 re-rendered byte-identical. Scene 6 kicker SAY IT IMMEDIATELY -> CALL IT IMMEDIATELY (573 -> 603 of the 900px column at the standard 34px); scene 6 body \"depends on saying it in time\" -> \"depends on making the call in time\", which the 09-01 redraft had fixed in the Instagram caption and missed on the slide; scene 8 headline \"Call it at the moment of contact, out loud.\" -> \"Call it at the moment of contact - shout and signal.\", and its body rewritten to say the call is the word and the hand signal together. 15.7 and 15.13 back the note but belong to lesson 73, so nothing new is cited and the field tip stays uncited. Nine scenes, exact CFR via encode.py, 29.50s. Layout check 0 problems with no collisions; all three kickers at 34px, bodies at 34, 31 and 35px, unchanged from v1 because no line count moved. Longest sustained dull-orange run 0.20s against a 0.45s threshold. This cut does not improve on v1 by any metric - v1 was clean on all of them, and the defect was the words. v1 archived as reel28-receiving-fouls.v1.mp4."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-02",
+      "updatedAt": "2026-09-02T00:20:29.962Z"
+    }
   },
   "reel-29": {
     "script": {
