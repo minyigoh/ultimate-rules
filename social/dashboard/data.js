@@ -2468,20 +2468,21 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     date: '2026-09-05',
     title: `Force-out fouls`,
     type: 'Reel',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 31,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
     rules: ['17.5.1', '17.5.1.1', '17.5.1.2', '17.5.2', '17.5.3'],
     review: {
       script:  {status: 'pending', on: '2026-09-02'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-03'}
     },
     postedDate: null,
     folder: 'reel-31',
     source: 'content/reel-31/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Fouls)',
-    video: null,
+    video: 'reel31-force-out-fouls.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Force-out fouls · kicker BEGINNER · LESSON 31 / 75'],
@@ -2550,7 +2551,8 @@ lesson 31 of 75
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-02 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Rendered 2026-09-03 from the approved script. Nine scenes, exact CFR via encode.py, 29.50s against a 30.0s projection.',
+      'Every layout prediction in the approved script held: kickers at 712, 834 and 826 of the 900px column, all at the standard 34px; all three main scenes at max_y 1192 of 1310; detail cards at 940, 404 and 504. One deviation — scene 6 body wraps to five lines, not the four predicted, still at 36px with fit_body() unengaged. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold.',
       'Last of the four named foul types: 28 receiving, 29 strip, 30 blocking, 31 force-out. Nine scenes, the three-pair shape.',
       '17.5 is a heading stem ("Force-out Fouls:") and is deliberately NOT carded — same call as 17.2, 17.3 and 17.4 in reels 28, 29 and 30.',
       '17.5.1 is a stem ending in a colon and needs both limbs on the same card. "…and the contact caused the receiver:" is not a sentence on its own; 17.5.1.1 and 17.5.1.2 are the two ways it finishes. Same handling as 12.7 in reel 26 and 1.3 in reels 23 and 27.',
@@ -2560,6 +2562,101 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Dry-rendered and measured 2026-09-02 before the draft was finalised: all three kickers fit at the standard 34px (712, 834 and 826 of the 900px column) and all three bodies at 36px, so neither fit_kicker() nor fit_body() engages. All three main scenes end at max_y 1192 of 1310. Detail cards land at 940, 404 and 504. Layout check 0 problems with no collisions. Projected 30.0s.',
       'No leading or trailing double quotes anywhere in this reel copy, so the _payload() case does not arise. Start the build from content/reel-28/render_v3.py — it is the newest copy and carries the widened helper.',
       'content/scenes.json carries a force-out diagram used by the website chapter. Reels have no diagram scene and this one does not introduce it; noted so it is not a surprise later.'
+    ]
+  },
+  {
+    id: 'reel-32',
+    date: '2026-09-06',
+    title: `Marking fouls and the "Contact" call`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 32,
+    duration: '~29s script',
+    rules: ['17.6.1', '17.6.1.1', '17.6.1.2', '17.6.1.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-03'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-32',
+    source: 'content/reel-32/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Fouls)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Marking fouls and the "Contact" call · kicker BEGINNER · LESSON 32 / 75'],
+      ['2', '#1 CONTACT, NOT CLOSENESS', '"A marker being near you is not a foul." · footer cites 17.6.1, 17.6.1.1, 17.6.1.2'],
+      ['3', 'Rules detail', 'Verbatim 17.6.1 + 17.6.1.1 + 17.6.1.2'],
+      ['4', '#2 THE CALL THAT KEEPS PLAY LIVE', '"You get to choose whether the game stops." · footer cites 17.6.1.3'],
+      ['5', 'Rules detail', 'Verbatim 17.6.1.3'],
+      ['6', 'FIELD TIP', '"Say it without breaking your stance."'],
+      ['7', 'Closing', '"Lesson 32 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `The marker bumps you before you throw. You can stop the game over it — or you can make the call that keeps you playing.`,
+      explanation: `First, what counts. A defensive throwing foul is non-minor contact between the thrower and a defender who is illegally positioned, or non-minor contact the defender initiates before the pass is released — including both of you going for the same unoccupied space. A marker who is simply close to you is not fouling you.`,
+      example: `Now the choice. If that contact lands before you release and not during your throwing motion, you have two calls. Say "Foul" and play stops. Say "Contact" and it's an infraction instead — uncontested, play doesn't stop at all, and the marker resumes the stall count at one.`,
+      cta: `Lesson 32 of 75 — new lesson daily.`
+    },
+    ig: `The marker bumps you before you throw. You can stop the game over it — or you can make the call that keeps you playing.
+
+**First, what actually counts as a marking foul.** "A Defensive Throwing Foul occurs when:" — "There is non-minor contact between the thrower and an illegally positioned defensive player (Section 18.1); or" "A defensive player initiates non-minor contact with the thrower, or there is non-minor contact resulting from the thrower and the defender both vying for the same unoccupied position, prior to the thrower releasing the pass."
+
+Read the two limbs together and the shape is clear. It is contact, and it is contact with a position problem behind it. A marker who is merely close to you is not fouling you.
+
+**Then the part almost nobody uses.** "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+
+So the same contact gives you two calls. "Foul" stops the game. "Contact" doesn't stop it at all — and the count goes back to one.
+
+That is a rare thing in this rulebook: a call that costs you nothing. You keep your pivot, you keep your eyes downfield, and the stall count you were losing resets. Most players stop the game out of habit when they didn't have to.
+
+Lesson 32 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `marker bumps you before you throw. stop the game over it? or make the call that keeps you playing 🥏
+
+what counts first:
+
+"A Defensive Throwing Foul occurs when:"
+
+"There is non-minor contact between the thrower and an illegally positioned defensive player (Section 18.1); or"
+
+"A defensive player initiates non-minor contact with the thrower, or there is non-minor contact resulting from the thrower and the defender both vying for the same unoccupied position, prior to the thrower releasing the pass."
+
+contact + a position problem. a marker who's just CLOSE isn't fouling you
+
+now the part nobody uses:
+
+"If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+
+same contact, two calls
+
+"Foul" → game stops
+"Contact" → game does NOT stop, count goes back to 1
+
+you keep your pivot. you keep your eyes downfield. the stall count you were losing resets
+
+most people stop the game out of habit when they didn't have to
+
+lesson 32 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-03 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Seven scenes, the two-pair shape (same as reels 11, 17, 19, 24 and 29). Two rule cards, so two topic/rules pairs. Set TOTAL = 7 in render_v3.py; the shared default is 9.',
+      'CORRECTION TO THE LESSON BRIEF: lessons-3.json (marking-foul) says the stall count "resumes one lower". It does not. 17.6.1.3 says "the marker must resume the stall count at one (1)", and the annotation repeats it. The script and both captions say one. The lesson JSON body[2] and its quiz "why" line both need the same fix on the website side — flagged, not changed here.',
+      '17.6 is a heading stem ("Defensive Throwing (Marking) Fouls:") and is deliberately NOT carded — same call as 17.2, 17.3, 17.4 and 17.5 in reels 28–31.',
+      '17.6.1 is a stem ending in a colon and needs both limbs on the same card. 17.6.1.1 and 17.6.1.2 are the two ways it finishes. Same handling as 17.5.1 in reel 31 and 12.7 in reel 26.',
+      '"Prior to the thrower releasing the pass and not during the throwing motion" is the hinge and stays in the Example beat. Contact DURING the throwing motion is a foul and only a foul — the "Contact" option is not available, and the annotation says a "Contact" call made about it is treated as a foul.',
+      'Deliberately left out: "the marker has to fix their position" (true, but it comes from 18.1, not 17.6.1.3), the minor-contact/disc-space branch (annotation, and disc space is lesson 17), and the thrower-initiated-contact case from 17.6\'s annotation (a reel of its own). Nothing on screen is broader than what is cited.',
+      'Do not say "Contact" is always the better call. The brief says "usually" and the rule gives the thrower a free choice; the reel offers the option rather than prescribing it.',
+      'Dry-rendered and measured 2026-09-03 before the draft was finalised: both kickers at the standard 34px (738 and 896 of the 900px column) and both bodies at 36px, so neither fit_kicker() nor fit_body() engages. Both main scenes end at max_y 1192 of 1310; detail cards at 940 and 704. Layout check 0 problems with no collisions. Projected 28.8s.',
+      'The #2 kicker measures 896 of 900px — four pixels of headroom, the tightest in the run to date, past reel-25\'s 893. Any rewording of that kicker will shrink the type rather than change the words.',
+      'The cover title wraps so line 2 begins with a double quote ("Contact" call), which is the _payload() case. Dry-rendered to PNG and both quotes confirmed present in the image, not just the SVG.'
     ]
   }
 ];

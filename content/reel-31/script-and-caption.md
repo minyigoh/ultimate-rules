@@ -1,7 +1,7 @@
 # Reel 31 — Force-out fouls
 
-**Status:** Pending review
-**Script drafted:** 2026-09-02 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-09-02 (daily-reel-render) · **Rendered:** 2026-09-03
 **Queued:** 2026-09-05 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (17.5.1, 17.5.1.1, 17.5.1.2, 17.5.2, 17.5.3)
@@ -59,6 +59,15 @@ the first carries three, the other two carry one each.
   `#3   CONTESTED SPLITS TWO WAYS` at 826. `fit_kicker()` is not engaged.
 - All three bodies render at the standard 36px, over six, five and four lines.
   `fit_body()` is not engaged.
+
+**Render, 2026-09-03 — measured against the predictions above.** Every kicker
+width landed exactly as dry-rendered (712, 834, 826 of 900px, all at the
+standard 34px) and every main scene at max_y 1192 of 1310, with the detail
+cards at 940, 404 and 504. One deviation: scene 6's body wraps to **five**
+lines, not the four predicted — still 36px, still `fit_body()` unengaged, and
+still clear of the citation. Layout check 0 problems, no collisions; 29.50s
+against a 30.0s projection; longest sustained dull-orange run 0.20s against
+the 0.45s threshold.
 - All three main scenes end at max_y 1192 of 1310. Layout check **0 problems,
   no collisions.**
 - The detail cards are uncrowded even with the three-number block: 17.5.1 with
