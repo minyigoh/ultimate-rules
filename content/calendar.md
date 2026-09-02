@@ -38,6 +38,7 @@
 | 2026-09-03 | carousel-post-5 — "Week four: contact, and who decides" | Carousel (9 slides) | Content pending review | — | — |
 | 2026-09-04 | Blocking fouls | Reel | Ready to post | — | — |
 | 2026-09-05 | Force-out fouls | Reel | Script approved | — | — |
+| 2026-09-06 | Marking fouls and the "Contact" call | Reel | Pending review | — | — |
 
 ## Status legend
 
