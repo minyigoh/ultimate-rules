@@ -985,10 +985,10 @@
   },
   "reel-32": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
       "tags": [],
-      "updatedAt": "2026-09-03T09:18:35.843Z"
+      "updatedAt": "2026-09-03T23:23:08.438Z"
     },
     "content": {
       "status": "awaiting-render",
