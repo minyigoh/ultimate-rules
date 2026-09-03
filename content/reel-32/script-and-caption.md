@@ -1,7 +1,7 @@
 # Reel 32 — Marking fouls and the "Contact" call
 
-**Status:** Pending review (v2 redraft)
-**Script drafted:** 2026-09-03 · **Redrafted:** 2026-09-04 (daily-reel-render) · **Rendered:** —
+**Status:** Content pending review
+**Script drafted:** 2026-09-03 · **Redrafted:** 2026-09-04 · **Script approved:** 2026-09-03 (desk) · **Rendered:** 2026-09-04 (daily-reel-render)
 **Queued:** 2026-09-06 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (15.1, 15.2, 17.6.1, 17.6.1.1, 17.6.1.2, 17.6.1.3)
@@ -123,9 +123,32 @@ which is another reason not to describe it as simply "a marking infraction".
   and 704 (17.6.1.3) — all against 1310. No split, no trimming.
 - Projected duration **~30s** on the house rhythm, the standard nine-scene
   shape.
-- **Two `_payload()` cases.** The cover title wraps so line 2 begins with a
-  double quote (`"Contact" call`), and scene 4's headline *begins* with one.
-  Both must be confirmed present in the PNG, not just the SVG, at render time.
+- **One `_payload()` case, not two.** Scene 4's headline begins with a double
+  quote and emits through `_payload()` as a `<tspan>`. The cover title was
+  expected to be a second case, but it wraps to `Marking fouls and` /
+  `the "Contact" call` — line 2 starts with "the", so both of its quotes are
+  mid-string and were never at risk.
+
+**Measured at render, 2026-09-04.** Every prediction above held exactly:
+
+- Duration **29.53s** against a 30.0s projection, exact CFR via `encode.py`.
+- Layout check **0 problems, no collisions**: main scenes at max_y 1192, 1192
+  and 1192 of 1310; detail cards at 940, 740 and 704; field tip 1062; cover
+  1210; closing 900. All nine max_x at 990 of 990.
+- Kickers rendered at 34, 34 and 34px — `fit_kicker()` never engaged. Bodies
+  auto-fit to 34, 33 and 36px, exactly the dry-measured sizes.
+- `check_dull.py`: longest sustained dull-orange run **0.20s** (6 frames) in
+  band y=520–578, against a 0.45s threshold. PASS.
+- All six rule texts verified character-for-character against `rules.json` in
+  the emitted SVG.
+- Scene 4's opening double quote confirmed **in the PNG**, not just the SVG:
+  the two quote strokes measure 12px wide and 20px tall at x=93–104 and
+  107–118, above a 46×51px "C" — a dropped quote would have left the "C" first.
+- One cosmetic note: on the scene 3 card, 17.6.1.2's "non-minor" wraps across a
+  line as `non-` / `minor`. `textwrap` breaks on existing hyphens by default.
+  No character is added or removed and the quotation is intact; flagged only
+  because it is the first time a rule card in this run has broken a hyphenated
+  word.
 
 **The three slide bodies the measurements above were taken against**, recorded
 here so the render is reproducible rather than re-derived from the beats:

@@ -2378,8 +2378,8 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     duration: '~29.5s script / 29.5s cut',
     rules: ['12.5', '17.4.1', '12.9'],
     review: {
-      script:  {status: 'pending', on: '2026-09-01'},
-      content: {status: 'in-review', on: '2026-09-01'}
+      script:  {status: 'pending', on: '2026-09-04'},
+      content: {status: 'rerender', on: '2026-09-03'}
     },
     postedDate: null,
     folder: 'reel-30',
@@ -2393,15 +2393,15 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       ['3', 'Rules detail', 'Verbatim 12.5'],
       ['4', '#2 NOT A SPACE THEY CAN\'T AVOID', '"First by a fraction still isn\'t first." · footer cites 17.4.1'],
       ['5', 'Rules detail', 'Verbatim 17.4.1'],
-      ['6', '#3 ARMS AND LEGS ARE NOT POSITION', '"You cannot box out." · footer cites 12.9'],
+      ['6', '#3 ARMS AND LEGS ARE NOT POSITION', '"You can box out — just not with your arms." · footer cites 12.9'],
       ['7', 'Rules detail', 'Verbatim 12.9'],
-      ['8', 'FIELD TIP', '"Boxing out is a habit from another sport."'],
+      ['8', 'FIELD TIP', '"Box out with your body, not your arms."'],
       ['9', 'Closing', '"Lesson 30 of 75." · Follow @learn.ultimatefrisbee']
     ],
     script: {
       hook: `You got to the spot first, they ran into you, and you think that settles it. It doesn't. Being there first is not the test.`,
       explanation: `Start with what you are allowed. Every player is entitled to occupy any position on the field not occupied by any opposing player — provided they do not initiate contact taking it, and are not moving in a reckless or dangerously aggressive manner. So the space is genuinely yours. The limit is what the space costs the other player. A blocking foul occurs when a player takes a position that an opponent moving in a legal manner will be unable to avoid, taking into account that opponent's expected position based on their established speed and direction.`,
-      example: `Expected position is the whole thing. A cutter at full speed has already committed to the next few metres. Step into that line at the last instant and it doesn't matter that you technically arrived a fraction earlier — they could not have avoided you, so it's your foul. And the same logic covers your limbs: players may not use their extended arms or legs to obstruct the movement of opposing players. Normal running and jumping isn't extended. Putting an arm out to hold someone off a cut is.`,
+      example: `Expected position is the whole thing. A cutter at full speed has already committed to the next few metres. Step into that line at the last instant and it doesn't matter that you technically arrived a fraction earlier — they could not have avoided you, so it's your foul. And there is one more limit — on your limbs, not on your position. Holding a spot with your body is fine; that is the permission we started with. What you may not do is use extended arms or legs to obstruct the movement of opposing players. Normal running and jumping isn't extended. An arm out to hold someone off a cut is.`,
       cta: `Lesson 30 of 75 — new lesson daily.`
     },
     ig: `You got to the spot first. They ran into you. You think that settles it — and it doesn't, because being there first is not the test.
@@ -2414,7 +2414,9 @@ That last sentence points at machinery we haven't covered yet — indirect fouls
 
 Expected position is the part people skip. A cutter at full speed has already committed to the next few metres — that ground is spoken for by where they are going, not by where they are. Step into it at the last instant and arriving a fraction earlier doesn't save you. They could not have avoided you. That's the foul.
 
-And it covers your limbs, not just your feet. "Players may not use their extended arms or legs to obstruct the movement of opposing players." Normal running and jumping isn't "extended". An arm across someone's chest to hold them off a cut is.
+One more limit — on your limbs, not your position. "Players may not use their extended arms or legs to obstruct the movement of opposing players."
+
+Read that narrowly, because it is narrow. You can box out. Putting your body between an opponent and where they want to go is holding a position, and 12.5 already said unoccupied positions are yours to take. What the rule removes is the arm: normal running and jumping isn't "extended", but an arm across someone's chest to hold them off a cut is, and that is a foul whatever your feet are doing.
 
 Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 
@@ -2439,20 +2441,26 @@ a cutter at full speed has already committed to the next few metres. that ground
 
 step into it at the last instant? arriving a fraction earlier doesn't save you. they couldn't avoid you
 
-and it's not just your feet:
+one more limit — on your limbs, not your position:
 
 "Players may not use their extended arms or legs to obstruct the movement of opposing players."
 
-normal running and jumping isn't "extended". an arm across someone's chest is
+read it narrowly. you CAN box out — putting your body between someone and where they want to go is just holding a position, and 12.5 already gave you that
 
-boxing out is a basketball habit. here it's just illegal
+what's out is the arm. normal running and jumping isn't "extended". an arm across someone's chest is
 
 lesson 30 of 75
 
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-01 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'REDRAFT v2, 2026-09-04, answering the content-track rejection "We can box out in ultimate using body. Just not using arms" (rounds 1-3, one complaint captured three times). Routed to the SCRIPT track, not regenerated: it asks for different words, and words go back through the first gate. v1 archived as content/reel-30/script-and-caption.v1.md; round written up in content/reel-30/script-feedback.md. Read the redraft and, if it lands, click Approve on the SCRIPT track — the next run then rebuilds the video from it.',
+      'The note is right on the rule, not just the practice. 12.9 bans EXTENDED arms or legs used to obstruct, and its annotation says arms and legs are not "extended" during normal running and jumping. 12.5 — already carded on scene 3 of this same reel — entitles a player to occupy any unoccupied position. So boxing out with your body is legal. The v1 scene 6 headline "You cannot box out." was broader than any rule on screen, and broader than its own slide body.',
+      'Changed: scene 6 headline and body, scene 8 headline and body, the Example beat, and the limb section of both captions (the TikTok line about it being "just illegal" is gone). No rules card, rule number or rule text moved, so scenes 1-5, 7 and 9 will re-render byte-identical. Lesson number, topic, citations and order all unchanged.',
+      'NEVER write "you cannot box out" in any future version. It is the defect this was rejected for, three rounds running.',
+      '12.4 ("A player in an established position is entitled to remain in that position and must not be contacted by an opposing player") would back the corrected take directly, but the note asks for no new citation and a fourth card would restructure the reel. Scene 6 leans on 12.5 instead, already on screen two scenes earlier.',
+      'The v1 cut reel30-blocking-fouls.mp4 is still the file on disk and still the rejected one. On rebuild it gets archived as reel30-blocking-fouls.v1.mp4 and the new cut keeps the unsuffixed name — the title has not changed.',
+      'Re-measured 2026-09-04: scene 6 kicker unchanged and still auto-fits to 32px at 895 of 900px; the new headline stays two lines; the body auto-fits to 33px over seven lines ending at max_y 1192, same as v1. Field tip: two-line headline, six-line body, max_y 1062.',
       'Planned as nine scenes, the three-pair shape used by reels 20-23 and 25-28: cover, then pairs for 12.5 (the space is yours), 17.4.1 (the space that is not) and 12.9 (arms and legs), a field tip, and the closing card.',
       'Order is 12.5 -> 17.4.1 -> 12.9, NOT the lessons array order. The reel has to grant the permission before it draws the limit; leading with 17.4.1 makes the whole thing sound like defence is illegal.',
       '17.4 is a heading stem ("Blocking Fouls:") and is deliberately NOT carded — same call as 17.2 in reel 28 and 17.3 in reel 29.',
@@ -2572,25 +2580,26 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 32,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080\u00d71920 \u00b7 29.5s \u00b7 30fps',
     rules: ['15.1', '15.2', '17.6.1', '17.6.1.1', '17.6.1.2', '17.6.1.3'],
     review: {
-      script:  {status: 'pending', on: '2026-09-04'},
-      content: {status: 'awaiting-render', on: null}
+      script:  {status: 'approved', on: '2026-09-03'},
+      content: {status: 'in-review', on: '2026-09-04'}
     },
     postedDate: null,
     folder: 'reel-32',
     source: 'content/reel-32/script-and-caption.md',
     sourceLesson: 'content/lessons-2.json (tag: Fouls)',
-    video: null,
+    video: 'reel32-marking-fouls-and-contact.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Marking fouls and the "Contact" call \u00b7 kicker BEGINNER \u00b7 LESSON 32 / 75'],
       ['2', '#1 CONTACT, NOT CLOSENESS', '"A marker being near you is not a foul." \u00b7 footer cites 17.6.1, 17.6.1.1, 17.6.1.2'],
       ['3', 'Rules detail', 'Verbatim 17.6.1 + 17.6.1.1 + 17.6.1.2'],
-      ['4', '#2 STILL A FOUL, DIFFERENT CALL', '"\u201cContact\u201d is not a different event." \u00b7 footer cites 15.1, 15.2'],
+      ['4', '#2 STILL A FOUL, DIFFERENT CALL', 'Headline: "Contact" is not a different event. \u00b7 footer cites 15.1, 15.2'],
       ['5', 'Rules detail', 'Verbatim 15.1 + 15.2'],
-      ['6', '#3 YOU CHOOSE IF PLAY STOPS', '"Foul stops the game. \u201cContact\u201d doesn\u2019t." \u00b7 footer cites 17.6.1.3'],
+      ['6', '#3 YOU CHOOSE IF PLAY STOPS', 'Headline: Foul stops the game. "Contact" doesn\u2019t. \u00b7 footer cites 17.6.1.3'],
       ['7', 'Rules detail', 'Verbatim 17.6.1.3'],
       ['8', 'FIELD TIP', '"Say it without breaking your stance."'],
       ['9', 'Closing', '"Lesson 32 of 75." \u00b7 Follow @learn.ultimatefrisbee']
@@ -2668,7 +2677,10 @@ lesson 32 of 75
 rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'REDRAFT v2, 2026-09-04, answering the desk note "Isn\'t contact part of a foul call? Infraction is infraction right?". Read it and, if it lands, click Approve so the stamp is against these words. Do NOT click Request changes just to park it \u2014 the next daily run rewrites anything sitting at changes and would replace this version before you read it. v1 archived as content/reel-32/script-and-caption.v1.md; the round is written up in content/reel-32/script-feedback.md.',
+      'Built 2026-09-04 from the v2 redraft, which the desk approved on the script track at 2026-09-03T23:23Z with the note kept on the record. The script v1 is archived as content/reel-32/script-and-caption.v1.md; the round is written up in content/reel-32/script-feedback.md.',
+      'Measured at render: 29.53s against a 30.0s projection, exact CFR via encode.py. Layout check 0 problems with no collisions \u2014 main scenes all at max_y 1192, detail cards at 940, 740 and 704, field tip 1062, cover 1210, closing 900, all against 1310. All three kickers at the standard 34px, so fit_kicker() never engaged; bodies auto-fit to 34, 33 and 36px, exactly the dry-measured sizes. Longest sustained dull-orange run 0.20s against a 0.45s threshold.',
+      'One _payload() case, not the two the draft predicted. Scene 4 headline begins with a double quote and emitted as a <tspan>; both strokes confirmed present in the PNG (12x20px at x=93-104 and 107-118, ahead of a 46x51px C). The cover title wraps so line 2 starts with "the", and its quotes were never adjacent to an MVG delimiter.',
+      'All six rule texts verified character-for-character against rules.json in the emitted SVG. On the scene 3 card, 17.6.1.2 wraps "non-minor" across a line as non- / minor \u2014 textwrap breaks on existing hyphens by default. No character added or removed; noted only because it is the first hyphen break on a rule card in this run.',
       'Both halves of the note are right, and v1 invited them. 15.1 defines a foul as non-minor contact, so the bump IS a foul; 15.2 defines an infraction by the kind of breach it is. 17.6.1.3 does not reclassify anything \u2014 it offers the thrower a choice of REMEDY for a foul its own opening clause says has occurred. v2 says that outright instead of "the same contact gives you two calls".',
       'Nine scenes now, the standard three-pair shape (v1 was seven). The new middle pair cards 15.1 and 15.2 as two separate blocks \u2014 two independent definitions, not a stem and its limbs. Both were already carded in reel 21. TOTAL = 9 is the shared default, so leave it alone.',
       'CORRECTION TO THE LESSON BRIEF: lessons-2.json (marking-foul) says the stall count "resumes one lower". It does not. 17.6.1.3 says "the marker must resume the stall count at one (1)". body[2], the quiz "why" line and quiz option 1 all carry the error and need fixing on the website side \u2014 flagged, not changed here.',
