@@ -34,7 +34,7 @@
 | 2026-08-31 | Who initiated the contact? | Reel | Posted | 2026-08-31 | — |
 | 2026-09-01 | Not every touch is a foul | Reel | Posted | 2026-09-01 | — |
 | 2026-09-02 | Receiving fouls | Reel | Posted | 2026-09-02 | — |
-| 2026-09-03 | Strip fouls | Reel | Pending review — changes requested | — | — |
+| 2026-09-03 | Strip fouls | Reel | Posted | 2026-09-03 | — |
 | 2026-09-03 | carousel-post-5 — "Week four: contact, and who decides" | Carousel (9 slides) | Posted | 2026-09-03 | — |
 | 2026-09-04 | Blocking fouls | Reel | Ready to post | — | — |
 | 2026-09-05 | Force-out fouls | Reel | Script approved | — | — |
