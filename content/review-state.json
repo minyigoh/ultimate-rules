@@ -944,8 +944,11 @@
     "content": {
       "status": "rerender",
       "note": "We can box out in ultimate using body. Just not using arms",
-      "tags": [],
-      "updatedAt": "2026-09-03T23:22:31.090Z"
+      "tags": [
+        "On-screen text",
+        "Wrong take"
+      ],
+      "updatedAt": "2026-09-03T23:22:37.767Z"
     },
     "revisions": [
       {
