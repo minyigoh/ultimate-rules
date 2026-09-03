@@ -34,9 +34,18 @@ def esc(s):
 #
 # Applied only when the text actually starts with a quote, so every other
 # element in every other asset emits byte-identical SVG to what has shipped.
+# 2026-09-02: the same collision happens at the *closing* delimiter. A payload
+# ending in a double quote loses it too, and a payload that both starts and
+# ends with one loses both. Found while proofing carousel-post-5, whose slide 3
+# wrapped to a last line of `hand."` and rendered `hand.` -- correct in the SVG,
+# missing in the PNG. Measured: bare `hand."` drops it, bare `"a b."` drops
+# both, `say "hi" now` is fine, and the <tspan> fixes all of them. So the
+# condition is startswith OR endswith.
 def _payload(s):
     t = esc(s)
-    return f"<tspan>{t}</tspan>" if t.startswith("&quot;") else t
+    if t.startswith("&quot;") or t.endswith("&quot;"):
+        return f"<tspan>{t}</tspan>"
+    return t
 
 def bold(x, y, text, size, color, anchor="start", sw=2.6):
     return (f'<text x="{x}" y="{y}" font-family="{FONT}" font-weight="bold" font-size="{size}" '
@@ -261,9 +270,9 @@ SCENES = [
     ('space_r', g_detail(3, [('12.5', [rt('12.5')])]), [0.3, 2.0]),
     ('avoid', g_main(4, "NOT A SPACE THEY CAN'T AVOID", "First by a fraction still isn't first.", "The test is the opponent's expected position, from their established speed and direction. A cutter at full speed has already committed to the next few metres. Step into that line at the last instant and arriving first does not save you.", ['17.4.1'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('avoid_r', g_detail(5, [('17.4.1', [rt('17.4.1')])]), [0.3, 2.0]),
-    ('limbs', g_main(6, 'ARMS AND LEGS ARE NOT POSITION', "You cannot box out.", "Position is where your body is, not how far you can reach. Players may not use extended arms or legs to obstruct an opponent's movement. Normal running and jumping is not extended; an arm across someone's chest is.", ['12.9'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('limbs', g_main(6, 'ARMS AND LEGS ARE NOT POSITION', "You can box out \u2014 just not with your arms.", "Position is where your body is, not how far you can reach. Standing your ground between an opponent and the disc is legal \u2014 12.5 already said the space is yours. What 12.9 bans is using extended arms or legs to obstruct them. Normal running and jumping is not extended; an arm across someone's chest is.", ['12.9'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
     ('limbs_r', g_detail(7, [('12.9', [rt('12.9')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Boxing out is a habit from another sport.", "In basketball, sealing someone behind your arm is good defence. Here it is exactly what 12.9 names. Keep your arms in, take the position with your feet, and there is nothing to argue about afterwards."), [0.3, 0.45, 0.7, 1.7]),
+    ('tip', g_tip(8, "Box out with your body, not your arms.", "Sealing someone behind an extended arm is basketball defence, and 12.9 names it. Holding a legal position with your body is not the same thing and is not a foul. Keep your arms in, take the ground with your feet, and there is nothing to argue about afterwards."), [0.3, 0.45, 0.7, 1.7]),
     ('close', g_closing(9, 30), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------

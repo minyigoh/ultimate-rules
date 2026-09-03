@@ -1,7 +1,7 @@
 # Reel 30 — Blocking fouls
 
-**Status:** Pending review (v2 redraft) — the words go back through the first gate
-**Script drafted:** 2026-09-01 · **Redrafted:** 2026-09-04 (daily-reel-render) · **Rendered:** 2026-09-01 (v1, superseded)
+**Status:** Content pending review (v2)
+**Script drafted:** 2026-09-01 · **Redrafted:** 2026-09-04 · **Script approved:** 2026-09-03T23:48Z (desk) · **Rendered:** 2026-09-04 (v2, daily-reel-render)
 **Queued:** 2026-09-04 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (12.5, 17.4.1, 12.9)
@@ -111,8 +111,27 @@ were re-measured 2026-09-04 and neither changes the reel's layout profile:
   is nothing to argue about afterwards." Two-line headline, six-line body,
   ends at max_y 1062. No citation footer, as before.
 
-Scenes 1–5, 7 and 9 are untouched and will re-render byte-identical: no rules
-card, rule number or rule text moves.
+Scenes 1–5, 7 and 9 are untouched and re-render identically: no rules card,
+rule number or rule text moves.
+
+**Measured at rebuild, 2026-09-04.** Nine scenes, exact CFR via `encode.py`,
+**29.50s** — the same as v1, since no line count moved. Layout check **0
+problems, no collisions**: main scenes at max_y 1192, 1192 and 1192 of 1310,
+detail cards at 604, 754 and 454, field tip 1062, cover 1210, closing 900.
+Scene 6's kicker still auto-fits to 32px and its body to 33px, exactly as
+predicted. `check_dull.py`: longest sustained run **0.20s** against a 0.45s
+threshold. 12.5, 17.4.1 and 12.9 re-verified character-for-character against
+`rules.json`.
+
+**The "only two scenes changed" claim was verified, not assumed.** The v1 copy
+was re-rendered in parallel and the two frame sets compared pixel by pixel: of
+34 states, exactly 5 differ — three on scene 6 and two on scene 8. Everything
+else is pixel-identical to the rejected cut.
+
+Built on `content/reel-31/render_v3.py` rather than reel-30's own copy, because
+reel-31's carries the 2026-09-02 `_payload()` widening (the closing-delimiter
+case). No line in this reel ends with a double quote, so it is a no-op here —
+which is what the pixel comparison proves.
 
 **Rendering:** `render_v3.py` → `blend.py` → `python3 encode.py <out.mp4> slow`.
 `render_v3.py` reuses the exact helpers, constants and coordinates from
