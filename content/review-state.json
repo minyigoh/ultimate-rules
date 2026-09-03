@@ -942,13 +942,10 @@
       "updatedAt": "2026-09-03T23:48:39.775Z"
     },
     "content": {
-      "status": "rerender",
-      "note": "We can box out in ultimate using body. Just not using arms",
-      "tags": [
-        "On-screen text",
-        "Wrong take"
-      ],
-      "updatedAt": "2026-09-03T23:22:37.767Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-03T23:53:59Z"
     },
     "revisions": [
       {
@@ -957,6 +954,13 @@
         "duration": "29.5s",
         "file": "reel30-blocking-fouls.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 12.5, 17.4.1 and 12.9 quoted verbatim from rules.json, verified byte-identical against the source. Carded in the script's order 12.5 -> 17.4.1 -> 12.9 rather than the lesson's array order, so the reel grants the permission before drawing the limit. 17.4 is a heading stem and was not carded, and its annotation - the 'tree suddenly materialized' test - was kept off every scene, since the reel cites rule text only. Every layout prediction in the approved script held exactly: scene 2's kicker at 887px and scene 4's at 871px stayed at the standard 34px, scene 6's at 951px auto-fit to 32px, and all three bodies rendered at the standard 36px. All three main scenes end at max_y 1192 of 1310. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-09-04",
+        "duration": "29.5s",
+        "file": "reel30-blocking-fouls.mp4",
+        "changed": "Rebuilt from the 09-04 redraft, addressing feedback rounds 1-3 (\"We can box out in ultimate using body. Just not using arms\") - one complaint captured three times. Copy only: no rules card, rule number or rule text moved. Scene 6 headline \"You cannot box out.\" -> \"You can box out - just not with your arms.\", and its body rewritten to name the permission before the limit; scene 8 headline \"Boxing out is a habit from another sport.\" -> \"Box out with your body, not your arms.\" with a matching body. The rule is narrow: 12.9 bans EXTENDED arms or legs used to obstruct, its annotation excludes normal running and jumping, and 12.5 - carded on scene 3 of this same reel - entitles a player to occupy any unoccupied position. v1's headline was broader than any rule on screen and broader than its own slide body. Verified rather than asserted: the v1 copy was re-rendered in parallel and the frame sets compared pixel by pixel - of 34 states exactly 5 differ, three on scene 6 and two on scene 8, and scenes 1-5, 7 and 9 are pixel-identical to the rejected cut. Built on reel-31/render_v3.py for the 2026-09-02 _payload() widening; a no-op here, since no line in this reel ends with a double quote. Nine scenes, exact CFR via encode.py, 29.50s - the same as v1, since no line count moved. Layout check 0 problems with no collisions; scene 6's kicker still auto-fits to 32px and its body to 33px; main scenes at max_y 1192 of 1310, detail cards at 604, 754 and 454, field tip 1062. Longest sustained dull-orange run 0.20s against a 0.45s threshold. 12.5, 17.4.1 and 12.9 re-verified character-for-character against rules.json. This cut does not improve on v1 by any measurement - v1 was clean on all of them, and the defect was the words. v1 archived as reel30-blocking-fouls.v1.mp4."
       }
     ]
   },
