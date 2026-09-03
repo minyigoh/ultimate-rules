@@ -922,7 +922,12 @@
         "file": "01_cover.png … 08_closing.png",
         "changed": "Initial render of the fourth weekly recap, from the v2 redraft: lessons 22-27, eight slides at 2250x2812, rule numbers only and no rule text. First recap that is not nine slides - TOTAL, the n / TOTAL header counter, the filenames and the closing slide number all follow. Takeaways verified byte-identical against each lesson's field line in lessons-2.json, and every footer number against that lesson's rules array. Layout reused verbatim from carousel-post-4/make_carousel.py; the cover returns to the standard 96px (\"Week four: contact,\" measures 889 of 900px) and fit_body() never engaged, so all six takeaways render at 36px. Layout check 0 problems, no collisions. NOTE: the script approval stamped 2026-09-01T13:40Z was against v1 (lessons 22-28, nine slides); the redraft landed in the push six minutes later, so these slides are newer than that stamp. Rendering also surfaced a new defect in _payload(): ImageMagick 6 drops a double quote adjacent to EITHER MVG delimiter, not just the opening one, so slide 3's last line \"hand.\" lost its closing quote. Fixed here and in reel-28/render_v3.py by wrapping on startswith OR endswith. Reels 1-30 and carousels 1-4 were scanned; reel-11 and reel-26 shipped with the defect on their field tips."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-03",
+      "updatedAt": "2026-09-03T06:18:54.634Z"
+    }
   },
   "reel-30": {
     "script": {
