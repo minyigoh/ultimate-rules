@@ -942,10 +942,10 @@
       "updatedAt": "2026-08-31T23:42:24.854Z"
     },
     "content": {
-      "status": "approved",
+      "status": "rerender",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T23:10:05.951Z"
+      "updatedAt": "2026-09-03T23:22:00.536Z"
     },
     "revisions": [
       {
