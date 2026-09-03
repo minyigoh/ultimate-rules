@@ -1,33 +1,43 @@
 # Reel 32 — Marking fouls and the "Contact" call
 
-**Status:** Pending review
-**Script drafted:** 2026-09-03 (daily-reel-render) · **Rendered:** —
+**Status:** Pending review (v2 redraft)
+**Script drafted:** 2026-09-03 · **Redrafted:** 2026-09-04 (daily-reel-render) · **Rendered:** —
 **Queued:** 2026-09-06 (see `content/calendar.md`)
 **Difficulty:** Beginner
-**Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (17.6.1, 17.6.1.1, 17.6.1.2, 17.6.1.3)
-**Source lesson:** `content/lessons-3.json` → `marking-foul`
+**Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (15.1, 15.2, 17.6.1, 17.6.1.1, 17.6.1.2, 17.6.1.3)
+**Source lesson:** `content/lessons-2.json` → `marking-foul`
 
-Reels 28–31 covered the four fouls that *take something away* and hand it back.
-This one is different in kind: it is the foul that comes with a choice. The
-same contact can be a foul that stops the game, or an infraction that doesn't —
-and the thrower picks. That choice is the whole lesson.
+v1 framed this as "the same contact gives you two calls", which reads as though
+"Contact" and "Foul" are two different things that happened. Min-Yi's note on
+the desk is exactly right: the contact **is** the foul, and an infraction is a
+different category of breach. This redraft answers that head-on instead of
+sliding past it, and adds one topic pair carding **15.1** and **15.2** — the two
+definitions reel 21 already taught — so the reel says out loud what the reader
+is going to ask.
+
+The short version: the breach is a foul. The **call** is the thrower's choice,
+and choosing "Contact" borrows the infraction remedy — play doesn't stop — for
+a foul you'd rather not stop the game over.
 
 ---
 
 ## Video — `reel32-marking-fouls-and-contact.mp4` (1080×1920, 30fps)
 
-Seven scenes — cover, two topic/rules-detail pairs, field tip, closing. The
-two-pair shape, same as reels 11, 17, 19, 24 and 29.
+Nine scenes — cover, three topic/rules-detail pairs, field tip, closing. The
+three-pair shape, same as reels 25–28, 30 and 31. v1 was seven scenes and two
+pairs; the new pair is the definitions one.
 
 | # | Scene | Content |
 |---|---|---|
 | 1 | Cover | Marking fouls and the "Contact" call · kicker BEGINNER · LESSON 32 / 75 |
 | 2 | #1 CONTACT, NOT CLOSENESS | "A marker being near you is not a foul." · footer cites 17.6.1, 17.6.1.1, 17.6.1.2 |
 | 3 | Rules detail | Verbatim 17.6.1 + 17.6.1.1 + 17.6.1.2 |
-| 4 | #2 THE CALL THAT KEEPS PLAY LIVE | "You get to choose whether the game stops." · footer cites 17.6.1.3 |
-| 5 | Rules detail | Verbatim 17.6.1.3 |
-| 6 | FIELD TIP | "Say it without breaking your stance." |
-| 7 | Closing | "Lesson 32 of 75." · Follow @learn.ultimatefrisbee |
+| 4 | #2 STILL A FOUL, DIFFERENT CALL | Headline: "Contact" is not a different event. · footer cites 15.1, 15.2 |
+| 5 | Rules detail | Verbatim 15.1 + 15.2 |
+| 6 | #3 YOU CHOOSE IF PLAY STOPS | Headline: Foul stops the game. "Contact" doesn't. · footer cites 17.6.1.3 |
+| 7 | Rules detail | Verbatim 17.6.1.3 |
+| 8 | FIELD TIP | "Say it without breaking your stance." |
+| 9 | Closing | "Lesson 32 of 75." · Follow @learn.ultimatefrisbee |
 
 Rule text is pulled programmatically from `content/rules.json` — never
 paraphrased on a citation card.
@@ -45,62 +55,95 @@ reel 31, 12.7 in reel 26 and 1.3 in reels 23 and 27.
 source prints and what `rules.json` holds. Do not tidy either — the card is a
 quotation.
 
+**15.1 and 15.2 are carded as two separate blocks**, each with its own rule
+header, because they are two independent definitions rather than a stem and its
+limbs. Both were already carded in reel 21, so the wording on screen will be
+familiar to anyone who watched it.
+
+### The correction the v2 redraft is built on
+
+Min-Yi, on the desk: *"Isn't contact part of a foul call? Infraction is
+infraction right?"*
+
+Both halves are correct, and v1's framing invited the question:
+
+- **Contact is what a foul is.** 15.1: "A breach of the rules due to non-minor contact between two or more opposing players is a foul." So the marker's bump is a
+  foul the moment it happens. Nothing the thrower says changes that.
+- **An infraction is a different category.** 15.2: "A breach of the rules regarding a Marking or Travel breach is an infraction. Infractions do not stop play." It is defined by
+  *what kind of breach* it is, not by who calls it.
+
+So how can a foul be called as an infraction? Because 17.6.1.3 does not
+reclassify the breach — it gives the thrower a **choice of remedy**: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+
+The words "may choose to call a contact infraction" are the whole hinge. A
+Defensive Throwing Foul *occurred* — the rule says so in its own first clause.
+The thrower may elect to handle it the way infractions are handled, which means
+play carries on. v2 says that in the hook, cards the two definitions in the
+middle pair, and only then offers the choice.
+
 ### The one correction this draft makes to the lesson brief
 
-`lessons-3.json` → `marking-foul` says the stall count "resumes one lower".
+`lessons-2.json` → `marking-foul` says the stall count "resumes one lower".
 **It does not.** 17.6.1.3 says "the marker must resume the stall count at one
 (1)", and the annotation repeats it: "If accepted, play does not stop, but the
 stall count must be resumed at 1." The script and both captions say *one*. The
-lesson JSON's `body[2]` and its quiz `why` line both need the same fix on the
-website side — flagged in the run report, not changed here, since this task
-does not own the curriculum files.
+lesson JSON's `body[2]` and its quiz `why` line (and option 1, "the count drops
+by one") all need the same fix on the website side — flagged in the run report,
+not changed here, since this task does not own the curriculum files.
+
+This is also *why* 18.1.3 stays off the cards. A generic marking infraction
+resumes at "the number last fully uttered before the call, minus one (1)"; a
+contact infraction resumes at one. The contact infraction has its own remedy,
+which is another reason not to describe it as simply "a marking infraction".
 
 ### What is deliberately left out
 
-- **"The marker has to fix their position"** is true and is in the lesson
-  brief, but it is not in 17.6.1.3 — it comes from the marking-infraction
-  machinery in 18.1, which is lesson 17's and lesson 19's territory. It stays
-  out of the rules cards and out of the body copy, so nothing on screen is
-  broader than what is cited.
-- **The "minor contact → call disc space instead" branch** is annotation, not
-  rule text, and disc space is lesson 17. Mentioning it here would open a rule
-  this reel does not card.
-- **The thrower-initiated-contact case** (17.6's annotation: moving into a
-  legally positioned marker is an offensive foul) is a genuinely useful point
-  and is a reel of its own. It is not cited here and must not be smuggled into
-  the body copy.
+- **18.1 and the marking-infraction machinery.** The redraft says "handled the
+  way an infraction is handled" and stops there. It does not cite 18.1.3 and
+  does not say the marker has to fix their position — true, but it comes from
+  18.1, which is lessons 17 and 19.
+- **The minor-contact / disc-space branch** is annotation, not rule text, and
+  disc space is lesson 17.
+- **The thrower-initiated-contact case** (17.6's annotation) is lesson 33,
+  which posts the following day. Not smuggled in here.
 
-**Layout — dry-rendered and measured 2026-09-03, before drafting was finalised:**
+**Layout — dry-measured 2026-09-04 against `content/reel-31/render_v3.py`:**
 
-- Both kickers fit at the standard 34px: `#1   CONTACT, NOT CLOSENESS` at 738
-  of the 900px column, `#2   THE CALL THAT KEEPS PLAY LIVE` at **896**.
-  `fit_kicker()` is not engaged — but 896/900 is the tightest kicker in the run
-  to date, past reel-25's 893. **Four pixels of headroom. Any rewording of that
-  kicker will shrink the type instead.**
-- Both bodies render at the standard 36px, over seven and six lines.
-  `fit_body()` is not engaged.
-- Both main scenes end at max_y 1192 of 1310. Layout check **0 problems, no
-  collisions.**
-- Detail cards land at max_y 940 (17.6.1 with both limbs) and 704 (17.6.1.3,
-  the longest single rule carded since 13.3 in reel 23) — both against 1310. No
-  split, no trimming.
-- Projected duration **28.8s** on the house rhythm.
-- **The cover title wraps so line 2 begins with a double quote** — `"Contact"
-  call` — which is the `_payload()` case. Dry-rendered to PNG and both quotes
-  confirmed present in the image, not just the SVG.
+- All three kickers fit at the standard 34px: `#1   CONTACT, NOT CLOSENESS` at
+  738 of the 900px column, `#2   STILL A FOUL, DIFFERENT CALL` at 854, and
+  `#3   YOU CHOOSE IF PLAY STOPS` at 772. `fit_kicker()` is **not** engaged.
+  v1's `#2   THE CALL THAT KEEPS PLAY LIVE` measured 896/900 — four pixels of
+  headroom, the tightest in the run; the redraft retires it, which removes that
+  risk rather than adding one.
+- Bodies auto-fit to 34px (scene 2, six lines), 33px (scene 4, seven lines) and
+  36px (scene 6, six lines). `fit_body()` engages on the first two and holds
+  every last baseline clear of the citation.
+- All three main scenes end at max_y 1192 of 1310.
+- Detail cards land at max_y 940 (17.6.1 with both limbs), 740 (15.1 + 15.2)
+  and 704 (17.6.1.3) — all against 1310. No split, no trimming.
+- Projected duration **~30s** on the house rhythm, the standard nine-scene
+  shape.
+- **Two `_payload()` cases.** The cover title wraps so line 2 begins with a
+  double quote (`"Contact" call`), and scene 4's headline *begins* with one.
+  Both must be confirmed present in the PNG, not just the SVG, at render time.
 
-**The two slide bodies the measurements above were taken against**, recorded
+**The three slide bodies the measurements above were taken against**, recorded
 here so the render is reproducible rather than re-derived from the beats:
 
 - Scene 2 — "A defensive throwing foul is non-minor contact between the thrower
   and a defender who is illegally positioned, or non-minor contact the defender
   initiates before the pass is released. Both players going for the same
   unoccupied space counts too. Proximity on its own does not."
-- Scene 4 — "If the contact lands before you release and not during your
-  throwing motion, you have two calls. \"Foul\" stops play. \"Contact\" is an
-  infraction — uncontested, play does not stop at all, and the marker must
-  resume the stall count at one."
-- Scene 6 (field tip) — "The whole value of the call is that nothing stops.
+- Scene 4 — "The rulebook defines a foul as non-minor contact, and an
+  infraction as a marking or travel breach that does not stop play. The bump is
+  a foul under the first definition. What the rule gives you is not a
+  reclassification — it is the choice to handle that foul the way an infraction
+  is handled, so the game keeps going."
+- Scene 6 — "If the contact lands before you release and not during your
+  throwing motion, you have two calls. \"Foul\" stops play. \"Contact\" takes the
+  infraction route — uncontested, play does not stop at all, and the marker
+  must resume the stall count at one."
+- Scene 8 (field tip) — "The whole value of the call is that nothing stops.
   Keep the pivot, keep your eyes downfield, let the count go back to one. It
   cools the moment down too — nobody has to argue about a foul that never
   stopped the game."
@@ -108,31 +151,43 @@ here so the render is reproducible rather than re-derived from the beats:
 **Rendering:** `render_v3.py` → `blend.py` → `python3 encode.py <out.mp4> slow`.
 Copy the three scripts and `rules.json` into a scratch directory outside the
 repo, build there, and copy only the finished `.mp4` back.
-`content/reel-31/render_v3.py` is the newest copy; **set `TOTAL = 7`**, since
-the shared default is 9.
+`content/reel-31/render_v3.py` is the newest copy; `TOTAL = 9` is the shared
+default, so leave it alone this time — v1's seven-scene note no longer applies.
 
 ---
 
-## Script (~29s)
+## Script (~30s)
 
-- Hook: "The marker bumps you before you throw. You can stop the game over it — or you can make the call that keeps you playing."
-- Explanation: "First, what counts. A defensive throwing foul is non-minor contact between the thrower and a defender who is illegally positioned, or non-minor contact the defender initiates before the pass is released — including both of you going for the same unoccupied space. A marker who is simply close to you is not fouling you."
-- Example: "Now the choice. If that contact lands before you release and not during your throwing motion, you have two calls. Say \"Foul\" and play stops. Say \"Contact\" and it's an infraction instead — uncontested, play doesn't stop at all, and the marker resumes the stall count at one."
+- Hook: "The marker bumps you before you throw. That is a foul — and you still don't have to stop the game over it."
+- Explanation: "First, what counts. A defensive throwing foul is non-minor contact between the thrower and a defender who is illegally positioned, or non-minor contact the defender initiates before the pass is released — including both of you going for the same unoccupied space. A marker who is merely close to you is not fouling you. And that contact really is a foul: the rulebook defines a foul as non-minor contact between opposing players. Saying \"Contact\" does not turn it into something else."
+- Example: "What it changes is the remedy. An infraction, in this rulebook, is a marking or travel breach — and infractions don't stop play. So if the contact lands before you release and not during your throwing motion, the choice is yours. Say \"Foul\" and play stops. Say \"Contact\" and, uncontested, play doesn't stop at all — the marker just resumes the stall count at one."
 - CTA: "Lesson 32 of 75 — new lesson daily."
 
 ## Instagram caption
 
-The marker bumps you before you throw. You can stop the game over it — or you can make the call that keeps you playing.
+The marker bumps you before you throw. That is a foul — and you still don't have to stop the game over it.
 
 **First, what actually counts as a marking foul.** "A Defensive Throwing Foul occurs when:" — "There is non-minor contact between the thrower and an illegally positioned defensive player (Section 18.1); or" "A defensive player initiates non-minor contact with the thrower, or there is non-minor contact resulting from the thrower and the defender both vying for the same unoccupied position, prior to the thrower releasing the pass."
 
 Read the two limbs together and the shape is clear. It is contact, and it is contact with a position problem behind it. A marker who is merely close to you is not fouling you.
 
-**Then the part almost nobody uses.** "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+**Now the part that confuses people, and it should.** If contact is what makes something a foul, how can you call it an infraction? Look at the two definitions the rulebook gives:
 
-So the same contact gives you two calls. "Foul" stops the game. "Contact" doesn't stop it at all — and the count goes back to one.
+"A breach of the rules due to non-minor contact between two or more opposing players is a foul."
 
-That is a rare thing in this rulebook: a call that costs you nothing. You keep your pivot, you keep your eyes downfield, and the stall count you were losing resets. Most players stop the game out of habit when they didn't have to.
+"A breach of the rules regarding a Marking or Travel breach is an infraction. Infractions do not stop play."
+
+By the first one, the bump is a foul. Full stop. Nothing you say afterwards changes what happened.
+
+**So what does the call change?** The remedy, not the event: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+
+"May choose to call a contact infraction" is the hinge. A Defensive Throwing Foul occurred — the rule says so in its own opening clause. What you are choosing is whether to handle it the way fouls are handled, which stops the game, or the way infractions are handled, which doesn't.
+
+"Foul" stops play. "Contact" doesn't stop it at all, and the count goes back to one.
+
+That is a rare thing in this rulebook: a call that costs you nothing. You keep your pivot, you keep your eyes downfield, and the stall count you were losing resets. Plenty of players stop the game out of habit when they didn't have to.
+
+One limit worth knowing: the choice only exists for contact *before* the release and *not* during your throwing motion. Contact during the throwing motion is a foul and only a foul.
 
 Lesson 32 of 75.
 
@@ -142,7 +197,7 @@ Follow @learn.ultimatefrisbee — one lesson a day.
 
 ## TikTok caption
 
-marker bumps you before you throw. stop the game over it? or make the call that keeps you playing 🥏
+marker bumps you before you throw. that IS a foul — and you still don't have to stop the game over it 🥏
 
 what counts first:
 
@@ -154,18 +209,26 @@ what counts first:
 
 contact + a position problem. a marker who's just CLOSE isn't fouling you
 
-now the part nobody uses:
+now the bit that trips everyone up. if contact is what makes it a foul, how is it an infraction?
+
+"A breach of the rules due to non-minor contact between two or more opposing players is a foul."
+
+"A breach of the rules regarding a Marking or Travel breach is an infraction. Infractions do not stop play."
+
+by the first one the bump is a foul. that part is settled
+
+here's what the call actually changes:
 
 "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
 
-same contact, two calls
+"may choose to call a contact infraction" — you're picking the remedy, not renaming what happened
 
 "Foul" → game stops
 "Contact" → game does NOT stop, count goes back to 1
 
 you keep your pivot. you keep your eyes downfield. the stall count you were losing resets
 
-most people stop the game out of habit when they didn't have to
+only works for contact BEFORE the release and NOT during the throwing motion. during the motion it's a foul, full stop
 
 lesson 32 of 75
 
@@ -178,7 +241,7 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio
 ## Attribution
 
 Rule text quoted verbatim from the **WFDF Rules of Ultimate 2025–2028**
-(17.6.1, 17.6.1.1, 17.6.1.2, 17.6.1.3).
+(15.1, 15.2, 17.6.1, 17.6.1.1, 17.6.1.2, 17.6.1.3).
 
 ---
 
@@ -186,7 +249,8 @@ Rule text quoted verbatim from the **WFDF Rules of Ultimate 2025–2028**
 
 - Film/edit against the brand visual spec in `social/brand-identity.md` (dark
   `#0F1712` bg, `#E24A12` accent for hook + rule chips, one clean sans-serif).
-- **Seven scenes.** Two rule cards, so two topic/rules pairs.
+- **Nine scenes, three rule cards.** v1 was seven; the new middle pair carries
+  15.1 and 15.2. `TOTAL = 9` is the shared default in `render_v3.py`.
 - **The count resumes at one, not "one lower".** See the correction section
   above. If any version of this copy ever says "one lower", it came from the
   lesson JSON and it is wrong against 17.6.1.3.
@@ -194,15 +258,12 @@ Rule text quoted verbatim from the **WFDF Rules of Ultimate 2025–2028**
   motion" is the hinge.** Contact *during* the throwing motion is a foul and
   only a foul — the "Contact" option is not available. The annotation says so
   explicitly: a "Contact" call made about throwing-motion contact is treated as
-  a foul. The script keeps the qualifier in the Example beat for that reason;
-  don't trim it for pace.
-- **Do not say "Contact" is always the better call.** The lesson brief says
-  "usually", and the rule gives the thrower a free choice. There are situations
-  — a genuinely disruptive mark, a repeat offender — where stopping play is the
-  right call. The reel offers the option, it doesn't prescribe it.
-- **Quote handling:** the cover title's second line begins with a double quote,
-  which is the `_payload()` case fixed on 2026-08-25 and widened on 2026-09-02.
-  Verified in the PNG on the dry render, not just the SVG.
+  a foul. It stays in the Example beat and in both captions; don't trim it.
+- **Do not say "Contact" is always the better call.** The rule gives the
+  thrower a free choice, and a genuinely disruptive mark or a repeat offender
+  is a reason to stop play. The reel offers the option, it doesn't prescribe it.
+- 18.1.3's "minus one (1)" restart is deliberately off every card — a contact
+  infraction has its own remedy under 17.6.1.3 and resumes at one.
 - No growth/reach claims in either caption.
 - Once posted, report back the numbers and I'll log them in
   `content/calendar.md`.
