@@ -86,6 +86,91 @@ def folders_in_data():
     return seen
 
 
+def _slice_array(text, open_at):
+    """Return the source of the [...] starting at `open_at`, brackets included."""
+    depth = 0
+    for i in range(open_at, len(text)):
+        if text[i] == "[":
+            depth += 1
+        elif text[i] == "]":
+            depth -= 1
+            if depth == 0:
+                return text[open_at:i + 1]
+    fail("unterminated slides array in data.js")
+
+
+def check_slides():
+    """Every `slides` entry must be a ['<stem>', '<label>'] pair, extensionless.
+
+    The desk builds both the preview and the save list from that shape:
+    index.html does `p.slides.map(([f, label]) => ...)` and appends IMG_EXT
+    itself, because the preview wants the bundled .jpg and the save wants the
+    original .png. Destructuring is silent on the wrong shape -- given a bare
+    string '01_cover.png' it takes the first *character*, so every slide
+    resolves to '0.png'. carousel-post-5 shipped that way on 2026-09-02: the
+    thumbnails 404'd and "Save all 8 slides" failed on every slide, with
+    nothing anywhere saying why. Min-Yi reported it as "carousel post media
+    seems unsavable" on 2026-09-03.
+
+    Nothing else in the pipeline reads `slides`, so this is the only place the
+    shape can be enforced. Checked here rather than in index.html because a
+    build that cannot produce a working page should not produce a page at all.
+    """
+    data = open(os.path.join(HERE, "data.js"), encoding="utf-8").read()
+    # The stem is always single-quoted; the label may be single-quoted,
+    # double-quoted or a template literal, because several carry an apostrophe
+    # ("You're allowed to leave the field") or nested double quotes.
+    entry = re.compile(
+        r"""\A\[\s*'([^']+)'\s*,\s*"""
+        r"""(?:'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*`)\s*\]\Z""",
+        re.S)
+    folder = None
+    problems = []
+
+    for m in re.finditer(r"folder:\s*'([^']+)'|slides:\s*(\[)", data):
+        if m.group(1):
+            folder = m.group(1)
+            continue
+        block = _slice_array(data, m.start(2))
+        if block.strip() == "[]":
+            continue
+        # Split on top-level commas only, so labels containing commas survive.
+        depth, buf, items = 0, "", []
+        for ch in block[1:-1]:
+            if ch in "[":
+                depth += 1
+            elif ch in "]":
+                depth -= 1
+            if ch == "," and depth == 0:
+                items.append(buf); buf = ""
+            else:
+                buf += ch
+        if buf.strip():
+            items.append(buf)
+
+        for raw in items:
+            item = raw.strip()
+            hit = entry.match(item)
+            if not hit:
+                problems.append(
+                    "%s: slide entry is not a ['<stem>', '<label>'] pair: %s"
+                    % (folder, item[:60]))
+                continue
+            stem = hit.group(1)
+            if os.path.splitext(stem)[1]:
+                problems.append(
+                    "%s: slide stem carries a file extension (%r) -- the desk "
+                    "appends IMG_EXT itself" % (folder, stem))
+                continue
+            png = os.path.join(CONTENT, folder, stem + ".png")
+            if not os.path.exists(png):
+                problems.append("%s: slides references %s.png, which is not on disk"
+                                % (folder, stem))
+
+    if problems:
+        fail("malformed slides in data.js —\n  " + "\n  ".join(problems))
+
+
 def build_media():
     if os.path.isdir(MEDIA):
         shutil.rmtree(MEDIA)
@@ -142,6 +227,7 @@ def build_media():
 
 
 def main():
+    check_slides()
     page = build_page()
     media_bytes = build_media()
     print("built docs/desk/")

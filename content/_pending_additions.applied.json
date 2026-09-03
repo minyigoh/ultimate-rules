@@ -2,8 +2,8 @@
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [
     {
-      "date": "2026-09-05",
-      "post": "Force-out fouls",
+      "date": "2026-09-06",
+      "post": "Marking fouls and the \"Contact\" call",
       "type": "Reel",
       "status": "Pending review",
       "posted": "—",
@@ -11,55 +11,38 @@
     }
   ],
   "review_state": {
-    "reel-31": {
+    "reel-32": {
       "script": {
         "status": "pending",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-02T07:10:00Z"
+        "updatedAt": "2026-09-02T23:18:14Z"
       },
       "content": {
         "status": "awaiting-render",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-02T07:10:00Z"
+        "updatedAt": "2026-09-02T23:18:14Z"
       }
     },
-    "reel-28": {
+    "reel-31": {
       "content": {
         "status": "in-review",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-02T07:10:00Z"
-      },
-      "revisions": [
-        {
-          "v": 2,
-          "renderedAt": "2026-09-02",
-          "duration": "29.5s",
-          "file": "reel28-receiving-fouls.mp4",
-          "changed": "Rebuilt from the 09-01 redraft, addressing feedback rounds 1-2 (\"Out loud may not be appropriate. We use hand signals in ultimate frisbee.\"). Copy only - no rules card, rule number or rule text moved, so scenes 3, 5 and 7 re-rendered byte-identical. Scene 6 kicker SAY IT IMMEDIATELY -> CALL IT IMMEDIATELY (573 -> 603 of the 900px column at the standard 34px); scene 6 body \"depends on saying it in time\" -> \"depends on making the call in time\", which the 09-01 redraft had fixed in the Instagram caption and missed on the slide; scene 8 headline \"Call it at the moment of contact, out loud.\" -> \"Call it at the moment of contact - shout and signal.\", and its body rewritten to say the call is the word and the hand signal together. 15.7 and 15.13 back the note but belong to lesson 73, so nothing new is cited and the field tip stays uncited. Nine scenes, exact CFR via encode.py, 29.50s. Layout check 0 problems with no collisions; all three kickers at 34px, bodies at 34, 31 and 35px, unchanged from v1 because no line count moved. Longest sustained dull-orange run 0.20s against a 0.45s threshold. This cut does not improve on v1 by any metric - v1 was clean on all of them, and the defect was the words. v1 archived as reel28-receiving-fouls.v1.mp4."
-        }
-      ]
-    },
-    "carousel-post-5": {
-      "content": {
-        "status": "in-review",
-        "note": "",
-        "tags": [],
-        "updatedAt": "2026-09-02T07:10:00Z"
+        "updatedAt": "2026-09-02T23:18:14Z"
       },
       "revisions": [
         {
           "v": 1,
-          "renderedAt": "2026-09-02",
-          "duration": "8 slides",
-          "file": "01_cover.png … 08_closing.png",
-          "changed": "Initial render of the fourth weekly recap, from the v2 redraft: lessons 22-27, eight slides at 2250x2812, rule numbers only and no rule text. First recap that is not nine slides - TOTAL, the n / TOTAL header counter, the filenames and the closing slide number all follow. Takeaways verified byte-identical against each lesson's field line in lessons-2.json, and every footer number against that lesson's rules array. Layout reused verbatim from carousel-post-4/make_carousel.py; the cover returns to the standard 96px (\"Week four: contact,\" measures 889 of 900px) and fit_body() never engaged, so all six takeaways render at 36px. Layout check 0 problems, no collisions. NOTE: the script approval stamped 2026-09-01T13:40Z was against v1 (lessons 22-28, nine slides); the redraft landed in the push six minutes later, so these slides are newer than that stamp. Rendering also surfaced a new defect in _payload(): ImageMagick 6 drops a double quote adjacent to EITHER MVG delimiter, not just the opening one, so slide 3's last line \"hand.\" lost its closing quote. Fixed here and in reel-28/render_v3.py by wrapping on startswith OR endswith. Reels 1-30 and carousels 1-4 were scanned; reel-11 and reel-26 shipped with the defect on their field tips."
+          "renderedAt": "2026-09-03",
+          "duration": "29.5s",
+          "file": "reel31-force-out-fouls.mp4",
+          "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s against a 30.0s projection. 17.5.1 with both limbs, 17.5.2 and 17.5.3 quoted verbatim from rules.json and verified byte-identical against the source; 17.5 is a heading stem and was deliberately not carded, matching 17.2-17.4 in reels 28-30. Every layout prediction in the approved script held exactly: the three kickers measure 712, 834 and 826 of the 900px column and all stay at the standard 34px, so fit_kicker() never engaged, and all three main scenes end at max_y 1192 of 1310 with the detail cards at 940, 404 and 504. One deviation from the dry render: scene 6's body wraps to five lines rather than the four predicted - still 36px, fit_body() unengaged, still clear of the citation. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold."
         }
       ]
     }
   },
-  "generated": "2026-09-02T07:10:00Z",
+  "generated": "2026-09-02T23:18:14Z",
   "by": "daily-reel-render"
 }

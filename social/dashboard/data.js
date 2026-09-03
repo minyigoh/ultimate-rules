@@ -2301,14 +2301,14 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     sourceLesson: 'Weekly recap — no lesson consumed; recaps lessons 22-27',
     video: null,
     slides: [
-      '01_cover.png',
-      '02_lesson22_who_calls_what.png',
-      '03_lesson23_contest.png',
-      '04_lesson24_retracted.png',
-      '05_lesson25_avoid_contact.png',
-      '06_lesson26_who_initiated.png',
-      '07_lesson27_not_every_touch.png',
-      '08_closing.png'
+      ['01_cover', 'Cover — THIS WEEK'],
+      ['02_lesson22_who_calls_what', 'Lesson 22 — Who is allowed to make which call'],
+      ['03_lesson23_contest', 'Lesson 23 — "Contest" — disagreeing properly'],
+      ['04_lesson24_retracted', 'Lesson 24 — Changing your mind is a rule, not a weakness'],
+      ['05_lesson25_avoid_contact', 'Lesson 25 — The duty to avoid contact'],
+      ['06_lesson26_who_initiated', 'Lesson 26 — Who initiated the contact?'],
+      ['07_lesson27_not_every_touch', 'Lesson 27 — Not every touch is a foul'],
+      ['08_closing', 'Closing — "That\'s twenty-seven of seventy-five."']
     ],
     scenes: [
       ['1', 'Cover', 'kicker THIS WEEK · "Week four: contact, and who decides" · subhead "This week\'s six lessons — everything the daily reels covered, 27 August – 1 September." · SWIPE →'],

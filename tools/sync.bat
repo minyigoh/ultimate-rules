@@ -127,6 +127,15 @@ if exist ".git\rebase-apply" goto :midrebase
   REM deployed desk on the next rebuild. Found 2026-08-19 while fixing the
   REM silent review-state.json read failure. Its own line, per the rule above.
   %GIT% add social/dashboard/index.html
+  REM The desk BUILDER, same reasoning one line up and found the same way. This
+  REM script runs at step 2 of every sync, so an edit to it changes what every
+  REM future run deploys -- but no pattern here covered it, so the edit would
+  REM stay modified-but-unstaged and block the next "git pull --rebase" with
+  REM the rc=128 that broke 2026-08-11. Found 2026-09-03, when build_desk.py
+  REM gained check_slides() after carousel-post-5's malformed slides list made
+  REM its media unsavable on the published desk. Its own line, per the rule
+  REM above.
+  %GIT% add social/dashboard/build_desk.py
   %GIT% add social/dashboard/worker/worker.js social/dashboard/worker/README.md
   REM unstick_rebase.bat was written on 2026-08-11 to break the finish_rebase
   REM loop, but was never added to this list -- so it stayed untracked and no
