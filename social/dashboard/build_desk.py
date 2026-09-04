@@ -227,11 +227,25 @@ def build_media():
 
 
 def main():
+    """Rebuild docs/desk/.
+
+    --page-only rebuilds index.html and leaves docs/desk/media/ exactly as it
+    is. Use it when the change was to the desk itself and no content moved --
+    it is much faster, and it is the only mode that works in a sandbox that
+    cannot delete files (build_media starts by removing the whole media tree,
+    which fails with "Operation not permitted" in the Cowork VM). If a script,
+    caption, slide or cut changed, do NOT use it: the media bundle would keep
+    serving the old asset.
+    """
+    page_only = "--page-only" in sys.argv
     check_slides()
     page = build_page()
-    media_bytes = build_media()
     print("built docs/desk/")
     print("  index.html  %6.0f KB" % (os.path.getsize(page) / 1024))
+    if page_only:
+        print("  media/      left alone (--page-only)")
+        return
+    media_bytes = build_media()
     print("  media/      %6.1f MB" % (media_bytes / 1024 / 1024))
 
 

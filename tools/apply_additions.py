@@ -40,11 +40,35 @@ entries in `revisions`. Both transitions mean the same thing: a cut now exists,
 go look at it. Neither is an approval, and that is enforced below rather than
 left to convention:
 
-  - the script track of an existing key is NEVER touched
+  - the script track's STATUS of an existing key is NEVER touched
   - `approved` and `rerender` are never writable as a content status
   - the `posted` track is never touched
   - a brand-new key carrying an `approved` status anywhere is refused outright,
     because a post that has never been seen cannot already have been approved
+
+The second exception: script versions and the render gate (added 2026-09-04)
+---------------------------------------------------------------------------
+The task must never write an approval, and it doesn't. But it also had no way
+to say "these are different words now", and that gap is what broke on
+2026-09-04. reel-32's script was approved at 07:23 against v1, the task
+redrafted it at 07:26, and rendered from the redraft at 07:44 -- while the desk
+went on showing "Script approved" for words nobody had read. The approval never
+moved because nothing could move it.
+
+So the task now writes two more things on an existing key, neither of which is
+a status:
+
+  - `scriptRev`, an integer it bumps every time it redrafts
+  - `scriptRevisions`, the same shape as `revisions` but for drafts
+
+Bumping a version can only ever WITHDRAW trust -- the desk treats a decision
+stamped below the current rev as stale and asks for it again -- so this is safe
+for the task to write in a way that writing a status never is.
+
+And the gate goes the other way too. A render entry must declare
+`builtFromScriptRev`, and the flip to `in-review` is refused unless that matches
+the version the desk actually approved. A cut built from unapproved words does
+not reach the content gate at all.
 
 Everything else about an existing entry -- notes, tags, timestamps on tracks
 this script did not change -- is left exactly as the desk wrote it.
@@ -82,6 +106,21 @@ RENDER_FLIP = {
 # Statuses this script must never write, on either track, ever. Approving is
 # Min-Yi's, from the desk, via the Worker.
 NEVER_WRITE = {"approved", "rerender", "rejected", "posted"}
+
+
+def approved_script_rev(current):
+    """The script version the desk actually signed off, or None if unapproved.
+
+    Mirrors the desk's own `revOf()`: a decision written before versions were
+    stamped carries no `rev` and is read as judging whatever is current, because
+    nothing else can be inferred and thirty already-shipped posts must not all
+    reopen. Every decision made after 2026-09-04 carries an explicit rev.
+    """
+    s = current.get("script") or {}
+    if s.get("status") != "approved":
+        return None
+    rev = s.get("rev")
+    return rev if isinstance(rev, int) else current.get("scriptRev", 1)
 
 
 def log(msg):
@@ -185,11 +224,61 @@ def merge_existing(post_id, current, entry):
     msgs = []
     changed = False
 
+    # Read the approved version BEFORE any bump below lands. A rev-less approval
+    # falls back to the current scriptRev, so reading it after the bump would
+    # quietly re-point an old approval at the new words -- which is the precise
+    # thing this gate exists to catch. The approval on file was made against the
+    # state as it stood when this run started.
+    ok_rev = approved_script_rev(current)
+
+    # Script VERSION (never status). Bumping it withdraws an approval stamped
+    # against the old words; it can never grant one.
+    inc_rev = entry.get("scriptRev")
+    if isinstance(inc_rev, int):
+        cur_rev = current.get("scriptRev", 1)
+        if inc_rev > cur_rev:
+            current["scriptRev"] = inc_rev
+            changed = True
+            msgs.append("scriptRev %s -> %s (redraft; any approval below v%s is "
+                        "now stale on the desk)" % (cur_rev, inc_rev, inc_rev))
+        elif inc_rev < cur_rev:
+            msgs.append("refusing scriptRev %s - already at v%s, versions only go up"
+                        % (inc_rev, cur_rev))
+
+    sdrafts, n_drafts = merge_revisions(current.get("scriptRevisions"),
+                                        entry.get("scriptRevisions"))
+    if n_drafts:
+        current["scriptRevisions"] = sdrafts
+        changed = True
+        msgs.append("+%d script draft(s)" % n_drafts)
+
     incoming_content = entry.get("content") or {}
     want = incoming_content.get("status")
     have = (current.get("content") or {}).get("status")
 
-    if want in NEVER_WRITE:
+    # The render gate. A cut built from words the desk never approved must not
+    # reach the content track -- that is the reel-32 breach, and refusing here
+    # is the only place it can be caught, since the task cannot be trusted to
+    # police itself and the desk sees the flip only after it has landed.
+    built = entry.get("builtFromScriptRev")
+    gate_msg = None
+    if want == "in-review":
+        if ok_rev is None:
+            gate_msg = ("REFUSING the render flip - script is %s, not approved. A "
+                        "cut whose words were never signed off does not reach the "
+                        "content gate." % ((current.get("script") or {}).get("status")))
+        elif built is None:
+            msgs.append("no builtFromScriptRev declared - allowed against approved "
+                        "script v%s, but the task should be declaring it "
+                        "(see content/DAILY_RENDER_TASK.md)" % ok_rev)
+        elif built != ok_rev:
+            gate_msg = ("REFUSING the render flip - built from script v%s but the "
+                        "desk approved v%s. Re-approve on the desk, then re-render."
+                        % (built, ok_rev))
+
+    if gate_msg:
+        msgs.append(gate_msg)
+    elif want in NEVER_WRITE:
         msgs.append("refusing to write content=%s - only the desk sets that" % want)
     elif want and want == have:
         msgs.append("content already %s - nothing to do" % have)
@@ -210,6 +299,8 @@ def merge_existing(post_id, current, entry):
         msgs.append("+%d revision(s)" % n_new)
 
     # Anything else the task queued for an existing key is informational only.
+    # `script` here means its STATUS: the version fields above are separate and
+    # deliberately writable.
     for track in ("script", "posted"):
         if track in entry:
             mine = entry[track].get("status")

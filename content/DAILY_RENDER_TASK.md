@@ -225,14 +225,42 @@ park a redraft for later reading.** Step 2 rewrites anything sitting at
 `changes`, so parking it there discards the redraft it was meant to protect and
 writes a third version before she has read the second.
 
-**The underlying gap, for whoever fixes the desk.** A script status cannot
-distinguish *"approved, and I have read the current words"* from *"approved
-against words that have since changed"*. A redrafted script keeps its old
-`approved` stamp, so nothing in the UI marks it as unread, and the next run will
-happily rebuild from copy she never saw — which is exactly the risk reel-28 ran
-on 2026-09-01. Until the desk can express that (a `reviewedAt` compared against
-the script file's mtime would do it), the redraft must be called out by name in
-the report, at the top, with the read-then-Approve instruction spelled out.
+**That gap is closed as of 2026-09-04 — and closing it puts a hard obligation
+on you.** The desk used to be unable to distinguish *"approved, and I have read
+the current words"* from *"approved against words that have since changed"*, so
+a redrafted script kept its old `approved` stamp and the next run would rebuild
+from copy she never saw. reel-28 ran that risk on 2026-09-01; reel-32 actually
+hit it on 2026-09-04 — approved at 07:23 against v1, redrafted at 07:26,
+rendered from v2 at 07:44, with the desk showing green throughout.
+
+Now every decision is stamped with the version it judged, and **you must bump
+the version whenever you redraft**:
+
+```json
+"reel-30": {
+  "scriptRev": 2,
+  "scriptRevisions": [
+    {"v": 2, "draftedAt": "2026-09-04", "file": "script-and-caption.md",
+     "changed": "<one line: what the redraft changed and why>"}
+  ]
+}
+```
+
+`apply_additions.py` accepts both on an existing key. Neither is a status: a
+version bump can only ever *withdraw* an approval, never grant one, which is why
+you are allowed to write it and will never be allowed to write `approved`. The
+desk sees `scriptRev` move past the version her approval was stamped against,
+flips that track back to **Redrafted — review again**, un-presses Approve, and
+files the old decision in the track's history.
+
+**Forgetting the bump is the worst thing you can do in this file.** A redraft
+without one leaves a stale approval reading as live, which is the entire bug
+this replaced. If you rewrite `script-and-caption.md`, you bump `scriptRev`. No
+exceptions.
+
+You still call the redraft out by name at the top of your report with the
+read-then-Approve instruction — the desk now says it too, but the report is what
+she reads first.
 
 `script.status` of `rejected` means the topic is dead, not that it needs a
 rewrite. Leave the row alone, do not redraft it, and flag it in your report —
@@ -435,7 +463,8 @@ the `_readme` key, write the file back:
      "type": "Reel", "status": "Pending review", "posted": "—", "performance": "—"}
   ],
   "review_state": {
-    "reel-8": {"script":  {"status": "pending", "note": "", "tags": [],
+    "reel-8": {"scriptRev": 1,
+               "script":  {"status": "pending", "note": "", "tags": [],
                            "updatedAt": "<ISO 8601 UTC>"},
                "content": {"status": "awaiting-render", "note": "", "tags": [],
                            "updatedAt": "<ISO 8601 UTC>"}}
@@ -458,9 +487,34 @@ never `Script approved` / `Ready to post` / `Posted`.
 the same post id. Since 2026-08-12 `apply_additions.py` applies them: it allows
 `awaiting-render → in-review` and `rerender → in-review`, and appends revision
 entries it hasn't seen (keyed on `v` + `file`). It still refuses everything else
-— it will not write `approved`, will not touch the script or posted tracks of an
-existing key, and will not add a brand-new key that arrives pre-approved. So the
-flip no longer needs a manual step, but it also still cannot approve anything.
+— it will not write `approved`, will not touch the script *status* or posted
+track of an existing key, and will not add a brand-new key that arrives
+pre-approved. So the flip no longer needs a manual step, but it also still
+cannot approve anything.
+
+**The render gate (2026-09-04).** A render entry must declare which script
+version it was built from, on the entry and on the revision:
+
+```json
+"reel-30": {
+  "builtFromScriptRev": 2,
+  "content": {"status": "in-review", "note": "", "tags": [], "updatedAt": "<ISO>"},
+  "revisions": [{"v": 2, "renderedAt": "2026-09-04", "duration": "29.5s",
+                 "file": "reel30-blocking-fouls.mp4", "builtFromScriptRev": 2,
+                 "changed": "<one line>"}]
+}
+```
+
+`apply_additions.py` **refuses the flip** unless that matches the version the
+desk approved — and refuses it outright if the script isn't approved at all. A
+cut built from unapproved words does not reach the content gate; the post stays
+at gate 1 and the run log says exactly why.
+
+So: **never render a script you redrafted in the same run.** The redraft has to
+clear gate 1 first. Draft it, bump `scriptRev`, report it, and render it
+tomorrow once she has approved it. Building it anyway wastes the build — the
+flip is refused and the cut sits invisible with the post still asking to be
+read.
 
 For an existing key, queue **only what changes** — the `content` track and
 `revisions`. A queued `script` block is ignored (and logged), because the desk

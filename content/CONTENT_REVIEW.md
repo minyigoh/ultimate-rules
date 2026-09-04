@@ -15,6 +15,18 @@ from the Content Desk.** Nothing is approved in chat any more.
 Nothing posts without clearing both gates. The render task writes drafts and
 renders cuts; it never sets an approved status on either track.
 
+**An approval is a stamp on a version, not a flag on the post.** Every decision
+records which draft of the words, or which cut, it was made about. When the task
+redrafts a script or renders a new cut, any decision stamped against the old
+version is withdrawn automatically: the desk flips that track back to
+**Redrafted — review again** / **New cut — review again**, un-presses the button,
+and drops the old decision into the track's history where you can still read it.
+
+This is not a nicety. Before it existed, on 2026-09-04, reel-32's script was
+approved at 07:23 against v1, redrafted at 07:26, and rendered from v2 at
+07:44 — and the desk showed a green "Script approved" the whole time, for words
+that had never been read. See "The render gate" below.
+
 ## Where scripts come from
 
 The daily task keeps **three days of calendar coverage** — every date from
@@ -58,6 +70,13 @@ decision syncs through the Cloudflare Worker, which commits it straight to
 decision made on your phone shows up on your PC, and the next scheduled render
 sees it.
 
+Every post carries one line at the top saying what it is waiting for, in the
+imperative, and the queue repeats it as a single word on the card — **Read
+script**, **Watch cut**, **Re-read script**, **Post it**, or a greyed
+**Rendering** / **Redrafting** when the ball is in the task's court. The
+**Needs you** filter and counter show only the posts blocked on a decision. If a
+card doesn't say you need to do something, you don't.
+
 **Script track** — Needs review → Approve / Ask for changes / Reject. The note
 box is where you leave line edits, tone notes, or a rule that needs re-checking.
 
@@ -68,9 +87,47 @@ box is where you leave line edits, tone notes, or a rule that needs re-checking.
 - **Reject** → the topic is dropped. The task will not redraft it, and will
   pull the next lesson in curriculum order to cover that date instead.
 
-**Content track** — approve the cut, or send it back with issue tags plus a
-note. A send-back logs a round in `content/<folder>/feedback.md` and the next
-daily render picks it up automatically — no need to ask it to.
+**Content track** — three buttons, because "send it back" is two different asks
+and they go to different places:
+
+- **Approve — ready to post** → status **Ready to post**.
+- **Send back — rebuild it** → the *build* is wrong: pacing, layout, a collision,
+  the wrong take. The words stay approved. Logs a round in
+  `content/<folder>/feedback.md`; the next daily render picks it up
+  automatically.
+- **Send back — wrong words** → the *copy* is wrong. This fails the cut **and**
+  reopens the script gate in one commit, and your note goes to
+  `content/<folder>/script-feedback.md`, which is the track that has to act on
+  it. Requires a note — the note is what gets rewritten. Nothing re-renders
+  until the redraft clears gate 1.
+
+  Use this whenever what you want is different *words*. Before this button
+  existed the only way to say it was Reject, which says "build it again", and
+  the render task had to infer the rest from your note.
+
+**One decision, however many times you send it.** The desk syncs as you type, so
+a single rejection used to arrive at the repo three or four times and become
+three or four identical rounds in `feedback.md` — that is exactly what happened
+to reel-30 on 2026-09-04. Same track, same version, same status is now treated
+as the same decision and updated in place. Change your mind, or judge a new
+version, and it logs separately.
+
+**Decision history.** Every decision is kept under its track on the desk —
+status, version, note, tags, date — with superseded versions struck through.
+Nothing is overwritten and nothing is lost when a decision is withdrawn.
+
+## The render gate
+
+A cut is only built from words you approved. The task declares which script
+version it built from, and `tools/apply_additions.py` refuses to put the cut in
+front of you if that isn't the version the desk signed off — the post stays at
+gate 1 and the run's log says why.
+
+Cost: a redraft waits for your approval before it renders, so a same-day
+turnaround becomes a next-day one. That is the trade, and it is the right way
+round: the alternative is what happened to reel-32, where a reel was built,
+timed, layout-checked and put in front of you as finished work on the strength
+of words nobody had read.
 
 ## Posting a cleared cut
 
@@ -97,24 +154,29 @@ back for a re-render.
 
 ## Feedback file formats
 
-Rendered-content rounds, `content/<folder>/feedback.md`:
+Rendered-content rounds, `content/<folder>/feedback.md`. The header names the
+cut the round is about, so a round can never be read against the wrong version:
 
 ```
-## Round 1 — 2026-08-09 — REJECTED
+## Round 1 — 2026-08-09 — REJECTED (cut v1)
 Pacing on scene 3 is too fast, the rule text disappears before it's readable.
 Regenerated: 2026-08-10 (daily-reel-render)
 
-## Round 2 — 2026-08-10 — APPROVED
+## Round 2 — 2026-08-10 — APPROVED (cut v2)
 ```
 
 Script rounds, `content/<folder>/script-feedback.md` — same shape, kept in a
 separate file so a wording round and a rendering round never get confused:
 
 ```
-## Round 1 — 2026-08-12 — CHANGES REQUESTED
+## Round 1 — 2026-08-12 — CHANGES REQUESTED (script v1)
 Hook is too abstract, lead with the situation not the principle.
 Redrafted: 2026-08-13 (daily-reel-render) — new hook opens on the pickup game.
 ```
+
+The Worker rewrites the last round in place while you are still typing the same
+one, and only starts a new one when the decision genuinely changes. It never
+touches a round the render task wrote — those have their own header shape.
 
 ## What the daily render can and can't change
 
@@ -147,7 +209,9 @@ before/after if you want to. Redrafted scripts version the same way
 (`script-and-caption.v1.md`). The unsuffixed filename is always the newest.
 
 Each regeneration also appends an entry to that post's `revisions` array in
-`content/review-state.json`, with a one-line `changed` description. The Content
+`content/review-state.json`, with a one-line `changed` description and the
+`builtFromScriptRev` the render gate checks. Redrafts append to
+`scriptRevisions` and bump `scriptRev` the same way. The Content
 Desk renders that as a revision list under the video — newest first, older ones
 playable — so you can see what actually changed between rounds without opening
 two files. **Save to phone always exports the latest revision**, never whichever

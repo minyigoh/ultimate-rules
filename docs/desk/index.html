@@ -227,6 +227,76 @@ header{
 .urgent{display:flex;align-items:center;gap:9px;margin-top:11px;font-size:12.5px;color:var(--muted);cursor:pointer}
 .urgent input{accent-color:var(--accent);width:16px;height:16px;flex:none;cursor:pointer}
 
+/* ---------- what this post needs from YOU ----------
+   The desk used to answer "what state is this in?" and leave you to work out
+   what that meant you should do. On 2026-09-04 reel-30 sat at "Script approved"
+   with Approve still lit, three minutes after the task had replaced the words
+   that approval was about. A status noun cannot say that. These say the action,
+   in the imperative, and they are the first thing on the post. */
+.needbar{
+  display:flex;gap:12px;align-items:flex-start;
+  background:color-mix(in srgb,var(--nc) 11%,transparent);
+  border:1px solid color-mix(in srgb,var(--nc) 38%,transparent);
+  border-left:4px solid var(--nc);
+  border-radius:var(--radius);padding:13px 15px;margin-bottom:20px;
+}
+.needbar .ico{color:var(--nc);font-weight:750;font-size:15px;line-height:1.4;flex:none}
+.needbar .txt{min-width:0}
+.needbar .txt > b{display:block;font-size:14px;font-weight:650;color:var(--text);margin-bottom:3px;line-height:1.35}
+.needbar .txt > span{font-size:12.5px;color:var(--muted);line-height:1.5;display:block}
+.needbar .txt span b{color:var(--nc);font-weight:650}
+
+.need{
+  font-size:12.5px;line-height:1.5;color:var(--text);
+  background:color-mix(in srgb,var(--nc) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--nc) 32%,transparent);
+  border-radius:9px;padding:9px 11px;margin-bottom:11px;
+}
+.need b{color:var(--nc);font-weight:650}
+.need.quiet{background:var(--bg);border-color:var(--line);color:var(--muted)}
+.need.quiet b{color:var(--muted)}
+
+/* a decision the version moved out from under */
+.stale{
+  font-size:12px;line-height:1.5;color:var(--text);
+  background:color-mix(in srgb,var(--accent) 13%,transparent);
+  border:1px dashed color-mix(in srgb,var(--accent) 48%,transparent);
+  border-radius:9px;padding:9px 11px;margin-bottom:11px;
+}
+.stale b{color:var(--accent);font-weight:650}
+.stale .old{color:var(--faint);text-decoration:line-through}
+
+/* per-track decision history */
+.hist{border-top:1px solid var(--line);margin-top:12px;padding-top:9px}
+.hist summary{
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);
+  font-weight:650;cursor:pointer;list-style:none;
+}
+.hist summary::-webkit-details-marker{display:none}
+.hist summary::before{content:'\25B8  '}
+.hist[open] summary::before{content:'\25BE  '}
+.hist summary:hover{color:var(--text)}
+.hrow{
+  display:flex;gap:8px;align-items:baseline;padding:7px 0;
+  border-bottom:1px solid var(--line);font-size:12px;line-height:1.45;
+}
+.hrow:last-child{border-bottom:0}
+.hrow .hv{font:600 10.5px/1.6 var(--mono);color:var(--faint);flex:none;min-width:22px}
+.hrow .hs{font-weight:650;color:var(--hc);flex:none}
+.hrow .hn{color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.hrow .hd{margin-left:auto;color:var(--faint);font-size:10.5px;white-space:nowrap;flex:none}
+.hrow.superseded{opacity:.62}
+.hrow.superseded .hv{text-decoration:line-through}
+
+/* the queue card's action word */
+.card .act-pill{
+  font-size:10px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;
+  padding:2px 7px;border-radius:20px;white-space:nowrap;
+  background:color-mix(in srgb,var(--ac) 18%,transparent);color:var(--ac);
+  border:1px solid color-mix(in srgb,var(--ac) 34%,transparent);
+}
+.card .act-pill.idle{background:transparent;color:var(--faint);border-color:var(--line);font-weight:600}
+
 /* sections */
 section{margin-bottom:30px}
 section > h3{
@@ -3375,7 +3445,7 @@ function getPassphrase(){
   return pass;
 }
 
-async function syncToRepo(p, trackName, value, what){
+async function syncToRepo(p, trackName, value, what, also){
   if (!SYNC_URL) return;
   const key = p.id + ':' + trackName;
   if (syncing.has(key)) return;
@@ -3392,6 +3462,12 @@ async function syncToRepo(p, trackName, value, what){
         passphrase: pass,
         postId: p.id, postDate: p.date, postTitle: p.title, folder: p.folder,
         track: trackName, status: value.status, note: value.note || '', tags: value.tags || [],
+        // Which version this decision judged. The Worker stores it beside the
+        // status, and the desk withdraws the decision when the version moves on.
+        rev: typeof value.rev === 'number' ? value.rev : null,
+        also: also ? {track: also.track, status: also.value.status, note: also.value.note || '',
+                      tags: also.value.tags || [],
+                      rev: typeof also.value.rev === 'number' ? also.value.rev : null} : null,
         calendarLabel: calendarStatus(p), postedDate: postedOn(p) || null,
         // The Worker runs on UTC edge nodes; feedback rounds should be dated
         // in the reviewer's day, not Cloudflare's.
@@ -3408,6 +3484,7 @@ async function syncToRepo(p, trackName, value, what){
       // without waiting on the next fetch of review-state.json.
       remoteState[p.id] = remoteState[p.id] || {};
       remoteState[p.id][trackName] = value;
+      if (also) remoteState[p.id][also.track] = also.value;
       /* Do NOT drop the local copy here. The Worker has committed, but
          raw.githubusercontent serves from a CDN that lags a push by minutes,
          so the next reload can still fetch a copy that predates this decision.
@@ -3416,6 +3493,7 @@ async function syncToRepo(p, trackName, value, what){
          until the CDN caught up. Instead, stamp it confirmed and keep it; the
          reconcile pass on boot removes it once the repo demonstrably has it. */
       if (state[p.id] && state[p.id][trackName]) state[p.id][trackName].syncedAt = Date.now();
+      if (also && state[p.id] && state[p.id][also.track]) state[p.id][also.track].syncedAt = Date.now();
       save();
       toast(what || SYNC_TOAST[trackName]);
     }
@@ -3438,6 +3516,7 @@ const confirmed = t => !!(t && t.syncedAt && t.syncedAt >= (t.updatedAt || 0));
    become a permanent shadow over review-state.json. Compares timestamps rather
    than assuming: a local track survives only while it is strictly newer than
    what the repo reports, which is exactly the CDN propagation window. */
+let warnedStaleWorker = false;
 function reconcileRemote(){
   let dropped = 0;
   for (const p of POSTS){
@@ -3449,6 +3528,22 @@ function reconcileRemote(){
       const r = remoteState[p.id] && remoteState[p.id][name];
       if (!r) continue;
       const remoteAt = Date.parse(r.updatedAt || 0) || 0;
+      /* The repo must have the VERSION too, not just the status. An older
+         Worker silently drops `rev`, and dropping the local copy against a
+         rev-less remote would throw the stamp away -- so a re-approval of a
+         redrafted script would look right, then flip back to "Redrafted —
+         review again" as soon as the CDN caught up, with no way to ever clear
+         it. Keep the override until the repo demonstrably holds the stamp.
+         Harmless if it never does: it just stays listed as unsynced. */
+      const stamped = typeof local.rev === 'number';
+      if (stamped && r.rev !== local.rev){
+        if (!warnedStaleWorker){
+          warnedStaleWorker = true;
+          console.warn('[desk] the repo is not recording decision versions — ' +
+            'deploy social/dashboard/worker/worker.js before relying on the review-again flow');
+        }
+        continue;
+      }
       if (remoteAt >= (local.updatedAt || 0)) { delete d[name]; dropped++; }
     }
     if (!Object.keys(d).length) delete state[p.id];
@@ -3512,6 +3607,150 @@ const STAGES = {
   posted:            {n:5, label:'Posted',  color:'var(--faint)'}
 };
 const STAGE_ORDER = ['script-review','awaiting-render','content-review','ready','posted'];
+
+/* Shown instead of the stored label when a decision has gone stale. Deliberately
+   not members of SCRIPT_STATUS / CONTENT_STATUS: nothing is ever *stored* in
+   these states, they are what the desk says about a stored decision whose
+   subject has been replaced underneath it. */
+const STALE_SCRIPT  = {label:'Redrafted \u2014 review again', color:'var(--accent)', calendar:'Pending review'};
+const STALE_CONTENT = {label:'New cut \u2014 review again',   color:'var(--accent)', calendar:'Content pending review'};
+
+/* ---------- versions, and decisions that have gone stale ----------
+   A decision is a stamp on one version of one thing, never a sticky flag on the
+   post. The script carries a rev the render task bumps every time it redrafts;
+   the cut's rev is just the last entry in `revisions`. When either moves past
+   the version a decision was made about, that decision is STALE -- it judged
+   words or a cut that no longer exist, so the desk stops reporting it as the
+   current state and asks again.
+
+   This is the whole 2026-09-04 mess. reel-32's script was approved at 07:23
+   against v1, the task redrafted it at 07:26 and rendered from v2 at 07:44 --
+   and the desk showed "Script approved" the entire time, for words that had
+   never been read. The task cannot fix that by writing an approval; it must
+   never write one. It can only bump the version, which can never do anything
+   except withdraw trust. That asymmetry is what makes this safe. */
+function scriptRevOf(p){
+  const r = remoteState[p.id];
+  return (r && r.scriptRev) || p.scriptRev || 1;
+}
+function contentRevOf(p){
+  const revs = revisionsOf(p);
+  if (!revs.length) return 0;
+  const last = revs[revs.length - 1];
+  return last.v || revs.length;
+}
+/* Which version a decision judged. A decision written before the desk stamped
+   versions carries none; those read as judging whatever is current, because we
+   cannot know otherwise and thirty shipped posts must not all light up as
+   unreviewed. The ones that genuinely predate their subject carry an explicit
+   rev, written by the 2026-09-04 migration in tools/migrate_revs.py. */
+const revOf = (t, cur) => (t && typeof t.rev === 'number') ? t.rev : cur;
+
+/* `pending` and `in-review` are not decisions, so they can never go stale --
+   they already mean "waiting on you". Only a stamp can be out of date. */
+function staleScript(p){
+  const t = track(p.id,'script') || baseline(p,'script');
+  if (!t || t.status === 'pending') return false;
+  return revOf(t, scriptRevOf(p)) < scriptRevOf(p);
+}
+function staleContent(p){
+  const t = track(p.id,'content') || baseline(p,'content');
+  if (!t || t.status === 'in-review' || t.status === 'awaiting-render') return false;
+  const cur = contentRevOf(p);
+  return cur > 0 && revOf(t, cur) < cur;
+}
+/* What the desk acts on everywhere a status gates something: the queue, the
+   rail, the calendar row, the filters. A stale approval gates nothing. */
+const effScript  = p => staleScript(p)  ? 'pending'   : scriptStatus(p);
+const effContent = p => staleContent(p) ? 'in-review' : contentStatus(p);
+const sMetaOf = p => staleScript(p)  ? STALE_SCRIPT  : SCRIPT_STATUS[scriptStatus(p)];
+const cMetaOf = p => staleContent(p) ? STALE_CONTENT : CONTENT_STATUS[contentStatus(p)];
+
+/* Was this cut built from words you had actually approved? The render guard in
+   tools/apply_additions.py refuses the flip when it wasn't, so this only ever
+   fires on a cut that predates the guard -- reel-32's, built 2026-09-04 from a
+   redraft approved for its previous version. Worth saying out loud rather than
+   quietly dropping, because it is the one cut on the desk whose words nobody
+   signed off. */
+function builtFromUnapprovedScript(p){
+  const revs = revisionsOf(p);
+  if (!revs.length) return null;
+  const last = revs[revs.length - 1];
+  if (typeof last.builtFromScriptRev !== 'number') return null;
+  const t = track(p.id,'script') || baseline(p,'script');
+  if (!t || t.status !== 'approved') return last.builtFromScriptRev;
+  const stamped = revOf(t, scriptRevOf(p));
+  return stamped === last.builtFromScriptRev ? null : last.builtFromScriptRev;
+}
+
+function historyOf(p, name){
+  const h = remoteState[p.id] && remoteState[p.id].history;
+  return (h && h[name]) || [];
+}
+
+/* ---------- the one thing this post wants from you ----------
+   Every card and every queue row is driven from here, so the queue's word and
+   the panel's sentence can never disagree. `who` is the whole point: 'you'
+   means it is blocked on a decision, 'task' means the next scheduled run moves
+   it and there is nothing to do, 'done' means it is finished. */
+function needOf(p){
+  const sRaw = scriptStatus(p), cRaw = contentStatus(p);
+  const s = effScript(p), c = effContent(p);
+
+  if (staleScript(p)){
+    const was = SCRIPT_STATUS[sRaw].label.toLowerCase();
+    const at  = revOf(track(p.id,'script') || baseline(p,'script'), scriptRevOf(p));
+    return {who:'you', on:'script', short:'Re-read script', color:'var(--accent)', ico:'\u21BB',
+      title:'Read the script again \u2014 the words changed after you decided',
+      body:'The render task redrafted this to <b>v' + scriptRevOf(p) + '</b>. Your \u201c' + was +
+           '\u201d was stamped against v' + at + ', so it says nothing about what is on screen now. ' +
+           'Approve these words, or ask for more changes.'};
+  }
+  if (s === 'pending') return {who:'you', on:'script', short:'Read script', color:'var(--warn)', ico:'1',
+    title:'Read the script and decide',
+    body:'Nothing renders until you approve the words. Approve, request changes, or reject the topic.'};
+  /* A shipped post still flagged for changes. reel-29 has sat like this since
+     2026-09-01 with an empty note -- almost certainly a mis-click, but the
+     daily run rewrites anything parked at `changes`, so it is queued to redraft
+     a script that already went out. Nothing else on the desk would ever have
+     told her. */
+  if (s === 'changes' && postedOn(p)) return {who:'you', on:'script', short:'Clear flag',
+    color:'var(--warn)', ico:'!',
+    title:'Already posted, but the script is still flagged for changes',
+    body:'It went out on ' + postedOn(p) + ', and the next daily run rewrites anything parked at ' +
+         '\u201cchanges\u201d. If you didn\u2019t mean to leave this here, press Request changes again to clear it.'};
+  if (s === 'changes') return {who:'task', on:'script', short:'Redrafting', color:'var(--info)', ico:'\u2699',
+    title:'Nothing for you \u2014 the next daily run rewrites this',
+    body:'It redrafts against your note, archives the old copy, and puts the new words back here for review. ' +
+         'Don\u2019t leave a post parked at \u201cchanges\u201d you didn\u2019t mean \u2014 the run rewrites anything sitting here.'};
+  if (s === 'rejected') return {who:'done', on:'script', short:'Dropped', color:'var(--faint)', ico:'\u2715',
+    title:'Topic dropped',
+    body:'The task will not redraft this, and pulls the next lesson in curriculum order to cover the date.'};
+
+  if (staleContent(p)){
+    const was = CONTENT_STATUS[cRaw].label.toLowerCase();
+    const at  = revOf(track(p.id,'content') || baseline(p,'content'), contentRevOf(p));
+    return {who:'you', on:'content', short:'Watch new cut', color:'var(--accent)', ico:'\u21BB',
+      title:'Watch the new cut \u2014 v' + contentRevOf(p) + ' has been rendered since you last looked',
+      body:'Your \u201c' + was + '\u201d was about <b>v' + at + '</b>, which has been superseded. ' +
+           'What is playing above is the new one.'};
+  }
+  if (c === 'awaiting-render') return {who:'task', on:'content', short:'Rendering', color:'var(--info)', ico:'\u2699',
+    title:'Nothing for you \u2014 it is in the render queue',
+    body:'The script is approved, so the next scheduled run builds it. There is nothing to judge until a file exists.'};
+  if (c === 'in-review') return {who:'you', on:'content', short:'Watch cut', color:'var(--warn)', ico:'2',
+    title:'Watch the cut and decide',
+    body:'Approve it, send it back for a re-render if the build is wrong, or send it back to the script if the ' +
+         '<em>words</em> are wrong \u2014 those are different jobs and the buttons say which.'};
+  if (c === 'rerender') return {who:'task', on:'content', short:'Rebuilding', color:'var(--info)', ico:'\u2699',
+    title:'Nothing for you \u2014 the next daily run rebuilds this',
+    body:'It picks the send-back up automatically, against your issue tags and note.'};
+  if (postedOn(p)) return {who:'done', on:'post', short:'Posted', color:'var(--faint)', ico:'\u2713',
+    title:'Posted ' + postedOn(p), body:'Both gates cleared and it went out. Nothing left to do.'};
+  return {who:'you', on:'post', short:'Post it', color:'var(--ok)', ico:'3',
+    title:'Post it',
+    body:'Both gates are clear. Save the asset, copy the caption <em>before</em> you switch apps, then mark it posted.'};
+}
 
 /* ---------- persistence ---------- */
 let state = load();
@@ -3672,16 +3911,19 @@ function overridden(p){
   // the copy we can read hasn't propagated yet. Flagging it "unsaved" would
   // report the CDN's lag as your unfinished work.
   if (d.posted && !confirmed(d.posted) && !samePosted(d.posted, baseline(p,'posted'))) return true;
+  const revOfT = t => (typeof t.rev === 'number' ? t.rev : null);
   if (d.script && !confirmed(d.script) &&
-      (d.script.status !== baseline(p,'script').status || (d.script.note||'').trim())) return true;
+      (d.script.status !== baseline(p,'script').status ||
+       revOfT(d.script) !== revOfT(baseline(p,'script')) || (d.script.note||'').trim())) return true;
   if (d.content && !confirmed(d.content) &&
       (d.content.status !== baseline(p,'content').status ||
+       revOfT(d.content) !== revOfT(baseline(p,'content')) ||
       (d.content.note||'').trim() || (d.content.tags||[]).length || d.content.urgent)) return true;
   return false;
 }
 
 function stageOf(p){
-  const s = scriptStatus(p), c = contentStatus(p);
+  const s = effScript(p), c = effContent(p);
   if (s !== 'approved') return 'script-review';
   // An explicit send-back outranks "posted" — pulling a shipped cut back for a
   // fix is a deliberate act, and hiding it under a Posted badge loses it.
@@ -3694,11 +3936,11 @@ function stageOf(p){
 /* The single status that belongs in content/calendar.md's Status column, using
    that file's own vocabulary. Posted wins unless a cut has been sent back. */
 function calendarStatus(p){
-  const s = scriptStatus(p), c = contentStatus(p);
-  if (s !== 'approved') return SCRIPT_STATUS[s].calendar;
+  const s = effScript(p), c = effContent(p);
+  if (s !== 'approved') return sMetaOf(p).calendar;
   if (c === 'rerender') return CONTENT_STATUS.rerender.calendar;
   if (postedOn(p)) return 'Posted';
-  return CONTENT_STATUS[c].calendar;
+  return staleContent(p) ? STALE_CONTENT.calendar : CONTENT_STATUS[c].calendar;
 }
 
 /* ---------- helpers ---------- */
@@ -3854,8 +4096,12 @@ function markPosted(p){
 function renderQueue(){
   const out = [];
   for (const p of POSTS){
-    if (scriptStatus(p) !== 'approved') continue;
-    const c = contentStatus(p);
+    // effScript, not scriptStatus: a script whose words were redrafted after
+    // you approved them is NOT approved any more, and must not render. That is
+    // the reel-32 breach -- built 2026-09-04 from a redraft whose approval
+    // belonged to the previous version.
+    if (effScript(p) !== 'approved') continue;
+    const c = effContent(p);
     if (c === 'rerender'){
       // Explicit send-back — queue it even if the post already went out, since
       // asking for it was deliberate. Flagged so the run knows it's a reshoot.
@@ -3882,7 +4128,10 @@ function renderStats(){
   const contentTodo = POSTS.filter(p => stageOf(p) === 'content-review').length;
   const q = renderQueue();
 
+  const onYou = POSTS.filter(p => needOf(p).who === 'you').length;
+
   $('#stats').innerHTML = [
+    ['Needs you', onYou, onYou > 0],
     ['Script review', scriptTodo, scriptTodo > 0],
     ['To render', q.length, false],
     ['Content review', contentTodo, contentTodo > 0],
@@ -3914,6 +4163,7 @@ let selected = null;
 
 const FILTERS = [
   ['all','All', () => true],
+  ['you','Needs you', p => needOf(p).who === 'you'],
   ['script','Script review', p => stageOf(p) === 'script-review'],
   ['render','To render', p => renderQueue().some(x => x.post.id === p.id)],
   ['content','Content review', p => stageOf(p) === 'content-review'],
@@ -3987,9 +4237,10 @@ function renderList(){
     const g = groupOf(p);
     if (g !== lastGroup){ html += `<div class="daygroup">${g}</div>`; lastGroup = g; }
 
-    const stage = stageOf(p), meta = STAGES[stage];
-    const sc = SCRIPT_STATUS[scriptStatus(p)].color;
-    const cc = CONTENT_STATUS[contentStatus(p)].color;
+    const stage = stageOf(p), meta = STAGES[stage];   // still drives the card's left edge colour
+    const need = needOf(p);
+    const sc = sMetaOf(p).color;
+    const cc = cMetaOf(p).color;
     const contentStarted = contentStatus(p) !== 'awaiting-render';
     const syncingNow = syncing.has(p.id+':script') || syncing.has(p.id+':content');
 
@@ -4006,7 +4257,8 @@ function renderList(){
           <span class="tt" title="Script · Content">
             <i style="--c:${sc}"></i><i class="${contentStarted?'':'empty'}" style="--c:${cc}"></i>
           </span>
-          <span class="pill">${esc(meta.label)}</span>
+          <span class="act-pill${need.who === 'you' ? '' : ' idle'}"
+                style="--ac:${need.color}" title="${esc(need.title)}">${esc(need.short)}</span>
           ${isUrgent(p) ? '<span class="edited">● urgent</span>' : ''}
           ${syncingNow ? '<span class="edited">● syncing…</span>'
             : overridden(p) ? `<span class="edited">● ${SYNC_URL ? 'not synced' : 'unsaved'}</span>` : ''}
@@ -4111,6 +4363,7 @@ function renderDetail(preserveScroll){
     ${p.flag ? `<div class="flag"><span class="ico">!</span><span>${esc(p.flag)}</span></div>` : ''}
   </div>`);
 
+  parts.push(needBarHTML(p));
   parts.push(railHTML(p));
   parts.push(tracksHTML(p));
 
@@ -4140,8 +4393,10 @@ function renderDetail(preserveScroll){
     parts.push('</section>');
     parts.push(revisionsHTML(p));
   } else {
-    const why = scriptStatus(p) === 'approved'
+    const why = effScript(p) === 'approved'
       ? 'Script is approved, so this is in the render queue. Nothing to review until a file exists.'
+      : staleScript(p)
+      ? 'The script was redrafted after your last decision, so it is back on track 1. Nothing renders until you approve the new words.'
       : 'The render task only picks up posts whose script is approved, so nothing will be produced yet.';
     parts.push(`<section><h3>Rendered content</h3>
       <div class="missing"><b style="color:var(--text)">Not rendered yet.</b><br>${esc(why)}</div></section>`);
@@ -4208,7 +4463,7 @@ window.addEventListener('resize', () => padForFlowbar($('#detail')));
    Only for a cut that is cleared to go out — before that there is nothing to
    save, and once it is posted the bar has nothing left to say. */
 function flowbarHTML(p){
-  if (!hasMedia(p) || contentStatus(p) !== 'approved' || postedOn(p)) return '';
+  if (!hasMedia(p) || effContent(p) !== 'approved' || postedOn(p)) return '';
   const f = flow(p.id);
   // A post always carries both captions, but the picker is only worth the room
   // when there really are two to choose between.
@@ -4255,50 +4510,129 @@ function railHTML(p){
   }).join('') + '</div>';
 }
 
+/* One decision, one row. Rendered newest-first under the track it belongs to,
+   so "what did I already say about this, and about which version" is readable
+   without opening a markdown file in the repo. Rows whose version has been
+   superseded are struck through rather than dropped -- the point of keeping
+   history is that a withdrawn approval is still a thing you once said. */
+function historyHTML(p, name){
+  const rows = historyOf(p, name);
+  if (!rows.length) return '';
+  const cur  = name === 'script' ? scriptRevOf(p) : contentRevOf(p);
+  const META = name === 'script' ? SCRIPT_STATUS : CONTENT_STATUS;
+  const body = [...rows].reverse().map(r => {
+    const m = META[r.status] || {label: r.status, color: 'var(--faint)'};
+    const old = typeof r.rev === 'number' && r.rev < cur;
+    const detail = [r.note, (r.tags || []).join(', ')].filter(Boolean).join(' \u00b7 ');
+    const when = r.at ? new Date(r.at).toLocaleDateString(undefined,{day:'numeric',month:'short'}) : '';
+    return `<div class="hrow${old ? ' superseded' : ''}">
+      <span class="hv">v${esc(String(typeof r.rev === 'number' ? r.rev : '?'))}</span>
+      <span class="hs" style="--hc:${m.color}">${esc(m.label)}</span>
+      <span class="hn">${esc(detail)}</span>
+      <span class="hd">${esc(when)}</span>
+    </div>`;
+  }).join('');
+  return `<details class="hist"><summary>Decision history (${rows.length})</summary>${body}</details>`;
+}
+
+/* The imperative line at the top of a track body. `needOf` decides what the
+   POST is waiting for; this decides whether that lands on this track. */
+function needBlock(p, name){
+  const need = needOf(p);
+  if (need.on !== name) return `<div class="need quiet"><b>Nothing needed here.</b> ${
+    name === 'script'
+      ? 'These words are signed off, and nothing has changed them since.'
+      : 'This track is not what the post is waiting on.'}</div>`;
+  return `<div class="need" style="--nc:${need.color}"><b>${esc(need.title)}.</b> ${need.body}</div>`;
+}
+
+/* The banner across the top of the post. One post, one ask. */
+function needBarHTML(p){
+  const n = needOf(p);
+  return `<div class="needbar${n.who === 'done' ? ' done' : ''}" style="--nc:${n.color}">
+    <span class="ico">${esc(n.ico)}</span>
+    <span class="txt"><b>${n.who === 'you' ? '' : n.who === 'task' ? 'On the render task: ' : ''}${esc(n.title)}</b>
+    <span>${n.body}</span></span>
+  </div>`;
+}
+
 function tracksHTML(p){
   const s = scriptStatus(p), c = contentStatus(p);
-  const sMeta = SCRIPT_STATUS[s], cMeta = CONTENT_STATUS[c];
+  const sStale = staleScript(p), cStale = staleContent(p);
+  const sMeta = sMetaOf(p), cMeta = cMetaOf(p);
+  const sRev = scriptRevOf(p), cRev = contentRevOf(p);
 
-  /* ---- track 1: the words ---- */
+  /* ---- track 1: the words ----
+     aria-pressed is gated on staleness. This is the fix Min-Yi actually asked
+     for: an approval whose words have been replaced must not leave Approve
+     sitting there lit, because a lit Approve reads as "done, nothing to do"
+     and that is precisely the wrong thing to think. */
   const sBtns = [
     ['approved','Approve','var(--ok)'],
     ['changes','Request changes','var(--warn)'],
     ['rejected','Reject','var(--bad)']
   ].map(([k,l,col]) =>
-    `<button class="act" data-track="script" data-set="${k}" style="--c:${col}" aria-pressed="${s===k}">${esc(l)}</button>`
+    `<button class="act" data-track="script" data-set="${k}" style="--c:${col}" aria-pressed="${!sStale && s===k}">${esc(l)}</button>`
   ).join('');
+
+  const sStaleBox = sStale ? `<div class="stale">
+      <b>This approval has been withdrawn automatically.</b><br>
+      You decided <span class="old">${esc(SCRIPT_STATUS[s].label)}</span> on
+      <b>v${esc(String(revOf(track(p.id,'script') || baseline(p,'script'), sRev)))}</b>;
+      the task has since redrafted to <b>v${sRev}</b>. Nothing was lost \u2014 the old
+      decision is in the history below, and the previous copy is archived in the repo.
+    </div>` : '';
 
   const scriptTrack = `
     <div class="track" style="--tc:${sMeta.color}">
       <div class="track-head">
         <span class="num">1</span><h4>Script approval</h4>
         <span class="pill" style="--st:${sMeta.color}"><span class="dot"></span>${esc(sMeta.label)}</span>
+        <span class="chip" style="margin-left:auto">v${sRev}</span>
       </div>
-      <p class="what">The words — hook, explanation, example, CTA. Approving this
+      <p class="what">The words \u2014 hook, explanation, example, CTA. Approving this
       is what puts the post into the render queue.</p>
+      ${needBlock(p,'script')}
+      ${sStaleBox}
       <div class="acts">${sBtns}
         ${state[p.id] && state[p.id].script ? '<button class="act ghost" data-revert="script">Revert</button>' : ''}
       </div>
-      <textarea data-note="script" placeholder="Line edits, tone, a rule that needs re-checking…">${esc(scriptNote(p))}</textarea>
+      <textarea data-note="script" placeholder="Line edits, tone, a rule that needs re-checking\u2026">${esc(scriptNote(p))}</textarea>
       <div class="saved" data-saved="script">${savedLabel(p,'script')}</div>
       <p class="repo-note">Repo says: <b>${esc(SCRIPT_STATUS[baseline(p,'script').status].label)}</b>${repoNote(p,'script') ? ' (' + esc(repoNote(p,'script')) + ')' : ''}</p>
+      ${historyHTML(p,'script')}
     </div>`;
 
   /* ---- track 2: the cut that came out ---- */
   let contentBody;
-  if (s !== 'approved'){
+  if (effScript(p) !== 'approved'){
+    // A cut can be sitting right below this message and still not be judgeable:
+    // reel-32's was built on 2026-09-04 from words that were never approved.
+    // Say so here, because this is the branch that renders for that post.
+    const orphan = hasMedia(p) ? builtFromUnapprovedScript(p) : null;
     contentBody = `<div class="lockmsg"><b>Waiting on the script.</b> Nothing gets
-      rendered until track 1 is approved, so there's no content to judge yet.</div>`;
+      rendered until track 1 is approved, so there's no content to judge yet.${
+      sStale ? ' The words were redrafted after your last decision, so track 1 is open again.' : ''}${
+      orphan === null ? '' : ` <b style="color:var(--accent)">There is already a cut below, and it was built from
+      script v${orphan} \u2014 words you never approved.</b> Read track 1 first. If you approve those words the cut
+      stands and moves here for review; if you ask for changes it gets rebuilt.`}</div>`;
   } else if (!hasMedia(p)){
     contentBody = `<div class="lockmsg"><b>In the render queue.</b> The scheduled
       run picks this up because its script is approved. Once a file lands here,
       this is where you approve or send it back.</div>`;
   } else {
+    /* Three buttons, not two. "Reject" used to have to carry two completely
+       different asks -- "build this again properly" and "these are the wrong
+       words" -- and on 2026-09-04 Min-Yi used it for the second, three times
+       in forty seconds, because there was nothing else to press. The render
+       task guessed the routing correctly and wrote that guess into a markdown
+       file she had no reason to open. Now the ask names itself. */
     const cBtns = [
-      ['approved','Approve — ready to post','var(--ok)'],
-      ['rerender','Reject — regenerate','var(--accent)']
+      ['approved','Approve \u2014 ready to post','var(--ok)'],
+      ['rerender','Send back \u2014 rebuild it','var(--accent)'],
+      ['to-script','Send back \u2014 wrong words','var(--warn)']
     ].map(([k,l,col]) =>
-      `<button class="act" data-track="content" data-set="${k}" style="--c:${col}" aria-pressed="${c===k}">${esc(l)}</button>`
+      `<button class="act" data-track="content" data-set="${k}" style="--c:${col}" aria-pressed="${!cStale && c===k}">${esc(l)}</button>`
     ).join('');
 
     const tags = contentTags(p);
@@ -4314,31 +4648,52 @@ function tracksHTML(p){
         </label>
       </div>` : '';
 
+    const cStaleBox = cStale ? `<div class="stale">
+        <b>This decision has been withdrawn automatically.</b><br>
+        You decided <span class="old">${esc(CONTENT_STATUS[c].label)}</span> on
+        <b>v${esc(String(revOf(track(p.id,'content') || baseline(p,'content'), cRev)))}</b>;
+        <b>v${cRev}</b> has been rendered since. The player above is showing the new one.
+      </div>` : '';
+
+    const unapproved = builtFromUnapprovedScript(p);
+    const warnBox = unapproved === null ? '' : `<div class="stale">
+        <b>This cut was built from a script you never approved.</b><br>
+        It was rendered from script <b>v${esc(String(unapproved))}</b>, and your approval on track 1
+        belongs to a different version. Read the words on track 1 before judging the cut \u2014 the
+        render guard added on 2026-09-04 refuses this now, but this cut predates it.
+      </div>`;
+
     contentBody = `
+      ${needBlock(p,'content')}
+      ${cStaleBox}${warnBox}
       <div class="acts">${cBtns}
         ${state[p.id] && state[p.id].content ? '<button class="act ghost" data-revert="content">Revert</button>' : ''}
       </div>
       <textarea data-note="content" placeholder="${c === 'rerender'
-        ? 'What&#39;s wrong with this cut, specifically — this text is handed to the render task.'
-        : 'Notes on the rendered cut…'}">${esc(contentNote(p))}</textarea>
+        ? 'What&#39;s wrong with this cut, specifically \u2014 this text is handed to the render task.'
+        : 'Notes on the rendered cut\u2026'}">${esc(contentNote(p))}</textarea>
       <div class="saved" data-saved="content">${savedLabel(p,'content')}</div>
       ${fb}`;
   }
 
+  const blocked = effScript(p) !== 'approved';
+  const cPill = blocked ? {label:'Waiting on the script', color:'var(--faint)'} : cMeta;
   const contentTrack = `
-    <div class="track ${s !== 'approved' || !hasMedia(p) ? 'locked' : ''}" style="--tc:${cMeta.color}">
+    <div class="track ${blocked || !hasMedia(p) ? 'locked' : ''}" style="--tc:${cMeta.color}">
       <div class="track-head">
         <span class="num">2</span><h4>Content approval</h4>
-        <span class="pill" style="--st:${cMeta.color}"><span class="dot"></span>${esc(cMeta.label)}</span>
+        <span class="pill" style="--st:${cPill.color}"><span class="dot"></span>${esc(cPill.label)}</span>
+        ${cRev ? `<span class="chip" style="margin-left:auto">v${cRev}</span>` : ''}
       </div>
-      <p class="what">The rendered cut — pacing, on-screen text, visuals. A rejected
-      cut goes back to the render task with your feedback; the script stays approved.</p>
+      <p class="what">The rendered cut \u2014 pacing, on-screen text, visuals. Send it back to
+      <b>rebuild</b> when the build is wrong, or back to the <b>script</b> when the words are.</p>
       ${contentBody}
       <p class="repo-note">Repo says: <b>${esc(CONTENT_STATUS[baseline(p,'content').status].label)}</b>${repoNote(p,'content') ? ' (' + esc(repoNote(p,'content')) + ')' : ''}</p>
+      ${historyHTML(p,'content')}
     </div>`;
 
   const posted = postedOn(p);
-  const markBtn = (contentStatus(p) === 'approved' || posted)
+  const markBtn = (effContent(p) === 'approved' || posted)
     ? `<div style="margin-bottom:26px"><button class="act" data-posted style="--c:var(--text)" aria-pressed="${!!posted}">
          ${posted ? 'Posted ' + esc(posted) : 'Mark as posted'}</button>
        <div class="saved" data-saved="posted">${savedLabel(p,'posted')}</div></div>`
@@ -4414,12 +4769,16 @@ function mutableTrack(p, name){
   const d = entry(p);
   if (!d[name]){
     d[name] = name === 'script'
-      ? {status: scriptStatus(p), note: scriptNote(p)}
+      ? {status: scriptStatus(p), note: scriptNote(p), rev: scriptRevOf(p)}
       : name === 'posted'
       ? {status: postedOn(p) ? 'posted' : 'unposted', date: postedOn(p) || null}
-      : {status: contentStatus(p), note: contentNote(p),
+      : {status: contentStatus(p), note: contentNote(p), rev: contentRevOf(p),
          tags: contentTags(p).slice(), urgent: isUrgent(p)};
   }
+  // You are looking at the current version, so anything you touch now is a
+  // judgement on it -- including a note typed onto a decision made earlier.
+  if (name === 'script')  d[name].rev = scriptRevOf(p);
+  if (name === 'content') d[name].rev = contentRevOf(p);
   return d[name];
 }
 function tidy(p){
@@ -4427,8 +4786,17 @@ function tidy(p){
      means what it says. */
   const d = state[p.id];
   if (!d) return;
-  if (d.script && d.script.status === baseline(p,'script').status && !(d.script.note||'').trim()) delete d.script;
+  /* A local track that matches the repo is noise -- EXCEPT when it re-stamps a
+     version. Re-approving a redrafted script leaves the status where the repo
+     already has it ("approved") and changes only the rev; dropping it as a
+     no-op would silently discard the re-approval and leave the desk asking for
+     it forever. Compare the stamp, not just the word. */
+  const sameRev = (a, b) => (typeof a.rev === 'number' ? a.rev : null)
+                         === (typeof b.rev === 'number' ? b.rev : null);
+  if (d.script && d.script.status === baseline(p,'script').status &&
+      sameRev(d.script, baseline(p,'script')) && !(d.script.note||'').trim()) delete d.script;
   if (d.content && d.content.status === baseline(p,'content').status &&
+      sameRev(d.content, baseline(p,'content')) &&
       !(d.content.note||'').trim() && !(d.content.tags||[]).length && !d.content.urgent) delete d.content;
   if (d.posted && samePosted(d.posted, baseline(p,'posted'))) delete d.posted;
   if (!Object.keys(d).length) delete state[p.id];
@@ -4438,11 +4806,48 @@ function commit(p, msg){
   if (msg) toast(msg);
 }
 
+/* "The words are wrong" is not "build it again". It fails the cut AND reopens
+   the script gate, in one commit, with your note carried onto the track that
+   will act on it. Before this existed the only way to say it was Reject, which
+   said the wrong thing, and the render task had to infer the rest. */
+function sendBackToScript(p){
+  const note = (contentNote(p) || '').trim();
+  if (!note){
+    toast('Say what is wrong with the words first — the note is what gets rewritten');
+    const ta = $('#detail').querySelector('[data-note="content"]');
+    if (ta) ta.focus();
+    return;
+  }
+  const cont = mutableTrack(p, 'content');
+  cont.status = 'rerender';
+  cont.tags = cont.tags || [];
+  if (!cont.tags.includes('On-screen text')) cont.tags.push('On-screen text');
+  cont.updatedAt = Date.now();
+
+  const scr = mutableTrack(p, 'script');
+  scr.status = 'changes';
+  scr.note = note;
+  scr.updatedAt = Date.now();
+
+  clearFlow(p.id);
+  commit(p, 'Sent back to the script — the words get rewritten before anything renders again');
+  // One request, one commit, both tracks. Two separate POSTs would race each
+  // other on the branch ref and could leave the cut failed with the script
+  // still approved -- the exact half-state this button exists to prevent.
+  syncToRepo(p, 'content', cont, 'Sent back to the script', {track:'script', value: scr});
+}
+
 function setTrack(p, name, status){
+  if (name === 'content' && status === 'to-script') return sendBackToScript(p);
   const now = name === 'script' ? scriptStatus(p) : contentStatus(p);
+  const stale = name === 'script' ? staleScript(p) : staleContent(p);
   const cur = mutableTrack(p, name);
   const base = baseline(p, name).status;
-  cur.status = (status === now) ? base : status;
+  // Clicking the status a track already holds normally means "undo, put it back
+  // to what the repo says". Not when the decision is stale: there the button
+  // was not lit, so the click is a fresh decision about the new version and
+  // toggling it off would be the opposite of what was asked.
+  cur.status = (status === now && !stale) ? base : status;
   cur.note = cur.note || '';
   cur.updatedAt = Date.now();
   if (name === 'content'){
@@ -4452,7 +4857,8 @@ function setTrack(p, name, status){
     if (cur.status === 'rerender') clearFlow(p.id);
   }
   const label = name === 'script' ? SCRIPT_STATUS[cur.status].label : CONTENT_STATUS[cur.status].label;
-  commit(p, (name === 'script' ? 'Script: ' : 'Content: ') + label);
+  const ver = name === 'script' ? scriptRevOf(p) : contentRevOf(p);
+  commit(p, (name === 'script' ? 'Script: ' : 'Content: ') + label + (ver ? ' (v' + ver + ')' : ''));
   syncToRepo(p, name, cur);
 }
 
@@ -4633,11 +5039,11 @@ function unsyncedPosts(){
 
 function describePending(p){
   const bits = [];
-  if (scriptStatus(p) !== baseline(p,'script').status || scriptNote(p).trim())
-    bits.push(`script → ${SCRIPT_STATUS[scriptStatus(p)].label}` +
+  if (scriptStatus(p) !== baseline(p,'script').status || staleScript(p) || scriptNote(p).trim())
+    bits.push(`script → ${sMetaOf(p).label}` +
               (scriptNote(p).trim() ? ` (“${scriptNote(p).trim()}”)` : ''));
-  if (contentStatus(p) !== baseline(p,'content').status || contentNote(p).trim() || contentTags(p).length)
-    bits.push(`content → ${CONTENT_STATUS[contentStatus(p)].label}` +
+  if (contentStatus(p) !== baseline(p,'content').status || staleContent(p) || contentNote(p).trim() || contentTags(p).length)
+    bits.push(`content → ${cMetaOf(p).label}` +
               (contentTags(p).length ? ` [${contentTags(p).join(', ')}]` : '') +
               (contentNote(p).trim() ? ` (“${contentNote(p).trim()}”)` : ''));
   if (postedOn(p) !== p.postedDate)

@@ -55,7 +55,8 @@ export default {
       return withCORS(new Response('Wrong passphrase', {status: 401}));
     }
 
-    const {postId, postDate, postTitle, folder, track: trackName, status, note, tags, calendarLabel, postedDate} = body;
+    const {postId, postDate, postTitle, folder, track: trackName, status, note, tags,
+           calendarLabel, postedDate, rev, also} = body;
     if (!postId || !postDate || !postTitle || !trackName || !status || !calendarLabel) {
       return withCORS(new Response('Missing required field', {status: 400}));
     }
@@ -71,11 +72,32 @@ export default {
       const stateFile = await gh.getFile(STATE_PATH).catch(() => null);
       const state = stateFile ? JSON.parse(stateFile.text) : {};
       state[postId] = state[postId] || {};
+      const stamp = new Date().toISOString();
       // The posted track carries a date where the review tracks carry a note
       // and tags; storing empty ones would just be noise the desk ignores.
       state[postId][trackName] = trackName === 'posted'
-        ? {status, date: postedDate || null, updatedAt: new Date().toISOString()}
-        : {status, note: note || '', tags: tags || [], updatedAt: new Date().toISOString()};
+        ? {status, date: postedDate || null, updatedAt: stamp}
+        : {status, note: note || '', tags: tags || [],
+           // Which version of the words / of the cut this decision judged. The
+           // desk withdraws a decision once its version has been superseded, so
+           // this is what stops a stale approval reading as a live one.
+           rev: typeof rev === 'number' ? rev : null,
+           updatedAt: stamp};
+      const isNewRound = trackName === 'posted'
+        ? true
+        : pushHistory(state[postId], trackName, {status, note, tags, rev}, stamp);
+
+      /* A second track written in the same commit -- "send back to script"
+         fails the cut AND reopens the script gate, and those must land together
+         or not at all. Two separate requests would race on the branch ref and
+         could leave the cut failed with the script still approved. */
+      if (also && (also.track === 'script' || also.track === 'content')) {
+        state[postId][also.track] = {
+          status: also.status, note: also.note || '', tags: also.tags || [],
+          rev: typeof also.rev === 'number' ? also.rev : null, updatedAt: stamp
+        };
+        pushHistory(state[postId], also.track, also, stamp);
+      }
       writes.push({path: STATE_PATH, content: JSON.stringify(state, null, 2) + '\n'});
 
       // 2. calendar.md — patch just this one row's Status (and Posted, if set).
@@ -89,21 +111,24 @@ export default {
         })
       });
 
-      // 3. A content rejection also logs a feedback round, in the format
-      // content/CONTENT_REVIEW.md documents.
+      // 3. A send-back also logs a feedback round, in the format
+      // content/CONTENT_REVIEW.md documents. A rejected CUT goes to feedback.md;
+      // a send-back to the SCRIPT goes to script-feedback.md, so the render task
+      // reads the ask on the track that has to act on it.
+      const today = body.localDate || new Date().toISOString().slice(0, 10);
       if (trackName === 'content' && status === 'rerender' && folder) {
-        const fbPath = `content/${folder}/feedback.md`;
-        const fbFile = await gh.getFile(fbPath).catch(() => null);
-        const existing = fbFile ? fbFile.text : '';
-        const round = (existing.match(/^## Round \d+/gm) || []).length + 1;
-        // The desk sends its own calendar date; this Worker runs on UTC edge
-        // nodes, so deriving it here would date a round to the wrong day for
-        // any reviewer east of Greenwich. Fall back only if it's absent.
-        const today = body.localDate || new Date().toISOString().slice(0, 10);
-        const bodyText = [tags && tags.length ? tags.join(', ') + '.' : '', note || '']
-          .filter(Boolean).join(' ') || 'Rejected — no detail given.';
-        const block = `## Round ${round} — ${today} — REJECTED\n${bodyText}\n`;
-        writes.push({path: fbPath, content: existing ? existing.trimEnd() + '\n\n' + block : block});
+        writes.push(await roundWrite(gh, `content/${folder}/feedback.md`, {
+          today, marker: 'REJECTED', stamp: typeof rev === 'number' ? `cut v${rev}` : '',
+          tags, note, isNewRound, fallback: 'Rejected — no detail given.'
+        }));
+      }
+      if (also && also.track === 'script' && also.status === 'changes' && folder) {
+        writes.push(await roundWrite(gh, `content/${folder}/script-feedback.md`, {
+          today, marker: 'CHANGES REQUESTED',
+          stamp: typeof also.rev === 'number' ? `script v${also.rev}` : '',
+          tags: [], note: also.note, isNewRound: true,
+          fallback: 'Changes requested — no detail given.'
+        }));
       }
 
       const commitSha = await gh.commitFiles(writes, `desk: ${postTitle} — ${trackName} -> ${status}`);
@@ -113,6 +138,62 @@ export default {
     }
   }
 };
+
+/* Every decision, appended under its track, newest last.
+
+   COALESCED, and that is the point. The desk syncs as you type: a status first,
+   then again on each pause in the note. On 2026-09-04 one complaint about
+   reel-30 arrived three times in thirty-eight seconds and became three
+   identical REJECTED rounds in feedback.md, which the render task then had to
+   spend a paragraph explaining were one complaint. Same track, same version,
+   same status IS the same decision -- it gets updated in place, not logged
+   again. Change the status, or judge a new version, and it is a new entry. */
+function pushHistory(entry, trackName, value, stamp) {
+  entry.history = entry.history || {};
+  const rows = entry.history[trackName] = entry.history[trackName] || [];
+  const rec = {
+    status: value.status,
+    rev: typeof value.rev === 'number' ? value.rev : null,
+    note: value.note || '',
+    tags: value.tags || [],
+    at: stamp
+  };
+  const last = rows[rows.length - 1];
+  if (last && last.status === rec.status && (last.rev === null ? null : last.rev) === rec.rev) {
+    Object.assign(last, rec);
+    return false;
+  }
+  rows.push(rec);
+  return true;
+}
+
+/* Write a feedback round, replacing the last one rather than appending when
+   this is the same decision arriving again (see pushHistory). Only ever
+   rewrites a block this Worker itself wrote -- matched on the exact
+   "— MARKER (stamp)" tail — so the render task's own prose rounds in the same
+   file are never touched. */
+async function roundWrite(gh, path, {today, marker, stamp, tags, note, isNewRound, fallback}) {
+  const file = await gh.getFile(path).catch(() => null);
+  const existing = file ? file.text : '';
+  const bodyText = [tags && tags.length ? tags.join(', ') + '.' : '', note || '']
+    .filter(Boolean).join(' ') || fallback;
+  const tail = `— ${marker}${stamp ? ` (${stamp})` : ''}`;
+
+  const heads = [...existing.matchAll(/^## Round (\d+)[^\n]*$/gm)];
+  const last = heads.length ? heads[heads.length - 1] : null;
+  const mine = last && last[0].endsWith(tail);
+
+  if (!isNewRound && mine) {
+    const after = existing.slice(last.index + last[0].length);
+    const nextIdx = after.search(/\n## /);
+    const rest = nextIdx === -1 ? '' : after.slice(nextIdx);
+    return {path, content: existing.slice(0, last.index) +
+      `## Round ${last[1]} — ${today} ${tail}\n${bodyText}\n` + rest};
+  }
+  const n = heads.length + 1;
+  const block = `## Round ${n} — ${today} ${tail}\n${bodyText}\n`;
+  return {path, content: existing ? existing.trimEnd() + '\n\n' + block : block};
+}
 
 function patchCalendarRow(md, {date, title, folder, statusLabel, postedDate, clearPosted}) {
   const lines = md.split('\n');

@@ -4,13 +4,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-07T12:29:26.053Z"
+      "updatedAt": "2026-08-07T12:29:26.053Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-08T02:48:23.987Z"
+      "updatedAt": "2026-08-08T02:48:23.987Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -32,6 +34,27 @@
       "status": "posted",
       "date": "2026-08-08",
       "updatedAt": "2026-08-08T05:16:23.484Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-07T12:29:26.053Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-08T02:48:23.987Z"
+        }
+      ]
     }
   },
   "reel-4": {
@@ -39,7 +62,8 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-09T12:27:50.747Z"
+      "updatedAt": "2026-08-09T12:27:50.747Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -61,6 +85,18 @@
       "status": "posted",
       "date": "2026-08-09",
       "updatedAt": "2026-08-09T12:34:30.829Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-09T12:27:50.747Z"
+        }
+      ]
     }
   },
   "reel-5": {
@@ -68,7 +104,8 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-10T03:18:09.289Z"
+      "updatedAt": "2026-08-10T03:18:09.289Z",
+      "rev": 3
     },
     "revisions": [
       {
@@ -97,6 +134,18 @@
       "status": "posted",
       "date": "2026-08-10",
       "updatedAt": "2026-08-10T03:21:19.504Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "content": [
+        {
+          "status": "approved",
+          "rev": 3,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-10T03:18:09.289Z"
+        }
+      ]
     }
   },
   "reel-6": {
@@ -104,7 +153,8 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-10T11:30:50.883Z"
+      "updatedAt": "2026-08-10T11:30:50.883Z",
+      "rev": 3
     },
     "revisions": [
       {
@@ -133,6 +183,18 @@
       "status": "posted",
       "date": "2026-08-11",
       "updatedAt": "2026-08-11T09:34:36.761Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "content": [
+        {
+          "status": "approved",
+          "rev": 3,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-10T11:30:50.883Z"
+        }
+      ]
     }
   },
   "reel-7": {
@@ -140,7 +202,8 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-11T13:41:12.051Z"
+      "updatedAt": "2026-08-11T13:41:12.051Z",
+      "rev": 3
     },
     "revisions": [
       {
@@ -169,6 +232,18 @@
       "status": "posted",
       "date": "2026-08-11",
       "updatedAt": "2026-08-12T00:16:49.176Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "content": [
+        {
+          "status": "approved",
+          "rev": 3,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-11T13:41:12.051Z"
+        }
+      ]
     }
   },
   "reel-8": {
@@ -176,13 +251,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-11T13:28:08.509Z"
+      "updatedAt": "2026-08-11T13:28:08.509Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T08:28:39.124Z"
+      "updatedAt": "2026-08-12T08:28:39.124Z",
+      "rev": 1
     },
     "posted": {
       "status": "posted",
@@ -197,20 +274,43 @@
         "file": "reel8-a-catch-and-possession-are-not-the-same-thing.mp4",
         "changed": "Initial render from the approved script. Nine scenes, exact CFR via encode.py; 29.50s."
       }
-    ]
+    ],
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-11T13:28:08.509Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-12T08:28:39.124Z"
+        }
+      ]
+    }
   },
   "carousel-post-2": {
     "script": {
       "status": "approved",
       "note": "Can you recap lessons 1 - 7? Not 2-8",
       "tags": [],
-      "updatedAt": "2026-08-11T14:08:36.616Z"
+      "updatedAt": "2026-08-11T14:08:36.616Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T08:27:40.458Z"
+      "updatedAt": "2026-08-12T08:27:40.458Z",
+      "rev": 1
     },
     "posted": {
       "status": "posted",
@@ -225,20 +325,43 @@
         "file": "01_cover.png … 09_closing.png",
         "changed": "Initial render of the first weekly recap, from the lessons 1-7 redraft. Nine slides at 2250x2812, rule numbers only, no rule text."
       }
-    ]
+    ],
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "Can you recap lessons 1 - 7? Not 2-8",
+          "tags": [],
+          "at": "2026-08-11T14:08:36.616Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-12T08:27:40.458Z"
+        }
+      ]
+    }
   },
   "reel-9": {
     "script": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-11T14:10:11.647Z"
+      "updatedAt": "2026-08-11T14:10:11.647Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T23:29:21.513Z"
+      "updatedAt": "2026-08-12T23:29:21.513Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -253,6 +376,27 @@
       "status": "posted",
       "date": "2026-08-14",
       "updatedAt": "2026-08-13T23:44:13.611Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-11T14:10:11.647Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-12T23:29:21.513Z"
+        }
+      ]
     }
   },
   "reel-10": {
@@ -260,13 +404,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T23:29:58.416Z"
+      "updatedAt": "2026-08-12T23:29:58.416Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-12T23:56:59.392Z"
+      "updatedAt": "2026-08-12T23:56:59.392Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -281,6 +427,27 @@
       "status": "posted",
       "date": "2026-08-15",
       "updatedAt": "2026-08-14T23:28:25.439Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-12T23:29:58.416Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-12T23:56:59.392Z"
+        }
+      ]
     }
   },
   "reel-11": {
@@ -288,13 +455,15 @@
       "status": "approved",
       "note": "The word tie can be misleadingly referring to the score",
       "tags": [],
-      "updatedAt": "2026-08-16T00:37:26.848Z"
+      "updatedAt": "2026-08-16T00:37:26.848Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T07:34:08.558Z"
+      "updatedAt": "2026-08-16T07:34:08.558Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -316,6 +485,27 @@
       "status": "posted",
       "date": "2026-08-16",
       "updatedAt": "2026-08-16T07:36:11.921Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "The word tie can be misleadingly referring to the score",
+          "tags": [],
+          "at": "2026-08-16T00:37:26.848Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-16T07:34:08.558Z"
+        }
+      ]
     }
   },
   "reel-12": {
@@ -323,13 +513,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-14T07:23:24.218Z"
+      "updatedAt": "2026-08-14T07:23:24.218Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T07:38:10.706Z"
+      "updatedAt": "2026-08-16T07:38:10.706Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -344,6 +536,27 @@
       "status": "posted",
       "date": "2026-08-17",
       "updatedAt": "2026-08-16T23:48:03.255Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-14T07:23:24.218Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-16T07:38:10.706Z"
+        }
+      ]
     }
   },
   "reel-13": {
@@ -351,13 +564,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T07:43:00.413Z"
+      "updatedAt": "2026-08-16T07:43:00.413Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-17T23:57:59.067Z"
+      "updatedAt": "2026-08-17T23:57:59.067Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -372,6 +587,27 @@
       "status": "posted",
       "date": "2026-08-18",
       "updatedAt": "2026-08-18T00:00:24.020Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-16T07:43:00.413Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-17T23:57:59.067Z"
+        }
+      ]
     }
   },
   "reel-14": {
@@ -379,13 +615,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-16T07:42:51.344Z"
+      "updatedAt": "2026-08-16T07:42:51.344Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-18T09:38:11.802Z"
+      "updatedAt": "2026-08-18T09:38:11.802Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -400,6 +638,27 @@
       "status": "posted",
       "date": "2026-08-19",
       "updatedAt": "2026-08-19T00:23:18.448Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-16T07:42:51.344Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-18T09:38:11.802Z"
+        }
+      ]
     }
   },
   "reel-15": {
@@ -407,13 +666,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-18T09:40:28.135Z"
+      "updatedAt": "2026-08-18T09:40:28.135Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-19T07:25:12.313Z"
+      "updatedAt": "2026-08-19T07:25:12.313Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -428,6 +689,27 @@
       "status": "posted",
       "date": "2026-08-20",
       "updatedAt": "2026-08-19T23:17:42.159Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-18T09:40:28.135Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-19T07:25:12.313Z"
+        }
+      ]
     }
   },
   "carousel-post-3": {
@@ -435,13 +717,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-18T09:38:51.822Z"
+      "updatedAt": "2026-08-18T09:38:51.822Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-19T07:26:31.365Z"
+      "updatedAt": "2026-08-19T07:26:31.365Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -456,6 +740,27 @@
       "status": "posted",
       "date": "2026-08-20",
       "updatedAt": "2026-08-19T23:15:01.615Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-18T09:38:51.822Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-19T07:26:31.365Z"
+        }
+      ]
     }
   },
   "reel-16": {
@@ -463,13 +768,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-19T00:25:14.078Z"
+      "updatedAt": "2026-08-19T00:25:14.078Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-20T00:41:05.043Z"
+      "updatedAt": "2026-08-20T00:41:05.043Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -491,6 +798,27 @@
       "status": "posted",
       "date": "2026-08-21",
       "updatedAt": "2026-08-21T00:59:52.174Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-19T00:25:14.078Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-20T00:41:05.043Z"
+        }
+      ]
     }
   },
   "reel-17": {
@@ -498,13 +826,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-19T07:34:18.176Z"
+      "updatedAt": "2026-08-19T07:34:18.176Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-20T00:43:24.377Z"
+      "updatedAt": "2026-08-20T00:43:24.377Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -519,6 +849,27 @@
       "status": "posted",
       "date": "2026-08-22",
       "updatedAt": "2026-08-22T02:09:13.714Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-19T07:34:18.176Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-20T00:43:24.377Z"
+        }
+      ]
     }
   },
   "reel-18": {
@@ -526,13 +877,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-20T00:44:39.685Z"
+      "updatedAt": "2026-08-20T00:44:39.685Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-22T03:03:24.519Z"
+      "updatedAt": "2026-08-22T03:03:24.519Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -554,6 +907,27 @@
       "status": "posted",
       "date": "2026-08-23",
       "updatedAt": "2026-08-22T23:20:16.743Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-20T00:44:39.685Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-22T03:03:24.519Z"
+        }
+      ]
     }
   },
   "reel-19": {
@@ -561,13 +935,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-22T02:11:34.866Z"
+      "updatedAt": "2026-08-22T02:11:34.866Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-22T03:29:16.091Z"
+      "updatedAt": "2026-08-22T03:29:16.091Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -582,6 +958,27 @@
       "status": "posted",
       "date": "2026-08-24",
       "updatedAt": "2026-08-24T01:20:32.330Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-22T02:11:34.866Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-22T03:29:16.091Z"
+        }
+      ]
     }
   },
   "reel-20": {
@@ -589,13 +986,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-22T02:12:15.556Z"
+      "updatedAt": "2026-08-22T02:12:15.556Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-22T03:33:41.635Z"
+      "updatedAt": "2026-08-22T03:33:41.635Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -610,6 +1009,27 @@
       "status": "posted",
       "date": "2026-08-25",
       "updatedAt": "2026-08-24T23:43:59.330Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-22T02:12:15.556Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-22T03:33:41.635Z"
+        }
+      ]
     }
   },
   "reel-21": {
@@ -617,13 +1037,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-23T03:15:41.862Z"
+      "updatedAt": "2026-08-23T03:15:41.862Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-25T23:59:32.831Z"
+      "updatedAt": "2026-08-25T23:59:32.831Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -645,6 +1067,27 @@
       "status": "posted",
       "date": "2026-08-26",
       "updatedAt": "2026-08-26T00:23:55.779Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-23T03:15:41.862Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-25T23:59:32.831Z"
+        }
+      ]
     }
   },
   "carousel-post-4": {
@@ -652,13 +1095,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-24T02:46:10.323Z"
+      "updatedAt": "2026-08-24T02:46:10.323Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-26T15:10:12.655Z"
+      "updatedAt": "2026-08-26T15:10:12.655Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -673,6 +1118,27 @@
       "status": "posted",
       "date": "2026-08-27",
       "updatedAt": "2026-08-27T00:08:50.051Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-24T02:46:10.323Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-26T15:10:12.655Z"
+        }
+      ]
     }
   },
   "reel-22": {
@@ -680,13 +1146,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-24T02:47:04.801Z"
+      "updatedAt": "2026-08-24T02:47:04.801Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-26T15:12:01.802Z"
+      "updatedAt": "2026-08-26T15:12:01.802Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -701,6 +1169,27 @@
       "status": "posted",
       "date": "2026-08-27",
       "updatedAt": "2026-08-27T00:45:21.842Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-24T02:47:04.801Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-26T15:12:01.802Z"
+        }
+      ]
     }
   },
   "reel-23": {
@@ -708,13 +1197,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-26T15:14:28.333Z"
+      "updatedAt": "2026-08-26T15:14:28.333Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-27T00:49:55.536Z"
+      "updatedAt": "2026-08-27T00:49:55.536Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -729,6 +1220,27 @@
       "status": "posted",
       "date": "2026-08-28",
       "updatedAt": "2026-08-27T23:30:01.646Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-26T15:14:28.333Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-27T00:49:55.536Z"
+        }
+      ]
     }
   },
   "reel-24": {
@@ -736,13 +1248,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-26T15:14:20.431Z"
+      "updatedAt": "2026-08-26T15:14:20.431Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-27T00:52:10.052Z"
+      "updatedAt": "2026-08-27T00:52:10.052Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -757,6 +1271,27 @@
       "status": "posted",
       "date": "2026-08-29",
       "updatedAt": "2026-08-28T23:59:59.133Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-26T15:14:20.431Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-27T00:52:10.052Z"
+        }
+      ]
     }
   },
   "reel-25": {
@@ -764,13 +1299,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-27T00:46:28.119Z"
+      "updatedAt": "2026-08-27T00:46:28.119Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-28T10:27:30.551Z"
+      "updatedAt": "2026-08-28T10:27:30.551Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -785,6 +1322,27 @@
       "status": "posted",
       "date": "2026-08-30",
       "updatedAt": "2026-08-29T23:17:40.703Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-27T00:46:28.119Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-28T10:27:30.551Z"
+        }
+      ]
     }
   },
   "reel-26": {
@@ -792,13 +1350,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-28T10:26:04.587Z"
+      "updatedAt": "2026-08-28T10:26:04.587Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-30T12:55:39.824Z"
+      "updatedAt": "2026-08-30T12:55:39.824Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -813,6 +1373,27 @@
       "status": "posted",
       "date": "2026-08-31",
       "updatedAt": "2026-08-31T01:03:22.712Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-28T10:26:04.587Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-30T12:55:39.824Z"
+        }
+      ]
     }
   },
   "reel-27": {
@@ -820,13 +1401,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-30T12:56:07.162Z"
+      "updatedAt": "2026-08-30T12:56:07.162Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-31T23:44:57.831Z"
+      "updatedAt": "2026-08-31T23:44:57.831Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -841,6 +1424,27 @@
       "status": "posted",
       "date": "2026-09-01",
       "updatedAt": "2026-08-31T23:54:43.530Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-30T12:56:07.162Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-31T23:44:57.831Z"
+        }
+      ]
     }
   },
   "reel-28": {
@@ -848,13 +1452,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-08-30T12:56:54.728Z"
+      "updatedAt": "2026-08-30T12:56:54.728Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T23:11:17.364Z"
+      "updatedAt": "2026-09-01T23:11:17.364Z",
+      "rev": 2
     },
     "revisions": [
       {
@@ -876,6 +1482,27 @@
       "status": "posted",
       "date": "2026-09-02",
       "updatedAt": "2026-09-02T00:20:29.962Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-30T12:56:54.728Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-01T23:11:17.364Z"
+        }
+      ]
     }
   },
   "reel-29": {
@@ -883,13 +1510,15 @@
       "status": "changes",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T23:10:29.215Z"
+      "updatedAt": "2026-09-01T23:10:29.215Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T13:56:12.725Z"
+      "updatedAt": "2026-09-01T13:56:12.725Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -904,6 +1533,27 @@
       "status": "posted",
       "date": "2026-09-03",
       "updatedAt": "2026-09-03T09:15:17.362Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "changes",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-01T23:10:29.215Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-01T13:56:12.725Z"
+        }
+      ]
     }
   },
   "carousel-post-5": {
@@ -911,13 +1561,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T23:10:21.527Z"
+      "updatedAt": "2026-09-01T23:10:21.527Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T04:01:12.181Z"
+      "updatedAt": "2026-09-03T04:01:12.181Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -932,6 +1584,27 @@
       "status": "posted",
       "date": "2026-09-03",
       "updatedAt": "2026-09-03T06:18:54.634Z"
+    },
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-01T23:10:21.527Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-03T04:01:12.181Z"
+        }
+      ]
     }
   },
   "reel-30": {
@@ -939,13 +1612,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T23:48:39.775Z"
+      "updatedAt": "2026-09-03T23:48:39.775Z",
+      "rev": 2
     },
     "content": {
       "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T23:53:59Z"
+      "updatedAt": "2026-09-03T23:53:59Z",
+      "rev": null
     },
     "revisions": [
       {
@@ -960,22 +1635,77 @@
         "renderedAt": "2026-09-04",
         "duration": "29.5s",
         "file": "reel30-blocking-fouls.mp4",
-        "changed": "Rebuilt from the 09-04 redraft, addressing feedback rounds 1-3 (\"We can box out in ultimate using body. Just not using arms\") - one complaint captured three times. Copy only: no rules card, rule number or rule text moved. Scene 6 headline \"You cannot box out.\" -> \"You can box out - just not with your arms.\", and its body rewritten to name the permission before the limit; scene 8 headline \"Boxing out is a habit from another sport.\" -> \"Box out with your body, not your arms.\" with a matching body. The rule is narrow: 12.9 bans EXTENDED arms or legs used to obstruct, its annotation excludes normal running and jumping, and 12.5 - carded on scene 3 of this same reel - entitles a player to occupy any unoccupied position. v1's headline was broader than any rule on screen and broader than its own slide body. Verified rather than asserted: the v1 copy was re-rendered in parallel and the frame sets compared pixel by pixel - of 34 states exactly 5 differ, three on scene 6 and two on scene 8, and scenes 1-5, 7 and 9 are pixel-identical to the rejected cut. Built on reel-31/render_v3.py for the 2026-09-02 _payload() widening; a no-op here, since no line in this reel ends with a double quote. Nine scenes, exact CFR via encode.py, 29.50s - the same as v1, since no line count moved. Layout check 0 problems with no collisions; scene 6's kicker still auto-fits to 32px and its body to 33px; main scenes at max_y 1192 of 1310, detail cards at 604, 754 and 454, field tip 1062. Longest sustained dull-orange run 0.20s against a 0.45s threshold. 12.5, 17.4.1 and 12.9 re-verified character-for-character against rules.json. This cut does not improve on v1 by any measurement - v1 was clean on all of them, and the defect was the words. v1 archived as reel30-blocking-fouls.v1.mp4."
+        "changed": "Rebuilt from the 09-04 redraft, addressing feedback rounds 1-3 (\"We can box out in ultimate using body. Just not using arms\") - one complaint captured three times. Copy only: no rules card, rule number or rule text moved. Scene 6 headline \"You cannot box out.\" -> \"You can box out - just not with your arms.\", and its body rewritten to name the permission before the limit; scene 8 headline \"Boxing out is a habit from another sport.\" -> \"Box out with your body, not your arms.\" with a matching body. The rule is narrow: 12.9 bans EXTENDED arms or legs used to obstruct, its annotation excludes normal running and jumping, and 12.5 - carded on scene 3 of this same reel - entitles a player to occupy any unoccupied position. v1's headline was broader than any rule on screen and broader than its own slide body. Verified rather than asserted: the v1 copy was re-rendered in parallel and the frame sets compared pixel by pixel - of 34 states exactly 5 differ, three on scene 6 and two on scene 8, and scenes 1-5, 7 and 9 are pixel-identical to the rejected cut. Built on reel-31/render_v3.py for the 2026-09-02 _payload() widening; a no-op here, since no line in this reel ends with a double quote. Nine scenes, exact CFR via encode.py, 29.50s - the same as v1, since no line count moved. Layout check 0 problems with no collisions; scene 6's kicker still auto-fits to 32px and its body to 33px; main scenes at max_y 1192 of 1310, detail cards at 604, 754 and 454, field tip 1062. Longest sustained dull-orange run 0.20s against a 0.45s threshold. 12.5, 17.4.1 and 12.9 re-verified character-for-character against rules.json. This cut does not improve on v1 by any measurement - v1 was clean on all of them, and the defect was the words. v1 archived as reel30-blocking-fouls.v1.mp4.",
+        "builtFromScriptRev": 2
       }
-    ]
+    ],
+    "scriptRev": 2,
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-01",
+        "file": "script-and-caption.v1.md",
+        "changed": "Initial draft, blocking fouls: 12.5, 17.4.1, 12.9."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-04",
+        "file": "script-and-caption.md",
+        "changed": "Box-out redraft covering content rounds 1-3. Scene 6 headline \"You cannot box out.\" -> \"You can box out - just not with your arms.\", scene 8 \"Boxing out is a habit from another sport.\" -> \"Box out with your body, not your arms.\", both bodies and both captions rewritten to name the permission before the limit. No rule cited, quoted or ordered differently."
+      }
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-08-31T23:42:27Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-03T23:48:39.775Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-01T23:10:09Z"
+        },
+        {
+          "status": "rerender",
+          "rev": 1,
+          "note": "We can box out in ultimate using body. Just not using arms",
+          "tags": [
+            "On-screen text",
+            "Wrong take"
+          ],
+          "at": "2026-09-03T23:22:42Z"
+        }
+      ]
+    }
   },
   "reel-31": {
     "script": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T23:10:12.906Z"
+      "updatedAt": "2026-09-01T23:10:12.906Z",
+      "rev": 1
     },
     "content": {
       "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T23:22:57.416Z"
+      "updatedAt": "2026-09-03T23:22:57.416Z",
+      "rev": 1
     },
     "revisions": [
       {
@@ -985,20 +1715,43 @@
         "file": "reel31-force-out-fouls.mp4",
         "changed": "Initial render from the approved script. Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s against a 30.0s projection. 17.5.1 with both limbs, 17.5.2 and 17.5.3 quoted verbatim from rules.json and verified byte-identical against the source; 17.5 is a heading stem and was deliberately not carded, matching 17.2-17.4 in reels 28-30. Every layout prediction in the approved script held exactly: the three kickers measure 712, 834 and 826 of the 900px column and all stay at the standard 34px, so fit_kicker() never engaged, and all three main scenes end at max_y 1192 of 1310 with the detail cards at 940, 404 and 504. One deviation from the dry render: scene 6's body wraps to five lines rather than the four predicted - still 36px, fit_body() unengaged, still clear of the citation. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold."
       }
-    ]
+    ],
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-01T23:10:12.906Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-03T23:22:57.416Z"
+        }
+      ]
+    }
   },
   "reel-32": {
     "script": {
       "status": "approved",
       "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
       "tags": [],
-      "updatedAt": "2026-09-03T23:23:08.438Z"
+      "updatedAt": "2026-09-03T23:23:08.438Z",
+      "rev": 1
     },
     "content": {
       "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T23:41:04Z"
+      "updatedAt": "2026-09-03T23:41:04Z",
+      "rev": null
     },
     "revisions": [
       {
@@ -1006,22 +1759,59 @@
         "renderedAt": "2026-09-04",
         "duration": "29.5s",
         "file": "reel32-marking-fouls-and-contact.mp4",
-        "changed": "Initial render from the v2 redraft, approved on the script track 2026-09-03T23:23Z. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s against a 30.0s projection. 17.6.1 with both its limbs, 15.1 and 15.2 as two separate blocks, and 17.6.1.3 quoted verbatim from rules.json and verified character-for-character against the source; 17.6 is a heading stem and was deliberately not carded, matching 17.2-17.5 in reels 28-31. The middle pair carding 15.1 and 15.2 is what the redraft added, answering “Isn’t contact part of a foul call? Infraction is infraction right?” - the breach is a foul, and 17.6.1.3 offers a choice of remedy rather than a reclassification. Every layout prediction held exactly: all three kickers at the standard 34px (738, 854 and 772 of the 900px column), so fit_kicker() never engaged; bodies auto-fit to 34, 33 and 36px; all three main scenes end at max_y 1192 of 1310 with the detail cards at 940, 740 and 704. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. Scene 4's leading double quote emitted through _payload() and was confirmed present in the PNG, not just the SVG. One cosmetic note: 17.6.1.2's “non-minor” wraps across a line as non- / minor, textwrap's default hyphen break; no character added or removed."
+        "changed": "Initial render from the v2 redraft, approved on the script track 2026-09-03T23:23Z. Nine scenes (three-pair shape), exact CFR via encode.py; 29.53s against a 30.0s projection. 17.6.1 with both its limbs, 15.1 and 15.2 as two separate blocks, and 17.6.1.3 quoted verbatim from rules.json and verified character-for-character against the source; 17.6 is a heading stem and was deliberately not carded, matching 17.2-17.5 in reels 28-31. The middle pair carding 15.1 and 15.2 is what the redraft added, answering “Isn’t contact part of a foul call? Infraction is infraction right?” - the breach is a foul, and 17.6.1.3 offers a choice of remedy rather than a reclassification. Every layout prediction held exactly: all three kickers at the standard 34px (738, 854 and 772 of the 900px column), so fit_kicker() never engaged; bodies auto-fit to 34, 33 and 36px; all three main scenes end at max_y 1192 of 1310 with the detail cards at 940, 740 and 704. Layout check 0 problems with no collisions; longest sustained dull-orange run 0.20s against a 0.45s threshold. Scene 4's leading double quote emitted through _payload() and was confirmed present in the PNG, not just the SVG. One cosmetic note: 17.6.1.2's “non-minor” wraps across a line as non- / minor, textwrap's default hyphen break; no character added or removed.",
+        "builtFromScriptRev": 2
       }
-    ]
+    ],
+    "scriptRev": 2,
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-03",
+        "file": "script-and-caption.v1.md",
+        "changed": "Initial draft, marking fouls and the \"Contact\" call. Seven scenes."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-04",
+        "file": "script-and-caption.md",
+        "changed": "Redraft answering \"Isn't contact part of a foul call? Infraction is infraction right?\" - adds a third pair carding 15.1 and 15.2, rewrites the hook so the concession comes first, renumbers the old #2. Seven scenes to nine."
+      }
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "pending",
+          "rev": 1,
+          "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
+          "tags": [],
+          "at": "2026-09-03T09:18:39Z"
+        },
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
+          "tags": [],
+          "at": "2026-09-03T23:23:08.438Z"
+        }
+      ]
+    }
   },
   "reel-33": {
     "script": {
       "status": "pending",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T22:44:52Z"
+      "updatedAt": "2026-09-03T22:44:52Z",
+      "rev": 1
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T22:44:52Z"
-    }
+      "updatedAt": "2026-09-03T22:44:52Z",
+      "rev": null
+    },
+    "scriptRev": 1
   }
 }
