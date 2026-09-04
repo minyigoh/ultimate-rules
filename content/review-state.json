@@ -1616,11 +1616,11 @@
       "rev": 2
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T23:53:59Z",
-      "rev": null
+      "rev": 2,
+      "updatedAt": "2026-09-04T03:36:50.582Z"
     },
     "revisions": [
       {
@@ -1688,6 +1688,13 @@
             "Wrong take"
           ],
           "at": "2026-09-03T23:22:42Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-04T03:36:50.582Z"
         }
       ]
     }
