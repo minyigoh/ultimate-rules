@@ -38,7 +38,7 @@
 | 2026-09-03 | carousel-post-5 — "Week four: contact, and who decides" | Carousel (9 slides) | Posted | 2026-09-03 | — |
 | 2026-09-04 | Blocking fouls | Reel | Posted | 2026-09-04 | — |
 | 2026-09-05 | Force-out fouls | Reel | Posted | 2026-09-05 | — |
-| 2026-09-06 | Marking fouls and the "Contact" call | Reel | Script approved | — | — |
+| 2026-09-06 | Marking fouls and the "Contact" call | Reel | Content pending review | — | — |
 | 2026-09-07 | Fouls committed by the thrower | Reel | Pending review | — | — |
 | 2026-09-08 | Dangerous play | Reel | Pending review | — | — |
 

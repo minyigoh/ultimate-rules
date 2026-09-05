@@ -1760,8 +1760,8 @@
       "status": "approved",
       "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
       "tags": [],
-      "updatedAt": "2026-09-03T23:23:08.438Z",
-      "rev": 1
+      "rev": 2,
+      "updatedAt": "2026-09-05T02:53:44.839Z"
     },
     "content": {
       "status": "in-review",
@@ -1810,6 +1810,13 @@
           "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
           "tags": [],
           "at": "2026-09-03T23:23:08.438Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
+          "tags": [],
+          "at": "2026-09-05T02:53:44.839Z"
         }
       ]
     }
