@@ -1789,7 +1789,7 @@
         "builtFromScriptRev": 2
       }
     ],
-    "scriptRev": 2,
+    "scriptRev": 3,
     "scriptRevisions": [
       {
         "v": 1,
@@ -1802,6 +1802,12 @@
         "draftedAt": "2026-09-04",
         "file": "script-and-caption.md",
         "changed": "Redraft answering \"Isn't contact part of a foul call? Infraction is infraction right?\" - adds a third pair carding 15.1 and 15.2, rewrites the hook so the concession comes first, renumbers the old #2. Seven scenes to nine."
+      },
+      {
+        "v": 3,
+        "draftedAt": "2026-09-05",
+        "file": "script-and-caption.md",
+        "changed": "Redraft answering “Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.” She is right: 18.1.1.1-18.1.1.6 enumerate all six marking infractions and Contact is not among them, and 15.1/15.2 sort by kind of breach, not by call. Scene 4 kicker “STILL A FOUL, DIFFERENT CALL” -> “A FOUL, NOT AN INFRACTION”, headline “‘Contact’ is not a different event.” -> “Contact is a foul, not an infraction.”, body rewritten to name the six and say Contact is not one; scene 5 gains a third block, 18.1.1.2 (Straddle); scene 6 body now quotes the ‘contact infraction’ phrase from 17.6.1.3 and places it in the fouls chapter rather than calling it ‘the infraction route’; both captions rewritten. v2 archived as script-and-caption.v2.md. Not rendered — the redraft must clear gate 1 first."
       }
     ],
     "history": {
@@ -1864,11 +1870,10 @@
       "updatedAt": "2026-09-05T03:02:13.596Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T22:44:52Z",
-      "rev": null
+      "updatedAt": "2026-09-05T22:10:00Z"
     },
     "scriptRev": 1,
     "history": {
@@ -1881,7 +1886,17 @@
           "at": "2026-09-05T03:02:13.596Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-05",
+        "duration": "28.5s",
+        "file": "reel33-thrower-fouls.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render from the script approved on the desk 2026-09-05T03:02Z against v1. Seven scenes (two-pair shape), exact CFR via encode.py; 28.53s / 856 frames at 30fps against a 28.8s projection. 17.7 is a heading stem and was deliberately not carded, matching 17.2-17.6 in reels 28-32; 17.7.1 and 17.7.2 are each carded whole and were verified byte-identical against rules.json in the emitted SVG. Every dry measurement in the approved script held exactly: kickers at the standard 34px (612 and 572 of the 900px column, fit_kicker unengaged), bodies auto-fit to 33px (scene 2, seven lines) and 35px (scene 4, six lines), both main scenes end at max_y 1192 of 1310, detail cards at 554 and 454 — the emptiest pair in the run — field tip 1012, cover 1210, closing 900, all nine max_x at 990 of 990. Layout check 0 problems with no collisions. check_dull.py: longest sustained dull-orange run 0.20s (6 frames) in band y=520-578 starting at t=12.10s, against a 0.45s threshold. No _payload() case anywhere in the reel, as predicted."
+      }
+    ]
   },
   "reel-34": {
     "scriptRev": 1,
