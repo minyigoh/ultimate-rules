@@ -1757,18 +1757,20 @@
   },
   "reel-32": {
     "script": {
-      "status": "approved",
-      "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
+      "status": "changes",
+      "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.",
       "tags": [],
       "rev": 2,
-      "updatedAt": "2026-09-05T02:53:44.839Z"
+      "updatedAt": "2026-09-05T03:00:02.550Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "rerender",
       "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping. ",
-      "tags": [],
+      "tags": [
+        "On-screen text"
+      ],
       "rev": 1,
-      "updatedAt": "2026-09-05T02:59:53.761Z"
+      "updatedAt": "2026-09-05T03:00:02.550Z"
     },
     "revisions": [
       {
@@ -1817,6 +1819,13 @@
           "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
           "tags": [],
           "at": "2026-09-05T02:53:44.839Z"
+        },
+        {
+          "status": "changes",
+          "rev": 2,
+          "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.",
+          "tags": [],
+          "at": "2026-09-05T03:00:02.550Z"
         }
       ],
       "content": [
@@ -1826,6 +1835,15 @@
           "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping. ",
           "tags": [],
           "at": "2026-09-05T02:59:53.761Z"
+        },
+        {
+          "status": "rerender",
+          "rev": 1,
+          "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping. ",
+          "tags": [
+            "On-screen text"
+          ],
+          "at": "2026-09-05T03:00:02.550Z"
         }
       ]
     }

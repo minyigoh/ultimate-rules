@@ -66,3 +66,6 @@ so the stamp is against the words you actually read. If it still doesn't, use
 **Request changes** with a note — but don't click Request changes just to park
 it for later, because the next daily run rewrites anything sitting at `changes`
 and would replace this version before you'd read it.
+
+## Round 2 — 2026-09-05 — CHANGES REQUESTED (script v2)
+Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.
