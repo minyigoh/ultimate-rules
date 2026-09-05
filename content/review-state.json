@@ -1507,11 +1507,11 @@
   },
   "reel-29": {
     "script": {
-      "status": "changes",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-01T23:10:29.215Z",
-      "rev": 1
+      "rev": 1,
+      "updatedAt": "2026-09-05T14:54:36.866Z"
     },
     "content": {
       "status": "approved",
@@ -1543,6 +1543,13 @@
           "note": "",
           "tags": [],
           "at": "2026-09-01T23:10:29.215Z"
+        },
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-05T14:54:36.866Z"
         }
       ],
       "content": [
