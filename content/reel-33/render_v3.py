@@ -92,7 +92,7 @@ def base(body):
             f'<g transform="translate(0,{Y_OFFSET})">'
             f'<rect width="{W}" height="{H}" fill="{BG}"/>{body}</g></svg>')
 
-TOTAL = 9
+TOTAL = 7
 
 # ---------------- scene builders ----------------
 # ---------------- kicker auto-fit ----------------
@@ -265,15 +265,13 @@ def g_closing(no, lesson_no):
 def rt(n): return RULE[n]["text"]
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "Marking fouls and the \"Contact\" call", "The marker bumps you before you throw. That is a foul \u2014 and you still don't have to stop the game over it.", 32, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('counts', g_main(2, 'CONTACT, NOT CLOSENESS', "A marker being near you is not a foul.", "A defensive throwing foul is non-minor contact between the thrower and a defender who is illegally positioned, or non-minor contact the defender initiates before the pass is released. Both players going for the same unoccupied space counts too. Proximity on its own does not.", ['17.6.1', '17.6.1.1', '17.6.1.2'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('counts_r', g_detail(3, [('17.6.1', [rt('17.6.1'), ('17.6.1.1', rt('17.6.1.1')), ('17.6.1.2', rt('17.6.1.2'))])]), [0.3, 2.0]),
-    ('defs', g_main(4, 'A FOUL, NOT AN INFRACTION', "Contact is a foul, not an infraction.", "A foul is defined by contact. An infraction is defined by the kind of breach, and the marking ones are a fixed list: fast count, straddle, disc space, wrapping, double team, vision. Contact is not on it, and no call puts it there.", ['15.1', '15.2', '18.1.1.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('defs_r', g_detail(5, [('15.1', [rt('15.1')]), ('15.2', [rt('15.2')]), ('18.1.1.2', [rt('18.1.1.2')])]), [0.3, 1.7, 1.7, 2.0]),
-    ('choice', g_main(6, 'YOU CHOOSE IF PLAY STOPS', "Foul stops the game. \"Contact\" doesn't.", "The rule does say you may choose to call a contact infraction \u2014 and that phrase sits in the fouls chapter, with a remedy of its own. If the contact lands before you release and not during your throwing motion, you pick. \"Foul\" stops play. \"Contact\" does not, and the count restarts at one.", ['17.6.1.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('choice_r', g_detail(7, [('17.6.1.3', [rt('17.6.1.3')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Say it without breaking your stance.", "The whole value of the call is that nothing stops. Keep the pivot, keep your eyes downfield, let the count go back to one. It cools the moment down too \u2014 nobody has to argue about a foul that never stopped the game."), [0.3, 0.45, 0.7, 1.7]),
-    ('close', g_closing(9, 32), [0.3, 0.8, 1.0, 1.4]),
+    ('cover', g_cover(1, 'BEGINNER', "Fouls committed by the thrower", "Everyone learns to call fouls on the mark. Almost nobody learns the one you can commit yourself.", 33, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('solely', g_main(2, 'SOLELY RESPONSIBLE', "You can foul the mark, too.", "An offensive throwing foul is the marking foul in reverse. You initiate the non-minor contact, and the defender is in a legal position when you do. Both halves have to be true \u2014 \"solely responsible\" is doing real work in that sentence. If the defender was not legally positioned, this is not the rule.", ['17.7.1'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('solely_r', g_detail(3, [('17.7.1', [rt('17.7.1')])]), [0.3, 2.0]),
+    ('follow', g_main(4, 'AFTER THE RELEASE', "Your follow through is not a foul.", "Contact during the thrower's follow through is specifically not a sufficient basis for a foul. The rule says that, and then asks you to avoid it anyway. Not a foul is not the same as go ahead \u2014 if you catch the mark on every throw, that is contact you can take out of your game.", ['17.7.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('follow_r', g_detail(5, [('17.7.2', [rt('17.7.2')])]), [0.3, 2.0]),
+    ('tip', g_tip(6, "Pivot around the mark, not through it.", "If you are initiating contact to make your throwing window, that is the foul \u2014 the mark does not have to move for you. Watch where your follow through lands too. It is not a foul, but it is still contact."), [0.3, 0.45, 0.7, 1.7]),
+    ('close', g_closing(7, 33), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------
 # House rhythm, applied over whatever per-state durations SCENES carries above:
