@@ -1765,10 +1765,10 @@
     },
     "content": {
       "status": "in-review",
-      "note": "",
+      "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, ",
       "tags": [],
-      "updatedAt": "2026-09-03T23:41:04Z",
-      "rev": null
+      "rev": 1,
+      "updatedAt": "2026-09-05T02:59:39.824Z"
     },
     "revisions": [
       {
@@ -1817,6 +1817,15 @@
           "note": "Isn’t contact part of a foul call? Infraction is infraction right?",
           "tags": [],
           "at": "2026-09-05T02:53:44.839Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "in-review",
+          "rev": 1,
+          "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, ",
+          "tags": [],
+          "at": "2026-09-05T02:59:39.824Z"
         }
       ]
     }
