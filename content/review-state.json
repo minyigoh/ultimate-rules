@@ -1850,11 +1850,11 @@
   },
   "reel-33": {
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-03T22:44:52Z",
-      "rev": 1
+      "rev": 1,
+      "updatedAt": "2026-09-05T03:02:13.596Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -1863,7 +1863,18 @@
       "updatedAt": "2026-09-03T22:44:52Z",
       "rev": null
     },
-    "scriptRev": 1
+    "scriptRev": 1,
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-05T03:02:13.596Z"
+        }
+      ]
+    }
   },
   "reel-34": {
     "scriptRev": 1,

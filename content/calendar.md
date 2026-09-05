@@ -39,7 +39,7 @@
 | 2026-09-04 | Blocking fouls | Reel | Posted | 2026-09-04 | — |
 | 2026-09-05 | Force-out fouls | Reel | Posted | 2026-09-05 | — |
 | 2026-09-06 | Marking fouls and the "Contact" call | Reel | Pending review — changes requested | — | — |
-| 2026-09-07 | Fouls committed by the thrower | Reel | Pending review | — | — |
+| 2026-09-07 | Fouls committed by the thrower | Reel | Script approved | — | — |
 | 2026-09-08 | Dangerous play | Reel | Pending review | — | — |
 
 ## Status legend
