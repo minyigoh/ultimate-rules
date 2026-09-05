@@ -43,6 +43,8 @@ set STOP=0
 
 > "%LOG%" 2>&1 (
   echo ===== 1. clear stale locks =====
+  REM HEAD.lock added 2026-09-05 -- see the note in sync.bat step 1.
+  if exist ".git\HEAD.lock"  del /f /q ".git\HEAD.lock"  && echo cleared HEAD.lock
   if exist ".git\index.lock" del /f /q ".git\index.lock" && echo cleared index.lock
   echo.
 

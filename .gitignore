@@ -24,8 +24,15 @@ content/**/_to_delete/
 /_sync_log.txt
 /_commit_msg.txt
 /_commit_msg2.txt
-tools/_last_sync.log
+# Every helper writes a _last_*.log; none of them belong in git. This was just
+# tools/_last_sync.log, so _last_finish/_last_resolve/_last_unstick/_last_rearm
+# were showing up as untracked noise in every status.
+tools/_last_*.log
 desktop.ini
+
+# Cowork's per-session scratch folder. It lands in the repo root when a session
+# has this folder open, and must never be swept into a commit.
+/Claude outputs/
 
 # Local `wrangler dev` state for worker/lesson-counter. The Worker source and
 # its wrangler.toml are committed; the local Durable Object store and dev logs

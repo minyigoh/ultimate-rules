@@ -49,6 +49,15 @@ if exist ".git\rebase-apply" goto :midrebase
 
 > "%LOG%" 2>&1 (
   echo ===== 1. clear stale locks =====
+  REM HEAD.lock added 2026-09-05. It was the one ref lock this list did not
+  REM clear, and on 2026-09-04 an interrupted git left a zero-byte HEAD.lock
+  REM behind. Every later run got through staging and then died at step 4 with
+  REM "cannot lock ref 'HEAD'", which cascaded: the commit failed, so the pull
+  REM refused ("your index contains uncommitted changes"), but step 6 had
+  REM already drained the additions queue onto a commit that never happened.
+  REM git takes HEAD.lock for any update to HEAD, so it is at least as likely
+  REM to be left behind as the three below.
+  if exist ".git\HEAD.lock"      del /f /q ".git\HEAD.lock"      && echo cleared HEAD.lock
   if exist ".git\ORIG_HEAD.lock" del /f /q ".git\ORIG_HEAD.lock" && echo cleared ORIG_HEAD.lock
   if exist ".git\index.lock"     del /f /q ".git\index.lock"     && echo cleared index.lock
   if exist ".git\refs\heads\main.lock" del /f /q ".git\refs\heads\main.lock" && echo cleared main.lock
@@ -146,6 +155,12 @@ if exist ".git\rebase-apply" goto :midrebase
   REM review-state.json conflict in the Desk's favour, which is the one git
   REM command in this pipeline whose --ours/--theirs sense is inverted.
   %GIT% add tools/take_desk_version.bat
+  REM unstick_head.bat, added 2026-09-05, same reasoning as the two lines
+  REM above. It recovers the case where THIS script died at step 4 on a stale
+  REM HEAD.lock after step 6 had already drained the queue -- which is not the
+  REM rejected-push case, so rearm_queue.bat alone is the wrong recovery. Own
+  REM line, per the rule above.
+  %GIT% add tools/unstick_head.bat
   REM The two Step 6 verification scripts, added 2026-08-20. Step 6 requires a
   REM layout check and a dull-orange measurement on every render, and both were
   REM being re-derived from scratch in the sandbox each run and then thrown
