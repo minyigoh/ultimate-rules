@@ -1764,11 +1764,11 @@
   },
   "reel-32": {
     "script": {
-      "status": "changes",
+      "status": "approved",
       "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.",
       "tags": [],
-      "rev": 2,
-      "updatedAt": "2026-09-05T03:00:02.550Z"
+      "rev": 3,
+      "updatedAt": "2026-09-06T05:21:21.932Z"
     },
     "content": {
       "status": "rerender",
@@ -1839,6 +1839,13 @@
           "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.",
           "tags": [],
           "at": "2026-09-05T03:00:02.550Z"
+        },
+        {
+          "status": "approved",
+          "rev": 3,
+          "note": "Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.",
+          "tags": [],
+          "at": "2026-09-06T05:21:21.932Z"
         }
       ],
       "content": [
