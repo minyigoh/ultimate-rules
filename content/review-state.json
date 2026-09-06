@@ -1795,7 +1795,7 @@
         "changed": "Rebuilt from script v3, approved on the desk 2026-09-06T05:21Z, addressing content round 1 (\"Contact doesn't fall under infraction right? Infractions are straddle, wrapping\"). Copy plus one added rule number: scene 4 kicker \"STILL A FOUL, DIFFERENT CALL\" -> \"A FOUL, NOT AN INFRACTION\" (854 -> 780 of 900px), headline \"'Contact' is not a different event.\" -> \"Contact is a foul, not an infraction.\", body rewritten to name the six marking infractions and say Contact is not among them, footer now 15.1 . 15.2 . 18.1.1.2; scene 5 gains a third block, 18.1.1.2 (Straddle); scene 6's body quotes the 'a contact infraction' phrase from 17.6.1.3 and places it in the fouls chapter rather than calling it the infraction route. No existing rule text altered. Verified rather than asserted: the v2-script copy was re-rendered in parallel and the PNG sets compared pixel by pixel - of 36 states, 29 are pixel-identical to the rejected cut, 6 differ (four on scene 4, two on scene 6) and one is new (the 18.1.1.2 block); scenes 1, 2, 3, 7, 8 and 9 are pixel-identical throughout. Nine scenes, exact CFR via encode.py, 29.50s against a 30.0s projection. Layout check 9 scenes, 0 problems, no collisions; detail cards at max_y 940, 1026 and 704 of 1310, main scenes at 1192, cover 1210, field tip 1062, closing 900, all max_x 990 of 990 - every dry measurement in the approved script held exactly, including the 1026 prediction for the new three-block card. All three kickers at the standard 34px, fit_kicker unengaged. Longest sustained dull-orange run 0.20s against a 0.45s threshold. Scene 6's two _payload() cases emitted as <tspan> as predicted. All seven rule texts re-verified character-for-character against rules.json in the emitted SVGs. This cut does not improve on v1 by any measurement - v1 was clean on all of them, and the defect was the words. v1 archived as reel32-marking-fouls-and-contact.v1.mp4."
       }
     ],
-    "scriptRev": 3,
+    "scriptRev": 4,
     "scriptRevisions": [
       {
         "v": 1,
@@ -1814,6 +1814,12 @@
         "draftedAt": "2026-09-05",
         "file": "script-and-caption.md",
         "changed": "Redraft answering “Can you double check the rules? Contact doesn’t fall under infraction right? Infractions are straddle, wrapping.” She is right: 18.1.1.1-18.1.1.6 enumerate all six marking infractions and Contact is not among them, and 15.1/15.2 sort by kind of breach, not by call. Scene 4 kicker “STILL A FOUL, DIFFERENT CALL” -> “A FOUL, NOT AN INFRACTION”, headline “‘Contact’ is not a different event.” -> “Contact is a foul, not an infraction.”, body rewritten to name the six and say Contact is not one; scene 5 gains a third block, 18.1.1.2 (Straddle); scene 6 body now quotes the ‘contact infraction’ phrase from 17.6.1.3 and places it in the fouls chapter rather than calling it ‘the infraction route’; both captions rewritten. v2 archived as script-and-caption.v2.md. Not rendered — the redraft must clear gate 1 first."
+      },
+      {
+        "v": 4,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 3,396 - 54% over, and unpasteable; Min-Yi hit it trying to post on 2026-09-06. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: condensed the 17.6.1 opening from a full block quote to a one-sentence paraphrase (the reel cards it verbatim on scenes 2-3 already), dropped the Straddle block quote, the 'marker merely close to you' line and the 'rare thing in this rulebook' aside, and tightened five paragraphs. 15.1, 15.2 and 17.6.1.3 remain verbatim. 3,396 -> 2,044 including hashtags, 93% of the limit."
       }
     ],
     "history": {
@@ -1919,7 +1925,7 @@
     ]
   },
   "reel-34": {
-    "scriptRev": 1,
+    "scriptRev": 2,
     "script": {
       "status": "pending",
       "note": "",
@@ -1931,10 +1937,24 @@
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-05T01:29:19Z"
-    }
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-05",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, dangerous play: 17.1.1, 1.6.1, 1.6.2."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 2,179 - inside the limit but at 99% of it, one edit from unpostable. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: dropped the six-foul enumeration from the lay-out example and tightened the chapter-one paragraph and the closing line. 17.1.1, 1.6, 1.6.1 and 1.6.2 remain verbatim. 2,179 -> 2,071, 94% of the limit."
+      }
+    ]
   },
   "reel-35": {
-    "scriptRev": 1,
+    "scriptRev": 2,
     "script": {
       "status": "pending",
       "note": "",
@@ -1946,6 +1966,20 @@
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-06T22:10:00Z"
-    }
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, when a call is made everybody freezes: 16.1, 15.7, 10.2.1, 10.2.3."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 2,337 - 137 over, and would have failed the same way on 2026-09-09. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: condensed the echo-and-backdating gloss, trimmed the two-duties line and dropped the 'because the other team saw you do it' and 'you lose nothing by standing still' tails. 16.1, 15.7, 10.2.1 and 10.2.3 remain verbatim. 2,337 -> 2,068, 94% of the limit."
+      }
+    ]
   }
 }

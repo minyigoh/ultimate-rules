@@ -1,53 +1,7 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [],
-  "review_state": {
-    "reel-32": {
-      "scriptRev": 4,
-      "scriptRevisions": [
-        {
-          "v": 4,
-          "draftedAt": "2026-09-06",
-          "file": "script-and-caption.md",
-          "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 3,396 - 54% over, and unpasteable; Min-Yi hit it trying to post on 2026-09-06. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: condensed the 17.6.1 opening from a full block quote to a one-sentence paraphrase (the reel cards it verbatim on scenes 2-3 already), dropped the Straddle block quote, the 'marker merely close to you' line and the 'rare thing in this rulebook' aside, and tightened five paragraphs. 15.1, 15.2 and 17.6.1.3 remain verbatim. 3,396 -> 2,044 including hashtags, 93% of the limit."
-        }
-      ]
-    },
-    "reel-34": {
-      "scriptRev": 2,
-      "scriptRevisions": [
-        {
-          "v": 1,
-          "draftedAt": "2026-09-05",
-          "file": "script-and-caption.md",
-          "changed": "Initial draft, dangerous play: 17.1.1, 1.6.1, 1.6.2."
-        },
-        {
-          "v": 2,
-          "draftedAt": "2026-09-06",
-          "file": "script-and-caption.md",
-          "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 2,179 - inside the limit but at 99% of it, one edit from unpostable. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: dropped the six-foul enumeration from the lay-out example and tightened the chapter-one paragraph and the closing line. 17.1.1, 1.6, 1.6.1 and 1.6.2 remain verbatim. 2,179 -> 2,071, 94% of the limit."
-        }
-      ]
-    },
-    "reel-35": {
-      "scriptRev": 2,
-      "scriptRevisions": [
-        {
-          "v": 1,
-          "draftedAt": "2026-09-06",
-          "file": "script-and-caption.md",
-          "changed": "Initial draft, when a call is made everybody freezes: 16.1, 15.7, 10.2.1, 10.2.3."
-        },
-        {
-          "v": 2,
-          "draftedAt": "2026-09-06",
-          "file": "script-and-caption.md",
-          "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 2,337 - 137 over, and would have failed the same way on 2026-09-09. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: condensed the echo-and-backdating gloss, trimmed the two-duties line and dropped the 'because the other team saw you do it' and 'you lose nothing by standing still' tails. 16.1, 15.7, 10.2.1 and 10.2.3 remain verbatim. 2,337 -> 2,068, 94% of the limit."
-        }
-      ]
-    }
-  },
-  "generated": "2026-09-06T15:10:00Z",
-  "by": "daily-reel-render (interactive caption fix)"
+  "review_state": {},
+  "generated": null,
+  "by": null
 }
