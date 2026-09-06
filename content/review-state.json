@@ -1795,7 +1795,7 @@
         "changed": "Rebuilt from script v3, approved on the desk 2026-09-06T05:21Z, addressing content round 1 (\"Contact doesn't fall under infraction right? Infractions are straddle, wrapping\"). Copy plus one added rule number: scene 4 kicker \"STILL A FOUL, DIFFERENT CALL\" -> \"A FOUL, NOT AN INFRACTION\" (854 -> 780 of 900px), headline \"'Contact' is not a different event.\" -> \"Contact is a foul, not an infraction.\", body rewritten to name the six marking infractions and say Contact is not among them, footer now 15.1 . 15.2 . 18.1.1.2; scene 5 gains a third block, 18.1.1.2 (Straddle); scene 6's body quotes the 'a contact infraction' phrase from 17.6.1.3 and places it in the fouls chapter rather than calling it the infraction route. No existing rule text altered. Verified rather than asserted: the v2-script copy was re-rendered in parallel and the PNG sets compared pixel by pixel - of 36 states, 29 are pixel-identical to the rejected cut, 6 differ (four on scene 4, two on scene 6) and one is new (the 18.1.1.2 block); scenes 1, 2, 3, 7, 8 and 9 are pixel-identical throughout. Nine scenes, exact CFR via encode.py, 29.50s against a 30.0s projection. Layout check 9 scenes, 0 problems, no collisions; detail cards at max_y 940, 1026 and 704 of 1310, main scenes at 1192, cover 1210, field tip 1062, closing 900, all max_x 990 of 990 - every dry measurement in the approved script held exactly, including the 1026 prediction for the new three-block card. All three kickers at the standard 34px, fit_kicker unengaged. Longest sustained dull-orange run 0.20s against a 0.45s threshold. Scene 6's two _payload() cases emitted as <tspan> as predicted. All seven rule texts re-verified character-for-character against rules.json in the emitted SVGs. This cut does not improve on v1 by any measurement - v1 was clean on all of them, and the defect was the words. v1 archived as reel32-marking-fouls-and-contact.v1.mp4."
       }
     ],
-    "scriptRev": 4,
+    "scriptRev": 5,
     "scriptRevisions": [
       {
         "v": 1,
@@ -1820,6 +1820,12 @@
         "draftedAt": "2026-09-06",
         "file": "script-and-caption.md",
         "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 3,396 - 54% over, and unpasteable; Min-Yi hit it trying to post on 2026-09-06. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: condensed the 17.6.1 opening from a full block quote to a one-sentence paraphrase (the reel cards it verbatim on scenes 2-3 already), dropped the Straddle block quote, the 'marker merely close to you' line and the 'rare thing in this rulebook' aside, and tightened five paragraphs. 15.1, 15.2 and 17.6.1.3 remain verbatim. 3,396 -> 2,044 including hashtags, 93% of the limit."
+      },
+      {
+        "v": 5,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Markdown strip. Instagram and TikTok render captions as plain text, so the **bold** and *italic* markers these captions carried posted as literal asterisks - Min-Yi flagged it on 2026-09-06: \"there are some unnecessary ** in the caption, IG doesn't pick these formatting up.\" The markers came from the .md drafting format and survived the mirror into data.js. Markers removed only: no wording, rule quotation, attribution line, hashtag, lesson number or CTA changed, and nothing on screen in any reel changed, so no cut needs rebuilding. 5 bold and 2 italic markers out of the Instagram caption and 1 bold out of the TikTok caption; 2,044 -> 2,020 including hashtags, 92% of the limit. Follows v4, which was the length trim."
       }
     ],
     "history": {
@@ -1908,7 +1914,7 @@
       "tags": [],
       "updatedAt": "2026-09-05T22:10:00Z"
     },
-    "scriptRev": 1,
+    "scriptRev": 2,
     "history": {
       "script": [
         {
@@ -1929,10 +1935,24 @@
         "builtFromScriptRev": 1,
         "changed": "Initial render from the script approved on the desk 2026-09-05T03:02Z against v1. Seven scenes (two-pair shape), exact CFR via encode.py; 28.53s / 856 frames at 30fps against a 28.8s projection. 17.7 is a heading stem and was deliberately not carded, matching 17.2-17.6 in reels 28-32; 17.7.1 and 17.7.2 are each carded whole and were verified byte-identical against rules.json in the emitted SVG. Every dry measurement in the approved script held exactly: kickers at the standard 34px (612 and 572 of the 900px column, fit_kicker unengaged), bodies auto-fit to 33px (scene 2, seven lines) and 35px (scene 4, six lines), both main scenes end at max_y 1192 of 1310, detail cards at 554 and 454 — the emptiest pair in the run — field tip 1012, cover 1210, closing 900, all nine max_x at 990 of 990. Layout check 0 problems with no collisions. check_dull.py: longest sustained dull-orange run 0.20s (6 frames) in band y=520-578 starting at t=12.10s, against a 0.45s threshold. No _payload() case anywhere in the reel, as predicted."
       }
+    ],
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-04",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, fouls committed by the thrower: 17.7.1, 17.7.2."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Markdown strip. Instagram and TikTok render captions as plain text, so the **bold** and *italic* markers these captions carried posted as literal asterisks - Min-Yi flagged it on 2026-09-06: \"there are some unnecessary ** in the caption, IG doesn't pick these formatting up.\" The markers came from the .md drafting format and survived the mirror into data.js. Markers removed only: no wording, rule quotation, attribution line, hashtag, lesson number or CTA changed, and nothing on screen in any reel changed, so no cut needs rebuilding. 4 bold markers out of the Instagram caption; 1,689 -> 1,673, well inside the limit. This caption was never over length - the markdown was its only defect. The cut approved on the content track is unaffected."
+      }
     ]
   },
   "reel-34": {
-    "scriptRev": 2,
+    "scriptRev": 3,
     "script": {
       "status": "pending",
       "note": "",
@@ -1957,11 +1977,17 @@
         "draftedAt": "2026-09-06",
         "file": "script-and-caption.md",
         "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 2,179 - inside the limit but at 99% of it, one edit from unpostable. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: dropped the six-foul enumeration from the lay-out example and tightened the chapter-one paragraph and the closing line. 17.1.1, 1.6, 1.6.1 and 1.6.2 remain verbatim. 2,179 -> 2,071, 94% of the limit."
+      },
+      {
+        "v": 3,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Markdown strip. Instagram and TikTok render captions as plain text, so the **bold** and *italic* markers these captions carried posted as literal asterisks - Min-Yi flagged it on 2026-09-06: \"there are some unnecessary ** in the caption, IG doesn't pick these formatting up.\" The markers came from the .md drafting format and survived the mirror into data.js. Markers removed only: no wording, rule quotation, attribution line, hashtag, lesson number or CTA changed, and nothing on screen in any reel changed, so no cut needs rebuilding. 4 bold markers out of the Instagram caption; 2,071 -> 2,055, 93% of the limit. Follows v2, which was the length trim."
       }
     ]
   },
   "reel-35": {
-    "scriptRev": 2,
+    "scriptRev": 3,
     "script": {
       "status": "pending",
       "note": "",
@@ -1986,6 +2012,12 @@
         "draftedAt": "2026-09-06",
         "file": "script-and-caption.md",
         "changed": "Instagram caption trimmed to fit the platform limit. IG caps captions at 2,200 characters including hashtags, and this one was 2,337 - 137 over, and would have failed the same way on 2026-09-09. No rule quotation, attribution line, hashtag, lesson number or CTA was touched, and nothing on screen in the reel changed - this is caption text only. Cut prose only: condensed the echo-and-backdating gloss, trimmed the two-duties line and dropped the 'because the other team saw you do it' and 'you lose nothing by standing still' tails. 16.1, 15.7, 10.2.1 and 10.2.3 remain verbatim. 2,337 -> 2,068, 94% of the limit."
+      },
+      {
+        "v": 3,
+        "draftedAt": "2026-09-06",
+        "file": "script-and-caption.md",
+        "changed": "Markdown strip. Instagram and TikTok render captions as plain text, so the **bold** and *italic* markers these captions carried posted as literal asterisks - Min-Yi flagged it on 2026-09-06: \"there are some unnecessary ** in the caption, IG doesn't pick these formatting up.\" The markers came from the .md drafting format and survived the mirror into data.js. Markers removed only: no wording, rule quotation, attribution line, hashtag, lesson number or CTA changed, and nothing on screen in any reel changed, so no cut needs rebuilding. 3 bold markers out of the Instagram caption; 2,068 -> 2,056, 93% of the limit. Follows v2, which was the length trim."
       }
     ]
   }
