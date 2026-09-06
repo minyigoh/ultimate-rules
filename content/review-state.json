@@ -1976,10 +1976,11 @@
   "reel-34": {
     "scriptRev": 3,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-05T01:29:19Z"
+      "rev": 3,
+      "updatedAt": "2026-09-06T06:30:23.259Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2006,7 +2007,18 @@
         "file": "script-and-caption.md",
         "changed": "Markdown strip. Instagram and TikTok render captions as plain text, so the **bold** and *italic* markers these captions carried posted as literal asterisks - Min-Yi flagged it on 2026-09-06: \"there are some unnecessary ** in the caption, IG doesn't pick these formatting up.\" The markers came from the .md drafting format and survived the mirror into data.js. Markers removed only: no wording, rule quotation, attribution line, hashtag, lesson number or CTA changed, and nothing on screen in any reel changed, so no cut needs rebuilding. 4 bold markers out of the Instagram caption; 2,071 -> 2,055, 93% of the limit. Follows v2, which was the length trim."
       }
-    ]
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 3,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-06T06:30:23.259Z"
+        }
+      ]
+    }
   },
   "reel-35": {
     "scriptRev": 3,
