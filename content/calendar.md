@@ -41,7 +41,7 @@
 | 2026-09-06 | Marking fouls and the "Contact" call | Reel | Posted | 2026-09-06 | — |
 | 2026-09-07 | Fouls committed by the thrower | Reel | Ready to post | — | — |
 | 2026-09-08 | Dangerous play | Reel | Script approved | — | — |
-| 2026-09-09 | When a call is made, everybody freezes | Reel | Pending review | — | — |
+| 2026-09-09 | When a call is made, everybody freezes | Reel | Script approved | — | — |
 
 ## Status legend
 
