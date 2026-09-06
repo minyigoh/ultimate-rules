@@ -2615,9 +2615,9 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     },
     ig: `The marker bumps you before you throw. That is a foul — and you still don't have to stop the game over it.
 
-**First, what counts.** A Defensive Throwing Foul is non-minor contact with an illegally positioned defender, or contact the defender initiates before you release.
+First, what counts. A Defensive Throwing Foul is non-minor contact with an illegally positioned defender, or contact the defender initiates before you release.
 
-**Now the part everybody gets backwards — including this account's first draft.** "Contact" is not an infraction.
+Now the part everybody gets backwards — including this account's first draft. "Contact" is not an infraction.
 
 The infractions are a named, closed list: fast count, straddle, disc space, wrapping, double team, vision. That is all of them. Contact is not on it, and nothing you say puts it there. From the definitions:
 
@@ -2627,13 +2627,13 @@ The infractions are a named, closed list: fast count, straddle, disc space, wrap
 
 A bump is contact between opposing players: a foul by the first. It is not a Marking or Travel breach, so not an infraction by the second.
 
-**So why does the rule say "a contact infraction"?** Because it does: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+So why does the rule say "a contact infraction"? Because it does: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
 
-Look where that sentence lives: chapter 17, Fouls. It names a **call**, not a seventh entry on the marking list — and it carries its own remedy, the count restarting at one.
+Look where that sentence lives: chapter 17, Fouls. It names a call, not a seventh entry on the marking list — and it carries its own remedy, the count restarting at one.
 
-**A choice of remedy, not a change of category.** "Foul" stops play. "Contact" doesn't stop it at all — you keep your pivot, and the stall count resets.
+A choice of remedy, not a change of category. "Foul" stops play. "Contact" doesn't stop it at all — you keep your pivot, and the stall count resets.
 
-One limit: the choice only exists for contact *before* the release and *not* during your throwing motion. Contact during it is a foul and only a foul.
+One limit: the choice only exists for contact before the release and not during your throwing motion. Contact during it is a foul and only a foul.
 
 Lesson 32 of 75.
 
@@ -2652,7 +2652,7 @@ what counts first:
 
 contact + a position problem. a marker who's just CLOSE isn't fouling you
 
-now the bit everyone gets backwards: **"Contact" is not an infraction**
+now the bit everyone gets backwards: "Contact" is not an infraction
 
 the infractions are a closed list. fast count, straddle, disc space, wrapping, double team, vision. that's all six. contact isn't on it
 
@@ -2745,15 +2745,15 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     },
     ig: `Everyone learns to call fouls on the mark. Almost nobody learns the one you can commit yourself.
 
-**The whole rule is one sentence.** "An Offensive Throwing Foul occurs when the thrower is solely responsible for initiating non-minor contact with a defensive player who is in a legal position."
+The whole rule is one sentence. "An Offensive Throwing Foul occurs when the thrower is solely responsible for initiating non-minor contact with a defensive player who is in a legal position."
 
 Two conditions, and both have to hold.
 
-**"Solely responsible."** Not "was involved in", not "moved first". If the contact is shared, this rule isn't the one you're looking at.
+"Solely responsible." Not "was involved in", not "moved first". If the contact is shared, this rule isn't the one you're looking at.
 
-**"In a legal position."** This is the hinge. If the marker was illegally positioned, you're in the defensive throwing foul instead — that was yesterday's lesson — and the foul belongs to them. The two rules are the same collision seen from opposite ends, and the defender's position is what decides which one applies.
+"In a legal position." This is the hinge. If the marker was illegally positioned, you're in the defensive throwing foul instead — that was yesterday's lesson — and the foul belongs to them. The two rules are the same collision seen from opposite ends, and the defender's position is what decides which one applies.
 
-**Then the rule everybody wants to hear, with the half they skip.** "Contact occurring during the thrower's follow through is not a sufficient basis for a foul, but should be avoided."
+Then the rule everybody wants to hear, with the half they skip. "Contact occurring during the thrower's follow through is not a sufficient basis for a foul, but should be avoided."
 
 "Not a sufficient basis for a foul" is a permission. "But should be avoided" is the rulebook declining to call it fine. Both clauses are in the same sentence for a reason.
 
@@ -2841,15 +2841,15 @@ rules from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     },
     ig: `Every foul we've covered this week needed contact. This one doesn't. You can foul somebody you never touched.
 
-**The rule.** "Actions demonstrating reckless disregard for the safety of fellow players, or posing significant risk of injury to fellow players, or other dangerously aggressive behaviours, are considered dangerous play and must be treated as a foul, regardless of whether or when contact occurs. This rule is not superseded by any other foul rule. If the dangerous play call is accepted, this must be treated as the most relevant foul from Section 17."
+The rule. "Actions demonstrating reckless disregard for the safety of fellow players, or posing significant risk of injury to fellow players, or other dangerously aggressive behaviours, are considered dangerous play and must be treated as a foul, regardless of whether or when contact occurs. This rule is not superseded by any other foul rule. If the dangerous play call is accepted, this must be treated as the most relevant foul from Section 17."
 
-**"Regardless of whether or when contact occurs."** That clause is the whole lesson. It's judged on the action, not on what the action happened to hit.
+"Regardless of whether or when contact occurs." That clause is the whole lesson. It's judged on the action, not on what the action happened to hit.
 
 So: a defender lays out through a stationary group and touches nobody. By the standards of every other foul rule this week, that's clean. It's still dangerous play. The bid was reckless. The collision not happening was luck, and luck isn't a defence.
 
-**"Not superseded by any other foul rule."** Nobody gets to argue it away with a different rule. And if the call is accepted, it resolves as the most relevant foul from Section 17 — the remedy is ordinary, the threshold is not.
+"Not superseded by any other foul rule." Nobody gets to argue it away with a different rule. And if the call is accepted, it resolves as the most relevant foul from Section 17 — the remedy is ordinary, the threshold is not.
 
-**It's also in chapter one.** "The following actions are clear violations of the Spirit of the Game and must be avoided:" — and first on that list, "dangerous play and aggressive behaviour;", sitting alongside "intentional fouling or other intentional rule breaches;".
+It's also in chapter one. "The following actions are clear violations of the Spirit of the Game and must be avoided:" — and first on that list, "dangerous play and aggressive behaviour;", sitting alongside "intentional fouling or other intentional rule breaches;".
 
 That's unusual — most of what we cover lives in one place. The chapter-one entry isn't decoration: the rulebook is asking you to keep the action out of your game, not just to call it when it appears.
 
@@ -2936,15 +2936,15 @@ rules from WFDF Rules of Ultimate 2025–2028 (17.1.1, 1.6.1, 1.6.2) — full br
     },
     ig: `Somebody calls foul, and half the field keeps running. That's not one mistake — that's a second rule broken on top of the first.
 
-**Play stops immediately.** "Whenever a foul or violation call is made, or a player attempts to stop play in any way, play stops immediately and no turnover is possible (unless in situations specified in 15.9, 16.2, and 16.3)."
+Play stops immediately. "Whenever a foul or violation call is made, or a player attempts to stop play in any way, play stops immediately and no turnover is possible (unless in situations specified in 15.9, 16.2, and 16.3)."
 
 "No turnover is possible" is the half nobody teaches. A disc that hits the ground after the call did not turn over. The rule names three exceptions by number, and the main one — a disc already in the air — is tomorrow's lesson.
 
-**Stopping play is everybody's job.** "When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
+Stopping play is everybody's job. "When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
 
 Note "all players should echo calls" — not the caller alone. The far end of a full-size pitch cannot hear one voice. And note the second sentence: a discussion with no call still counts as a call, backdated to when it started.
 
-**Then the bit that gets broken every single game.** "If play stops before a pass is thrown, all players must return to the location they held when the call was made." And: "All players must remain stationary in that location until the disc is checked in."
+Then the bit that gets broken every single game. "If play stops before a pass is thrown, all players must return to the location they held when the call was made." And: "All players must remain stationary in that location until the disc is checked in."
 
 Two separate duties. Go back — to where you were, not where you were heading. Then stop moving. Every player, both teams.
 

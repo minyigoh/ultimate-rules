@@ -150,15 +150,15 @@ the shared default is 9.
 
 Every foul we've covered this week needed contact. This one doesn't. You can foul somebody you never touched.
 
-**The rule.** "Actions demonstrating reckless disregard for the safety of fellow players, or posing significant risk of injury to fellow players, or other dangerously aggressive behaviours, are considered dangerous play and must be treated as a foul, regardless of whether or when contact occurs. This rule is not superseded by any other foul rule. If the dangerous play call is accepted, this must be treated as the most relevant foul from Section 17."
+The rule. "Actions demonstrating reckless disregard for the safety of fellow players, or posing significant risk of injury to fellow players, or other dangerously aggressive behaviours, are considered dangerous play and must be treated as a foul, regardless of whether or when contact occurs. This rule is not superseded by any other foul rule. If the dangerous play call is accepted, this must be treated as the most relevant foul from Section 17."
 
-**"Regardless of whether or when contact occurs."** That clause is the whole lesson. It's judged on the action, not on what the action happened to hit.
+"Regardless of whether or when contact occurs." That clause is the whole lesson. It's judged on the action, not on what the action happened to hit.
 
 So: a defender lays out through a stationary group and touches nobody. By the standards of every other foul rule this week, that's clean. It's still dangerous play. The bid was reckless. The collision not happening was luck, and luck isn't a defence.
 
-**"Not superseded by any other foul rule."** Nobody gets to argue it away with a different rule. And if the call is accepted, it resolves as the most relevant foul from Section 17 — the remedy is ordinary, the threshold is not.
+"Not superseded by any other foul rule." Nobody gets to argue it away with a different rule. And if the call is accepted, it resolves as the most relevant foul from Section 17 — the remedy is ordinary, the threshold is not.
 
-**It's also in chapter one.** "The following actions are clear violations of the Spirit of the Game and must be avoided:" — and first on that list, "dangerous play and aggressive behaviour;", sitting alongside "intentional fouling or other intentional rule breaches;".
+It's also in chapter one. "The following actions are clear violations of the Spirit of the Game and must be avoided:" — and first on that list, "dangerous play and aggressive behaviour;", sitting alongside "intentional fouling or other intentional rule breaches;".
 
 That's unusual — most of what we cover lives in one place. The chapter-one entry isn't decoration: the rulebook is asking you to keep the action out of your game, not just to call it when it appears.
 

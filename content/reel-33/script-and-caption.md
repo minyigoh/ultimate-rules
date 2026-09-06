@@ -127,15 +127,15 @@ the shared default is 9.
 
 Everyone learns to call fouls on the mark. Almost nobody learns the one you can commit yourself.
 
-**The whole rule is one sentence.** "An Offensive Throwing Foul occurs when the thrower is solely responsible for initiating non-minor contact with a defensive player who is in a legal position."
+The whole rule is one sentence. "An Offensive Throwing Foul occurs when the thrower is solely responsible for initiating non-minor contact with a defensive player who is in a legal position."
 
 Two conditions, and both have to hold.
 
-**"Solely responsible."** Not "was involved in", not "moved first". If the contact is shared, this rule isn't the one you're looking at.
+"Solely responsible." Not "was involved in", not "moved first". If the contact is shared, this rule isn't the one you're looking at.
 
-**"In a legal position."** This is the hinge. If the marker was illegally positioned, you're in the defensive throwing foul instead — that was yesterday's lesson — and the foul belongs to them. The two rules are the same collision seen from opposite ends, and the defender's position is what decides which one applies.
+"In a legal position." This is the hinge. If the marker was illegally positioned, you're in the defensive throwing foul instead — that was yesterday's lesson — and the foul belongs to them. The two rules are the same collision seen from opposite ends, and the defender's position is what decides which one applies.
 
-**Then the rule everybody wants to hear, with the half they skip.** "Contact occurring during the thrower's follow through is not a sufficient basis for a foul, but should be avoided."
+Then the rule everybody wants to hear, with the half they skip. "Contact occurring during the thrower's follow through is not a sufficient basis for a foul, but should be avoided."
 
 "Not a sufficient basis for a foul" is a permission. "But should be avoided" is the rulebook declining to call it fine. Both clauses are in the same sentence for a reason.
 

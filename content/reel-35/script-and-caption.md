@@ -146,15 +146,15 @@ currently 7 for reel 33, and 9 is the shared default this reel needs.
 
 Somebody calls foul, and half the field keeps running. That's not one mistake — that's a second rule broken on top of the first.
 
-**Play stops immediately.** "Whenever a foul or violation call is made, or a player attempts to stop play in any way, play stops immediately and no turnover is possible (unless in situations specified in 15.9, 16.2, and 16.3)."
+Play stops immediately. "Whenever a foul or violation call is made, or a player attempts to stop play in any way, play stops immediately and no turnover is possible (unless in situations specified in 15.9, 16.2, and 16.3)."
 
 "No turnover is possible" is the half nobody teaches. A disc that hits the ground after the call did not turn over. The rule names three exceptions by number, and the main one — a disc already in the air — is tomorrow's lesson.
 
-**Stopping play is everybody's job.** "When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
+Stopping play is everybody's job. "When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
 
 Note "all players should echo calls" — not the caller alone. The far end of a full-size pitch cannot hear one voice. And note the second sentence: a discussion with no call still counts as a call, backdated to when it started.
 
-**Then the bit that gets broken every single game.** "If play stops before a pass is thrown, all players must return to the location they held when the call was made." And: "All players must remain stationary in that location until the disc is checked in."
+Then the bit that gets broken every single game. "If play stops before a pass is thrown, all players must return to the location they held when the call was made." And: "All players must remain stationary in that location until the disc is checked in."
 
 Two separate duties. Go back — to where you were, not where you were heading. Then stop moving. Every player, both teams.
 

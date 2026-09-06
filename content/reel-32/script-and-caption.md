@@ -187,9 +187,9 @@ for approval of v3.
 
 The marker bumps you before you throw. That is a foul — and you still don't have to stop the game over it.
 
-**First, what counts.** A Defensive Throwing Foul is non-minor contact with an illegally positioned defender, or contact the defender initiates before you release.
+First, what counts. A Defensive Throwing Foul is non-minor contact with an illegally positioned defender, or contact the defender initiates before you release.
 
-**Now the part everybody gets backwards — including this account's first draft.** "Contact" is not an infraction.
+Now the part everybody gets backwards — including this account's first draft. "Contact" is not an infraction.
 
 The infractions are a named, closed list: fast count, straddle, disc space, wrapping, double team, vision. That is all of them. Contact is not on it, and nothing you say puts it there. From the definitions:
 
@@ -199,13 +199,13 @@ The infractions are a named, closed list: fast count, straddle, disc space, wrap
 
 A bump is contact between opposing players: a foul by the first. It is not a Marking or Travel breach, so not an infraction by the second.
 
-**So why does the rule say "a contact infraction"?** Because it does: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+So why does the rule say "a contact infraction"? Because it does: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
 
-Look where that sentence lives: chapter 17, Fouls. It names a **call**, not a seventh entry on the marking list — and it carries its own remedy, the count restarting at one.
+Look where that sentence lives: chapter 17, Fouls. It names a call, not a seventh entry on the marking list — and it carries its own remedy, the count restarting at one.
 
-**A choice of remedy, not a change of category.** "Foul" stops play. "Contact" doesn't stop it at all — you keep your pivot, and the stall count resets.
+A choice of remedy, not a change of category. "Foul" stops play. "Contact" doesn't stop it at all — you keep your pivot, and the stall count resets.
 
-One limit: the choice only exists for contact *before* the release and *not* during your throwing motion. Contact during it is a foul and only a foul.
+One limit: the choice only exists for contact before the release and not during your throwing motion. Contact during it is a foul and only a foul.
 
 Lesson 32 of 75.
 
@@ -226,7 +226,7 @@ what counts first:
 
 contact + a position problem. a marker who's just CLOSE isn't fouling you
 
-now the bit everyone gets backwards: **"Contact" is not an infraction**
+now the bit everyone gets backwards: "Contact" is not an infraction
 
 the infractions are a closed list. fast count, straddle, disc space, wrapping, double team, vision. that's all six. contact isn't on it
 

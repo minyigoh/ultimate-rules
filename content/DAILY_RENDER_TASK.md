@@ -162,6 +162,15 @@ hashtags, notes. The four script beats are hook / explanation / example / CTA.
   `python tools/check_caption.py` before you queue anything; it measures every
   caption in `data.js` in UTF-16 units, the way the platforms count, and exits
   non-zero on a breach. TikTok's limit is 4,000 and has never been close.
+- **Captions are plain text. No markdown, ever.** No `**bold**`, no `*italic*`,
+  no backticks, no `[links](url)`, no `#` headings, no `- ` bullets. Instagram
+  and TikTok do not render any of it — the asterisks post *as asterisks* and
+  read like a typo. Min-Yi flagged this on 2026-09-06: "there are some
+  unnecessary ** in the caption, IG doesn't pick these formatting up." The
+  markers get there because scripts are written in `.md`, where they render, and
+  mirrored into `data.js`, where they do not. `check_caption.py` fails on them.
+  For emphasis, use sentence structure and line breaks — a short sentence on its
+  own line does the work, and there is nothing else to reach for.
 
 ### The caption limit is a hard stop, and it is the one place words give
 
@@ -451,11 +460,12 @@ For every script you drafted or redrafted:
 - Every rule number you cite resolves in `rules.json`, and the text on the page
   is byte-identical to it.
 - The attribution line and the fixed hashtag set are present.
-- **`python tools/check_caption.py` exits 0.** The Instagram caption plus its
-  hashtags fits 2,200 characters, ideally under 2,090. This is a gate, not a
-  note: an over-length caption is unpostable, and it is only discovered in the
-  composer unless something measures it here. See Step 1 for why the caption is
-  the one place words are allowed to give.
+- **`python tools/check_caption.py` exits 0.** Two things at once: the Instagram
+  caption plus its hashtags fits 2,200 characters (ideally under 2,090), and no
+  caption contains markdown, which the platforms render literally. This is a
+  gate, not a note — both defects are invisible everywhere except the composer,
+  which is the last place anyone looks. See Step 1 for why the caption is the
+  one place words are allowed to give.
 - The Instagram caption in `script-and-caption.md` and the `ig` field in
   `data.js` are the same text. The desk copies from `data.js`; the `.md` is the
   record. If they drift, the thing she pastes is not the thing that was
@@ -714,8 +724,9 @@ Also flag if any of these is true:
   2025–2028" + rule-number footer.
 - No growth, reach or virality promises anywhere.
 - **Never queue a caption you have not measured.** Instagram is 2,200
-  characters including hashtags; `tools/check_caption.py` must exit 0 before
-  anything goes in `_pending_additions.json`.
+  characters including hashtags, and captions are plain text with no markdown;
+  `tools/check_caption.py` must exit 0 before anything goes in
+  `_pending_additions.json`.
 - Never report a healthy queue you did not actually verify against GitHub.
 - This run is non-interactive — do not wait for confirmation, but do not skip a
   constraint to move faster.
