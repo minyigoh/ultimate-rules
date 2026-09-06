@@ -1,7 +1,7 @@
 # Reel 34 — Dangerous play
 
 **Status:** Pending review
-**Script drafted:** 2026-09-05 (daily-reel-render) · **Rendered:** —
+**Script drafted:** 2026-09-05 (daily-reel-render) · **Redrafted:** 2026-09-06 (v2, caption trimmed for Instagram headroom) · **Rendered:** —
 **Queued:** 2026-09-08 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (17.1.1, 1.6.1, 1.6.2)
@@ -154,22 +154,21 @@ Every foul we've covered this week needed contact. This one doesn't. You can fou
 
 **"Regardless of whether or when contact occurs."** That clause is the whole lesson. It's judged on the action, not on what the action happened to hit.
 
-So: a defender lays out through a stationary group and touches nobody. By the standards of every other foul rule — receiving, strip, blocking, force-out, marking, thrower — that's clean. It's still dangerous play. The bid was reckless. The collision not happening was luck, and luck isn't a defence.
+So: a defender lays out through a stationary group and touches nobody. By the standards of every other foul rule this week, that's clean. It's still dangerous play. The bid was reckless. The collision not happening was luck, and luck isn't a defence.
 
 **"Not superseded by any other foul rule."** Nobody gets to argue it away with a different rule. And if the call is accepted, it resolves as the most relevant foul from Section 17 — the remedy is ordinary, the threshold is not.
 
 **It's also in chapter one.** "The following actions are clear violations of the Spirit of the Game and must be avoided:" — and first on that list, "dangerous play and aggressive behaviour;", sitting alongside "intentional fouling or other intentional rule breaches;".
 
-That's unusual. Most of what we cover lives in one place in the book. This lives in two, and the chapter-one entry is not decoration — it means the rulebook is asking you to keep the action out of your game, not just to call it when it appears.
+That's unusual — most of what we cover lives in one place. The chapter-one entry isn't decoration: the rulebook is asking you to keep the action out of your game, not just to call it when it appears.
 
-If a play frightened you, say so at the time. "That felt dangerous" is a legitimate and important thing to raise, and it doesn't have to be an accusation.
+If a play frightened you, say so at the time. "That felt dangerous" is a legitimate thing to raise, and it doesn't have to be an accusation.
 
 Lesson 34 of 75.
 
 Rule text: WFDF Rules of Ultimate 2025–2028 (17.1.1, 1.6.1, 1.6.2). Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.
-
 ## TikTok caption
 
 every foul this week needed contact. this one doesn't. you can foul somebody you never touched 🥏

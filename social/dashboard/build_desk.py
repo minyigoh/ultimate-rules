@@ -226,6 +226,31 @@ def build_media():
     return total
 
 
+def check_captions():
+    """Refuse to build a desk whose captions cannot be posted.
+
+    Same principle as check_slides above: a build that cannot produce a usable
+    page should not produce a page at all. The desk's whole job on the caption
+    side is to hand Min-Yi text she pastes straight into Instagram, so a caption
+    over Instagram's 2,200-character limit makes the desk actively misleading —
+    it renders fine, the copy button works, and the failure only surfaces in the
+    composer, after the cut is approved and the post is due.
+
+    That is exactly how reel-32 shipped a 3,396-character caption on
+    2026-09-06: "the caption is unpasteable, looks too lengthy for IG to cope
+    with". Nothing in the pipeline had ever measured one.
+
+    The measurement lives in tools/check_caption.py so the drafting step can run
+    it directly, long before anything reaches a build.
+    """
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    import check_caption
+
+    if check_caption.main() != 0:
+        fail("caption(s) over the platform limit — see the FAIL lines above. "
+             "Trim the body; the hashtag set is fixed.")
+
+
 def main():
     """Rebuild docs/desk/.
 
@@ -239,6 +264,7 @@ def main():
     """
     page_only = "--page-only" in sys.argv
     check_slides()
+    check_captions()
     page = build_page()
     print("built docs/desk/")
     print("  index.html  %6.0f KB" % (os.path.getsize(page) / 1024))

@@ -1,7 +1,7 @@
 # Reel 35 — When a call is made, everybody freezes
 
 **Status:** Pending review
-**Script drafted:** 2026-09-06 (daily-reel-render) · **Rendered:** —
+**Script drafted:** 2026-09-06 (daily-reel-render) · **Redrafted:** 2026-09-06 (v2, caption trimmed to fit Instagram's 2,200 limit) · **Rendered:** —
 **Queued:** 2026-09-09 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (16.1, 15.7, 10.2.1, 10.2.3)
@@ -152,22 +152,21 @@ Somebody calls foul, and half the field keeps running. That's not one mistake �
 
 **Stopping play is everybody's job.** "When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
 
-Note "all players should echo calls". Not the caller alone. The far end of a full-size pitch cannot hear one voice, and a call nobody heard hasn't stopped anything. Note the second sentence too: if play stopped for a discussion and nobody actually called, the rulebook backdates a call to the moment the discussion started.
+Note "all players should echo calls" — not the caller alone. The far end of a full-size pitch cannot hear one voice. And note the second sentence: a discussion with no call still counts as a call, backdated to when it started.
 
 **Then the bit that gets broken every single game.** "If play stops before a pass is thrown, all players must return to the location they held when the call was made." And: "All players must remain stationary in that location until the disc is checked in."
 
-Two separate duties. Go back — to where you were, not where you were heading. Then stop moving. Every player, both teams, not just the two sorting it out.
+Two separate duties. Go back — to where you were, not where you were heading. Then stop moving. Every player, both teams.
 
-Drifting a few metres into a better lane while a call is discussed is a breach of the check in its own right. It's also the fastest way to turn one disagreement into two, because the other team saw you do it.
+Drifting a few metres into a better lane while a call is discussed is a breach of the check in its own right.
 
-So: freeze first, argue after. You can contest a call a second later from exactly where you're standing, and you lose nothing by standing still.
+So: freeze first, argue after. You can contest a call a second later from exactly where you're standing.
 
 Lesson 35 of 75.
 
 Rule text: WFDF Rules of Ultimate 2025–2028 (16.1, 15.7, 10.2.1, 10.2.3). Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.
-
 ## TikTok caption
 
 somebody calls foul and half the field keeps running. that's not one mistake, that's a second rule broken on top of the first 🥏

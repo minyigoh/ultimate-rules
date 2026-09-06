@@ -1,7 +1,7 @@
 # Reel 32 — Marking fouls and the "Contact" call
 
-**Status:** Pending review (redrafted — script v3)
-**Script drafted:** 2026-09-03 · **Redrafted:** 2026-09-04 (v2), 2026-09-05 (v3) · **Rendered:** 2026-09-04 (v1 cut — built from script v2, now superseded)
+**Status:** Cut v2 approved; script redrafted to v4 (caption length only) — re-approve the script track
+**Script drafted:** 2026-09-03 · **Redrafted:** 2026-09-04 (v2), 2026-09-05 (v3), 2026-09-06 (v4, caption trimmed to fit Instagram's 2,200 limit — no on-screen text changed) · **Rendered:** 2026-09-06 (cut v2, from script v3; v1 archived)
 **Queued:** 2026-09-06 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (15.1, 15.2, 17.6.1, 17.6.1.1, 17.6.1.2, 17.6.1.3, 18.1.1.2)
@@ -187,44 +187,31 @@ for approval of v3.
 
 The marker bumps you before you throw. That is a foul — and you still don't have to stop the game over it.
 
-**First, what actually counts as a marking foul.** "A Defensive Throwing Foul occurs when:" — "There is non-minor contact between the thrower and an illegally positioned defensive player (Section 18.1); or" "A defensive player initiates non-minor contact with the thrower, or there is non-minor contact resulting from the thrower and the defender both vying for the same unoccupied position, prior to the thrower releasing the pass."
+**First, what counts.** A Defensive Throwing Foul is non-minor contact with an illegally positioned defender, or contact the defender initiates before you release.
 
-Read the two limbs together and the shape is clear. It is contact, and it is contact with a position problem behind it. A marker who is merely close to you is not fouling you.
+**Now the part everybody gets backwards — including this account's first draft.** "Contact" is not an infraction.
 
-**Now the part everybody gets backwards, including this account's first draft of it.** "Contact" is not an infraction.
-
-The infractions are a named, closed list: fast count, straddle, disc space, wrapping, double team, vision. That is all of them. Contact is not on it, and nothing you say puts it there.
-
-Here is why, from the definitions:
+The infractions are a named, closed list: fast count, straddle, disc space, wrapping, double team, vision. That is all of them. Contact is not on it, and nothing you say puts it there. From the definitions:
 
 "A breach of the rules due to non-minor contact between two or more opposing players is a foul."
 
 "A breach of the rules regarding a Marking or Travel breach is an infraction. Infractions do not stop play."
 
-The bump is contact between opposing players, so it is a foul by the first definition. It is not a Marking breach in the Section 18.1 sense and it is not a Travel breach, so it is not an infraction by the second. And here is one of the six, quoted, so you can see what the category actually holds:
+A bump is contact between opposing players: a foul by the first. It is not a Marking or Travel breach, so not an infraction by the second.
 
-"“Straddle” – a line between a defensive player’s feet comes within one disc diameter of the thrower’s pivot point."
+**So why does the rule say "a contact infraction"?** Because it does: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
 
-That is a positioning breach. A bump is not.
+Look where that sentence lives: chapter 17, Fouls. It names a **call**, not a seventh entry on the marking list — and it carries its own remedy, the count restarting at one.
 
-**So why does the rule say "a contact infraction"?** Because it does — read it: "If a Defensive Throwing Foul occurs prior to the thrower releasing the pass and not during the throwing motion, the thrower may choose to call a contact infraction, by calling “Contact”. After a contact infraction that is not contested, play does not stop and the marker must resume the stall count at one (1)."
+**A choice of remedy, not a change of category.** "Foul" stops play. "Contact" doesn't stop it at all — you keep your pivot, and the stall count resets.
 
-Look at where that sentence lives: chapter 17, Fouls. It is the name of a **call**, defined among the fouls, not a seventh entry on the marking list. Two things keep it separate. It isn't enumerated in 18.1.1. And it has its own remedy — the count restarts at one, where the listed marking infractions restart at the last number uttered minus one.
-
-What it borrows is one thing only, and it's the thing you care about: uncontested, play does not stop.
-
-**So the call is a choice of remedy, not a change of category.** A Defensive Throwing Foul occurred — the rule says so in its own opening clause. "Foul" stops play. "Contact" doesn't stop it at all, and the count goes back to one.
-
-That is a rare thing in this rulebook: a call that costs you nothing. You keep your pivot, you keep your eyes downfield, and the stall count you were losing resets.
-
-One limit worth knowing: the choice only exists for contact *before* the release and *not* during your throwing motion. Contact during the throwing motion is a foul and only a foul.
+One limit: the choice only exists for contact *before* the release and *not* during your throwing motion. Contact during it is a foul and only a foul.
 
 Lesson 32 of 75.
 
 Rule text: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.
-
 ## TikTok caption
 
 marker bumps you before you throw. that IS a foul — and you still don't have to stop the game over it 🥏

@@ -158,6 +158,40 @@ hashtags, notes. The four script beats are hook / explanation / example / CTA.
   2025–2028**.
 - **No growth, reach or virality claims** — not in captions, not in notes.
 - CTA is "Lesson N of 75 — new lesson daily" or a close variant.
+- **The Instagram caption plus its hashtags must fit 2,200 characters.** Run
+  `python tools/check_caption.py` before you queue anything; it measures every
+  caption in `data.js` in UTF-16 units, the way the platforms count, and exits
+  non-zero on a breach. TikTok's limit is 4,000 and has never been close.
+
+### The caption limit is a hard stop, and it is the one place words give
+
+`fit_kicker()` and `fit_body()` exist so that an approved kicker or body is
+never reworded to fit — the type shrinks instead. **A caption has no type to
+shrink.** It is raw text pasted into a composer that refuses it past 2,200
+characters, hashtags, spaces, line breaks and emoji all counted. So the caption
+is the single exception to "never reword to fit": if it does not fit, the words
+have to give, and they have to give *before* the script goes to the desk.
+
+This is not theoretical. On 2026-09-06 Min-Yi went to post reel-32 and reported
+the caption "unpasteable, looks too lengthy for IG to cope with". It was 3,396
+characters — 54% over — and it had already cleared the script gate, been built,
+been rejected once on other grounds, been redrafted, been rebuilt and been
+approved on both tracks. Six review steps, and not one of them measured it,
+because nothing in the pipeline ever had. reel-35, drafted the same day, was
+2,337 and would have failed the same way three days later.
+
+So: **write to fit, and check before you queue.** Aim under 2,090 (95%), which
+is where `check_caption.py` starts warning — a caption at 2,180 is not broken
+but it is one edit from broken, and this pipeline edits daily. If a draft comes
+out long, cut prose, never a rule quotation: the verbatim text, the attribution
+line, the fixed hashtag set and the "Lesson N of 75" line are all load-bearing
+and stay. Drop elaboration, drop a restatement, drop a nice-to-have paragraph
+that the reel already says on screen.
+
+`social/dashboard/build_desk.py` runs the same check and **refuses to build**
+on a breach, so an over-length caption cannot reach the desk even if this step
+is skipped. That is a backstop, not the plan — a build failure in `sync.bat`
+costs a round trip, and catching it here costs nothing.
 
 Save to `content/reel-N/script-and-caption.md` (or
 `content/carousel-post-N/`), where N is the next unused number **for that
@@ -417,6 +451,15 @@ For every script you drafted or redrafted:
 - Every rule number you cite resolves in `rules.json`, and the text on the page
   is byte-identical to it.
 - The attribution line and the fixed hashtag set are present.
+- **`python tools/check_caption.py` exits 0.** The Instagram caption plus its
+  hashtags fits 2,200 characters, ideally under 2,090. This is a gate, not a
+  note: an over-length caption is unpostable, and it is only discovered in the
+  composer unless something measures it here. See Step 1 for why the caption is
+  the one place words are allowed to give.
+- The Instagram caption in `script-and-caption.md` and the `ig` field in
+  `data.js` are the same text. The desk copies from `data.js`; the `.md` is the
+  record. If they drift, the thing she pastes is not the thing that was
+  reviewed.
 - No growth/reach/virality claim anywhere.
 - "Lesson N of 75" matches the lesson's actual curriculum position. Reels only
   — a recap carousel has no lesson number of its own, and every lesson number
@@ -670,6 +713,9 @@ Also flag if any of these is true:
 - Every rules card quotes WFDF text verbatim, with the "WFDF Rules of Ultimate
   2025–2028" + rule-number footer.
 - No growth, reach or virality promises anywhere.
+- **Never queue a caption you have not measured.** Instagram is 2,200
+  characters including hashtags; `tools/check_caption.py` must exit 0 before
+  anything goes in `_pending_additions.json`.
 - Never report a healthy queue you did not actually verify against GitHub.
 - This run is non-interactive — do not wait for confirmation, but do not skip a
   constraint to move faster.
