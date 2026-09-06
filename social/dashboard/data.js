@@ -2907,5 +2907,106 @@ rules from WFDF Rules of Ultimate 2025–2028 (17.1.1, 1.6.1, 1.6.2) — full br
       'Dry-measured 2026-09-05 against content/reel-32/render_v3.py with TOTAL = 7: both kickers at the standard 34px (649 and 680 of the 900px column, fit_kicker unengaged), bodies auto-fit to 31px (scene 2, seven lines, 1070) and 34px (scene 4, six lines, 1047) against a 1090 limit, field tip 1012, detail cards 854 (17.1.1) and 740 (the 1.6 block). Projected ~28.9s, k clamped at 1.5.',
       'Last lesson in content/lessons-2.json. Lesson 35 (everybody-freeze) opens lessons-3.json, which holds the remaining 41.'
     ]
+  },
+  {
+    id: 'reel-35',
+    date: '2026-09-09',
+    title: `When a call is made, everybody freezes`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 35,
+    duration: '~29.5s script',
+    rules: ['16.1', '15.7', '10.2.1', '10.2.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-35',
+    source: 'content/reel-35/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Restarts)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'When a call is made, everybody freezes · kicker BEGINNER · LESSON 35 / 75'],
+      ['2', '#1 PLAY STOPS INSTANTLY', '"Nothing can turn over after a call." · footer cites 16.1'],
+      ['3', 'Rules detail', 'Verbatim 16.1'],
+      ['4', '#2 ECHO THE CALL', '"A call nobody heard didn’t stop play." · footer cites 15.7'],
+      ['5', 'Rules detail', 'Verbatim 15.7'],
+      ['6', '#3 GO BACK AND FREEZE', '"Back to where you were. Then stop." · footer cites 10.2.1 · 10.2.3'],
+      ['7', 'Rules detail', 'Verbatim 10.2.1 + 10.2.3, two blocks'],
+      ['8', 'FIELD TIP', '"Freeze first. Argue after."'],
+      ['9', 'Closing', '"Lesson 35 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Somebody calls foul, and half the field keeps running. That's not one mistake. That's a second rule broken on top of the first.`,
+      explanation: `When a call is made, play stops immediately and no turnover is possible. That second half is the part nobody teaches — a disc that hits the ground after the call did not turn over. And stopping play is everybody's job, not just the caller's. You communicate the stoppage, and every player on the field should echo the call, because the far end of a full pitch genuinely cannot hear one voice.`,
+      example: `Then the bit that gets broken every single game. You go back to where you were when the call was made, and you stand still there until the disc is checked in. Every player, both teams — not just the two people arguing. Drifting three metres into a better lane while the call gets sorted out is a breach in its own right, and it's the fastest way to turn one disagreement into two.`,
+      cta: `Lesson 35 of 75 — new lesson daily.`
+    },
+    ig: `Somebody calls foul, and half the field keeps running. That's not one mistake — that's a second rule broken on top of the first.
+
+**Play stops immediately.** "Whenever a foul or violation call is made, or a player attempts to stop play in any way, play stops immediately and no turnover is possible (unless in situations specified in 15.9, 16.2, and 16.3)."
+
+"No turnover is possible" is the half nobody teaches. A disc that hits the ground after the call did not turn over. The rule names three exceptions by number, and the main one — a disc already in the air — is tomorrow's lesson.
+
+**Stopping play is everybody's job.** "When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
+
+Note "all players should echo calls". Not the caller alone. The far end of a full-size pitch cannot hear one voice, and a call nobody heard hasn't stopped anything. Note the second sentence too: if play stopped for a discussion and nobody actually called, the rulebook backdates a call to the moment the discussion started.
+
+**Then the bit that gets broken every single game.** "If play stops before a pass is thrown, all players must return to the location they held when the call was made." And: "All players must remain stationary in that location until the disc is checked in."
+
+Two separate duties. Go back — to where you were, not where you were heading. Then stop moving. Every player, both teams, not just the two sorting it out.
+
+Drifting a few metres into a better lane while a call is discussed is a breach of the check in its own right. It's also the fastest way to turn one disagreement into two, because the other team saw you do it.
+
+So: freeze first, argue after. You can contest a call a second later from exactly where you're standing, and you lose nothing by standing still.
+
+Lesson 35 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (16.1, 15.7, 10.2.1, 10.2.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `somebody calls foul and half the field keeps running. that's not one mistake, that's a second rule broken on top of the first 🥏
+
+"Whenever a foul or violation call is made, or a player attempts to stop play in any way, play stops immediately and no turnover is possible (unless in situations specified in 15.9, 16.2, and 16.3)."
+
+"no turnover is possible" ← the half nobody teaches. a disc that hits the ground AFTER the call did not turn over
+
+stopping play is everybody's job:
+
+"When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field."
+
+"all players should echo calls" — not the caller alone. the far end of a full pitch cannot hear one voice, and a call nobody heard hasn't stopped anything
+
+then the bit that gets broken every single game:
+
+"If play stops before a pass is thrown, all players must return to the location they held when the call was made."
+"All players must remain stationary in that location until the disc is checked in."
+
+two duties. go back — where you WERE, not where you were heading. then stop moving. every player, both teams, not just the two arguing
+
+drifting 3m into a better lane while the call gets sorted is a breach of the check in its own right
+
+freeze first. argue after. you can contest it a second later from exactly where you're standing
+
+lesson 35 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (16.1, 15.7, 10.2.1, 10.2.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-06 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'Nine scenes, the three-pair shape (same as reels 30, 31 and 32). Three rule cards, so three topic/rules pairs. TOTAL = 9 is the shared default, but reel-33/render_v3.py is the newest copy and has it set to 7 — change it back.',
+      'First lesson from content/lessons-3.json, and the first reel in the run about what happens AFTER a call. Reels 28-34 were seven straight lessons on what IS a foul.',
+      '10.2 is a heading stem ("Player positioning after a call...") and is NOT carded — eight reels now (17.1-17.7 plus 10.2), eight stems, none carded. Unlike reel 34, no fragment problem arises: 10.2.1 and 10.2.3 are both complete sentences and 10.2.3\'s "that location" resolves against 10.2.1 sitting directly above it on the same card. Two ordinary g_detail blocks, the reel-29 and reel-32 shape.',
+      '10.2.2 (the after-a-throw positioning case) is in the lesson body text but NOT in the lesson\'s rules array, so it stays off the cards and out of the captions — the same call reel 34 made on 1.6.3 and 1.6.4. It belongs with continuation, lesson 36.',
+      '"No turnover is possible" is the load-bearing clause and must survive any trim. It is the half of 16.1 beginners have never heard, and it is the reason the reel is not just a restatement of "stop when someone calls".',
+      'Do not explain 15.9, 16.2 or 16.3. The reel names them by number because 16.1 does, and points at tomorrow\'s lesson. Explaining them duplicates lessons 36, 37 and 59.',
+      'Dry-measured 2026-09-06 against content/reel-33/render_v3.py: all three kickers at the standard 34px (652, 452 and 609 of the 900px column, fit_kicker unengaged); all three bodies auto-fit to 33px over seven lines, last baseline 1088 against the 1090 limit; all three main scenes end at max_y 1192 of 1310; detail cards at 666 (16.1), 866 (15.7) and 802 (the 10.2.1 + 10.2.3 pair); field tip last baseline 1062; cover title wraps to three lines at 556/686/290 of 900px. Projected ~29.5s.',
+      'Scene 4\'s body was trimmed at draft time from a version that auto-fitted to 30px, one step off the 29px floor. Shortening copy while it is unapproved is the right moment for it; once approved the type shrinks and the words do not.',
+      'No _payload() case expected — no on-screen element starts or ends with a double quote (scene 4\'s headline uses an apostrophe). Confirm at render rather than assuming.',
+      'Curriculum position check: lesson 35 is index 0 of content/lessons-3.json. Lessons 1-16 are lessons-1.json, 17-34 are lessons-2.json (both fully on the calendar), and the remaining 41 are lessons-3.json. 16 + 18 + 41 = 75.'
+    ]
   }
 ];
