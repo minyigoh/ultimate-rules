@@ -1917,14 +1917,15 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "rev": 2,
-      "updatedAt": "2026-09-06T06:30:00.434Z"
+      "rev": 1,
+      "updatedAt": "2026-09-05T03:02:13.596Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-05T22:10:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-06T06:30:05.021Z"
     },
     "scriptRev": 2,
     "history": {
@@ -1935,13 +1936,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-05T03:02:13.596Z"
-        },
+        }
+      ],
+      "content": [
         {
           "status": "approved",
-          "rev": 2,
+          "rev": 1,
           "note": "",
           "tags": [],
-          "at": "2026-09-06T06:30:00.434Z"
+          "at": "2026-09-06T06:30:05.021Z"
         }
       ]
     },
