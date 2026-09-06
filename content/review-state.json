@@ -1917,8 +1917,8 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "rev": 1,
-      "updatedAt": "2026-09-05T03:02:13.596Z"
+      "rev": 2,
+      "updatedAt": "2026-09-06T06:30:00.434Z"
     },
     "content": {
       "status": "in-review",
@@ -1935,6 +1935,13 @@
           "note": "",
           "tags": [],
           "at": "2026-09-05T03:02:13.596Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-06T06:30:00.434Z"
         }
       ]
     },
