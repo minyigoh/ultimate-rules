@@ -1771,10 +1771,11 @@
       "updatedAt": "2026-09-06T05:21:21.932Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-06T13:40:00Z"
+      "rev": 2,
+      "updatedAt": "2026-09-06T05:50:38.649Z"
     },
     "revisions": [
       {
@@ -1869,6 +1870,13 @@
             "On-screen text"
           ],
           "at": "2026-09-05T03:00:02.550Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-06T05:50:38.649Z"
         }
       ]
     }
