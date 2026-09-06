@@ -1,7 +1,27 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "review_state": {
+    "reel-32": {
+      "builtFromScriptRev": 3,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-06T13:40:00Z"
+      },
+      "revisions": [
+        {
+          "v": 2,
+          "renderedAt": "2026-09-06",
+          "duration": "29.5s",
+          "file": "reel32-marking-fouls-and-contact.mp4",
+          "builtFromScriptRev": 3,
+          "changed": "Rebuilt from script v3, approved on the desk 2026-09-06T05:21Z, addressing content round 1 (\"Contact doesn't fall under infraction right? Infractions are straddle, wrapping\"). Copy plus one added rule number: scene 4 kicker \"STILL A FOUL, DIFFERENT CALL\" -> \"A FOUL, NOT AN INFRACTION\" (854 -> 780 of 900px), headline \"'Contact' is not a different event.\" -> \"Contact is a foul, not an infraction.\", body rewritten to name the six marking infractions and say Contact is not among them, footer now 15.1 . 15.2 . 18.1.1.2; scene 5 gains a third block, 18.1.1.2 (Straddle); scene 6's body quotes the 'a contact infraction' phrase from 17.6.1.3 and places it in the fouls chapter rather than calling it the infraction route. No existing rule text altered. Verified rather than asserted: the v2-script copy was re-rendered in parallel and the PNG sets compared pixel by pixel - of 36 states, 29 are pixel-identical to the rejected cut, 6 differ (four on scene 4, two on scene 6) and one is new (the 18.1.1.2 block); scenes 1, 2, 3, 7, 8 and 9 are pixel-identical throughout. Nine scenes, exact CFR via encode.py, 29.50s against a 30.0s projection. Layout check 9 scenes, 0 problems, no collisions; detail cards at max_y 940, 1026 and 704 of 1310, main scenes at 1192, cover 1210, field tip 1062, closing 900, all max_x 990 of 990 - every dry measurement in the approved script held exactly, including the 1026 prediction for the new three-block card. All three kickers at the standard 34px, fit_kicker unengaged. Longest sustained dull-orange run 0.20s against a 0.45s threshold. Scene 6's two _payload() cases emitted as <tspan> as predicted. All seven rule texts re-verified character-for-character against rules.json in the emitted SVGs. This cut does not improve on v1 by any measurement - v1 was clean on all of them, and the defect was the words. v1 archived as reel32-marking-fouls-and-contact.v1.mp4."
+        }
+      ]
+    }
+  },
+  "generated": "2026-09-06T13:40:00Z",
+  "by": "daily-reel-render (interactive rebuild)"
 }
