@@ -1971,7 +1971,12 @@
         "file": "script-and-caption.md",
         "changed": "Markdown strip. Instagram and TikTok render captions as plain text, so the **bold** and *italic* markers these captions carried posted as literal asterisks - Min-Yi flagged it on 2026-09-06: \"there are some unnecessary ** in the caption, IG doesn't pick these formatting up.\" The markers came from the .md drafting format and survived the mirror into data.js. Markers removed only: no wording, rule quotation, attribution line, hashtag, lesson number or CTA changed, and nothing on screen in any reel changed, so no cut needs rebuilding. 4 bold markers out of the Instagram caption; 1,689 -> 1,673, well inside the limit. This caption was never over length - the markdown was its only defect. The cut approved on the content track is unaffected."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-07",
+      "updatedAt": "2026-09-07T01:23:17.981Z"
+    }
   },
   "reel-34": {
     "scriptRev": 3,
