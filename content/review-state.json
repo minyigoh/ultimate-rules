@@ -2148,9 +2148,10 @@
     "scriptRev": 1,
     "script": {
       "status": "pending",
-      "note": "",
+      "note": "It shouldn't just",
       "tags": [],
-      "updatedAt": "2026-09-07T07:00:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-07T13:01:36.555Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2165,6 +2166,17 @@
         "file": "script-and-caption.md",
         "changed": "Initial draft of the fifth weekly recap: lessons 28-32, seven slides, rule numbers only and no rule text. Five rather than the 28-34 carousel-post-5 forecast, because lesson 33's reel is Ready to post but has not gone out and lesson 34's cut only reaches the content gate today - a lesson is eligible only once its reel has actually posted. 33 and 34 open carousel-post-7, block 33-39. Dry-measured clean; IG caption 1,669 of 2,200 including hashtags."
       }
-    ]
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "pending",
+          "rev": 1,
+          "note": "It shouldn't just",
+          "tags": [],
+          "at": "2026-09-07T13:01:36.555Z"
+        }
+      ]
+    }
   }
 }
