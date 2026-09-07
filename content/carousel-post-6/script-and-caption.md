@@ -81,6 +81,14 @@ with `TOTAL = 7`, by emitting the SVGs and running `tools/check_layout.py`:**
   consequence is different and it`. Both are the startswith/endswith collision.
   **Verify both quotes survive in the PNGs, not just the SVGs.**
 
+**At render time, flip three fields in `social/dashboard/data.js`.** While this
+deck is unrendered it carries `slides: null`, `scenes: null` and no
+`typeDetail`, because `build_desk.py`'s `check_slides()` verifies every slide
+stem against a file on disk and fails the whole build if one is missing. The
+first draft of this entry named all seven PNGs before they existed, which broke
+`sync.bat` at step 2 on 2026-09-07 and left the desk showing no cuts for reels
+34 and 35. Set all three once the PNGs are actually there.
+
 **Rendering:** copy `content/carousel-post-5/make_carousel.py` into a scratch
 directory outside the repo and adapt only the slide content — the visual system
 (canvas, palette, header lockup, citation footer, type scale) stays

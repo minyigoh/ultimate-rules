@@ -3121,7 +3121,6 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.2, 16.2.3, 16.2.4.1, 16.2.4.2,
     difficulty: 'Mixed',
     lesson: null,
     rules: ['17.2.1', '17.2.1.1', '17.2.2', '15.8', '17.3.1', '17.3.2', '17.4.1', '12.9', '12.5', '17.5.1', '17.5.1.1', '17.5.1.2', '17.5.2', '17.5.3', '17.6.1', '17.6.1.1', '17.6.1.2', '17.6.1.3'],
-    typeDetail: '2250\u00d72812 \u00b7 7 slides',
     review: {
       script:  {status: 'pending', on: '2026-09-07'},
       content: {status: 'awaiting-render', on: null}
@@ -3131,24 +3130,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.2, 16.2.3, 16.2.4.1, 16.2.4.2,
     source: 'content/carousel-post-6/script-and-caption.md',
     sourceLesson: 'Weekly recap \u2014 no lesson consumed; recaps lessons 28-32',
     video: null,
-    slides: [
-      ['01_cover', 'Cover \u2014 THIS WEEK'],
-      ['02_lesson28_receiving_fouls', 'Lesson 28 \u2014 Receiving fouls'],
-      ['03_lesson29_strip_fouls', 'Lesson 29 \u2014 Strip fouls'],
-      ['04_lesson30_blocking_fouls', 'Lesson 30 \u2014 Blocking fouls'],
-      ['05_lesson31_force_out_fouls', 'Lesson 31 \u2014 Force-out fouls'],
-      ['06_lesson32_marking_fouls', 'Lesson 32 \u2014 Marking fouls and the "Contact" call'],
-      ['07_closing', 'Closing \u2014 "That\'s thirty-two of seventy-five."']
-    ],
-    scenes: [
-      ['1', 'Cover', 'kicker THIS WEEK \u00b7 "Week five: five kinds of foul" \u00b7 subhead "This week\'s five lessons \u2014 everything the daily reels covered, 2\u20136 September." \u00b7 SWIPE \u2192'],
-      ['2', 'LESSON 28', '"Receiving fouls" \u00b7 footer 17.2.1 \u00b7 17.2.1.1 \u00b7 17.2.2 \u00b7 15.8'],
-      ['3', 'LESSON 29', '"Strip fouls" \u00b7 footer 17.3.1 \u00b7 17.3.2'],
-      ['4', 'LESSON 30', '"Blocking fouls" \u00b7 footer 17.4.1 \u00b7 12.9 \u00b7 12.5'],
-      ['5', 'LESSON 31', '"Force-out fouls" \u00b7 footer 17.5.1 \u00b7 17.5.1.1 \u00b7 17.5.1.2 \u00b7 17.5.2 \u00b7 17.5.3'],
-      ['6', 'LESSON 32', '"Marking fouls and the \\"Contact\\" call" \u00b7 footer 17.6.1 \u00b7 17.6.1.1 \u00b7 17.6.1.2 \u00b7 17.6.1.3'],
-      ['7', 'Closing', '"That\'s thirty-two of seventy-five. More next Thursday." \u00b7 Follow @learn.ultimatefrisbee']
-    ],
+    slides: null,
+    scenes: null,
     script: {
       hook: `Five lessons this week, and all five were the same word. Foul. The rulebook does not think it is one word.`,
       explanation: `Chapter seventeen is a list. Receiving, strip, blocking, force-out, marking \u2014 each with its own definition and its own consequence. A receiving foul and a strip foul do not resolve the same way, which is why the name matters.`,
@@ -3208,6 +3191,7 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Takeaways are each lesson\'s field line from content/lessons-2.json, verbatim, and every footer is that lesson\'s rules array unchanged.',
       'Dry-measured 2026-09-07 from content/carousel-post-5/make_carousel.py with TOTAL = 7: cover at the standard 96px ("Week five: five" 665 of 900px, "kinds of foul" 571), all five takeaways at the standard 36px over two or three lines with fit_body never engaging, every lesson slide at max_y 1192 of 1310, cover 1210, closing 900, all max_x 990 of 990. Layout check 7 slides, 0 problems, no collisions. Longest footer is lesson 31\'s five numbers at 549 of 900px.',
       'Two _payload() cases, both handled by the <tspan> wrapper already in carousel-post-5\'s script: slide 6\'s title wraps to a second line beginning "Contact" call, and slide 3\'s takeaway wraps to a line ending "foul" \u2014 the consequence is different and it. Verify both quotes survive in the PNGs, not just the SVGs.',
+      'AT RENDER TIME set slides, scenes and typeDetail in this entry. They are null/absent while the deck is unrendered because build_desk.py check_slides() verifies every slide stem against a file on disk and fails the whole build if one is missing \u2014 the first version of this entry named all seven PNGs before they existed, broke sync.bat at step 2 on 2026-09-07, and left the desk showing no cuts for reels 34 and 35.',
       'Instagram caption 1,669 characters including hashtags (76% of the 2,200 limit); TikTok 942 of 4,000. Both plain text, no markdown. check_caption.py exits 0.'
     ]
   }
