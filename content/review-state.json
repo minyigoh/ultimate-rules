@@ -2112,10 +2112,11 @@
   "reel-36": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-07T07:00:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-07T13:00:24.762Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2130,7 +2131,18 @@
         "file": "script-and-caption.md",
         "changed": "Initial draft, continuation when the disc is already in the air: 16.2, 16.2.3, 16.2.4.1, 16.2.4.2, 16.2.4.2.1. Nine scenes, three-pair shape. 16.2 is carded as a block lead, which is not a departure - it is in the lesson's rules array, unlike reel 34's 1.6. Dry-measured clean at 30.0s projected; IG caption 1,891 of 2,200 including hashtags."
       }
-    ]
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-07T13:00:24.762Z"
+        }
+      ]
+    }
   },
   "carousel-post-6": {
     "scriptRev": 1,
