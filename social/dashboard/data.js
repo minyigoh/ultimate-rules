@@ -3013,17 +3013,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.1, 15.7, 10.2.1, 10.2.3) — f
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 36,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080\u00d71920 \u00b7 29.5s \u00b7 30fps',
     rules: ['16.2', '16.2.3', '16.2.4.1', '16.2.4.2', '16.2.4.2.1'],
     review: {
       script:  {status: 'pending', on: '2026-09-07'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-08'}
     },
     postedDate: null,
     folder: 'reel-36',
     source: 'content/reel-36/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Restarts)',
-    video: null,
+    video: 'reel36-continuation.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Continuation: when the disc is already in the air \u00b7 kicker BEGINNER \u00b7 LESSON 36 / 75'],
@@ -3098,7 +3099,8 @@ lesson 36 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (16.2, 16.2.3, 16.2.4.1, 16.2.4.2, 16.2.4.2.1) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-07 by the daily task. Awaiting script review. Video not yet rendered \u2014 nothing renders until the script clears the first gate.',
+      'Drafted 2026-09-07, script approved on the desk 2026-09-07T13:00Z against v1, rendered 2026-09-08 by the daily task. Cut is at the content gate.',
+      'Render 2026-09-08: 29.53s / 886 frames at 30fps against a 30.0s projection, exact CFR via encode.py, built from script rev 1. Every dry measurement in the approved script held exactly \u2014 detail cards at 522, 604 and 890, main scenes at 1192 of 1310, field tip 1012, cover 1210, closing 900, all max_x 990 of 990, three kickers at the standard 34px and scene 2\'s body auto-fit to 33px. Layout check 7 of 9 states measured, 0 problems, no collisions. check_dull.py: longest sustained dull-orange run 0.20s (6 frames) in band y=520-578 at t=9.17s against a 0.45s threshold. All five rule quotations verified character-for-character against rules.json in the emitted SVGs. No _payload() case anywhere, exactly as the script predicted \u2014 confirmed, not assumed.',
       'Nine scenes, the three-pair shape (same as reels 30, 31, 32 and 35). Three rule cards, so three topic/rules pairs. TOTAL = 9, which reel-35/render_v3.py already has.',
       'Pairs with reel 35. That reel taught the freeze; this is the exception 16.1 names by number. The freeze stops anyone playing on through a call; continuation stops anyone using a call to undo a result.',
       '16.2 is carded as a block lead and that is NOT a departure \u2014 unlike reel 34\'s 1.6, it is in the lesson\'s own rules array and is cited on the scene-2 footer. 16.2.3 ("is called or occurs when the disc is in the air,") is a fragment and cannot stand alone, so the stem goes above it, which is g_detail\'s existing shape.',
@@ -3115,36 +3117,34 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.2, 16.2.3, 16.2.4.1, 16.2.4.2,
   {
     id: 'carousel-post-6',
     date: '2026-09-10',
-    title: 'Week five: five kinds of foul',
+    title: 'Week five: six fouls and the freeze',
     type: 'Carousel',
     pillar: 'Rules',
     difficulty: 'Mixed',
     lesson: null,
-    rules: ['17.2.1', '17.2.1.1', '17.2.2', '15.8', '17.3.1', '17.3.2', '17.4.1', '12.9', '12.5', '17.5.1', '17.5.1.1', '17.5.1.2', '17.5.2', '17.5.3', '17.6.1', '17.6.1.1', '17.6.1.2', '17.6.1.3'],
+    rules: ['17.3.1', '17.3.2', '17.4.1', '12.9', '12.5', '17.5.1', '17.5.1.1', '17.5.1.2', '17.5.2', '17.5.3', '17.6.1', '17.6.1.1', '17.6.1.2', '17.6.1.3', '17.7.1', '17.7.2', '17.1.1', '1.6.1', '1.6.2', '16.1', '15.7', '10.2.1', '10.2.3'],
     review: {
-      script:  {status: 'pending', on: '2026-09-07'},
+      script:  {status: 'pending', on: '2026-09-08'},
       content: {status: 'awaiting-render', on: null}
     },
     postedDate: null,
     folder: 'carousel-post-6',
     source: 'content/carousel-post-6/script-and-caption.md',
-    sourceLesson: 'Weekly recap \u2014 no lesson consumed; recaps lessons 28-32',
+    sourceLesson: 'Weekly recap \u2014 no lesson consumed; recaps lessons 29-35',
     video: null,
     slides: null,
     scenes: null,
     script: {
-      hook: `Five lessons this week, and all five were the same word. Foul. The rulebook does not think it is one word.`,
-      explanation: `Chapter seventeen is a list. Receiving, strip, blocking, force-out, marking \u2014 each with its own definition and its own consequence. A receiving foul and a strip foul do not resolve the same way, which is why the name matters.`,
-      example: `Blocking is the one that surprises people. You are entitled to any unoccupied space and you can box out with your body \u2014 what you cannot do is put your arms out to obstruct. That is a narrower rule than most people assume in either direction. Each slide carries its rule numbers so you can look any of it up yourself.`,
-      cta: `Lessons 28 to 32 of 75 \u2014 new lesson daily.`
+      hook: `Seven lessons this week. Six of them were the word foul, and the rulebook does not think it is one word.`,
+      explanation: `Chapter seventeen is a list. Strip, blocking, force-out, marking, thrower, dangerous \u2014 each with its own definition and its own consequence. A strip and a force-out do not resolve the same way, which is why the name matters more than the volume.`,
+      example: `Blocking is the one that surprises people. You are entitled to any unoccupied space and you can box out with your body \u2014 what you cannot do is put your arms out to obstruct. And the seventh lesson isn't a foul at all: the moment anybody calls anything, everybody freezes, where they were rather than where they were heading.`,
+      cta: `Lessons 29 to 35 of 75 \u2014 new lesson daily.`
     },
-    ig: `Week five, all in one place — the week we stopped saying "foul" and started naming which one.
+    ig: `Week five, all in one place — six kinds of foul, and then the rule that stops play.
 
-Chapter 17 of the rulebook doesn't contain a foul. It contains a list of them, and each one has its own definition and its own consequence. Five of them here.
+Chapter 17 of the rulebook doesn't contain a foul. It contains a list of them, and each one has its own definition and its own consequence.
 
-Receiving fouls. Contact around a play on the disc — and the reason to call it at the moment it happens rather than three seconds later.
-
-Strip fouls. When contact knocks the disc out of a catch you had already completed. Say "strip" rather than just "foul"; the consequence is different.
+Strip fouls. Contact that knocks the disc out of a catch you had already completed. Say "strip" rather than just "foul"; the remedy is different.
 
 Blocking fouls. You are entitled to any unoccupied space, and you can box out with your body. What you cannot do is put your arms out to obstruct.
 
@@ -3152,20 +3152,26 @@ Force-out fouls. Contact that changed where you landed. If you were going out an
 
 Marking fouls and the "Contact" call. Non-minor contact from the mark is a foul — and you get a choice about whether the game stops for it.
 
-The through-line: naming the right one is not pedantry. Different fouls resolve differently, and "foul!" on its own makes everybody stop and work out which conversation they are having.
+Fouls committed by the thrower. Pivot around the mark, not through it. Initiating contact to open your own throwing window is the foul throwers forget exists.
 
-Five lessons this week rather than seven. Thrower fouls and dangerous play are recapped with next Thursday's block — the blocks run by lesson number, so nothing is skipped and nothing is counted twice.
+Dangerous play. The one that needs no contact at all. If a play frightened you, say so at the time.
+
+Then the odd one out, and the reason the rest of them work: when a call is made, everybody freezes. You stop where you were, not where you were heading, and you stay there until the disc is checked in.
+
+The through-line: naming the right foul is not pedantry. Different fouls resolve differently, and "foul!" on its own makes everybody stop and work out which conversation they are having.
 
 Each slide carries its rule numbers, so you can check any of it against the rulebook rather than taking our word for it.
+
+That's thirty-five of seventy-five.
 
 Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
 
 Follow @learn.ultimatefrisbee — one lesson a day.`,
-    tiktok: `everything the daily reels covered this week, five slides 🥏
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
 
-the week we stopped saying "foul" and started naming which one
+six kinds of foul, then the rule that stops play
 
-receiving · strip · blocking · force-out · marking
+strip · blocking · force-out · marking · thrower · dangerous
 
 chapter 17 isn't one rule. it's a list, and each foul has its own definition and its own consequence
 
@@ -3173,26 +3179,131 @@ strip → say "strip", not "foul". different remedy
 blocking → box out with your body, not your arms
 force-out → only if the contact changed where you landed
 marking → non-minor contact, and you choose whether play stops
+thrower → pivot around the mark, not through it
+dangerous → no contact required. if it scared you, say so
 
-naming the right one isn't pedantry. it's the difference between a five-second conversation and a five-minute one
+then the odd one out: when a call is made, everybody freezes. where you were, not where you were heading
 
-five this week instead of seven — thrower fouls and dangerous play get recapped with next Thursday's block. blocks run by lesson number, nothing skipped
+naming the right foul isn't pedantry. it's the difference between a five-second conversation and a five-minute one
+
+that's thirty-five of seventy-five
 
 rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-07 by the daily task. Awaiting script review. Slides not yet rendered \u2014 nothing renders until the script clears the first gate.',
+      'REDRAFT v2, 2026-09-08. Round 1 note from the desk: "It shouldn\'t just cover 5 lessons. It should cover 7 lessons from Thursday all the way to Wednesday - Reel 29 to 35." Block widened from 28-32 to exactly that range. Read it, then click Approve to stamp it against the words you actually read \u2014 or Request changes with a note. Do NOT click Request changes just to park it for later reading: anything sitting at changes gets rewritten by the next daily run.',
+      'LESSON 28 IS NOW UN-RECAPPED. carousel-post-5 stopped at 27, this deck starts at 29, and nothing covers "Receiving fouls" (posted 2026-09-02). Recommendation: carousel-post-7 opens with lesson 28 and then runs 36-41 \u2014 still seven slides, still one recap per lesson. Alternatives (run this deck 28-35 at ten slides, or leave 28 out) are written up at the top of script-and-caption.md. Nothing on these slides depends on which is chosen.',
+      'Block is lessons 29-35. Reel 29 posted Thursday 2026-09-03 and reel 35 posts Wednesday 2026-09-09, the day before this deck, so all seven have run by the time it goes out. CAROUSEL-POST-7 THEREFORE STARTS AT LESSON 36, block 36-42 \u2014 unless lesson 28 is folded in as its opening slide.',
       'Weekly recap. Consumes no lesson number and introduces no new curriculum. Recap slides cite rule numbers but carry NO rule text, so there is nothing on them to paraphrase.',
-      'Block is lessons 28-32, continuing straight on from carousel-post-5\'s 22-27. CAROUSEL-POST-7 THEREFORE STARTS AT LESSON 33, block 33-39.',
-      'Five and not the 28-34 carousel-post-5 forecast: as of this drafting run lesson 33 is "Ready to post" and has not gone out, and lesson 34\'s cut only reaches the content gate today. A lesson is eligible only once its reel has actually posted \u2014 the same call carousel-post-5 made about lesson 28. Nothing is lost; 33 and 34 open the next block.',
-      'IF YOU WOULD RATHER IT RAN 28-34, request changes with a note. By 09-10 reels 33, 34 and 35 will all have posted, so a 28-34 block would not point at anything unseen on the day. It is a nine-slide redraft and the layout has room; the only cost is that carousel-post-7 then starts at 35 instead of 33.',
-      'TOTAL = 7. Recaps have now been 9, 9, 9, 8 and 7 slides; the n / TOTAL header counter, the filenames and the closing slide number all key off that constant.',
-      'The cover states five on its face, per the recap rule for a short block. The closing count is thirty-two, not thirty-five \u2014 the count names the last lesson in the block, exactly as carousel-post-5 said twenty-seven while lesson 28 had already posted.',
-      'Takeaways are each lesson\'s field line from content/lessons-2.json, verbatim, and every footer is that lesson\'s rules array unchanged.',
-      'Dry-measured 2026-09-07 from content/carousel-post-5/make_carousel.py with TOTAL = 7: cover at the standard 96px ("Week five: five" 665 of 900px, "kinds of foul" 571), all five takeaways at the standard 36px over two or three lines with fit_body never engaging, every lesson slide at max_y 1192 of 1310, cover 1210, closing 900, all max_x 990 of 990. Layout check 7 slides, 0 problems, no collisions. Longest footer is lesson 31\'s five numbers at 549 of 900px.',
-      'Two _payload() cases, both handled by the <tspan> wrapper already in carousel-post-5\'s script: slide 6\'s title wraps to a second line beginning "Contact" call, and slide 3\'s takeaway wraps to a line ending "foul" \u2014 the consequence is different and it. Verify both quotes survive in the PNGs, not just the SVGs.',
+      'TITLE CHANGED from "Week five: five kinds of foul". At 29-35 the deck is six chapter-17 foul types plus lesson 35, which is not a foul, so the old title excluded a slide it was covering. NOTE: the calendar row still carries the old title \u2014 this run cannot write calendar.md, and a queued row with the new title would insert a second row for 09-10 rather than rename the first. The Worker matches rows on folder name as well as title, so desk decisions still patch the right row. Cosmetic; tidy by hand if it bothers you.',
+      'TOTAL = 9, back to a full block after carousel-post-5\'s eight and this deck\'s own seven-slide v1. The n / TOTAL header counter, the filenames and the closing slide number all key off that constant.',
+      'The cover no longer states a count on its face \u2014 it does not need to at a full block of seven. The closing count is thirty-five, the last lesson IN THE BLOCK; lesson 36 posts the same morning as this deck, which is why it stops there.',
+      'Takeaways are each lesson\'s field line verbatim \u2014 lessons-2.json for 29-34, lessons-3.json for 35 \u2014 and every footer is that lesson\'s rules array unchanged.',
+      'Dry-measured 2026-09-08 from content/carousel-post-6/make_carousel.py (this folder\'s own copy, added this run) with TOTAL = 9: cover at the standard 96px ("Week five: six fouls" 889 of 900px \u2014 line one has 11px spare and cannot be lengthened in review; "and the freeze" 646), all seven takeaways at the standard 36px with fit_body never engaging, every lesson slide at max_y 1192 of 1310, cover 1210, closing 900, all max_x 990 of 990. Layout check 9 slides, 0 problems, no collisions. Longest footer is lesson 31\'s five numbers at 549 of 900px.',
+      'Three _payload() cases, all handled by the <tspan> wrapper carried over from carousel-post-5: slide 2\'s takeaway wraps to a line beginning "foul" \u2014 the consequence is different and it, slide 5\'s title wraps to a second line beginning "Contact" call, and slide 7\'s takeaway wraps to a line beginning "That felt dangerous" is a legitimate and. Verify all three quotes survive in the PNGs, not just the SVGs.',
       'AT RENDER TIME set slides, scenes and typeDetail in this entry. They are null/absent while the deck is unrendered because build_desk.py check_slides() verifies every slide stem against a file on disk and fails the whole build if one is missing \u2014 the first version of this entry named all seven PNGs before they existed, broke sync.bat at step 2 on 2026-09-07, and left the desk showing no cuts for reels 34 and 35.',
-      'Instagram caption 1,669 characters including hashtags (76% of the 2,200 limit); TikTok 942 of 4,000. Both plain text, no markdown. check_caption.py exits 0.'
+      'Instagram caption 1,796 characters including hashtags (82% of the 2,200 limit); TikTok 1,034 of 4,000. Both plain text, no markdown. check_caption.py exits 0.',
+      'Not rendered this run, by rule: a redraft clears the script gate before anything is built. Time-sensitive \u2014 queued for 09-10, so it needs approving before tomorrow\'s run in order to be built in time.'
+    ]
+  },
+  {
+    id: 'reel-37',
+    date: '2026-09-11',
+    title: `"It didn't affect the play"`,
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 37,
+    duration: '~30s script',
+    rules: ['16.3', '16.3.1', '16.3.2'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-08'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-37',
+    source: 'content/reel-37/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Restarts)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', '"It didn\'t affect the play" \u00b7 kicker BEGINNER \u00b7 LESSON 37 / 75'],
+      ['2', '#1 BOTH TEAMS AGREE', '"Changed nothing? Then it stands." \u00b7 footer cites 16.3'],
+      ['3', 'Rules detail', 'Verbatim 16.3'],
+      ['4', '#2 GOAL, OR RESET', '"The goal stays. Otherwise, check it in." \u00b7 footer cites 16.3.1 \u00b7 16.3.2'],
+      ['5', 'Rules detail', 'Verbatim 16.3.1 + 16.3.2, two blocks'],
+      ['6', 'FIELD TIP', '"Ask the question out loud."'],
+      ['7', 'Closing', '"Lesson 37 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `There is one rule in the book that outranks every other rule in the book. It is four lines long, and most people never use it.`,
+      explanation: `If the players involved from both teams agree that the event or the call didn't affect the outcome, the play stands. The rulebook then says it plainly: this rule is not superseded by any other rule. It doesn't matter when the call came, and it doesn't matter whether the call was right.`,
+      example: `You call travel. The pass went up anyway and your team-mate caught it, and everybody involved can see the travel made no difference. Say so, and the play stands. If it had been a goal, the goal stands. If it wasn't, anyone who lost ground because of the call gets it back, and you restart with a check. Nobody rewinds thirty seconds of good play to settle something that changed nothing. Two things to watch: it takes agreement from both teams, not one person deciding, and it cuts both ways \u2014 you can use it to keep a goal, and to give one up.`,
+      cta: `Lesson 37 of 75 \u2014 new lesson daily.`
+    },
+    ig: `There is one rule in the book that outranks every other rule in the book. It is four lines long, and most people never use it.
+
+Somebody calls travel. The pass went up anyway, your team-mate caught it, and everybody involved can see the travel made no difference to any of it. What now?
+
+"Regardless of when any call is made, if the players involved from both teams agree that the event or call did not affect the outcome, the play stands. This rule is not superseded by any other rule."
+
+Read that second sentence again. The rulebook almost never talks about itself like that. Agreement between the players involved beats the rest of the book — it does not matter when the call came, and it does not matter whether the call was correct.
+
+Then two lines for what happens next.
+
+"If the play resulted in a goal, the goal stands."
+
+"If the play did not result in a goal the affected players may make up any positional disadvantage caused by the event or call and restart play with a check."
+
+So a goal stays a goal. Otherwise anyone who lost ground because of the event or the call gets it back, and play restarts with a check. Nobody rewinds thirty seconds of good play to settle something that changed nothing.
+
+Two things worth noticing. It takes agreement from the players involved on both teams — one person announcing it did not matter is not this rule. And it cuts both ways: you can use it to keep a goal you scored, and to give one up.
+
+The practical version is a question you say out loud. "Did that affect it?" — "No, play on." That exchange should be the most common conversation you have on the field.
+
+Lesson 37 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (16.3, 16.3.1, 16.3.2). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `one rule in the book outranks every other rule in the book 🥏
+
+it's four lines long and most people never use it
+
+"Regardless of when any call is made, if the players involved from both teams agree that the event or call did not affect the outcome, the play stands. This rule is not superseded by any other rule."
+
+read that second sentence again. the rulebook almost never talks about itself like that
+
+then what happens next:
+
+"If the play resulted in a goal, the goal stands."
+
+"If the play did not result in a goal the affected players may make up any positional disadvantage caused by the event or call and restart play with a check."
+
+goal stays a goal. otherwise anyone who lost ground gets it back and you check it in
+
+two catches:
+→ it takes agreement from BOTH teams. one person deciding it didn't matter isn't this rule
+→ it cuts both ways. keep a goal, or give one up
+
+the practical version is a question you say out loud. "Did that affect it?" — "No, play on."
+
+lesson 37 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (16.3, 16.3.1, 16.3.2) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-08 by the daily task. Awaiting script review. Video not yet rendered \u2014 nothing renders until the script clears the first gate.',
+      'Seven scenes, the two-pair shape (same as reel 34). Two rule cards, so two topic/rules pairs. TOTAL = 7 \u2014 start from reel-36/render_v3.py and change the constant.',
+      'Closes the chapter-16 run: reel 35 the freeze, reel 36 continuation, reel 37 the agreement that overrides both. It is the only one of the three that overrides the rest of the book on its face.',
+      'No stem is carded and none needs to be. All three rules are complete sentences, so every card is an ordinary block \u2014 the reel-35 shape, with none of the judgement calls reels 34 and 36 needed.',
+      '16.3.1 and 16.3.2 share one card. 16.3.1 is ten words; alone it would be the emptiest card the account has shipped. Paired, the card measures 740 of 1310.',
+      'DO NOT let one player invoke this. The rule needs the players INVOLVED from BOTH teams to agree. "It didn\'t affect the play" said by the person who benefits is not an application of 16.3, and it is the misuse this reel is written against.',
+      'Do not define "involved" \u2014 the rulebook does not, here. Do not explain the check (10.6); 16.3.2 names it and lesson 38 teaches it. Do not re-teach continuation; scene 2 says "regardless of when the call came" because 16.3 says exactly that.',
+      'Dry-measured 2026-09-08 against content/reel-35/render_v3.py with TOTAL = 7, by emitting the SVGs and running check_layout.py: both kickers at the standard 34px (558 and 477 of the 900px column, fit_kicker unengaged), scene 2\'s body auto-fits to 33px over seven lines while scene 4 stays at 36px over six, both main scenes at max_y 1192 of 1310, detail cards at 554 and 740, field tip 1062, cover 1210, closing 900, all max_x 990 of 990. Layout check 7 scenes, 0 problems, no collisions. Projected 30.0s.',
+      'THREE _payload() cases, all handled by the <tspan> wrapper already in reel-35/render_v3.py: both cover title lines (the first begins with a double quote, the second ends with one) and the field tip\'s first wrapped line. Verify all three survive in the PNGs at render time \u2014 this is the collision that cost reel-21 and carousel-post-5 a round.',
+      'Instagram caption 1,872 characters including hashtags (85% of the 2,200 limit); TikTok 1,181 of 4,000. Both plain text, no markdown. check_caption.py exits 0.',
+      'Curriculum position: lesson 37 is index 2 of content/lessons-3.json, the next unused lesson after 36. It covers 2026-09-11, which was the only bare date in the tomorrow-through-tomorrow+2 window.'
     ]
   }
 ];
