@@ -2129,10 +2129,10 @@
       "updatedAt": "2026-09-07T13:00:24.762Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-07T07:00:00Z"
+      "updatedAt": "2026-09-08T07:00:00Z"
     },
     "scriptRevisions": [
       {
@@ -2152,10 +2152,20 @@
           "at": "2026-09-07T13:00:24.762Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-08",
+        "duration": "29.5s",
+        "file": "reel36-continuation.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render from the script approved on the desk 2026-09-07T13:00Z against v1. Nine scenes, the three-pair shape; exact CFR via encode.py, 29.53s / 886 frames at 30fps against a 30.0s projection. 16.2 carded as the block lead with 16.2.3 sub-numbered beneath it - not a departure, since 16.2 is in the lesson's own rules array and is cited on the scene-2 footer, unlike reel 34's 1.6; 16.2.4 is a stem and was deliberately not carded, because 16.2.4.1 is a complete sentence. All five rule quotations verified character-for-character against rules.json in the emitted SVGs. Every dry measurement in the approved script held exactly: all three kickers at the standard 34px (fit_kicker unengaged), scene 2's body auto-fit to 33px over seven lines while scenes 4 and 6 stayed at 36px over six, all three main scenes at max_y 1192 of 1310, detail cards at 522, 604 and 890, field tip 1012, cover 1210, closing 900, all max_x 990 of 990. Layout check 9 scenes, 0 problems, no collisions. check_dull.py: longest sustained dull-orange run 0.20s (6 frames) in band y=520-578 at t=9.17s against a 0.45s threshold. No _payload() case anywhere, as the script predicted - confirmed against the emitted SVGs, not assumed."
+      }
+    ]
   },
   "carousel-post-6": {
-    "scriptRev": 1,
+    "scriptRev": 2,
     "script": {
       "status": "changes",
       "note": "It shouldn't just cover 5 lessons. It should cover 7 lessons from Thursday all the way to Wednesday - Reel 29 to 35.",
@@ -2175,6 +2185,12 @@
         "draftedAt": "2026-09-07",
         "file": "script-and-caption.md",
         "changed": "Initial draft of the fifth weekly recap: lessons 28-32, seven slides, rule numbers only and no rule text. Five rather than the 28-34 carousel-post-5 forecast, because lesson 33's reel is Ready to post but has not gone out and lesson 34's cut only reaches the content gate today - a lesson is eligible only once its reel has actually posted. 33 and 34 open carousel-post-7, block 33-39. Dry-measured clean; IG caption 1,669 of 2,200 including hashtags."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-08",
+        "file": "script-and-caption.md",
+        "changed": "Redraft against the desk's round-1 note of 2026-09-07 (\"It shouldn't just cover 5 lessons. It should cover 7 lessons from Thursday all the way to Wednesday - Reel 29 to 35.\"). Block widened from lessons 28-32 to exactly 29-35, seven lesson slides, TOTAL 7 -> 9. Title changed from \"Week five: five kinds of foul\" to \"Week five: six fouls and the freeze\", because at 29-35 the deck is six chapter-17 foul types plus lesson 35, which is not a foul, and the old title excluded a slide it covered. Cover subhead and closing count follow the block (twenty-eight -> thirty-five). Both captions rewritten around the new seven; Instagram 1,669 -> 1,796 characters including hashtags, 82% of the limit, check_caption.py exits 0. make_carousel.py added to the folder, dry-measured at TOTAL = 9: 9 slides, 0 layout problems, no collisions, all takeaways at the standard 36px with fit_body unengaged, cover line one at 889 of 900px. Takeaways, footers, hashtags and attribution unchanged. FLAGGED, not fixed: widening the far end also moved the near end, so lesson 28 (\"Receiving fouls\") now falls between carousel-post-5's block and this one and is un-recapped; the recommendation is that carousel-post-7 opens with it and then runs 36-41. Not rendered this run - a redraft clears the script gate first."
       }
     ],
     "history": {
@@ -2195,5 +2211,28 @@
         }
       ]
     }
+  },
+  "reel-37": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-08T07:00:00Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-08T07:00:00Z"
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-08",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, \"It didn't affect the play\": 16.3, 16.3.1, 16.3.2. Seven scenes, two-pair shape. No stem carded and none needed - all three rules are complete sentences, the first reel in four days with no stem judgement to make. 16.3.1 and 16.3.2 share one card because 16.3.1 is ten words. Dry-measured clean at 30.0s projected, 7 scenes, 0 layout problems, no collisions; IG caption 1,872 of 2,200 including hashtags. Covers 2026-09-11, the only bare date in the tomorrow-through-tomorrow+2 window."
+      }
+    ]
   }
 }
