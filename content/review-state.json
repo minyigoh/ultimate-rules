@@ -2237,10 +2237,11 @@
   "reel-37": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-08T07:00:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-08T10:17:00.708Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2255,6 +2256,17 @@
         "file": "script-and-caption.md",
         "changed": "Initial draft, \"It didn't affect the play\": 16.3, 16.3.1, 16.3.2. Seven scenes, two-pair shape. No stem carded and none needed - all three rules are complete sentences, the first reel in four days with no stem judgement to make. 16.3.1 and 16.3.2 share one card because 16.3.1 is ten words. Dry-measured clean at 30.0s projected, 7 scenes, 0 layout problems, no collisions; IG caption 1,872 of 2,200 including hashtags. Covers 2026-09-11, the only bare date in the tomorrow-through-tomorrow+2 window."
       }
-    ]
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-08T10:17:00.708Z"
+        }
+      ]
+    }
   }
 }
