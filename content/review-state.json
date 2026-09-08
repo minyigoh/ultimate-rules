@@ -2134,10 +2134,11 @@
       "updatedAt": "2026-09-07T13:00:24.762Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-08T07:00:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-08T10:07:35.406Z"
     },
     "scriptRevisions": [
       {
@@ -2155,6 +2156,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-07T13:00:24.762Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-08T10:07:35.406Z"
         }
       ]
     },
