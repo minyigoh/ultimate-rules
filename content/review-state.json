@@ -2194,10 +2194,11 @@
       "updatedAt": "2026-09-09T14:20:50.112Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-09T15:05:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-09T15:31:42.028Z"
     },
     "scriptRevisions": [
       {
@@ -2235,6 +2236,15 @@
           "note": "It shouldn't just cover 5 lessons. It should cover 7 lessons from Thursday all the way to Wednesday - Reel 29 to 35.",
           "tags": [],
           "at": "2026-09-09T14:20:50.112Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-09T15:31:42.028Z"
         }
       ]
     },
