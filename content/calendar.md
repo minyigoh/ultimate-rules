@@ -41,7 +41,7 @@
 | 2026-09-06 | Marking fouls and the "Contact" call | Reel | Posted | 2026-09-06 | — |
 | 2026-09-07 | Fouls committed by the thrower | Reel | Posted | 2026-09-07 | — |
 | 2026-09-08 | Dangerous play | Reel | Posted | 2026-09-08 | — |
-| 2026-09-09 | When a call is made, everybody freezes | Reel | Ready to post | — | — |
+| 2026-09-09 | When a call is made, everybody freezes | Reel | Posted | 2026-09-09 | — |
 | 2026-09-10 | Continuation: when the disc is already in the air | Reel | Ready to post | — | — |
 | 2026-09-10 | carousel-post-6 — "Week five: five kinds of foul" | Carousel (7 slides) | Script approved | — | — |
 | 2026-09-11 | "It didn't affect the play" | Reel | Script approved | — | — |

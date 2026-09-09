@@ -2122,7 +2122,12 @@
         "builtFromScriptRev": 3,
         "changed": "Initial render from the script approved on the desk 2026-09-06T06:30Z against v3 (v2 was the caption trim, v3 the markdown strip; neither changed anything on screen). Nine scenes, the three-pair shape; exact CFR via encode.py, 29.53s / 886 frames at 30fps against a 30.0s projection. 16.1, 15.7, and 10.2.1 + 10.2.3 as two ordinary blocks, all verified character-for-character against rules.json in the emitted SVGs. 10.2 is a heading stem and was deliberately not carded - no fragment problem arises, since 10.2.1 and 10.2.3 are complete sentences and 10.2.3's 'that location' resolves against 10.2.1 directly above it. Every layout prediction held where it mattered: all three kickers at the standard 34px (fit_kicker unengaged), all three bodies auto-fit to 33px over seven lines with the last baseline at 1088 against the 1090 limit, all three main scenes at max_y 1192 of 1310, field tip 1062, cover 1210, closing 900, all max_x 990 of 990. One deviation, in the safe direction: the approved script predicted detail cards at 666, 866 and 802; they render at 554, 754 and 690, each about 112px emptier, because those three numbers were estimated at draft time rather than emitted. Nothing was split or trimmed and no copy changed. Layout check 9 scenes, 0 problems, no collisions. check_dull.py: longest sustained dull-orange run 0.20s (6 frames) in band y=520-578 at t=9.17s against a 0.45s threshold. No _payload() case anywhere, as the script predicted - confirmed against the emitted SVGs."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-09",
+      "updatedAt": "2026-09-09T00:05:01.680Z"
+    }
   },
   "reel-36": {
     "scriptRev": 1,
