@@ -3305,5 +3305,123 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.3, 16.3.1, 16.3.2) — full br
       'Instagram caption 1,872 characters including hashtags (85% of the 2,200 limit); TikTok 1,181 of 4,000. Both plain text, no markdown. check_caption.py exits 0.',
       'Curriculum position: lesson 37 is index 2 of content/lessons-3.json, the next unused lesson after 36. It covers 2026-09-11, which was the only bare date in the tomorrow-through-tomorrow+2 window.'
     ]
+  },
+  {
+    id: 'reel-38',
+    date: '2026-09-12',
+    title: 'The check: restarting play',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 38,
+    duration: '~30s script',
+    rules: ['10.6.1', '10.6.1.1', '10.6.1.2', '10.6.2', '10.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-09'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-38',
+    source: 'content/reel-38/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Restarts)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'The check: restarting play · kicker BEGINNER · LESSON 38 / 75'],
+      ['2', '#1 WHO TOUCHES IT IN', '"Disc in hand? Somebody has to touch it." · footer cites 10.6.1 · 10.6.1.1 · 10.6.1.2'],
+      ['3', 'Rules detail', 'Verbatim 10.6.1 as block lead + 10.6.1.1 + 10.6.1.2'],
+      ['4', '#2 DISC ON THE GROUND', '"Nearest defender calls it in." · footer cites 10.6.2'],
+      ['5', 'Rules detail', 'Verbatim 10.6.2'],
+      ['6', '#3 CHECK BEFORE THE CHECK', '"Two people confirm before anyone touches anything." · footer cites 10.4'],
+      ['7', 'Rules detail', 'Verbatim 10.4'],
+      ['8', 'FIELD TIP', '"Look around before you check it in."'],
+      ['9', 'Closing', '"Lesson 38 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Play stopped. Everybody is standing still. Now what? There is a procedure, it takes about three seconds, and almost nobody has read it.`,
+      explanation: `Restarting is called a check, and who does what depends on where the disc is. Thrower holding it with a defender in reach: that defender touches the disc. Nobody in reach: the thrower touches it to the ground and calls it in. Disc lying on the ground: the nearest defender calls it in and nobody touches anything.`,
+      example: `You get fouled, play stops, and your mark is three metres away and walking back. You do not have to stand there holding the disc waiting for them. Touch it to the ground, call it in, and you are live. But before you do — the rule says the person checking it in and the nearest opponent each confirm their own team-mates are ready. Your own team, not theirs. Check it in while your own defence is still jogging back and you have just conceded the restart.`,
+      cta: `Lesson 38 of 75 — new lesson daily.`
+    },
+    ig: `Play just stopped. Everyone is standing still. Now what?
+
+The restart is called a check, and there are about three seconds of procedure in it that prevent most restart arguments. Who does what depends on where the disc is.
+
+If the thrower is holding it:
+
+"when the thrower has the disc:"
+
+"if there is a defender within reach, the defender must touch the disc."
+
+"if there is not a defender within reach, the thrower must touch the disc to the ground and may call “Disc In”."
+
+So a defender in reach touches the disc. No defender in reach, and you touch it to the ground yourself and call it in. You do not stand there waiting for an opponent who is not coming.
+
+If the disc is on the ground instead:
+
+"when the disc is on the ground, the defender nearest to the disc must call “Disc In”."
+
+Nobody touches anything. The call is the restart, and it belongs to the defence.
+
+And before any of that, one line most people have never read:
+
+"Prior to the check the person checking the disc in, and the nearest opposition player, must verify that their own team-mates are ready, and positioned as per 10.2."
+
+Each of those two people checks their own team. Not the other one's. So "are you ready?" is not a courtesy. It is a rule, and it is why a check is more than somebody tapping a disc.
+
+The practical version: actually look around before you check it in. Checking in while your own team is still jogging back is how a defence concedes before it is set.
+
+Lesson 38 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `play just stopped. everyone's standing still. now what? 🥏
+
+the restart is called a check. who does what depends on where the disc is
+
+thrower is holding it:
+
+"when the thrower has the disc:"
+
+"if there is a defender within reach, the defender must touch the disc."
+
+"if there is not a defender within reach, the thrower must touch the disc to the ground and may call “Disc In”."
+
+→ defender in reach taps the disc
+→ nobody in reach? you touch it to the ground and call it in yourself. don't wait for an opponent who isn't coming
+
+disc on the ground instead:
+
+"when the disc is on the ground, the defender nearest to the disc must call “Disc In”."
+
+nobody touches anything. the call IS the restart, and it's the defence's to make
+
+and the line nobody reads:
+
+"Prior to the check the person checking the disc in, and the nearest opposition player, must verify that their own team-mates are ready, and positioned as per 10.2."
+
+each of those two checks their OWN team. not the other one's
+
+so look around before you check it in. checking in while your own team is still jogging back is how a defence concedes before it's set
+
+lesson 38 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-09 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'NOT DRY-MEASURED. The render sandbox failed to mount on 2026-09-09 (three identical Plan9 errors), so check_layout.py, check_caption.py and node --check could not be run. Every layout number in the .md is an estimate, not an emitted measurement — the first script since reel 30 for which that is true.',
+      'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36). Three rule cards, so three topic/rules pairs. TOTAL = 9 — reel-36/render_v3.py already has it.',
+      '10.6.1 is carded as a block lead and that is NOT a departure — it is in the lesson\'s rules array, exactly like reel 36\'s 16.2 and unlike reel 34\'s 1.6. 10.6.1.1 and 10.6.1.2 are conditional limbs that cannot stand without it.',
+      '10.6 ("To restart play with a check:") is a stem and is NOT carded — not in the lesson\'s rules array. The cover title supplies the frame instead. Nothing on screen is broader than what is cited.',
+      'SCENE 3 IS THE CARD TO WATCH. Three blocks plus four number lines, denser than any detail card shipped so far; the nearest precedent is reel-36 scene 7 at 890 of 1310. If it collides with the citation footer, split 10.6.1.2 onto its own card and drop the field tip to hold the count at nine — do not reword approved copy.',
+      '10.7 is named in the field tip\'s prose but never carded or cited. It is the lesson\'s own quiz answer, and it is not in the rules array — same call as reel 36 made on 16.2.1/16.2.2. If too broad, cut the field tip\'s last sentence; nothing else moves.',
+      'DO NOT soften the ground touch. 10.6.1.2 says the thrower MUST touch the disc to the ground and MAY call "Disc In". The touch is mandatory, only the call is permissive. Reversing that is the misreading this reel exists to prevent.',
+      '10.4 is two people each checking their OWN side, not one person checking everybody. "Make sure everyone\'s ready" loses the whole rule. Keep the curly quotes in “Disc In” — they are the rulebook\'s, and paraphrasing it to "call it in" on a card is caption prose, not card text.',
+      'LIKELY _payload() cases on scene 3: two of the three blocks end on a double quote and the wrapped line carrying “Disc In”. may end a line. Verify in the PNGs, not the SVGs — this is the collision that cost reel-21 and carousel-post-5 a round.',
+      'Instagram caption 1,731 characters including hashtags (79% of the 2,200 limit); TikTok 1,251 of 4,000. Both plain text, no markdown. Measured in UTF-16 units on 2026-09-09 outside the sandbox; re-run check_caption.py at sync time, where build_desk.py runs it as a backstop.',
+      'Curriculum position: lesson 38 is index 3 of content/lessons-3.json, the next unused lesson after 37. It covers 2026-09-12, the only bare date in the tomorrow-through-tomorrow+2 window.'
+    ]
   }
 ];

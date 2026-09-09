@@ -1,7 +1,40 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
-  "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "calendar_rows": [
+    {
+      "date": "2026-09-12",
+      "post": "The check: restarting play",
+      "type": "Reel",
+      "status": "Pending review",
+      "posted": "—",
+      "performance": "—"
+    }
+  ],
+  "review_state": {
+    "reel-38": {
+      "scriptRev": 1,
+      "script": {
+        "status": "pending",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-09T07:00:00Z"
+      },
+      "content": {
+        "status": "awaiting-render",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-09T07:00:00Z"
+      },
+      "scriptRevisions": [
+        {
+          "v": 1,
+          "draftedAt": "2026-09-09",
+          "file": "script-and-caption.md",
+          "changed": "Initial draft, the check and how play restarts: 10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4. Nine scenes, three-pair shape. 10.6.1 carded as a block lead, which is not a departure - it is in the lesson's rules array, like reel 36's 16.2. NOT DRY-MEASURED: the render sandbox failed to mount this run, so check_layout.py could not be run and every layout number is an estimate. IG caption measured at 1,731 of 2,200 including hashtags, in UTF-16 units, outside the sandbox."
+        }
+      ]
+    }
+  },
+  "generated": "2026-09-09T07:00:00Z",
+  "by": "daily-reel-render"
 }
