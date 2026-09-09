@@ -1,7 +1,27 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "review_state": {
+    "carousel-post-6": {
+      "builtFromScriptRev": 2,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-09T15:05:00Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-09",
+          "duration": "9 slides",
+          "file": "01_cover.png … 09_closing.png",
+          "builtFromScriptRev": 2,
+          "changed": "Initial render of the fifth weekly recap, from the approved v2 script: lessons 29-35, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways verified byte-identical against each lesson's field line (lessons-2.json for 29-34, lessons-3.json for 35) and every footer against that lesson's rules array; all 23 cited numbers resolve in rules.json. Layout check 9 slides, 0 problems, no collisions, reproducing the 2026-09-08 dry measure exactly. All three _payload() quote pairs confirmed present in the PNGs. Rasterised by the local Chromium, not ImageMagick: the sandbox would not mount, and the substitution was validated by re-rendering carousel-post-5 and diffing against its shipped PNGs (no layout shift, antialiasing only). Arial stands in for Liberation Sans and is metric-compatible with it."
+        }
+      ]
+    }
+  },
+  "generated": "2026-09-09T15:05:00Z",
+  "by": "interactive session (sandbox unavailable)"
 }

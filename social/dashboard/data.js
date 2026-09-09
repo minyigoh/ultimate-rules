@@ -3123,17 +3123,38 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.2, 16.2.3, 16.2.4.1, 16.2.4.2,
     difficulty: 'Mixed',
     lesson: null,
     rules: ['17.3.1', '17.3.2', '17.4.1', '12.9', '12.5', '17.5.1', '17.5.1.1', '17.5.1.2', '17.5.2', '17.5.3', '17.6.1', '17.6.1.1', '17.6.1.2', '17.6.1.3', '17.7.1', '17.7.2', '17.1.1', '1.6.1', '1.6.2', '16.1', '15.7', '10.2.1', '10.2.3'],
+    typeDetail: '2250×2812 · 9 slides',
     review: {
       script:  {status: 'pending', on: '2026-09-08'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-09'}
     },
     postedDate: null,
     folder: 'carousel-post-6',
     source: 'content/carousel-post-6/script-and-caption.md',
     sourceLesson: 'Weekly recap \u2014 no lesson consumed; recaps lessons 29-35',
     video: null,
-    slides: null,
-    scenes: null,
+    slides: [
+      ['01_cover', 'Cover — THIS WEEK'],
+      ['02_lesson29_strip_fouls', 'Lesson 29 — Strip fouls'],
+      ['03_lesson30_blocking_fouls', 'Lesson 30 — Blocking fouls'],
+      ['04_lesson31_force_out', 'Lesson 31 — Force-out fouls'],
+      ['05_lesson32_marking_contact', 'Lesson 32 — Marking fouls and the "Contact" call'],
+      ['06_lesson33_thrower_fouls', 'Lesson 33 — Fouls committed by the thrower'],
+      ['07_lesson34_dangerous_play', 'Lesson 34 — Dangerous play'],
+      ['08_lesson35_everybody_freezes', 'Lesson 35 — When a call is made, everybody freezes'],
+      ['09_closing', 'Closing — "That\'s thirty-five of seventy-five."']
+    ],
+    scenes: [
+      ['1', 'Cover', 'kicker THIS WEEK · "Week five: six fouls and the freeze" · subhead "This week\'s seven lessons — everything the daily reels covered, 3–9 September." · SWIPE →'],
+      ['2', 'LESSON 29', '"Strip fouls" · footer 17.3.1 · 17.3.2'],
+      ['3', 'LESSON 30', '"Blocking fouls" · footer 17.4.1 · 12.9 · 12.5'],
+      ['4', 'LESSON 31', '"Force-out fouls" · footer 17.5.1 · 17.5.1.1 · 17.5.1.2 · 17.5.2 · 17.5.3'],
+      ['5', 'LESSON 32', '"Marking fouls and the "Contact" call" · footer 17.6.1 · 17.6.1.1 · 17.6.1.2 · 17.6.1.3'],
+      ['6', 'LESSON 33', '"Fouls committed by the thrower" · footer 17.7.1 · 17.7.2'],
+      ['7', 'LESSON 34', '"Dangerous play" · footer 17.1.1 · 1.6.1 · 1.6.2'],
+      ['8', 'LESSON 35', '"When a call is made, everybody freezes" · footer 16.1 · 15.7 · 10.2.1 · 10.2.3'],
+      ['9', 'Closing', '"That\'s thirty-five of seventy-five. More next Thursday." · Follow @learn.ultimatefrisbee']
+    ],
     script: {
       hook: `Seven lessons this week. Six of them were the word foul, and the rulebook does not think it is one word.`,
       explanation: `Chapter seventeen is a list. Strip, blocking, force-out, marking, thrower, dangerous \u2014 each with its own definition and its own consequence. A strip and a force-out do not resolve the same way, which is why the name matters more than the volume.`,
@@ -3201,9 +3222,8 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Takeaways are each lesson\'s field line verbatim \u2014 lessons-2.json for 29-34, lessons-3.json for 35 \u2014 and every footer is that lesson\'s rules array unchanged.',
       'Dry-measured 2026-09-08 from content/carousel-post-6/make_carousel.py (this folder\'s own copy, added this run) with TOTAL = 9: cover at the standard 96px ("Week five: six fouls" 889 of 900px \u2014 line one has 11px spare and cannot be lengthened in review; "and the freeze" 646), all seven takeaways at the standard 36px with fit_body never engaging, every lesson slide at max_y 1192 of 1310, cover 1210, closing 900, all max_x 990 of 990. Layout check 9 slides, 0 problems, no collisions. Longest footer is lesson 31\'s five numbers at 549 of 900px.',
       'Three _payload() cases, all handled by the <tspan> wrapper carried over from carousel-post-5: slide 2\'s takeaway wraps to a line beginning "foul" \u2014 the consequence is different and it, slide 5\'s title wraps to a second line beginning "Contact" call, and slide 7\'s takeaway wraps to a line beginning "That felt dangerous" is a legitimate and. Verify all three quotes survive in the PNGs, not just the SVGs.',
-      'AT RENDER TIME set slides, scenes and typeDetail in this entry. They are null/absent while the deck is unrendered because build_desk.py check_slides() verifies every slide stem against a file on disk and fails the whole build if one is missing \u2014 the first version of this entry named all seven PNGs before they existed, broke sync.bat at step 2 on 2026-09-07, and left the desk showing no cuts for reels 34 and 35.',
       'Instagram caption 1,796 characters including hashtags (82% of the 2,200 limit); TikTok 1,034 of 4,000. Both plain text, no markdown. check_caption.py exits 0.',
-      'Not rendered this run, by rule: a redraft clears the script gate before anything is built. Time-sensitive \u2014 queued for 09-10, so it needs approving before tomorrow\'s run in order to be built in time.'
+      'RENDERED 2026-09-09 outside the sandbox. The Linux workspace would not mount this run, so the documented ImageMagick step was unavailable and the nine slides were rasterised from the same unmodified SVGs by the local Chromium instead, at the same 2250x2812. Validated before use by re-rendering carousel-post-5\'s shipped SVGs the same way and diffing against its shipped PNGs: zero row shift, at most one pixel of column shift, mean absolute difference 2.1-2.8 of 255, i.e. glyph antialiasing only and no layout movement. Liberation Sans is not installed on Windows, so Arial carries the text; the two are metric-compatible, which is why the advance widths and the layout numbers are unchanged. check_layout reproduces the 2026-09-08 dry measure exactly (cover 1210, seven lesson slides 1192, closing 900, all max_x 990 of 990, 0 problems, no collisions), all three _payload() quote pairs were confirmed present in the PNGs rather than only the SVGs, and every takeaway and footer was re-verified byte-identical against lessons-2.json, lessons-3.json and rules.json.'
     ]
   },
   {
