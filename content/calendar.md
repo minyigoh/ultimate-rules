@@ -45,6 +45,7 @@
 | 2026-09-10 | Continuation: when the disc is already in the air | Reel | Ready to post | — | — |
 | 2026-09-10 | carousel-post-6 — "Week five: five kinds of foul" | Carousel (7 slides) | Script approved | — | — |
 | 2026-09-11 | "It didn't affect the play" | Reel | Script approved | — | — |
+| 2026-09-12 | The check: restarting play | Reel | Pending review | — | — |
 
 ## Status legend
 
