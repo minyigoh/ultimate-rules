@@ -29,6 +29,15 @@ Cowork chat. Measured on 2026-08-10:
 Drafting copy needs none of that, so **Step 1 and Step 2 always work here.**
 Only publishing (Step 8) is blocked.
 
+**If the sandbox will not mount at all**, which happened on three consecutive
+days from 2026-09-08, Steps 4 and 5 can be run on Min-Yi's Windows machine
+instead: `python tools\win_render.py <post-id>`. It builds, gates and installs
+the assets, and stops there — Step 7 and Step 8 are still done by hand, because
+the `changed` line is a judgement call. Read `tools/WINDOWS_FALLBACK.md` before
+using it; it explains the three substitutions it makes and how each was measured
+against shipped output. It is a fallback, not an alternative: this sandbox is
+the environment every gate was written against.
+
 On 2026-08-08–10 these limits silently produced three days of wrong output: the
 run read a checkout frozen days earlier, found nothing to do, and reported a
 clean queue while three rejected reels sat unbuilt. Everything below exists to

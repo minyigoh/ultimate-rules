@@ -17,6 +17,7 @@ Overlap is measured on real ink boxes (PIL getbbox with a baseline anchor),
 expanded by half the stroke width, so it catches exactly that case.
 """
 import glob
+import os
 import re
 import sys
 
@@ -30,6 +31,21 @@ FONTS = {
     "bold": "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
     "normal": "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
 }
+
+# Liberation Sans is not installed on Windows, where tools/win_render.py runs the
+# fallback build. Arial is metric-compatible with it -- identical advance widths --
+# so every measurement below is the one the sandbox would have produced. Checked
+# on reel-37 and carousel-post-6 on 2026-09-10: both reproduced the sandbox's
+# dry-measure numbers to the pixel.
+_WINDOWS_EQUIVALENT = {
+    "bold": "C:/Windows/Fonts/arialbd.ttf",
+    "normal": "C:/Windows/Fonts/arial.ttf",
+}
+if not os.path.isfile(FONTS["bold"]):
+    for _w, _p in _WINDOWS_EQUIVALENT.items():
+        if os.path.isfile(_p):
+            FONTS[_w] = _p
+
 _cache = {}
 
 

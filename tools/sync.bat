@@ -115,6 +115,14 @@ if exist ".git\rebase-apply" goto :midrebase
   %GIT% add "content/carousel-post-*/*.py"
   %GIT% add "content/carousel-post-*/script-feedback.md"
   %GIT% add docs/desk tools/sync.bat tools/finish_rebase.bat tools/apply_additions.py .gitignore
+  REM The gates and the Windows fallback builder. Named individually above only
+  REM for sync.bat's own helpers; everything else in tools/ was unstaged, so a
+  REM fix to check_layout.py or check_caption.py made during a run was committed
+  REM nowhere. Found on 2026-09-10 when tools/win_render.py was added and would
+  REM not have reached GitHub. Its own line, per the rule above.
+  %GIT% add "tools/*.py"
+  REM tools/WINDOWS_FALLBACK.md, and any operator doc added beside it.
+  %GIT% add "tools/*.md"
   REM rearm_queue.bat and the drained-batch archive it restores from. Own
   REM line, per the rule above: on the first run after this was added the
   REM archive does not exist yet, and a pathspec matching nothing is fatal.
