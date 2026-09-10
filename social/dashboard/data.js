@@ -3234,17 +3234,18 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 37,
-    duration: '~30s script',
+    duration: '~30s script / 29.6s cut',
+    typeDetail: '1080\u00d71920 \u00b7 29.6s \u00b7 30fps',
     rules: ['16.3', '16.3.1', '16.3.2'],
     review: {
       script:  {status: 'pending', on: '2026-09-08'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-10'}
     },
     postedDate: null,
     folder: 'reel-37',
     source: 'content/reel-37/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Restarts)',
-    video: null,
+    video: 'reel37-didnt-affect-the-play.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', '"It didn\'t affect the play" \u00b7 kicker BEGINNER \u00b7 LESSON 37 / 75'],
@@ -3313,7 +3314,6 @@ lesson 37 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (16.3, 16.3.1, 16.3.2) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-08 by the daily task. Awaiting script review. Video not yet rendered \u2014 nothing renders until the script clears the first gate.',
       'Seven scenes, the two-pair shape (same as reel 34). Two rule cards, so two topic/rules pairs. TOTAL = 7 \u2014 start from reel-36/render_v3.py and change the constant.',
       'Closes the chapter-16 run: reel 35 the freeze, reel 36 continuation, reel 37 the agreement that overrides both. It is the only one of the three that overrides the rest of the book on its face.',
       'No stem is carded and none needs to be. All three rules are complete sentences, so every card is an ordinary block \u2014 the reel-35 shape, with none of the judgement calls reels 34 and 36 needed.',
@@ -3323,7 +3323,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.3, 16.3.1, 16.3.2) — full br
       'Dry-measured 2026-09-08 against content/reel-35/render_v3.py with TOTAL = 7, by emitting the SVGs and running check_layout.py: both kickers at the standard 34px (558 and 477 of the 900px column, fit_kicker unengaged), scene 2\'s body auto-fits to 33px over seven lines while scene 4 stays at 36px over six, both main scenes at max_y 1192 of 1310, detail cards at 554 and 740, field tip 1062, cover 1210, closing 900, all max_x 990 of 990. Layout check 7 scenes, 0 problems, no collisions. Projected 30.0s.',
       'THREE _payload() cases, all handled by the <tspan> wrapper already in reel-35/render_v3.py: both cover title lines (the first begins with a double quote, the second ends with one) and the field tip\'s first wrapped line. Verify all three survive in the PNGs at render time \u2014 this is the collision that cost reel-21 and carousel-post-5 a round.',
       'Instagram caption 1,872 characters including hashtags (85% of the 2,200 limit); TikTok 1,181 of 4,000. Both plain text, no markdown. check_caption.py exits 0.',
-      'Curriculum position: lesson 37 is index 2 of content/lessons-3.json, the next unused lesson after 36. It covers 2026-09-11, which was the only bare date in the tomorrow-through-tomorrow+2 window.'
+      'Curriculum position: lesson 37 is index 2 of content/lessons-3.json, the next unused lesson after 36. It covers 2026-09-11, which was the only bare date in the tomorrow-through-tomorrow+2 window.',
+      'RENDERED 2026-09-10 outside the sandbox, which would not mount for the third day running. render_v3.py was derived from reel-36\'s with TOTAL = 7 and the three slide bodies lifted out of script-and-caption.md rather than retyped. Two substitutions, both forced and both measured: the SVGs were rasterised by the local Chromium instead of ImageMagick (validated on carousel-post-5 on 2026-09-09 -- no row shift, at most one pixel of column shift, mean absolute difference 2.1-2.8 of 255), and Arial stands in for Liberation Sans, which is metric-compatible with it, so fit_kicker and fit_body take the same decisions. check_layout reproduces the 2026-09-08 dry measure exactly: both main scenes 1192, detail cards 554 and 740, field tip 1062, closing 900, 7 scenes, 0 problems, no collisions. The cut is 889 frames at 29.63s, 1080x1920, 30fps, yuv420p. check_dull passes with a longest sustained run of 0.23s against the 0.45s threshold. All three _payload() quote pairs confirmed present in the PNGs. All three rule texts verified byte-identical to rules.json. Encoded with the ffmpeg bundled with an app already on the machine, since none is installed; encode.py\'s arguments were unchanged.'
     ]
   },
   {
