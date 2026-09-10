@@ -2326,5 +2326,28 @@
         "changed": "Initial draft, the check and how play restarts: 10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4. Nine scenes, three-pair shape. 10.6.1 carded as a block lead, which is not a departure - it is in the lesson's rules array, like reel 36's 16.2. NOT DRY-MEASURED: the render sandbox failed to mount this run, so check_layout.py could not be run and every layout number is an estimate. IG caption measured at 1,731 of 2,200 including hashtags, in UTF-16 units, outside the sandbox."
       }
     ]
+  },
+  "reel-39": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-09T22:42:25.590Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-09T22:42:25.590Z"
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-10",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, what the stall count restarts at: 9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1. Nine scenes, three-pair shape. NOT dry-measured - the render sandbox failed to mount for the second consecutive day (four identical Plan9 errors), so every layout number in the .md is an estimate. IG caption 1,920 of 2,200 including hashtags, measured in UTF-16 units outside the sandbox; no markdown. One departure: 9.6 carded as a block lead though it is not in the lesson's rules array, because 9.6.1's \"Stalling n\" is undefined without it - the reel-34 shape, footer cites 9.6.1 only. One flagged judgement call: 9.5.5's trailing \"However:\" points at 9.5.5.1 and 9.5.5.2, which are named in prose rather than carded."
+      }
+    ]
   }
 }
