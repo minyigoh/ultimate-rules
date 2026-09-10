@@ -3443,5 +3443,140 @@ rules from WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.
       'Instagram caption 1,731 characters including hashtags (79% of the 2,200 limit); TikTok 1,251 of 4,000. Both plain text, no markdown. Measured in UTF-16 units on 2026-09-09 outside the sandbox; re-run check_caption.py at sync time, where build_desk.py runs it as a backstop.',
       'Curriculum position: lesson 38 is index 3 of content/lessons-3.json, the next unused lesson after 37. It covers 2026-09-12, the only bare date in the tomorrow-through-tomorrow+2 window.'
     ]
+  },
+  {
+    id: 'reel-39',
+    date: '2026-09-13',
+    title: 'What the stall count restarts at',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 39,
+    duration: '~30s script',
+    rules: ['9.5.1', '9.5.2', '9.5.3', '9.5.5', '9.6.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-10'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-39',
+    source: 'content/reel-39/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Restarts)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'What the stall count restarts at · kicker BEGINNER · LESSON 39 / 75'],
+      ['2', '#1 WHOSE BREACH WAS IT', '"Their fault, back to one. Your fault, maximum nine." · footer cites 9.5.1 · 9.5.2'],
+      ['3', 'Rules detail', 'Verbatim 9.5.1 + 9.5.2, two blocks'],
+      ['4', '#2 EVERY OTHER CALL', '"Picks and most calls: maximum six." · footer cites 9.5.5 · 9.5.3'],
+      ['5', 'Rules detail', 'Verbatim 9.5.5 + 9.5.3, two blocks'],
+      ['6', '#3 WHAT "MAXIMUM" MEANS', '"The last number said, plus one — or n. Whichever is lower." · footer cites 9.6.1'],
+      ['7', 'Rules detail', 'Verbatim 9.6 as block lead + 9.6.1'],
+      ['8', 'FIELD TIP', '"Say the number out loud before anyone argues."'],
+      ['9', 'Closing', '"Lesson 39 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Play stopped at stall six. It does not restart at six. It probably does not restart at one either, and most players guess.`,
+      explanation: `The count is re-set, not resumed, and the number depends on who caused the stoppage. Defence breached — back to Stalling one. Offence breached — maximum nine. Contested stall-out — Stalling eight. Everything else, picks included — maximum six.`,
+      example: `So you are on four and someone calls a pick. Maximum six does not mean six. It means the last number said plus one, or six, whichever is lower. Four plus one is five, five is lower, so you restart at five. But if you were on eight when that pick came, nine against six means you go back to six. Maximum never jumps you forward — it can only hold you still or pull you back.`,
+      cta: `Lesson 39 of 75 — new lesson daily.`
+    },
+    ig: `Play stopped at stall six. What does it restart at?
+
+Not six. Probably not one either. The count is re-set, not resumed, and the number depends on who caused the stoppage.
+
+Defence breached:
+
+"After an accepted breach by the defence the stall count restarts at “Stalling one (1)”."
+
+A clean reset — they caused the delay, so the thrower gets the whole count back.
+
+Offence breached:
+
+"After an accepted breach by the offence the stall count restarts at maximum nine (9)."
+
+Contested stall-out:
+
+"After a contested stall-out the stall count restarts at “Stalling eight (8)”."
+
+Everything else:
+
+"After all other calls, including “pick”, the stall count restarts at maximum six (6). However:"
+
+That "However" points at two narrow exceptions this lesson does not cover. For the calls you will actually meet — picks, contested fouls, injuries — it is maximum six.
+
+Now the part that catches people, because maximum six is not six:
+
+"If “x” is the last agreed number fully uttered prior to the call, then the stall count resumes at “Stalling (x plus one)” or “Stalling n”, whichever of those two numbers is lower."
+
+The last number said, plus one — or the ceiling — whichever is lower.
+
+You were on four when the pick was called. Four plus one is five. Five is lower than six, so you restart at five, not six.
+
+You were on eight. Nine against six, and six is lower, so you go back to six.
+
+Maximum never jumps you forward. It can only hold you where you were or pull you back.
+
+The practical version: agree the last number out loud before anyone argues about the call. A count two people heard is a fact. A count only the marker heard is a negotiation.
+
+Lesson 39 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `play stopped at stall six. it does NOT restart at six 🥏
+
+the count is re-set, not resumed. the number depends on who caused it
+
+defence breached:
+
+"After an accepted breach by the defence the stall count restarts at “Stalling one (1)”."
+
+→ clean reset. whole count back
+
+offence breached:
+
+"After an accepted breach by the offence the stall count restarts at maximum nine (9)."
+
+contested stall-out:
+
+"After a contested stall-out the stall count restarts at “Stalling eight (8)”."
+
+everything else — picks, contested fouls, injuries:
+
+"After all other calls, including “pick”, the stall count restarts at maximum six (6). However:"
+
+and here's the bit nobody knows. maximum six is not six:
+
+"If “x” is the last agreed number fully uttered prior to the call, then the stall count resumes at “Stalling (x plus one)” or “Stalling n”, whichever of those two numbers is lower."
+
+last number said, plus one — or the ceiling — whichever is LOWER
+
+on four when the pick came? 4+1=5, five is lower → restart at five
+
+on eight? 9 vs 6, six is lower → back to six
+
+maximum never jumps you forward ← it can only hold you still or pull you back
+
+agree the number out loud before you argue about the call
+
+lesson 39 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-10 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'NOT DRY-MEASURED, for the second consecutive day. The render sandbox failed to mount on 2026-09-10 with four identical Plan9 errors, as it did on 2026-09-09, so check_layout.py, check_caption.py and node --check could not be run. Every layout number in the .md is an estimate, not an emitted measurement.',
+      'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36, 38). Three rule cards, so three topic/rules pairs. TOTAL = 9 — reel-36/render_v3.py already has it.',
+      'DEPARTURE: 9.6 is carded as a block lead and is NOT in the lesson\'s rules array. This is the reel-34 shape, not the reel-36 one. 9.6.1 closes on "or “Stalling n”" and n is defined nowhere except 9.6, so carding 9.6.1 alone quotes a variable the viewer has never been shown. Scene 6\'s footer cites 9.6.1 only.',
+      'JUDGEMENT CALL: 9.5.5 ends on "However:", which points at 9.5.5.1 and 9.5.5.2. Neither is carded — they are named in scene 4\'s prose instead, the reel-36 treatment of 16.2.1/16.2.2, because neither is in the lesson\'s rules array and both are narrow. This does leave a connective hanging at the foot of the block. The alternative is to card 9.5.5 as a block lead with both sub-items beneath, which resolves it but puts three blocks on scene 5; that was not chosen this run because the sandbox is down and the denser card could not be measured. Say the word and a run with a working sandbox rebuilds scene 5 that way.',
+      '9.5.4 (the 16.3.2 continuation case, also "Stalling one (1)") and 20.3.6 (time-outs, lesson 52) are deliberately off the cards. 20.3.6 appears only inside 9.6\'s own verbatim text, which is quoted whole.',
+      'SCENE 7 IS THE CARD TO WATCH. 9.6 is 27 words with three rule numbers inside the sentence and 9.6.1 is 38 words with four sets of curly quotes — denser than scenes 3 and 5, and the nearest thing here to reel-38\'s flagged scene 3.',
+      'LIKELY _payload() cases: 9.5.1 and 9.5.3 both end on a closing curly quote and full stop, 9.5.5 carries “pick” mid-sentence, and 9.6 plus 9.6.1 carry six quoted fragments between them. Verify in the PNGs, not the SVGs — this is the collision that cost reel-21 and carousel-post-5 a round.',
+      'DO NOT turn "maximum n" into "n". The whole reel exists because they differ. A pick at stall four restarts at five, not six — that is the lesson\'s own quiz answer, and "picks restart at six" inverts it.',
+      'DO NOT say the count "resumes" or "picks up". 9.5 is explicit that it restarts, and that difference is the point of scene 2. Keep the curly quotes in “Stalling one (1)”, “Stalling eight (8)”, “pick”, “x” and “Stalling n” — they are the rulebook\'s.',
+      'Instagram caption 1,920 characters including hashtags (87% of the 2,200 limit, below the 95% warning line); TikTok 1,313 of 4,000. Both plain text, no markdown — scanned for bold and italic asterisk markers, backticks, markdown links, hash headings and dash bullets. Measured in UTF-16 units on 2026-09-10 outside the sandbox; build_desk.py re-runs check_caption.py as a backstop at sync time.',
+      'Curriculum position: lesson 39 is index 4 of content/lessons-3.json, the next unused lesson after 38. It covers 2026-09-13, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17.'
+    ]
   }
 ];
