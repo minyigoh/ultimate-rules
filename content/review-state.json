@@ -2257,7 +2257,12 @@
         "builtFromScriptRev": 2,
         "changed": "Initial render of the fifth weekly recap, from the approved v2 script: lessons 29-35, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways verified byte-identical against each lesson's field line (lessons-2.json for 29-34, lessons-3.json for 35) and every footer against that lesson's rules array; all 23 cited numbers resolve in rules.json. Layout check 9 slides, 0 problems, no collisions, reproducing the 2026-09-08 dry measure exactly. All three _payload() quote pairs confirmed present in the PNGs. Rasterised by the local Chromium, not ImageMagick: the sandbox would not mount, and the substitution was validated by re-rendering carousel-post-5 and diffing against its shipped PNGs (no layout shift, antialiasing only). Arial stands in for Liberation Sans and is metric-compatible with it."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-10",
+      "updatedAt": "2026-09-10T08:40:46.435Z"
+    }
   },
   "reel-37": {
     "scriptRev": 1,
