@@ -2340,10 +2340,12 @@
     },
     "content": {
       "status": "rerender",
-      "note": "",
-      "tags": [],
+      "note": "The header text in orange",
+      "tags": [
+        "On-screen text"
+      ],
       "rev": 1,
-      "updatedAt": "2026-09-11T02:33:57.712Z"
+      "updatedAt": "2026-09-11T02:34:32.037Z"
     },
     "scriptRevisions": [
       {
@@ -2367,9 +2369,11 @@
         {
           "status": "rerender",
           "rev": 1,
-          "note": "",
-          "tags": [],
-          "at": "2026-09-11T02:33:57.712Z"
+          "note": "The header text in orange",
+          "tags": [
+            "On-screen text"
+          ],
+          "at": "2026-09-11T02:34:32.037Z"
         }
       ]
     },
