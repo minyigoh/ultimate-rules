@@ -47,7 +47,7 @@
 | 2026-09-11 | "It didn't affect the play" | Reel | Ready to post | — | — |
 | 2026-09-12 | The check: restarting play | Reel | Script approved | — | — |
 | 2026-09-13 | What the stall count restarts at | Reel | Script approved | — | — |
-| 2026-09-14 | Picks | Reel | Pending review | — | — |
+| 2026-09-14 | Picks | Reel | Script approved | — | — |
 
 ## Status legend
 
