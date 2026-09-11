@@ -2393,5 +2393,28 @@
         }
       ]
     }
+  },
+  "reel-40": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-11T01:30:00Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-11T01:30:00Z"
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-11",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, picks: 18.3.1, 18.3.1.1, 18.3.2, 18.3.3. Nine scenes, three-pair shape. No departures - every carded rule is in the lesson's rules array and 18.3 is a heading stem left uncarded. NOT dry-measured: the render sandbox failed to mount for the fourth consecutive day, so every layout number is an estimate. IG caption 1,977 of 2,200 including hashtags (90%), TikTok 1,404 of 4,000, both measured in UTF-16 outside the sandbox and scanned clean of markdown."
+      }
+    ]
   }
 }
