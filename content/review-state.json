@@ -2322,7 +2322,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial cut of \"It didn't affect the play\": 16.3, 16.3.1, 16.3.2. Seven scenes, two-pair shape, 889 frames at 29.63s, 1080x1920, 30fps. Layout reproduces the 2026-09-08 dry measure exactly (main scenes 1192, details 554 and 740, tip 1062, closing 900, 0 problems, no collisions); check_dull passes at 0.23s against the 0.45s threshold; all three rule texts byte-identical to rules.json and all three _payload() quote pairs present in the PNGs. Built outside the sandbox, which would not mount: Chromium rasterised the SVGs in place of ImageMagick and Arial stood in for Liberation Sans, both metric-compatible substitutions validated on carousel-post-5, and the encode used a bundled ffmpeg with encode.py's arguments unchanged."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-11",
+      "updatedAt": "2026-09-11T02:33:28.763Z"
+    }
   },
   "reel-38": {
     "scriptRev": 1,
