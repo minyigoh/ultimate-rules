@@ -2334,10 +2334,10 @@
       "updatedAt": "2026-09-10T09:18:01.118Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-09T07:00:00Z"
+      "updatedAt": "2026-09-11T10:30:00Z"
     },
     "scriptRevisions": [
       {
@@ -2357,7 +2357,17 @@
           "at": "2026-09-10T09:18:01.118Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-11",
+        "duration": "29.5s",
+        "file": "reel38-the-check.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "Initial cut of the check and how play restarts: 10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4. Nine scenes, three-pair shape, 885 frames at 29.50s. This is the run that measured what the 2026-09-09 draft could only estimate, the sandbox having been down since: scene 3, the dense card its own notes flagged, lands at 740 of 1310 with no collision, so no split and no reworded copy. 9 scenes, 0 problems; check_dull 0.23s against the 0.45s threshold; the scene-3 and scene-5 quote cases confirmed present in the frames. Built on Windows through tools/win_render.py."
+      }
+    ]
   },
   "reel-39": {
     "scriptRev": 1,
