@@ -2340,12 +2340,12 @@
     },
     "content": {
       "status": "rerender",
-      "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN",
+      "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN should read ",
       "tags": [
         "On-screen text"
       ],
       "rev": 1,
-      "updatedAt": "2026-09-11T02:34:54.337Z"
+      "updatedAt": "2026-09-11T02:35:11.062Z"
     },
     "scriptRevisions": [
       {
@@ -2369,11 +2369,11 @@
         {
           "status": "rerender",
           "rev": 1,
-          "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN",
+          "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN should read ",
           "tags": [
             "On-screen text"
           ],
-          "at": "2026-09-11T02:34:54.337Z"
+          "at": "2026-09-11T02:35:11.062Z"
         }
       ]
     },
