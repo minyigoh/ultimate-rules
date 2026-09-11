@@ -3335,17 +3335,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (16.3, 16.3.1, 16.3.2) — full br
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 38,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080\u00d71920 \u00b7 29.5s \u00b7 30fps',
     rules: ['10.6.1', '10.6.1.1', '10.6.1.2', '10.6.2', '10.4'],
     review: {
       script:  {status: 'pending', on: '2026-09-09'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-11'}
     },
     postedDate: null,
     folder: 'reel-38',
     source: 'content/reel-38/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Restarts)',
-    video: null,
+    video: 'reel38-the-check.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'The check: restarting play · kicker BEGINNER · LESSON 38 / 75'],
@@ -3431,8 +3432,6 @@ lesson 38 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-09 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'NOT DRY-MEASURED. The render sandbox failed to mount on 2026-09-09 (three identical Plan9 errors), so check_layout.py, check_caption.py and node --check could not be run. Every layout number in the .md is an estimate, not an emitted measurement — the first script since reel 30 for which that is true.',
       'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36). Three rule cards, so three topic/rules pairs. TOTAL = 9 — reel-36/render_v3.py already has it.',
       '10.6.1 is carded as a block lead and that is NOT a departure — it is in the lesson\'s rules array, exactly like reel 36\'s 16.2 and unlike reel 34\'s 1.6. 10.6.1.1 and 10.6.1.2 are conditional limbs that cannot stand without it.',
       '10.6 ("To restart play with a check:") is a stem and is NOT carded — not in the lesson\'s rules array. The cover title supplies the frame instead. Nothing on screen is broader than what is cited.',
@@ -3442,7 +3441,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.
       '10.4 is two people each checking their OWN side, not one person checking everybody. "Make sure everyone\'s ready" loses the whole rule. Keep the curly quotes in “Disc In” — they are the rulebook\'s, and paraphrasing it to "call it in" on a card is caption prose, not card text.',
       'LIKELY _payload() cases on scene 3: two of the three blocks end on a double quote and the wrapped line carrying “Disc In”. may end a line. Verify in the PNGs, not the SVGs — this is the collision that cost reel-21 and carousel-post-5 a round.',
       'Instagram caption 1,731 characters including hashtags (79% of the 2,200 limit); TikTok 1,251 of 4,000. Both plain text, no markdown. Measured in UTF-16 units on 2026-09-09 outside the sandbox; re-run check_caption.py at sync time, where build_desk.py runs it as a backstop.',
-      'Curriculum position: lesson 38 is index 3 of content/lessons-3.json, the next unused lesson after 37. It covers 2026-09-12, the only bare date in the tomorrow-through-tomorrow+2 window.'
+      'Curriculum position: lesson 38 is index 3 of content/lessons-3.json, the next unused lesson after 37. It covers 2026-09-12, the only bare date in the tomorrow-through-tomorrow+2 window.',
+      'RENDERED 2026-09-11 via tools/win_render.py, the sandbox having failed to mount for a fourth day. SCENE 3 IS RESOLVED: the card flagged as the one that could bite measures 740 of 1310, well clear of the citation footer, so no split was needed and 10.6.1.2 stays where the approved script put it. Every other estimate in the draft is now a measurement: both other detail cards at 454 and 504, all three main scenes at 1192, field tip 1062, closing 900, cover 1210, all max_x 990 of 990, 9 scenes, 0 problems, no collisions. fit_kicker never engaged. The cut is 885 frames at 29.50s, 1080x1920, 30fps, yuv420p; check_dull passes at 0.23s against the 0.45s threshold. The scene-3 and scene-5 quote cases were confirmed present in the frames. The cover hook is the approved Hook beat verbatim, because unlike reel-37 this script records no separate trimmed cover line and inventing one would put unapproved words on the card.'
     ]
   },
   {

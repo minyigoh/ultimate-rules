@@ -514,7 +514,10 @@ def main(argv=None):
                 problems += 1
             problems += run_check_dull(mp4, ffmpeg)
             installed = []
-            if not args.no_install:
+            # A failing gate must not put the asset in content/. reel-39 failed
+            # check_dull on 2026-09-11 and was installed anyway, which is exactly
+            # how an unverified cut reaches the desk.
+            if not args.no_install and problems == 0:
                 dst = os.path.join(post_dir, os.path.basename(mp4))
                 archived = archive_existing(dst)
                 if archived:
@@ -531,16 +534,20 @@ def main(argv=None):
             print("\ngates")
             problems += run_check_layout(os.path.join(svg_dir, "*.svg"), substituted)
             installed = []
-            if not args.no_install:
+            if not args.no_install and problems == 0:
                 for f in sorted(glob.glob(os.path.join(svg_dir, "*.svg"))) + \
                          sorted(glob.glob(os.path.join(png_dir, "*.png"))):
                     dst = os.path.join(post_dir, os.path.basename(f))
                     shutil.copy2(f, dst)
                     installed.append(os.path.relpath(dst, REPO))
 
-        print("\n%s" % ("BUILD OK" if problems == 0 else "BUILD FINISHED WITH %d PROBLEM(S)" % problems))
+        print("\n%s" % ("BUILD OK" if problems == 0
+                        else "BUILD FAILED: %d PROBLEM(S)" % problems))
         if installed:
             print("installed %d file(s) into content/%s/" % (len(installed), post))
+        elif problems and not args.no_install:
+            print("nothing installed - a gate failed, so content/%s/ is untouched.\n"
+                  "Re-run with --keep to inspect the frames." % post)
         if problems == 0:
             print("\nNext, by hand, because they are judgement calls:")
             print("  1. social/dashboard/data.js  - the rendered fields and "
