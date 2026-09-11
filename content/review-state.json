@@ -2339,10 +2339,11 @@
       "updatedAt": "2026-09-10T09:18:01.118Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "rerender",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-11T10:30:00Z"
+      "rev": 1,
+      "updatedAt": "2026-09-11T02:33:57.712Z"
     },
     "scriptRevisions": [
       {
@@ -2360,6 +2361,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-10T09:18:01.118Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "rerender",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-11T02:33:57.712Z"
         }
       ]
     },
