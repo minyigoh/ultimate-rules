@@ -3579,5 +3579,118 @@ rules from WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1
       'Instagram caption 1,920 characters including hashtags (87% of the 2,200 limit, below the 95% warning line); TikTok 1,313 of 4,000. Both plain text, no markdown — scanned for bold and italic asterisk markers, backticks, markdown links, hash headings and dash bullets. Measured in UTF-16 units on 2026-09-10 outside the sandbox; build_desk.py re-runs check_caption.py as a backstop at sync time.',
       'Curriculum position: lesson 39 is index 4 of content/lessons-3.json, the next unused lesson after 38. It covers 2026-09-13, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17.'
     ]
+  },
+  {
+    id: 'reel-40',
+    date: '2026-09-14',
+    title: 'Picks',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 40,
+    duration: '~30s script',
+    rules: ['18.3.1', '18.3.1.1', '18.3.2', '18.3.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-11'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-40',
+    source: 'content/reel-40/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Calls)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Picks · kicker BEGINNER · LESSON 40 / 75'],
+      ['2', '#1 WHAT A PICK IS', '"Guarding someone, and a third body takes them from you." · footer cites 18.3.1'],
+      ['3', 'Rules detail', 'Verbatim 18.3.1, one block'],
+      ['4', '#2 THE TWO-SECOND WAIT', '"You may hold the call and see whether it cost you." · footer cites 18.3.1.1'],
+      ['5', 'Rules detail', 'Verbatim 18.3.1.1, one block'],
+      ['6', '#3 WHAT YOU GET BACK', '"The position you would have had. Nothing else." · footer cites 18.3.2 · 18.3.3'],
+      ['7', 'Rules detail', 'Verbatim 18.3.2 + 18.3.3, two blocks'],
+      ['8', 'FIELD TIP', '"The count comes back at maximum six. Call it when it truly cost you."'],
+      ['9', 'Closing', '"Lesson 40 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `You are guarding someone, they cut, and a player you were not guarding steps straight into your path. Your mark is gone. That is a pick.`,
+      explanation: `It needs two things: you were guarding one particular player, and a different player physically stopped you going with them. If your mark and the player who blocked you were both going for the disc, that is a contest, not a pick. And you do not have to call it instantly — you may wait up to two seconds to see whether it actually mattered.`,
+      example: `Your mark goes deep, someone drifts out of the stack into your lane, and you lose two steps. Call pick and play stops. You move to where you would have been — restored, not rewarded. You do not get the disc, and the stall count comes back at maximum six, so the offence loses almost nothing. Which is why, if your mark was cutting away from the play anyway, the best call is often no call.`,
+      cta: `Lesson 40 of 75 — new lesson daily.`
+    },
+    ig: `You are guarding someone. A player you are not guarding steps into your path, and your mark is gone.
+
+That is a pick, and it is your call to make.
+
+"If a defensive player is guarding one offensive player and they are prevented from moving towards/with that player by another player, that defensive player may call “Pick”. However it is not a pick if both the player being guarded and the obstructing player are making a play on the disc at the time of the obstruction."
+
+It is a defensive call. You have to have been guarding someone in particular to be obstructed from following them.
+
+And the exception matters. If the player you were guarding and the player who blocked you were both going for the disc, that is a contest, not an obstruction. No pick.
+
+You also do not have to call it straight away:
+
+"Prior to making the “Pick” call, the defender may delay the call up to two (2) seconds to determine if the obstruction will affect the play."
+
+Two seconds is enough to see whether you lost anything. If your mark was cutting away from the disc, the traffic cost you nothing, and you can let it go.
+
+When you do call it, here is what you get:
+
+"If play has stopped, the obstructed player may move to the agreed position they would have otherwise occupied if the obstruction had not occurred, unless specified otherwise."
+
+You are restored, not rewarded. You move to where you would have been. You do not get the disc, and the stall count comes back at maximum six, so the offence loses almost nothing.
+
+And it is not only the defence's problem:
+
+"All players should take reasonable efforts to avoid the occurrence of picks."
+
+Offence included. Clearing a lane you are not using is part of playing well.
+
+Lesson 40 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `you're guarding someone. a player you're NOT guarding steps into your path. your mark is gone 🥏
+
+that's a pick — and it's the defence's call
+
+"If a defensive player is guarding one offensive player and they are prevented from moving towards/with that player by another player, that defensive player may call “Pick”. However it is not a pick if both the player being guarded and the obstructing player are making a play on the disc at the time of the obstruction."
+
+→ both of them going for the disc? that's a contest, not a pick
+
+and you don't have to call it instantly:
+
+"Prior to making the “Pick” call, the defender may delay the call up to two (2) seconds to determine if the obstruction will affect the play."
+
+two seconds to see if it actually cost you. mark cutting away anyway? let it go
+
+what you get when you do call it:
+
+"If play has stopped, the obstructed player may move to the agreed position they would have otherwise occupied if the obstruction had not occurred, unless specified otherwise."
+
+restored, not rewarded ← you move to where you'd have been. no disc, and the count comes back at maximum six
+
+and it's not only the defence's job:
+
+"All players should take reasonable efforts to avoid the occurrence of picks."
+
+offence too. clear the lane you're not using
+
+lesson 40 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-11 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'NOT DRY-MEASURED, for the fourth consecutive day. The render sandbox failed to mount on 2026-09-11 with three identical Plan9 "share c is not mounted" errors, as it did on 2026-09-08, 09-09 and 09-10, so check_layout.py, check_caption.py and node --check could not be run. Every layout number in the .md is an estimate, not an emitted measurement.',
+      'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36, 38, 39). Three rule cards, so three topic/rules pairs. TOTAL = 9 — reel-36/render_v3.py already has it.',
+      'NO DEPARTURES. Every carded rule is in the lesson\'s rules array and every footer cites only what its own card quotes. 18.3 reads "“Pick” Violations:" — a heading stem, deliberately not carded, and nothing beneath it needs it for meaning, unlike reel 34\'s 1.6 or reel 39\'s 9.6.',
+      'SCENE 3 IS THE CARD TO WATCH. 18.3.1 is a single 57-word block — the longest quotation in the reel, and concentrated in one paragraph rather than split across two, so it wraps deeper than reel-39\'s scene 7. If it crowds the citation footer, let fit_body() shrink the type; never trim the quotation. If it trips the 80% floor, stop and report it.',
+      'DO NOT truncate 18.3.1 at the first full stop. The "However it is not a pick…" sentence is the same rule, and it is the half that stops the call being used on every collision near the disc.',
+      'LIKELY _payload() cases: 18.3.1 carries “Pick” in curly quotes mid-sentence and 18.3.1.1 carries the same fragment plus "two (2)". Verify in the PNGs, not the SVGs — this is the collision that cost reel-21 and carousel-post-5 a round.',
+      'DO NOT say the offence is punished. 18.3.2 restores a position and gives nothing else — no disc, no yardage — and the count comes back at maximum six (lesson 39). "Restored, not rewarded" is the spine of the reel. Keep the curly quotes in “Pick” and keep "two (2)" exactly as written.',
+      'Instagram caption 1,977 characters including hashtags (90% of the 2,200 limit, below the 95% warning line); TikTok 1,404 of 4,000. Both plain text, no markdown — scanned for bold and italic asterisk markers, backticks, markdown links, hash headings and dash bullets. Measured in UTF-16 units on 2026-09-11 outside the sandbox; build_desk.py re-runs check_caption.py as a backstop at sync time.',
+      'Curriculum position: lesson 40 is index 5 of content/lessons-3.json, the next unused lesson after 39. It covers 2026-09-14, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens with lesson 28 per the flag on carousel-post-6.'
+    ]
   }
 ];
