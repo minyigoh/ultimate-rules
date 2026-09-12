@@ -2,26 +2,45 @@
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [],
   "review_state": {
-    "reel-39": {
-      "builtFromScriptRev": 1,
+    "reel-40": {
+      "builtFromScriptRev": 2,
       "content": {
         "status": "in-review",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-12T11:20:00Z"
+        "updatedAt": "2026-09-12T10:43:12.000Z"
       },
       "revisions": [
         {
           "v": 1,
           "renderedAt": "2026-09-12",
           "duration": "29.5s",
-          "file": "reel39-count-after-stoppage.mp4",
+          "file": "reel40-picks.mp4",
+          "builtFromScriptRev": 2,
+          "changed": "Initial cut of picks, built from the v2 redraft (scene 2 headline trimmed to two lines): 18.3.1, 18.3.1.1, 18.3.2, 18.3.3. Nine scenes, three-pair shape, 886 frames at 29.53s, 0 layout problems, no collisions -- scene 3 (18.3.1, the longest quotation) lands at 704 of 1310, main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold. Carries the tracked() word-gap fix."
+        }
+      ]
+    },
+    "reel-41": {
+      "builtFromScriptRev": 1,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-12T10:43:12.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-12",
+          "duration": "29.5s",
+          "file": "reel41-indirect-fouls.mp4",
           "builtFromScriptRev": 1,
-          "changed": "Initial cut of what the stall count restarts at: 9.5.1, 9.5.2, 9.5.5, 9.5.3, 9.6 as a block lead above 9.6.1. Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems. Scene 7, the card the draft flagged, lands at 772 of 1310. Carries the tracked() word-gap fix. Held two days by a check_dull failure that proved to be a band-boundary artefact rather than a dimmed cut -- 14 orange pixels where that band normally carries 756 -- fixed by requiring a minimum orange pixel count before a band counts as carrying orange, approved by Min-Yi and regression-tested against a deliberately dimmed cut. Passes at 0.20s against 0.45s."
+          "changed": "Initial cut of indirect fouls: 17.8.1, 17.8.1.1, 17.8.2. Render script authored fresh this run from content/reel-39/render_v3.py (carries the tracked() word-gap fix). Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 554, 504 and 454 of 1310, all light; main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
         }
       ]
     }
   },
-  "generated": "2026-09-12T11:20:00Z",
-  "by": "interactive session (sandbox unavailable, 5th day)"
+  "generated": "2026-09-12T10:43:12.000Z",
+  "by": "daily-reel-render"
 }

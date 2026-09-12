@@ -2471,10 +2471,10 @@
       "updatedAt": "2026-09-12T04:49:17.424Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-11T01:30:00Z"
+      "updatedAt": "2026-09-12T10:43:12.000Z"
     },
     "scriptRevisions": [
       {
@@ -2507,7 +2507,17 @@
           "at": "2026-09-12T04:49:17.424Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-12",
+        "duration": "29.5s",
+        "file": "reel40-picks.mp4",
+        "builtFromScriptRev": 2,
+        "changed": "Initial cut of picks, built from the v2 redraft (scene 2 headline trimmed to two lines): 18.3.1, 18.3.1.1, 18.3.2, 18.3.3. Nine scenes, three-pair shape, 886 frames at 29.53s, 0 layout problems, no collisions -- scene 3 (18.3.1, the longest quotation) lands at 704 of 1310, main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold. Carries the tracked() word-gap fix."
+      }
+    ]
   },
   "reel-41": {
     "scriptRev": 1,
@@ -2519,10 +2529,10 @@
       "updatedAt": "2026-09-12T04:50:56.115Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-11T22:53:15Z"
+      "updatedAt": "2026-09-12T10:43:12.000Z"
     },
     "scriptRevisions": [
       {
@@ -2542,6 +2552,16 @@
           "at": "2026-09-12T04:50:56.115Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-12",
+        "duration": "29.5s",
+        "file": "reel41-indirect-fouls.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "Initial cut of indirect fouls: 17.8.1, 17.8.1.1, 17.8.2. Render script authored fresh this run from content/reel-39/render_v3.py (carries the tracked() word-gap fix). Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 554, 504 and 454 of 1310, all light; main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
+      }
+    ]
   }
 }
