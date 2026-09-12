@@ -2507,10 +2507,11 @@
   "reel-41": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-11T22:53:15Z"
+      "rev": 1,
+      "updatedAt": "2026-09-12T04:50:56.115Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2525,6 +2526,17 @@
         "file": "script-and-caption.md",
         "changed": "Initial draft, indirect fouls: 17.8.1, 17.8.1.1, 17.8.2. Nine scenes, three-pair shape. No departures - 17.8 is a heading stem (Indirect Fouls:) and is left uncarded, like 18.3 in reel 40. NOT dry-measured in the sandbox, which failed to mount for the fifth consecutive day, so body-copy layout is an estimate. Kicker widths and caption lengths are real measurements this time, taken in headless Chrome, the renderer win_render.py uses: kickers 654.9 / 643.5 / 618.4 of the 900px column, fit_kicker will not engage; IG caption 1,528 of 2,200 including hashtags (69.5%), TikTok 997 of 4,000, both scanned clean of markdown."
       }
-    ]
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-12T04:50:56.115Z"
+        }
+      ]
+    }
   }
 }
