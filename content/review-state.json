@@ -2563,5 +2563,80 @@
         "changed": "Initial cut of indirect fouls: 17.8.1, 17.8.1.1, 17.8.2. Render script authored fresh this run from content/reel-39/render_v3.py (carries the tracked() word-gap fix). Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 554, 504 and 454 of 1310, all light; main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
       }
     ]
+  },
+  "reel-42": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    }
+  },
+  "reel-43": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    }
+  },
+  "reel-44": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    }
+  },
+  "reel-45": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    }
+  },
+  "carousel-post-7": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T11:53:21.985Z"
+    }
   }
 }
