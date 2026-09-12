@@ -2339,10 +2339,11 @@
       "updatedAt": "2026-09-10T09:18:01.118Z"
     },
     "content": {
-      "status": "in-review",
-      "note": "",
+      "status": "approved",
+      "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN should read #1 WHO TOUCHES IT IN",
       "tags": [],
-      "updatedAt": "2026-09-12T09:40:00Z"
+      "rev": 2,
+      "updatedAt": "2026-09-12T04:47:44.103Z"
     },
     "scriptRevisions": [
       {
@@ -2371,6 +2372,13 @@
             "On-screen text"
           ],
           "at": "2026-09-11T02:35:21.535Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN should read #1 WHO TOUCHES IT IN",
+          "tags": [],
+          "at": "2026-09-12T04:47:44.103Z"
         }
       ]
     },
