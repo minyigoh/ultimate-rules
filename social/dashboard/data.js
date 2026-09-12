@@ -3442,7 +3442,10 @@ rules from WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.
       'LIKELY _payload() cases on scene 3: two of the three blocks end on a double quote and the wrapped line carrying “Disc In”. may end a line. Verify in the PNGs, not the SVGs — this is the collision that cost reel-21 and carousel-post-5 a round.',
       'Instagram caption 1,731 characters including hashtags (79% of the 2,200 limit); TikTok 1,251 of 4,000. Both plain text, no markdown. Measured in UTF-16 units on 2026-09-09 outside the sandbox; re-run check_caption.py at sync time, where build_desk.py runs it as a backstop.',
       'Curriculum position: lesson 38 is index 3 of content/lessons-3.json, the next unused lesson after 37. It covers 2026-09-12, the only bare date in the tomorrow-through-tomorrow+2 window.',
-      'RENDERED 2026-09-11 via tools/win_render.py, the sandbox having failed to mount for a fourth day. SCENE 3 IS RESOLVED: the card flagged as the one that could bite measures 740 of 1310, well clear of the citation footer, so no split was needed and 10.6.1.2 stays where the approved script put it. Every other estimate in the draft is now a measurement: both other detail cards at 454 and 504, all three main scenes at 1192, field tip 1062, closing 900, cover 1210, all max_x 990 of 990, 9 scenes, 0 problems, no collisions. fit_kicker never engaged. The cut is 885 frames at 29.50s, 1080x1920, 30fps, yuv420p; check_dull passes at 0.23s against the 0.45s threshold. The scene-3 and scene-5 quote cases were confirmed present in the frames. The cover hook is the approved Hook beat verbatim, because unlike reel-37 this script records no separate trimmed cover line and inventing one would put unapproved words on the card.'
+      'RENDERED 2026-09-11 via tools/win_render.py, the sandbox having failed to mount for a fourth day. SCENE 3 IS RESOLVED: the card flagged as the one that could bite measures 740 of 1310, well clear of the citation footer, so no split was needed and 10.6.1.2 stays where the approved script put it. Every other estimate in the draft is now a measurement: both other detail cards at 454 and 504, all three main scenes at 1192, field tip 1062, closing 900, cover 1210, all max_x 990 of 990, 9 scenes, 0 problems, no collisions. fit_kicker never engaged. The cut is 885 frames at 29.50s, 1080x1920, 30fps, yuv420p; check_dull passes at 0.23s against the 0.45s threshold. The scene-3 and scene-5 quote cases were confirmed present in the frames. The cover hook is the approved Hook beat verbatim, because unlike reel-37 this script records no separate trimmed cover line and inventing one would put unapproved words on the card.',
+      'REJECTED 2026-09-11 on on-screen text: "The header text in orange doesn\'t have proper spacing e.g. #1WHOTOUCHESITIN should read #1 WHO TOUCHES IT IN". CAUSE FOUND AND FIXED 2026-09-12, in the render script, not the copy. tracked() letter-spaces a kicker by joining its characters with a space, so a word boundary came out as a RUN of whitespace (joiner, the word\'s own space, joiner) while a letter boundary was a single space — and XML collapses runs, so both arrived at the rasteriser the same width and the words fused. Same cause in the "#1" prefix, which was three plain spaces. The fix joins with U+00A0 instead: not XML whitespace, so nothing collapses it, and the same advance width, so no layout number moves.',
+      'THE FIX IS MEASURED, THE REBUILD IS NOT. Measured in headless Chrome, the renderer win_render.py uses: "#1 WHO TOUCHES IT IN" at 34px comes back 483.6px collapsed against 559.2px intended, and the missing 75.6px is exactly the four word gaps. The three fixed kickers land at 559.2, 606.4 and 744.3 of the 900px column, so fit_kicker still will not engage, and the single-word cover kicker is byte-identical at 231.1px. But the cut itself has NOT been rebuilt — the sandbox has been down five days. Rebuild on Windows with `python tools\\win_render.py reel-38`; content/reel-38/render_v3.py already carries the fix.',
+      'Deliberately NOT changed: the citation footer joins rule numbers with "  ·  " and collapses to " · ", and the "RULE x · CHAPTER" line is normalised to single spaces by wrap_lines before it is ever emitted. Both have shipped that way in all 38 reels, so both are the intended look and neither is what was rejected.'
     ]
   },
   {
@@ -3577,7 +3580,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1
       'DO NOT turn "maximum n" into "n". The whole reel exists because they differ. A pick at stall four restarts at five, not six — that is the lesson\'s own quiz answer, and "picks restart at six" inverts it.',
       'DO NOT say the count "resumes" or "picks up". 9.5 is explicit that it restarts, and that difference is the point of scene 2. Keep the curly quotes in “Stalling one (1)”, “Stalling eight (8)”, “pick”, “x” and “Stalling n” — they are the rulebook\'s.',
       'Instagram caption 1,920 characters including hashtags (87% of the 2,200 limit, below the 95% warning line); TikTok 1,313 of 4,000. Both plain text, no markdown — scanned for bold and italic asterisk markers, backticks, markdown links, hash headings and dash bullets. Measured in UTF-16 units on 2026-09-10 outside the sandbox; build_desk.py re-runs check_caption.py as a backstop at sync time.',
-      'Curriculum position: lesson 39 is index 4 of content/lessons-3.json, the next unused lesson after 38. It covers 2026-09-13, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17.'
+      'Curriculum position: lesson 39 is index 4 of content/lessons-3.json, the next unused lesson after 38. It covers 2026-09-13, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17.',
+      'RENDER SCRIPT UPDATED 2026-09-12 with the tracked() word-gap fix that reel-38 was rejected for — kickers now keep their word gaps. This reel had not been built yet, so nothing is being replaced; the first cut will simply be correct. Kickers measured in headless Chrome at 34px Arial Bold against the 900px column, all well inside it. Still not built: the sandbox has been down five days. Build on Windows with `python tools\\win_render.py reel-39`.'
     ]
   },
   {
@@ -3690,7 +3694,112 @@ rules from WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3)
       'LIKELY _payload() cases: 18.3.1 carries “Pick” in curly quotes mid-sentence and 18.3.1.1 carries the same fragment plus "two (2)". Verify in the PNGs, not the SVGs — this is the collision that cost reel-21 and carousel-post-5 a round.',
       'DO NOT say the offence is punished. 18.3.2 restores a position and gives nothing else — no disc, no yardage — and the count comes back at maximum six (lesson 39). "Restored, not rewarded" is the spine of the reel. Keep the curly quotes in “Pick” and keep "two (2)" exactly as written.',
       'Instagram caption 1,977 characters including hashtags (90% of the 2,200 limit, below the 95% warning line); TikTok 1,404 of 4,000. Both plain text, no markdown — scanned for bold and italic asterisk markers, backticks, markdown links, hash headings and dash bullets. Measured in UTF-16 units on 2026-09-11 outside the sandbox; build_desk.py re-runs check_caption.py as a backstop at sync time.',
-      'Curriculum position: lesson 40 is index 5 of content/lessons-3.json, the next unused lesson after 39. It covers 2026-09-14, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens with lesson 28 per the flag on carousel-post-6.'
+      'Curriculum position: lesson 40 is index 5 of content/lessons-3.json, the next unused lesson after 39. It covers 2026-09-14, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens with lesson 28 per the flag on carousel-post-6.',
+      'RENDER SCRIPTS AUTHORED 2026-09-12. content/reel-40/ now has render_v3.py, blend.py and encode.py, copied from reel-39 with only SCENES and the lesson number changed. They carry the tracked() word-gap fix. Nothing is rendered yet — the sandbox has been down five days; build on Windows with `python tools\\win_render.py reel-40`.',
+      'Kickers measured 2026-09-12 in headless Chrome at 34px Arial Bold against the 900px column: "#1 WHAT A PICK IS" 451.5px (50.2%), "#2 THE TWO-SECOND WAIT" 643.5px (71.5%), "#3 WHAT YOU GET BACK" 583.1px (64.8%). fit_kicker() will not engage. These are the fixed widths, that is, with the word gaps the old tracked() was losing.'
+    ]
+  },
+  {
+    id: 'reel-41',
+    date: '2026-09-15',
+    title: 'Indirect fouls',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 41,
+    duration: '~30s script',
+    rules: ['17.8.1', '17.8.1.1', '17.8.2'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-12'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-41',
+    source: 'content/reel-41/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Fouls)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Indirect fouls · kicker BEGINNER · LESSON 41 / 75'],
+      ['2', '#1 CONTACT OFF THE DISC', '"A real foul, in a place the disc never reached." · footer cites 17.8.1'],
+      ['3', 'Rules detail', 'Verbatim 17.8.1, one block'],
+      ['4', '#2 THE TWO-SECOND WAIT', '"You are allowed to find out whether it mattered." · footer cites 17.8.1.1'],
+      ['5', 'Rules detail', 'Verbatim 17.8.1.1, one block'],
+      ['6', '#3 MAKE UP THE GROUND', '"You get the position back. That is the whole remedy." · footer cites 17.8.2'],
+      ['7', 'Rules detail', 'Verbatim 17.8.2, one block'],
+      ['8', 'FIELD TIP', '"Most off-disc contact resolves itself. Call it when it stopped you getting somewhere."'],
+      ['9', 'Closing', '"Lesson 41 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Someone crashes into you in the stack. The disc is on the far side of the field. Nobody near you was going for it. Is that a foul?`,
+      explanation: `It is, and it has its own name — an indirect foul. Two conditions: the contact has to be non-minor, and it has to be away from the play. If it affected somebody's attempt on the disc, it is an ordinary receiving foul instead. And like a pick, you do not have to call it instantly — you get two seconds to see whether it actually mattered.`,
+      example: `You get bumped hard cutting through the stack, you stumble, and the disc goes to the other side of the field. Two seconds later you are back on your feet and exactly where you meant to be. It cost you nothing, so there is nothing to call. But if that bump is why you arrived two steps late, call it — and all you get is those two steps back. No disc, no yardage, no stall reset.`,
+      cta: `Lesson 41 of 75 — new lesson daily.`
+    },
+    ig: `Someone crashes into you in the stack. The disc is on the far side of the field. Is that a foul?
+
+Yes. It has its own name and its own remedy.
+
+"An Indirect Foul occurs when there is non-minor contact between a receiver and a defensive player that does not directly affect an attempt to make a play on the disc."
+
+Two conditions. The contact has to be non-minor, and it has to be away from the play. Shoulders bumping as you both go up for the disc is an ordinary foul. Getting flattened in the stack while the disc goes somewhere else is an indirect foul.
+
+Like a pick, you do not have to call it the instant it happens:
+
+"Prior to making the “Indirect Foul” call, the player may delay the call up to two (2) seconds to determine if the breach will affect the play."
+
+Two seconds to find out whether it cost you anything. Most off-disc contact costs you nothing, and the cheapest call is still the one you never make.
+
+And when it did cost you, this is the whole remedy:
+
+"If the foul is accepted the fouled player may make up any positional disadvantage caused by the foul."
+
+That is it. No disc, no yardage, no stall reset. You get back the ground the contact took off you, everyone checks in, and play goes on. Same principle as a pick: restored, not rewarded.
+
+Lesson 41 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (17.8.1, 17.8.1.1, 17.8.2). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `someone crashes into you in the stack. the disc is on the far side of the field 🥏
+
+still a foul. it has its own name
+
+"An Indirect Foul occurs when there is non-minor contact between a receiver and a defensive player that does not directly affect an attempt to make a play on the disc."
+
+→ non-minor contact, away from the play. if it affected a play on the disc it's an ordinary receiving foul instead
+
+and like a pick, you don't have to call it instantly:
+
+"Prior to making the “Indirect Foul” call, the player may delay the call up to two (2) seconds to determine if the breach will affect the play."
+
+two seconds to find out whether it cost you anything
+
+here's the whole remedy:
+
+"If the foul is accepted the fouled player may make up any positional disadvantage caused by the foul."
+
+you make up the ground you lost ← no disc, no yardage, no stall reset. restored, not rewarded
+
+lesson 41 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (17.8.1, 17.8.1.1, 17.8.2) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-12 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'NOT DRY-MEASURED IN THE SANDBOX, for the fifth consecutive day. The workspace failed to mount on 2026-09-12 with the same Plan9 "share c is not mounted" error as 09-08 through 09-11, so check_layout.py, check_caption.py and node --check could not be run.',
+      'BUT the kicker widths and the caption lengths are real measurements this time, not estimates. Both were taken in headless Chrome — the renderer tools/win_render.py actually uses on Windows — rather than extrapolated from earlier reels.',
+      'Kickers at 34px Arial Bold against the 900px column: "#1 CONTACT OFF THE DISC" 654.9px (72.8%), "#2 THE TWO-SECOND WAIT" 643.5px (71.5%), "#3 MAKE UP THE GROUND" 618.4px (68.7%). fit_kicker() will not engage.',
+      'MEASUREMENT BASES DISAGREE BY ABOUT 8% AND THAT IS WORTH RESOLVING. reel-11\'s "SIMULTANEOUS MEANS OFFENCE", the widest kicker ever shipped, is documented at 873px from PIL against Liberation Sans Bold but measures 806.6px in Chrome against Arial Bold. reel-41 clears the column on either basis, but fit_kicker()\'s floor logic assumes the two agree, so check it the next time the sandbox is up.',
+      'Body copy is still an estimate. All three rule quotations are short — 17.8.1 is 28 words, 17.8.1.1 is 25, 17.8.2 is 17 — so every detail card is lighter than reel-40\'s scene 3 and reel-39\'s scene 7, and fit_body() is not expected to engage. Verify at render time anyway.',
+      'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36, 38, 39, 40). Three rule cards, so three topic/rules pairs. TOTAL = 9.',
+      'TAKE THE RENDER SCRIPT FROM content/reel-39/render_v3.py, NOT AN OLDER REEL. Reels 38, 39 and 40 are the only copies carrying the tracked() word-gap fix; anything older reintroduces the defect reel-38 was rejected for.',
+      'NO DEPARTURES. Every carded rule is in the lesson\'s rules array and every footer cites only what its own card quotes. 17.8 reads "Indirect Fouls:" — a heading stem, deliberately not carded, exactly like 18.3 in reel 40. 17.8.1 defines the term itself, so nothing beneath the stem needs it for meaning.',
+      'DO NOT conflate this with a receiving foul. The whole distinction is 17.8.1\'s clause "does not directly affect an attempt to make a play on the disc". Contact that did affect a play on the disc is reel 32\'s subject, not this one.',
+      'DO NOT overstate the remedy. 17.8.2 gives back position and nothing else — no disc, no yardage, and the stall count is untouched. "Restored, not rewarded" carries over from reel 40 deliberately; the two calls share a shape and get confused constantly.',
+      'Keep the curly quotes in “Indirect Foul” — they are the rulebook\'s — and keep "two (2)" exactly as written in 17.8.1.1. LIKELY _payload() case: 17.8.1.1 carries both. Verify in the PNGs, not the SVGs.',
+      'Instagram caption 1,528 characters including hashtags (69.5% of the 2,200 limit, comfortably below the 95% warning line); TikTok 997 of 4,000. Both plain text and scanned clean of markdown — no bold or italic asterisk markers, backticks, markdown links, hash headings or dash bullets. Measured in UTF-16 units in the browser on 2026-09-12, since check_caption.py could not be run; build_desk.py re-runs it as a backstop at sync time.',
+      'Curriculum position: lesson 41 is index 6 of content/lessons-3.json, the next unused lesson after 40. It covers 2026-09-15, the only bare date in the tomorrow-through-tomorrow+2 window — 09-13 and 09-14 are already queued as reels 39 and 40. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens block 33–39.'
     ]
   }
 ];

@@ -2,26 +2,26 @@
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [],
   "review_state": {
-    "reel-37": {
+    "reel-38": {
       "builtFromScriptRev": 1,
       "content": {
         "status": "in-review",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-10T09:10:00Z"
+        "updatedAt": "2026-09-11T10:30:00Z"
       },
       "revisions": [
         {
           "v": 1,
-          "renderedAt": "2026-09-10",
-          "duration": "29.6s",
-          "file": "reel37-didnt-affect-the-play.mp4",
+          "renderedAt": "2026-09-11",
+          "duration": "29.5s",
+          "file": "reel38-the-check.mp4",
           "builtFromScriptRev": 1,
-          "changed": "Initial cut of \"It didn't affect the play\": 16.3, 16.3.1, 16.3.2. Seven scenes, two-pair shape, 889 frames at 29.63s, 1080x1920, 30fps. Layout reproduces the 2026-09-08 dry measure exactly (main scenes 1192, details 554 and 740, tip 1062, closing 900, 0 problems, no collisions); check_dull passes at 0.23s against the 0.45s threshold; all three rule texts byte-identical to rules.json and all three _payload() quote pairs present in the PNGs. Built outside the sandbox, which would not mount: Chromium rasterised the SVGs in place of ImageMagick and Arial stood in for Liberation Sans, both metric-compatible substitutions validated on carousel-post-5, and the encode used a bundled ffmpeg with encode.py's arguments unchanged."
+          "changed": "Initial cut of the check and how play restarts: 10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4. Nine scenes, three-pair shape, 885 frames at 29.50s. This is the run that measured what the 2026-09-09 draft could only estimate, the sandbox having been down since: scene 3, the dense card its own notes flagged, lands at 740 of 1310 with no collision, so no split and no reworded copy. 9 scenes, 0 problems; check_dull 0.23s against the 0.45s threshold; the scene-3 and scene-5 quote cases confirmed present in the frames. Built on Windows through tools/win_render.py."
         }
       ]
     }
   },
-  "generated": "2026-09-10T09:10:00Z",
-  "by": "interactive session (sandbox unavailable)"
+  "generated": "2026-09-11T10:30:00Z",
+  "by": "interactive session (sandbox unavailable, 4th day)"
 }

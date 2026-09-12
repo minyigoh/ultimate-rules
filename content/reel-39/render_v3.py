@@ -55,7 +55,42 @@ def reg(x, y, text, size, color, anchor="start", opacity=1):
     return (f'<text x="{x}" y="{y}" font-family="{FONT}" font-weight="normal" font-size="{size}" '
             f'fill="{color}" opacity="{opacity}" text-anchor="{anchor}">{_payload(text)}</text>')
 
-def tracked(s, gap=" "):
+# The gap is a NON-BREAKING space, not a plain one, and that is the whole fix
+# for the defect Min-Yi rejected reel-38 for on 2026-09-11: "The header text in
+# orange doesn't have proper spacing e.g. #1WHOTOUCHESITIN should read #1 WHO
+# TOUCHES IT IN".
+#
+# A tracked kicker encodes its word boundary as a RUN of whitespace -- the
+# joiner, then the source string's own space, then the joiner again -- while a
+# letter boundary is a single joiner. XML collapses runs of whitespace to one
+# character, so both boundaries arrived at the rasteriser the same width and the
+# words fused into one continuous tracked string. Measured in headless Chrome,
+# the renderer tools/win_render.py actually uses: "#1   W H O   T O U C H E S
+# I T   I N" at 34px comes back 483.6px collapsed against 559.2px intended, and
+# the missing 75.6px is exactly the four word gaps.
+#
+# U+00A0 is not XML whitespace, so nothing collapses it, and it carries the same
+# advance as U+0020 in Liberation Sans and in the metric-compatible Arial that
+# win_render.py substitutes -- verified at 559.2px either way, identical to the
+# same string under xml:space="preserve". So this is a whitespace-collapse fix
+# and not a metric change: fit_kicker() and check_layout.py take the same
+# decisions, and a single-word kicker ("BEGINNER" on every cover) emits the same
+# 231.1px it always has.
+#
+# xml:space="preserve" is the other available fix and it is NOT used here. It
+# would work in Chrome but depends on the reader honouring it, and ImageMagick
+# 6's internal MSVG reader -- the sandbox path -- has never been tested for it.
+# The non-breaking space needs no cooperation from either reader.
+# Built from the code point, never written as a literal. The character is
+# invisible in every editor and in every diff, so a literal here would be one
+# stray reformat away from silently becoming U+0020 again -- with nothing on
+# screen to show for it and the reel-38 rejection back in the output. Do not
+# "simplify" this to a quoted space.
+NBSP = chr(0xA0)
+assert NBSP != " " and NBSP.isspace(), "NBSP must be U+00A0, not U+0020"
+
+
+def tracked(s, gap=NBSP):
     return gap.join(list(s))
 
 def wrap_lines(text, font_size, avail=AVAIL_W, ratio=0.54):
@@ -194,7 +229,9 @@ def fit_body(text, y_start, size=BODY_SIZE, line_h=BODY_LINE_H,
 
 def g_main(no, kicker, headline, body_text, rules, index):
     groups = [[header(no, TOTAL)]]
-    klabel = f"#{index}   " + tracked(kicker)
+    # NBSP*3, not "   " -- three plain spaces are a collapsible run and the gap
+    # after the index number vanished with the rest of them. Same advance width.
+    klabel = f"#{index}" + NBSP*3 + tracked(kicker)
     ks = fit_kicker(klabel)
     groups.append([bold(MARGIN, 510, klabel, ks, ORANGE, sw=round(1.6*ks/34, 2))])
     y = 610; head = []

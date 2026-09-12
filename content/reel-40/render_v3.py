@@ -81,21 +81,14 @@ def reg(x, y, text, size, color, anchor="start", opacity=1):
 # would work in Chrome but depends on the reader honouring it, and ImageMagick
 # 6's internal MSVG reader -- the sandbox path -- has never been tested for it.
 # The non-breaking space needs no cooperation from either reader.
-NBSP = " "
-
-# Written twice on purpose, and the pair is a canary.
 #
-# The line above holds the character itself, which is invisible in every editor
-# and in every diff: a copy-paste, a lint pass or a stray reformat can turn it
-# back into U+0020 with nothing on screen to show for it, and the symptom would
-# be the reel-38 rejection all over again with no clue in the source. The line
-# below rebuilds it from its code point, which cannot be normalised by accident,
-# and is what the rest of the module actually uses.
-#
-# So if the literal ever decays, these two stop matching and the assert stops
-# the build. Do not "simplify" this by deleting either one.
+# Built from the code point, never written as a literal. The character is
+# invisible in every editor and in every diff, so a literal here would be one
+# stray reformat away from silently becoming U+0020 again -- with nothing on
+# screen to show for it and the reel-38 rejection back in the output. Do not
+# "simplify" this to a quoted space.
 NBSP = chr(0xA0)
-assert NBSP == " ", "NBSP has been normalised to a plain space; kickers will fuse"
+assert NBSP != " " and NBSP.isspace(), "NBSP must be U+00A0, not U+0020"
 
 
 def tracked(s, gap=NBSP):
@@ -310,15 +303,15 @@ def g_closing(no, lesson_no):
 def rt(n): return RULE[n]["text"]
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "The check: restarting play", "Play stopped. Everybody is standing still. Now what? There is a procedure, it takes about three seconds, and almost nobody has read it.", 38, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('hand', g_main(2, 'WHO TOUCHES IT IN', "Disc in hand? Somebody has to touch it.", "Every stoppage in ultimate ends the same way: with a check. If the thrower is holding the disc and a defender is within reach, that defender touches the disc and play is live again. If nobody is in reach, the thrower touches it to the ground and may call it in. You are never stuck waiting for an opponent who is not coming.", ['10.6.1', '10.6.1.1', '10.6.1.2'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('hand_r', g_detail(3, [('10.6.1', [rt('10.6.1'), ('10.6.1.1', rt('10.6.1.1')), ('10.6.1.2', rt('10.6.1.2'))])]), [0.3, 2.0]),
-    ('ground', g_main(4, 'DISC ON THE GROUND', "Nearest defender calls it in.", "If the disc is not in anybody's hands, lying where the turnover happened, nobody touches anything at all. The defender nearest to it calls the disc in, and that call is the restart. It is the defence's to make, and the offence does not need to wait for a tap.", ['10.6.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('ground_r', g_detail(5, [('10.6.2', [rt('10.6.2')])]), [0.3, 2.0]),
-    ('ready', g_main(6, 'CHECK BEFORE THE CHECK', "Two people confirm before anyone touches anything.", "Before any of that, two people have a job. The player checking the disc in and the nearest opponent each confirm that their own team-mates are ready and standing where the rules put them. Their own — not the other team's. That is why a check is more than somebody tapping a disc.", ['10.4'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('ready_r', g_detail(7, [('10.4', [rt('10.4')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Look around before you check it in.", "Actually look around before you check it in. Checking in while your own team is still jogging back is how a defence concedes before it is set. And an opponent who was still moving when the disc went live is something you are allowed to call."), [0.3, 0.45, 0.7, 1.7]),
-    ('close', g_closing(9, 38), [0.3, 0.8, 1.0, 1.4]),
+    ('cover', g_cover(1, 'BEGINNER', "Picks", "You are guarding someone. A player you were not guarding steps into your path, and your mark is gone. There is a call for that, and a two-second pause before you make it.", 40, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('what', g_main(2, 'WHAT A PICK IS', "Guarding someone, and a third body takes them from you.", "A pick needs two things at once. You were guarding one particular player, and a different player physically stopped you moving with them. Not traffic in general, and not a defender who was covering space rather than a person. There is one carve-out: if your mark and the player who blocked you were both going for the disc, that is a contest, and there is no pick.", ['18.3.1'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('what_r', g_detail(3, [('18.3.1', [rt('18.3.1')])]), [0.3, 2.0]),
+    ('wait', g_main(4, 'THE TWO-SECOND WAIT', "You may hold the call and see whether it cost you.", "You do not have to call it the instant it happens. The rules give the defender up to two seconds to hold the call while they work out whether the obstruction is going to affect the play at all. If your mark was cutting away from the disc, it cost you nothing, and the cheapest call is the one you never make.", ['18.3.1.1'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('wait_r', g_detail(5, [('18.3.1.1', [rt('18.3.1.1')])]), [0.3, 2.0]),
+    ('back', g_main(6, 'WHAT YOU GET BACK', "The position you would have had. Nothing else.", "Play stops and you move to the position you would have occupied if nobody had been in your way. Agreed with the offence, not claimed. You are restored, not rewarded: no disc, no yardage, and the stall count comes back at maximum six. And the duty to avoid picks is written for all players, not only the ones who get to call them.", ['18.3.2', '18.3.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('back_r', g_detail(7, [('18.3.2', [rt('18.3.2')]), ('18.3.3', [rt('18.3.3')])]), [0.3, 1.7, 2.0]),
+    ('tip', g_tip(8, "Take the two seconds before you call it.", "Because the count comes back at maximum six, a pick barely dents the offence — which cuts both ways. Calling one that did not cost you gains you almost nothing and stops the game for fourteen people. Take the two seconds, and call it when it genuinely took your mark away."), [0.3, 0.45, 0.7, 1.7]),
+    ('close', g_closing(9, 40), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------
 # House rhythm, applied over whatever per-state durations SCENES carries above:
