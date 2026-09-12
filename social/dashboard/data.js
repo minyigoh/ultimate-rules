@@ -3593,17 +3593,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 40,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['18.3.1', '18.3.1.1', '18.3.2', '18.3.3'],
     review: {
       script:  {status: 'pending', on: '2026-09-11'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-12'}
     },
     postedDate: null,
     folder: 'reel-40',
     source: 'content/reel-40/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Calls)',
-    video: null,
+    video: 'reel40-picks.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Picks · kicker BEGINNER · LESSON 40 / 75'],
@@ -3686,7 +3687,6 @@ lesson 40 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-11 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
       'NOT DRY-MEASURED, for the fourth consecutive day. The render sandbox failed to mount on 2026-09-11 with three identical Plan9 "share c is not mounted" errors, as it did on 2026-09-08, 09-09 and 09-10, so check_layout.py, check_caption.py and node --check could not be run. Every layout number in the .md is an estimate, not an emitted measurement.',
       'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36, 38, 39). Three rule cards, so three topic/rules pairs. TOTAL = 9 — reel-36/render_v3.py already has it.',
       'NO DEPARTURES. Every carded rule is in the lesson\'s rules array and every footer cites only what its own card quotes. 18.3 reads "“Pick” Violations:" — a heading stem, deliberately not carded, and nothing beneath it needs it for meaning, unlike reel 34\'s 1.6 or reel 39\'s 9.6.',
@@ -3698,7 +3698,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3)
       'Curriculum position: lesson 40 is index 5 of content/lessons-3.json, the next unused lesson after 39. It covers 2026-09-14, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens with lesson 28 per the flag on carousel-post-6.',
       'RENDER SCRIPTS AUTHORED 2026-09-12. content/reel-40/ now has render_v3.py, blend.py and encode.py, copied from reel-39 with only SCENES and the lesson number changed. They carry the tracked() word-gap fix. Nothing is rendered yet — the sandbox has been down five days; build on Windows with `python tools\\win_render.py reel-40`.',
       'Kickers measured 2026-09-12 in headless Chrome at 34px Arial Bold against the 900px column: "#1 WHAT A PICK IS" 451.5px (50.2%), "#2 THE TWO-SECOND WAIT" 643.5px (71.5%), "#3 WHAT YOU GET BACK" 583.1px (64.8%). fit_kicker() will not engage. These are the fixed widths, that is, with the word gaps the old tracked() was losing.',
-      'REDRAFT v2, 2026-09-12. No desk note: fit_body() refused scene 2\'s body and stopped the build. The headline wrapped to three lines at 66px, leaving 200px for a 364-character paragraph, which does not fit even at the 29px floor. The headline now reads "Guarding someone, and a third body takes them." and wraps to two lines; the body sets at 30px with 26px of clearance. The quotation and the body copy are unchanged and no citation moved. Read it and click Approve to re-stamp it against these words -- the layout is measured now, not estimated.'
+      'REDRAFT v2, 2026-09-12. No desk note: fit_body() refused scene 2\'s body and stopped the build. The headline wrapped to three lines at 66px, leaving 200px for a 364-character paragraph, which does not fit even at the 29px floor. The headline now reads "Guarding someone, and a third body takes them." and wraps to two lines; the body sets at 30px with 26px of clearance. The quotation and the body copy are unchanged and no citation moved. Read it and click Approve to re-stamp it against these words -- the layout is measured now, not estimated.',
+      'RENDERED 2026-09-12 in the cloud build run, from the v2 script the desk approved. 886 frames at 29.53s, 0 layout problems, no collisions. Scene 3 (18.3.1, the longest quotation) lands at 704 of 1310; main scenes at 1192, field tip 1062, closing 900, cover 1210, every scene max_x 990 of 990. check_dull passes at 0.17s against the 0.45s threshold. Carries the tracked() word-gap fix.'
     ]
   },
   {
@@ -3709,17 +3710,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3)
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 41,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['17.8.1', '17.8.1.1', '17.8.2'],
     review: {
       script:  {status: 'pending', on: '2026-09-12'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-12'}
     },
     postedDate: null,
     folder: 'reel-41',
     source: 'content/reel-41/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Fouls)',
-    video: null,
+    video: 'reel41-indirect-fouls.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Indirect fouls · kicker BEGINNER · LESSON 41 / 75'],
@@ -3788,7 +3790,6 @@ lesson 41 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (17.8.1, 17.8.1.1, 17.8.2) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-12 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
       'NOT DRY-MEASURED IN THE SANDBOX, for the fifth consecutive day. The workspace failed to mount on 2026-09-12 with the same Plan9 "share c is not mounted" error as 09-08 through 09-11, so check_layout.py, check_caption.py and node --check could not be run.',
       'BUT the kicker widths and the caption lengths are real measurements this time, not estimates. Both were taken in headless Chrome — the renderer tools/win_render.py actually uses on Windows — rather than extrapolated from earlier reels.',
       'Kickers at 34px Arial Bold against the 900px column: "#1 CONTACT OFF THE DISC" 654.9px (72.8%), "#2 THE TWO-SECOND WAIT" 643.5px (71.5%), "#3 MAKE UP THE GROUND" 618.4px (68.7%). fit_kicker() will not engage.',
@@ -3801,7 +3802,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (17.8.1, 17.8.1.1, 17.8.2) — ful
       'DO NOT overstate the remedy. 17.8.2 gives back position and nothing else — no disc, no yardage, and the stall count is untouched. "Restored, not rewarded" carries over from reel 40 deliberately; the two calls share a shape and get confused constantly.',
       'Keep the curly quotes in “Indirect Foul” — they are the rulebook\'s — and keep "two (2)" exactly as written in 17.8.1.1. LIKELY _payload() case: 17.8.1.1 carries both. Verify in the PNGs, not the SVGs.',
       'Instagram caption 1,528 characters including hashtags (69.5% of the 2,200 limit, comfortably below the 95% warning line); TikTok 997 of 4,000. Both plain text and scanned clean of markdown — no bold or italic asterisk markers, backticks, markdown links, hash headings or dash bullets. Measured in UTF-16 units in the browser on 2026-09-12, since check_caption.py could not be run; build_desk.py re-runs it as a backstop at sync time.',
-      'Curriculum position: lesson 41 is index 6 of content/lessons-3.json, the next unused lesson after 40. It covers 2026-09-15, the only bare date in the tomorrow-through-tomorrow+2 window — 09-13 and 09-14 are already queued as reels 39 and 40. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens block 33–39.'
+      'Curriculum position: lesson 41 is index 6 of content/lessons-3.json, the next unused lesson after 40. It covers 2026-09-15, the only bare date in the tomorrow-through-tomorrow+2 window — 09-13 and 09-14 are already queued as reels 39 and 40. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens block 33–39.',
+      'RENDER SCRIPT AUTHORED AND RENDERED 2026-09-12 in the cloud build run, copied from content/reel-39/render_v3.py with only SCENES and the lesson number changed (carries the tracked() word-gap fix). 885 frames at 29.50s, 0 layout problems, no collisions. Detail cards land at 554, 504 and 454 of 1310, all light, as the estimate predicted; main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold. Field tip headline is "Most off-disc contact costs you nothing." (drawn from the lesson\'s own field text), body text unchanged from the draft.'
     ]
   }
 ];
