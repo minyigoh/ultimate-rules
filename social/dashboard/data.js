@@ -3457,17 +3457,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (10.6.1, 10.6.1.1, 10.6.1.2, 10.6.
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 39,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080\u00d71920 \u00b7 29.5s \u00b7 30fps',
     rules: ['9.5.1', '9.5.2', '9.5.3', '9.5.5', '9.6.1'],
     review: {
       script:  {status: 'pending', on: '2026-09-10'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-12'}
     },
     postedDate: null,
     folder: 'reel-39',
     source: 'content/reel-39/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Restarts)',
-    video: null,
+    video: 'reel39-count-after-stoppage.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'What the stall count restarts at · kicker BEGINNER · LESSON 39 / 75'],
@@ -3570,8 +3571,6 @@ lesson 39 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-10 by the daily task. Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
-      'NOT DRY-MEASURED, for the second consecutive day. The render sandbox failed to mount on 2026-09-10 with four identical Plan9 errors, as it did on 2026-09-09, so check_layout.py, check_caption.py and node --check could not be run. Every layout number in the .md is an estimate, not an emitted measurement.',
       'Nine scenes, the three-pair shape (reels 30, 31, 32, 35, 36, 38). Three rule cards, so three topic/rules pairs. TOTAL = 9 — reel-36/render_v3.py already has it.',
       'DEPARTURE: 9.6 is carded as a block lead and is NOT in the lesson\'s rules array. This is the reel-34 shape, not the reel-36 one. 9.6.1 closes on "or “Stalling n”" and n is defined nowhere except 9.6, so carding 9.6.1 alone quotes a variable the viewer has never been shown. Scene 6\'s footer cites 9.6.1 only.',
       'JUDGEMENT CALL: 9.5.5 ends on "However:", which points at 9.5.5.1 and 9.5.5.2. Neither is carded — they are named in scene 4\'s prose instead, the reel-36 treatment of 16.2.1/16.2.2, because neither is in the lesson\'s rules array and both are narrow. This does leave a connective hanging at the foot of the block. The alternative is to card 9.5.5 as a block lead with both sub-items beneath, which resolves it but puts three blocks on scene 5; that was not chosen this run because the sandbox is down and the denser card could not be measured. Say the word and a run with a working sandbox rebuilds scene 5 that way.',
@@ -3582,7 +3581,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (9.5.1, 9.5.2, 9.5.3, 9.5.5, 9.6.1
       'DO NOT say the count "resumes" or "picks up". 9.5 is explicit that it restarts, and that difference is the point of scene 2. Keep the curly quotes in “Stalling one (1)”, “Stalling eight (8)”, “pick”, “x” and “Stalling n” — they are the rulebook\'s.',
       'Instagram caption 1,920 characters including hashtags (87% of the 2,200 limit, below the 95% warning line); TikTok 1,313 of 4,000. Both plain text, no markdown — scanned for bold and italic asterisk markers, backticks, markdown links, hash headings and dash bullets. Measured in UTF-16 units on 2026-09-10 outside the sandbox; build_desk.py re-runs check_caption.py as a backstop at sync time.',
       'Curriculum position: lesson 39 is index 4 of content/lessons-3.json, the next unused lesson after 38. It covers 2026-09-13, the only bare date in the tomorrow-through-tomorrow+2 window. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17.',
-      'RENDER SCRIPT UPDATED 2026-09-12 with the tracked() word-gap fix that reel-38 was rejected for — kickers now keep their word gaps. This reel had not been built yet, so nothing is being replaced; the first cut will simply be correct. Kickers measured in headless Chrome at 34px Arial Bold against the 900px column, all well inside it. Still not built: the sandbox has been down five days. Build on Windows with `python tools\\win_render.py reel-39`.'
+      'RENDER SCRIPT UPDATED 2026-09-12 with the tracked() word-gap fix that reel-38 was rejected for — kickers now keep their word gaps. This reel had not been built yet, so nothing is being replaced; the first cut will simply be correct. Kickers measured in headless Chrome at 34px Arial Bold against the 900px column, all well inside it. Still not built: the sandbox has been down five days. Build on Windows with `python tools\\win_render.py reel-39`.',
+      'RENDERED 2026-09-12 via tools/win_render.py. Scene 7, the card the draft flagged, measures 772 of 1310 -- comfortable. All nine scenes clean: detail cards 640, 690 and 772, main scenes 1192, field tip 1062, closing 900, cover 1210, every scene max_x 990 of 990, 0 problems, no collisions. 885 frames at 29.50s. Carries the tracked() word-gap fix, so the kickers read with proper spacing. This is also the cut that found a bug in check_dull: it failed for two days on a 2.43s \'sustained dull-orange run\' that turned out to be scene 7\'s 22px 9.6.1 label ending two rows below a band boundary, so the band below caught 14 antialiased pixels peaking at 180 where it normally carries 756 peaking at 235. check_dull now requires a band to hold at least 100 orange pixels before it calls orange present; a genuinely dimmed element keeps its pixel count, so detection is unchanged, and that was verified against a cut with the orange deliberately dimmed for two seconds, which still fails. Min-Yi approved the gate change on 2026-09-12. reel-39 now passes at 0.20s against the 0.45s threshold.'
     ]
   },
   {

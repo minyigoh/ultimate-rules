@@ -8,20 +8,31 @@
         "status": "in-review",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-11T10:30:00Z"
+        "updatedAt": "2026-09-12T09:40:00Z"
       },
       "revisions": [
         {
-          "v": 1,
-          "renderedAt": "2026-09-11",
+          "v": 2,
+          "renderedAt": "2026-09-12",
           "duration": "29.5s",
           "file": "reel38-the-check.mp4",
           "builtFromScriptRev": 1,
-          "changed": "Initial cut of the check and how play restarts: 10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4. Nine scenes, three-pair shape, 885 frames at 29.50s. This is the run that measured what the 2026-09-09 draft could only estimate, the sandbox having been down since: scene 3, the dense card its own notes flagged, lands at 740 of 1310 with no collision, so no split and no reworded copy. 9 scenes, 0 problems; check_dull 0.23s against the 0.45s threshold; the scene-3 and scene-5 quote cases confirmed present in the frames. Built on Windows through tools/win_render.py."
+          "changed": "Rebuilt to fix the kicker spacing Min-Yi rejected on 09-11 (#1WHOTOUCHESITIN). tracked() joined letters with a plain space, so a word boundary became a collapsible run of whitespace and rendered identically to a letter boundary; the #1 prefix had the same fault. Joined with U+00A0, which needs no cooperation from either SVG reader. Copy is untouched and the script stays at rev 1. Kickers confirmed correct in the frames. Nothing else moved: 9 scenes, 0 problems, 885 frames at 29.50s, check_dull 0.23s against 0.45s. Cut v1 archived as reel38-the-check.v1.mp4."
+        }
+      ]
+    },
+    "reel-40": {
+      "scriptRev": 2,
+      "scriptRevisions": [
+        {
+          "v": 2,
+          "draftedAt": "2026-09-12",
+          "file": "script-and-caption.md",
+          "changed": "Scene 2's headline loses two words so the body fits. fit_body() refused the approved body and stopped the build: the three-line headline left 200px for a 364-character paragraph, short even at the 29px floor. The quotation, the body copy and every citation are unchanged. Layout is measured now, not estimated."
         }
       ]
     }
   },
-  "generated": "2026-09-11T10:30:00Z",
-  "by": "interactive session (sandbox unavailable, 4th day)"
+  "generated": "2026-09-12T10:15:00Z",
+  "by": "interactive session (sandbox unavailable, 5th day)"
 }

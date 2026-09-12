@@ -22,6 +22,24 @@ N_BANDS = 24
 DULL = 200               # red channel below this is a dimmed orange
 MAX_RUN_S = 0.45         # 0.4s scene blend plus a frame of slack
 
+# How much orange a band must hold before "orange is present here" is a claim
+# worth making. A single lit pixel is not an element.
+#
+# Added 2026-09-12, after reel-39 failed on a cut with nothing wrong with it.
+# Its scene 7 cards 9.6.1 as a nested sub-rule, and that 22px orange label ends
+# two rows below a band boundary. The band below therefore caught the label's
+# last two antialiased rows and nothing else: 14 pixels peaking at 180, held for
+# as long as the card did, which read as 2.43s of sustained dull orange. The same
+# band carries 756 pixels peaking at 235 everywhere else in the same video.
+#
+# The floor is safe because dimming changes brightness, not area: a crossfade
+# frame that inherits a hold still has the whole element lit, just darker, so its
+# pixel count is unchanged and it still trips. Verified against a cut with the
+# orange deliberately dimmed for two seconds -- that still fails, and now points
+# at the injected window instead of at the artefact. Reels 37 and 38 are
+# unaffected either way.
+MIN_PX = 100
+
 
 def frames(path):
     p = subprocess.Popen(
@@ -43,6 +61,7 @@ def main(path):
     body_h = H - HEADER_Y
     edges = np.linspace(HEADER_Y, H, N_BANDS + 1).astype(int)
     peaks = []
+    counts = []
     for f in frames(path):
         r = f[:, :, 0].astype(np.int16)
         g = f[:, :, 1].astype(np.int16)
@@ -52,14 +71,17 @@ def main(path):
         orange = (r > 55) & (r > g + 25) & (r > b + 25) & (g < r * 0.75)
         row = np.where(orange, r, 0)
         peaks.append([row[edges[i]:edges[i + 1]].max() for i in range(N_BANDS)])
+        counts.append([orange[edges[i]:edges[i + 1]].sum() for i in range(N_BANDS)])
     peaks = np.array(peaks)                     # frames x bands
+    counts = np.array(counts)                   # frames x bands
     n = len(peaks)
     print(f"{path}: {n} frames = {n / FPS:.2f}s, {N_BANDS} bands below y={HEADER_Y}")
 
     worst_run, worst_band, worst_at = 0, None, None
     for bi in range(N_BANDS):
         col = peaks[:, bi]
-        dull = (col > 0) & (col < DULL)         # orange present, but dimmed
+        present = counts[:, bi] >= MIN_PX       # enough orange to be an element
+        dull = present & (col < DULL)           # orange present, but dimmed
         run = at = 0
         for i, d in enumerate(dull):
             if d:
