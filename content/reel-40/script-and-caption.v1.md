@@ -1,7 +1,7 @@
 # Reel 40 — Picks
 
-**Status:** Pending review — redraft v2, scene 2's headline trimmed so the body fits
-**Script drafted:** 2026-09-11 (daily-reel-render) · **Redrafted:** 2026-09-12 · **Rendered:** —
+**Status:** Pending review
+**Script drafted:** 2026-09-11 (daily-reel-render) · **Rendered:** —
 **Queued:** 2026-09-14 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (18.3.1, 18.3.1.1, 18.3.2, 18.3.3)
@@ -22,7 +22,7 @@ three-pair shape, same as reels 30, 31, 32, 35, 36, 38 and 39.
 | # | Scene | Content |
 |---|---|---|
 | 1 | Cover | Picks · kicker BEGINNER · LESSON 40 / 75 |
-| 2 | #1 WHAT A PICK IS | "Guarding someone, and a third body takes them." · footer cites 18.3.1 |
+| 2 | #1 WHAT A PICK IS | "Guarding someone, and a third body takes them from you." · footer cites 18.3.1 |
 | 3 | Rules detail | Verbatim 18.3.1, one block |
 | 4 | #2 THE TWO-SECOND WAIT | "You may hold the call and see whether it cost you." · footer cites 18.3.1.1 |
 | 5 | Rules detail | Verbatim 18.3.1.1, one block |
@@ -65,35 +65,35 @@ paraphrased on a citation card.
    *all* players, which is the line most beginners have never read — the
    offence is not a passive party to a pick.
 
-**Layout — measured 2026-09-12**, on Windows through `tools/win_render.py`
-(headless Chrome, with Arial standing in for Liberation Sans, which is
-metric-compatible with it; see `tools/WINDOWS_FALLBACK.md`). These are emitted
-numbers, not estimates:
+**Layout — NOT DRY-MEASURED. Estimates only.**
 
-- All three kickers hold the standard 34px and `fit_kicker()` never engages:
-  `#1 WHAT A PICK IS`, `#2 THE TWO-SECOND WAIT`, `#3 WHAT YOU GET BACK`. The
-  hyphen in "TWO-SECOND" tracks like any other glyph, as the estimate predicted.
-- **Scene 2's headline was the problem, and the estimates missed it entirely.**
-  They worried about the detail cards. What actually stopped the build was the
-  headline: `"Guarding someone, and a third body takes them from you."` wrapped
-  to *three* lines at 66px, which pushed the body start down to y=890 and left
-  only 200px for a 364-character paragraph. `fit_body()` refused it at the 29px
-  floor — 7 lines ending at y=1130 against a limit of 1090 — and stopped the
-  render rather than colliding quietly, which is exactly what it exists for.
-  Dropping "from you" brings the headline back to two lines; the body then
-  starts at y=812 and sets at 30px over 7 lines with its last baseline at 1064,
-  26px clear. **The quotation and the body copy are untouched.**
-- Scene 3, the card the estimates flagged, lands at 704 of 1310. Comfortable.
-- Detail cards 5 and 7 at 504 and 790. All three main scenes at 1192, field tip
-  1062, closing 900, cover 1210, every scene max_x 990 of 990.
-- `check_layout.py`: 9 scenes, 0 problems, no collisions.
-- Duration **29.53s** (886 frames). `check_dull` passes at 0.23s against the
-  0.45s threshold.
-- **Not rendered from this redraft, by rule.** A cut is built from words the
-  desk has approved; the build above existed to produce these measurements and
-  its output was discarded. Approve v2 and it rebuilds in one command.
+The render sandbox failed to mount again on 2026-09-11 (three identical Plan9
+errors, the same `share "c" which is not mounted` failure as 2026-09-08 through
+2026-09-10). `check_layout.py` and `node --check` could not be run. Every number
+below is an estimate from the reel-36, reel-38 and reel-39 measurements, not an
+emitted measurement, and must be verified at render time:
 
-**The four slide bodies**, recorded here so the
+- Kickers are short. `#1   WHAT A PICK IS` (19 characters), `#2   THE
+  TWO-SECOND WAIT` (24) and `#3   WHAT YOU GET BACK` (22) all sit at or below
+  reel-39's longest, and well below reel-11's `SIMULTANEOUS MEANS OFFENCE`, the
+  widest ever shipped at 873 of 900px. `fit_kicker()` is not expected to engage.
+  **Verify** — the hyphen in "TWO-SECOND" is tracked like any other glyph.
+- **Scene 3 is the card to watch.** 18.3.1 is a single 57-word block, the
+  longest single quotation this reel carries and denser than either of the other
+  two detail cards. It is comparable to reel-39's scene 7 (27 + 38 words across
+  two blocks) but concentrated in one paragraph, so it will wrap deeper. If it
+  crowds the citation footer, `fit_body()` is the remedy — **shrink the type,
+  never the quotation.** If it trips the 80% floor, stop and say so.
+- Scene 5 is short (24 words) and should land near the emptiest detail card in
+  the run. Scene 7's two blocks are 27 and 11 words, also comfortable.
+- **Likely `_payload()` cases.** 18.3.1 carries “Pick” in curly quotes
+  mid-sentence and 18.3.1.1 carries the same fragment plus "two (2)". Verify in
+  the PNGs, not the SVGs — this is the collision that cost reel-21 and
+  carousel-post-5 a round.
+- Projected duration **30.0s** on the house rhythm, matching reels 30–32, 35,
+  36, 38 and 39. `TOTAL = 9`; `content/reel-36/render_v3.py` already has it.
+
+**The four slide bodies the estimates above assume**, recorded here so the
 render is reproducible rather than re-derived from the beats:
 
 - Scene 2 — "A pick needs two things at once. You were guarding one particular

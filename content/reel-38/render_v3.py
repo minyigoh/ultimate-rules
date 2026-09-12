@@ -81,21 +81,13 @@ def reg(x, y, text, size, color, anchor="start", opacity=1):
 # would work in Chrome but depends on the reader honouring it, and ImageMagick
 # 6's internal MSVG reader -- the sandbox path -- has never been tested for it.
 # The non-breaking space needs no cooperation from either reader.
-NBSP = " "
-
-# Written twice on purpose, and the pair is a canary.
-#
-# The line above holds the character itself, which is invisible in every editor
-# and in every diff: a copy-paste, a lint pass or a stray reformat can turn it
-# back into U+0020 with nothing on screen to show for it, and the symptom would
-# be the reel-38 rejection all over again with no clue in the source. The line
-# below rebuilds it from its code point, which cannot be normalised by accident,
-# and is what the rest of the module actually uses.
-#
-# So if the literal ever decays, these two stop matching and the assert stops
-# the build. Do not "simplify" this by deleting either one.
+# Built from the code point, never written as a literal. The character is
+# invisible in every editor and in every diff, so a literal here would be one
+# stray reformat away from silently becoming U+0020 again -- with nothing on
+# screen to show for it and the reel-38 rejection back in the output. Do not
+# "simplify" this to a quoted space.
 NBSP = chr(0xA0)
-assert NBSP == " ", "NBSP has been normalised to a plain space; kickers will fuse"
+assert NBSP != " " and NBSP.isspace(), "NBSP must be U+00A0, not U+0020"
 
 
 def tracked(s, gap=NBSP):
