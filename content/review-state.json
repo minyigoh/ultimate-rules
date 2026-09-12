@@ -2567,16 +2567,28 @@
   "reel-42": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-12T11:53:21.985Z"
+      "rev": 1,
+      "updatedAt": "2026-09-12T12:18:06.314Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-12T12:18:06.314Z"
+        }
+      ]
     }
   },
   "reel-43": {
