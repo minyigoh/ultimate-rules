@@ -2648,16 +2648,28 @@
   "reel-45": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-12T11:53:21.985Z"
+      "rev": 1,
+      "updatedAt": "2026-09-12T12:25:31.645Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-12T11:53:21.985Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-12T12:25:31.645Z"
+        }
+      ]
     }
   },
   "carousel-post-7": {
