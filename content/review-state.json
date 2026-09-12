@@ -2462,8 +2462,8 @@
       "status": "approved",
       "note": "",
       "tags": [],
-      "rev": 1,
-      "updatedAt": "2026-09-11T01:33:53.893Z"
+      "rev": 2,
+      "updatedAt": "2026-09-12T04:49:17.424Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2493,6 +2493,13 @@
           "note": "",
           "tags": [],
           "at": "2026-09-11T01:33:53.893Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-12T04:49:17.424Z"
         }
       ]
     }
