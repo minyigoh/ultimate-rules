@@ -48,6 +48,7 @@
 | 2026-09-12 | The check: restarting play | Reel | Content rejected — regenerate | — | — |
 | 2026-09-13 | What the stall count restarts at | Reel | Script approved | — | — |
 | 2026-09-14 | Picks | Reel | Script approved | — | — |
+| 2026-09-15 | Indirect fouls | Reel | Pending review | — | — |
 
 ## Status legend
 
