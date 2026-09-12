@@ -174,17 +174,48 @@ lesson is used if any calendar row on the **authoritative** calendar already
 carries its title. Do not skip ahead, do not reorder for variety: the account
 promises "Lesson N of 75" and the numbering has to stay honest.
 
-**The Thursday carousel — a recap, not a lesson.** It reviews the next seven
-lessons in curriculum order that no earlier recap has covered and whose reels
-have **already posted**. Recaps run in contiguous blocks of seven — 1–7, then
-8–14, then 15–21 — so every lesson is recapped exactly once and none is
-orphaned. **It does not consume a lesson number** and never introduces new
-curriculum; the reels have already taught this material and the carousel is
-the week's index to it.
+**The Thursday carousel — a recap, not a lesson.** It reviews the seven lessons
+in curriculum order that follow the previous recap's last, skipping any lesson
+on the permanent-skip list below. Recaps run in **contiguous blocks of seven** —
+1–7, then 8–14, then 15–21 — and the block is contiguous even when that means
+leaving a skipped lesson behind for good. **It does not consume a lesson
+number** and never introduces new curriculum; the reels have already taught this
+material and the carousel is the week's index to it.
+
+- **Lesson 28 ("Receiving fouls") is permanently skipped.** It will never appear
+  on a recap. Do not add it to a block, do not treat it as an orphan to be
+  closed, and do not reopen the question.
+
+  It fell between carousel-post-5 (which stopped at 27 because 28's reel had not
+  posted) and carousel-post-6 (which was widened from 28–32 to 29–35 at the
+  desk's instruction, moving the near end as well as the far end). The first
+  draft of carousel-post-7 opened with 28 to close the gap, and **Min-Yi
+  rejected that on 2026-09-12: "28 + 36-41 is just weird. Forget 28 permanently
+  and go with 36-42 please."** carousel-post-7 therefore runs 36–42 and
+  carousel-post-8 opens at 43.
+
+  **This wording used to read "the next seven lessons in curriculum order that
+  no earlier recap has covered", which resolves to 28 first and would drag it
+  back onto every future deck.** That is why it was changed. If another lesson
+  is ever orphaned the same way, raise it at the script gate rather than
+  silently closing it — the block's shape is worth more than the completeness,
+  which is the judgement this rule now encodes.
+
+  **The "every lesson recapped exactly once" promise is therefore no longer
+  strictly true.** It has never been stated publicly, so no posted slide or
+  caption needs correcting, and no recap should claim it.
+
+- **A recap title must not exclude a slide the deck covers.** carousel-post-6 v1
+  shipped as "five kinds of foul" over a block containing one thing that was not
+  a foul, and it was retitled rather than shipped. carousel-post-7 is
+  "stopping and starting" rather than "after the call" for the same reason —
+  lesson 42 is a turnover lesson, not a call. Check the title against the last
+  slide, not just the theme of the first five.
 
 - **The window is lesson numbers, never dates.** Read the previous recap's
   `script-and-caption.md` front-matter, which names the block it covered; the
-  next block starts at the lesson after its last.
+  next block starts at the lesson after its last, skipping anything on the
+  permanent-skip list.
 - The original rule here was "the seven reels whose post dates fall in the
   seven days ending that Thursday", and it was wrong three ways: the window
   drifts whenever a post date slips, any lesson falling in the seam is
@@ -192,6 +223,12 @@ the week's index to it.
   its own reel goes live. Min-Yi corrected it on 2026-08-11 ("Can you recap
   lessons 1 - 7? Not 2-8") and confirmed the block rule on 2026-08-17. Do not
   reintroduce the date-based window.
+
+  **Note the apparent contradiction with lesson 28, and do not resolve it the
+  wrong way.** "Orphaned permanently" is an objection to the date window because
+  it orphans lessons *silently and repeatedly*, as a structural side effect
+  nobody decided. Lesson 28 is one named exception, decided explicitly, recorded
+  here. One is a bug; the other is a choice. Neither licenses the other.
 - A lesson is only eligible if its reel **will have posted by the carousel's
   own post date** — not by the day you are drafting. Judge it against the
   authoritative calendar: a reel with a post row dated on or before the
