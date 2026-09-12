@@ -3805,5 +3805,556 @@ rules from WFDF Rules of Ultimate 2025–2028 (17.8.1, 17.8.1.1, 17.8.2) — ful
       'Curriculum position: lesson 41 is index 6 of content/lessons-3.json, the next unused lesson after 40. It covers 2026-09-15, the only bare date in the tomorrow-through-tomorrow+2 window — 09-13 and 09-14 are already queued as reels 39 and 40. No Thursday falls in that window, so no recap carousel is due this run; the next is 2026-09-17, and carousel-post-7 opens block 33–39.',
       'RENDER SCRIPT AUTHORED AND RENDERED 2026-09-12 in the cloud build run, copied from content/reel-39/render_v3.py with only SCENES and the lesson number changed (carries the tracked() word-gap fix). 885 frames at 29.50s, 0 layout problems, no collisions. Detail cards land at 554, 504 and 454 of 1310, all light, as the estimate predicted; main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold. Field tip headline is "Most off-disc contact costs you nothing." (drawn from the lesson\'s own field text), body text unchanged from the draft.'
     ]
+  },
+  {
+    id: 'reel-42',
+    date: '2026-09-16',
+    title: 'Where you pick the disc up after a turnover',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 42,
+    duration: '~30s script',
+    rules: ['13.9', '13.10', '13.8', '8.5.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-12'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-42',
+    source: 'content/reel-42/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Where you pick the disc up after a turnover · kicker BEGINNER · LESSON 42 / 75'],
+      ['2', '#1 WHERE IT STOPPED', '"In the middle of the field, the spot is the spot." · footer cites 13.9'],
+      ['3', 'Rules detail', 'Verbatim 13.9, one block'],
+      ['4', '#2 NOT WHERE IT STOPPED', '"Two cases where you walk to a line instead." · footer cites 13.10 · 13.8'],
+      ['5', 'Rules detail', 'Verbatim 13.10 and 13.8, two blocks'],
+      ['6', '#3 IF YOU CANNOT AGREE', '"There is a rule for that, and it takes three seconds." · footer cites 8.5.4'],
+      ['7', 'Rules detail', 'Verbatim 8.5.4, one block'],
+      ['8', 'FIELD TIP', '"The spot is where it crossed the line, not where it rolled to a stop."'],
+      ['9', 'Closing', '"Lesson 42 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Turnover. The disc is lying somewhere on the field. Where do you actually put your pivot?`,
+      explanation: `Three cases cover nearly all of it. If it stopped in the central zone, the pivot goes exactly there. If it is in the end zone you are attacking, you walk to the nearest point on the goal line. And if it went out-of-bounds, you go to the nearest point on the field to where it crossed the line.`,
+      example: `A throw sails over the sideline and rolls another fifteen metres. You jog out, pick it up, and walk straight in from there. That is the mistake. The spot is where it crossed the line, not where it stopped. And if the two of you cannot agree where that was, take the midpoint between your two guesses — that is a rule, not a compromise.`,
+      cta: `Lesson 42 of 75 — new lesson daily.`
+    },
+    ig: `Turnover. The disc is lying somewhere on the field. Where do you actually put your pivot?
+
+Three cases cover nearly all of it.
+
+One. It stopped in the central zone — the middle of the field, between the two end zones.
+
+"If the turnover location is in the central zone, the thrower must establish a pivot point at that location."
+
+Exactly there. No walking it anywhere.
+
+Two. It is in the end zone you are attacking.
+
+"If the turnover location is in the offence’s attacking end zone, the thrower must establish a pivot point at the nearest location on the goal line."
+
+Three. It went out-of-bounds. This is the one people get wrong.
+
+"If the turnover location is out-of-bounds, or the disc touched an out-of-bounds area after the turnover occurred, the thrower must establish a pivot point at the location on the central zone nearest to where the disc went out-of-bounds (Section 11.8)."
+
+A throw sails over the sideline and rolls another fifteen metres. You jog out, pick it up, and walk straight in from where you found it. That is the mistake. The spot is where it crossed the line.
+
+And when two of you pace out two different spots and neither will move:
+
+"If players cannot agree on the correct pivot location, the relevant midpoint between the two proposed pivot locations must be used."
+
+Take the midpoint. Nobody has to concede anything, because it is the rule.
+
+Lesson 42 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (13.9, 13.10, 13.8, 8.5.4). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `turnover. where do you actually put your pivot 🥏
+
+three cases cover nearly all of it
+
+1️⃣ stopped in the central zone → pivot goes exactly there
+
+"If the turnover location is in the central zone, the thrower must establish a pivot point at that location."
+
+2️⃣ in the end zone you're attacking → walk to the nearest point on the goal line
+
+"If the turnover location is in the offence’s attacking end zone, the thrower must establish a pivot point at the nearest location on the goal line."
+
+3️⃣ out of bounds → nearest point on the field to where it CROSSED
+
+"If the turnover location is out-of-bounds, or the disc touched an out-of-bounds area after the turnover occurred, the thrower must establish a pivot point at the location on the central zone nearest to where the disc went out-of-bounds (Section 11.8)."
+
+the mistake: it rolls another 15m, you pick it up and walk straight in from there ✋ the spot is where it crossed the line
+
+and if you can't agree on the spot:
+
+"If players cannot agree on the correct pivot location, the relevant midpoint between the two proposed pivot locations must be used."
+
+take the midpoint. it's a rule, not a compromise
+
+lesson 42 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (13.9, 13.10, 13.8, 8.5.4) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-12 by the daily task (draft run). Awaiting script review. Video not yet rendered — nothing renders until the script clears the first gate.',
+      'NOT DRY-MEASURED IN THE SANDBOX, for the sixth consecutive day. The workspace failed to mount on 2026-09-12 with the same Plan9 "share c is not mounted" error as 09-08 through 09-11, so check_layout.py, check_caption.py and node --check could not be run. Caption lengths WERE measured, in the browser, in UTF-16 units.',
+      'FLAGGED DEPARTURE: 13.7 is in the lesson\'s rules array and is deliberately NOT carded. It is a heading stem ("After a turnover, the turnover location is where:") whose four sub-items are fragments, two of them bare cross-references to 13.2.x. Carding it means either putting unexplained cross-references on screen or truncating an enumeration. Scene 2\'s body defines "turnover location" in plain words instead. If that is too thin, the redraft is a fourth pair carding 13.7 + 13.7.1 + 13.7.2 at eleven scenes.',
+      'Nine scenes, the three-pair shape. Three rule cards, so three topic/rules pairs. TOTAL = 9.',
+      'SCENE 5 IS THE ONLY CARD AT RISK — two blocks, 13.10 (24 words) and 13.8 (38 words), 62 words. Heavier than reel-35\'s two-block card, lighter than reel-32\'s three-block card (max_y 1026 of 1310). Let fit_body() shrink it. If it trips the 80% floor, split 13.8 into its own pair — never reword.',
+      'Kickers are short by design, all at or under 23 characters, all shorter than reel-41\'s widest (654.9px of 900px in Chrome at 34px Arial Bold). fit_kicker() is not expected to engage. Verify at render time.',
+      'TAKE THE RENDER SCRIPT FROM content/reel-41/render_v3.py OR NEWER, never reel-36 or earlier; only reels 38 onwards carry the tracked() word-gap fix that reel-38 was rejected for lacking.',
+      'Keep the curly apostrophe in "offence’s" and keep "(Section 11.8)" inside 13.8\'s quotation — it is part of the rule text. LIKELY _payload() case: 13.8 carries parentheses and hyphenated "out-of-bounds". Verify in the PNGs, not the SVGs.',
+      'Instagram caption 1,632 characters including hashtags (74.2% of the 2,200 limit); TikTok 1,271 of 4,000. Both plain text and scanned clean of markdown — no bold or italic asterisk markers, backticks, markdown links, hash headings or dash bullets. Measured in UTF-16 units in the browser on 2026-09-12; build_desk.py re-runs check_caption.py as a backstop at sync time.',
+      'Curriculum position: lesson 42 is index 8 of content/lessons-3.json, the next unused lesson after 41. It covers 2026-09-16, the first bare date in the tomorrow-through-tomorrow+6 window the task file widened to on 2026-09-12.'
+    ]
+  },
+  {
+    id: 'reel-43',
+    date: '2026-09-17',
+    title: 'Turnover in your own end zone: you choose',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Intermediate',
+    lesson: 43,
+    duration: '~30s script',
+    rules: ['13.11', '13.11.1', '13.11.2', '13.11.2.1', '13.11.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-12'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-43',
+    source: 'content/reel-43/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Turnover in your own end zone: you choose · kicker INTERMEDIATE · LESSON 43 / 75'],
+      ['2', '#1 YOU GET A CHOICE', '"Two legal places to put the pivot, and it is yours to pick." · footer cites 13.11 · 13.11.1 · 13.11.2'],
+      ['3', 'Rules detail', 'Verbatim 13.11 as block lead, with 13.11.1 and 13.11.2 sub-numbered beneath it'],
+      ['4', '#2 THE ARM SIGNAL', '"One arm straight up, before you touch the disc." · footer cites 13.11.2.1'],
+      ['5', 'Rules detail', 'Verbatim 13.11.2.1, one block'],
+      ['6', '#3 YOU CANNOT UNDO IT', '"The moment you move, stay, fake or signal, you have chosen." · footer cites 13.11.3'],
+      ['7', 'Rules detail', 'Verbatim 13.11.3, one block'],
+      ['8', 'FIELD TIP', '"Decide before you pick it up, not after."'],
+      ['9', 'Closing', '"Lesson 43 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `The disc turns over in the end zone you are defending. Where do you throw from? That one is up to you.`,
+      explanation: `You get two options. Throw from where the disc is, or take it out to the nearest point on the goal line. And you can tell your team which one is coming before you even touch the disc — one arm straight up above your head means you are taking it to the line.`,
+      example: `Here is the part that catches people. Four things lock your choice in: moving off the spot, staying on it, faking a pass, or giving the signal. Three of those are things you might do without meaning to decide anything. Pick up the disc, fake a throw while you think about it, and you have just committed to throwing from there. You cannot walk it out afterwards.`,
+      cta: `Lesson 43 of 75 — new lesson daily.`
+    },
+    ig: `The disc turns over in the end zone you are defending. Where do you throw from?
+
+That one is actually up to you.
+
+"If the turnover location is in the offence’s defending end zone, the thrower may choose where to establish a pivot point:"
+
+"at the turnover location, by staying at the turnover location or faking a pass; or"
+
+"at the nearest location on the goal line to the turnover location, by moving from the turnover location."
+
+Almost everywhere else on the field the spot is fixed. Here it is a decision, and neither option is the default.
+
+You can also tell your team which one is coming before you touch the disc:
+
+"The intended thrower, before picking up the disc, may signal the goal line option by fully extending one arm above their head."
+
+One arm straight up. Readable from forty metres, while you are still jogging to the disc.
+
+Now the part that catches people:
+
+"Immediate movement, staying at the turnover location, faking a pass, or signaling the goal line option, determines where to establish a pivot point and cannot be reversed."
+
+Four actions commit you, and three of them are things you might do without meaning to decide anything. Pick it up, fake a throw while you think, and you have chosen to throw from there. You cannot walk it out afterwards.
+
+So decide on the way to the disc, not at it. Taking it to the line gives you the whole field. Staying deep can catch a defence that has not set. Either is fine — changing your mind is what costs you.
+
+Lesson 43 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (13.11, 13.11.1, 13.11.2, 13.11.2.1, 13.11.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `turnover in the end zone YOU'RE defending. where do you throw from 🥏
+
+genuinely your call
+
+"If the turnover location is in the offence’s defending end zone, the thrower may choose where to establish a pivot point:"
+
+"at the turnover location, by staying at the turnover location or faking a pass; or"
+
+"at the nearest location on the goal line to the turnover location, by moving from the turnover location."
+
+→ everywhere else the spot is fixed. here it's a decision
+
+and you can announce it before you touch the disc:
+
+"The intended thrower, before picking up the disc, may signal the goal line option by fully extending one arm above their head."
+
+one arm straight up = i'm taking it to the line ☝️
+
+here's the trap:
+
+"Immediate movement, staying at the turnover location, faking a pass, or signaling the goal line option, determines where to establish a pivot point and cannot be reversed."
+
+four things commit you and three of them are accidents waiting to happen. fake a throw while you think about it and you've chosen
+
+decide on the walk, not at the disc
+
+lesson 43 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (13.11, 13.11.1, 13.11.2, 13.11.2.1, 13.11.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-12 by the daily task (draft run). Awaiting script review. Video not yet rendered.',
+      'NOT DRY-MEASURED — sixth consecutive sandbox mount failure on 2026-09-12. Caption lengths were measured in the browser in UTF-16 units; kicker widths and body layout are estimates and must be verified at render time.',
+      'NO DEPARTURES. Every carded rule is in the lesson\'s rules array and every footer cites only what its card quotes. 13.11 is carded as a block lead because it ends in a colon and 13.11.1 / 13.11.2 are sentence fragments; 13.11 is itself in the array, so the scene-2 footer cites it — the reel-36 shape, not reel-34\'s.',
+      'Nine scenes, the three-pair shape. TOTAL = 9.',
+      'Scene 3 carries three blocks but light ones — 48 words plus three number lines, materially lighter than reel-32\'s three-block card at max_y 1026 of 1310. Let fit_body() shrink it; if it trips the 80% floor, promote 13.11.2 to its own card rather than rewording.',
+      'Kickers all at or under 21 characters, shorter than reel-41\'s widest. fit_kicker() is not expected to engage.',
+      'TAKE THE RENDER SCRIPT FROM content/reel-41/render_v3.py OR NEWER — only reels 38 onwards carry the tracked() word-gap fix.',
+      'KEEP "signaling" WITH ONE L in 13.11.3 — it is the rulebook\'s spelling. The surrounding copy\'s British "signalling" is deliberate contrast, not an inconsistency to fix. Keep the curly apostrophe in "offence’s". LIKELY _payload() cases: 13.11 ends in a colon, 13.11.1 ends in "; or".',
+      'DO NOT describe the arm signal as compulsory. 13.11.2.1 says "may signal" — it communicates, it is not required, and the goal-line choice is equally valid without it.',
+      'Instagram caption 1,758 characters including hashtags (79.9% of the 2,200 limit); TikTok 1,195 of 4,000. Both plain text and scanned clean of markdown. Measured in UTF-16 units in the browser on 2026-09-12.',
+      'Curriculum position: lesson 43 is index 9 of content/lessons-3.json. It covers 2026-09-17, a Thursday, so carousel-post-7 posts the same day.'
+    ]
+  },
+  {
+    id: 'reel-44',
+    date: '2026-09-18',
+    title: 'You have to fetch the disc promptly',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 44,
+    duration: '~30s script',
+    rules: ['8.5', '8.5.1.1', '8.5.1.2', '8.5.2', '8.5.2.1', '8.5.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-12'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-44',
+    source: 'content/reel-44/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'You have to fetch the disc promptly · kicker BEGINNER · LESSON 44 / 75'],
+      ['2', '#1 WALKING PACE OR FASTER', '"Both teams have a duty here, not just the one chasing the disc." · footer cites 8.5 · 8.5.3'],
+      ['3', 'Rules detail', 'Verbatim 8.5 and 8.5.3, two blocks'],
+      ['4', '#2 TEN SECONDS, OR TWENTY', '"There are actual numbers, and almost nobody knows them." · footer cites 8.5.1.1 · 8.5.1.2'],
+      ['5', 'Rules detail', 'Verbatim 8.5.1 as block lead, with 8.5.1.1 and 8.5.1.2 sub-numbered beneath it'],
+      ['6', '#3 A WARNING FIRST', '"You get told before anything happens to you." · footer cites 8.5.2 · 8.5.2.1'],
+      ['7', 'Rules detail', 'Verbatim 8.5.2 and 8.5.2.1, two blocks'],
+      ['8', 'FIELD TIP', '"Jog to the disc as a habit. It costs nothing and removes the whole conversation."'],
+      ['9', 'Closing', '"Lesson 44 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `There is a time limit on picking the disc up after a turnover. Two of them, actually, and almost nobody knows either.`,
+      explanation: `After a turnover or a pull, you have to move at walking pace or faster, directly to the disc and directly to the pivot spot. And there are numbers: ten seconds to establish your pivot if the disc came to rest in the central zone, twenty if it came to rest in an end zone.`,
+      example: `Nothing happens to you without a warning first — Delay of Game, or a pre-stall. But keep dawdling after that and the marker can simply start the stall count on you, from wherever they are, on a disc you are not even holding. Worth knowing the other half too: the defence is not allowed to obstruct you getting to the disc or setting your pivot. If they are in the way, say so.`,
+      cta: `Lesson 44 of 75 — new lesson daily.`
+    },
+    ig: `There is a time limit on picking the disc up after a turnover. Two of them, actually, and almost nobody knows either.
+
+"After a turnover, and after the pull, an offensive player must move at walking pace or faster to directly retrieve the disc and establish a pivot point."
+
+Walking pace or faster. Directly to the disc, directly to the spot.
+
+Then the numbers, which apply once the disc has come to rest and has not gone out-of-bounds:
+
+"in the central zone – within ten (10) seconds of the disc coming to rest."
+
+"in an end zone – within twenty (20) seconds of the disc coming to rest."
+
+The clock starts when the disc stops, not when you get to it.
+
+Nothing happens to you without a warning first. The defence can call Delay of Game, or start a pre-stall, or call a violation. But keep dawdling after the warning and this applies:
+
+"If, after a warning, the offence continues to breach 8.5, or 8.5.1, then 9.3.1 does not apply and the marker may commence the stall count."
+
+A stall count on a disc you are not holding, from wherever the marker happens to be standing.
+
+It is not one-sided, though:
+
+"The defence must not move in a manner that obstructs the offence from taking possession of the disc or establishing a pivot point."
+
+So if someone is standing between you and the disc, that is their breach, not your delay. Say so.
+
+Easiest fix in the game: jog to the disc. Not a sprint, just not a stroll.
+
+Lesson 44 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (8.5, 8.5.1.1, 8.5.1.2, 8.5.2.1, 8.5.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `there's a time limit on picking the disc up after a turnover 🥏 two of them actually
+
+"After a turnover, and after the pull, an offensive player must move at walking pace or faster to directly retrieve the disc and establish a pivot point."
+
+walking pace or faster. directly there
+
+the numbers (disc at rest, not out of bounds):
+
+"in the central zone – within ten (10) seconds of the disc coming to rest."
+
+"in an end zone – within twenty (20) seconds of the disc coming to rest."
+
+⏱️ clock starts when the DISC stops, not when you get to it
+
+you get a warning first — delay of game, or a pre-stall. ignore it and:
+
+"If, after a warning, the offence continues to breach 8.5, or 8.5.1, then 9.3.1 does not apply and the marker may commence the stall count."
+
+a stall count on a disc you're not even holding 😬
+
+and the other half, which nobody tells beginners:
+
+"The defence must not move in a manner that obstructs the offence from taking possession of the disc or establishing a pivot point."
+
+if they're in your way that's their breach, not your delay
+
+easiest fix in the game: jog to the disc
+
+lesson 44 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (8.5, 8.5.1.1, 8.5.1.2, 8.5.2.1, 8.5.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-12 by the daily task (draft run). Awaiting script review. Video not yet rendered.',
+      'NOT DRY-MEASURED — sixth consecutive sandbox mount failure on 2026-09-12. Caption lengths were measured in the browser; kicker widths here are EXTRAPOLATED from reel-41\'s Chrome measurement rather than measured, and body layout is an estimate. Verify all of it at render time.',
+      'NO DEPARTURES. Every rule in the lesson\'s rules array is carded. 8.5.1 is carded as an UNCITED block lead because it ends in a colon and 8.5.1.1 / 8.5.1.2 are fragments that mean nothing without it — the reel-34 shape, since 8.5.1 is not in the array. The scene-4 footer cites only 8.5.1.1 and 8.5.1.2.',
+      'Nine scenes, the three-pair shape. TOTAL = 9.',
+      'HEAVIEST REEL OF THE BATCH. All three detail cards are multi-block: scene 3 is 48 words over two, scene 5 is 61 over three, scene 7 is 55 over two. Scene 5 is the one to watch — comparable to reel-32\'s three-block card at max_y 1026 of 1310. Let fit_body() shrink them. If any trips the 80% floor, split that pair and run eleven scenes; never reword and never trim a quotation.',
+      'DO NOT TRIM 8.5.1\'s QUALIFIER. "if the disc did not become out-of-bounds" is the entire scope of the time limits; without it the card states a rule that does not exist.',
+      'TAKE THE RENDER SCRIPT FROM content/reel-41/render_v3.py OR NEWER — only reels 38 onwards carry the tracked() word-gap fix.',
+      'LIKELY _payload() CASES: 8.5.2 carries curly quotes around “Delay of Game” and “Violation”; 8.5.1.1 and 8.5.1.2 carry an en-dash and "ten (10)" / "twenty (20)". Verify in the emitted PNGs, not the SVGs.',
+      'The caption quotes five of the six rules and summarises 8.5.2 in plain prose, purely for length. The reel cards 8.5.2 verbatim on scene 7, so nothing is asserted in the caption that is not quoted on screen, and the summary carries no quotation marks so it cannot read as rule text.',
+      'Instagram caption 1,686 characters including hashtags (76.6% of the 2,200 limit); TikTok 1,221 of 4,000. Both plain text and scanned clean of markdown. Measured in UTF-16 units in the browser on 2026-09-12.',
+      'Curriculum position: lesson 44 is index 10 of content/lessons-3.json. It covers 2026-09-18.'
+    ]
+  },
+  {
+    id: 'reel-45',
+    date: '2026-09-19',
+    title: 'Live play and dead play',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 45,
+    duration: '~30s script',
+    rules: ['8.1', '8.1.1', '8.1.2', '8.1.3', '8.1.4', '8.2', '8.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-12'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-45',
+    source: 'content/reel-45/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Basics)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Live play and dead play · kicker BEGINNER · LESSON 45 / 75'],
+      ['2', '#1 DEAD BEFORE THE PULL', '"Two windows where nothing can be turned over." · footer cites 8.1 · 8.1.1 · 8.1.2'],
+      ['3', 'Rules detail', 'Verbatim 8.1 as block lead, with 8.1.1 and 8.1.2 sub-numbered beneath it'],
+      ['4', '#2 DEAD AFTER A CALL', '"And two more, both of them after something has gone wrong." · footer cites 8.1 · 8.1.3 · 8.1.4'],
+      ['5', 'Rules detail', 'Verbatim 8.1 as block lead AGAIN, with 8.1.3 and 8.1.4 sub-numbered beneath it'],
+      ['6', '#3 LIVE, AND ONE LIMIT', '"Everything else is live — and you still cannot hand it over." · footer cites 8.2 · 8.3'],
+      ['7', 'Rules detail', 'Verbatim 8.2 and 8.3, two blocks'],
+      ['8', 'FIELD TIP', '"Dead play is your thinking time. Use the walk to pick your first throw."'],
+      ['9', 'Closing', '"Lesson 45 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `There are moments in a point where you literally cannot turn the disc over. Knowing which ones tells you when you can relax.`,
+      explanation: `Play is dead in four windows. From the start of a point until the pull is released. While the disc is being carried to the pivot spot. After any call, until the disc is checked in. And after the disc hits the ground, until somebody establishes possession. Everything else is live.`,
+      example: `Dead play is not a freeze — you are free to move, unless a rule says otherwise. But there is one restriction that surprises people. During dead play the thrower may not transfer the disc to another player. So jogging in after a turnover and handing it to the team-mate who is closer to the spot? Not allowed. Whoever has it, throws it.`,
+      cta: `Lesson 45 of 75 — new lesson daily.`
+    },
+    ig: `There are moments in a point where you literally cannot turn the disc over.
+
+"Play is 'dead', and no turnover is possible:"
+
+Four windows. Two of them before anything has gone wrong:
+
+"After the start of a point, until the pull is released;"
+
+"When the disc must be carried to the pivot location after the pull or a turnover, until a pivot point is established;"
+
+And two after something has:
+
+"After a call which stops the play or any other stoppage, until the disc is checked in; or"
+
+"After a disc hits the ground, until possession is established by the appropriate team."
+
+That last one is why a bobbled pick-up is not a turnover. The disc was already on the ground, so there was nothing live to lose.
+
+Everything else is live, and live is where you can lose it.
+
+"Play that is not dead is “live”."
+
+Dead play is not a freeze — players are free to move unless a rule says otherwise. But there is one restriction that surprises people:
+
+"The thrower may not transfer possession of the disc during dead play to another player."
+
+So jogging in after a turnover and handing the disc to the team-mate who is closer to the spot is not allowed. Whoever has it, throws it.
+
+Use the window. The walk to the pivot is the only unhurried moment you get all point — look downfield and pick your first throw before the count starts.
+
+Lesson 45 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (8.1, 8.1.1, 8.1.2, 8.1.3, 8.1.4, 8.2, 8.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `there are moments in a point where you literally cannot turn it over 🥏
+
+"Play is 'dead', and no turnover is possible:"
+
+four windows. two before anything goes wrong:
+
+"After the start of a point, until the pull is released;"
+
+"When the disc must be carried to the pivot location after the pull or a turnover, until a pivot point is established;"
+
+two after something does:
+
+"After a call which stops the play or any other stoppage, until the disc is checked in; or"
+
+"After a disc hits the ground, until possession is established by the appropriate team."
+
+← this is why a bobbled pick-up isn't a turnover. it was already on the ground
+
+everything else is live
+
+"Play that is not dead is “live”."
+
+dead play isn't a freeze, you can move. but one restriction surprises everyone:
+
+"The thrower may not transfer possession of the disc during dead play to another player."
+
+so you can't jog in and hand it to whoever's closer to the spot 🚫 whoever has it, throws it
+
+the walk to the pivot is your only unhurried moment all point. use it
+
+lesson 45 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (8.1, 8.1.1, 8.1.2, 8.1.3, 8.1.4, 8.2, 8.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-12 by the daily task (draft run). Awaiting script review. Video not yet rendered.',
+      'NOT DRY-MEASURED — sixth consecutive sandbox mount failure on 2026-09-12. Caption lengths were measured in the browser; kicker widths and body layout are estimates.',
+      'FLAGGED, AND NEW: 8.1\'s BLOCK LEAD IS CARDED TWICE, on scene 3 and again on scene 5. 8.1 reads "Play is \'dead\', and no turnover is possible:" and all four of its sub-items are fragments that begin mid-sentence, so none reads without it. A single five-block card is unprecedented — the heaviest ever shipped is reel-32\'s three-block card at max_y 1026 of 1310 — and would very likely collide with the citation footer, which is exactly what reel-18 v1 was rejected for. Splitting across two pairs with the lead repeated keeps every fragment attached and no card above three blocks. The cost is eight words appearing twice, about nine seconds apart. THIS IS A JUDGEMENT CALL. If the repetition reads badly, the fallback is four pairs at eleven scenes.',
+      'Nine scenes, the three-pair shape. TOTAL = 9. 8.1 appears in two footers because it appears on two cards.',
+      'LIGHTEST REEL OF THE BATCH by word count — 39, 41 and 25 words across the three detail cards. But the two three-block cards each carry three number lines, which cost vertical space out of proportion to word count. Measure, do not assume.',
+      'PRESERVE THE RULEBOOK\'S OWN INCONSISTENT QUOTE MARKS. 8.1 uses straight single quotes around \'dead\'; 8.2 uses curly double quotes around “live”. That is how rules.json has it and both must survive to the PNG unchanged. LIKELY _payload() cases: both, plus the trailing "; or" on 8.1.1 and 8.1.3.',
+      'DO NOT call dead play a freeze. 8.1.5 says players may move during dead play; the scene-6 body says so in plain words, without citation and without quotation marks. 8.1.5 is not in the lesson\'s rules array and is deliberately not carded.',
+      'DO NOT overstate 8.3 — it bars the THROWER transferring the disc during dead play. It is not a general ban on touching the disc.',
+      'TAKE THE RENDER SCRIPT FROM content/reel-41/render_v3.py OR NEWER — only reels 38 onwards carry the tracked() word-gap fix.',
+      'Instagram caption 1,603 characters including hashtags (72.9% of the 2,200 limit, shortest in this batch); TikTok 1,164 of 4,000. Both plain text and scanned clean of markdown. Measured in UTF-16 units in the browser on 2026-09-12.',
+      'Curriculum position: lesson 45 is index 11 of content/lessons-3.json. It covers 2026-09-19, the last date in the widened seven-day window.'
+    ]
+  },
+  {
+    id: 'carousel-post-7',
+    date: '2026-09-17',
+    title: 'carousel-post-7 — "Week six: stopping and starting"',
+    type: 'Carousel',
+    pillar: 'Recap',
+    difficulty: 'Mixed (beginner)',
+    lesson: null,
+    duration: '9 slides',
+    rules: ['16.2', '16.2.3', '16.2.4.1', '16.2.4.2', '16.2.4.2.1', '16.3', '16.3.1', '16.3.2', '10.6.1', '10.6.1.1', '10.6.1.2', '10.6.2', '10.4', '9.5.1', '9.5.2', '9.5.3', '9.5.5', '9.6.1', '18.3.1', '18.3.1.1', '18.3.2', '18.3.3', '17.8.1', '17.8.1.1', '17.8.2', '13.7', '13.9', '13.10', '13.8', '8.5.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-12'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-7',
+    source: 'content/carousel-post-7/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (lessons 36-42)',
+    video: null,
+    slides: null,
+    scenes: null,
+    script: {
+      hook: `Seven lessons this week, and every one of them was about the same thing — what happens in the seconds when play is not running.`,
+      explanation: `A call is not the end of the play. If the disc is already in the air, you finish it. If everyone agrees the call changed nothing, the play stands. And when play does stop, there is a procedure: check it in, and restart the stall count at a number that depends on who was at fault.`,
+      example: `The one most people get wrong is the stall count. It is not always back to one. Defence at fault, it is one. Offence at fault, maximum nine. Most other calls, including picks, maximum six. And the week ends where play starts again — after a turnover, the pivot goes where the disc stopped, or where it crossed the line if it went out.`,
+      cta: `Lessons 36 to 42 of 75 — new lesson daily.`
+    },
+    ig: `Week six, all in one place. Seven lessons about the same thing — the seconds when play is not running, and how it starts again.
+
+Continuation. If the disc is already in the air when the call comes, you finish the play. Make the call, then play as if you hadn't. If your own team ends up with the disc, it simply stands.
+
+"It didn't affect the play." If everyone involved agrees the call changed nothing, the play stands. This one outranks every other rule, and that exchange should be the most common conversation you have on the field.
+
+The check. Three seconds of procedure that prevent most restart disputes. Look around before you check it in — checking in while your own team is still jogging back costs you the disc.
+
+What the stall count restarts at. Not always one. Defence at fault, one. Offence at fault, maximum nine. Most other calls, including picks, maximum six. "Maximum n" means the last number said plus one, or n, whichever is lower.
+
+Picks. Defence's protection against traffic. You are restored to where you would have been, not rewarded — and the count comes back at maximum six, so the offence is barely affected.
+
+Indirect fouls. Contact away from the disc still counts. Most of it resolves itself; call it when it stopped you getting somewhere you were going.
+
+And where it all starts again: after a turnover, the pivot goes where the disc stopped, or the nearest point on the goal line in your attacking end zone, or where it crossed the line if it went out. Disagree about the spot? Take the midpoint. No argument needed.
+
+Each slide carries its rule numbers, so you can check any of it against the rulebook rather than taking our word for it.
+
+That's forty-two of seventy-five.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+all of it about the seconds when play ISN'T running, and how it starts again
+
+continuation → disc already in the air? finish the play. make the call, then play as if you hadn't
+
+"didn't affect the play" → everyone agrees it changed nothing, the play stands. outranks every other rule
+
+the check → look around before you check it in. checking in while your team jogs back costs you the disc
+
+stall count restarts → not always one. defence at fault = one. offence at fault = max nine. most other calls = max six
+
+picks → restored, not rewarded. count comes back at max six
+
+indirect fouls → contact away from the disc still counts
+
+where you pick it up → where it stopped, the goal line in their end zone, or where it CROSSED if it went out. can't agree? take the midpoint
+
+rule numbers on every slide so you can check it yourself
+
+that's forty-two of seventy-five
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-12 by the daily task (draft run). Awaiting script review. Slides not yet rendered.',
+      'WEEKLY RECAP, block 36-42, a clean contiguous seven. Consumes no lesson number. Rule numbers only, no rule text — there is deliberately nothing on these slides to paraphrase. Takeaways are each lesson\'s field line verbatim; footers are each lesson\'s rules array unchanged.',
+      'LESSON 28 IS PERMANENTLY SKIPPED, by Min-Yi\'s decision on 2026-09-12: "28 + 36-41 is just weird. Forget 28 permanently and go with 36-42 please." The first draft of this deck opened with 28 to close the orphan carousel-post-6\'s widening created. It will never be recapped. DO NOT REINTRODUCE IT on carousel-post-8 or any later deck. carousel-post-8 opens at lesson 43.',
+      'THE BLOCK RULE IN content/DAILY_RENDER_TASK.md STILL SAYS "the next seven lessons in curriculum order that no earlier recap has covered", which would pull lesson 28 back in on the next run. That wording needs updating to name 28 as a permanent skip. Flagged, not fixed — this run does not edit the task file.',
+      'TITLE CHANGED from "Week six: after the call". That was accurate for 28 + 36-41, where all seven were calls. At 36-42 the last slide is lesson 42, a turnover lesson, and a title that excludes a slide it covers is exactly the carousel-post-6 v1 defect ("five kinds of foul" over a block containing one thing that was not a foul). "Stopping and starting" covers all seven honestly.',
+      'FOUR OF THE SEVEN REELS ARE UNAPPROVED — 39 is Ready to post, 40 and 41 sit at the content gate, and 42 has not cleared the script gate at all; it was drafted in the same run as this deck. The block is eligible because all seven have post rows dated on or before 09-17, per the rule as clarified on 2026-09-12. But if 42 slips, this deck recaps a lesson nobody has seen, the day before its own reel would have gone out. CHEAPEST PROTECTION: approve reel-42\'s script in the same sitting as this deck.',
+      'NOT DRY-MEASURED — sixth consecutive sandbox mount failure on 2026-09-12. Caption lengths were measured in the browser in UTF-16 units; every layout figure in the script file is extrapolation from carousel-post-6\'s measurements. The build run must measure before shipping.',
+      'NO make_carousel.py IN THIS FOLDER, DELIBERATELY. carousel-post-6 shipped its own adapted copy because that run could dry-measure it. This run cannot run Python at all, and committing an unverified render script is worse than committing none. Build run: copy content/carousel-post-6/make_carousel.py, change only TOTAL, the slide content and the cover/closing strings, and measure it.',
+      'WATCH SLIDE 2\'s FOOTER — "16.2 · 16.2.3 · 16.2.4.1 · 16.2.4.2 · 16.2.4.2.1" is 47 characters, the widest citation line ever attempted on a recap. Previous record was carousel-post-6 slide 4 at 45 characters and 549 of 900px. Slides 4, 5 and 8 also carry five-number footers, at 44, 37 and 34 characters.',
+      'ALSO CHECK THE COVER FIRST. carousel-post-6 shipped "Week five: six fouls" at 889 of the 900px column at 96px, 11px spare. "Week six: stopping" is two characters shorter and should land near 800px. If it overruns, the fix is the title, not the type, and it comes back to the script gate.',
+      'SLIDE 8\'s FOOTER CARRIES 13.7 because recap footers are the lesson\'s rules array unchanged. Reel 42 itself deliberately does not card 13.7 — it is a heading stem — but a recap footer cites the lesson, not the reel, which is how every earlier recap has worked.',
+      'TWO _payload() STARTSWITH CASES, on slides 3 and 5 — slide 3\'s takeaway opens with "Did that affect it?" and slide 5\'s with "Maximum n". Slide 3\'s title is itself a quotation. Verify the opening quote marks survive into the PNGs.',
+      'slides, scenes and typeDetail stay null until the PNGs exist. build_desk.py\'s check_slides() verifies every slide stem against a file on disk and fails the whole build if one is missing — naming PNGs before they existed broke sync.bat at step 2 on 2026-09-07.',
+      'THE CLOSING COUNT IS EXACT THIS TIME. Lesson 42 posts 2026-09-16, the day before this deck, so "forty-two of seventy-five" is true on the day it goes out. Earlier recaps carried a one-lesson lag.',
+      'Instagram caption 1,926 characters including hashtags (87.5% of the 2,200 limit, longest in this batch); TikTok 1,001 of 4,000. Both plain text and scanned clean of markdown. Measured in UTF-16 units in the browser on 2026-09-12.',
+      'IGNORE THE LAST NOTE ON reel-41, which says carousel-post-7 opens block 33-39. That was wrong when it was written: carousel-post-6 was approved covering 29-35, so 33 was never available. It is left uncorrected on purpose - reel-41\'s entry is also written by the build run, and editing it here would put this run\'s commit in the one region most likely to conflict on rebase.',
+      'carousel-post-8 opens at lesson 43.'
+    ]
   }
 ];
