@@ -1,7 +1,103 @@
 {
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [],
-  "review_state": {},
-  "generated": null,
-  "by": null
+  "review_state": {
+    "reel-42": {
+      "builtFromScriptRev": 1,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-12T23:14:42.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-12",
+          "duration": "29.5s",
+          "file": "reel42-where-to-pick-up.mp4",
+          "builtFromScriptRev": 1,
+          "changed": "Initial cut of where you pick the disc up after a turnover: 13.9, 13.10, 13.8, 8.5.4. 13.7 (a heading stem with two bare cross-reference sub-items) deliberately not carded; scene 2's body defines \"turnover location\" in plain words instead. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 886 frames at 29.53s, 0 layout problems, no collisions -- detail cards land at 454, 990 and 504 of 1310; main scenes at 1192, field tip 1218, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
+        }
+      ]
+    },
+    "reel-43": {
+      "builtFromScriptRev": 1,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-12T23:14:42.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-12",
+          "duration": "29.5s",
+          "file": "reel43-own-end-zone.mp4",
+          "builtFromScriptRev": 1,
+          "changed": "Initial cut of turnover in your own end zone: 13.11, 13.11.1, 13.11.2, 13.11.2.1, 13.11.3. 13.11 carded as a block lead (colon stem) with 13.11.1/13.11.2 sub-numbered beneath it, matching the reel-36 shape since 13.11 is itself in the lesson's rules array. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 890, 454 and 554 of 1310; main scenes at 1192, field tip 1012, closing 900, cover 1210. check_dull passes at 0.20s against the 0.45s threshold."
+        }
+      ]
+    },
+    "reel-44": {
+      "builtFromScriptRev": 1,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-12T23:14:42.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-12",
+          "duration": "29.5s",
+          "file": "reel44-walking-pace.mp4",
+          "builtFromScriptRev": 1,
+          "changed": "Initial cut of you have to fetch the disc promptly: 8.5, 8.5.3, 8.5.1.1, 8.5.1.2, 8.5.2, 8.5.2.1. 8.5.1 carded as an uncited block lead (reel-34 shape, since 8.5.1 itself is not in the lesson's rules array) with 8.5.1.1/8.5.1.2 sub-numbered beneath it. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 840, 890 and 840 of 1310; main scenes at 1192, field tip 1168, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
+        }
+      ]
+    },
+    "reel-45": {
+      "builtFromScriptRev": 1,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-12T23:14:42.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-12",
+          "duration": "29.5s",
+          "file": "reel45-dead-play.mp4",
+          "builtFromScriptRev": 1,
+          "changed": "Initial cut of live play and dead play: 8.1, 8.1.1, 8.1.2, 8.1.3, 8.1.4, 8.2, 8.3. 8.1's block-lead is carded twice (scenes 3 and 5, once per sub-item pair) since a single five-block card would risk the citation-footer collision reel-18 v1 shipped. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 886 frames at 29.53s, 0 layout problems, no collisions -- detail cards land at 790, 840 and 640 of 1310; main scenes at 1192, field tip 1218, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
+        }
+      ]
+    },
+    "carousel-post-7": {
+      "builtFromScriptRev": 1,
+      "content": {
+        "status": "in-review",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-12T23:14:42.000Z"
+      },
+      "revisions": [
+        {
+          "v": 1,
+          "renderedAt": "2026-09-12",
+          "duration": "9 slides",
+          "file": "01_cover.png \u2026 09_closing.png",
+          "builtFromScriptRev": 1,
+          "changed": "Initial render of the sixth weekly recap, from the approved script: lessons 36-42, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways verified byte-identical against each lesson's field line in lessons-3.json; every footer verified against that lesson's rules array (slide 8 carries 13.7 because the footer is the lesson's array unchanged, even though reel-42 itself does not card it). All cited numbers resolve in rules.json. Layout check: 9 slides, 0 problems, no collisions. Cover line one measured 873 of 900px. Both _payload() quote cases (slides 3 and 5) confirmed present in the PNGs."
+        }
+      ]
+    }
+  },
+  "generated": "2026-09-12T23:14:42.000Z",
+  "by": "daily-reel-render"
 }
