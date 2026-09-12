@@ -10,7 +10,48 @@ worked from the Content Desk — not from chat.
 
 ---
 
-## Read this first: what this sandbox cannot do
+## Read this first: there are two runs, not one
+
+Since 2026-09-12 this file is followed by **two** scheduled runs with different
+jobs and different capabilities. Work out which one you are before Step 0.
+
+| | **Draft run** | **Build run** |
+|---|---|---|
+| where | the local Cowork sandbox | an Anthropic cloud routine |
+| does | Steps 0, 1, 2, 3, 9 | Steps 0, 3, 4, 5, 6, 7, 8, 9 |
+| writes | scripts, `data.js` entries | cuts, decks, the render flip |
+| can push | no | yes, with `tools/sync.sh` |
+
+**Why they are split.** They fail for different reasons and they used to fail
+together. Drafting needs nothing but `web_fetch`, and it never once broke.
+Building needs a renderer, and from 2026-09-08 the local sandbox could not mount
+the workspace for five days running — `Plan9 mount failed: invalid argument`,
+host side fine, guest side never got the share. One run doing both meant a dead
+renderer took the whole morning with it. Separated, a dead renderer stops cuts
+and nothing else.
+
+**If you are the draft run**, everything under "what the local sandbox cannot
+do" applies to you, you never build, and you end at Step 9 with a report. Say in
+your first line that a push is required.
+
+**If you are the build run**, you have a real Linux environment with a git
+checkout, outbound network and no mount to fail. Steps 4 and 5 run exactly as
+written, with real ImageMagick and real Liberation Sans, and you publish
+yourself with `sh tools/sync.sh`. You still never approve anything.
+
+**The Windows fallback** — `python tools\win_render.py --all` on Min-Yi's
+machine, documented in `tools/WINDOWS_FALLBACK.md` — is now a third path, for
+when a cut is needed and neither run can produce one. It substitutes headless
+Chrome for ImageMagick and Arial for Liberation Sans. Both were measured against
+shipped output and both are close, but "close" is not "identical": on
+carousel-post-5 the Windows path differs from the shipped PNGs by a mean of
+2.06–2.79 of 255, where the cloud path measured 0.0000–0.0002. Prefer the cloud.
+
+---
+
+## What the local sandbox cannot do
+
+This applies to the **draft run**. The cloud build run has none of these limits.
 
 The scheduled-task sandbox is **not** the same environment as an interactive
 Cowork chat. Measured on 2026-08-10:
@@ -27,16 +68,7 @@ Cowork chat. Measured on 2026-08-10:
   `raw.githubusercontent.com`. That is the only way this run can see the truth.
 
 Drafting copy needs none of that, so **Step 1 and Step 2 always work here.**
-Only publishing (Step 8) is blocked.
-
-**If the sandbox will not mount at all**, which happened on three consecutive
-days from 2026-09-08, Steps 4 and 5 can be run on Min-Yi's Windows machine
-instead: `python tools\win_render.py <post-id>`. It builds, gates and installs
-the assets, and stops there — Step 7 and Step 8 are still done by hand, because
-the `changed` line is a judgement call. Read `tools/WINDOWS_FALLBACK.md` before
-using it; it explains the three substitutions it makes and how each was measured
-against shipped output. It is a fallback, not an alternative: this sandbox is
-the environment every gate was written against.
+Publishing is not yours: the build run does it.
 
 On 2026-08-08–10 these limits silently produced three days of wrong output: the
 run read a checkout frozen days earlier, found nothing to do, and reported a
@@ -641,22 +673,34 @@ Plain JavaScript — a syntax error breaks the whole desk. Check it parses
 leave it alone and flag it.
 
 **7d. Rebuild the desk** — `python social/dashboard/build_desk.py`. **This will
-fail in this sandbox** (`shutil.rmtree` → PermissionError). That is expected; it
-runs from `tools/sync.bat` in Step 8 instead. Do not try to work around it.
+fail in the local sandbox** (`shutil.rmtree` → PermissionError), which is
+expected there; it runs from `tools\sync.bat` in Step 8 instead, and you should
+not try to work around it. In the cloud build run it works, and `tools/sync.sh`
+runs it for you as its step 2 — so you still do not need to call it by hand.
 
 ---
 
-## Step 8 — Publish (you cannot do this alone)
+## Step 8 — Publish
 
-You have no network. Do not fake success and do not silently skip this.
+Both runs write the commit message the same way. Who runs the push differs.
 
 1. Write the commit message to `_commit_msg.txt` in the repo root — subject on
-   line 1, blank line, then body.
-2. Report, in the first line of your output, that **a push is required** and
-   that Min-Yi should double-click `tools\sync.bat`. That script clears stale
-   git locks, rebuilds the desk, stages the explicit paths only, commits with
-   your message, pulls with rebase, **applies your queued additions on top of
-   the merged tree**, commits those, and pushes. One pull, after the commit.
+   line 1, blank line, then body. Do this whichever run you are.
+
+**If you are the build run**, publish it yourself: `sh tools/sync.sh`. That
+script clears stale git locks, rebuilds the desk, stages the explicit paths
+only, commits with your message, pulls with rebase, **applies your queued
+additions on top of the merged tree**, commits those, and pushes. One pull,
+after the commit. Read its output and report the result honestly — it stops
+before pushing if the pull conflicts, and it says so. A non-zero exit is a
+failed run, not a detail.
+
+**If you are the draft run**, you have no network. Do not fake success and do
+not silently skip this. Report, in the first line of your output, that **a push
+is required** and that Min-Yi should double-click `tools\sync.bat`, which is the
+same nine steps for Windows.
+
+Do not fake success in either run.
 
 ### Why you don't touch calendar.md or review-state.json
 
