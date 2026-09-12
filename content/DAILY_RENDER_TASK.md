@@ -30,6 +30,12 @@ host side fine, guest side never got the share. One run doing both meant a dead
 renderer took the whole morning with it. Separated, a dead renderer stops cuts
 and nothing else.
 
+**How to tell which you are.** The build run's own prompt opens by saying "You
+are the BUILD RUN". Nothing else does. So if your prompt did not say that, you
+are the draft run — do not infer it from anything else, and in particular do not
+infer it from whether a render happens to work. If you are still unsure, you are
+the draft run: drafting is safe to repeat and a duplicate build is not.
+
 **If you are the draft run**, everything under "what the local sandbox cannot
 do" applies to you, you never build, and you end at Step 9 with a report. Say in
 your first line that a push is required.
