@@ -94,9 +94,26 @@ and feedback format.
 
 ## Step 1 — Top up the script queue (drafting)
 
-**Target: every date from tomorrow through tomorrow + 2 has a post row on the
-authoritative calendar.** Three days of coverage, counted from the day this run
+**Target: every date from tomorrow through tomorrow + 6 has a post row on the
+authoritative calendar.** Seven days of coverage, counted from the day this run
 fires.
+
+**Widened from three days to seven on 2026-09-12, and the reason matters.** The
+render sandbox failed to mount for five consecutive days from 09-08. Drafting
+needs no tools and never stopped, but building does, so the buffer drained at
+one post a day while the calendar kept consuming one a day. By 09-12 there was
+nothing postable that day or the next, and every morning had become a scramble
+against the same day's deadline. Three days of coverage cannot absorb a
+multi-day outage of anything. Seven can.
+
+Two things follow from the widening:
+
+- **The first run after it fires has a backlog**, not one gap. Fill it in date
+  order and say in the report how many you drafted and why.
+- **Approval, not drafting, is now the rate limiter.** Seven days of rows is
+  reachable by this task alone; seven days of *built* posts needs Min-Yi to
+  approve scripts that far ahead. Report the gap between the two — how many
+  dates have rows versus how many have cuts — so it stays visible.
 
 A date counts as covered if its row exists at *any* stage — `Pending review`,
 `Script approved`, `Content pending review`, `Ready to post`, `Posted`. You are
@@ -137,9 +154,22 @@ the week's index to it.
   its own reel goes live. Min-Yi corrected it on 2026-08-11 ("Can you recap
   lessons 1 - 7? Not 2-8") and confirmed the block rule on 2026-08-17. Do not
   reintroduce the date-based window.
-- A lesson is only eligible once its reel has actually posted. If a reel in
-  the block hasn't gone out yet, the block isn't ready — recap the lessons
-  that have posted and let the rest roll into the next one.
+- A lesson is only eligible if its reel **will have posted by the carousel's
+  own post date** — not by the day you are drafting. Judge it against the
+  authoritative calendar: a reel with a post row dated on or before the
+  Thursday counts, one dated after it does not. If a reel in the block would
+  still be unposted on the day the deck goes out, the block isn't ready —
+  recap the lessons that will have posted and let the rest roll into the next
+  one.
+- **That distinction only started to matter on 2026-09-12**, when the window
+  widened to seven days. At three days a Thursday was drafted two or three
+  days out and "has it posted yet" and "will it have posted" were nearly the
+  same question. At seven days a recap is written up to a week ahead, so
+  reading it as "posted by *today*" would shorten every block for no reason
+  and orphan the tail. The intent of the rule was always that the audience has
+  seen a lesson before it is recapped, and that is about the post date.
+  carousel-post-6 was already built this way: Min-Yi set its block to reels
+  29–35 on 09-07 for a 09-10 deck, and reel 35 posted on 09-09.
 - If fewer than seven eligible lessons are available, recap what is actually
   there and say so on the cover ("This week's five lessons"); the next block
   picks up where this one stopped, so nothing is lost. If fewer than three,

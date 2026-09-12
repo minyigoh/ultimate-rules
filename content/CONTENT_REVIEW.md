@@ -29,15 +29,27 @@ that had never been read. See "The render gate" below.
 
 ## Where scripts come from
 
-The daily task keeps **three days of calendar coverage** — every date from
-tomorrow through tomorrow + 2 has a post row. It fills gaps automatically, in
+The daily task keeps **seven days of calendar coverage** — every date from
+tomorrow through tomorrow + 6 has a post row. It fills gaps automatically, in
 curriculum order from `content/lessons-{1,2,3}.json`, so there is no longer a
 weekly batch to sit down and write.
 
+It was three days until 2026-09-12. The render sandbox then failed to mount for
+five days running, and because drafting needs no tools but building does, the
+buffer drained a post a day until there was nothing postable. Three days cannot
+absorb a multi-day outage; seven can.
+
+**What that asks of you:** approving scripts further ahead. Seven days of rows
+is the task's job and it will get there on its own. Seven days of *built* posts
+needs scripts approved about a week out, so approval is now the thing that
+paces the queue rather than drafting. The daily report says how many dates have
+rows against how many have cuts.
+
 Every day gets a reel. **Thursdays also get a weekly recap carousel** — cover,
 one slide per lesson in the block, closing. The block is the next seven
-lessons in curriculum order that haven't been recapped yet and have already
-posted (1–7, then 8–14, then 15–21), so every lesson is recapped exactly once.
+lessons in curriculum order that haven't been recapped yet and will have posted
+by the day the carousel goes out (1–7, then 8–14, then 15–21), so every lesson
+is recapped exactly once.
 The recap doesn't consume a lesson number and introduces nothing new; it's the
 week's index back to the reels. So Thursdays put two posts in your queue, not
 one.
