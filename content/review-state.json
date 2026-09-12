@@ -2399,7 +2399,12 @@
         "builtFromScriptRev": 1,
         "changed": "Rebuilt to fix the kicker spacing Min-Yi rejected on 09-11 (#1WHOTOUCHESITIN). tracked() joined letters with a plain space, so a word boundary became a collapsible run of whitespace and rendered identically to a letter boundary; the #1 prefix had the same fault. Joined with U+00A0, which needs no cooperation from either SVG reader. Copy is untouched and the script stays at rev 1. Kickers confirmed correct in the frames. Nothing else moved: 9 scenes, 0 problems, 885 frames at 29.50s, check_dull 0.23s against 0.45s. Cut v1 archived as reel38-the-check.v1.mp4."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-12",
+      "updatedAt": "2026-09-12T07:28:00.084Z"
+    }
   },
   "reel-39": {
     "scriptRev": 1,
