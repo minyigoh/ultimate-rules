@@ -2339,13 +2339,10 @@
       "updatedAt": "2026-09-10T09:18:01.118Z"
     },
     "content": {
-      "status": "rerender",
-      "note": "The header text in orange doesn’t have proper spacing e.g. #1WHOTOUCHESITIN should read #1 WHO TOUCHES IT IN",
-      "tags": [
-        "On-screen text"
-      ],
-      "rev": 1,
-      "updatedAt": "2026-09-11T02:35:21.535Z"
+      "status": "in-review",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-12T09:40:00Z"
     },
     "scriptRevisions": [
       {
@@ -2385,6 +2382,14 @@
         "file": "reel38-the-check.mp4",
         "builtFromScriptRev": 1,
         "changed": "Initial cut of the check and how play restarts: 10.6.1, 10.6.1.1, 10.6.1.2, 10.6.2, 10.4. Nine scenes, three-pair shape, 885 frames at 29.50s. This is the run that measured what the 2026-09-09 draft could only estimate, the sandbox having been down since: scene 3, the dense card its own notes flagged, lands at 740 of 1310 with no collision, so no split and no reworded copy. 9 scenes, 0 problems; check_dull 0.23s against the 0.45s threshold; the scene-3 and scene-5 quote cases confirmed present in the frames. Built on Windows through tools/win_render.py."
+      },
+      {
+        "v": 2,
+        "renderedAt": "2026-09-12",
+        "duration": "29.5s",
+        "file": "reel38-the-check.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "Rebuilt to fix the kicker spacing Min-Yi rejected on 09-11 (#1WHOTOUCHESITIN). tracked() joined letters with a plain space, so a word boundary became a collapsible run of whitespace and rendered identically to a letter boundary; the #1 prefix had the same fault. Joined with U+00A0, which needs no cooperation from either SVG reader. Copy is untouched and the script stays at rev 1. Kickers confirmed correct in the frames. Nothing else moved: 9 scenes, 0 problems, 885 frames at 29.50s, check_dull 0.23s against 0.45s. Cut v1 archived as reel38-the-check.v1.mp4."
       }
     ]
   },
@@ -2424,7 +2429,7 @@
     }
   },
   "reel-40": {
-    "scriptRev": 1,
+    "scriptRev": 2,
     "script": {
       "status": "approved",
       "note": "",
@@ -2444,6 +2449,12 @@
         "draftedAt": "2026-09-11",
         "file": "script-and-caption.md",
         "changed": "Initial draft, picks: 18.3.1, 18.3.1.1, 18.3.2, 18.3.3. Nine scenes, three-pair shape. No departures - every carded rule is in the lesson's rules array and 18.3 is a heading stem left uncarded. NOT dry-measured: the render sandbox failed to mount for the fourth consecutive day, so every layout number is an estimate. IG caption 1,977 of 2,200 including hashtags (90%), TikTok 1,404 of 4,000, both measured in UTF-16 outside the sandbox and scanned clean of markdown."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-12",
+        "file": "script-and-caption.md",
+        "changed": "Scene 2's headline loses two words so the body fits. fit_body() refused the approved body and stopped the build: the three-line headline left 200px for a 364-character paragraph, short even at the 29px floor. The quotation, the body copy and every citation are unchanged. Layout is measured now, not estimated."
       }
     ],
     "history": {
