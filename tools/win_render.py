@@ -43,8 +43,9 @@ judgement call per run. Build here, then record, then `tools\\sync.bat`.
 
 Usage
 -----
-    python tools/win_render.py reel-38
-    python tools/win_render.py carousel-post-7
+    python tools/win_render.py --list               # what is approved and uncut
+    python tools/win_render.py --all                # build all of it, in post order
+    python tools/win_render.py reel-38              # or just the one
     python tools/win_render.py reel-38 --keep       # leave the scratch tree
     python tools/win_render.py reel-38 --no-install # build but don't copy back
     python tools/win_render.py --verify-renderer    # re-run the fidelity check
@@ -457,6 +458,79 @@ def archive_existing(dst):
     return archived
 
 
+def _post_order(post):
+    """Sort key: trailing number, which tracks curriculum and so post order."""
+    m = re.search(r"(\d+)$", post)
+    return (0 if post.startswith("reel-") else 1, int(m.group(1)) if m else 0)
+
+
+def buildable():
+    """Every post the desk has approved that is still waiting for a cut.
+
+    Reads the local review-state.json, which sync.bat keeps current. A post
+    qualifies when the script track is approved, the content track is waiting on
+    a build, and the approval was stamped against the script version that is
+    actually on disk. A stale approval means the words moved after Min-Yi read
+    them; apply_additions would refuse the render flip anyway, so building it
+    would waste the run and leave an invisible cut.
+    """
+    state = json.load(open(os.path.join(CONTENT, "review-state.json"), encoding="utf-8"))
+    todo, skipped = [], []
+    for post, e in state.items():
+        script = e.get("script") or {}
+        content = e.get("content") or {}
+        if script.get("status") != "approved":
+            continue
+        if content.get("status") not in ("awaiting-render", "rerender"):
+            continue
+        rev, approved_at = e.get("scriptRev"), script.get("rev")
+        if rev is not None and approved_at is not None and approved_at != rev:
+            skipped.append((post, "approved against script v%s, but the script is now v%s"
+                                  % (approved_at, rev)))
+            continue
+        d = os.path.join(CONTENT, post)
+        if not (os.path.isfile(os.path.join(d, "render_v3.py"))
+                or os.path.isfile(os.path.join(d, "make_carousel.py"))):
+            skipped.append((post, "no render script authored yet"))
+            continue
+        todo.append(post)
+    return sorted(todo, key=_post_order), sorted(skipped, key=lambda s: _post_order(s[0]))
+
+
+def build_all(args):
+    """Build everything that is approved and uncut, in post order."""
+    todo, skipped = buildable()
+    for post, why in skipped:
+        print("  skip  %-16s %s" % (post, why))
+    if not todo:
+        print("\nnothing to build: no approved post is waiting for a cut.")
+        return 0
+    print("\nbuilding %d: %s" % (len(todo), ", ".join(todo)))
+
+    results = []
+    passthrough = ([] if not args.keep else ["--keep"]) + \
+                  ([] if not args.no_install else ["--no-install"])
+    for post in todo:
+        print("\n" + "=" * 72 + "\n== %s\n" % post)
+        try:
+            rc = main([post] + passthrough)
+        except SystemExit as e:
+            print(str(e))
+            rc = 1
+        results.append((post, rc))
+
+    print("\n" + "=" * 72 + "\nsummary")
+    for post, rc in results:
+        print("  %-16s %s" % (post, "built" if rc == 0 else "FAILED"))
+    bad = [p for p, rc in results if rc]
+    if bad:
+        print("\n%d of %d failed: %s" % (len(bad), len(results), ", ".join(bad)))
+    else:
+        print("\nall %d built. Record them in data.js and the additions queue, "
+              "then tools\\sync.bat." % len(results))
+    return 1 if bad else 0
+
+
 # ----------------------------------------------------------------------- main
 
 def main(argv=None):
@@ -467,15 +541,28 @@ def main(argv=None):
                     help="build but do not copy artefacts into content/")
     ap.add_argument("--verify-renderer", action="store_true",
                     help="diff a headless render of carousel-post-5 against its shipped PNGs")
+    ap.add_argument("--all", action="store_true",
+                    help="build every approved post that has no cut yet, in post order")
+    ap.add_argument("--list", action="store_true",
+                    help="show what --all would build, and what it would skip and why")
     args = ap.parse_args(argv)
+
+    if args.list:
+        todo, skipped = buildable()
+        for post, why in skipped:
+            print("  skip  %-16s %s" % (post, why))
+        print("\nwould build %d: %s" % (len(todo), ", ".join(todo) if todo else "nothing"))
+        return 0
 
     browser = find_browser()
     print("browser: %s" % browser)
 
     if args.verify_renderer:
         return verify_renderer(browser)
+    if args.all:
+        return build_all(args)
     if not args.post:
-        ap.error("a post id is required unless --verify-renderer is given")
+        ap.error("a post id is required unless --all, --list or --verify-renderer is given")
 
     post = args.post.strip().strip("/\\")
     post_dir = os.path.join(CONTENT, post)

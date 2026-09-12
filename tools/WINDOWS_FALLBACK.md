@@ -11,23 +11,48 @@ environment every gate in the pipeline was written against.
 
 ## Running it
 
+Start here, which asks what is actually waiting to be built:
+
+```bat
+python tools\win_render.py --list
+```
+
+Then build all of it in one go, in post order:
+
+```bat
+python tools\win_render.py --all
+```
+
+Or name a single post:
+
 ```bat
 python tools\win_render.py reel-38
 python tools\win_render.py carousel-post-7
 ```
 
-That is the whole thing. It builds in a scratch tree outside the repo, runs the
-gates, and copies the finished assets into `content/<post>/`.
+It builds in a scratch tree outside the repo, runs the gates, and copies the
+finished assets into `content/<post>/`.
 
 Useful flags:
 
 | flag | what it does |
 |---|---|
+| `--list` | show what `--all` would build, and what it would skip and why |
+| `--all` | build every approved post that has no cut yet |
 | `--no-install` | build and gate, but do not copy anything into `content/` |
 | `--keep` | leave the scratch tree so you can look at the frames |
 | `--verify-renderer` | re-run the fidelity check described below, and stop |
 
 It exits non-zero if any gate fails, so it is safe to put in a batch file.
+
+**What `--all` will not touch.** It reads `review-state.json` and takes a post
+only when the script track is approved, the content track is waiting on a build,
+and the approval was stamped against the script version on disk. A post whose
+script was redrafted after approval is skipped by name, with the reason, because
+the approval is stale and the render flip would be refused anyway. So is a post
+with no render script authored yet. Both show up in `--list`, so a quiet
+`--list` output means the queue is genuinely empty rather than that something
+went unnoticed.
 
 ## What it needs on the machine
 
