@@ -1,3 +1,18 @@
+# The scheduled-task bootstrap — FALLBACK ONLY as of 2026-09-13
+
+**This task is disabled and is no longer the live drafting path.** Drafting moved
+to an Anthropic cloud routine on 2026-09-13, which removed the workspace mount
+that a Windows update had been breaking since 09-08 and the `web_fetch` that had
+twice truncated `review-state.json` mid-file.
+
+The text below is kept, and kept current, for one reason: if a cloud routine is
+ever the thing that breaks, this is how drafting comes back on the machine in
+one paste. Re-enable the Cowork task, paste this in, and **disable the cloud
+draft routine first** — two runs drafting the same window will fill the same
+gaps twice.
+
+---
+
 # The scheduled-task bootstrap — paste this once
 
 This is the text to paste into the Cowork `daily-reel-render` scheduled task,

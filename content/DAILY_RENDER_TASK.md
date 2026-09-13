@@ -17,10 +17,25 @@ jobs and different capabilities. Work out which one you are before Step 0.
 
 | | **Draft run** | **Build run** |
 |---|---|---|
-| where | the local Cowork sandbox | an Anthropic cloud routine |
+| where | Anthropic cloud routine, Opus | Anthropic cloud routine, Sonnet |
+| when | 06:30 daily | 07:30 and 18:30 daily |
 | does | Steps 0, 1, 2, 3, 9 | Steps 0, 3, 4, 5, 6, 7, 8, 9 |
 | writes | scripts, `data.js` entries | cuts, decks, the render flip |
-| can push | no | yes, with `tools/sync.sh` |
+| can push | yes, with `tools/sync.sh` | yes, with `tools/sync.sh` |
+
+Both are cloud routines as of 2026-09-13. Drafting moved last, once the build
+run had proved a real build and a real push to main. The local Cowork sandbox is
+now a **fallback**, disabled but kept: its bootstrap is still maintained in
+`content/SCHEDULED_TASK_PROMPT.md`, and it can be switched back on if a cloud
+routine is ever the thing that breaks.
+
+Moving drafting off the machine closed two recurring faults at once. There is no
+workspace mount to fail, which is what a Windows update released 2026-09-08 had
+been breaking for seven days running. And there is no `web_fetch` to truncate,
+which had silently cut `review-state.json` mid-file twice in three days, both
+times removing exactly the newest posts. A cloud run reads a fresh clone, so
+Step 0 is a `git fetch` and there is nothing left to go stale or come back
+short.
 
 **Why they are split.** They fail for different reasons and they used to fail
 together. Drafting needs nothing but `web_fetch`, and it never once broke.
