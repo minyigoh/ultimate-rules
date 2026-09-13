@@ -54,6 +54,7 @@
 | 2026-09-17 | carousel-post-7 — "Week six: stopping and starting" | Carousel (9 slides) | Script approved | — | — |
 | 2026-09-18 | You have to fetch the disc promptly | Reel | Script approved | — | — |
 | 2026-09-19 | Live play and dead play | Reel | Script approved | — | — |
+| 2026-09-20 | Don't touch a pull you can't catch | Reel | Pending review | — | — |
 
 ## Status legend
 

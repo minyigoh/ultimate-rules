@@ -2763,5 +2763,28 @@
         "changed": "Initial render of the sixth weekly recap, from the approved script: lessons 36-42, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways verified byte-identical against each lesson's field line in lessons-3.json; every footer verified against that lesson's rules array (slide 8 carries 13.7 because the footer is the lesson's array unchanged, even though reel-42 itself does not card it). All cited numbers resolve in rules.json. Layout check: 9 slides, 0 problems, no collisions. Cover line one measured 873 of 900px. Both _payload() quote cases (slides 3 and 5) confirmed present in the PNGs."
       }
     ]
+  },
+  "reel-46": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-13T01:05:00.000Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-13T01:05:00.000Z"
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-13",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft of lesson 46, 'Don't touch a pull you can't catch', covering 2026-09-20 — the only bare date in the seven-day window this run. Nine scenes, three topic/rules pairs: 7.8 (the dropped pull, in-bounds or out-of-bounds), 13.1 + 13.1.4 (the Turnovers chapter listing it in its own right), 7.10 (leave it and you pivot where it stopped, at no cost). FLAGGED: 13.1 is carded but is NOT in the lesson's rules array — 13.1.4 is a lower-case fragment under 13.1's colon stem and does not read without it, the same move reel-45 made with 8.1 except that 8.1 was in its array. Deliberate deviation from Step 1; fallback is a seven-scene two-pair cut citing 7.8 and 7.10 only, needing no new copy. NOT DRY-MEASURED — seventh consecutive sandbox mount failure. IG caption 1,877 of 2,200 including hashtags (85.3%), TikTok 1,363 of 4,000, both plain text and clean of markdown, measured in UTF-16 units in the browser."
+      }
+    ]
   }
 }
