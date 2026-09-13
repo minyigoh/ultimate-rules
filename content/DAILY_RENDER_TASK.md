@@ -85,7 +85,25 @@ make that impossible to repeat.
 
 ## Step 0 — Establish authoritative state. Non-negotiable.
 
-Before reading anything local, fetch all three of these over `web_fetch`:
+**If you have a git checkout and outbound network** — every cloud run does —
+then `git fetch origin && git checkout main && git merge --ff-only origin/main`
+IS Step 0, and it is strictly better than what follows. The working tree is then
+byte-for-byte what `main` holds, with no fetch to truncate and no cache to serve
+you something stale. Say in your report which method you used. Skip to Step 1.
+
+**A short body is a failed fetch.** This bit them twice. On 2026-09-11
+`web_fetch` returned `review-state.json` truncated at 2,252 of ~2,300 lines, and
+on 2026-09-13 at ~85K of 102K characters — both times silently cutting
+everything from reel-37 onward, which was exactly the range in play. A run that
+does not notice reads a queue with the newest posts missing and concludes there
+is nothing to do, which is the 2026-08-08 failure wearing a different hat. So:
+`review-state.json` must parse as JSON and must contain the highest-numbered
+reel the calendar mentions. `calendar.md` must end with its status legend. If
+either check fails, treat it as a failed fetch — re-read it another way or STOP.
+The file is ~102K and growing daily; this will get worse, not better.
+
+Otherwise, before reading anything local, fetch all three of these over
+`web_fetch`:
 
 - `.../main/content/DAILY_RENDER_TASK.md?cb=<timestamp>`
 - `.../main/content/calendar.md?cb=<timestamp>`
