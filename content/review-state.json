@@ -2459,7 +2459,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial cut of what the stall count restarts at: 9.5.1, 9.5.2, 9.5.5, 9.5.3, 9.6 as a block lead above 9.6.1. Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems. Scene 7, the card the draft flagged, lands at 772 of 1310. Carries the tracked() word-gap fix. Held two days by a check_dull failure that proved to be a band-boundary artefact rather than a dimmed cut -- 14 orange pixels where that band normally carries 756 -- fixed by requiring a minimum orange pixel count before a band counts as carrying orange, approved by Min-Yi and regression-tested against a deliberately dimmed cut. Passes at 0.20s against 0.45s."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-13",
+      "updatedAt": "2026-09-13T01:02:10.183Z"
+    }
   },
   "reel-40": {
     "scriptRev": 2,
