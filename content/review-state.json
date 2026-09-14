@@ -2532,7 +2532,12 @@
         "builtFromScriptRev": 2,
         "changed": "Initial cut of picks, built from the v2 redraft (scene 2 headline trimmed to two lines): 18.3.1, 18.3.1.1, 18.3.2, 18.3.3. Nine scenes, three-pair shape, 886 frames at 29.53s, 0 layout problems, no collisions -- scene 3 (18.3.1, the longest quotation) lands at 704 of 1310, main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold. Carries the tracked() word-gap fix."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-14",
+      "updatedAt": "2026-09-14T03:58:42.446Z"
+    }
   },
   "reel-41": {
     "scriptRev": 1,
