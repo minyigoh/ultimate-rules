@@ -51,7 +51,7 @@
 | 2026-09-15 | Indirect fouls | Reel | Ready to post | — | — |
 | 2026-09-16 | Where you pick the disc up after a turnover | Reel | Ready to post | — | — |
 | 2026-09-17 | Turnover in your own end zone: you choose | Reel | Ready to post | — | — |
-| 2026-09-17 | carousel-post-7 — "Week six: stopping and starting" | Carousel (9 slides) | Script approved | — | — |
+| 2026-09-17 | carousel-post-7 — "Week six: stopping and starting" | Carousel (9 slides) | Ready to post | — | — |
 | 2026-09-18 | You have to fetch the disc promptly | Reel | Script approved | — | — |
 | 2026-09-19 | Live play and dead play | Reel | Script approved | — | — |
 | 2026-09-20 | Don't touch a pull you can't catch | Reel | Pending review | — | — |
