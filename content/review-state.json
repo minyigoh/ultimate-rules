@@ -2651,10 +2651,11 @@
       "updatedAt": "2026-09-12T12:19:30.151Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-12T23:14:42.000Z"
+      "rev": 1,
+      "updatedAt": "2026-09-14T12:24:01.806Z"
     },
     "history": {
       "script": [
@@ -2664,6 +2665,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-12T12:19:30.151Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-14T12:24:01.806Z"
         }
       ]
     },
