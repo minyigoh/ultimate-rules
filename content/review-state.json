@@ -2832,10 +2832,11 @@
   "reel-46": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-13T01:05:00.000Z"
+      "rev": 1,
+      "updatedAt": "2026-09-14T12:31:22.669Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -2850,6 +2851,17 @@
         "file": "script-and-caption.md",
         "changed": "Initial draft of lesson 46, 'Don't touch a pull you can't catch', covering 2026-09-20 — the only bare date in the seven-day window this run. Nine scenes, three topic/rules pairs: 7.8 (the dropped pull, in-bounds or out-of-bounds), 13.1 + 13.1.4 (the Turnovers chapter listing it in its own right), 7.10 (leave it and you pivot where it stopped, at no cost). FLAGGED: 13.1 is carded but is NOT in the lesson's rules array — 13.1.4 is a lower-case fragment under 13.1's colon stem and does not read without it, the same move reel-45 made with 8.1 except that 8.1 was in its array. Deliberate deviation from Step 1; fallback is a seven-scene two-pair cut citing 7.8 and 7.10 only, needing no new copy. NOT DRY-MEASURED — seventh consecutive sandbox mount failure. IG caption 1,877 of 2,200 including hashtags (85.3%), TikTok 1,363 of 4,000, both plain text and clean of markdown, measured in UTF-16 units in the browser."
       }
-    ]
+    ],
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-14T12:31:22.669Z"
+        }
+      ]
+    }
   }
 }
