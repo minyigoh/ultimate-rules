@@ -4497,5 +4497,116 @@ rules from WFDF Rules of Ultimate 2025–2028 (7.8, 13.1, 13.1.4, 7.10) — full
       'Instagram caption 1,877 characters including hashtags (85.3% of the 2,200 limit); TikTok 1,363 of 4,000. Both plain text and scanned clean of markdown. Measured in UTF-16 units in the browser on 2026-09-13.',
       'Curriculum position: lesson 46 is index 12 of content/lessons-3.json, the next unused lesson after 45. It covers 2026-09-20, the only bare date in the seven-day window this run.'
     ]
+  },
+  {
+    id: 'reel-47',
+    date: '2026-09-21',
+    title: 'Pulls that go out of bounds: the brick',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 47,
+    duration: '~30s script',
+    rules: ['7.12', '2.5', '7.11'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-14'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-47',
+    source: 'content/reel-47/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Restarts)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Pulls that go out of bounds: the brick \u00b7 kicker BEGINNER \u00b7 LESSON 47 / 75'],
+      ['2', '#1 STRAIGHT OUT, YOU CHOOSE', '"A pull that never lands in gives you a choice." \u00b7 footer cites 7.12'],
+      ['3', 'Rules detail', 'Verbatim 7.12, one block'],
+      ['4', '#2 THE CROSSED LINES', '"The brick mark is already on the field." \u00b7 footer cites 2.5'],
+      ['5', 'Rules detail', 'Verbatim 2.5, one block'],
+      ['6', '#3 LANDED IN? NO CHOICE', '"Land it in, roll it out, and the choice is gone." \u00b7 footer cites 7.11'],
+      ['7', 'Rules detail', 'Verbatim 7.11, one block'],
+      ['8', 'FIELD TIP', '"Signal the brick before you touch the disc."'],
+      ['9', 'Closing', '"Lesson 47 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Those crossed lines in the middle of the field finally make sense.`,
+      explanation: `They're the brick marks. If a pull goes out of bounds without first touching the field or one of your players, you choose where to start: the brick mark nearest the end zone you're defending, or the spot on the central zone closest to where it went out.`,
+      example: `So the pull sails over the sideline. Raise one arm, call 'brick', and walk to the cross \u2014 that's the middle of the field instead of a trapped sideline start. But if it lands in first and then rolls out, there's no choice at all: you take it where it crossed. And the brick only counts if you signalled it before you picked the disc up.`,
+      cta: `Lesson 47 of 75 \u2014 new lesson daily.`
+    },
+    ig: `Those crossed lines in the middle of the field finally make sense.
+
+They are the brick marks, and they matter exactly once: when a pull goes out without ever touching down.
+
+"If the disc contacts the out-of-bounds area without first touching the playing field or an offensive player, the thrower may establish a pivot point either at the brick mark closest to their defending end zone, or at the location on the central zone closest to where the disc went out-of-bounds (Section 11.8). The binding brick option must be signalled before the disc is picked up. It must be signalled by any offensive player fully extending one arm overhead, and they should call “brick”."
+
+So: the brick mark, or the spot nearest where it crossed. Your choice.
+
+The brick is usually better. It puts the disc in the middle instead of on a sideline with a mark already on you.
+
+And the mark is already out there. Nobody paints it for the occasion:
+
+"The brick marks are the intersection of two (2) crossed one (1) metre lines in the central zone, located a distance equal to the length of the end zone away from each goal line, midway between the sidelines."
+
+One at each end. Take the one nearest the end zone you are defending.
+
+Now the part that catches people out. It only applies to a pull that never touched down.
+
+"If the disc initially contacts the playing field and then becomes out-of-bounds without contacting an offensive player, the thrower must establish a pivot point where the disc first crossed the perimeter line, or the nearest location in the central zone if that pivot point would be in their defending end zone."
+
+Landed in, then rolled out? No brick. You start where it crossed.
+
+One more thing, and it is the bit that gets argued about: signal it before you pick the disc up. One arm overhead, and call it, on the walk in.
+
+Lesson 47 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (7.12, 2.5, 7.11). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `those crossed lines in the middle of the field? they finally make sense 🥏
+
+they're the brick marks, and they matter exactly once: when a pull goes out of bounds without ever touching down
+
+"If the disc contacts the out-of-bounds area without first touching the playing field or an offensive player, the thrower may establish a pivot point either at the brick mark closest to their defending end zone, or at the location on the central zone closest to where the disc went out-of-bounds (Section 11.8). The binding brick option must be signalled before the disc is picked up. It must be signalled by any offensive player fully extending one arm overhead, and they should call “brick”."
+
+your choice: the brick mark, or the spot nearest where it crossed
+
+brick is usually better — middle of the field instead of trapped on a sideline
+
+and the mark is already out there:
+
+"The brick marks are the intersection of two (2) crossed one (1) metre lines in the central zone, located a distance equal to the length of the end zone away from each goal line, midway between the sidelines."
+
+one at each end. take the one nearest the end zone you're defending
+
+now the bit people get wrong ↓ this only applies if the pull never touched down
+
+"If the disc initially contacts the playing field and then becomes out-of-bounds without contacting an offensive player, the thrower must establish a pivot point where the disc first crossed the perimeter line, or the nearest location in the central zone if that pivot point would be in their defending end zone."
+
+landed in, then rolled out? no brick. you start where it crossed 🚫
+
+and signal it BEFORE you pick the disc up. one arm overhead, call it, do it on the walk in
+
+lesson 47 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (7.12, 2.5, 7.11) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Drafted 2026-09-14 by the daily task (draft run). Awaiting script review. Video not yet rendered.',
+      'DRY-MEASURED 2026-09-14 \u2014 the first measured draft since 2026-09-08. check_layout.py: 9 scenes checked, 0 problems, exit 0. check_caption.py: exit 0. Measured on SVG only \u2014 no PNGs, no frames, no cut; the build run owns rendering.',
+      'NEITHER AUTO-FIT ENGAGES. Kickers at the standard 34px: "#1 STRAIGHT OUT, YOU CHOOSE" 787.9px of the 900px column, "#2 THE CROSSED LINES" 572.5px, "#3 LANDED IN? NO CHOICE" 653.8px; cover BEGINNER 231.1px at its own 32px. Bodies at the standard 36px, last baselines 1012 / 1012 / 962 against the CITE_Y-60 limit of 1090 \u2014 78px of headroom at the tightest.',
+      'THE FIRST DRAFT OF THOSE BODIES MEASURED BADLY and was shortened here, at the draft gate. v1 put scene 2 at 33px and scenes 4 and 6 at 29px \u2014 the 80% floor exactly \u2014 with scene 4 landing on 1090, the limit itself; one more character would have raised SystemExit. Shortening is allowed at the draft gate and nowhere after it: once this is approved the rule is shrink the type, never reword.',
+      'Nine scenes, the three-pair shape. TOTAL = 9. Projected 30.0s from retime()/fit() over 34 states (band 28-33s). Do not hand-tune the SCENES durations.',
+      'NO DEVIATION FROM THE LESSON rules ARRAY \u2014 all three carded numbers (7.12, 2.5, 7.11) are in it, unlike reel-46 where 13.1 was carded from outside it. Every footer cites only what its own card quotes.',
+      'PRESERVE THE RULEBOOK\'S OWN PUNCTUATION. 7.12 ends they should call \u201cbrick\u201d. \u2014 curly doubles before the full stop \u2014 and carries an internal cross-reference (Section 11.8). 2.5 carries the rulebook\'s parenthesised numerals: two (2) crossed one (1) metre lines. All three read oddly and all three are correct; they must survive to the PNG unchanged.',
+      '7.12 IS THE LONGEST RULE TEXT CARDED ON ANY REEL SO FAR \u2014 492 characters, 12 wrapped lines at 38px, last baseline 904 of 1310. It fits with room but it is a dense card. Scene 3 takes the standard detail hold, unmodified.',
+      'DO NOT ADD THE 18-METRE END-ZONE FIGURE. 2.5 says "a distance equal to the length of the end zone" and that is what ships; the metric dimension lives in a rule this reel does not cite.',
+      'DO NOT REACH FOR 7.11.1 \u2014 the pull that contacts an offensive player before going out is reel-46\'s subject. Keeping it out is what makes 46 and 47 a clean pair rather than two overlapping reels.',
+      'TAKE THE RENDER SCRIPT FROM content/reel-45/render_v3.py OR NEWER \u2014 only reels 38 onwards carry the tracked() word-gap fix.',
+      'Instagram caption 2,079 characters including hashtags (94.5% of the 2,200 limit); TikTok 1,907 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0. THE FIRST DRAFT WAS 2,209 AND FAILED THE GATE BY 9 CHARACTERS \u2014 trimmed prose in seven places; not one word of a rule quotation, the attribution line, the hashtags or the lesson line was touched.',
+      'THE IG CAPTION IS DELIBERATELY CLOSE TO THE LIMIT \u2014 three long verbatim quotations is the most any reel has carried, and the quotations are the part that cannot give. If anything is added at review, something else has to come out, and it must be prose: never a quotation, the attribution line, the hashtags or the lesson line.',
+      'Curriculum position: lesson 47 is index 13 of content/lessons-3.json, the next unused lesson after 46. It covers 2026-09-21, the only bare date in the seven-day window this run.'
+    ]
   }
 ];
