@@ -4390,17 +4390,18 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 46,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['7.8', '13.1', '13.1.4', '7.10'],
     review: {
       script:  {status: 'pending', on: '2026-09-13'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-14'}
     },
     postedDate: null,
     folder: 'reel-46',
     source: 'content/reel-46/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
-    video: null,
+    video: 'reel46-dropped-pull.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Don\'t touch a pull you can\'t catch · kicker BEGINNER · LESSON 46 / 75'],
@@ -4483,7 +4484,7 @@ lesson 46 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (7.8, 13.1, 13.1.4, 7.10) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
-      'Drafted 2026-09-13 by the daily task (draft run). Awaiting script review. Video not yet rendered.',
+      'Drafted 2026-09-13 by the daily task (draft run). Script approved 2026-09-14.',
       'NOT DRY-MEASURED — SEVENTH consecutive sandbox mount failure, 2026-09-13, same Plan9 share "c" is not mounted error as 09-08 onwards. check_layout.py, check_caption.py and node --check could not be run. Caption lengths were measured in the browser in UTF-16 units; kicker widths are relative to reel-41\'s recorded reference and body layout is an estimate.',
       'FLAGGED: 13.1 IS CARDED BUT IS NOT IN THE LESSON\'S rules ARRAY. 13.1.4 reads "during the pull, the offence touches the disc..." — lower-case, no subject, a fragment under 13.1\'s colon stem "A turnover that transfers possession of the disc from one team to the other occurs when:". It does not read without the lead, so 13.1 is carded on scene 5. This is the same move reel-45 made with 8.1, EXCEPT that 8.1 was in reel-45\'s array and 13.1 is not in this one, so it is a deliberate deviation from Step 1. FALLBACK if you\'d rather the array stayed authoritative: delete the scene 4/5 pair for a seven-scene two-pair cut citing 7.8 and 7.10 only — no new copy needed, just renumber. Attribution would become (7.8, 7.10).',
       'Nine scenes, the three-pair shape. TOTAL = 9.',
@@ -4495,7 +4496,8 @@ rules from WFDF Rules of Ultimate 2025–2028 (7.8, 13.1, 13.1.4, 7.10) — full
       'DO NOT say the defence may not touch the pull — that is 7.7 and is not in this lesson. This reel is only about the offence touching it.',
       'TAKE THE RENDER SCRIPT FROM content/reel-41/render_v3.py OR NEWER — only reels 38 onwards carry the tracked() word-gap fix.',
       'Instagram caption 1,877 characters including hashtags (85.3% of the 2,200 limit); TikTok 1,363 of 4,000. Both plain text and scanned clean of markdown. Measured in UTF-16 units in the browser on 2026-09-13.',
-      'Curriculum position: lesson 46 is index 12 of content/lessons-3.json, the next unused lesson after 45. It covers 2026-09-20, the only bare date in the seven-day window this run.'
+      'Curriculum position: lesson 46 is index 12 of content/lessons-3.json, the next unused lesson after 45. It covers 2026-09-20, the only bare date in the seven-day window this run.',
+      'Rendered 2026-09-14 (build run) from the approved script (scriptRev 1), render_v3.py based on reel-45\'s. Nine scenes, exact CFR via encode.py; 29.50s. check_layout.py: 9 scenes, 0 problems, no collisions. check_dull.py: longest sustained dull-orange run 0.20s. check_caption.py: exit 0. All three kickers stayed at standard (32px cover, 34px scenes 2/4/6) — fit_kicker() did not engage, as the draft estimated. fit_body() DID engage on all three body cards, tighter than the draft\'s estimate: scene 2 at 29px (the 80% floor), scene 4 at 33px, scene 6 at 34px — none at the 36px standard.'
     ]
   },
   {
