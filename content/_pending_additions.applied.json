@@ -2,8 +2,8 @@
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [
     {
-      "date": "2026-09-20",
-      "post": "Don't touch a pull you can't catch",
+      "date": "2026-09-21",
+      "post": "Pulls that go out of bounds: the brick",
       "type": "Reel",
       "status": "Pending review",
       "posted": "—",
@@ -11,30 +11,30 @@
     }
   ],
   "review_state": {
-    "reel-46": {
+    "reel-47": {
       "scriptRev": 1,
+      "scriptRevisions": [
+        {
+          "v": 1,
+          "draftedAt": "2026-09-14",
+          "file": "script-and-caption.md",
+          "changed": "Initial draft of lesson 47, 'Pulls that go out of bounds: the brick', covering 2026-09-21 — the only bare date in the seven-day window this run. Nine scenes, three topic/rules pairs: 7.12 (the brick-or-perimeter choice and the signal), 2.5 (what a brick mark is), 7.11 (landed in then rolled out — no choice). All three numbers come from the lesson's own rules array. Dry-measured: check_layout.py 9 scenes / 0 problems, neither fit_kicker() nor fit_body() engages, projected 30.0s; check_caption.py exit 0 at IG 2,079/2,200."
+        }
+      ],
       "script": {
         "status": "pending",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-13T01:05:00.000Z"
+        "updatedAt": "2026-09-14T22:38:44Z"
       },
       "content": {
         "status": "awaiting-render",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-13T01:05:00.000Z"
-      },
-      "scriptRevisions": [
-        {
-          "v": 1,
-          "draftedAt": "2026-09-13",
-          "file": "script-and-caption.md",
-          "changed": "Initial draft of lesson 46, 'Don't touch a pull you can't catch', covering 2026-09-20 — the only bare date in the seven-day window this run. Nine scenes, three topic/rules pairs: 7.8 (the dropped pull, in-bounds or out-of-bounds), 13.1 + 13.1.4 (the Turnovers chapter listing it in its own right), 7.10 (leave it and you pivot where it stopped, at no cost). FLAGGED: 13.1 is carded but is NOT in the lesson's rules array — 13.1.4 is a lower-case fragment under 13.1's colon stem and does not read without it, the same move reel-45 made with 8.1 except that 8.1 was in its array. Deliberate deviation from Step 1; fallback is a seven-scene two-pair cut citing 7.8 and 7.10 only, needing no new copy. NOT DRY-MEASURED — seventh consecutive sandbox mount failure. IG caption 1,877 of 2,200 including hashtags (85.3%), TikTok 1,363 of 4,000, both plain text and clean of markdown, measured in UTF-16 units in the browser."
-        }
-      ]
+        "updatedAt": "2026-09-14T22:38:44Z"
+      }
     }
   },
-  "generated": "2026-09-13T01:05:00.000Z",
+  "generated": "2026-09-14T22:38:44Z",
   "by": "daily-reel-render"
 }

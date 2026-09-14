@@ -55,6 +55,7 @@
 | 2026-09-18 | You have to fetch the disc promptly | Reel | Ready to post | — | — |
 | 2026-09-19 | Live play and dead play | Reel | Ready to post | — | — |
 | 2026-09-20 | Don't touch a pull you can't catch | Reel | Script approved | — | — |
+| 2026-09-21 | Pulls that go out of bounds: the brick | Reel | Pending review | — | — |
 
 ## Status legend
 

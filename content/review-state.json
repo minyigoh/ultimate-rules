@@ -2863,5 +2863,28 @@
         }
       ]
     }
+  },
+  "reel-47": {
+    "scriptRev": 1,
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-14",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft of lesson 47, 'Pulls that go out of bounds: the brick', covering 2026-09-21 — the only bare date in the seven-day window this run. Nine scenes, three topic/rules pairs: 7.12 (the brick-or-perimeter choice and the signal), 2.5 (what a brick mark is), 7.11 (landed in then rolled out — no choice). All three numbers come from the lesson's own rules array. Dry-measured: check_layout.py 9 scenes / 0 problems, neither fit_kicker() nor fit_body() engages, projected 30.0s; check_caption.py exit 0 at IG 2,079/2,200."
+      }
+    ],
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-14T22:38:44Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-14T22:38:44Z"
+    }
   }
 }
