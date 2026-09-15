@@ -2592,7 +2592,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial cut of indirect fouls: 17.8.1, 17.8.1.1, 17.8.2. Render script authored fresh this run from content/reel-39/render_v3.py (carries the tracked() word-gap fix). Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 554, 504 and 454 of 1310, all light; main scenes at 1192, field tip 1062, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-15",
+      "updatedAt": "2026-09-15T01:10:16.305Z"
+    }
   },
   "reel-42": {
     "scriptRev": 1,
