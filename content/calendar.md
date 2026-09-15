@@ -56,6 +56,7 @@
 | 2026-09-19 | Live play and dead play | Reel | Ready to post | — | — |
 | 2026-09-20 | Don't touch a pull you can't catch | Reel | Script approved | — | — |
 | 2026-09-21 | Pulls that go out of bounds: the brick | Reel | Pending review | — | — |
+| 2026-09-22 | Calling a time-out | Reel | Pending review | — | — |
 
 ## Status legend
 
