@@ -2644,7 +2644,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial cut of where you pick the disc up after a turnover: 13.9, 13.10, 13.8, 8.5.4. 13.7 (a heading stem with two bare cross-reference sub-items) deliberately not carded; scene 2's body defines \"turnover location\" in plain words instead. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 886 frames at 29.53s, 0 layout problems, no collisions -- detail cards land at 454, 990 and 504 of 1310; main scenes at 1192, field tip 1218, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-16",
+      "updatedAt": "2026-09-16T00:22:37.580Z"
+    }
   },
   "reel-43": {
     "scriptRev": 1,

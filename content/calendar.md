@@ -49,7 +49,7 @@
 | 2026-09-13 | What the stall count restarts at | Reel | Posted | 2026-09-13 | — |
 | 2026-09-14 | Picks | Reel | Posted | 2026-09-14 | — |
 | 2026-09-15 | Indirect fouls | Reel | Posted | 2026-09-15 | — |
-| 2026-09-16 | Where you pick the disc up after a turnover | Reel | Ready to post | — | — |
+| 2026-09-16 | Where you pick the disc up after a turnover | Reel | Posted | 2026-09-16 | — |
 | 2026-09-17 | Turnover in your own end zone: you choose | Reel | Ready to post | — | — |
 | 2026-09-17 | carousel-post-7 — "Week six: stopping and starting" | Carousel (9 slides) | Ready to post | — | — |
 | 2026-09-18 | You have to fetch the disc promptly | Reel | Ready to post | — | — |
