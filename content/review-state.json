@@ -2837,7 +2837,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial render of the sixth weekly recap, from the approved script: lessons 36-42, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways verified byte-identical against each lesson's field line in lessons-3.json; every footer verified against that lesson's rules array (slide 8 carries 13.7 because the footer is the lesson's array unchanged, even though reel-42 itself does not card it). All cited numbers resolve in rules.json. Layout check: 9 slides, 0 problems, no collisions. Cover line one measured 873 of 900px. Both _payload() quote cases (slides 3 and 5) confirmed present in the PNGs."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-17",
+      "updatedAt": "2026-09-16T23:59:54.992Z"
+    }
   },
   "reel-46": {
     "scriptRev": 1,
