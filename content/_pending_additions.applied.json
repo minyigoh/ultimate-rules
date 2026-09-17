@@ -2,31 +2,54 @@
   "_readme": "Queue written by the daily-reel-render task, drained by tools/apply_additions.py during tools/sync.bat. The task must NOT edit calendar.md or review-state.json directly - it queues here instead, and sync.bat folds these in AFTER pulling, on top of whatever the desk decided today. That is what stops the two files conflicting. Adds only: an existing calendar row (keyed on date + post title) is left exactly as the desk left it, and so is an existing review-state key - with one exception, the render flip (content: awaiting-render or rerender -> in-review, plus new revisions entries), which is what tells the desk a cut now exists. It can never write an approval; see the module docstring in tools/apply_additions.py.",
   "calendar_rows": [
     {
-      "date": "2026-09-23",
-      "post": "Calling a time-out you don't have",
+      "date": "2026-09-24",
+      "post": "Injury stoppages",
       "type": "Reel",
+      "status": "Pending review",
+      "posted": "—",
+      "performance": "—"
+    },
+    {
+      "date": "2026-09-24",
+      "post": "carousel-post-8 — \"Week seven: the time between plays\"",
+      "type": "Carousel (9 slides)",
       "status": "Pending review",
       "posted": "—",
       "performance": "—"
     }
   ],
   "review_state": {
-    "reel-49": {
+    "reel-50": {
       "scriptRev": 1,
       "script": {
         "status": "pending",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-16T06:30:00Z"
+        "updatedAt": "2026-09-17T22:45:41Z"
       },
       "content": {
         "status": "awaiting-render",
         "note": "",
         "tags": [],
-        "updatedAt": "2026-09-16T06:30:00Z"
+        "updatedAt": "2026-09-17T22:45:41Z"
+      }
+    },
+    "carousel-post-8": {
+      "scriptRev": 1,
+      "script": {
+        "status": "pending",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-17T22:45:41Z"
+      },
+      "content": {
+        "status": "awaiting-render",
+        "note": "",
+        "tags": [],
+        "updatedAt": "2026-09-17T22:45:41Z"
       }
     }
   },
-  "generated": "2026-09-16T06:30:00Z",
+  "generated": "2026-09-17T22:45:41Z",
   "by": "daily-reel-render"
 }

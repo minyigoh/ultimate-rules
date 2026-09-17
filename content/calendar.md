@@ -58,6 +58,8 @@
 | 2026-09-21 | Pulls that go out of bounds: the brick | Reel | Pending review | — | — |
 | 2026-09-22 | Calling a time-out | Reel | Pending review | — | — |
 | 2026-09-23 | Calling a time-out you don't have | Reel | Pending review | — | — |
+| 2026-09-24 | Injury stoppages | Reel | Pending review | — | — |
+| 2026-09-24 | carousel-post-8 — "Week seven: the time between plays" | Carousel (9 slides) | Pending review | — | — |
 
 ## Status legend
 
