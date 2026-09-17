@@ -2696,7 +2696,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial cut of turnover in your own end zone: 13.11, 13.11.1, 13.11.2, 13.11.2.1, 13.11.3. 13.11 carded as a block lead (colon stem) with 13.11.1/13.11.2 sub-numbered beneath it, matching the reel-36 shape since 13.11 is itself in the lesson's rules array. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 890, 454 and 554 of 1310; main scenes at 1192, field tip 1012, closing 900, cover 1210. check_dull passes at 0.20s against the 0.45s threshold."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-17",
+      "updatedAt": "2026-09-17T00:03:27.939Z"
+    }
   },
   "reel-44": {
     "scriptRev": 1,
