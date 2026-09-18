@@ -52,7 +52,7 @@
 | 2026-09-16 | Where you pick the disc up after a turnover | Reel | Posted | 2026-09-16 | — |
 | 2026-09-17 | Turnover in your own end zone: you choose | Reel | Posted | 2026-09-17 | — |
 | 2026-09-17 | carousel-post-7 — "Week six: stopping and starting" | Carousel (9 slides) | Posted | 2026-09-17 | — |
-| 2026-09-18 | You have to fetch the disc promptly | Reel | Ready to post | — | — |
+| 2026-09-18 | You have to fetch the disc promptly | Reel | Posted | 2026-09-18 | — |
 | 2026-09-19 | Live play and dead play | Reel | Ready to post | — | — |
 | 2026-09-20 | Don't touch a pull you can't catch | Reel | Script approved | — | — |
 | 2026-09-21 | Pulls that go out of bounds: the brick | Reel | Pending review | — | — |

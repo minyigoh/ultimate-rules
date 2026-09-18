@@ -2748,7 +2748,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial cut of you have to fetch the disc promptly: 8.5, 8.5.3, 8.5.1.1, 8.5.1.2, 8.5.2, 8.5.2.1. 8.5.1 carded as an uncited block lead (reel-34 shape, since 8.5.1 itself is not in the lesson's rules array) with 8.5.1.1/8.5.1.2 sub-numbered beneath it. Render script authored fresh from content/reel-41/render_v3.py. Nine scenes, three-pair shape, 885 frames at 29.50s, 0 layout problems, no collisions -- detail cards land at 840, 890 and 840 of 1310; main scenes at 1192, field tip 1168, closing 900, cover 1210. check_dull passes at 0.17s against the 0.45s threshold."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-18",
+      "updatedAt": "2026-09-18T01:14:50.979Z"
+    }
   },
   "reel-45": {
     "scriptRev": 1,
