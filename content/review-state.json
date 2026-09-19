@@ -2997,16 +2997,28 @@
   "carousel-post-8": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-17T22:45:41Z"
+      "rev": 1,
+      "updatedAt": "2026-09-19T07:57:51.431Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-17T22:45:41Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-19T07:57:51.431Z"
+        }
+      ]
     }
   },
   "reel-51": {
