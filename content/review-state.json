@@ -3013,10 +3013,10 @@
       "updatedAt": "2026-09-19T07:59:24.265Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-17T22:45:41Z"
+      "updatedAt": "2026-09-19T10:23:47Z"
     },
     "history": {
       "script": [
@@ -3028,7 +3028,17 @@
           "at": "2026-09-19T07:59:24.265Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-19",
+        "duration": "29.5s",
+        "file": "reel50-injury-stoppages.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; check_layout.py 9/9 clean, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "carousel-post-8": {
     "scriptRev": 1,
@@ -3040,10 +3050,10 @@
       "updatedAt": "2026-09-19T07:57:51.431Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-17T22:45:41Z"
+      "updatedAt": "2026-09-19T10:23:47Z"
     },
     "history": {
       "script": [
@@ -3055,7 +3065,17 @@
           "at": "2026-09-19T07:57:51.431Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-19",
+        "duration": "9 slides",
+        "file": "01_cover.png … 09_closing.png",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render of the seventh weekly recap, from the approved script: lessons 43-49, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways drawn from each lesson's field line in lessons-3.json; every footer checked against that lesson's rules array. check_layout.py: 9 slides, 0 problems. check_caption.py exit 0."
+      }
+    ]
   },
   "reel-51": {
     "scriptRev": 1,
