@@ -2912,7 +2912,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial render from the approved script (scriptRev 1). Nine scenes (three-pair shape), exact CFR via encode.py; 29.50s. 7.8, 13.1 + 13.1.4, and 7.10 quoted verbatim from rules.json. check_layout.py: 9 scenes, 0 problems, no collisions. check_dull.py: longest sustained dull-orange run 0.20s (threshold 0.45s). check_caption.py: exit 0, IG 1,877/2,200 (85.3%), TikTok 1,462/4,000. Kickers stayed at standard (32/34px); fit_body() engaged on all three cards, tighter than the draft's estimate: scene 2 at 29px (the 80% floor), scene 4 at 33px, scene 6 at 34px."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-20",
+      "updatedAt": "2026-09-20T01:47:42.682Z"
+    }
   },
   "reel-47": {
     "scriptRev": 1,
