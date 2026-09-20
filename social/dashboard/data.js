@@ -5271,5 +5271,115 @@ rules from WFDF Rules of Ultimate 2025–2028 (5.3, 19.3, 19.3.1) — full break
       'Curriculum position: lesson 52 is index 18 of content/lessons-3.json, the next unused lesson after 51. It covers 2026-09-26, the only bare date in the tomorrow-through-tomorrow+6 window this run.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-53',
+    date: '2026-09-27',
+    title: 'The shape of a game',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 53,
+    duration: '~30s script',
+    rules: ['4.2', '4.3', '6.3', '5.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-20'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-53',
+    source: 'content/reel-53/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Game)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'The shape of a game \u00b7 kicker BEGINNER \u00b7 LESSON 53 / 75'],
+      ['2', '#1 FIRST TO FIFTEEN', '"Fifteen goals wins. Eight brings half time." \u00b7 footer cites 4.2 \u00b7 4.3'],
+      ['3', 'Rules detail', 'Verbatim 4.2 and 4.3'],
+      ['4', '#2 HALF TIME FLIPS THE CHOICES', '"The choices made at the start get swapped." \u00b7 footer cites 6.3'],
+      ['5', 'Rules detail', 'Verbatim 6.3'],
+      ['6', '#3 SEVEN ON, FIVE MINIMUM', '"You can play short. You cannot play too short." \u00b7 footer cites 5.1'],
+      ['7', 'Rules detail', 'Verbatim 5.1'],
+      ['8', 'FIELD TIP', '"Ask what the format is before you start."'],
+      ['9', 'Closing', '"Lesson 53 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `There is no clock in the rulebook. A game ends when a team reaches fifteen.`,
+      explanation: `A game is won by the first team to score fifteen goals, and it runs in two halves, with half time arriving the moment either team first scores eight. The two choices made before the first pull — receive or throw, and which end zone to defend — both switch over at the start of the second half.`,
+      example: `So if you chose to receive at the start, you pull to begin the second half. And the line has a range rather than a fixed number: a maximum of seven players and a minimum of five on the field for each point. Six is a legal line. Four is not.`,
+      cta: `Lesson 53 of 75 — new lesson daily.`
+    },
+    ig: `Fifteen goals wins a game. Eight changes it.
+
+Most people learn the shape of an ultimate game by playing one. Here it is written down.
+
+The length:
+
+"A game is finished and won by the first team to score fifteen (15) goals."
+
+"A game is separated into two (2) periods of play, called halves. Half time occurs when a team first scores eight (8) goals."
+
+So there is no clock in the rulebook. The game ends when a team reaches fifteen, and it pauses when a team reaches eight.
+
+Before the first pull, one team chooses whether to receive or which end zone to defend, and the other takes the choice that is left. Those two decisions do not stand for the whole game:
+
+"At the start of the second half, these initial selections are switched."
+
+Chose to receive at the start? After half time, you pull.
+
+And the line itself:
+
+"Each team will put a maximum of seven (7) players and a minimum of five (5) players on the field during each point."
+
+Seven is the full line. Five is the floor. Six is perfectly legal, which is worth knowing when somebody is late or hurt — you play on.
+
+Field note. Most social and league games shorten all of this with a time cap or a lower target, so ask what the format is before your first point. Fifteen and eight are the default, not a promise, and the real numbers change how you treat a two-goal deficit late on.
+
+Lesson 53 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (4.2, 4.3, 6.3, 5.1). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `the shape of a game 🥏
+
+there's no clock in the rulebook. here's what actually ends a game
+
+"A game is finished and won by the first team to score fifteen (15) goals."
+
+"A game is separated into two (2) periods of play, called halves. Half time occurs when a team first scores eight (8) goals."
+
+fifteen finishes it. eight pauses it
+
+before the first pull one team picks whether to receive or which end zone to defend, and the other takes what's left. those choices don't stand for the whole game:
+
+"At the start of the second half, these initial selections are switched."
+
+chose to receive at the start? after half time you pull
+
+and the line itself:
+
+"Each team will put a maximum of seven (7) players and a minimum of five (5) players on the field during each point."
+
+seven is the full line. five is the floor. six is perfectly legal, which is worth knowing when someone's late or hurt — you play on
+
+field note: most social and league games shorten all of this with a time cap or a lower target, so ask what the format is before your first point. fifteen and eight are the default, not a promise
+
+lesson 53 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (4.2, 4.3, 6.3, 5.1) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Nine scenes, three topic/rules-detail pairs. TOTAL = 9. All four of the lesson\u2019s rules are carded and quoted in full in both captions; all four numbers are in the attribution line, in the array\u2019s own order. Scene 3 carries two rule blocks (4.2 and 4.3); scenes 5 and 7 carry one each.',
+      'DRY-MEASURED 2026-09-20 on SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Kickers clear at the standard 34px (513.9 / 840.8 / 697.3 of the 900px column, widest 93%, inside reel-11\u2019s 873px high-water mark); bodies clear at the standard 36px \u2014 scenes 2 and 4 at last baseline 962 (128px clearance), scene 6 at 912 (178px) against the 1090 limit. Neither auto-fit engages. Projected duration 30.0s over 35 states.',
+      'Card 2\u2019s kicker was drafted as HALF TIME SWITCHES THE CHOICES, measured 952.3px, and tripped fit_kicker() to 32px; it was reworded to FLIPS while drafting, before anything reached the desk. The ban is on rewording an approved kicker to fit \u2014 nothing here is approved yet.',
+      'render_v3.py is committed in content/reel-53/ and is the exact file these numbers were measured from \u2014 copied from reel-52, so it carries the tracked() non-breaking-space word-gap fix and the _payload quote fix; only SCENES differs. Copy blend.py and encode.py in from reel-46; they are generic.',
+      '6.3 is quoted with its back-reference intact. "These initial selections" points at 6.1 and 6.2, which are NOT in this lesson\u2019s rules array, so they are not cited anywhere in the post \u2014 the headline and body name what was selected instead. Do not add them to make the quotation self-contained.',
+      'Three chapters, one lesson: 4.2/4.3 (Point, Goal and Game), 5.1 (Teams), 6.3 (Starting a Game). The shape of a game is not written down in one place. Do not trim the array to one chapter for tidiness.',
+      'The tip names no specific alternative target. Time caps and shorter games are real and worth flagging, but no number other than fifteen, eight, seven and five is asserted anywhere, because no other number is in rules.json.',
+      '"Six is perfectly legal" is the practical half of 5.1 and follows directly from the quoted minimum of five \u2014 a reading of the carded rule, not an addition to it.',
+      'Instagram caption 1,598 characters including hashtags (72.6% of the 2,200 limit, well under the 2,090 warn line); TikTok 1,306 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
+      'Curriculum position: lesson 53 is index 19 of content/lessons-3.json, the next unused lesson after 52. It covers 2026-09-27, the only bare date in the tomorrow-through-tomorrow+6 window this run.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
