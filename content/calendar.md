@@ -60,7 +60,7 @@
 | 2026-09-23 | Calling a time-out you don't have | Reel | Script approved | — | — |
 | 2026-09-24 | Injury stoppages | Reel | Script approved | — | — |
 | 2026-09-24 | carousel-post-8 — "Week seven: the time between plays" | Carousel (9 slides) | Script approved | — | — |
-| 2026-09-25 | Technical stoppages and blood | Reel | Pending review | — | — |
+| 2026-09-25 | Technical stoppages and blood | Reel | Script approved | — | — |
 | 2026-09-26 | Substitutions | Reel | Pending review | — | — |
 | 2026-09-27 | The shape of a game | Reel | Pending review | — | — |
 

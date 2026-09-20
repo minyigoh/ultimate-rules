@@ -3115,16 +3115,28 @@
   "reel-51": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-18T22:38:13Z"
+      "rev": 1,
+      "updatedAt": "2026-09-20T23:17:53.184Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-18T22:38:13Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-20T23:17:53.184Z"
+        }
+      ]
     }
   },
   "reel-52": {
