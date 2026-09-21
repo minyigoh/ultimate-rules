@@ -3197,16 +3197,28 @@
   "reel-52": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "changes",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-19T22:50:22Z"
+      "rev": 1,
+      "updatedAt": "2026-09-21T13:44:30.952Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-19T22:50:22Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "changes",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-21T13:44:30.952Z"
+        }
+      ]
     }
   },
   "reel-53": {
