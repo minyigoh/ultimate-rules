@@ -3147,10 +3147,10 @@
       "updatedAt": "2026-09-20T23:17:53.184Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-18T22:38:13Z"
+      "updatedAt": "2026-09-21T10:20:13Z"
     },
     "history": {
       "script": [
@@ -3162,7 +3162,17 @@
           "at": "2026-09-20T23:17:53.184Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-21",
+        "duration": "29.5s",
+        "file": "reel51-technical-stoppages.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; check_layout.py 9/9 clean, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-52": {
     "scriptRev": 1,
