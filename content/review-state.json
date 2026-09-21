@@ -3198,10 +3198,10 @@
     "scriptRev": 1,
     "script": {
       "status": "changes",
-      "note": "",
+      "note": "\"Try it during a point and you are playing a player short.\"",
       "tags": [],
       "rev": 1,
-      "updatedAt": "2026-09-21T13:44:30.952Z"
+      "updatedAt": "2026-09-21T13:44:36.469Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -3214,9 +3214,9 @@
         {
           "status": "changes",
           "rev": 1,
-          "note": "",
+          "note": "\"Try it during a point and you are playing a player short.\"",
           "tags": [],
-          "at": "2026-09-21T13:44:30.952Z"
+          "at": "2026-09-21T13:44:36.469Z"
         }
       ]
     }
