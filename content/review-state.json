@@ -3225,10 +3225,10 @@
     "scriptRev": 1,
     "script": {
       "status": "changes",
-      "note": "Most tournaments will specify the time limit even though it is not ",
+      "note": "Most tournaments will specify the time limit even though it is not mentioned in the game.",
       "tags": [],
       "rev": 1,
-      "updatedAt": "2026-09-21T13:46:55.214Z"
+      "updatedAt": "2026-09-21T13:47:00.356Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -3241,9 +3241,9 @@
         {
           "status": "changes",
           "rev": 1,
-          "note": "Most tournaments will specify the time limit even though it is not ",
+          "note": "Most tournaments will specify the time limit even though it is not mentioned in the game.",
           "tags": [],
-          "at": "2026-09-21T13:46:55.214Z"
+          "at": "2026-09-21T13:47:00.356Z"
         }
       ]
     }
