@@ -5054,17 +5054,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (19.1.1, 19.1.2, 19.1.3, 19.1.4, 1
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 51,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['19.2.1', '19.2.1.1', '19.2.1.2', '19.2.2'],
     review: {
       script:  {status: 'pending', on: '2026-09-18'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-21'}
     },
     postedDate: null,
     folder: 'reel-51',
     source: 'content/reel-51/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Safety)',
-    video: null,
+    video: 'reel51-technical-stoppages.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Technical stoppages and blood \u00b7 kicker BEGINNER \u00b7 LESSON 51 / 75'],
