@@ -303,15 +303,15 @@ def rt(n): return RULE[n]["text"]
 
 
 SCENES = [
-    ('cover', g_cover(1, 'BEGINNER', "The shape of a game", "Fifteen goals, and one thing that changes at eight.", 53, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
-    ('length', g_main(2, 'FIRST TO FIFTEEN', "Fifteen goals wins. Eight brings half time.", "A game is won by the first team to reach fifteen goals. It runs in two halves, and half time arrives the moment either team first scores eight.", ['4.2', '4.3'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('length_r', g_detail(3, [('4.2', [rt('4.2')]), ('4.3', [rt('4.3')])]), [0.3, 1.7, 2.0]),
-    ('switch', g_main(4, 'HALF TIME FLIPS THE CHOICES', "The choices made at the start get swapped.", "Before the first pull, one team picks whether to receive or which end zone to defend, and the other takes what is left. At the second half those selections switch over.", ['6.3'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('switch_r', g_detail(5, [('6.3', [rt('6.3')])]), [0.3, 2.0]),
-    ('numbers', g_main(6, 'SEVEN ON, FIVE MINIMUM', "You can play short. You cannot play too short.", "Each team puts a maximum of seven players and a minimum of five on the field for each point. Six is a legal line. Four is not.", ['5.1'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
-    ('numbers_r', g_detail(7, [('5.1', [rt('5.1')])]), [0.3, 2.0]),
-    ('tip', g_tip(8, "Ask what the format is before you start.", "The rulebook has no clock: fifteen and eight are its numbers. Almost every tournament and league adds a time cap on top, and that cap belongs to the event rather than to WFDF. Read the format sheet before your first point, because it is what tells you how the cap and the goal target interact."), [0.3, 0.45, 0.7, 1.7]),
-    ('close', g_closing(9, 53), [0.3, 0.8, 1.0, 1.4]),
+    ('cover', g_cover(1, 'BEGINNER', "After every goal, you switch ends", "A small rule that keeps catching new players facing the wrong way.", 54, size=84), [0.35, 0.55, 0.85, 1.05, 0.6]),
+    ('restart', g_main(2, 'NO RESTART FROM THE MIDDLE', "The next point starts the moment the goal is scored.", "Nobody walks back to halfway and nothing resets. The goal ends one point and the next begins straight away, unless the game has been won or half time has been reached.", ['4.5', '4.5.1'], 1), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('restart_r', g_detail(3, [('4.5', [rt('4.5'), ('4.5.1', rt('4.5.1'))])]), [0.3, 2.0]),
+    ('ends', g_main(4, 'YOU SWAP END ZONES', "You defend the other end zone now.", "The end zone you were attacking is the one you now defend, and it changes again at the next goal. That is why scoring means walking to the far end of the field.", ['4.5.2'], 2), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('ends_r', g_detail(5, [('4.5.2', [rt('4.5.2')])]), [0.3, 2.0]),
+    ('pull', g_main(6, 'SCORING MEANS PULLING', "Score, and you are on defence.", "The team that just scored becomes defence and pulls to restart. The team that conceded receives. Scoring buys you the walk down and the pull, not the disc.", ['4.5.3'], 3), [0.3, 0.45, 0.7, 1.5, 0.8]),
+    ('pull_r', g_detail(7, [('4.5.3', [rt('4.5.3')])]), [0.3, 2.0]),
+    ('tip', g_tip(8, "Point at the end zone you are attacking.", "Before every pull, physically point at the end zone you are attacking. It takes a second, the whole line sees it, and it heads off the exact mistake this lesson exists for: setting up facing the way you were facing last point."), [0.3, 0.45, 0.7, 1.7]),
+    ('close', g_closing(9, 54), [0.3, 0.8, 1.0, 1.4]),
 ]
 # ---------------- timing (see content/REEL_TIMING.md) ----------------
 # House rhythm, applied over whatever per-state durations SCENES carries above:

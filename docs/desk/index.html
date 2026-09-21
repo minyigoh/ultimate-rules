@@ -5716,7 +5716,7 @@ rules from WFDF Rules of Ultimate 2025–2028 (19.2.1, 19.2.1.1, 19.2.1.2, 19.2.
     duration: '~30s script',
     rules: ['5.3', '19.3', '19.3.1'],
     review: {
-      script:  {status: 'pending', on: '2026-09-19'},
+      script:  {status: 'pending', on: '2026-09-21'},
       content: {status: 'awaiting-render', on: null}
     },
     postedDate: null,
@@ -5737,14 +5737,14 @@ rules from WFDF Rules of Ultimate 2025–2028 (19.2.1, 19.2.1.1, 19.2.1.2, 19.2.
       ['9', 'Closing', '"Lesson 52 of 75." \u00b7 Follow @learn.ultimatefrisbee']
     ],
     script: {
-      hook: `You can swap your entire line between points. Try it during a point and you are playing a player short.`,
+      hook: `You can change your entire line between points. Once your team signals ready for the pull, that line is locked in until the next goal.`,
       explanation: `Substitutions are unlimited after a goal is scored, right up until your team signals readiness for the pull. That signal closes the window. From then until the next goal, the players on the field are the players who play the point.`,
       example: `There is one way back in: a safety stoppage. If somebody comes off for an injury, or for illegal or faulty equipment, the opposing team may also change one player, so it is one for one rather than a free reshuffle. And whoever comes on inherits the full state of the player they replaced — position, possession, stall count, and the right to make a call on their behalf.`,
       cta: `Lesson 52 of 75 — new lesson daily.`
     },
     ig: `Substitutions are unlimited. The window for them is not.
 
-Between points you can change your whole line. During a point you almost never can, and the gap between those two facts is where teams get caught.
+Between points you can change your whole line. Once your team has signalled ready for the pull, that line is set, and the gap between those two facts is where teams get caught.
 
 The window:
 
@@ -5773,7 +5773,7 @@ Rule text: WFDF Rules of Ultimate 2025–2028 (5.3, 19.3, 19.3.1). Full breakdow
 Follow @learn.ultimatefrisbee — one lesson a day.`,
     tiktok: `substitutions 🥏
 
-between points you can change your whole line. during a point you almost never can, and that gap is where teams get caught
+between points you can change your whole line. once your team has signalled ready for the pull that line is set, and that gap is where teams get caught
 
 the window:
 
@@ -5800,6 +5800,7 @@ lesson 52 of 75
 rules from WFDF Rules of Ultimate 2025–2028 (5.3, 19.3, 19.3.1) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
+      "Script rev 2 (2026-09-21), redrafted against a Content Desk 'changes' note: \u201c'Try it during a point and you are playing a player short.' sounds a bit misle[ading]\u201d. The note is right \u2014 the old hook attached the consequence of signalling ready early (playing a player short) to a different cause (substituting mid-point), which 5.3 does not permit in the first place. The hook now states the window closing rather than a punishment, and both captions name the cut-off. Nothing else moved: no rule number, no slide body, no scene, so the layout is byte-identical to v1's and was re-measured to confirm it (check_layout.py exit 0, 9 scenes, 0 problems, identical numbers). Round recorded in content/reel-52/script-feedback.md; v1 archived as script-and-caption.v1.md.",
       'Nine scenes, three topic/rules-detail pairs. TOTAL = 9. All three of the lesson\u2019s rules are carded and quoted in full in both captions; all three numbers are in the attribution line. No omission to decide on, unlike reel 51.',
       'DRY-MEASURED 2026-09-19 on SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Kickers clear at the standard 34px (714.2 / 564.9 / 797.4 of the 900px column); bodies clear at the standard 36px \u2014 scene 2 at last baseline 912 (178px clearance), scenes 4 and 6 at 962 (128px) against the 1090 limit. Neither auto-fit engages. Projected duration 30.0s over 34 states.',
       'render_v3.py is committed in content/reel-52/ and is the exact file these numbers were measured from \u2014 copied from reel-51, so it carries the tracked() non-breaking-space word-gap fix; only SCENES differs. Copy blend.py and encode.py in from reel-46; they are generic.',
@@ -5808,7 +5809,7 @@ rules from WFDF Rules of Ultimate 2025–2028 (5.3, 19.3, 19.3.1) — full break
       'Quote 19.3.1\u2019s brackets as written: "(location, possession, stall count etc)", no full stop after etc. The card and both captions carry it unchanged.',
       'Scene 4 does not re-teach reels 50 and 51. It names injury and faulty equipment as the doorway to a mid-point change and stops there; both of those reels post before this one (2026-09-24 and 2026-09-25).',
       'The field tip says "a player short", not "with six". The lesson\u2019s field line says six, but the minimum on the field is five (5.1) and that rule is not in this lesson\u2019s array, so the copy makes the point without asserting a number it does not card.',
-      'Instagram caption 1,662 characters including hashtags (75.5% of the 2,200 limit, well under the 2,090 warn line); TikTok 1,533 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
+      'Instagram caption 1,692 characters including hashtags at rev 2 (76.9% of the 2,200 limit, well under the 2,090 warn line; was 1,662 at rev 1); TikTok 1,562 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
       'Curriculum position: lesson 52 is index 18 of content/lessons-3.json, the next unused lesson after 51. It covers 2026-09-26, the only bare date in the tomorrow-through-tomorrow+6 window this run.',
       'No growth/reach claims in either caption.'
     ]
@@ -5824,7 +5825,7 @@ rules from WFDF Rules of Ultimate 2025–2028 (5.3, 19.3, 19.3.1) — full break
     duration: '~30s script',
     rules: ['4.2', '4.3', '6.3', '5.1'],
     review: {
-      script:  {status: 'pending', on: '2026-09-20'},
+      script:  {status: 'pending', on: '2026-09-21'},
       content: {status: 'awaiting-render', on: null}
     },
     postedDate: null,
@@ -5874,7 +5875,7 @@ And the line itself:
 
 Seven is the full line. Five is the floor. Six is perfectly legal, which is worth knowing when somebody is late or hurt — you play on.
 
-Field note. Most social and league games shorten all of this with a time cap or a lower target, so ask what the format is before your first point. Fifteen and eight are the default, not a promise, and the real numbers change how you treat a two-goal deficit late on.
+Field note. The clock comes from the event, not from the rulebook. Most tournaments and leagues add a time cap on top of the goal target, and exactly how the cap and the target interact is the organiser's choice rather than WFDF's — so read the format sheet before your first point. Fifteen and eight are the default, not a promise.
 
 Lesson 53 of 75.
 
@@ -5903,13 +5904,14 @@ and the line itself:
 
 seven is the full line. five is the floor. six is perfectly legal, which is worth knowing when someone's late or hurt — you play on
 
-field note: most social and league games shorten all of this with a time cap or a lower target, so ask what the format is before your first point. fifteen and eight are the default, not a promise
+field note: the clock comes from the event, not the rulebook. most tournaments and leagues add a time cap on top of the goal target, and how the cap and the target interact is the organiser's choice, not WFDF's — so read the format sheet before your first point. fifteen and eight are the default, not a promise
 
 lesson 53 of 75
 
 rules from WFDF Rules of Ultimate 2025–2028 (4.2, 4.3, 6.3, 5.1) — full breakdown in bio`,
     hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
     notes: [
+      "Script rev 2 (2026-09-21), redrafted against a Content Desk 'changes' note: \u201cMost tournaments will specify the time limit even though it is not mentioned in the game. It is either the 8/15 goals or time whichever comes first right?\u201d. The field tip and both captions now lead with the cap and say it belongs to the event rather than to WFDF. The 'whichever comes first' mechanic is deliberately NOT asserted: there is no time-cap rule anywhere in rules.json, and that phrasing describes a hard cap while many events use a soft cap instead \u2014 so the copy points at the format sheet rather than stating one event's format as the game's. Re-measured after the tip body grew: scene 8 ink bottom 1012 \u2192 1112 against the 1310 floor, 198px clear, fit_body() still not engaging; every other number unchanged, check_layout.py exit 0, 9 scenes, 0 problems. Round recorded in content/reel-53/script-feedback.md; v1 archived as script-and-caption.v1.md.",
       'Nine scenes, three topic/rules-detail pairs. TOTAL = 9. All four of the lesson\u2019s rules are carded and quoted in full in both captions; all four numbers are in the attribution line, in the array\u2019s own order. Scene 3 carries two rule blocks (4.2 and 4.3); scenes 5 and 7 carry one each.',
       'DRY-MEASURED 2026-09-20 on SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Kickers clear at the standard 34px (513.9 / 840.8 / 697.3 of the 900px column, widest 93%, inside reel-11\u2019s 873px high-water mark); bodies clear at the standard 36px \u2014 scenes 2 and 4 at last baseline 962 (128px clearance), scene 6 at 912 (178px) against the 1090 limit. Neither auto-fit engages. Projected duration 30.0s over 35 states.',
       'Card 2\u2019s kicker was drafted as HALF TIME SWITCHES THE CHOICES, measured 952.3px, and tripped fit_kicker() to 32px; it was reworded to FLIPS while drafting, before anything reached the desk. The ban is on rewording an approved kicker to fit \u2014 nothing here is approved yet.',
@@ -5918,9 +5920,113 @@ rules from WFDF Rules of Ultimate 2025–2028 (4.2, 4.3, 6.3, 5.1) — full brea
       'Three chapters, one lesson: 4.2/4.3 (Point, Goal and Game), 5.1 (Teams), 6.3 (Starting a Game). The shape of a game is not written down in one place. Do not trim the array to one chapter for tidiness.',
       'The tip names no specific alternative target. Time caps and shorter games are real and worth flagging, but no number other than fifteen, eight, seven and five is asserted anywhere, because no other number is in rules.json.',
       '"Six is perfectly legal" is the practical half of 5.1 and follows directly from the quoted minimum of five \u2014 a reading of the carded rule, not an addition to it.',
-      'Instagram caption 1,598 characters including hashtags (72.6% of the 2,200 limit, well under the 2,090 warn line); TikTok 1,306 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
+      'Instagram caption 1,664 characters including hashtags at rev 2 (75.6% of the 2,200 limit, well under the 2,090 warn line; was 1,598 at rev 1); TikTok 1,422 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
       'Curriculum position: lesson 53 is index 19 of content/lessons-3.json, the next unused lesson after 52. It covers 2026-09-27, the only bare date in the tomorrow-through-tomorrow+6 window this run.',
       'No growth/reach claims in either caption.'
+    ]
+  },
+  {
+    id: 'reel-54',
+    date: '2026-09-28',
+    title: 'After every goal, you switch ends',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 54,
+    duration: '~30s script',
+    rules: ['4.5', '4.5.1', '4.5.2', '4.5.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-21'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-54',
+    source: 'content/reel-54/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Game)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'After every goal, you switch ends \u00b7 kicker BEGINNER \u00b7 LESSON 54 / 75'],
+      ['2', '#1 NO RESTART FROM THE MIDDLE', '"The next point starts the moment the goal is scored." \u00b7 footer cites 4.5 \u00b7 4.5.1'],
+      ['3', 'Rules detail', 'Verbatim 4.5 with 4.5.1 beneath it'],
+      ['4', '#2 YOU SWAP END ZONES', '"You defend the other end zone now." \u00b7 footer cites 4.5.2'],
+      ['5', 'Rules detail', 'Verbatim 4.5.2'],
+      ['6', '#3 SCORING MEANS PULLING', '"Score, and you are on defence." \u00b7 footer cites 4.5.3'],
+      ['7', 'Rules detail', 'Verbatim 4.5.3'],
+      ['8', 'FIELD TIP', '"Point at the end zone you are attacking."'],
+      ['9', 'Closing', '"Lesson 54 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Score a goal and the game does not stop. It turns around.`,
+      explanation: `There is no restart from the middle. The moment a goal is scored the next point starts immediately, the teams switch the end zone they are defending, and the team that just scored becomes defence and pulls.`,
+      example: `So you score, you walk to the far end of the field, and you pull. The team that conceded receives. That cycle — score, swap, pull — repeats until somebody reaches fifteen.`,
+      cta: `Lesson 54 of 75 — new lesson daily.`
+    },
+    ig: `Score a goal and the game does not stop. It turns around.
+
+There is no restart from the middle in ultimate. The moment a goal is scored, three things happen at once, and the rulebook lists them in order.
+
+"After a goal is scored, and the game has not been won or half time has not been reached:"
+
+"the next point starts immediately;"
+
+Nobody walks back to halfway. Nobody waits for a whistle. The next point is already on.
+
+"the teams switch the end zone that they are defending; and"
+
+The end zone you spent the last point attacking is the one you now defend. It changes again at the next goal, and again at the one after that.
+
+"the team that scored becomes defence and pulls next."
+
+So scoring buys you the walk to the far end and the pull. The team that just conceded receives.
+
+That is the whole cycle: score, swap, pull. It repeats until somebody reaches fifteen.
+
+Field note. Before every pull, physically point at the end zone you are attacking. It takes a second, the whole line sees it, and it heads off the exact mistake this lesson exists for: setting up facing the way you were facing last point.
+
+Lesson 54 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (4.5, 4.5.1, 4.5.2, 4.5.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `after every goal, you switch ends 🥏
+
+score a goal and the game doesn't stop. it turns around
+
+there's no restart from the middle in ultimate. the moment a goal is scored, three things happen at once, and the rulebook lists them in order
+
+"After a goal is scored, and the game has not been won or half time has not been reached:"
+
+"the next point starts immediately;"
+
+nobody walks back to halfway. nobody waits for a whistle. the next point is already on
+
+"the teams switch the end zone that they are defending; and"
+
+the end zone you spent the last point attacking is the one you now defend. it changes again at the next goal, and again at the one after that
+
+"the team that scored becomes defence and pulls next."
+
+so scoring buys you the walk to the far end and the pull. the team that just conceded receives
+
+that's the whole cycle: score, swap, pull. it repeats until somebody reaches fifteen
+
+field note: before every pull, physically point at the end zone you're attacking. it takes a second, the whole line sees it, and it heads off the exact mistake this lesson exists for — setting up facing the way you were facing last point
+
+lesson 54 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (4.5, 4.5.1, 4.5.2, 4.5.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      "Nine scenes, three topic/rules-detail pairs. TOTAL = 9. All four of the lesson\u2019s rules are carded and quoted in full in both captions; all four numbers are in the attribution line, in the array\u2019s own order. Scene 3 carries one block \u2014 4.5 with 4.5.1 beneath it; scenes 5 and 7 carry 4.5.2 and 4.5.3.",
+      "DRY-MEASURED 2026-09-21 on SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Kickers clear at the standard 34px (850.2 / 619.8 / 704.8 of the 900px column, widest 94.5%, inside reel-11\u2019s 873px high-water mark); bodies clear at the standard 36px, all three main scenes wrapping to four lines with last baseline 962 and 128px clearance against the 1090 limit. Neither auto-fit engages. Rules cards 572 / 404 / 404, tip 1012, cover 1210, mains 1192 against the 1310 floor. Projected duration 30.0s over 34 states.",
+      "Scene 2\u2019s body was drafted a sentence longer, wrapped to five lines and measured last baseline 1012 \u2014 passing, at 78px clearance, with fit_body() not engaging. It was tightened to four lines while drafting, before anything reached the desk. The ban is on rewording an approved body to fit; nothing here is approved yet.",
+      "4.5 is a colon lead-in governing three numbered items, and is carded as one rather than flattened. Card 1 carries 4.5 plus 4.5.1 so the governing condition (\u201cand the game has not been won or half time has not been reached\u201d) is stated once; cards 2 and 3 carry 4.5.2 and 4.5.3 alone. Same parent-plus-sub shape as reel-51 scene 3.",
+      "4.5.2 is quoted with its trailing \u201c; and\u201d intact and 4.5.1 with its semicolon. They are list items, not sentences \u2014 trimming the conjunction would be an edit to rule text. Verbatim means verbatim, punctuation included.",
+      "This reel does not teach substitutions. The gap after a goal is also the substitution window, but 5.3 belongs to lesson 52 and is not in this lesson\u2019s rules array, so it is not cited here.",
+      "render_v3.py is committed in content/reel-54/ and is the exact file these numbers were measured from \u2014 copied from reel-53, so it carries the tracked() non-breaking-space word-gap fix and the _payload quote fix; only SCENES differs, verified by diffing the two files with their SCENES blocks removed. Copy blend.py and encode.py in from reel-46; they are generic.",
+      "Instagram caption 1,373 characters including hashtags (62.4% of the 2,200 limit, well under the 2,090 warn line); TikTok 1,249 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.",
+      "Curriculum position: lesson 54 is index 20 of content/lessons-3.json, the next unused lesson after 53. It covers 2026-09-28, the only bare date in the tomorrow-through-tomorrow+6 window this run. No growth/reach claims in either caption."
     ]
   }
 ];

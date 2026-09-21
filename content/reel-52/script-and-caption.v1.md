@@ -1,7 +1,7 @@
 # Reel 52 — "Substitutions"
 
-**Status:** Pending review (redrafted — script rev 2)
-**Script drafted:** 2026-09-19 · **Redrafted:** 2026-09-21 (daily-reel-render, draft run) · **Rendered:** —
+**Status:** Pending review
+**Script drafted:** 2026-09-19 (daily-reel-render, draft run) · **Rendered:** —
 **Queued:** 2026-09-26 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (5.3, 19.3, 19.3.1)
@@ -60,10 +60,7 @@ is no omission to decide on here, unlike reel 51.
    with its brackets intact; the "may make a call on their behalf" clause is
    the half people miss, so the body ends on it rather than on the list.
 
-**Layout — DRY-MEASURED, 2026-09-19; re-measured unchanged 2026-09-21.**
-The rev-2 redraft touched only the spoken hook beat and two caption sentences —
-no `SCENES` entry changed — so every number below is identical on both revs and
-was re-emitted rather than carried over. Emitted numbers from
+**Layout — DRY-MEASURED, 2026-09-19.** Emitted numbers from
 `tools/check_layout.py` and `render_v3.py`'s own auto-fit functions, run against
 the finished SVGs in a scratch directory outside the repo. **SVG only — no PNGs,
 no frames, no cut.** The build run owns rendering.
@@ -114,7 +111,7 @@ On Windows, `python tools\win_render.py reel-52` — read
 
 ## Script (~30s)
 
-- Hook: "You can change your entire line between points. Once your team signals ready for the pull, that line is locked in until the next goal."
+- Hook: "You can swap your entire line between points. Try it during a point and you are playing a player short."
 - Explanation: "Substitutions are unlimited after a goal is scored, right up until your team signals readiness for the pull. That signal closes the window. From then until the next goal, the players on the field are the players who play the point."
 - Example: "There is one way back in: a safety stoppage. If somebody comes off for an injury, or for illegal or faulty equipment, the opposing team may also change one player, so it is one for one rather than a free reshuffle. And whoever comes on inherits the full state of the player they replaced — position, possession, stall count, and the right to make a call on their behalf."
 - CTA: "Lesson 52 of 75 — new lesson daily."
@@ -123,7 +120,7 @@ On Windows, `python tools\win_render.py reel-52` — read
 
 Substitutions are unlimited. The window for them is not.
 
-Between points you can change your whole line. Once your team has signalled ready for the pull, that line is set, and the gap between those two facts is where teams get caught.
+Between points you can change your whole line. During a point you almost never can, and the gap between those two facts is where teams get caught.
 
 The window:
 
@@ -155,7 +152,7 @@ Follow @learn.ultimatefrisbee — one lesson a day.
 
 substitutions 🥏
 
-between points you can change your whole line. once your team has signalled ready for the pull that line is set, and that gap is where teams get caught
+between points you can change your whole line. during a point you almost never can, and that gap is where teams get caught
 
 the window:
 
@@ -194,21 +191,12 @@ Rule text quoted verbatim from the WFDF Rules of Ultimate 2025–2028 (5.3, 19.3
 
 ## Notes
 
-- **Script rev 2 (2026-09-21), redrafted against a `changes` note.** Min-Yi:
-  *"'Try it during a point and you are playing a player short.' sounds a bit
-  misle[ading]"*. She is right — the old hook attached the consequence of
-  signalling early (playing short) to a different cause (subbing mid-point),
-  which 5.3 does not permit in the first place. The hook now states the window
-  closing instead of a punishment, and both captions name the cut-off. Full
-  round in `script-feedback.md`; v1 archived as `script-and-caption.v1.md`.
-  **Nothing else moved** — no rule number, no slide body, no scene.
 - Film/edit against the brand visual spec in `social/brand-identity.md` (dark
   `#0F1712` bg, `#E24A12` accent for hook + rule chips, one clean sans-serif).
 - **Nine scenes, three topic/rules pairs.** `TOTAL = 9`. All three of the
   lesson's rules are carded and quoted in full in both captions; all three
   numbers are in the attribution line.
-- **DRY-MEASURED 2026-09-19, re-measured 2026-09-21 (rev 2)** — `check_layout.py`
-  exit 0, 9 scenes, 0 problems, both times and with identical numbers;
+- **DRY-MEASURED 2026-09-19** — `check_layout.py` exit 0, 9 scenes, 0 problems;
   `check_caption.py` exit 0. Neither auto-fit engages. Numbers above are
   emitted, not estimated.
 - **5.3 is a chapter 5 rule on a chapter 19 week, and that is deliberate.** The
@@ -230,9 +218,8 @@ Rule text quoted verbatim from the WFDF Rules of Ultimate 2025–2028 (5.3, 19.3
   line says six, but the minimum on the field is five (5.1) and that rule is
   not in this lesson's array, so the copy makes the point without asserting a
   number it does not card.
-- Instagram caption **1,692 characters** including hashtags at rev 2 (76.9% of
-  the 2,200 limit, well under the 2,090 warn line; was 1,662 at rev 1); TikTok
-  **1,562** of 4,000. Both plain
+- Instagram caption **1,662 characters** including hashtags (75.5% of the 2,200
+  limit, well under the 2,090 warn line); TikTok 1,533 of 4,000. Both plain
   text, both scanned clean of markdown, both measured in UTF-16 units by
   `tools/check_caption.py`, which exits 0.
 - Curriculum position: lesson 52 is index 18 of `content/lessons-3.json`, the

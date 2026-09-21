@@ -1,7 +1,7 @@
 # Reel 53 — "The shape of a game"
 
-**Status:** Pending review (redrafted — script rev 2)
-**Script drafted:** 2026-09-20 · **Redrafted:** 2026-09-21 (daily-reel-render, draft run) · **Rendered:** —
+**Status:** Pending review
+**Script drafted:** 2026-09-20 (daily-reel-render, draft run) · **Rendered:** —
 **Queued:** 2026-09-27 (see `content/calendar.md`)
 **Difficulty:** Beginner
 **Rules quoted from:** WFDF Rules of Ultimate 2025–2028 (4.2, 4.3, 6.3, 5.1)
@@ -58,8 +58,7 @@ the rules its own card quotes. **All four rules in the array are carded.**
    half people get wrong is the minimum, not the maximum, so the body closes on
    "Four is not."
 
-**Layout — DRY-MEASURED, 2026-09-20; re-measured 2026-09-21 after the rev-2
-tip-body change.** Emitted numbers from
+**Layout — DRY-MEASURED, 2026-09-20.** Emitted numbers from
 `tools/check_layout.py` and `render_v3.py`'s own auto-fit functions, run against
 the finished SVGs in a scratch directory outside the repo. **SVG only — no PNGs,
 no frames, no cut.** The build run owns rendering.
@@ -84,10 +83,8 @@ no frames, no cut.** The build run owns rendering.
   Scenes 2 and 4 wrap to four lines, last baseline **962**, clearance **128px**
   against the `CITE_Y - 60` limit of 1090. Scene 6 wraps to three, last
   baseline **912**, clearance **178px**.
-- Scene 8's tip body ends at **1112** of the 1310 floor, 198px clear — the one
-  number the rev-2 redraft moved, from **1012**, as the longer field tip wraps
-  two lines further. `g_tip()` carries no citation line, so `BODY_LIMIT` is not
-  its constraint and `fit_body()` does not engage.
+- Scene 8's tip body ends at **1012** of the 1310 floor, 298px clear. `g_tip()`
+  carries no citation line, so `BODY_LIMIT` is not its constraint.
 - Rules cards: ink bottoms at **690** (scene 3, the two-block card), **404**
   (scene 5) and **454** (scene 7) against the 1310 floor. 4.2 is 73 characters
   and 4.3 is 123, so the pair together still sits lighter than reel-44's
@@ -104,7 +101,7 @@ than re-derived from the beats:
 - Scene 2 — "A game is won by the first team to reach fifteen goals. It runs in two halves, and half time arrives the moment either team first scores eight."
 - Scene 4 — "Before the first pull, one team picks whether to receive or which end zone to defend, and the other takes what is left. At the second half those selections switch over."
 - Scene 6 — "Each team puts a maximum of seven players and a minimum of five on the field for each point. Six is a legal line. Four is not."
-- Scene 8 (field tip) — "The rulebook has no clock: fifteen and eight are its numbers. Almost every tournament and league adds a time cap on top, and that cap belongs to the event rather than to WFDF. Read the format sheet before your first point, because it is what tells you how the cap and the goal target interact."
+- Scene 8 (field tip) — "Most social and league games shorten this with a time cap or a lower target, so fifteen and eight are the default rather than a promise. Knowing the real target changes how you play a two-goal deficit late on."
 
 **`render_v3.py` is committed in this folder and is the exact file the numbers
 above were measured from.** It was copied from `content/reel-52/render_v3.py`,
@@ -151,7 +148,7 @@ And the line itself:
 
 Seven is the full line. Five is the floor. Six is perfectly legal, which is worth knowing when somebody is late or hurt — you play on.
 
-Field note. The clock comes from the event, not from the rulebook. Most tournaments and leagues add a time cap on top of the goal target, and exactly how the cap and the target interact is the organiser's choice rather than WFDF's — so read the format sheet before your first point. Fifteen and eight are the default, not a promise.
+Field note. Most social and league games shorten all of this with a time cap or a lower target, so ask what the format is before your first point. Fifteen and eight are the default, not a promise, and the real numbers change how you treat a two-goal deficit late on.
 
 Lesson 53 of 75.
 
@@ -183,7 +180,7 @@ and the line itself:
 
 seven is the full line. five is the floor. six is perfectly legal, which is worth knowing when someone's late or hurt — you play on
 
-field note: the clock comes from the event, not the rulebook. most tournaments and leagues add a time cap on top of the goal target, and how the cap and the target interact is the organiser's choice, not WFDF's — so read the format sheet before your first point. fifteen and eight are the default, not a promise
+field note: most social and league games shorten all of this with a time cap or a lower target, so ask what the format is before your first point. fifteen and eight are the default, not a promise
 
 lesson 53 of 75
 
@@ -201,24 +198,14 @@ Rule text quoted verbatim from the WFDF Rules of Ultimate 2025–2028 (4.2, 4.3,
 
 ## Notes
 
-- **Script rev 2 (2026-09-21), redrafted against a `changes` note.** Min-Yi:
-  *"Most tournaments will specify the time limit even though it is not mentioned
-  in the game. It is either the 8/15 goals or time whichever comes first
-  right?"*. The field tip and both captions now lead with the cap and say it
-  belongs to the event rather than to WFDF. **The "whichever comes first"
-  mechanic is deliberately not asserted**: there is no time-cap rule anywhere in
-  `rules.json`, and that phrasing describes a hard cap while many events use a
-  soft cap instead — so the copy points at the format sheet rather than stating
-  one event's format as the game's. Full round in `script-feedback.md`; v1
-  archived as `script-and-caption.v1.md`.
 - Film/edit against the brand visual spec in `social/brand-identity.md` (dark
   `#0F1712` bg, `#E24A12` accent for hook + rule chips, one clean sans-serif).
 - **Nine scenes, three topic/rules pairs.** `TOTAL = 9`. All four of the
   lesson's rules are carded and quoted in full in both captions; all four
   numbers are in the attribution line, in the array's own order.
-- **DRY-MEASURED 2026-09-20, re-measured 2026-09-21 (rev 2)** — `check_layout.py`
-  exit 0, 9 scenes, 0 problems, both times; `check_caption.py` exit 0. Neither
-  auto-fit engages. Numbers above are emitted, not estimated.
+- **DRY-MEASURED 2026-09-20** — `check_layout.py` exit 0, 9 scenes, 0 problems;
+  `check_caption.py` exit 0. Neither auto-fit engages. Numbers above are
+  emitted, not estimated.
 - **6.3 is quoted with its back-reference intact.** "These initial selections"
   refers to 6.1 and 6.2. Those are not in this lesson's `rules` array, so they
   are not cited anywhere in the post; the surrounding copy names what was
@@ -228,18 +215,16 @@ Rule text quoted verbatim from the WFDF Rules of Ultimate 2025–2028 (4.2, 4.3,
   and 6.3 (Starting a Game). The array crosses chapters because the shape of a
   game is not written down in one place. Do not trim it to one chapter for
   tidiness.
-- **The tip does not name a specific alternative target, and after rev 2 it does
-  not name a cap mechanic either.** Time caps are real and worth flagging, but no
-  number other than fifteen, eight, seven and five is asserted anywhere, because
-  no other number is in `rules.json` — and no rule in `rules.json` describes a
-  clock at all, so the cap is attributed to the event and left there.
+- **The tip does not name a specific alternative target.** Time caps and shorter
+  games are real and worth flagging, but no number other than fifteen, eight,
+  seven and five is asserted anywhere, because no other number is in
+  `rules.json`.
 - **"Six is perfectly legal" is the practical half of 5.1** and the line most
   likely to be useful at a pickup game. It follows directly from the quoted
   minimum of five, so it is a reading of the carded rule rather than an
   addition to it.
-- Instagram caption **1,664** characters including hashtags at rev 2 (75.6% of
-  the 2,200 limit, well under the 2,090 warn line; was 1,598 at rev 1); TikTok
-  **1,422** of 4,000. Both plain text, both scanned clean
+- Instagram caption **1,598** characters including hashtags (72.6% of the
+  2,200 limit, well under the 2,090 warn line); TikTok **1,306** of 4,000. Both plain text, both scanned clean
   of markdown, both measured in UTF-16 units by `tools/check_caption.py`, which
   exits 0.
 - Curriculum position: lesson 53 is index 19 of `content/lessons-3.json`, the
