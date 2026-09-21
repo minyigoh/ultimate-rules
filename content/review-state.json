@@ -3195,7 +3195,7 @@
     ]
   },
   "reel-52": {
-    "scriptRev": 1,
+    "scriptRev": 2,
     "script": {
       "status": "changes",
       "note": "\"Try it during a point and you are playing a player short.\" sounds a bit misle",
@@ -3219,10 +3219,24 @@
           "at": "2026-09-21T13:44:40.692Z"
         }
       ]
-    }
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-19",
+        "file": "script-and-caption.v1.md",
+        "changed": "Initial draft, substitutions: 5.3, 19.3, 19.3.1."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-21",
+        "file": "script-and-caption.md",
+        "changed": "Hook beat rewritten after the desk flagged it as misleading. \"Try it during a point and you are playing a player short.\" -> \"Once your team signals ready for the pull, that line is locked in until the next goal.\" The old line attached the consequence of signalling ready early to the wrong cause; 5.3 does not permit a mid-point substitution at all. Both captions name the cut-off instead. No rule number, slide body or scene changed, so the layout is identical to v1's and was re-measured to confirm it."
+      }
+    ]
   },
   "reel-53": {
-    "scriptRev": 1,
+    "scriptRev": 2,
     "script": {
       "status": "changes",
       "note": "Most tournaments will specify the time limit even though it is not mentioned in the game. It is either the 8/15 goals or time whichever comes first right?",
@@ -3246,6 +3260,43 @@
           "at": "2026-09-21T13:47:38.054Z"
         }
       ]
+    },
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-20",
+        "file": "script-and-caption.v1.md",
+        "changed": "Initial draft, the shape of a game: 4.2, 4.3, 6.3, 5.1."
+      },
+      {
+        "v": 2,
+        "draftedAt": "2026-09-21",
+        "file": "script-and-caption.md",
+        "changed": "Field tip and both captions redrafted after the desk asked about tournament time limits. The cap is now named as the event's rather than WFDF's, and the reader is sent to the format sheet. The \"goals or time, whichever comes first\" mechanic is deliberately not asserted: rules.json contains no time-cap rule, and that phrasing describes a hard cap where many events use a soft cap. Scene 8 ink bottom 1012 -> 1112 against the 1310 floor, 198px clear; every other measured number unchanged."
+      }
+    ]
+  },
+  "reel-54": {
+    "scriptRev": 1,
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-21",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, after every goal you switch ends: 4.5, 4.5.1, 4.5.2, 4.5.3. Nine scenes, three-pair shape. 4.5 is a colon lead-in carded with 4.5.1 beneath it; 4.5.2 and 4.5.3 get a card each. Dry-measured: check_layout.py 9 scenes, 0 problems, exit 0; neither auto-fit engages; projected 30.0s over 34 states."
+      }
+    ],
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-21T22:56:58Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-21T22:56:58Z"
     }
   }
 }
