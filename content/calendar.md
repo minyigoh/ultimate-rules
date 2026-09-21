@@ -56,7 +56,7 @@
 | 2026-09-19 | Live play and dead play | Reel | Posted | 2026-09-19 | — |
 | 2026-09-20 | Don't touch a pull you can't catch | Reel | Posted | 2026-09-20 | — |
 | 2026-09-21 | Pulls that go out of bounds: the brick | Reel | Posted | 2026-09-21 | — |
-| 2026-09-22 | Calling a time-out | Reel | Script approved | — | — |
+| 2026-09-22 | Calling a time-out | Reel | Ready to post | — | — |
 | 2026-09-23 | Calling a time-out you don't have | Reel | Script approved | — | — |
 | 2026-09-24 | Injury stoppages | Reel | Script approved | — | — |
 | 2026-09-24 | carousel-post-8 — "Week seven: the time between plays" | Carousel (9 slides) | Script approved | — | — |
