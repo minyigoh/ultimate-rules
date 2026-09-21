@@ -62,7 +62,7 @@
 | 2026-09-24 | carousel-post-8 — "Week seven: the time between plays" | Carousel (9 slides) | Ready to post | — | — |
 | 2026-09-25 | Technical stoppages and blood | Reel | Script approved | — | — |
 | 2026-09-26 | Substitutions | Reel | Pending review — changes requested | — | — |
-| 2026-09-27 | The shape of a game | Reel | Pending review | — | — |
+| 2026-09-27 | The shape of a game | Reel | Pending review — changes requested | — | — |
 
 ## Status legend
 
