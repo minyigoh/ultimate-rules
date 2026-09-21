@@ -3245,11 +3245,11 @@
   "reel-53": {
     "scriptRev": 2,
     "script": {
-      "status": "changes",
+      "status": "approved",
       "note": "Most tournaments will specify the time limit even though it is not mentioned in the game. It is either the 8/15 goals or time whichever comes first right?",
       "tags": [],
-      "rev": 1,
-      "updatedAt": "2026-09-21T13:47:38.054Z"
+      "rev": 2,
+      "updatedAt": "2026-09-21T23:47:33.467Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -3265,6 +3265,13 @@
           "note": "Most tournaments will specify the time limit even though it is not mentioned in the game. It is either the 8/15 goals or time whichever comes first right?",
           "tags": [],
           "at": "2026-09-21T13:47:38.054Z"
+        },
+        {
+          "status": "approved",
+          "rev": 2,
+          "note": "Most tournaments will specify the time limit even though it is not mentioned in the game. It is either the 8/15 goals or time whichever comes first right?",
+          "tags": [],
+          "at": "2026-09-21T23:47:33.467Z"
         }
       ]
     },
