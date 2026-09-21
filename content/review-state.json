@@ -3225,10 +3225,10 @@
     "scriptRev": 1,
     "script": {
       "status": "changes",
-      "note": "Most tournament",
+      "note": "Most tournaments will specify the time limit",
       "tags": [],
       "rev": 1,
-      "updatedAt": "2026-09-21T13:46:43.239Z"
+      "updatedAt": "2026-09-21T13:46:48.732Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -3241,9 +3241,9 @@
         {
           "status": "changes",
           "rev": 1,
-          "note": "Most tournament",
+          "note": "Most tournaments will specify the time limit",
           "tags": [],
-          "at": "2026-09-21T13:46:43.239Z"
+          "at": "2026-09-21T13:46:48.732Z"
         }
       ]
     }
