@@ -3225,10 +3225,10 @@
     "scriptRev": 1,
     "script": {
       "status": "changes",
-      "note": "",
+      "note": "Most tournament",
       "tags": [],
       "rev": 1,
-      "updatedAt": "2026-09-21T13:46:38.157Z"
+      "updatedAt": "2026-09-21T13:46:43.239Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -3241,9 +3241,9 @@
         {
           "status": "changes",
           "rev": 1,
-          "note": "",
+          "note": "Most tournament",
           "tags": [],
-          "at": "2026-09-21T13:46:38.157Z"
+          "at": "2026-09-21T13:46:43.239Z"
         }
       ]
     }
