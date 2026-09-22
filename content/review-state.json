@@ -3203,10 +3203,10 @@
     "scriptRev": 2,
     "script": {
       "status": "approved",
-      "note": "\"Try it during a point and you are playing a player short.\" sounds a bit misle",
+      "note": "\"Try it during a point and you are playing a player short.\" sounds a bit misleading",
       "tags": [],
       "rev": 2,
-      "updatedAt": "2026-09-21T23:46:26.374Z"
+      "updatedAt": "2026-09-22T11:51:21.206Z"
     },
     "content": {
       "status": "in-review",
@@ -3226,9 +3226,9 @@
         {
           "status": "approved",
           "rev": 2,
-          "note": "\"Try it during a point and you are playing a player short.\" sounds a bit misle",
+          "note": "\"Try it during a point and you are playing a player short.\" sounds a bit misleading",
           "tags": [],
-          "at": "2026-09-21T23:46:26.374Z"
+          "at": "2026-09-22T11:51:21.206Z"
         }
       ]
     },
