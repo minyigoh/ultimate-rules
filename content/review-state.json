@@ -3209,10 +3209,10 @@
       "updatedAt": "2026-09-21T23:46:26.374Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-19T22:50:22Z"
+      "updatedAt": "2026-09-22T10:21:58Z"
     },
     "history": {
       "script": [
@@ -3245,6 +3245,16 @@
         "file": "script-and-caption.md",
         "changed": "Hook beat rewritten after the desk flagged it as misleading. \"Try it during a point and you are playing a player short.\" -> \"Once your team signals ready for the pull, that line is locked in until the next goal.\" The old line attached the consequence of signalling ready early to the wrong cause; 5.3 does not permit a mid-point substitution at all. Both captions name the cut-off instead. No rule number, slide body or scene changed, so the layout is identical to v1's and was re-measured to confirm it."
       }
+    ],
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-22",
+        "duration": "29.5s",
+        "file": "reel52-substitutions.mp4",
+        "builtFromScriptRev": 2,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; check_layout.py 9/9 clean, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
     ]
   },
   "reel-53": {
@@ -3257,10 +3267,10 @@
       "updatedAt": "2026-09-21T23:47:33.467Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-20T06:30:00Z"
+      "updatedAt": "2026-09-22T10:21:58Z"
     },
     "history": {
       "script": [
@@ -3292,6 +3302,16 @@
         "draftedAt": "2026-09-21",
         "file": "script-and-caption.md",
         "changed": "Field tip and both captions redrafted after the desk asked about tournament time limits. The cap is now named as the event's rather than WFDF's, and the reader is sent to the format sheet. The \"goals or time, whichever comes first\" mechanic is deliberately not asserted: rules.json contains no time-cap rule, and that phrasing describes a hard cap where many events use a soft cap. Scene 8 ink bottom 1012 -> 1112 against the 1310 floor, 198px clear; every other measured number unchanged."
+      }
+    ],
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-22",
+        "duration": "29.5s",
+        "file": "reel53-the-shape-of-a-game.mp4",
+        "builtFromScriptRev": 2,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; check_layout.py 9/9 clean, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
       }
     ]
   },
