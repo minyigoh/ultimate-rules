@@ -3337,5 +3337,28 @@
       "tags": [],
       "updatedAt": "2026-09-21T22:56:58Z"
     }
+  },
+  "reel-55": {
+    "scriptRev": 1,
+    "scriptRevisions": [
+      {
+        "v": 1,
+        "draftedAt": "2026-09-22",
+        "file": "script-and-caption.md",
+        "changed": "Initial draft, offside and false start on the pull: 7.3, 7.4, 7.5, 7.5.1, 7.5.2. Nine scenes, three-pair shape. 7.3 and 7.4 share a card as the two breaches, 7.5 gets its own as the deadline, 7.5.1 and 7.5.2 share one as the two remedies. Dry-measured: check_layout.py 9 scenes, 0 problems, exit 0; neither auto-fit engages; projected 30.0s over 36 states."
+      }
+    ],
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-22T22:49:56Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-22T22:49:56Z"
+    }
   }
 }
