@@ -3187,10 +3187,11 @@
       "updatedAt": "2026-09-20T23:17:53.184Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-21T10:20:13Z"
+      "rev": 1,
+      "updatedAt": "2026-09-23T01:23:14.806Z"
     },
     "history": {
       "script": [
@@ -3200,6 +3201,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-20T23:17:53.184Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-23T01:23:14.806Z"
         }
       ]
     },
