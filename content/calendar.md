@@ -65,6 +65,7 @@
 | 2026-09-27 | The shape of a game | Reel | Content pending review | — | — |
 | 2026-09-28 | After every goal, you switch ends | Reel | Pending review | — | — |
 | 2026-09-29 | Offside and false start on the pull | Reel | Pending review | — | — |
+| 2026-09-30 | The Spirit rules are actual rules | Reel | Pending review | — | — |
 
 ## Status legend
 
