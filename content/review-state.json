@@ -3175,7 +3175,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial render of the seventh weekly recap, from the approved script: lessons 43-49, nine slides at 2250x2812, rule numbers only and no rule text. Takeaways drawn from each lesson's field line in lessons-3.json; every footer checked against that lesson's rules array. check_layout.py: 9 slides, 0 problems. check_caption.py exit 0."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-24",
+      "updatedAt": "2026-09-24T10:47:34.823Z"
+    }
   },
   "reel-51": {
     "scriptRev": 1,
