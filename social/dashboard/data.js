@@ -5716,5 +5716,212 @@ rules from WFDF Rules of Ultimate 2025–2028 (1.3, 1.3.1, 1.3.9, 1.3.10, 1.5.4,
       "Instagram caption 1,556 characters including hashtags (70.7% of the 2,200 limit, well under the 2,090 warn line); TikTok 1,490 of 4,000. Both counts are what check_caption.py emits and both include the hashtag block, which is what actually gets pasted. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py, which exits 0.",
       "Curriculum position: lesson 56 is index 22 of content/lessons-3.json, the next unused lesson after 55. It covers 2026-09-30, the only bare date in the tomorrow-through-tomorrow+6 window this run. No growth/reach claims in either caption."
     ]
+  },
+  {
+    id: 'reel-57',
+    date: '2026-10-01',
+    title: 'Helping beginners is written into the rules',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 57,
+    duration: '~30s script',
+    rules: ['1.8', '1.9', '1.7.1', '1.7.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-24'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-57',
+    source: 'content/reel-57/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Spirit)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Helping beginners is written into the rules \u00b7 kicker BEGINNER \u00b7 LESSON 57 / 75'],
+      ['2', '#1 EXPLAIN, DO NOT EXPLOIT', '"A novice breach is a teaching moment." \u00b7 footer cites 1.8'],
+      ['3', 'Rules detail', 'Verbatim 1.8'],
+      ['4', '#2 YOU MAY SUPERVISE', '"Guiding a beginners\' game is allowed." \u00b7 footer cites 1.9'],
+      ['5', 'Rules detail', 'Verbatim 1.9'],
+      ['6', '#3 LEARNING IS A TEAM JOB', '"Two of the duties belong to the team." \u00b7 footer cites 1.7.1 \u00b7 1.7.3'],
+      ['7', 'Rules detail', 'Verbatim 1.7.1 and 1.7.3, one block each'],
+      ['8', 'FIELD TIP', '"Say you are new."'],
+      ['9', 'Closing', '"Lesson 57 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `If you are new and you are worried about getting a rule wrong, the rulebook is already on your side. It tells the experienced players what to do about it.`,
+      explanation: `Where a novice is involved in a breach and does not know the rule, experienced players should assist to explain it. An experienced player may also supervise a beginners' game outright, advising on rules and guiding the arbitration. And teams carry two duties of their own: teach your own players, and give other teams constructive feedback.`,
+      example: `You travel, someone calls it, and you have no idea what they mean. The correct thing that happens next is not you losing the disc in silence. It is somebody explaining the rule to you.`,
+      cta: `Lesson 57 of 75 — new lesson daily.`
+    },
+    ig: `If you are new, this one is on your side.
+
+The rules do not just tolerate beginners. They tell the experienced players what to do about them.
+
+"In the case where a novice player is involved in a breach and does not know the rules, experienced players should assist to explain the breach."
+
+Should assist to explain. Not should take the advantage, which is what people who have never read Chapter 1 sometimes assume.
+
+There is a second one, and it is permission rather than duty.
+
+"An experienced player, who offers advice on rules and guides on-field arbitration, may supervise games involving beginners or younger players."
+
+So the more experienced player on the sideline guiding a beginners' game is not overstepping. That is a role the rulebook describes.
+
+Teams get two of their own. They read as list items because that is what they are — entries on the list of things teams must do.
+
+"take responsibility for teaching their team the rules and good Spirit;"
+
+"provide constructive feedback to other teams about what they are doing well and/or how to improve their adherence to the Spirit of the Game; and"
+
+Field note. If you do not know a rule, ask the person who called it to explain it. It is a completely normal thing to say on an ultimate field, and the rules tell the person you are asking to give you a straight answer.
+
+Lesson 57 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (1.8, 1.9, 1.7.1, 1.7.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `helping beginners is written into the rules 🥏
+
+if you're new, this one is on your side
+
+the rules don't just tolerate beginners — they tell experienced players what to do about them
+
+"In the case where a novice player is involved in a breach and does not know the rules, experienced players should assist to explain the breach."
+
+should assist to explain. not should take the advantage
+
+there's a second one, and it's permission rather than duty
+
+"An experienced player, who offers advice on rules and guides on-field arbitration, may supervise games involving beginners or younger players."
+
+so the experienced player guiding a beginners' game isn't overstepping. that's a role the rulebook describes
+
+teams get two of their own, and they read as list items because that's what they are
+
+"take responsibility for teaching their team the rules and good Spirit;"
+
+"provide constructive feedback to other teams about what they are doing well and/or how to improve their adherence to the Spirit of the Game; and"
+
+field note: if you don't know a rule, ask the person who called it to explain it. completely normal thing to say, and the rules tell them to give you a straight answer
+
+lesson 57 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (1.8, 1.9, 1.7.1, 1.7.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Nine scenes, three topic/rules pairs. TOTAL = 9. All four of the lesson\'s rules are carded and quoted in full in both captions; all four numbers are in the attribution line, in the array\'s own order.',
+      'Rule 1.7 is deliberately NOT carded or cited, although 1.7.1 and 1.7.3 are its list items. Every number on this post comes from the lesson\'s rules array unchanged, and scene 6\'s body supplies the frame in the account\'s own words ("The rulebook gives teams their own list of duties") rather than paraphrasing an uncited rule. Opposite call to reel-56, where the stem 1.3 WAS in the array. Flag at the desk if the two fragments read oddly on screen \u2014 the fix would be an edit to content/lessons-3.json, not to this script.',
+      'DRY-MEASURED 2026-09-24 in a scratch directory outside the repo, SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, the three main scenes at 1192. check_caption.py exits 0.',
+      'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP\u00d73 + tracked()): #1 EXPLAIN, DO NOT EXPLOIT 727.5px of the 900px column (80.8%), #2 YOU MAY SUPERVISE 580.1px (64.5%), #3 LEARNING IS A TEAM JOB 702.9px (78.1%) \u2014 all inside reel-11\'s 873px high-water mark, all at the standard 34px. Bodies all wrap to four lines at 36px, last baseline 962, clearance 128px against the 1090 limit. Cover title wraps to three lines at 84px: 732.8, 695.4, 200.8 of 900.',
+      'Scenes 2 and 6 were drafted five lines each (last baseline 1012, 78px clearance, still passing) and tightened to four while drafting, before anything went to the desk, for uniformity with scene 4. The ban is on rewording an approved body to fit; nothing here is approved.',
+      'Scenes 3 and 5 are single-block rules cards, a first for the Spirit run. Their SCENES entries carry two durations, not three, because g_detail() emits one group per rule block plus the header and the render asserts the counts match. Ink bottoms at 504 (scenes 3 and 5) and 740 (scene 7) against the 1310 floor.',
+      '1.7.1 and 1.7.3 are list fragments: 1.7.1 opens lowercase on "take responsibility" and 1.7.3 ends "; and". Both are quoted exactly as the rulebook has them, on the card and in both captions. Nothing is added to make them read as free-standing sentences \u2014 that would be paraphrase.',
+      'Projected duration 30.0s from retime()/fit() (35 states, band 28\u201333s). Durations in SCENES are untouched placeholders \u2014 do not hand-tune them.',
+      'render_v3.py is committed in content/reel-57/ and is the exact file these numbers were measured from \u2014 copied from reel-56, so it carries the tracked() non-breaking-space word-gap fix and the _payload quote fix; only SCENES differs, verified by diffing the two files with their SCENES blocks removed. Copy blend.py and encode.py in from reel-46; they are generic.',
+      'Instagram caption 1,593 characters including hashtags (72.4% of the 2,200 limit, well under the 2,090 warn line); TikTok 1,389 of 4,000. Both counts include the hashtag block, which is what actually gets pasted. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py.',
+      'Curriculum position: lesson 57 is index 22 of content/lessons-3.json, the next unused lesson after 56. It covers 2026-10-01, the only bare reel date in the tomorrow-through-tomorrow+6 window this run. No growth/reach claims in either caption.'
+    ]
+  },
+  {
+    id: 'carousel-post-9',
+    date: '2026-10-01',
+    title: 'carousel-post-9 \u2014 "Week eight: how a game is run"',
+    type: 'Carousel',
+    pillar: 'Recap',
+    difficulty: 'Mixed (beginner)',
+    lesson: null,
+    duration: '9 slides',
+    rules: ['19.1.1', '19.1.2', '19.1.3', '19.1.4', '19.1.5', '19.1.6', '19.2.1', '19.2.1.1', '19.2.1.2', '19.2.2', '19.2.3', '5.3', '19.3', '19.3.1', '4.2', '4.3', '6.3', '5.1', '4.5', '4.5.1', '4.5.2', '4.5.3', '7.3', '7.4', '7.5', '7.5.1', '7.5.2', '1.3', '1.3.1', '1.3.9', '1.3.10', '1.5.4', '1.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-24'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-9',
+    source: 'content/carousel-post-9/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (lessons 50-56)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'kicker THIS WEEK \u00b7 "Week eight: how a game is run" \u00b7 subhead "This week\'s seven lessons \u2014 everything the daily reels covered, 24\u201330 September." \u00b7 SWIPE \u2192'],
+      ['2', 'LESSON 50', '"Injury stoppages" \u00b7 takeaway: "If the disc is in the air when injury is called, play continues until someone catches it or it lands. Don\'t stop mid-flight." \u00b7 footer 19.1.1 \u00b7 19.1.2 \u00b7 19.1.3 \u00b7 19.1.4 \u00b7 19.1.5 \u00b7 19.1.6'],
+      ['3', 'LESSON 51', '"Technical stoppages and blood" \u00b7 takeaway: "This is the one call that isn\'t about advantage. Make it early and loudly." \u00b7 footer 19.2.1 \u00b7 19.2.1.1 \u00b7 19.2.1.2 \u00b7 19.2.2 \u00b7 19.2.3'],
+      ['4', 'LESSON 52', '"Substitutions" \u00b7 takeaway: "Signal readiness only when your line is genuinely on the field. Raising a hand early is how teams end up playing a point with six." \u00b7 footer 5.3 \u00b7 19.3 \u00b7 19.3.1'],
+      ['5', 'LESSON 53', '"The shape of a game" \u00b7 takeaway: "Most social and league games shorten this with time caps. Check the format before your first game \u2014 it changes late-game tactics completely." \u00b7 footer 4.2 \u00b7 4.3 \u00b7 6.3 \u00b7 5.1'],
+      ['6', 'LESSON 54', '"After every goal, you switch ends" \u00b7 takeaway: "Before every pull, physically point at the end zone you\'re attacking. It takes a second and prevents an embarrassing mistake." \u00b7 footer 4.5 \u00b7 4.5.1 \u00b7 4.5.2 \u00b7 4.5.3'],
+      ['7', 'LESSON 55', '"Offside and false start on the pull" \u00b7 takeaway: "If you call offside, shout it and then deliberately don\'t touch the disc. Catching it forfeits the call." \u00b7 footer 7.3 \u00b7 7.4 \u00b7 7.5 \u00b7 7.5.1 \u00b7 7.5.2'],
+      ['8', 'LESSON 56', '"The Spirit rules are actual rules" \u00b7 takeaway: "Introducing yourself to your opponent before the point is explicitly listed as good Spirit. It changes every subsequent conversation." \u00b7 footer 1.3 \u00b7 1.3.1 \u00b7 1.3.9 \u00b7 1.3.10 \u00b7 1.5.4 \u00b7 1.4'],
+      ['9', 'Closing', '"That\'s fifty-six of seventy-five. More next Thursday." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Seven lessons this week, and none of them are about throwing. They are about how a game is actually run.`,
+      explanation: `Who can stop it and when. Who is allowed on the field. How long it lasts and how it is scored. Which way you are attacking after a goal. How a point legally starts. And who enforces all of it, which in this sport is you.`,
+      example: `The two people get wrong most often. If injury is called while the disc is in the air, play continues until someone catches it or it lands — do not stop mid-flight. And if you call offside on a pull, deliberately do not touch the disc, because catching it forfeits the call.`,
+      cta: `Lessons 50 to 56 of 75 — new lesson daily.`
+    },
+    ig: `Week eight, all in one place. Seven lessons about how a game is actually run — who stops it, who is on the field, how long it lasts, and who keeps it honest.
+
+Injury stoppages. Who may call one, what happens to the disc, and how the restart works. The bit people get wrong: if the disc is in the air when injury is called, play continues until someone catches it or it lands. Don't stop mid-flight.
+
+Technical stoppages and blood. For something that affects safety or the conduct of the game rather than the contest. This is the one call that isn't about advantage, so make it early and loudly.
+
+Substitutions. When you may come on, and what counts as your line being ready. Signal readiness only when your line is genuinely on the field — raising a hand early is how teams end up playing a point with six.
+
+The shape of a game. How long a game is and what ends it. Most social and league games shorten this with time caps, so check the format before your first game. It changes late-game tactics completely.
+
+After every goal, you switch ends. Which direction you are attacking changes every point. Before every pull, physically point at the end zone you are attacking. It takes a second and prevents an embarrassing mistake.
+
+Offside and false start on the pull. Where both teams have to be when the pull goes up. If you call offside, shout it and then deliberately don't touch the disc — catching it forfeits the call.
+
+The Spirit rules are actual rules. Chapter 1 is written with the word must, and it lists duties. Introducing yourself to your opponent before the point is explicitly listed as good Spirit, and it changes every conversation with that matchup afterwards.
+
+Each slide carries its rule numbers, so you can check any of it against the rulebook rather than taking our word for it.
+
+That's fifty-six of seventy-five.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+all of it about how a game is actually run — who stops it, who's on the field, how long it lasts, who keeps it honest
+
+injury stoppages → if the disc is in the air when injury is called, play continues until someone catches it or it lands. don't stop mid-flight
+
+technical stoppages and blood → the one call that isn't about advantage. make it early and loudly
+
+substitutions → signal readiness only when your line is genuinely on the field. a hand up early is how teams play a point with six
+
+the shape of a game → most social and league games use time caps. check the format before your first game, it changes late-game tactics completely
+
+switching ends → you attack the other way every point. point at your end zone before every pull
+
+offside on the pull → shout it, then deliberately don't touch the disc. catching it forfeits the call
+
+the spirit rules are actual rules → chapter 1 is written with the word must. introducing yourself to your opponent is on the list
+
+rule numbers on every slide so you can check it yourself
+
+that's fifty-six of seventy-five
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Weekly recap, block 50\u201356. A clean contiguous seven, opening where carousel-post-8 stopped. Consumes no lesson number and introduces no new curriculum. Rule numbers only, no rule text on any slide. carousel-post-10 opens at lesson 57.',
+      'Takeaways and footers are read out of content/lessons-3.json, not typed: the recaps list in make_carousel.py was generated from the lessons file, so every takeaway is that lesson\'s field line byte-for-byte and every footer is its rules array unchanged.',
+      'Lesson 28 ("Receiving fouls") remains permanently skipped per Min-Yi\'s decision on 2026-09-12. It is not on this deck and must not be reintroduced on any later one.',
+      'Eligibility: all seven reels have post rows dated on or before this deck\'s own date of 2026-10-01, which is the test as clarified on 2026-09-12. But three of the seven (54, 55, 56) have not cleared the script gate and two more (52, 53) are still at the content gate. Approving 54, 55 and 56 in the same sitting as this deck keeps the week moving together.',
+      'DRY-MEASURED 2026-09-24 in a scratch directory outside the repo, SVG only \u2014 no PNGs. check_layout.py: 9 slides checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, every lesson slide at 1192. check_caption.py exits 0.',
+      'The cover is the roomiest the recap series has had. Unbroken, "Week eight: how a game is run" measures 1401.2 of the 900px column at 96px; broken as "Week eight: how" / "a game is run" it is 755.6px and 618.9px, against carousel-post-8\'s worst line at 880.3/900. Re-measure the cover if the title is edited at the desk.',
+      'fit_body() does not engage on any slide. Every takeaway sits at the standard 36px, last baselines 834 (slides 2 and 4), 862 (slide 3), 884 (slide 5) and 912 (slides 6, 7 and 8) against the 1090 limit \u2014 178px to 256px of clearance. Kickers are all LESSON NN at 262.1px of 900; cover THIS WEEK 248.9px.',
+      'Widest citation line is slide 2\'s six numbers, 61 characters, 621.2 of the 900px column \u2014 short of carousel-post-8 slide 7\'s 665.9px record. No slide\'s text opens or closes on a double quote, so the _payload() tspan wrapper is not engaged anywhere on this deck; confirm in the PNGs anyway when they exist.',
+      'Title checked against the LAST slide, not just the theme of the first five, which is the carousel-post-6 v1 defect. Slide 8 is Spirit duties, and in a self-officiated sport the Spirit duties are the officiating layer, so "how a game is run" covers all seven honestly. "Stoppages and structure" was the other candidate and was dropped because it excludes slide 8 outright.',
+      'The closing count is exact on the day: lesson 56 posts 2026-09-30, the day before this deck, so "fifty-six of seventy-five" is true when it goes out.',
+      'tracked() in the carousel path still uses a plain space, not the U+00A0 the reel path switched to on reel-38. Unchanged from decks 1\u20138 deliberately, so this deck stays identical to them. A recap built through tools/WINDOWS_FALLBACK.md would lose the word gap in LESSON NN and THIS WEEK; still flagged for a deliberate decision rather than changed here.',
+      'slides is null and there is no typeDetail because nothing is rendered yet: build_desk.py\'s check_slides() verifies every slide stem against a file on disk and fails the whole build if one is missing. Naming the PNGs before they exist broke sync.bat at step 2 on 2026-09-07. Stems at render time: 01_cover, 02_lesson50_injury, 03_lesson51_technical_stoppage, 04_lesson52_subs, 05_lesson53_game_format, 06_lesson54_switching_ends, 07_lesson55_offside_false_start, 08_lesson56_spirit_duties, 09_closing.',
+      'Instagram caption 2,054 characters including hashtags (93.4% of the 2,200 limit, under the 2,090 warn line); TikTok 1,301 of 4,000. The first draft came out at 2,120 and three paragraphs were tightened before it was queued \u2014 prose only, no rule number, no attribution line and no hashtag touched. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
