@@ -3249,10 +3249,11 @@
       "updatedAt": "2026-09-21T23:46:26.374Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-22T10:21:58Z"
+      "rev": 1,
+      "updatedAt": "2026-09-25T11:53:22.204Z"
     },
     "history": {
       "script": [
@@ -3269,6 +3270,15 @@
           "note": "\"Try it during a point and you are playing a player short.\" sounds a bit misle",
           "tags": [],
           "at": "2026-09-21T23:46:26.374Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-25T11:53:22.204Z"
         }
       ]
     },
