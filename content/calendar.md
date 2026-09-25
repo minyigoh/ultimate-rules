@@ -65,7 +65,7 @@
 | 2026-09-27 | The shape of a game | Reel | Content pending review | — | — |
 | 2026-09-28 | After every goal, you switch ends | Reel | Script approved | — | — |
 | 2026-09-29 | Offside and false start on the pull | Reel | Script approved | — | — |
-| 2026-09-30 | The Spirit rules are actual rules | Reel | Pending review | — | — |
+| 2026-09-30 | The Spirit rules are actual rules | Reel | Script approved | — | — |
 | 2026-10-01 | Helping beginners is written into the rules | Reel | Pending review | — | — |
 | 2026-10-01 | carousel-post-9 — "Week eight: how a game is run" | Carousel (9 slides) | Pending review | — | — |
 
