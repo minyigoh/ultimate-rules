@@ -5395,17 +5395,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (4.2, 4.3, 6.3, 5.1) — full brea
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 54,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['4.5', '4.5.1', '4.5.2', '4.5.3'],
     review: {
       script:  {status: 'pending', on: '2026-09-21'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-25'}
     },
     postedDate: null,
     folder: 'reel-54',
     source: 'content/reel-54/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Game)',
-    video: null,
+    video: 'reel54-after-every-goal-you-switch-ends.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'After every goal, you switch ends \u00b7 kicker BEGINNER \u00b7 LESSON 54 / 75'],
@@ -5499,17 +5500,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (4.5, 4.5.1, 4.5.2, 4.5.3) — ful
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 55,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['7.3', '7.4', '7.5', '7.5.1', '7.5.2'],
     review: {
       script:  {status: 'pending', on: '2026-09-22'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-25'}
     },
     postedDate: null,
     folder: 'reel-55',
     source: 'content/reel-55/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Restarts)',
-    video: null,
+    video: 'reel55-offside-and-false-start-on-the-pull.mp4',
     slides: null,
     scenes: [
       ["1", "Cover", "Offside and false start on the pull \u00b7 kicker BEGINNER \u00b7 LESSON 55 / 75"],
@@ -5611,17 +5613,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (7.3, 7.4, 7.5, 7.5.1, 7.5.2) — 
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 56,
-    duration: '~30s script',
+    duration: '~30s script / 29.53s cut',
+    typeDetail: '1080×1920 · 29.53s · 30fps',
     rules: ['1.3', '1.3.1', '1.3.9', '1.3.10', '1.5.4', '1.4'],
     review: {
       script:  {status: 'pending', on: '2026-09-23'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-25'}
     },
     postedDate: null,
     folder: 'reel-56',
     source: 'content/reel-56/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Spirit)',
-    video: null,
+    video: 'reel56-the-spirit-rules-are-actual-rules.mp4',
     slides: null,
     scenes: [
       ["1", "Cover", "The Spirit rules are actual rules \u00b7 kicker BEGINNER \u00b7 LESSON 56 / 75"],
@@ -5725,17 +5728,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (1.3, 1.3.1, 1.3.9, 1.3.10, 1.5.4,
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 57,
-    duration: '~30s script',
+    duration: '~30s script / 29.53s cut',
+    typeDetail: '1080×1920 · 29.53s · 30fps',
     rules: ['1.8', '1.9', '1.7.1', '1.7.3'],
     review: {
       script:  {status: 'pending', on: '2026-09-24'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-25'}
     },
     postedDate: null,
     folder: 'reel-57',
     source: 'content/reel-57/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Spirit)',
-    video: null,
+    video: 'reel57-helping-beginners-is-written-into-the-rules.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Helping beginners is written into the rules \u00b7 kicker BEGINNER \u00b7 LESSON 57 / 75'],
