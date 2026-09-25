@@ -3383,10 +3383,10 @@
       "updatedAt": "2026-09-25T11:53:37.406Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-21T22:56:58Z"
+      "updatedAt": "2026-09-25T23:21:43Z"
     },
     "history": {
       "script": [
@@ -3398,7 +3398,17 @@
           "at": "2026-09-25T11:53:37.406Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-25",
+        "duration": "29.5s",
+        "file": "reel54-after-every-goal-you-switch-ends.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; 34 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-55": {
     "scriptRev": 1,
@@ -3418,10 +3428,10 @@
       "updatedAt": "2026-09-25T11:54:29.445Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-22T22:49:56Z"
+      "updatedAt": "2026-09-25T23:21:43Z"
     },
     "history": {
       "script": [
@@ -3433,7 +3443,17 @@
           "at": "2026-09-25T11:54:29.445Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-25",
+        "duration": "29.5s",
+        "file": "reel55-offside-and-false-start-on-the-pull.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; 36 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-56": {
     "scriptRev": 1,
@@ -3445,10 +3465,10 @@
       "updatedAt": "2026-09-25T11:54:55.356Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-23T22:49:06Z"
+      "updatedAt": "2026-09-25T23:21:43Z"
     },
     "history": {
       "script": [
@@ -3460,7 +3480,17 @@
           "at": "2026-09-25T11:54:55.356Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-25",
+        "duration": "29.53s",
+        "file": "reel56-the-spirit-rules-are-actual-rules.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; 37 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-57": {
     "scriptRev": 1,
@@ -3472,10 +3502,10 @@
       "updatedAt": "2026-09-25T11:55:27.851Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-24T22:53:28Z"
+      "updatedAt": "2026-09-25T23:21:43Z"
     },
     "history": {
       "script": [
@@ -3487,7 +3517,17 @@
           "at": "2026-09-25T11:55:27.851Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-25",
+        "duration": "29.53s",
+        "file": "reel57-helping-beginners-is-written-into-the-rules.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; 35 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "carousel-post-9": {
     "scriptRev": 1,
