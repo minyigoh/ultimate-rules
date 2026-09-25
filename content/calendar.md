@@ -63,7 +63,7 @@
 | 2026-09-25 | Technical stoppages and blood | Reel | Posted | 2026-09-25 | — |
 | 2026-09-26 | Substitutions | Reel | Ready to post | — | — |
 | 2026-09-27 | The shape of a game | Reel | Content pending review | — | — |
-| 2026-09-28 | After every goal, you switch ends | Reel | Pending review | — | — |
+| 2026-09-28 | After every goal, you switch ends | Reel | Script approved | — | — |
 | 2026-09-29 | Offside and false start on the pull | Reel | Pending review | — | — |
 | 2026-09-30 | The Spirit rules are actual rules | Reel | Pending review | — | — |
 | 2026-10-01 | Helping beginners is written into the rules | Reel | Pending review | — | — |
