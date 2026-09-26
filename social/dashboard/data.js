@@ -6031,5 +6031,120 @@ rules from WFDF Rules of Ultimate 2025–2028 (15.12, 17.9.1, 17.9.2) — full b
       'Instagram caption 1,649 characters including hashtags (75.0 percent of the 2,200 limit, well under the 2,090 warn line); TikTok 1,432 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-59',
+    date: '2026-10-03',
+    title: "Stopping play when you shouldn't have",
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 59,
+    duration: '~30s script',
+    rules: ['15.9', '15.9.1', '15.9.2', '15.9.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-26'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-59',
+    source: 'content/reel-59/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Calls)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', "Stopping play when you shouldn't have \u00b7 kicker BEGINNER \u00b7 LESSON 59 / 75"],
+      ['2', '#1 MISHEARD IT? IT COUNTS', '"An incorrect stoppage is a named thing." \u00b7 footer cites 15.9 \u00b7 15.9.1'],
+      ['3', 'Rules detail', 'Verbatim 15.9 + 15.9.1 (doubled card)'],
+      ['4', '#2 OTHERWISE, BACK IT GOES', '"The disc returns to the last undisputed thrower." \u00b7 footer cites 15.9.2'],
+      ['5', 'Rules detail', 'Verbatim 15.9.2'],
+      ['6', '#3 THE STALL COUNT REMEMBERS', '"You pay for the interruption in stall." \u00b7 footer cites 15.9.3'],
+      ['7', 'Rules detail', 'Verbatim 15.9.3'],
+      ['8', 'FIELD TIP', '"Don\'t echo a call you didn\'t hear."'],
+      ['9', 'Closing', '"Lesson 59 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `You misheard a call and yelled "stop". Play has halted and it should not have. Nobody is in trouble — there is a rule for exactly this.`,
+      explanation: `Mishearing a call, not knowing the rule, or calling too late all count as stopping play incorrectly. What happens next turns on one question: did the other team end up with the disc? If they gained or retained possession, any subsequent play stands. If they did not, the disc goes back to the last non-disputed thrower. Either way the stall count resumes as if the breach were yours.`,
+      example: `You hear someone shout, you echo it, and everything stops — except the call was never made. The other team had not caught anything, so the disc returns to the last undisputed thrower, and the marker restarts at maximum nine.`,
+      cta: `Lesson 59 of 75 — new lesson daily.`
+    },
+    ig: `You misheard a call and yelled "stop". Now what?
+
+It happens. You mishear, you call it late, or you did not know the rule. The rulebook handles it without drama, and it is worth knowing the remedy before you need it.
+
+First, what counts as stopping play incorrectly.
+
+"After a player initiates a stoppage incorrectly, including after mishearing a call, not knowing the rules, or not making the call immediately:"
+
+Mishearing, not knowing, calling late. All three are named.
+
+Then the split, and it turns on one question: did the other team end up with the disc?
+
+"if the opposition gains or retains possession, any subsequent play stands."
+
+If they gained it or kept it, nothing is undone. Whatever happened next stands.
+
+"if the opposition does not gain or retain possession, the disc must be returned to the last non-disputed thrower, unless 16.3 applies."
+
+If they did not, you rewind. The disc goes back to the last thrower nobody disputed.
+
+Third, the cost.
+
+"The stall count resumes as if an accepted breach has been caused by the player who initiated the stoppage incorrectly."
+
+The count picks up as though the breach were yours, so on offence that means restarting at maximum nine. A small price for the interruption, and a fair one.
+
+Field note. Do not echo a call you are not sure you heard. Half of incorrect stoppages start as a well-meant echo.
+
+Lesson 59 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (15.9, 15.9.1, 15.9.2, 15.9.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `stopping play when you shouldn't have 🥏
+
+you misheard a call and yelled "stop". now what?
+
+it happens — you mishear, you call it late, or you didn't know the rule. the rulebook handles it without drama
+
+first, what counts as stopping play incorrectly
+
+"After a player initiates a stoppage incorrectly, including after mishearing a call, not knowing the rules, or not making the call immediately:"
+
+mishearing, not knowing, calling late. all three are named
+
+then the split, and it turns on one question: did the other team end up with the disc?
+
+"if the opposition gains or retains possession, any subsequent play stands."
+
+if they gained it or kept it, nothing is undone
+
+"if the opposition does not gain or retain possession, the disc must be returned to the last non-disputed thrower, unless 16.3 applies."
+
+if they didn't, you rewind to the last thrower nobody disputed
+
+third, the cost
+
+"The stall count resumes as if an accepted breach has been caused by the player who initiated the stoppage incorrectly."
+
+the count picks up as though the breach were yours, so on offence that's restarting at maximum nine
+
+field note: don't echo a call you're not sure you heard. half of incorrect stoppages start as a well-meant echo
+
+lesson 59 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (15.9, 15.9.1, 15.9.2, 15.9.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Nine scenes, three topic/rules pairs. TOTAL = 9. All four of the lesson\'s rules are carded and quoted in full in both captions; all four numbers are in the attribution line, in the array\'s own order.',
+      '15.9 is a stem ending in a colon, finished by each sub-clause under it, so it shares a doubled card with 15.9.1 rather than standing alone as a fragment. Unlike reel-57\'s 1.7 and reel-58\'s 17.9, this stem IS in the lesson\'s rules array, so quoting and citing it introduces no number the array does not carry.',
+      '15.9.2 ends "unless 16.3 applies". That phrase stays inside the verbatim quotation, but 16.3 is not in the lesson\'s rules array and is cited nowhere: not in a card footer, not in the attribution line, not in either caption.',
+      'Back to Beginner after reel-58. "Not knowing the rules" is written into 15.9 itself, so the lesson is aimed at exactly the person it describes.',
+      'DRY-MEASURED 2026-09-26 in a scratch directory outside the repo, SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, the three main scenes at 1192. Projected duration 30.0s over 34 states.',
+      'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP\u00d73 + tracked()): #1 699.1px of the 900px column, #2 744.5px, #3 840.8px \u2014 #3 is the widest drafted to date, passing reel-58\'s 837.0px, but still inside reel-11\'s 873px high-water mark. Bodies all wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090. Scenes 2 and 6 were drafted to five lines (1012, 78px clear, still passing) and tightened to four while drafting, before the desk saw them.',
+      'Instagram caption 1626 characters including hashtags (73.9 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1443 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
