@@ -6146,5 +6146,113 @@ rules from WFDF Rules of Ultimate 2025–2028 (15.9, 15.9.1, 15.9.2, 15.9.3) —
       'Instagram caption 1626 characters including hashtags (73.9 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1443 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-60',
+    date: '2026-10-04',
+    title: 'Obstructions and people on the sideline',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 60,
+    duration: '~30s script',
+    rules: ['2.7', '11.1', '11.2'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-27'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-60',
+    source: 'content/reel-60/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Safety)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Obstructions and people on the sideline · kicker BEGINNER · LESSON 60 / 75'],
+      ['2', '#1 KEEP THE SIDELINE CLEAR', '"Bags and bystanders belong well back." · footer cites 2.7'],
+      ['3', 'Rules detail', 'Verbatim 2.7'],
+      ['4', '#2 SPECTATORS ARE OUT', '"A spectator is part of out-of-bounds." · footer cites 11.1'],
+      ['5', 'Rules detail', 'Verbatim 11.1'],
+      ['6', '#3 WHAT TOUCHES OUT IS OUT', '"The sideline is more than the ground." · footer cites 11.2'],
+      ['7', 'Rules detail', 'Verbatim 11.2'],
+      ['8', 'FIELD TIP', '"Three metres back, and watch the disc."'],
+      ['9', 'Closing', '"Lesson 60 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `You are watching a point from the sideline with your bag at your feet. Both of those are in the rulebook, and not in the way you would guess.`,
+      explanation: `The ground just outside the field has to be kept clear of movable objects, and if a non-player or an object within three metres of the line obstructs a player or the thrower, that is a violation. The people standing there are not neutral either: all non-players are part of the out-of-bounds area, and the out-of-bounds area is the ground outside the field plus everything in contact with it.`,
+      example: `A throw drifts wide and hits a spectator standing a step behind the sideline. Nobody is at fault and it is not a replay — the spectator is part of the out-of-bounds area, so the disc is out.`,
+      cta: `Lesson 60 of 75 — new lesson daily.`
+    },
+    ig: `Someone's bag is on the sideline. The disc lands on a spectator. Both of those are in the rulebook.
+
+The strip of ground just outside the field is not a free-for-all, and the people standing on it are not scenery. Three rules cover it.
+
+First, clearance.
+
+"The immediate surroundings of the playing field shall be kept clear of movable objects. If play is obstructed by non-players or objects within three (3) metres of the perimeter line, any obstructed player or thrower in possession may call “Violation”."
+
+Three metres is the number. Movable objects go well back, and if a non-player or an object inside that band obstructs you or the thrower, you can call violation.
+
+Second, who counts as part of the field.
+
+"The entire playing field is in-bounds. The perimeter lines are not part of the playing field and are out-of-bounds. All non-players are part of the out-of-bounds area."
+
+Nobody on the sideline is neutral. All non-players are part of the out-of-bounds area, so a disc that hits a spectator standing past the line is out.
+
+Third, what the out-of-bounds area actually is.
+
+"The out-of-bounds area consists of the ground which is not in-bounds and everything in contact with it, except for defensive players, who are always considered “in-bounds”."
+
+The ground outside the field, and everything in contact with it. Your bag, your jacket, the friend watching the point.
+
+Field note. Three metres back, and watch discs coming your way. Getting hit is unpleasant, and it is also a violation.
+
+Lesson 60 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (2.7, 11.1, 11.2). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `obstructions and people on the sideline 🥏
+
+someone's bag is on the sideline. the disc lands on a spectator. both of those are in the rulebook
+
+the strip of ground just outside the field is not a free-for-all, and the people standing on it are not scenery
+
+first, clearance
+
+"The immediate surroundings of the playing field shall be kept clear of movable objects. If play is obstructed by non-players or objects within three (3) metres of the perimeter line, any obstructed player or thrower in possession may call “Violation”."
+
+three metres is the number. movable objects go well back, and if a non-player or object inside that band obstructs you or the thrower, you can call violation
+
+second, who counts as part of the field
+
+"The entire playing field is in-bounds. The perimeter lines are not part of the playing field and are out-of-bounds. All non-players are part of the out-of-bounds area."
+
+nobody on the sideline is neutral. all non-players are part of the out-of-bounds area, so a disc that hits a spectator past the line is out
+
+third, what the out-of-bounds area actually is
+
+"The out-of-bounds area consists of the ground which is not in-bounds and everything in contact with it, except for defensive players, who are always considered “in-bounds”."
+
+the ground outside the field, and everything in contact with it. your bag, your jacket, the friend watching the point
+
+field note: three metres back, and watch discs coming your way. getting hit is unpleasant, and it's also a violation
+
+lesson 60 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (2.7, 11.1, 11.2) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Nine scenes, three topic/rules pairs. TOTAL = 9. All three of the lesson\'s rules are carded one per card and quoted in full in both captions; all three numbers are in the attribution line, in the array\'s own order.',
+      'Joins one Chapter 2 field-setup rule (2.7, keep the surroundings clear) to two Chapter 11 out-of-bounds rules (11.1, 11.2) that say what a person on the sideline is. Read together they make the same point twice.',
+      '11.2 ends with an exception for defensive players, who are always considered in-bounds. That clause stays inside the verbatim quotation, but it is a different lesson and this reel does not teach it: the prose on scene 6 and in both captions names only non-players and objects (a bag, a jacket, a spectator) and never generalises to "anyone standing there", which is the one gloss the exception would make wrong. Same handling as reel-59\'s "unless 16.3 applies".',
+      'The three-metre band comes from 2.7\'s own wording, which the lesson\'s field line repeats. No number in the script is from memory.',
+      'DRY-MEASURED 2026-09-27 in a scratch directory outside the repo, SVG only — no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Tallest is the cover at 1210 of the 1310 floor because its 39-character title wraps to three lines at 84px (695.4, 546.0, 312.8px of 900); the three main scenes sit at 1192. Projected duration 30.00s over 34 states (23.80s held + 6.20s transitions).',
+      'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP×3 + tracked()): #1 KEEP THE SIDELINE CLEAR 736.9px of the 900px column (81.9 percent), #2 SPECTATORS ARE OUT 621.6px (69.1), #3 WHAT TOUCHES OUT IS OUT 755.8px (84.0) — all below reel-59\'s 840.8px and inside reel-11\'s 873px high-water mark. Bodies all wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090.',
+      'Rules cards: 2.7 is the tallest at ink bottom 654, then 11.2 at 554 and 11.1 at 504, all against the 1310 floor. 2.7 is 251 characters, 11.1 is 167, 11.2 is 172.',
+      'Instagram caption 1756 characters including hashtags (79.8 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1704 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
