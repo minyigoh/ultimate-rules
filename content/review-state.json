@@ -3322,10 +3322,11 @@
       "updatedAt": "2026-09-22T11:51:26.489Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-22T10:21:58Z"
+      "rev": 1,
+      "updatedAt": "2026-09-27T13:59:32.920Z"
     },
     "history": {
       "script": [
@@ -3342,6 +3343,15 @@
           "note": "Most tournaments will specify the time limit even though it is not mentioned in the game. It is either the 8/15 goals or time whichever comes first right?",
           "tags": [],
           "at": "2026-09-22T11:51:26.489Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-27T13:59:32.920Z"
         }
       ]
     },
