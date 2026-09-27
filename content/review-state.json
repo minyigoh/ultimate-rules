@@ -3588,5 +3588,20 @@
       "tags": [],
       "updatedAt": "2026-09-26T22:54:11Z"
     }
+  },
+  "reel-60": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-27T22:52:24Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-09-27T22:52:24Z"
+    }
   }
 }
