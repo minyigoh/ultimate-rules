@@ -3378,7 +3378,12 @@
         "builtFromScriptRev": 2,
         "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; check_layout.py 9/9 clean, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-09-27",
+      "updatedAt": "2026-09-28T07:54:47.480Z"
+    }
   },
   "reel-54": {
     "scriptRev": 1,
