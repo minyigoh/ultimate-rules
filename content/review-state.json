@@ -3577,16 +3577,28 @@
   "carousel-post-9": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-24T22:53:28Z"
+      "rev": 1,
+      "updatedAt": "2026-09-28T12:49:43.163Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-24T22:53:28Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-28T12:49:43.163Z"
+        }
+      ]
     }
   },
   "reel-58": {
