@@ -3631,16 +3631,28 @@
   "reel-59": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-26T22:54:11Z"
+      "rev": 1,
+      "updatedAt": "2026-09-28T12:51:28.856Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-26T22:54:11Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-28T12:51:28.856Z"
+        }
+      ]
     }
   },
   "reel-60": {

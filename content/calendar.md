@@ -69,7 +69,7 @@
 | 2026-10-01 | Helping beginners is written into the rules | Reel | Script approved | — | — |
 | 2026-10-01 | carousel-post-9 — "Week eight: how a game is run" | Carousel (9 slides) | Script approved | — | — |
 | 2026-10-02 | When several things go wrong at once | Reel | Script approved | — | — |
-| 2026-10-03 | Stopping play when you shouldn't have | Reel | Pending review | — | — |
+| 2026-10-03 | Stopping play when you shouldn't have | Reel | Script approved | — | — |
 | 2026-10-04 | Obstructions and people on the sideline | Reel | Pending review | — | — |
 
 ## Status legend
