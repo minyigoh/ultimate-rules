@@ -6254,5 +6254,99 @@ rules from WFDF Rules of Ultimate 2025–2028 (2.7, 11.1, 11.2) — full breakdo
       'Instagram caption 1756 characters including hashtags (79.8 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1704 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-61',
+    date: '2026-10-05',
+    title: 'Stopping a disc that\'s rolling away',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 61,
+    duration: '~29s script',
+    rules: ['8.4', '8.4.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-09-28'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-61',
+    source: 'content/reel-61/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Stopping a disc that\'s rolling away \u00b7 kicker BEGINNER \u00b7 LESSON 61 / 75'],
+      ['2', '#1 ANYONE MAY STOP IT', '"Either team can halt a roller." \u00b7 footer cites 8.4'],
+      ['3', 'Rules detail', 'Verbatim 8.4'],
+      ['4', '#2 MOVING IT HAS A COST', '"Shift it far and the pivot goes back." \u00b7 footer cites 8.4.1'],
+      ['5', 'Rules detail', 'Verbatim 8.4.1'],
+      ['6', 'FIELD TIP', '"Stop it, then accept the reset."'],
+      ['7', 'Closing', '"Lesson 61 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `A disc is rolling away across the next pitch and nobody is chasing it, because half the field is not sure whether they are allowed to.`,
+      explanation: `Any player, on either team, may try to stop a disc that is rolling or sliding after it has hit the ground. That is the whole permission, and it is deliberately wide. The check on it is the next line: if stopping the disc significantly alters where it ends up, the opposition may ask for the pivot point to be set where the disc was contacted.`,
+      example: `You stop a roller but knock it ten metres closer to your own end zone. It is not a turnover and nobody has fouled — the other team simply asks for the pivot at the spot you touched it, and the ten metres go back.`,
+      cta: `Lesson 61 of 75 — new lesson daily.`
+    },
+    ig: `A disc skips out of the back of the end zone and keeps rolling toward the car park. Someone jogs over and stops it with a foot. That is in the rulebook, and so is what happens next.
+
+Two short rules cover the whole thing.
+
+First, who is allowed to stop it.
+
+"Any player may attempt to stop a disc from rolling or sliding after it has hit the ground."
+
+Any player. Either team. There is no rule that makes you stand and watch a disc roll away from the pitch, and stopping one is not interference.
+
+Second, what it costs if you move it.
+
+"If, in attempting to stop such a disc, a player significantly alters the disc’s position, the opposition may request that the pivot point be established at the location where the disc was contacted."
+
+That is the balance. You may stop it, but if stopping it shifts the disc a long way, the other team can ask for the pivot at the spot you first touched it. So there is nothing to gain from booting a roller back toward your own end. It just gets reset.
+
+Field note. Stopping a roller is a courtesy and it speeds the game up, so do it. If you moved the disc a long way in the process, expect the pivot to go back and do not argue about it.
+
+Lesson 61 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (8.4, 8.4.1). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `stopping a disc that's rolling away 🥏
+
+a disc skips out the back and keeps rolling toward the car park. someone jogs over and stops it with a foot. that's in the rulebook, and so is what happens next
+
+two short rules cover the whole thing
+
+first, who is allowed to stop it
+
+"Any player may attempt to stop a disc from rolling or sliding after it has hit the ground."
+
+any player. either team. there's no rule that makes you stand and watch a disc roll away from the pitch, and stopping one isn't interference
+
+second, what it costs if you move it
+
+"If, in attempting to stop such a disc, a player significantly alters the disc’s position, the opposition may request that the pivot point be established at the location where the disc was contacted."
+
+that's the balance. you may stop it, but if stopping it shifts the disc a long way, the other team can ask for the pivot where you first touched it. so there's nothing to gain from booting a roller back toward your own end — it just gets reset
+
+field note: stopping a roller is a courtesy and it speeds the game up, so do it. if you moved it a long way doing it, expect the pivot to go back and don't argue
+
+lesson 61 of 75
+
+rules from WFDF Rules of Ultimate 2025–2028 (8.4, 8.4.1) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Seven scenes, two topic/rules pairs. TOTAL = 7. Both of the lesson\'s rules are carded one per card and quoted in full in both captions; both numbers are in the attribution line, in the array\'s own order. Two pairs rather than three because the lesson cites two rules \u2014 padding to three would mean introducing a rule it does not teach. Same shape as reel-49.',
+      'The lesson is the pair, not either rule alone. 8.4 is a permission that reads as though it has no downside; 8.4.1 is the price that stops it being exploitable. Carded in order they make the point without the prose having to.',
+      '"Significantly alters" is the rulebook\'s own vagueness and it stays vague. The rule sets no distance and no test, and neither does the script: the prose says "a long way" and "significantly", never a number of metres. The lesson JSON\'s quiz uses ten metres as an illustration and the example beat does the same, framed as an instance rather than a threshold.',
+      'It is a request, not a penalty. 8.4.1 says the opposition may request the pivot at the contact point \u2014 nothing is automatic, it is not a turnover, and nobody has fouled. Every mention in the script is worded as an ask.',
+      'DRY-MEASURED 2026-09-28 in a scratch directory outside the repo, SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 7 scenes checked, 0 problems, exit 0. Tallest is the cover at 1210 of the 1310 floor; both main scenes sit at 1192. Projected duration 28.8s over 27 states (24.05s held + 4.75s transitions), inside the 28\u201333s band \u2014 seven-scene reels sit at its low end by construction, and reel-49 shipped at 28.3s.',
+      'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP\u00d73 + tracked()): #1 ANYONE MAY STOP IT 599.0px of the 900px column (66.6 percent), #2 MOVING IT HAS A COST 642.5px (71.4) \u2014 the two narrowest drafted since reel-56, well inside reel-11\'s 873px high-water mark. Bodies both wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090. Cover title wraps to two lines at 84px (625.4 and 729.5px of 900).',
+      'Rules cards: 8.4.1 is the taller at ink bottom 554, with 8.4 at 454, both against the 1310 floor. 8.4 is 90 characters \u2014 the shortest rule the pipeline has carded \u2014 and 8.4.1 is 198.',
+      'Instagram caption 1425 characters including hashtags (64.8 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1355 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
