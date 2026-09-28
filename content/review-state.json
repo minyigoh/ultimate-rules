@@ -3382,7 +3382,7 @@
     "posted": {
       "status": "posted",
       "date": "2026-09-27",
-      "updatedAt": "2026-09-28T12:47:38.591Z"
+      "updatedAt": "2026-09-28T07:54:47.480Z"
     }
   },
   "reel-54": {
@@ -3403,10 +3403,11 @@
       "updatedAt": "2026-09-25T11:53:37.406Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-25T23:21:43Z"
+      "rev": 1,
+      "updatedAt": "2026-09-28T12:47:43.321Z"
     },
     "history": {
       "script": [
@@ -3416,6 +3417,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-25T11:53:37.406Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-28T12:47:43.321Z"
         }
       ]
     },
