@@ -3604,16 +3604,28 @@
   "reel-58": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-25T22:52:25Z"
+      "rev": 1,
+      "updatedAt": "2026-09-28T12:50:38.955Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-25T22:52:25Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-28T12:50:38.955Z"
+        }
+      ]
     }
   },
   "reel-59": {
