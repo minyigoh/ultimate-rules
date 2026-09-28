@@ -5836,17 +5836,28 @@ rules from WFDF Rules of Ultimate 2025–2028 (1.8, 1.9, 1.7.1, 1.7.3) — full 
     difficulty: 'Mixed (beginner)',
     lesson: null,
     duration: '9 slides',
+    typeDetail: '2250×2812 · 9 slides',
     rules: ['19.1.1', '19.1.2', '19.1.3', '19.1.4', '19.1.5', '19.1.6', '19.2.1', '19.2.1.1', '19.2.1.2', '19.2.2', '19.2.3', '5.3', '19.3', '19.3.1', '4.2', '4.3', '6.3', '5.1', '4.5', '4.5.1', '4.5.2', '4.5.3', '7.3', '7.4', '7.5', '7.5.1', '7.5.2', '1.3', '1.3.1', '1.3.9', '1.3.10', '1.5.4', '1.4'],
     review: {
       script:  {status: 'pending', on: '2026-09-24'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-28'}
     },
     postedDate: null,
     folder: 'carousel-post-9',
     source: 'content/carousel-post-9/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (lessons 50-56)',
     video: null,
-    slides: null,
+    slides: [
+      ['01_cover', 'Cover — THIS WEEK'],
+      ['02_lesson50_injury', 'Lesson 50 — Injury stoppages'],
+      ['03_lesson51_technical_stoppage', 'Lesson 51 — Technical stoppages and blood'],
+      ['04_lesson52_subs', 'Lesson 52 — Substitutions'],
+      ['05_lesson53_game_format', 'Lesson 53 — The shape of a game'],
+      ['06_lesson54_switching_ends', 'Lesson 54 — After every goal, you switch ends'],
+      ['07_lesson55_offside_false_start', 'Lesson 55 — Offside and false start on the pull'],
+      ['08_lesson56_spirit_duties', 'Lesson 56 — The Spirit rules are actual rules'],
+      ['09_closing', 'Closing — "That\'s fifty-six of seventy-five."']
+    ],
     scenes: [
       ['1', 'Cover', 'kicker THIS WEEK \u00b7 "Week eight: how a game is run" \u00b7 subhead "This week\'s seven lessons \u2014 everything the daily reels covered, 24\u201330 September." \u00b7 SWIPE \u2192'],
       ['2', 'LESSON 50', '"Injury stoppages" \u00b7 takeaway: "If the disc is in the air when injury is called, play continues until someone catches it or it lands. Don\'t stop mid-flight." \u00b7 footer 19.1.1 \u00b7 19.1.2 \u00b7 19.1.3 \u00b7 19.1.4 \u00b7 19.1.5 \u00b7 19.1.6'],
@@ -5923,7 +5934,7 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
       'Title checked against the LAST slide, not just the theme of the first five, which is the carousel-post-6 v1 defect. Slide 8 is Spirit duties, and in a self-officiated sport the Spirit duties are the officiating layer, so "how a game is run" covers all seven honestly. "Stoppages and structure" was the other candidate and was dropped because it excludes slide 8 outright.',
       'The closing count is exact on the day: lesson 56 posts 2026-09-30, the day before this deck, so "fifty-six of seventy-five" is true when it goes out.',
       'tracked() in the carousel path still uses a plain space, not the U+00A0 the reel path switched to on reel-38. Unchanged from decks 1\u20138 deliberately, so this deck stays identical to them. A recap built through tools/WINDOWS_FALLBACK.md would lose the word gap in LESSON NN and THIS WEEK; still flagged for a deliberate decision rather than changed here.',
-      'slides is null and there is no typeDetail because nothing is rendered yet: build_desk.py\'s check_slides() verifies every slide stem against a file on disk and fails the whole build if one is missing. Naming the PNGs before they exist broke sync.bat at step 2 on 2026-09-07. Stems at render time: 01_cover, 02_lesson50_injury, 03_lesson51_technical_stoppage, 04_lesson52_subs, 05_lesson53_game_format, 06_lesson54_switching_ends, 07_lesson55_offside_false_start, 08_lesson56_spirit_duties, 09_closing.',
+      'Rendered in the cloud build run on 2026-09-28: make_carousel.py generated the nine SVGs, then SVG→PNG via convert -background "#0F1712" -resize 2250x2812!, real ImageMagick and Liberation Sans. check_layout.py on the nine SVGs: 9 slides checked, 0 problems, exit 0, matching the draft-gate dry-measure exactly — cover at 1210/1310, every lesson slide at 1192/1310.',
       'Instagram caption 2,054 characters including hashtags (93.4% of the 2,200 limit, under the 2,090 warn line); TikTok 1,301 of 4,000. The first draft came out at 2,120 and three paragraphs were tightened before it was queued \u2014 prose only, no rule number, no attribution line and no hashtag touched. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py.',
       'No growth/reach claims in either caption.'
     ]
@@ -5936,17 +5947,18 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Intermediate',
     lesson: 58,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['15.12', '17.9.1', '17.9.2'],
     review: {
       script:  {status: 'pending', on: '2026-09-25'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-28'}
     },
     postedDate: null,
     folder: 'reel-58',
     source: 'content/reel-58/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Calls)',
-    video: null,
+    video: 'reel58-when-several-things-go-wrong-at-once.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'When several things go wrong at once \u00b7 kicker INTERMEDIATE \u00b7 LESSON 58 / 75'],
@@ -6026,7 +6038,7 @@ rules from WFDF Rules of Ultimate 2025–2028 (15.12, 17.9.1, 17.9.2) — full b
       'Nine scenes, three topic/rules pairs. TOTAL = 9. All three of the lesson\'s rules are carded and quoted in full in both captions; all three numbers are in the attribution line, in the array\'s own order.',
       'Rule 17.9 is deliberately NOT carded or cited, although 17.9.1 and 17.9.2 are its list items. Every number on this post comes from the lesson\'s rules array unchanged. Unlike reel-57\'s 1.7, the stem here ("Offsetting Fouls:") is a two-word heading carrying no duty, so no scene body needs to supply it in the account\'s own words.',
       'Only the third Intermediate reel, after reel-8 and reel-43. Precedent is reel-43: a branch rule rather than a behaviour rule, not needed on day one, needed the first time a play genuinely tangles.',
-      'DRY-MEASURED 2026-09-25 in a scratch directory outside the repo, SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, the three main scenes at 1192. Projected duration 30.0s over 34 states.',
+      'Rendered in the cloud build run on 2026-09-28: render_v3.py \u2192 blend.py \u2192 encode.py, real ImageMagick and Liberation Sans. check_layout.py: 9 scenes checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, the three main scenes at 1192. Projected duration 30.0s over 34 states; encoded cut measured 29.50s. check_dull.py: longest sustained dull-orange run 0.17s (PASS, threshold 0.45s).',
       'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP\u00d73 + tracked()): #1 837.0px of the 900px column, #2 591.4px, #3 763.4px \u2014 #1 is the widest drafted to date but still inside reel-11\'s 873px high-water mark. Bodies all wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090. Scene 2 was drafted to five lines (1012, 78px clear, still passing) and tightened to four while drafting, before the desk saw it.',
       'Instagram caption 1,649 characters including hashtags (75.0 percent of the 2,200 limit, well under the 2,090 warn line); TikTok 1,432 of 4,000. Both plain text, both scanned clean of markdown, both measured in UTF-16 units by tools/check_caption.py.',
       'No growth/reach claims in either caption.'
@@ -6040,17 +6052,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (15.12, 17.9.1, 17.9.2) — full b
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 59,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['15.9', '15.9.1', '15.9.2', '15.9.3'],
     review: {
       script:  {status: 'pending', on: '2026-09-26'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-09-28'}
     },
     postedDate: null,
     folder: 'reel-59',
     source: 'content/reel-59/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Calls)',
-    video: null,
+    video: 'reel59-stopping-play-when-you-shouldnt-have.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', "Stopping play when you shouldn't have \u00b7 kicker BEGINNER \u00b7 LESSON 59 / 75"],
@@ -6141,7 +6154,7 @@ rules from WFDF Rules of Ultimate 2025–2028 (15.9, 15.9.1, 15.9.2, 15.9.3) —
       '15.9 is a stem ending in a colon, finished by each sub-clause under it, so it shares a doubled card with 15.9.1 rather than standing alone as a fragment. Unlike reel-57\'s 1.7 and reel-58\'s 17.9, this stem IS in the lesson\'s rules array, so quoting and citing it introduces no number the array does not carry.',
       '15.9.2 ends "unless 16.3 applies". That phrase stays inside the verbatim quotation, but 16.3 is not in the lesson\'s rules array and is cited nowhere: not in a card footer, not in the attribution line, not in either caption.',
       'Back to Beginner after reel-58. "Not knowing the rules" is written into 15.9 itself, so the lesson is aimed at exactly the person it describes.',
-      'DRY-MEASURED 2026-09-26 in a scratch directory outside the repo, SVG only \u2014 no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, the three main scenes at 1192. Projected duration 30.0s over 34 states.',
+      'Rendered in the cloud build run on 2026-09-28: render_v3.py \u2192 blend.py \u2192 encode.py, real ImageMagick and Liberation Sans. check_layout.py: 9 scenes checked, 0 problems, exit 0; tallest is the cover at 1210 of the 1310 floor, the three main scenes at 1192. Projected duration 30.0s over 34 states; encoded cut measured 29.50s. check_dull.py: longest sustained dull-orange run 0.17s (PASS, threshold 0.45s).',
       'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP\u00d73 + tracked()): #1 699.1px of the 900px column, #2 744.5px, #3 840.8px \u2014 #3 is the widest drafted to date, passing reel-58\'s 837.0px, but still inside reel-11\'s 873px high-water mark. Bodies all wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090. Scenes 2 and 6 were drafted to five lines (1012, 78px clear, still passing) and tightened to four while drafting, before the desk saw them.',
       'Instagram caption 1626 characters including hashtags (73.9 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1443 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
       'No growth/reach claims in either caption.'
