@@ -3463,10 +3463,11 @@
       "updatedAt": "2026-09-25T11:54:29.445Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-25T23:21:43Z"
+      "rev": 1,
+      "updatedAt": "2026-09-28T12:49:29.488Z"
     },
     "history": {
       "script": [
@@ -3476,6 +3477,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-25T11:54:29.445Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-28T12:49:29.488Z"
         }
       ]
     },
