@@ -3604,10 +3604,10 @@
       "updatedAt": "2026-09-28T12:49:43.163Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-24T22:53:28Z"
+      "updatedAt": "2026-09-28T23:23:09Z"
     },
     "history": {
       "script": [
@@ -3619,7 +3619,17 @@
           "at": "2026-09-28T12:49:43.163Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-28",
+        "duration": "9 slides",
+        "file": "01_cover.png … 09_closing.png",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render of the eighth weekly recap, from the approved script: lessons 50-56, nine slides at 2250x2812, rule numbers only and no rule text, cloud build run. check_layout.py: 9 slides, 0 problems (cover 1210/1310, lesson slides 1192/1310, matching the dry-measure). check_caption.py exit 0."
+      }
+    ]
   },
   "reel-58": {
     "scriptRev": 1,
@@ -3631,10 +3641,10 @@
       "updatedAt": "2026-09-28T12:50:38.955Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-25T22:52:25Z"
+      "updatedAt": "2026-09-28T23:23:09Z"
     },
     "history": {
       "script": [
@@ -3646,7 +3656,17 @@
           "at": "2026-09-28T12:50:38.955Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-28",
+        "duration": "29.5s",
+        "file": "reel58-when-several-things-go-wrong-at-once.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans, cloud build run; 34 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-59": {
     "scriptRev": 1,
@@ -3658,10 +3678,10 @@
       "updatedAt": "2026-09-28T12:51:28.856Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-26T22:54:11Z"
+      "updatedAt": "2026-09-28T23:23:09Z"
     },
     "history": {
       "script": [
@@ -3673,7 +3693,17 @@
           "at": "2026-09-28T12:51:28.856Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-09-28",
+        "duration": "29.5s",
+        "file": "reel59-stopping-play-when-you-shouldnt-have.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans, cloud build run; 34 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-60": {
     "scriptRev": 1,
