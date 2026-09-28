@@ -3510,10 +3510,11 @@
       "updatedAt": "2026-09-25T11:54:55.356Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-25T23:21:43Z"
+      "rev": 1,
+      "updatedAt": "2026-09-28T12:51:37.616Z"
     },
     "history": {
       "script": [
@@ -3523,6 +3524,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-25T11:54:55.356Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-09-28T12:51:37.616Z"
         }
       ]
     },
