@@ -73,6 +73,7 @@
 | 2026-10-04 | Obstructions and people on the sideline | Reel | Pending review | — | — |
 | 2026-10-05 | Stopping a disc that's rolling away | Reel | Pending review | — | — |
 | 2026-10-06 | Discs, kit, and what you can't wear | Reel | Pending review | — | — |
+| 2026-10-07 | Choosing ends at the start | Reel | Pending review | — | — |
 
 ## Status legend
 
