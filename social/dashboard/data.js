@@ -6583,5 +6583,217 @@ rules from WFDF Rules of Ultimate 2025–2028 (6.1, 6.1.1, 6.1.2, 6.2, 6.3) — 
       'Instagram caption 1473 characters including hashtags (67.0 percent of the 2,200 limit, well under the 2,090 warn line); TikTok 1427 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-64',
+    date: '2026-10-08',
+    title: 'Three ways to turn it over by yourself',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 64,
+    duration: '~30s script',
+    rules: ['13.2', '13.2.4', '13.2.5', '18.2.4', '18.2.4.5'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-01'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-64',
+    source: 'content/reel-64/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Three ways to turn it over by yourself \u00b7 kicker BEGINNER \u00b7 LESSON 64 / 75'],
+      ['2', '#1 CATCHING YOUR OWN PASS', '"Nobody else touched it, so it\'s gone." \u00b7 footer cites 13.2 \u00b7 13.2.5'],
+      ['3', 'Rules detail', 'Verbatim 13.2 with 13.2.5 beneath it'],
+      ['4', '#2 THE DELIBERATE DEFLECTION', '"You can\'t bounce it off a defender." \u00b7 footer cites 13.2 \u00b7 13.2.4'],
+      ['5', 'Rules detail', 'Verbatim 13.2 with 13.2.4 beneath it'],
+      ['6', '#3 BOBBLING IS A TRAVEL', '"Tipping it to yourself costs metres." \u00b7 footer cites 18.2.4 \u00b7 18.2.4.5'],
+      ['7', 'Rules detail', 'Verbatim 18.2.4 with 18.2.4.5 beneath it'],
+      ['8', 'FIELD TIP', '"A touch by anyone else makes it legal."'],
+      ['9', 'Closing', '"Lesson 64 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `There are three ways to lose the disc without a defender doing anything at all, and one of them is not what people think it is.`,
+      explanation: `Catch your own pass before any other player has touched the disc and that is a self-catch, which is a turnover. Deliberately deflect your own pass off another player back to yourself and that is a deflection, also a turnover. Intentionally bobble the disc to yourself purely to move somewhere, and that is a travel infraction instead — you keep the disc and you go back.`,
+      example: `Your throw is blocked by a defender's hand and comes straight back to you. You catch it. That is legal, because another player contacted the disc. If nobody had, it would have been a turnover on the spot.`,
+      cta: `Lesson 64 of 75 — new lesson daily.`
+    },
+    ig: `Three ways to lose the disc with no defender involved at all. Chapter 13 lists two of them; chapter 18 catches the third.
+
+One. You caught your own pass.
+
+"A turnover that transfers possession of the disc from one team to the other, and results in a stoppage of play, occurs when:"
+
+"in attempting a pass, the thrower catches the disc after release prior to the disc being contacted by another player (a “self-catch”);"
+
+Before the disc is contacted by another player is the whole test. A defender's fingertip is enough to make it legal. Nobody at all, and it is a turnover where you caught it.
+
+Two. You bounced it off somebody on purpose.
+
+"the thrower intentionally deflects a pass to themselves off another player (a “deflection”);"
+
+Same list, same outcome. Intentionally is doing the work here — a pass that comes off a defender's hand and happens to land back with you is not this.
+
+Three. You tipped it to yourself to get somewhere.
+
+"a player intentionally bobbles, fumbles or delays the disc to themselves, for the sole purpose of moving in a specific direction."
+
+This one is not a turnover. It is a travel, which means you keep the disc and go back. Tipping the disc solely to help yourself catch something you could not otherwise have held is not a travel either — the difference is whether you did it to move.
+
+Field note. A wobbly throw that blows back to you is fine if a defender touched it. If nobody did, it is yours and you have lost it.
+
+Lesson 64 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (13.2, 13.2.4, 13.2.5, 18.2.4, 18.2.4.5). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `three ways to turn it over by yourself 🥏
+
+no defender required. chapter 13 lists two of them, chapter 18 catches the third
+
+one — you caught your own pass
+
+"A turnover that transfers possession of the disc from one team to the other, and results in a stoppage of play, occurs when:"
+
+"in attempting a pass, the thrower catches the disc after release prior to the disc being contacted by another player (a “self-catch”);"
+
+"before the disc is contacted by another player" is the whole test. a defender's fingertip is enough to make it legal. nobody at all, and it's a turnover where you caught it
+
+two — you bounced it off somebody on purpose
+
+"the thrower intentionally deflects a pass to themselves off another player (a “deflection”);"
+
+same list, same outcome. "intentionally" is doing the work — a pass that comes off a defender's hand and happens to land back with you isn't this
+
+three — you tipped it to yourself to get somewhere
+
+"a player intentionally bobbles, fumbles or delays the disc to themselves, for the sole purpose of moving in a specific direction."
+
+this one isn't a turnover, it's a travel. you keep the disc and go back
+
+tipping solely to help yourself catch something you couldn't otherwise have held isn't a travel either. the difference is whether you did it to move
+
+field note: a wobbly throw that blows back to you is fine if a defender touched it. if nobody did, it's yours and you've lost it
+
+rule text from WFDF Rules of Ultimate 2025–2028 (13.2, 13.2.4, 13.2.5, 18.2.4, 18.2.4.5) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Lesson 64 of 75 (self-catch, content/lessons-3.json, tag Turnovers). Fills 2026-10-08, the last bare date in the seven-day window.',
+      'The third item is deliberately NOT a turnover. 18.2.4.5 is a travel infraction: the disc stays yours and you go back. Both captions say so explicitly rather than letting the list imply three turnovers.',
+      'Five numbers, three cards. 13.2 and 18.2.4 are stems ending in a colon, carried for legibility above their branches because 13.2.4, 13.2.5 and 18.2.4.5 each open mid-sentence in lower case. Both stems are quoted verbatim from rules.json and both have precedent - reel-14 and reel-15 carded 18.2.4 the same way. The lesson rules array is 13.2.4, 13.2.5, 18.2.4.5.',
+      '13.2 is carded twice, on scenes 3 and 5, once per branch, so neither topic block depends on a slide two earlier. reel-14 did the same with 18.2.1 across two footers.',
+      'DRY-MEASURED 2026-10-01 in a scratch directory outside the repo, SVG only - no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Tallest is the cover at 1210 of the 1310 floor; all three main scenes sit at 1192. Projected duration 30.0s over 34 states (23.8s raw plus transitions), mid-band against the 28-33s window.',
+      'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP x3 + tracked()): #1 CATCHING YOUR OWN PASS 746.3px of the 900px column (82.9 percent), #2 THE DELIBERATE DEFLECTION 814.3px (90.5), #3 BOBBLING IS A TRAVEL 648.1px (72.0). #2 is the widest kicker since reel-11 set the 873px high-water mark and the closest any has come to fit_kicker, with 85.7px of slack - re-measure if the desk edits it. All three bodies wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090.',
+      'Rules cards: scene 3 is the tallest at ink bottom 722, a new high past reel-63 at 690; scene 5 is 672 and scene 7 is 572, all against the 1310 floor. 18.2.4 is 30 characters and takes the shortest-carded record from reel-63 6.2 at 45. 13.2 is 124, 13.2.5 is 134, 13.2.4 is 92, 18.2.4.5 is 129.',
+      'Cover title wraps to two lines at 84px, 746.8 and 723.6px of 900 - the most even-weighted cover in the reel series.',
+      'No _payload() case: nothing opens or closes on a double quote across all 34 emitted SVGs, so the tspan quote wrapper is engaged nowhere. The curly quotes inside 13.2.4 and 13.2.5 sit mid-string.',
+      'Instagram caption 1735 characters including hashtags (78.9 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1636 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
+      'No growth/reach claims in either caption.'
+    ]
+  },
+  {
+    id: 'carousel-post-10',
+    date: '2026-10-08',
+    title: 'carousel-post-10 \u2014 "Week nine: not about throwing"',
+    type: 'Carousel',
+    pillar: 'Recap',
+    difficulty: 'Mixed (beginner)',
+    lesson: null,
+    duration: '9 slides (script)',
+    rules: ['1.8', '1.9', '1.7.1', '1.7.3', '15.12', '17.9.1', '17.9.2', '15.9', '15.9.1', '15.9.2', '15.9.3', '2.7', '11.1', '11.2', '8.4', '8.4.1', '3.1', '3.2', '3.3', '3.4', '6.1', '6.1.1', '6.1.2', '6.2', '6.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-01'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-10',
+    source: 'content/carousel-post-10/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (lessons 57-63)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'kicker THIS WEEK \u00b7 "Week nine: not about throwing" \u00b7 subhead "This week\'s seven lessons \u2014 everything the daily reels covered, 1\u20137 October." \u00b7 SWIPE \u2192'],
+      ['2', 'LESSON 57', '"Helping beginners is written into the rules" \u00b7 takeaway: "If you don\'t know a rule, say "I\'m new \u2014 can you explain that?" It\'s a completely normal thing to say and you\'ll get a good answer." \u00b7 footer 1.8 \u00b7 1.9 \u00b7 1.7.1 \u00b7 1.7.3'],
+      ['3', 'LESSON 58', '"When several things go wrong at once" \u00b7 takeaway: "In a genuinely tangled play, going back to the last undisputed thrower is almost always the fair answer. Reach for it." \u00b7 footer 15.12 \u00b7 17.9.1 \u00b7 17.9.2'],
+      ['4', 'LESSON 59', '"Stopping play when you shouldn\'t have" \u00b7 takeaway: "Don\'t echo a call you\'re not sure you heard. Half of incorrect stoppages start as a well-meant echo." \u00b7 footer 15.9 \u00b7 15.9.1 \u00b7 15.9.2 \u00b7 15.9.3'],
+      ['5', 'LESSON 60', '"Obstructions and people on the sideline" \u00b7 takeaway: "Sideline players: three metres back, and watch discs coming your way. Getting hit is unpleasant and it\'s a violation." \u00b7 footer 2.7 \u00b7 11.1 \u00b7 11.2'],
+      ['6', 'LESSON 61', '"Stopping a disc that\'s rolling away" \u00b7 takeaway: "Stopping a roller is a courtesy that speeds up the game. Do it, and accept the reset if you moved it much." \u00b7 footer 8.4 \u00b7 8.4.1'],
+      ['7', 'LESSON 62', '"Discs, kit, and what you can\'t wear" \u00b7 takeaway: "Take rings and watches off before you play. It\'s the most common preventable injury cause in the sport." \u00b7 footer 3.1 \u00b7 3.2 \u00b7 3.3 \u00b7 3.4'],
+      ['8', 'LESSON 63', '"Choosing ends at the start" \u00b7 takeaway: "In heavy wind, the end choice is often worth more than receiving. Look at the flags before you decide." \u00b7 footer 6.1 \u00b7 6.1.1 \u00b7 6.1.2 \u00b7 6.2 \u00b7 6.3'],
+      ['9', 'Closing', '"That\'s sixty-three of seventy-five. More next Thursday." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Seven lessons this week and not one of them is about throwing a disc.`,
+      explanation: `What you are allowed to ask when you don't know a rule. How to untangle a play where two or three things went wrong. What happens when a stoppage turns out to have been incorrect. Where the sideline stands. What to do with a disc rolling away. What you can't wear. And who picks ends before the first pull.`,
+      example: `The two worth saying out loud. Don't echo a call you aren't sure you heard, because half of incorrect stoppages start as a well-meant echo. And take your rings and your watch off, because that is the most common preventable injury cause in the sport.`,
+      cta: `Lessons 57 to 63 of 75 — new lesson daily.`
+    },
+    ig: `Week nine, all in one place. Seven lessons and not one of them is about throwing — the questions you are allowed to ask, the calls that go wrong, and the things happening at the edge of the field.
+
+Helping beginners is written into the rules. Experienced players are expected to explain rules to new ones. If you don't know a rule, say "I'm new — can you explain that?" It's a completely normal thing to say and you'll get a good answer.
+
+When several things go wrong at once. How to untangle a play with two or three breaches in it. In a genuinely tangled play, going back to the last undisputed thrower is almost always the fair answer. Reach for it.
+
+Stopping play when you shouldn't have. What happens when a stoppage turns out to have been incorrect. Don't echo a call you're not sure you heard — half of incorrect stoppages start as a well-meant echo.
+
+Obstructions and people on the sideline. Sideline players: three metres back, and watch discs coming your way. Getting hit is unpleasant and it's a violation.
+
+Stopping a disc that's rolling away. Stopping a roller is a courtesy that speeds up the game. Do it, and accept the reset if you moved it much.
+
+Discs, kit, and what you can't wear. Take rings and watches off before you play. It's the most common preventable injury cause in the sport.
+
+Choosing ends at the start. Who picks first, what the other team gets, and what half time switches. In heavy wind, the end choice is often worth more than receiving — look at the flags before you decide.
+
+Each slide carries its rule numbers, so you can check any of it against the rulebook rather than taking our word for it.
+
+That's sixty-three of seventy-five.
+
+Rule numbers: WFDF Rules of Ultimate 2025–2028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `everything the daily reels covered this week, seven slides 🥏
+
+not one of them is about throwing — the questions you can ask, the calls that go wrong, and what's happening at the edge of the field
+
+helping beginners is in the rules → if you don't know one, say "I'm new, can you explain that?" completely normal thing to say
+
+several things going wrong at once → in a genuinely tangled play, going back to the last undisputed thrower is almost always the fair answer
+
+stopping play when you shouldn't have → don't echo a call you're not sure you heard. half of incorrect stoppages start as a well-meant echo
+
+obstructions and the sideline → three metres back, and watch discs coming your way. getting hit is unpleasant and it's a violation
+
+stopping a roller → it's a courtesy that speeds the game up. do it, and accept the reset if you moved it much
+
+discs and kit → take rings and watches off before you play. most common preventable injury cause in the sport
+
+choosing ends at the start → in heavy wind the end choice is often worth more than receiving. look at the flags before you decide
+
+rule numbers on every slide so you can check it yourself
+
+that's sixty-three of seventy-five
+
+rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Weekly recap, block 57-63. A clean contiguous seven, opening where carousel-post-9 stopped. Consumes no lesson number and introduces no new curriculum. Rule numbers only, no rule text. carousel-post-11 opens at lesson 64.',
+      'Lesson 28 ("Receiving fouls") remains permanently skipped per Min-Yi on 2026-09-12. It is not on this deck and must not be reintroduced on any later one.',
+      'Eligibility: every reel in the block has a post row dated on or before this deck date of 2026-10-08, judged against the authoritative calendar - the test is "will have posted by the carousel own post date", not "has posted today". Reel 57 is Posted; 58 and 59 are Script approved, built, and sitting at the content gate (in-review); 60 is Script approved and still to build; 61, 62 and 63 are still at Pending review. Approving 61-63 in the same sitting as this deck keeps the week moving together.',
+      'Takeaways are each lesson field line verbatim and footers are each lesson rules array unchanged, generated by reading content/lessons-3.json rather than typed, and re-verified byte-for-byte at the draft gate: all seven titles, field lines and rules arrays match.',
+      'Title checked against the LAST slide, not the theme of the first five - the carousel-post-6 v1 check. Slide 8 is choosing ends before the first pull, the furthest thing on the deck from a throw, so "not about throwing" covers all seven honestly. "Week nine: round the edges" was dropped because the start of a game is not an edge of one.',
+      'The cover title was changed because the layout check failed it, not for editorial reasons. "Week nine: everything except the throw" was the first draft: "Week nine: everything" measures 1017.2 of the 900px column at 96px, a 117.2px x-overflow, and no two-line break of that wording fits. Retitled rather than broken onto three lines, because every deck from carousel-post-1 on has a two-line cover. First recap cover the margin check has actually failed, and it failed at the draft gate instead of in a build.',
+      'DRY-MEASURED 2026-10-01 in a scratch directory outside the repo, SVG only - no PNGs. check_layout.py: 9 slides checked, 0 problems, exit 0. Tallest is the cover at 1210 of the 1310 floor; every lesson slide sits at 1192.',
+      'Cover has the most slack of any recap cover so far: "Week nine: not" 681.0px and "about throwing" 693.2px of the 900px column at 96px, 207px of slack on the wider line, against carousel-post-9 755.6px and carousel-post-8 880.3px. Re-measure if the title is edited at the desk.',
+      'fit_body() does not engage. Every takeaway sits at the standard 36px and wraps to three lines - the first recap where all seven do - last baseline 912 on every lesson slide, 178px of clearance against the CITE_Y-60 limit of 1090. Kickers are all LESSON NN at 262.1px of 900; cover THIS WEEK 248.9px at its own 32px.',
+      'Widest citation line is slide 4 at 379.9px (15.9, 15.9.1, 15.9.2, 15.9.3), then slide 8 five numbers at 374.1px - comfortably short of carousel-post-8 slide 7 at 665.9px. Slide 6 is the shortest the series has carried at 131.5px, two numbers and 13 characters. Widest headline line is slide 5 at 777.4px of 900. Closing lines 741.5 and 655.1px at 90px.',
+      'No _payload() case: no takeaway, headline or wrapped line opens or closes on a double quote across all nine emitted SVGs. Slide 2 carries a quoted sentence but the quotes land mid-line - confirm in the PNGs anyway, because if slide 2 is edited at the desk the wrap moves and a line ending on a closing quote is exactly the carousel-post-5 slide 3 defect.',
+      'Instagram caption 1890 characters including hashtags (85.9 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1361 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py, which exits 0.',
+      'tracked() in the carousel path still uses a plain space, not the U+00A0 the reel path switched to on reel-38. Unchanged from decks 1-9 deliberately, so this deck stays identical to them. A recap built through tools/WINDOWS_FALLBACK.md would lose the gap in LESSON NN and THIS WEEK.',
+      'The closing count is exact on the day: lesson 63 posts 2026-10-07, the day before this deck.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
