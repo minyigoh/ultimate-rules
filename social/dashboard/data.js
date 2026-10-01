@@ -6168,17 +6168,18 @@ rules from WFDF Rules of Ultimate 2025–2028 (15.9, 15.9.1, 15.9.2, 15.9.3) —
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 60,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['2.7', '11.1', '11.2'],
     review: {
       script:  {status: 'pending', on: '2026-09-27'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-10-01'}
     },
     postedDate: null,
     folder: 'reel-60',
     source: 'content/reel-60/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Safety)',
-    video: null,
+    video: 'reel60-obstructions-and-people-on-the-sideline.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Obstructions and people on the sideline · kicker BEGINNER · LESSON 60 / 75'],
@@ -6261,7 +6262,7 @@ rules from WFDF Rules of Ultimate 2025–2028 (2.7, 11.1, 11.2) — full breakdo
       'Joins one Chapter 2 field-setup rule (2.7, keep the surroundings clear) to two Chapter 11 out-of-bounds rules (11.1, 11.2) that say what a person on the sideline is. Read together they make the same point twice.',
       '11.2 ends with an exception for defensive players, who are always considered in-bounds. That clause stays inside the verbatim quotation, but it is a different lesson and this reel does not teach it: the prose on scene 6 and in both captions names only non-players and objects (a bag, a jacket, a spectator) and never generalises to "anyone standing there", which is the one gloss the exception would make wrong. Same handling as reel-59\'s "unless 16.3 applies".',
       'The three-metre band comes from 2.7\'s own wording, which the lesson\'s field line repeats. No number in the script is from memory.',
-      'DRY-MEASURED 2026-09-27 in a scratch directory outside the repo, SVG only — no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Tallest is the cover at 1210 of the 1310 floor because its 39-character title wraps to three lines at 84px (695.4, 546.0, 312.8px of 900); the three main scenes sit at 1192. Projected duration 30.00s over 34 states (23.80s held + 6.20s transitions).',
+      'Rendered in the cloud build run on 2026-10-01: render_v3.py → blend.py → encode.py, real ImageMagick and Liberation Sans. check_layout.py: 9 scenes checked, 0 problems, exit 0. Tallest is the cover at 1210 of the 1310 floor because its 39-character title wraps to three lines at 84px (695.4, 546.0, 312.8px of 900); the three main scenes sit at 1192. Projected duration 30.00s over 34 states (23.80s held + 6.20s transitions); encoded cut measured 29.50s. check_dull.py: longest sustained dull-orange run 0.20s (PASS, threshold 0.45s).',
       'Neither auto-fit engages. Kickers measured on the real label (#N + NBSP×3 + tracked()): #1 KEEP THE SIDELINE CLEAR 736.9px of the 900px column (81.9 percent), #2 SPECTATORS ARE OUT 621.6px (69.1), #3 WHAT TOUCHES OUT IS OUT 755.8px (84.0) — all below reel-59\'s 840.8px and inside reel-11\'s 873px high-water mark. Bodies all wrap to four lines at 36px, last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090.',
       'Rules cards: 2.7 is the tallest at ink bottom 654, then 11.2 at 554 and 11.1 at 504, all against the 1310 floor. 2.7 is 251 characters, 11.1 is 167, 11.2 is 172.',
       'Instagram caption 1756 characters including hashtags (79.8 percent of the 2,200 limit, under the 2,090 warn line); TikTok 1704 of 4,000. Both plain text, both measured in UTF-16 units by tools/check_caption.py.',
