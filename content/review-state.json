@@ -3602,7 +3602,12 @@
         "builtFromScriptRev": 1,
         "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick and Liberation Sans; 35 states, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-10-01",
+      "updatedAt": "2026-10-01T14:13:19.417Z"
+    }
   },
   "carousel-post-9": {
     "scriptRev": 1,
