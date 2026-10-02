@@ -68,7 +68,7 @@
 | 2026-09-30 | The Spirit rules are actual rules | Reel | Posted | 2026-09-30 | — |
 | 2026-10-01 | Helping beginners is written into the rules | Reel | Posted | 2026-10-01 | — |
 | 2026-10-01 | carousel-post-9 — "Week eight: how a game is run" | Carousel (9 slides) | Posted | 2026-10-01 | — |
-| 2026-10-02 | When several things go wrong at once | Reel | Ready to post | — | — |
+| 2026-10-02 | When several things go wrong at once | Reel | Posted | 2026-10-02 | — |
 | 2026-10-03 | Stopping play when you shouldn't have | Reel | Script approved | — | — |
 | 2026-10-04 | Obstructions and people on the sideline | Reel | Script approved | — | — |
 | 2026-10-05 | Stopping a disc that's rolling away | Reel | Pending review | — | — |
