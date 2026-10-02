@@ -3671,10 +3671,11 @@
       "updatedAt": "2026-09-28T12:50:38.955Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-28T23:23:09Z"
+      "rev": 1,
+      "updatedAt": "2026-10-02T01:14:25.220Z"
     },
     "history": {
       "script": [
@@ -3684,6 +3685,15 @@
           "note": "",
           "tags": [],
           "at": "2026-09-28T12:50:38.955Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-02T01:14:25.220Z"
         }
       ]
     },
