@@ -6920,5 +6920,110 @@ rule text from WFDF Rules of Ultimate 2025–2028 (12.10, 13.2, 13.2.6, 13.2.7, 
       'Captions measured by tools/check_caption.py in UTF-16 units, exit 0. Both plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-66',
+    date: '2026-10-10',
+    title: 'When play carried on after a turnover nobody noticed',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 66,
+    duration: '~30s script',
+    rules: ['13.12', '13.3', '15.8'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-03'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-66',
+    source: 'content/reel-66/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Turnovers)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'When play carried on after a turnover nobody noticed \u00b7 kicker BEGINNER \u00b7 LESSON 66 / 75'],
+      ['2', '#1 REWIND TO THE TURNOVER', '"Everything after it is erased." \u00b7 footer cites 13.12'],
+      ['3', 'Rules detail', 'Verbatim 13.12, carded alone'],
+      ['4', '#2 CALL IT IMMEDIATELY', '"Say it the moment you think it." \u00b7 footer cites 13.3'],
+      ['5', 'Rules detail', 'Verbatim 13.3, carded alone'],
+      ['6', '#3 TRUE OF EVERY CALL', '"Late is the thing that breaks it." \u00b7 footer cites 15.8'],
+      ['7', 'Rules detail', 'Verbatim 15.8, carded alone'],
+      ['8', 'FIELD TIP', '"Say it out loud, now."'],
+      ['9', 'Closing', '"Lesson 66 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `The disc hit the ground, nobody called it, and both teams played on for fifteen seconds. The rulebook has an answer for that, and the answer is a rewind.`,
+      explanation: `If play continued unknowingly after an accepted turnover, play stops, the disc goes back to the turnover location, and players resume the positions they held when the turnover actually happened. A check restarts it. Everything in between is erased \u2014 which is exactly why the rules ask you to call a turnover immediately.`,
+      example: `You chase down a throw, you think it skipped, and you wait to see what happens. Fifteen seconds later everyone agrees it was down. Now four people have to remember where they were standing, and one of them is wrong.`,
+      cta: `Lesson 66 of 75 \u2014 new lesson daily.`
+    },
+    ig: `Both teams kept playing, and the disc had been down for fifteen seconds. Now what?
+
+The rulebook has an answer, and the answer is a rewind.
+
+"If, after an accepted turnover, play has continued unknowingly, play stops and the disc is returned to the turnover location, players resume their positions at the time the turnover occurred and play restarts with a check."
+
+Everything in those fifteen seconds is erased. Not the metres gained, not the throw that followed, not the goal if there was one. The disc goes back, the players go back, and a check starts it again.
+
+Which is why the rule earlier in the same chapter asks you to call a turnover the moment you see it.
+
+"If a player determines a turnover has occurred they must make the appropriate call immediately. If the opposition disagrees they may call “contest” and play must stop. If, after discussion, players cannot agree or it is unclear what occurred in the play, the disc must be returned to the last non-disputed thrower."
+
+Three things in one rule. Call it immediately. The other team may contest, and play stops. And if nobody can reconstruct what actually happened, the disc goes back to the last thrower nobody is arguing about.
+
+That immediacy is not a turnover rule. Chapter 15 sets it as the standard for every call in the game.
+
+"Calls must be made immediately after the breach is recognised."
+
+Field note. If you think it hit the ground, say so straight away. Waiting to see what happens next makes it much harder to resolve, and the longer play runs on, the more of it has to be unwound.
+
+Lesson 66 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (13.12, 13.3, 15.8). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `when nobody noticed the turnover 🥏
+
+both teams kept playing and the disc had been down for fifteen seconds. now what?
+
+the rulebook rewinds it
+
+"If, after an accepted turnover, play has continued unknowingly, play stops and the disc is returned to the turnover location, players resume their positions at the time the turnover occurred and play restarts with a check."
+
+everything in those fifteen seconds is erased. not the metres, not the throw after it, not the goal if there was one. disc back, players back, check, go
+
+which is why the rule asks you to call a turnover the moment you see it
+
+"If a player determines a turnover has occurred they must make the appropriate call immediately. If the opposition disagrees they may call “contest” and play must stop. If, after discussion, players cannot agree or it is unclear what occurred in the play, the disc must be returned to the last non-disputed thrower."
+
+three things in one rule: call it immediately, the other team may contest and play stops, and if nobody can reconstruct it the disc goes back to the last thrower nobody is arguing about
+
+and that immediacy isn't a turnover rule. chapter 15 makes it the standard for every call
+
+"Calls must be made immediately after the breach is recognised."
+
+field note: if you think it hit the ground, say so straight away. waiting to see what happens next makes it much harder to resolve
+
+rule text from WFDF Rules of Ultimate 2025–2028 (13.12, 13.3, 15.8) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Lesson 66 of 75, unknowing-play in content/lessons-3.json, tag Turnovers. Fills 2026-10-10, the only bare date in the seven-day window 2026-10-04 to 2026-10-10.',
+      'Three cards: 13.12 is the remedy (play stops, disc back to the turnover location, players reset, check); 13.3 is the obligation to call a turnover immediately plus the fallback to the last non-disputed thrower; 15.8 widens the same standard to every call in the game.',
+      'No stems on this reel. All three numbers are depth 2 and all three are complete sentences, so each is carded alone and g_detail stem form is not engaged anywhere. All three quoted verbatim from rules.json; each card footer cites only its own number.',
+      'Block order follows the lesson rules array, not rule-number order: 13.12 answers the hook, 13.3 gives the reason to call early, 15.8 generalises. Opening on 13.3 would state an obligation before the audience knows what it prevents.',
+      '15.8 is the only citation here from outside chapter 13, and it is the point that carries off the field: immediately is the standard for every call, not a turnover special case.',
+      'DRY-MEASURED 2026-10-03 in a scratch directory outside the repo, SVG only - no PNGs, no frames, no cut. check_layout.py: 9 scenes checked, 0 problems, exit 0. Tallest scene is the cover at 1210 of the 1310 floor; all three main scenes sit at 1192.',
+      'fit_kicker() does not engage. #1 REWIND TO THE TURNOVER 736.9px of the 900px column (81.9 percent), #2 CALL IT IMMEDIATELY 610.3px (67.8 percent), #3 TRUE OF EVERY CALL 600.8px (66.8 percent). Cover BEGINNER 231.1px at its own 32px, FIELD TIP 236.2px. #1 is the widest kicker since reel-64 #2 at 814.3px and still inside the reel-11 high-water mark of 873px.',
+      'fit_body() does not engage. All three main scenes take a 2-line headline, start their body at y=812 and wrap to four lines: last baseline 962, clearance 128px against the CITE_Y-60 limit of 1090. Bodies are 159, 172 and 171 characters.',
+      'Cover title wraps to three lines at the standard 84px: 723.6px, 742.2px and 625.3px of 900. At 51 characters it is the longest cover title since reel-36. Three-line covers are routine here (reels 11, 13, 15, 16, 24, 35, 36, 42, 43, 47, 57, 60) and reel-21 shipped four. The hook sits at y=925-973, 237px clear of the fixed LESSON 66 / 75 line at 1210; collision check clean.',
+      'Rules cards, all carded alone: scene 5 (13.3) is the tallest at ink bottom 704 - 314 characters over 8 wrapped lines, the longest single rule the pipeline has carded, 606px clear of the 1310 floor. Scene 3 (13.12) is 604 at 222 characters over 6 lines; scene 7 (15.8) is 404 at 62 characters over 2 lines. All below reel-65 scene 5 at 840, which stays the tallest rules card overall.',
+      'Citation footers are three single numbers: 13.12 is 65.0px of 900, 13.3 is 50.6px, 15.8 is 50.6px - the narrowest set the reel series has carried.',
+      'No _payload() case: no element text opens or closes on a double quote across all 34 emitted SVGs, so the tspan quote wrapper is engaged nowhere.',
+      'Projected duration 30.0s from retime()/fit() - 34 states, 9 scenes, 23.8s raw plus 6.2s transitions, house target ~30s, band 28-33s. Durations in SCENES are untouched placeholders.',
+      'render_v3.py is committed in content/reel-66/ and is the exact file these numbers were measured from. Copied from reel-65, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES differs, verified by diffing the two files with their SCENES blocks removed - byte-identical. TOTAL is 9 in both.',
+      'Captions measured by tools/check_caption.py in UTF-16 units, exit 0. IG is 1,818 with hashtags against the 2,200 cap, 83 percent of it and under the 2,090 warn line; TikTok is 1,582 against 4,000. Both plain text, no markdown.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
