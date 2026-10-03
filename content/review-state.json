@@ -3891,5 +3891,20 @@
       "tags": [],
       "updatedAt": "2026-10-02T22:53:40Z"
     }
+  },
+  "reel-66": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-03T22:52:20Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-03T22:52:20Z"
+    }
   }
 }
