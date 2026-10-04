@@ -78,6 +78,7 @@
 | 2026-10-08 | carousel-post-10 — "Week nine: not about throwing" | Carousel (9 slides) | Script approved | — | — |
 | 2026-10-09 | No boosting, no props | Reel | Pending review | — | — |
 | 2026-10-10 | When play carried on after a turnover nobody noticed | Reel | Pending review | — | — |
+| 2026-10-11 | Claiming space legally | Reel | Pending review | — | — |
 
 ## Status legend
 

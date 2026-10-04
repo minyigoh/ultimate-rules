@@ -3969,5 +3969,20 @@
       "tags": [],
       "updatedAt": "2026-10-03T22:52:20Z"
     }
+  },
+  "reel-67": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-04T22:55:45Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-04T22:55:45Z"
+    }
   }
 }
