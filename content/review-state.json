@@ -3827,10 +3827,10 @@
       "updatedAt": "2026-10-04T12:53:57.852Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-28T22:50:51Z"
+      "updatedAt": "2026-10-04T23:23:20Z"
     },
     "history": {
       "script": [
@@ -3842,7 +3842,17 @@
           "at": "2026-10-04T12:53:57.852Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-04",
+        "duration": "28.5s",
+        "file": "reel61-stopping-a-disc-thats-rolling-away.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 7 scenes, check_layout.py 7/7 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-62": {
     "scriptRev": 1,
@@ -3854,10 +3864,10 @@
       "updatedAt": "2026-10-04T12:54:04.854Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-29T22:52:05Z"
+      "updatedAt": "2026-10-04T23:23:20Z"
     },
     "history": {
       "script": [
@@ -3869,7 +3879,17 @@
           "at": "2026-10-04T12:54:04.854Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-04",
+        "duration": "29.5s",
+        "file": "reel62-discs-kit-and-what-you-cant-wear.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-63": {
     "scriptRev": 1,
@@ -3896,10 +3916,10 @@
       "updatedAt": "2026-10-04T12:54:16.267Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-01T22:58:48Z"
+      "updatedAt": "2026-10-04T23:23:20Z"
     },
     "history": {
       "script": [
@@ -3911,7 +3931,17 @@
           "at": "2026-10-04T12:54:16.267Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-04",
+        "duration": "29.5s",
+        "file": "reel64-three-ways-to-turn-it-over-by-yourself.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "carousel-post-10": {
     "scriptRev": 1,
@@ -3923,10 +3953,10 @@
       "updatedAt": "2026-10-04T12:54:21.672Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-01T22:58:48Z"
+      "updatedAt": "2026-10-04T23:23:20Z"
     },
     "history": {
       "script": [
@@ -3938,7 +3968,17 @@
           "at": "2026-10-04T12:54:21.672Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-04",
+        "duration": "9 slides",
+        "file": "01_cover.png … 09_closing.png",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render of the ninth weekly recap, from the approved script: lessons 57-63, nine slides at 2250x2812, rule numbers only and no rule text, cloud build run (ImageMagick + rsvg-convert, Liberation Sans). check_layout.py: 9 slides, 0 problems (cover 1210/1310, lesson slides 1192/1310, matching the dry-measure). check_caption.py exit 0."
+      }
+    ]
   },
   "reel-65": {
     "scriptRev": 1,
