@@ -3874,17 +3874,32 @@
   "reel-63": {
     "scriptRev": 1,
     "script": {
-      "status": "approved",
+      "status": "pending",
       "note": "",
       "tags": [],
-      "rev": 1,
-      "updatedAt": "2026-10-04T12:54:11.667Z"
+      "updatedAt": "2026-09-30T22:52:25Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-09-30T22:52:25Z"
+    }
+  },
+  "reel-64": {
+    "scriptRev": 1,
+    "script": {
+      "status": "approved",
+      "note": "",
+      "tags": [],
+      "rev": 1,
+      "updatedAt": "2026-10-04T12:54:16.267Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-01T22:58:48Z"
     },
     "history": {
       "script": [
@@ -3893,24 +3908,9 @@
           "rev": 1,
           "note": "",
           "tags": [],
-          "at": "2026-10-04T12:54:11.667Z"
+          "at": "2026-10-04T12:54:16.267Z"
         }
       ]
-    }
-  },
-  "reel-64": {
-    "scriptRev": 1,
-    "script": {
-      "status": "pending",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-10-01T22:58:48Z"
-    },
-    "content": {
-      "status": "awaiting-render",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-10-01T22:58:48Z"
     }
   },
   "carousel-post-10": {
