@@ -71,7 +71,7 @@
 | 2026-10-02 | When several things go wrong at once | Reel | Posted | 2026-10-02 | — |
 | 2026-10-03 | Stopping play when you shouldn't have | Reel | Posted | 2026-10-03 | — |
 | 2026-10-04 | Obstructions and people on the sideline | Reel | Posted | 2026-10-04 | — |
-| 2026-10-05 | Stopping a disc that's rolling away | Reel | Ready to post | — | — |
+| 2026-10-05 | Stopping a disc that's rolling away | Reel | Posted | 2026-10-05 | — |
 | 2026-10-06 | Discs, kit, and what you can't wear | Reel | Script approved | — | — |
 | 2026-10-07 | Choosing ends at the start | Reel | Pending review | — | — |
 | 2026-10-08 | Three ways to turn it over by yourself | Reel | Script approved | — | — |
