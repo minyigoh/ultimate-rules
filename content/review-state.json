@@ -3827,10 +3827,11 @@
       "updatedAt": "2026-10-04T12:53:57.852Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-04T23:23:20Z"
+      "rev": 1,
+      "updatedAt": "2026-10-05T01:18:10.296Z"
     },
     "history": {
       "script": [
@@ -3840,6 +3841,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-04T12:53:57.852Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-05T01:18:10.296Z"
         }
       ]
     },
