@@ -3909,11 +3909,11 @@
   "reel-63": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
       "rev": 1,
-      "updatedAt": "2026-10-05T01:17:52.972Z"
+      "updatedAt": "2026-10-05T11:24:53.367Z"
     },
     "content": {
       "status": "awaiting-render",
@@ -3929,6 +3929,13 @@
           "note": "",
           "tags": [],
           "at": "2026-10-05T01:17:52.972Z"
+        },
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-05T11:24:53.367Z"
         }
       ]
     }
