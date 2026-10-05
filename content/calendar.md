@@ -79,6 +79,7 @@
 | 2026-10-09 | No boosting, no props | Reel | Script approved | — | — |
 | 2026-10-10 | When play carried on after a turnover nobody noticed | Reel | Script approved | — | — |
 | 2026-10-11 | Claiming space legally | Reel | Script approved | — | — |
+| 2026-10-12 | Contested goals | Reel | Pending review | — | — |
 
 ## Status legend
 
