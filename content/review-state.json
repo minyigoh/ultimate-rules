@@ -3931,10 +3931,10 @@
       "updatedAt": "2026-10-05T11:24:53.367Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-09-30T22:52:25Z"
+      "updatedAt": "2026-10-05T23:22:19Z"
     },
     "history": {
       "script": [
@@ -3953,7 +3953,17 @@
           "at": "2026-10-05T11:24:53.367Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-05",
+        "duration": "29.5s",
+        "file": "reel63-choosing-ends-at-the-start.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-64": {
     "scriptRev": 1,
@@ -4039,10 +4049,10 @@
       "updatedAt": "2026-10-05T11:26:13.577Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-02T22:53:40Z"
+      "updatedAt": "2026-10-05T23:22:19Z"
     },
     "history": {
       "script": [
@@ -4054,7 +4064,17 @@
           "at": "2026-10-05T11:26:13.577Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-05",
+        "duration": "29.5s",
+        "file": "reel65-no-boosting-no-props.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-66": {
     "scriptRev": 1,
@@ -4066,10 +4086,10 @@
       "updatedAt": "2026-10-05T11:27:17.804Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-03T22:52:20Z"
+      "updatedAt": "2026-10-05T23:22:19Z"
     },
     "history": {
       "script": [
@@ -4081,7 +4101,17 @@
           "at": "2026-10-05T11:27:17.804Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-05",
+        "duration": "29.5s",
+        "file": "reel66-when-play-carried-on-after-a-turnover-nobody-noticed.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-67": {
     "scriptRev": 1,
@@ -4093,10 +4123,10 @@
       "updatedAt": "2026-10-05T11:28:50.203Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-04T22:55:45Z"
+      "updatedAt": "2026-10-05T23:22:19Z"
     },
     "history": {
       "script": [
@@ -4108,7 +4138,17 @@
           "at": "2026-10-05T11:28:50.203Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-05",
+        "duration": "29.5s",
+        "file": "reel67-claiming-space-legally.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-68": {
     "scriptRev": 1,
