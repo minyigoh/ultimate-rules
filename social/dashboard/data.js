@@ -7257,5 +7257,122 @@ rule text from WFDF Rules of Ultimate 2025–2028 (14.2, 14.4) — full breakdow
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-69',
+    date: '2026-10-13',
+    title: 'The fine print on stall-outs',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 69,
+    duration: '~30s script',
+    rules: ['13.4.1', '13.4.2', '13.4.3', '9.5.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-06'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-69',
+    source: 'content/reel-69/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Marking)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'The fine print on stall-outs \u00b7 kicker BEGINNER \u00b7 LESSON 69 / 75'],
+      ['2', '#1 YOU STILL HAVE THE DISC', '"A fast count you never got to call." \u00b7 footer cites 13.4.1'],
+      ['3', 'Rules detail', 'Verbatim 13.4.1, carded alone'],
+      ['4', '#2 YOU ALREADY THREW IT', '"A completed pass can still be contested." \u00b7 footer cites 13.4.2'],
+      ['5', 'Rules detail', 'Verbatim 13.4.2, carded alone'],
+      ['6', '#3 CONTEST OR THROW, NOT BOTH', '"Throw it anyway and you own the result." \u00b7 footer cites 13.4.3 \u00b7 9.5.3'],
+      ['7', 'Rules detail', 'Verbatim 13.4.3 and 9.5.3, sibling blocks'],
+      ['8', 'FIELD TIP', '"Eight, not one."'],
+      ['9', 'Closing', '"Lesson 69 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `You throw it, the marker says stall out, and you both think you are right. The rulebook does not treat that as one argument - it treats it as three situations, and which one you are in depends on whether the disc is still in your hand.`,
+      explanation: `If you still have the disc and the count ran fast enough that you never got a fair chance to call it, this is handled as a fast count or a contested stall-out, not a plain turnover. If the pass went up and was caught, you can still contest - either that it was not a stall-out, or that a fast count came immediately before it. But if you contest and throw anyway and the pass falls, the turnover stands. You do not get both.`,
+      example: `The count reaches nine, the marker says ten, and you release at the same instant. The pass is dropped. You contest the stall-out, and it changes nothing: you threw it, the pass was incomplete, so the turnover stands and play restarts with a check. Had you held on instead, you would be arguing about the fast count, with the count restarting at eight.`,
+      cta: `Lesson 69 of 75 - new lesson daily.`
+    },
+    ig: `The count hits ten at the same instant you let go of the disc. Now what?
+
+The rulebook treats this as three situations, not one argument. Which one you are in depends on whether the disc is still in your hand.
+
+One. You still have it, and you think the count was fast.
+
+"If the thrower still has possession of the disc, but they believe a fast count occurred in such a manner that they did not have a reasonable opportunity to call fast count before a stall-out, the play is treated as either an accepted defensive breach (9.5.1) or a contested stall-out (9.5.3)."
+
+If the count ran fast and you had no real chance to say so first, this is not a plain turnover. It is handled as a fast count, or as a contested stall-out.
+
+Two. The pass went up and was caught.
+
+"If the thrower made a completed pass, the thrower can contest if they believe it was not a “stall-out”, or there was a fast count immediately prior to the “stall-out”."
+
+Throwing does not cost you the call. You can still contest that it was not a stall-out, or that a fast count came immediately before it.
+
+Three. You contest, and you throw anyway.
+
+"If the thrower contests a stall-out but also attempts a pass, and the pass is incomplete, then the turnover stands and play restarts with a check."
+
+This is the one that catches people. You do not get both: contest and hold on, or throw and live with the throw.
+
+And a contest that works buys less than you would think.
+
+"After a contested stall-out the stall count restarts at “Stalling eight (8)”."
+
+Field note. Eight, not one. That is very little time, so decide whether you want the call or the throw before you need either.
+
+Lesson 69 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (13.4.1, 13.4.2, 13.4.3, 9.5.3). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `the fine print on stall-outs 🥏
+
+the count hits ten at the same instant you let go. now what?
+
+it is three situations, not one argument, and which one you are in depends on whether the disc is still in your hand
+
+one. you still have it and you think the count was fast
+
+"If the thrower still has possession of the disc, but they believe a fast count occurred in such a manner that they did not have a reasonable opportunity to call fast count before a stall-out, the play is treated as either an accepted defensive breach (9.5.1) or a contested stall-out (9.5.3)."
+
+if the count ran fast and you had no real chance to say so first, this is not a plain turnover. it is handled as a fast count, or as a contested stall-out
+
+two. the pass went up and was caught
+
+"If the thrower made a completed pass, the thrower can contest if they believe it was not a “stall-out”, or there was a fast count immediately prior to the “stall-out”."
+
+throwing does not cost you the call. you can still contest that it was not a stall-out, or that a fast count came immediately before it
+
+three. you contest and you throw anyway
+
+"If the thrower contests a stall-out but also attempts a pass, and the pass is incomplete, then the turnover stands and play restarts with a check."
+
+this is the one that catches people. you do not get both — contest and hold on, or throw and live with the throw
+
+and a contest that works buys less than you would think
+
+"After a contested stall-out the stall count restarts at “Stalling eight (8)”."
+
+field note: eight, not one. that is very little time, so decide whether you want the call or the throw before you need either
+
+rule text from WFDF Rules of Ultimate 2025–2028 (13.4.1, 13.4.2, 13.4.3, 9.5.3) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Lesson 69 of 75, stall-out-details in content/lessons-3.json (tag: Marking). Fills 2026-10-13, the only bare date in the seven-day window 2026-10-07 to 2026-10-13.',
+      'All four numbers are the lesson own rules array \u2014 nothing added for legibility, and nothing quoted that the lesson does not cite. 13.4 itself is not carded: the lesson does not cite it, and each of its three branches reads as a complete sentence without a stem.',
+      'Nine scenes over four rules, not eleven. 9.5.3 is the consequence of a successful contest rather than a fourth branch, so it shares scene 7 with 13.4.3 as a sibling block \u2014 precedent in reel-39 (9.5.3 beside 9.5.5), reel-16, reel-21, reel-25 and reel-53. Projection 30.0s, exactly the house target.',
+      '13.4.1 is the longest card at 292 characters, ink bottom 704 of the 1310 floor. Well inside the series ceiling \u2014 reel-47 carded 7.12 at 492 characters and reel-34 carded 17.1.1 at 437.',
+      'Scene 6 kicker is deliberately near the width limit: #3 CONTEST OR THROW, NOT BOTH measures 859.7px of the 900px column at standard 34px, second widest the series has shipped behind reel-11 at 873px. It clears, so fit_kicker() is a no-op, but do not lengthen it.',
+      'DRY-MEASURED 2026-10-06: check_layout.py 9 scenes, 0 problems, exit 0. check_caption.py exit 0 \u2014 Instagram caption plus hashtags 1,912 of 2,200 UTF-16 units (86.9%), TikTok 1,840 of 4,000. Projected duration 30.0s over 35 states. SVG only; no PNGs, no frames, no cut.',
+      'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages. All three main bodies wrap to four lines, last baseline 962, 128px clear of the 1090 limit.',
+      'The caption was trimmed, not padded: a first pass came in at 2,024 (92.0%) and prose was cut to 1,912. The four verbatim quotes total 682 characters and none of them moved.',
+      'render_v3.py is committed in content/reel-69/ and is the exact file these numbers were measured from. Copied from reel-68, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES and TOTAL differ, verified by diffing the two files with their SCENES blocks removed \u2014 identical but for TOTAL (7 to 9).',
+      'Video still to render \u2014 the build run owns that, and only after the script clears gate 1.',
+      'Captions are plain text, no markdown.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
