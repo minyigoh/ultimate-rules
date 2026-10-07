@@ -7374,5 +7374,120 @@ rule text from WFDF Rules of Ultimate 2025–2028 (13.4.1, 13.4.2, 13.4.3, 9.5.3
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-70',
+    date: '2026-10-14',
+    title: 'Delay of game',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 70,
+    duration: '~30s script',
+    rules: ['10.5', '8.5.2', '8.5.2.1', '7.1.1'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-07'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-70',
+    source: 'content/reel-70/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Game)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Delay of game \u00b7 kicker BEGINNER \u00b7 LESSON 70 / 75'],
+      ['2', '#1 THE CHECK NEVER COMES', '"Warn them, then start it without them." \u00b7 footer cites 10.5'],
+      ['3', 'Rules detail', 'Verbatim 10.5, carded alone'],
+      ['4', '#2 SLOW WITH THE DISC', '"The same warning, and then a count." \u00b7 footer cites 8.5.2 \u00b7 8.5.2.1'],
+      ['5', 'Rules detail', 'Verbatim 8.5.2 and 8.5.2.1, sibling blocks'],
+      ['6', '#3 BEFORE THE PULL', '"The huddle has an edge to it." \u00b7 footer cites 7.1.1'],
+      ['7', 'Rules detail', 'Verbatim 7.1.1, carded alone'],
+      ['8', 'FIELD TIP', '"Warn first."'],
+      ['9', 'Closing', '"Lesson 70 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `The other team is in no hurry. They are standing off the disc, deciding who is guarding whom, and the point is going nowhere. The rulebook has a remedy for this, and it starts with two words you have to say out loud.`,
+      explanation: `If there is an unnecessary delay in checking the disc in, the opposition may warn you by calling Delay of Game. If the delay continues, the team that gave the warning may check the disc in themselves by calling Disc In - provided their own players are stationary and in position. The same warning covers an offence that will not put the disc back into play, and after it the marker may simply start the stall count. It also covers the time between points: teams have to prepare for the pull without unreasonable delay.`,
+      example: `You turn it over, they are slow fetching the disc, and slower still getting set for the check. You call Delay of Game. Nothing changes. So, with your own players stationary and in position, you call Disc In, and the disc is live. Had they been standing off the disc with it in hand instead, the marker could have started counting on them after the same warning.`,
+      cta: `Lesson 70 of 75 - new lesson daily.`
+    },
+    ig: `The other team is in no hurry. They are standing off the disc, deciding who is guarding whom, and the point is going nowhere.
+
+The rulebook has a remedy, and it starts with two words you have to say out loud.
+
+One. The check that never comes.
+
+"If there is an unnecessary delay in checking the disc in, the opposition may give a warning (“Delay of Game”). If the delay continues, the team that gave the warning may check the disc in by calling “Disc In”, without verification from the opposition, but only if the team checking the disc in are all stationary, and positioned as per 10.2."
+
+Warn them: Delay of Game. If the stalling carries on, your side may check the disc in itself, as long as your own players are stationary and in position.
+
+Two. Slow to put the disc back in play.
+
+"If the offence breaches 8.5, or 8.5.1, the defence may give a warning (“Delay of Game” or using a pre-stall for breaches of 8.5.1) or may call a “Violation”."
+
+"If, after a warning, the offence continues to breach 8.5, or 8.5.1, then 9.3.1 does not apply and the marker may commence the stall count."
+
+Same warning, different remedy. Keep stalling after it and the marker may simply start counting on you.
+
+Three. Before the pull.
+
+"Teams must prepare for the pull without unreasonable delay."
+
+It is not only about the disc in play. A huddle between points has a natural limit.
+
+Field note. Warn first. Both remedies belong to the team that gave the warning, so if nobody calls Delay of Game out loud, nobody gets to call Disc In or start a count.
+
+Lesson 70 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (10.5, 8.5.2, 8.5.2.1, 7.1.1). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `delay of game 🥏
+
+the other team is in no hurry. standing off the disc, deciding who guards whom, and the point is going nowhere
+
+the rulebook has a remedy and it starts with two words you say out loud
+
+one. the check that never comes
+
+"If there is an unnecessary delay in checking the disc in, the opposition may give a warning (“Delay of Game”). If the delay continues, the team that gave the warning may check the disc in by calling “Disc In”, without verification from the opposition, but only if the team checking the disc in are all stationary, and positioned as per 10.2."
+
+warn them: delay of game. if the stalling carries on, your side may check the disc in itself, as long as your own players are stationary and in position
+
+two. slow to put the disc back in play
+
+"If the offence breaches 8.5, or 8.5.1, the defence may give a warning (“Delay of Game” or using a pre-stall for breaches of 8.5.1) or may call a “Violation”."
+
+"If, after a warning, the offence continues to breach 8.5, or 8.5.1, then 9.3.1 does not apply and the marker may commence the stall count."
+
+same warning, different remedy. keep stalling after it and the marker may simply start counting on you
+
+three. before the pull
+
+"Teams must prepare for the pull without unreasonable delay."
+
+it is not only about the disc in play. a huddle between points has a natural limit
+
+field note: warn first. both remedies belong to the team that gave the warning, so if nobody calls delay of game out loud, nobody gets to call disc in or start a count
+
+rule text from WFDF Rules of Ultimate 2025–2028 (10.5, 8.5.2, 8.5.2.1, 7.1.1) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Lesson 70 of 75, delay-of-game in content/lessons-3.json (tag: Game). Fills 2026-10-14, the only bare date in the seven-day window 2026-10-08 to 2026-10-14.',
+      'All four numbers are the lesson own rules array \u2014 nothing added for legibility, and nothing quoted that the lesson does not cite. 8.5 itself is not carded: the lesson does not cite it, and 8.5.2 names it in its own text.',
+      'Nine scenes over four rules, not eleven. 8.5.2.1 is the consequence of the 8.5.2 warning rather than a separate topic, so it shares scene 5 with 8.5.2 as a sibling block \u2014 precedent in reel-69 (9.5.3 beside 13.4.3), reel-39, reel-16, reel-21, reel-25 and reel-53. Projection 30.0s, exactly the house target.',
+      '10.5 is the longest card at 341 characters, ink bottom 754 of the 1310 floor. Well inside the series ceiling \u2014 reel-47 carded 7.12 at 492 characters and reel-34 carded 17.1.1 at 437.',
+      'The condition in 10.5 is in the copy on purpose: Disc In is not a free restart, because the team calling it has to be stationary and positioned per 10.2 itself. The slide body, the script explanation and the example all carry it.',
+      'No kicker is near the width guard. The widest is #1 THE CHECK NEVER COMES at 714.2px of the 900px column, 186px clear, against reel-69 at 859.7px and reel-11 at 873px.',
+      'Scene 6 is the one geometric difference from reel-69: its headline fits one line, so the body starts at y=756 and the last baseline lands at 906, 184px clear rather than 128px. More headroom, not less.',
+      'DRY-MEASURED 2026-10-07: check_layout.py 9 scenes, 0 problems, exit 0. check_caption.py exit 0 \u2014 Instagram caption plus hashtags 1,801 of 2,200 UTF-16 units (81.9%), TikTok 1,722 of 4,000. Projected duration 30.0s over 35 states. SVG only; no PNGs, no frames, no cut.',
+      'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages.',
+      'The caption is short because the rules are. The four verbatim quotes total 695 characters, close to reel-69 at 682, but the remedy is procedural and the slides carry it \u2014 nothing was padded to fill the budget.',
+      'render_v3.py is committed in content/reel-70/ and is the exact file these numbers were measured from. Copied from reel-69, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES differs, verified by diffing the two files with their SCENES blocks removed \u2014 byte-identical, TOTAL included.',
+      'Video still to render \u2014 the build run owns that, and only after the script clears gate 1.',
+      'Captions are plain text, no markdown.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
