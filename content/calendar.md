@@ -81,6 +81,7 @@
 | 2026-10-11 | Claiming space legally | Reel | Script approved | — | — |
 | 2026-10-12 | Contested goals | Reel | Pending review | — | — |
 | 2026-10-13 | The fine print on stall-outs | Reel | Pending review | — | — |
+| 2026-10-14 | Delay of game | Reel | Pending review | — | — |
 
 ## Status legend
 
