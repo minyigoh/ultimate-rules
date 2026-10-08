@@ -3990,10 +3990,11 @@
       "updatedAt": "2026-10-04T12:54:16.267Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-04T23:23:20Z"
+      "rev": 1,
+      "updatedAt": "2026-10-08T01:02:06.877Z"
     },
     "history": {
       "script": [
@@ -4003,6 +4004,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-04T12:54:16.267Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-08T01:02:06.877Z"
         }
       ]
     },
