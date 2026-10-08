@@ -4027,10 +4027,11 @@
       "updatedAt": "2026-10-05T01:40:16.882Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-04T23:23:20Z"
+      "rev": 1,
+      "updatedAt": "2026-10-08T01:00:12.007Z"
     },
     "history": {
       "script": [
@@ -4040,6 +4041,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-05T01:40:16.882Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-08T01:00:12.007Z"
         }
       ]
     },
