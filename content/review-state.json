@@ -4284,5 +4284,20 @@
       "tags": [],
       "updatedAt": "2026-10-08T22:58:57Z"
     }
+  },
+  "reel-72": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-09T22:53:58Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-09T22:53:58Z"
+    }
   }
 }
