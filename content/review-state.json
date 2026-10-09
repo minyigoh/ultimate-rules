@@ -4129,7 +4129,12 @@
         "builtFromScriptRev": 1,
         "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-10-09",
+      "updatedAt": "2026-10-09T10:41:49.469Z"
+    }
   },
   "reel-66": {
     "scriptRev": 1,
