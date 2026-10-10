@@ -7797,5 +7797,112 @@ rule text from WFDF Rules of Ultimate 2025–2028 (10.3, 19.3, 3.4) — full bre
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-73',
+    date: '2026-10-17',
+    title: 'Use your hands',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 73,
+    duration: '~30s script',
+    rules: ['15.13', '15.7', '1.3.7'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-10'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-73',
+    source: 'content/reel-73/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Spirit)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'Use your hands \u00b7 kicker BEGINNER \u00b7 LESSON 73 / 75'],
+      ['2', '#1 THERE IS A SIGNAL FOR IT', '"Every common call has one." \u00b7 footer cites 15.13'],
+      ['3', 'Rules detail', 'Verbatim 15.13, carded alone'],
+      ['4', '#2 ECHO THE CALL', '"The far end cannot guess." \u00b7 footer cites 15.7'],
+      ['5', 'Rules detail', 'Verbatim 15.7, carded alone'],
+      ['6', '#3 BODY LANGUAGE COUNTS', '"A signal is information, not a verdict." \u00b7 footer cites 1.3.7'],
+      ['7', 'Rules detail', 'Verbatim 1.3.7, carded alone'],
+      ['8', 'FIELD TIP', '"Learn three to start."'],
+      ['9', 'Closing', '"Lesson 73 of 75." \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `The sideline is 40 metres away and the wind is loud. This is what your hands are for.`,
+      explanation: `Players are encouraged to use the WFDF Hand Signals to communicate all calls, and there is a standard signal for every common call. It matters more than it sounds: in international play your opponents may not share your language, and a gesture carries where a shout does not. A call that stops play has to be communicated visibly or audibly as soon as you are aware of it, and all players should echo calls on the field. Chapter 1 also asks for respectful words and body language, with consideration of potential cultural differences - so the same gesture can inform or accuse, and that part is up to you.`,
+      example: `You call a foul at the far end of the field. You say it and you sign it, and the players nearest you echo it with their hands up. Twelve people stop at the same time instead of four, and nobody plays on into a stoppage they never heard.`,
+      cta: `Lesson 73 of 75 - new lesson daily.`
+    },
+    ig: `The sideline is 40 metres away and the wind is loud. This is what your hands are for.
+
+One. There is a signal for it.
+
+"Players are encouraged to use the WFDF Hand Signals to communicate all calls."
+
+Players are encouraged to use the WFDF Hand Signals to communicate all calls. There is a standard signal for every common call, and a gesture carries across wind and distance.
+
+Two. Echo the call.
+
+"When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
+
+A call that stops play has to be communicated visibly or audibly as soon as you are aware of it, and all players should echo calls on the field. Say it and sign it.
+
+Three. Body language counts.
+
+"use respectful words and body language with consideration of potential cultural differences;"
+
+Chapter 1 asks for respectful words and body language, with consideration of potential cultural differences. The same gesture can inform or accuse, and that part is up to you.
+
+Field note. Learn three to start: travel, foul, and stall count. Those three cover most of what you will ever need to signal.
+
+Lesson 73 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (15.13, 15.7, 1.3.7). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `use your hands 🥏
+
+the sideline is 40 metres away and the wind is loud. this is what your hands are for
+
+one. there is a signal for it
+
+"Players are encouraged to use the WFDF Hand Signals to communicate all calls."
+
+players are encouraged to use the WFDF hand signals to communicate all calls. there is a standard signal for every common call, and a gesture carries across wind and distance
+
+two. echo the call
+
+"When a foul or violation call is made that stops play, players must stop play by visibly or audibly communicating the stoppage as soon as they are aware of the call and all players should echo calls on the field. If play has stopped for a discussion without any call having been made, a call is deemed to have been made when the discussion started."
+
+a call that stops play has to be communicated visibly or audibly as soon as you are aware of it, and all players should echo calls on the field. say it and sign it
+
+three. body language counts
+
+"use respectful words and body language with consideration of potential cultural differences;"
+
+chapter 1 asks for respectful words and body language, with consideration of potential cultural differences. the same gesture can inform or accuse, and that part is up to you
+
+field note: learn three to start - travel, foul, and stall count. those three cover most of what you will ever need to signal
+
+rule text from WFDF Rules of Ultimate 2025–2028 (15.13, 15.7, 1.3.7) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Lesson 73 of 75, hand-signals in content/lessons-3.json (tag: Spirit). Fills 2026-10-17, the only bare date in the seven-day window 2026-10-11 to 2026-10-17.',
+      'Only three lessons remain in the curriculum - 73 here, then 74 (What clearly breaks Spirit) and 75 (When the normal remedy is not enough). At one reel a day the pool is exhausted on 2026-10-19, and seven-day coverage cannot be met from 2026-10-18 onward without a decision about what follows lesson 75. That is a question for the desk.',
+      'All three numbers are the lesson own rules array, in its order - nothing added for length, nothing quoted that the lesson does not cite. Chapter 15 twice for the signals and the echo, chapter 1 for the body language.',
+      '1.3.7 is carded as the fragment it is: a clause from chapter 1 list of player duties, opening lower-case and ending on a semicolon, byte-identical to rules.json. reel-56 set the precedent for carding a 1.3.x clause but could quote the parent 1.3 stem alongside because 1.3 was in that lesson rules array. It is not in this one, so the stem is not quoted and the slide own prose does the framing.',
+      'Nothing here says a hand signal is required. 15.13 encourages, and the copy says encouraged. 15.7 duty is to communicate the stoppage visibly or audibly and to echo calls, and the copy says that. The two are kept apart in the slide body, the explanation beat and both captions.',
+      '15.7 was already carded once, on reel-35, so its nine-line card is a known quantity. At 348 characters it is the fifth-longest the series has carded, behind reel-47 7.12 (492), reel-34 17.1.1 (437), reel-28 17.2.2 (381) and reel-10 11.6 (357).',
+      'Kicker 3 shortened and headline 3 lengthened at draft time. BODY LANGUAGE COUNTS TOO measured 821.9px of the 900px column (91.3 percent), the widest since reel-11 at 873px and about two tracked characters from the shrink; dropping TOO buys 120.9px and the headline already carries the contrast. A one-line headline 3 would have started that body at y=734, 78px out of step with scenes 2 and 4, so it was taken to two lines.',
+      'DRY-MEASURED 2026-10-10: check_layout.py 9 scenes, 0 problems, exit 0. check_caption.py exit 0 - Instagram caption plus hashtags 1,602 of 2,200 UTF-16 units (72.8 percent), TikTok 1,549 of 4,000. Projected duration 30.0s over 34 states. SVG only; no PNGs, no frames, no cut.',
+      'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages. Widest kicker is #1 THERE IS A SIGNAL FOR IT at 733.2px of 900 (81.5 percent). All three main scenes share identical geometry - body start y=812, four lines, last baseline 962, clearance 128px against the 1090 limit. Zero _payload() quote-wrapper cases across all 34 emitted SVGs.',
+      'Rule cards are unusually uneven at 77, 348 and 92 characters (ink bottoms 404, 754, 454 of the 1310 floor). That is the shape of the source material, not a drafting choice: 15.13 is one sentence and 15.7 is two long ones.',
+      'render_v3.py is committed in content/reel-73/ and is the exact file these numbers were measured from. Copied from reel-72, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES differs - TOTAL is 9 in both, since both run three blocks - verified by diffing the two files with their SCENES blocks removed, which came back with zero differing lines.',
+      'Video still to render - the build run owns that, and only after the script clears gate 1.',
+      'Captions are plain text, no markdown.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 ];
