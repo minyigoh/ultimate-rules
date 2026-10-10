@@ -77,7 +77,7 @@
 | 2026-10-08 | Three ways to turn it over by yourself | Reel | Posted | 2026-10-08 | — |
 | 2026-10-08 | carousel-post-10 — "Week nine: not about throwing" | Carousel (9 slides) | Posted | 2026-10-08 | — |
 | 2026-10-09 | No boosting, no props | Reel | Posted | 2026-10-09 | — |
-| 2026-10-10 | When play carried on after a turnover nobody noticed | Reel | Script approved | — | — |
+| 2026-10-10 | When play carried on after a turnover nobody noticed | Reel | Ready to post | — | — |
 | 2026-10-11 | Claiming space legally | Reel | Script approved | — | — |
 | 2026-10-12 | Contested goals | Reel | Pending review | — | — |
 | 2026-10-13 | The fine print on stall-outs | Reel | Pending review | — | — |
