@@ -83,7 +83,7 @@
 | 2026-10-13 | The fine print on stall-outs | Reel | Script approved | — | — |
 | 2026-10-14 | Delay of game | Reel | Script approved | — | — |
 | 2026-10-15 | Mixed division basics | Reel | Script approved | — | — |
-| 2026-10-15 | carousel-post-11 — "Week ten: the fine print" | Carousel (9 slides) | Pending review | — | — |
+| 2026-10-15 | carousel-post-11 — "Week ten: the fine print" | Carousel (9 slides) | Script approved | — | — |
 | 2026-10-16 | Fixing your shoelace | Reel | Pending review | — | — |
 | 2026-10-17 | Use your hands | Reel | Pending review | — | — |
 
