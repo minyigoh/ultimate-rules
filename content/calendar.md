@@ -81,7 +81,7 @@
 | 2026-10-11 | Claiming space legally | Reel | Posted | 2026-10-11 | — |
 | 2026-10-12 | Contested goals | Reel | Pending review | — | — |
 | 2026-10-13 | The fine print on stall-outs | Reel | Script approved | — | — |
-| 2026-10-14 | Delay of game | Reel | Pending review | — | — |
+| 2026-10-14 | Delay of game | Reel | Script approved | — | — |
 | 2026-10-15 | Mixed division basics | Reel | Pending review | — | — |
 | 2026-10-15 | carousel-post-11 — "Week ten: the fine print" | Carousel (9 slides) | Pending review | — | — |
 | 2026-10-16 | Fixing your shoelace | Reel | Pending review | — | — |
