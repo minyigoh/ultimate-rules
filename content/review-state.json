@@ -4366,16 +4366,28 @@
   "reel-72": {
     "scriptRev": 1,
     "script": {
-      "status": "pending",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-09T22:53:58Z"
+      "rev": 1,
+      "updatedAt": "2026-10-11T02:14:56.792Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-10-09T22:53:58Z"
+    },
+    "history": {
+      "script": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-11T02:14:56.792Z"
+        }
+      ]
     }
   },
   "reel-73": {
