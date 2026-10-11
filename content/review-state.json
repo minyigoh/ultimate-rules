@@ -4265,10 +4265,10 @@
       "updatedAt": "2026-10-11T02:14:33.099Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-06T22:55:13Z"
+      "updatedAt": "2026-10-11T10:30:02Z"
     },
     "history": {
       "script": [
@@ -4280,7 +4280,17 @@
           "at": "2026-10-11T02:14:33.099Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-11",
+        "duration": "29.5s",
+        "file": "reel69-fine-print-on-stall-outs.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-70": {
     "scriptRev": 1,
@@ -4292,10 +4302,10 @@
       "updatedAt": "2026-10-11T02:14:39.707Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-07T22:54:29Z"
+      "updatedAt": "2026-10-11T10:30:02Z"
     },
     "history": {
       "script": [
@@ -4307,7 +4317,17 @@
           "at": "2026-10-11T02:14:39.707Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-11",
+        "duration": "29.5s",
+        "file": "reel70-delay-of-game.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-71": {
     "scriptRev": 1,
@@ -4319,10 +4339,10 @@
       "updatedAt": "2026-10-11T02:14:45.205Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-08T22:58:57Z"
+      "updatedAt": "2026-10-11T10:30:02Z"
     },
     "history": {
       "script": [
@@ -4334,7 +4354,17 @@
           "at": "2026-10-11T02:14:45.205Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-11",
+        "duration": "28.5s",
+        "file": "reel71-mixed-division-basics.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 7 scenes, check_layout.py 7/7 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "carousel-post-11": {
     "scriptRev": 1,
@@ -4346,10 +4376,10 @@
       "updatedAt": "2026-10-11T02:14:52.007Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-08T22:58:57Z"
+      "updatedAt": "2026-10-11T10:30:02Z"
     },
     "history": {
       "script": [
@@ -4361,7 +4391,17 @@
           "at": "2026-10-11T02:14:52.007Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-11",
+        "duration": "9 slides",
+        "file": "01_cover.png … 09_closing.png",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render of the tenth weekly recap, from the approved script: lessons 64-70, nine slides at 2250x2812, rule numbers only and no rule text, cloud build run (ImageMagick + rsvg-convert, Liberation Sans). check_layout.py: 9 slides, 0 problems (cover 1210/1310, lesson slides 1192/1310, matching the dry-measure). check_caption.py exit 0."
+      }
+    ]
   },
   "reel-72": {
     "scriptRev": 1,
@@ -4388,10 +4428,10 @@
       "updatedAt": "2026-10-11T02:15:01.436Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-10T22:56:50Z"
+      "updatedAt": "2026-10-11T10:30:02Z"
     },
     "history": {
       "script": [
@@ -4403,6 +4443,16 @@
           "at": "2026-10-11T02:15:01.436Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-11",
+        "duration": "29.5s",
+        "file": "reel73-use-your-hands.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   }
 }
