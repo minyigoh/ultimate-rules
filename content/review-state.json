@@ -4243,17 +4243,32 @@
   "reel-68": {
     "scriptRev": 1,
     "script": {
-      "status": "approved",
+      "status": "pending",
       "note": "",
       "tags": [],
-      "rev": 1,
-      "updatedAt": "2026-10-11T02:14:28.970Z"
+      "updatedAt": "2026-10-05T22:53:09Z"
     },
     "content": {
       "status": "awaiting-render",
       "note": "",
       "tags": [],
       "updatedAt": "2026-10-05T22:53:09Z"
+    }
+  },
+  "reel-69": {
+    "scriptRev": 1,
+    "script": {
+      "status": "approved",
+      "note": "",
+      "tags": [],
+      "rev": 1,
+      "updatedAt": "2026-10-11T02:14:33.099Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-06T22:55:13Z"
     },
     "history": {
       "script": [
@@ -4262,24 +4277,9 @@
           "rev": 1,
           "note": "",
           "tags": [],
-          "at": "2026-10-11T02:14:28.970Z"
+          "at": "2026-10-11T02:14:33.099Z"
         }
       ]
-    }
-  },
-  "reel-69": {
-    "scriptRev": 1,
-    "script": {
-      "status": "pending",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-10-06T22:55:13Z"
-    },
-    "content": {
-      "status": "awaiting-render",
-      "note": "",
-      "tags": [],
-      "updatedAt": "2026-10-06T22:55:13Z"
     }
   },
   "reel-70": {
