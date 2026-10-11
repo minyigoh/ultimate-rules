@@ -7919,5 +7919,126 @@ rule text from WFDF Rules of Ultimate 2025–2028 (15.13, 15.7, 1.3.7) — full 
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'reel-74',
+    date: '2026-10-18',
+    title: 'What clearly breaks Spirit',
+    type: 'Reel',
+    pillar: 'Rules',
+    difficulty: 'Beginner',
+    lesson: 74,
+    duration: '~30s script',
+    rules: ['1.6', '1.6.5', '1.6.7', '1.7.2', '1.7.4', '1.4'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-11'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'reel-74',
+    source: 'content/reel-74/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (tag: Spirit)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'What clearly breaks Spirit · kicker BEGINNER · LESSON 74 / 75'],
+      ['2', '#1 THE LIST IS SPECIFIC', '"You don\'t have to guess at it." · footer cites 1.6, 1.6.5, 1.6.7'],
+      ['3', 'Rules detail', 'Verbatim 1.6 stem, with 1.6.5 and 1.6.7 as sub-number blocks beneath it'],
+      ['4', '#2 TEAMS ARE GUARDIANS', '"Your team is part of the rule." · footer cites 1.7.2, 1.7.4'],
+      ['5', 'Rules detail', 'Verbatim 1.7.2 and 1.7.4, two g_detail blocks on one card'],
+      ['6', '#3 PLAY HARD ANYWAY', '"None of this means play soft." · footer cites 1.4'],
+      ['7', 'Rules detail', 'Verbatim 1.4, carded alone'],
+      ['8', 'FIELD TIP', '"Retaliation is the trap."'],
+      ['9', 'Closing', '"Lesson 74 of 75." · Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `A short, specific list. Worth reading once. The rules name the things that clearly break Spirit.`,
+      explanation: `Seven actions are named as clear Spirit violations that must be avoided. They run from dangerous play and aggressive behaviour, through intentional fouling, taunting and disrespectful celebration, to an open last entry: win-at-all-costs behaviour. The one beginners fall into is in the middle of that list - making calls in retaliation to an opponent's call. Teams are guardians of Spirit too: they must discipline team-mates who display poor Spirit, and may call a Spirit Stoppage to address issues. None of this asks you to play softly. Highly competitive play is encouraged - it just must never cost mutual respect, the agreed-upon rules, player safety or the basic joy of play.`,
+      example: `They call a foul on you and you think it is nonsense. Next point you call one back to even it up. That is not a grey area and it is not gamesmanship - retaliatory calls are on the list by name. The response the rules point you to is a conversation, which is slower and works.`,
+      cta: `Lesson 74 of 75 - new lesson daily.`
+    },
+    ig: `A short, specific list. Worth reading once.
+
+One. The list is specific.
+
+"The following actions are clear violations of the Spirit of the Game and must be avoided:"
+
+"making calls in retaliation to an opponent’s call;"
+
+"other win-at-all-costs behaviour."
+
+Seven actions are named as clear Spirit violations that must be avoided. They run from dangerous play and taunting to an open last entry: win-at-all-costs behaviour.
+
+Two. Teams are guardians.
+
+"discipline team-mates who display poor Spirit;"
+
+"call a Spirit Stoppage to address Spirit issues, as appropriate."
+
+Teams must discipline team-mates who display poor Spirit, and may call a Spirit Stoppage to address issues. Self-officiated means your own bench is the mechanism.
+
+Three. Play hard anyway.
+
+"Highly competitive play is encouraged, but should never sacrifice the mutual respect between players, adherence to the agreed-upon rules of the game, player safety or the basic joy of play."
+
+Highly competitive play is encouraged. What it must never cost is mutual respect, the agreed rules, player safety or the basic joy of play. Hard and fair are not opposites.
+
+Field note. Retaliation is the trap. If you think a call was unfair, the answer is a conversation, not a call of your own on the next point.
+
+Lesson 74 of 75.
+
+Rule text: WFDF Rules of Ultimate 2025–2028 (1.6, 1.6.5, 1.6.7, 1.7.2, 1.7.4, 1.4). Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee — one lesson a day.`,
+    tiktok: `what clearly breaks spirit 🥏
+
+a short, specific list. worth reading once
+
+one. the list is specific
+
+"The following actions are clear violations of the Spirit of the Game and must be avoided:"
+
+"making calls in retaliation to an opponent’s call;"
+
+"other win-at-all-costs behaviour."
+
+seven actions are named as clear spirit violations that must be avoided. they run from dangerous play and taunting to an open last entry: win-at-all-costs behaviour
+
+two. teams are guardians
+
+"discipline team-mates who display poor Spirit;"
+
+"call a Spirit Stoppage to address Spirit issues, as appropriate."
+
+teams must discipline team-mates who display poor spirit, and may call a spirit stoppage to address issues. self-officiated means your own bench is the mechanism
+
+three. play hard anyway
+
+"Highly competitive play is encouraged, but should never sacrifice the mutual respect between players, adherence to the agreed-upon rules of the game, player safety or the basic joy of play."
+
+highly competitive play is encouraged. what it must never cost is mutual respect, the agreed rules, player safety or the basic joy of play. hard and fair are not opposites
+
+field note: retaliation is the trap. if you think a call was unfair, the answer is a conversation, not a call of your own on the next point
+
+rule text from WFDF Rules of Ultimate 2025–2028 (1.6, 1.6.5, 1.6.7, 1.7.2, 1.7.4, 1.4) — full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Lesson 74 of 75, spirit-violations in content/lessons-3.json (tag: Spirit). Fills 2026-10-18, the only bare date in the seven-day window 2026-10-12 to 2026-10-18.',
+      'Second-to-last lesson in the curriculum. Only lesson 75 (When the normal remedy is not enough) remains; it fills 2026-10-19. From 2026-10-20 the seven-day coverage target cannot be met at all without a decision about what follows lesson 75. reel-73 raised this on 2026-10-10 and it is now one day from binding. A question for the desk, not something the draft run should answer by inventing curriculum.',
+      'Six rule numbers over three cards, which is new for this series - every previous reel carded one number per block. Six blocks would be a fifteen-scene reel around 45s, well outside the 28-33s band, so the numbers are grouped the way the rulebook groups them rather than dropped: 1.6 with its two cited sub-clauses, the two cited clauses of 1.7 together, 1.4 alone. Nothing in the array is left uncited and nothing outside it is quoted.',
+      'The stem 1.6 is quoted because the lesson cites it. 1.6.1 to 1.6.4 and 1.6.6 are not in the lesson rules array, so they are not quoted anywhere - the slide prose and the explanation beat describe them in the lesson own words, from its body field, and the card shows only what is cited.',
+      '1.7.2 and 1.7.4 are carded as the fragments they are, byte-identical to rules.json including the lower-case openings. The parent 1.7 stem is not in the lesson rules array, so it is not quoted; the slide own prose frames it instead. Same call reel-73 made on 1.3.7.',
+      'Nothing here claims the list is closed. 1.6.7 is on the card precisely because it is not, and the slide says an open last entry. The explanation beat names the seven in the lesson own words; the slide, which has less room, does not pretend to enumerate them.',
+      '1.4 is sequenced last deliberately. Two cards of prohibition and self-policing invite exactly the wrong conclusion, and 1.4 is the rule that refuses it. Highly competitive play is encouraged leads the slide, the kicker is PLAY HARD ANYWAY, and the body names what competition may not cost rather than what it may not be.',
+      'Scene 2 body shortened at draft time. The first draft ended and two more, ran 179 characters and wrapped to five lines: last baseline 1012, clearance 78px. Legal, and fit_body() would have held it at 36px, but it put that slide one line out of step with scenes 4 and 6. Rewritten to 165 characters, four lines, and it makes no enumeration claim the card does not back. All three main scenes now sit on identical geometry.',
+      'DRY-MEASURED 2026-10-11: check_layout.py 9 scenes, 0 problems, exit 0. Instagram caption plus hashtags 1,542 of 2,200 UTF-16 units (70.1 percent), TikTok 1,500 of 4,000. Projected duration 30.0s over 35 states. SVG only; no PNGs, no frames, no cut.',
+      'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages. Widest kicker is #2 TEAMS ARE GUARDIANS at 651.8px of the 900px column (72.4 percent), 221px short of reel-11 873px high-water mark. All three main scenes share identical geometry - body start y=812, four lines, last baseline 962, clearance 128px against the 1090 limit. Cover title sets on two lines at 84px.',
+      'Rules card ink bottoms 740, 640 and 554 of the 1310 floor (174, 111 and 189 characters). All three were checked after emission against rules.json and reassemble byte-identically. 1.4 wraps on the existing hyphen in agreed-upon, so card 7 breaks agreed- / upon across two lines - a break on a hyphen the rulebook already contains, not an edit. Zero _payload() quote-wrapper cases across all 35 emitted SVGs.',
+      'render_v3.py is committed in content/reel-74/ and is the exact file these numbers were measured from. Copied from reel-73, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES differs - TOTAL is 9 in both, since both run three blocks - verified by diffing the two files with their SCENES blocks removed, which came back with zero differing lines.',
+      'Video still to render - the build run owns that, and only after the script clears gate 1.',
+      'Captions are plain text, no markdown.',
+      'No growth/reach claims in either caption.'
+    ]
   }
+
 ];
