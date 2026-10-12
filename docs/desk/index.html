@@ -8255,17 +8255,18 @@ rule numbers from WFDF Rules of Ultimate 2025–2028 — full breakdown in bio`,
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 72,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['10.3', '19.3', '3.4'],
     review: {
       script:  {status: 'pending', on: '2026-10-09'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-10-12'}
     },
     postedDate: null,
     folder: 'reel-72',
     source: 'content/reel-72/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Game)',
-    video: null,
+    video: 'reel72-fixing-your-shoelace.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Fixing your shoelace · kicker BEGINNER · LESSON 72 / 75'],
@@ -8348,7 +8349,7 @@ rule text from WFDF Rules of Ultimate 2025–2028 (10.3, 19.3, 3.4) — full bre
       'DRY-MEASURED 2026-10-09: check_layout.py 9 scenes, 0 problems, exit 0. check_caption.py exit 0 — Instagram caption plus hashtags 1,549 of 2,200 UTF-16 units (70.4%), TikTok 1,471 of 4,000. Projected duration 30.0s over 34 states. SVG only; no PNGs, no frames, no cut.',
       'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages. Zero _payload() quote-wrapper cases across all 34 emitted SVGs, despite the copy quoting the equipment call and 10.3 verbatim text carrying curly quotes around it.',
       'render_v3.py is committed in content/reel-72/ and is the exact file these numbers were measured from. Copied from reel-71, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES and TOTAL differ, verified by diffing the two files with their SCENES blocks removed — the single line TOTAL = 7 to TOTAL = 9 and nothing else.',
-      'Video still to render — the build run owns that, and only after the script clears gate 1.',
+      'Rendered in the cloud build run on 2026-10-12: render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans. check_layout.py 9/9 scenes, 0 problems. check_dull.py longest sustained dull-orange run 0.20s (PASS, threshold 0.45s). Container duration 29.50s.',
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
