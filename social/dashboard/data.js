@@ -7168,17 +7168,18 @@ rule text from WFDF Rules of Ultimate 2025–2028 (12.5, 12.5.1, 12.4, 12.9) —
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 68,
-    duration: '~30s script',
+    duration: '~30s script / 28.5s cut',
+    typeDetail: '1080×1920 · 28.5s · 30fps',
     rules: ['14.2', '14.4'],
     review: {
       script:  {status: 'pending', on: '2026-10-05'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-10-12'}
     },
     postedDate: null,
     folder: 'reel-68',
     source: 'content/reel-68/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Scoring)',
-    video: null,
+    video: 'reel68-contested-goals.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'Contested goals \u00b7 kicker BEGINNER \u00b7 LESSON 68 / 75'],
@@ -7253,7 +7254,7 @@ rule text from WFDF Rules of Ultimate 2025–2028 (14.2, 14.4) — full breakdow
       'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages. Widest kicker is #2 THE MOMENT THAT COUNTS at 746.3px of 900. Both main bodies wrap to four lines, last baseline 962, 128px clear of the 1090 limit.',
       'render_v3.py is committed in content/reel-68/ and is the exact file these numbers were measured from. Copied from reel-67, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES and TOTAL differ, verified by diffing the two files with their SCENES blocks removed \u2014 identical but for TOTAL (9 to 7).',
       'The caption is shorter than recent reels and was not padded to match. reel-67 ran 1,972 and reel-66 1,818 over four and three rules; this lesson has two, and lengthening it would mean re-teaching the quotes or citing a rule the lesson does not.',
-      'Video still to render \u2014 the build run owns that, and only after the script clears gate 1.',
+      'Rendered in the cloud build run on 2026-10-12: render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans. check_layout.py 7/7 scenes, 0 problems. check_dull.py longest sustained dull-orange run 0.17s (PASS, threshold 0.45s). Container duration 28.53s.',
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
