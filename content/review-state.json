@@ -4542,5 +4542,20 @@
       "tags": [],
       "updatedAt": "2026-10-11T23:00:05Z"
     }
+  },
+  "reel-75": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-12T22:55:06Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-12T22:55:06Z"
+    }
   }
 }
