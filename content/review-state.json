@@ -4309,10 +4309,11 @@
       "updatedAt": "2026-10-11T02:14:33.099Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-11T10:30:02Z"
+      "rev": 1,
+      "updatedAt": "2026-10-12T23:59:10.793Z"
     },
     "history": {
       "script": [
@@ -4322,6 +4323,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-11T02:14:33.099Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-12T23:59:10.793Z"
         }
       ]
     },
