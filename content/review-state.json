@@ -4250,10 +4250,10 @@
       "updatedAt": "2026-10-12T03:36:01.539Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-05T22:53:09Z"
+      "updatedAt": "2026-10-12T03:40:40Z"
     },
     "history": {
       "script": [
@@ -4272,7 +4272,17 @@
           "at": "2026-10-12T03:36:01.539Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-12",
+        "duration": "28.53s",
+        "file": "reel68-contested-goals.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 7 scenes, check_layout.py 7/7 scenes 0 problems, check_dull.py longest run 0.17s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-69": {
     "scriptRev": 1,
