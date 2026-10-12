@@ -4442,10 +4442,10 @@
       "updatedAt": "2026-10-12T03:39:15.752Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-09T22:53:58Z"
+      "updatedAt": "2026-10-12T03:43:39Z"
     },
     "history": {
       "script": [
@@ -4464,7 +4464,17 @@
           "at": "2026-10-12T03:39:15.752Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-12",
+        "duration": "29.50s",
+        "file": "reel72-fixing-your-shoelace.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First cut. render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans, cloud build run; 9 scenes, check_layout.py 9/9 scenes 0 problems, check_dull.py longest run 0.20s (PASS), check_caption.py exit 0."
+      }
+    ]
   },
   "reel-73": {
     "scriptRev": 1,
