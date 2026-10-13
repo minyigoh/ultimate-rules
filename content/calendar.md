@@ -80,7 +80,7 @@
 | 2026-10-10 | When play carried on after a turnover nobody noticed | Reel | Posted | 2026-10-10 | — |
 | 2026-10-11 | Claiming space legally | Reel | Posted | 2026-10-11 | — |
 | 2026-10-12 | Contested goals | Reel | Posted | 2026-10-12 | — |
-| 2026-10-13 | The fine print on stall-outs | Reel | Ready to post | — | — |
+| 2026-10-13 | The fine print on stall-outs | Reel | Posted | 2026-10-13 | — |
 | 2026-10-14 | Delay of game | Reel | Script approved | — | — |
 | 2026-10-15 | Mixed division basics | Reel | Script approved | — | — |
 | 2026-10-15 | carousel-post-11 — "Week ten: the fine print" | Carousel (9 slides) | Script approved | — | — |
