@@ -4617,5 +4617,20 @@
       "tags": [],
       "updatedAt": "2026-10-12T22:55:06Z"
     }
+  },
+  "carousel-post-12": {
+    "scriptRev": 1,
+    "script": {
+      "status": "pending",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-15T22:53:59Z"
+    },
+    "content": {
+      "status": "awaiting-render",
+      "note": "",
+      "tags": [],
+      "updatedAt": "2026-10-15T22:53:59Z"
+    }
   }
 }
