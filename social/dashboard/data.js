@@ -8138,6 +8138,101 @@ rule text from WFDF Rules of Ultimate 2025–2028 (1.2, 1.2.1) — full breakdow
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
+  },
+  {
+    id: 'carousel-post-12',
+    date: '2026-10-22',
+    title: 'carousel-post-12 \u2014 "Week eleven: the last five lessons"',
+    type: 'Carousel',
+    pillar: 'Rules',
+    difficulty: 'Mixed (beginner)',
+    lesson: null,
+    duration: '7 slides',
+    rules: ['1.2', '1.2.1', '1.3.7', '1.4', '1.6', '1.6.5', '1.6.7', '1.7.2', '1.7.4', '3.4', '5.4', '6.4', '10.3', '15.7', '15.13', '19.3'],
+    review: {
+      script:  {status: 'pending', on: '2026-10-15'},
+      content: {status: 'awaiting-render', on: null}
+    },
+    postedDate: null,
+    folder: 'carousel-post-12',
+    source: 'content/carousel-post-12/script-and-caption.md',
+    sourceLesson: 'content/lessons-3.json (weekly recap, lessons 71-75 \u2014 the final block)',
+    video: null,
+    slides: null,
+    scenes: [
+      ['1', 'Cover', 'kicker THIS WEEK \u00b7 "Week eleven: the last five lessons" \u00b7 subhead 15-19 October \u00b7 SWIPE \u2192'],
+      ['2', 'LESSON 71', '"Mixed division basics" \u00b7 takeaway + footer 5.4 \u00b7 6.4'],
+      ['3', 'LESSON 72', '"Fixing your shoelace" \u00b7 takeaway + footer 10.3 \u00b7 19.3 \u00b7 3.4'],
+      ['4', 'LESSON 73', '"Use your hands" \u00b7 takeaway + footer 15.13 \u00b7 15.7 \u00b7 1.3.7'],
+      ['5', 'LESSON 74', '"What clearly breaks Spirit" \u00b7 takeaway + footer 1.6 \u00b7 1.6.5 \u00b7 1.6.7 \u00b7 1.7.2 \u00b7 1.7.4 \u00b7 1.4'],
+      ['6', 'LESSON 75', '"When the normal remedy isn\'t enough" \u00b7 takeaway + footer 1.2.1 \u00b7 1.2'],
+      ['7', 'Closing', '"That\'s seventy-five of seventy-five." \u00b7 All seventy-five lessons are linked in the bio \u00b7 Follow @learn.ultimatefrisbee']
+    ],
+    script: {
+      hook: `Five lessons this week, and they are the last five in the course.`,
+      explanation: `How the mixed ratio works and who sets it. What the rules let you stop play for, and what they do not. The hand signals, and why they are in the rulebook rather than optional. The specific list of things that break Spirit, which is a list and not a mood. And the rulebook's release valve, for the rare case where the normal remedy would reward the foul.`,
+      example: `The two worth saying out loud. Spirit does not mean playing softly - highly competitive play is explicitly encouraged, and the rule is about how you treat people while playing hard. And the release valve is two captains talking, not one player deciding.`,
+      cta: `Lessons 71 to 75 of 75 - the last five in the course.`
+    },
+    ig: `Week eleven, all in one place. The last five lessons of the seventy-five \u2014 two about the things that happen around the game, and three about how you treat the people in it.
+
+Mixed division basics. How the ratio works and who sets it. Most social mixed leagues run their own variant. Ask before the first pull rather than mid-point.
+
+Fixing your shoelace. What the rules let you stop play for, and what they don't. Double-knot before the game. It's the whole solution to this rule.
+
+Use your hands. The signals, and why they are in the rulebook rather than optional. Learn three to start: travel, foul, and stall count. They'll cover most of what you need to signal.
+
+What clearly breaks Spirit. The specific list, not the mood. Highly competitive play is explicitly encouraged. Spirit isn't about playing softly \u2014 it's about how you treat people while playing hard.
+
+When the normal remedy isn't enough. The rulebook's release valve, and why it's two captains talking rather than one player deciding. This is rare and deliberately so. It exists for the cases where applying the normal rule would reward cheating.
+
+Each slide carries its rule numbers, so you can check any of it against the rulebook rather than taking our word for it.
+
+That's seventy-five of seventy-five. The course is complete.
+
+Rule numbers: WFDF Rules of Ultimate 2025\u20132028. Full breakdown in bio.
+
+Follow @learn.ultimatefrisbee`,
+    tiktok: `everything the daily reels covered this week, five slides \ud83e\udd4f
+
+the last five lessons of the seventy-five \u2014 two about the things that happen around the game, three about how you treat the people in it
+
+mixed division basics \u2192 Most social mixed leagues run their own variant. Ask before the first pull rather than mid-point.
+
+fixing your shoelace \u2192 Double-knot before the game. It's the whole solution to this rule.
+
+use your hands \u2192 Learn three to start: travel, foul, and stall count. They'll cover most of what you need to signal.
+
+what clearly breaks Spirit \u2192 Highly competitive play is explicitly encouraged. Spirit isn't about playing softly \u2014 it's about how you treat people while playing hard.
+
+when the normal remedy isn't enough \u2192 This is rare and deliberately so. It exists for the cases where applying the normal rule would reward cheating.
+
+rule numbers on every slide so you can check it yourself
+
+that's seventy-five of seventy-five, the whole course
+
+rule numbers from WFDF Rules of Ultimate 2025\u20132028 \u2014 full breakdown in bio`,
+    hashtags: ['#UltimateFrisbee', '#SpiritOfTheGame', '#WFDFRulesofUltimate', '#LearnUltimateFrisbee', '#UltimateFrisbeeTips'],
+    notes: [
+      'Weekly recap, block 71-75 \u2014 THE FINAL BLOCK. Opens where carousel-post-11 stopped, closes at lesson 75, the last lesson in lessons-1/-2/-3.json. Five lessons, not seven, and that is the entire remainder of the curriculum rather than a truncated window, so the cover says five per Step 1 short-block rule. Consumes no lesson number. Rule numbers only, no rule text. There is no carousel-post-13 block to open.',
+      'THE CURRICULUM IS EXHAUSTED AND IT NOW BINDS \u2014 THIS NEEDS A DECISION. reel-73 raised it on 2026-10-10, reel-74 on 10-11 and reel-75 on 10-12, each saying it would bind from 2026-10-20. It does: this run could not fill 2026-10-20, 10-21 or 10-22 with reels, because all 75 lessons already carry calendar rows and there is no next lesson to draft. Options for the desk, not for the draft run to pick: a second pass at a different depth, a rules-by-chapter series over the parts of rules.json no lesson cites, a Q&A or quiz format off the quiz fields already in the lesson JSON, or a lower posting cadence. Until one is chosen the calendar runs dry after 2026-10-19.',
+      'No cadence claim in either caption, deliberately. Every earlier recap ended "one lesson a day" and every earlier closing slide said "More next Thursday"; on this deck both would promise something the account cannot currently keep, since the reels stop after 2026-10-19. So the Instagram caption ends on the bare follow line, the CTA reads "the last five in the course", and the closing subhead is "All seventy-five lessons are linked in the bio, start to finish." g_closing() in the reel path is a shared constant and has NOT been touched \u2014 whether that line changes is the desk decision reel-75 flagged.',
+      'Lesson 28 remains permanently skipped per Min-Yi decision on 2026-09-12. It is not on this deck and, this being the last deck, it stays skipped for good \u2014 which is what that decision chose.',
+      'Takeaways are each lesson field line verbatim from content/lessons-3.json and footers are each rules array unchanged \u2014 generated by reading the JSON, not typed, and re-verified byte-for-byte: all five titles, field lines and rules arrays match, 0 mismatches.',
+      'Lesson 75 footer keeps its array order (1.2.1 then 1.2) where reel-75 carded the same two numbers in rulebook order (1.2 then 1.2.1). Deliberate: cards are read in an order that makes the exception legible, a footer is a list of numbers to look up, and the recap convention is the array untouched.',
+      'Title is a count, not a theme, so no slide can fall outside it \u2014 the carousel-post-6 v1 check passes trivially and is stated anyway. A thematic title would have struggled: the block spans divisions, kit, signals and two Spirit lessons.',
+      'Week eleven: the end of the course was the other candidate and was rejected on layout, not editorially: its second line measures 800.1 of the 900px column at 96px, 99.9px of slack. Dropped at the draft gate. The shipped wording measures 777.2 and 741.7, so 122.8px of slack on the wider line \u2014 re-measure before building if the title is edited at the desk.',
+      'Slide 5 (lesson 74) is the tightest on the deck: the only four-line takeaway, over a two-line headline, so the body starts at y=812 and the last baseline lands at 962, 128px clear of the CITE_Y - 60 limit of 1090. Every other slide sits at 306px (72), 256px (71, 73) or 178px (75). More clearance than carousel-post-11 slide 4 shipped with (100px), but still the one element a desk edit could break.',
+      'fit_body() does not engage on any slide; every takeaway sits at the standard 36px. Kickers all LESSON NN at 262.1px of 900, cover THIS WEEK 248.9px. Widest citation is slide 5 six numbers at 491.1px, the most rule numbers any recap footer has carried and well short of carousel-post-8 slide 7 record of 665.9px. Zero _payload() quote-wrapper cases across all seven emitted SVGs \u2014 no takeaway in this block contains a double quote at all.',
+      'No mid-word line breaks anywhere, unlike carousel-post-11 slide 7 which split stall-outs on its own hyphen. The closing subhead was reworded at the draft gate for exactly this reason \u2014 the first wording broke as "all seventy-" / "five lessons".',
+      'DRY-MEASURED 2026-10-15 in the cloud draft run with real Pillow and real Liberation Sans: check_layout.py 7 slides, 0 problems, exit 0 (cover max_y 1210 of the 1310 floor, lesson slides 1192, closing 900). check_caption.py exit 0 \u2014 Instagram 1510 of 2,200 including hashtags (68.6%, the lowest of any recap on file, well under the 2,090 warn line), TikTok 1181 of 4,000. make_carousel.py is committed here and is the exact file measured. SVG only; no PNGs.',
+      'The closing count is exact on the day: lesson 75 posts 2026-10-19, three days before this deck, so "seventy-five of seventy-five" and "the course is complete" are both true when it goes out.',
+      'Two of the five reels have not cleared the script gate (74, 75); reels 72 and 73 are approved with cuts at the content gate. Approving 74 and 75 in the same sitting as this deck keeps the week moving together, and nothing is queued behind them to absorb a slip.',
+      'tracked() in the carousel path still uses a plain space, not the U+00A0 the reel path switched to on reel-38 \u2014 unchanged from decks 1-11, deliberately. A recap built through tools/WINDOWS_FALLBACK.md would lose the gap in LESSON NN and THIS WEEK.',
+      'Slides still to render \u2014 the build run owns that, and only after the script clears gate 1.',
+      'Captions are plain text, no markdown.',
+      'No growth/reach claims in either caption.'
+    ]
   }
 
 ];
