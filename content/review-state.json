@@ -4413,10 +4413,11 @@
       "updatedAt": "2026-10-11T02:14:45.205Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-11T10:30:02Z"
+      "rev": 1,
+      "updatedAt": "2026-10-15T00:39:58.578Z"
     },
     "history": {
       "script": [
@@ -4426,6 +4427,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-11T02:14:45.205Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-15T00:39:58.578Z"
         }
       ]
     },
