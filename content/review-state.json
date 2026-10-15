@@ -4485,7 +4485,12 @@
         "builtFromScriptRev": 1,
         "changed": "Initial render of the tenth weekly recap, from the approved script: lessons 64-70, nine slides at 2250x2812, rule numbers only and no rule text, cloud build run (ImageMagick + rsvg-convert, Liberation Sans). check_layout.py: 9 slides, 0 problems (cover 1210/1310, lesson slides 1192/1310, matching the dry-measure). check_caption.py exit 0."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-10-15",
+      "updatedAt": "2026-10-15T00:39:49.696Z"
+    }
   },
   "reel-72": {
     "scriptRev": 1,
