@@ -4576,10 +4576,11 @@
       "updatedAt": "2026-10-11T02:15:01.436Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-11T10:30:02Z"
+      "rev": 1,
+      "updatedAt": "2026-10-17T06:55:44.325Z"
     },
     "history": {
       "script": [
@@ -4589,6 +4590,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-11T02:15:01.436Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-17T06:55:44.325Z"
         }
       ]
     },
