@@ -87,7 +87,7 @@
 | 2026-10-16 | Fixing your shoelace | Reel | Posted | 2026-10-16 | — |
 | 2026-10-17 | Use your hands | Reel | Posted | 2026-10-17 | — |
 | 2026-10-18 | What clearly breaks Spirit | Reel | Script approved | — | — |
-| 2026-10-19 | When the normal remedy isn't enough | Reel | Script approved | — | — |
+| 2026-10-19 | When the normal remedy isn't enough | Reel | Ready to post | — | — |
 | 2026-10-22 | carousel-post-12 — "Week eleven: the last five lessons" | Carousel (7 slides) | Script approved | — | — |
 
 ## Status legend

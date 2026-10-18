@@ -4665,10 +4665,11 @@
       "updatedAt": "2026-10-18T11:43:17.173Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-18T23:10:34Z"
+      "rev": 1,
+      "updatedAt": "2026-10-18T23:22:44.006Z"
     },
     "history": {
       "script": [
@@ -4678,6 +4679,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-18T11:43:17.173Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-18T23:22:44.006Z"
         }
       ]
     },
