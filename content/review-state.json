@@ -4700,7 +4700,12 @@
         "builtFromScriptRev": 1,
         "changed": "First render; cloud build run, render_v3.py -> blend.py -> encode.py."
       }
-    ]
+    ],
+    "posted": {
+      "status": "posted",
+      "date": "2026-10-19",
+      "updatedAt": "2026-10-18T23:24:57.005Z"
+    }
   },
   "carousel-post-12": {
     "scriptRev": 1,
