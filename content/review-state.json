@@ -4628,10 +4628,10 @@
       "updatedAt": "2026-10-18T11:43:07.511Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-11T23:00:05Z"
+      "updatedAt": "2026-10-18T23:10:34Z"
     },
     "history": {
       "script": [
@@ -4643,7 +4643,17 @@
           "at": "2026-10-18T11:43:07.511Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-18",
+        "duration": "29.5s",
+        "file": "reel74-what-clearly-breaks-spirit.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First render; cloud build run, render_v3.py -> blend.py -> encode.py."
+      }
+    ]
   },
   "reel-75": {
     "scriptRev": 1,
@@ -4655,10 +4665,10 @@
       "updatedAt": "2026-10-18T11:43:17.173Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-12T22:55:06Z"
+      "updatedAt": "2026-10-18T23:10:34Z"
     },
     "history": {
       "script": [
@@ -4670,7 +4680,17 @@
           "at": "2026-10-18T11:43:17.173Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-18",
+        "duration": "28.5s",
+        "file": "reel75-when-the-normal-remedy-isnt-enough.mp4",
+        "builtFromScriptRev": 1,
+        "changed": "First render; cloud build run, render_v3.py -> blend.py -> encode.py."
+      }
+    ]
   },
   "carousel-post-12": {
     "scriptRev": 1,
@@ -4682,10 +4702,10 @@
       "updatedAt": "2026-10-18T11:43:36.978Z"
     },
     "content": {
-      "status": "awaiting-render",
+      "status": "in-review",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-15T22:53:59Z"
+      "updatedAt": "2026-10-18T23:10:34Z"
     },
     "history": {
       "script": [
@@ -4697,6 +4717,16 @@
           "at": "2026-10-18T11:43:36.978Z"
         }
       ]
-    }
+    },
+    "revisions": [
+      {
+        "v": 1,
+        "renderedAt": "2026-10-18",
+        "duration": "7 slides",
+        "file": "01_cover.png … 07_closing.png",
+        "builtFromScriptRev": 1,
+        "changed": "Initial render of the eleventh (final) weekly recap, from the approved script: lessons 71-75, seven slides at 2250x2812, rule numbers only and no rule text, cloud build run (ImageMagick + rsvg-convert, Liberation Sans). check_layout.py: 7 slides, 0 problems (cover 1210/1310, lesson slides 1192/1310, closing 900/1310, matching the dry-measure)."
+      }
+    ]
   }
 }
