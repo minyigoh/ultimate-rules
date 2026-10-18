@@ -7930,17 +7930,18 @@ rule text from WFDF Rules of Ultimate 2025–2028 (15.13, 15.7, 1.3.7) — full 
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 74,
-    duration: '~30s script',
+    duration: '~30s script / 29.5s cut',
+    typeDetail: '1080×1920 · 29.5s · 30fps',
     rules: ['1.6', '1.6.5', '1.6.7', '1.7.2', '1.7.4', '1.4'],
     review: {
       script:  {status: 'pending', on: '2026-10-11'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-10-18'}
     },
     postedDate: null,
     folder: 'reel-74',
     source: 'content/reel-74/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Spirit)',
-    video: null,
+    video: 'reel74-what-clearly-breaks-spirit.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', 'What clearly breaks Spirit · kicker BEGINNER · LESSON 74 / 75'],
@@ -8037,7 +8038,7 @@ rule text from WFDF Rules of Ultimate 2025–2028 (1.6, 1.6.5, 1.6.7, 1.7.2, 1.7
       'Kickers and bodies both clear at standard size; neither fit_kicker() nor fit_body() engages. Widest kicker is #2 TEAMS ARE GUARDIANS at 651.8px of the 900px column (72.4 percent), 221px short of reel-11 873px high-water mark. All three main scenes share identical geometry - body start y=812, four lines, last baseline 962, clearance 128px against the 1090 limit. Cover title sets on two lines at 84px.',
       'Rules card ink bottoms 740, 640 and 554 of the 1310 floor (174, 111 and 189 characters). All three were checked after emission against rules.json and reassemble byte-identically. 1.4 wraps on the existing hyphen in agreed-upon, so card 7 breaks agreed- / upon across two lines - a break on a hyphen the rulebook already contains, not an edit. Zero _payload() quote-wrapper cases across all 35 emitted SVGs.',
       'render_v3.py is committed in content/reel-74/ and is the exact file these numbers were measured from. Copied from reel-73, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES differs - TOTAL is 9 in both, since both run three blocks - verified by diffing the two files with their SCENES blocks removed, which came back with zero differing lines.',
-      'Video still to render - the build run owns that, and only after the script clears gate 1.',
+      'Rendered in the cloud build run on 2026-10-18: render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans. check_layout.py 9/9 scenes, 0 problems. check_dull.py longest sustained dull-orange run 0.17s (PASS, threshold 0.45s). Container duration 29.53s.',
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
@@ -8051,17 +8052,18 @@ rule text from WFDF Rules of Ultimate 2025–2028 (1.6, 1.6.5, 1.6.7, 1.7.2, 1.7
     pillar: 'Rules',
     difficulty: 'Beginner',
     lesson: 75,
-    duration: '~29s script',
+    duration: '~29s script / 28.5s cut',
+    typeDetail: '1080×1920 · 28.5s · 30fps',
     rules: ['1.2', '1.2.1'],
     review: {
       script:  {status: 'pending', on: '2026-10-12'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-10-18'}
     },
     postedDate: null,
     folder: 'reel-75',
     source: 'content/reel-75/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (tag: Spirit)',
-    video: null,
+    video: 'reel75-when-the-normal-remedy-isnt-enough.mp4',
     slides: null,
     scenes: [
       ['1', 'Cover', "When the normal remedy isn't enough \u00b7 kicker BEGINNER \u00b7 LESSON 75 / 75"],
@@ -8134,7 +8136,7 @@ rule text from WFDF Rules of Ultimate 2025–2028 (1.2, 1.2.1) — full breakdow
       'DRY-MEASURED 2026-10-12: check_layout.py 7 scenes, 0 problems, exit 0. Kickers 598.9px and 578.2px of the 900px column at the standard 34px, so fit_kicker() does not engage. Both bodies four lines at the standard 36px, last baseline 962 against the 1090 limit, 128px clearance, so fit_body() does not engage. Cover title two lines at 84px (681.4px and 818.1px). Rules cards reach ink bottom 654 (1.2, seven lines) and 604 (1.2.1, six lines) of the 1310 floor. Zero _payload() quote-wrapper cases across all 27 emitted SVGs.',
       'Projected duration 28.8s over 27 states (24.05s raw plus transitions; house target ~30s, band 28-33s). Two blocks rather than three put it at the low end - fit() clamps at k=1.5 and cannot stretch the holds further, which is the clamp working rather than a reel to pad. Inside the band, so nothing dropped and nothing hand-tuned.',
       'render_v3.py is committed in content/reel-75/ and is the exact file these numbers were measured from. Copied from reel-74, so it carries the tracked() non-breaking-space fix and the _payload quote fix; only SCENES and TOTAL differ - 7 here against 9 there - verified by diffing the two files with their SCENES blocks removed and TOTAL normalised, which came back with zero differing lines.',
-      'Video still to render - the build run owns that, and only after the script clears gate 1.',
+      'Rendered in the cloud build run on 2026-10-18: render_v3.py -> blend.py -> encode.py, real ImageMagick (rsvg-convert) and Liberation Sans. check_layout.py 7/7 scenes, 0 problems. check_dull.py longest sustained dull-orange run 0.17s (PASS, threshold 0.45s). Container duration 28.53s.',
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
@@ -8148,17 +8150,26 @@ rule text from WFDF Rules of Ultimate 2025–2028 (1.2, 1.2.1) — full breakdow
     difficulty: 'Mixed (beginner)',
     lesson: null,
     duration: '7 slides',
+    typeDetail: '2250\u00d72812 \u00b7 7 slides',
     rules: ['1.2', '1.2.1', '1.3.7', '1.4', '1.6', '1.6.5', '1.6.7', '1.7.2', '1.7.4', '3.4', '5.4', '6.4', '10.3', '15.7', '15.13', '19.3'],
     review: {
       script:  {status: 'pending', on: '2026-10-15'},
-      content: {status: 'awaiting-render', on: null}
+      content: {status: 'in-review', on: '2026-10-18'}
     },
     postedDate: null,
     folder: 'carousel-post-12',
     source: 'content/carousel-post-12/script-and-caption.md',
     sourceLesson: 'content/lessons-3.json (weekly recap, lessons 71-75 \u2014 the final block)',
     video: null,
-    slides: null,
+    slides: [
+      ['01_cover', 'Cover \u2014 "Week eleven: the last five lessons"'],
+      ['02_lesson71_mixed_division', 'Lesson 71 \u2014 Mixed division basics'],
+      ['03_lesson72_shoelace_fix', 'Lesson 72 \u2014 Fixing your shoelace'],
+      ['04_lesson73_hand_signals', 'Lesson 73 \u2014 Use your hands'],
+      ['05_lesson74_spirit_violations', 'Lesson 74 \u2014 What clearly breaks Spirit'],
+      ['06_lesson75_egregious_remedy', "Lesson 75 \u2014 When the normal remedy isn't enough"],
+      ['07_closing', 'Closing \u2014 "That\'s seventy-five of seventy-five."']
+    ],
     scenes: [
       ['1', 'Cover', 'kicker THIS WEEK \u00b7 "Week eleven: the last five lessons" \u00b7 subhead 15-19 October \u00b7 SWIPE \u2192'],
       ['2', 'LESSON 71', '"Mixed division basics" \u00b7 takeaway + footer 5.4 \u00b7 6.4'],
@@ -8229,7 +8240,7 @@ rule numbers from WFDF Rules of Ultimate 2025\u20132028 \u2014 full breakdown in
       'The closing count is exact on the day: lesson 75 posts 2026-10-19, three days before this deck, so "seventy-five of seventy-five" and "the course is complete" are both true when it goes out.',
       'Two of the five reels have not cleared the script gate (74, 75); reels 72 and 73 are approved with cuts at the content gate. Approving 74 and 75 in the same sitting as this deck keeps the week moving together, and nothing is queued behind them to absorb a slip.',
       'tracked() in the carousel path still uses a plain space, not the U+00A0 the reel path switched to on reel-38 \u2014 unchanged from decks 1-11, deliberately. A recap built through tools/WINDOWS_FALLBACK.md would lose the gap in LESSON NN and THIS WEEK.',
-      'Slides still to render \u2014 the build run owns that, and only after the script clears gate 1.',
+      'Rendered in the cloud build run on 2026-10-18: make_carousel.py \u2192 SVG \u2192 PNG via convert (real ImageMagick/rsvg-convert, real Liberation Sans), 2250\u00d72812 at the documented 2.083x scale. check_layout.py 7/7 slides, 0 problems.',
       'Captions are plain text, no markdown.',
       'No growth/reach claims in either caption.'
     ]
