@@ -4727,10 +4727,11 @@
       "updatedAt": "2026-10-18T11:43:36.978Z"
     },
     "content": {
-      "status": "in-review",
+      "status": "approved",
       "note": "",
       "tags": [],
-      "updatedAt": "2026-10-18T23:10:34Z"
+      "rev": 1,
+      "updatedAt": "2026-10-18T23:27:58.370Z"
     },
     "history": {
       "script": [
@@ -4740,6 +4741,15 @@
           "note": "",
           "tags": [],
           "at": "2026-10-18T11:43:36.978Z"
+        }
+      ],
+      "content": [
+        {
+          "status": "approved",
+          "rev": 1,
+          "note": "",
+          "tags": [],
+          "at": "2026-10-18T23:27:58.370Z"
         }
       ]
     },
