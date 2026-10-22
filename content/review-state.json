@@ -4764,9 +4764,9 @@
       }
     ],
     "posted": {
-      "status": "unposted",
-      "date": null,
-      "updatedAt": "2026-10-18T23:28:12.898Z"
+      "status": "posted",
+      "date": "2026-10-22",
+      "updatedAt": "2026-10-22T15:42:46.005Z"
     }
   }
 }
